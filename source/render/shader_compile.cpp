@@ -37,7 +37,7 @@ HRESULT CompileShaderFromFile(
     D3D_COMPILE_STANDARD_FILE_INCLUDE,
     szEntryPoint,
     szShaderModel,
-    0,
+    dwShaderFlags,
     0,
     ppBlobOut,
     &pErrorBlob

@@ -102,9 +102,9 @@ bool CApp::readConfig() {
 //--------------------------------------------------------------------------------------
 CVertexShader vs;
 CPixelShader ps;
+CRenderMesh axis;
 CRenderMesh triangle;
 
-#include "geometry/geometry.h"
 #include "render/cte_buffer.h"
 #include "ctes.h"
 CRenderCte<CCteCamera> cb_camera;
@@ -117,6 +117,7 @@ bool CApp::start() {
   if (!CVertexDeclManager::get().create())
     return false;
 
+  // --------------------------------------------
   // my custom code
   if (!vs.create("shaders.fx", "VS", "PosClr"))
     return false;
@@ -124,13 +125,27 @@ bool CApp::start() {
   if (!ps.create("shaders.fx", "PS"))
     return false;
 
-  float vertices[] =
+  // --------------------------------------------
+  // Axis aligned X,Y,Z of sizes 1,2,3
+  float axis_vertices[] =
   {
     0.0f, 0.0f, 0.0f,  1, 0, 0, 1,
-    0.0f, 0.0f, 1.0f,  0, 1, 0, 1,
-    1.0f, 0.0f, 0.0f,  0, 0, 1, 1,
+    1.0f, 0.0f, 0.0f,  1, 0, 0, 1,
+    0.0f, 0.0f, 0.0f,  0, 1, 0, 1,
+    0.0f, 2.0f, 0.0f,  0, 1, 0, 1,
+    0.0f, 0.0f, 0.0f,  0, 0, 1, 1,
+    0.0f, 0.0f, 3.0f,  0, 0, 1, 1,
   };
-  if (!triangle.create(vertices, sizeof(vertices), "PosClr", CRenderMesh::TRIANGLE_LIST))
+  if (!axis.create(axis_vertices, sizeof(axis_vertices), "PosClr", CRenderMesh::LINE_LIST))
+    return false;
+
+  float tri_vertices[] =
+  {
+    0.0f, 0.0f, 0.0f,  1, 0, 0, 1,
+    1.0f, 0.0f, 0.0f,  0, 1, 0, 1,
+    0.0f, 0.0f, 1.0f,  0, 0, 1, 1,
+  };
+  if (!triangle.create(tri_vertices, sizeof(tri_vertices), "PosClr", CRenderMesh::TRIANGLE_LIST))
     return false;
 
   // -------------------------------------------
@@ -138,11 +153,11 @@ bool CApp::start() {
     return false;
   cb_camera.world = MAT44::Identity;
 
-  VEC3 Eye = VEC3(3.0f, 4.0f, 5.0f);
+  VEC3 Eye = VEC3(2.0f, 2.0f, 3.0f);
   VEC3 At = VEC3(0.0f, 0.0f, 0.0f);
   VEC3 Up = VEC3(0.0f, 1.0f, 0.0f);
   cb_camera.view = MAT44::CreateLookAt(Eye, At, Up);
-  cb_camera.proj = MAT44::CreatePerspectiveFieldOfView(M_PI * 0.5f, 1.0f, 0.01f, 100.f);
+  cb_camera.proj = MAT44::CreatePerspectiveFieldOfView(75.f * (float)M_PI / 180.0f, (float)Render.width / (float)Render.height, 0.01f, 100.f);
 
   return true;
 }
@@ -154,6 +169,7 @@ bool CApp::stop() {
 
   ps.destroy();
   vs.destroy();
+  axis.destroy();
   triangle.destroy();
 
   Render.destroyDevice();
@@ -174,7 +190,7 @@ void CApp::doFrame() {
   vs.activate();
   ps.activate();
   triangle.activateAndRender();
-
+  
   // Present the information rendered to the back buffer to the front buffer (the screen)
   Render.swapChain->Present(0, 0);
 }
