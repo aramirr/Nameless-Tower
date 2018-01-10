@@ -55,7 +55,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;../bin</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>mcv_platform.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -70,7 +70,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;../bin</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>mcv_platform.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -82,11 +82,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="geometry\geometry.cpp" />
+    <ClCompile Include="geometry\SimpleMath.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mcv_platform.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="render\cte_buffer.cpp" />
     <ClCompile Include="render\mesh.cpp" />
     <ClCompile Include="render\pixel_shader.cpp" />
     <ClCompile Include="render\render.cpp" />
@@ -97,16 +99,22 @@
     <ClCompile Include="windows\app.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Bin\ctes.h" />
+    <ClInclude Include="geometry\geometry.h" />
+    <ClInclude Include="geometry\SimpleMath.h" />
     <ClInclude Include="mcv_platform.h" />
+    <ClInclude Include="render\cte_buffer.h" />
     <ClInclude Include="render\mesh.h" />
     <ClInclude Include="render\pixel_shader.h" />
     <ClInclude Include="render\render.h" />
     <ClInclude Include="render\shader_compiler.h" />
     <ClInclude Include="render\vertex_declarations.h" />
     <ClInclude Include="render\vertex_shader.h" />
-    <ClInclude Include="utils\geometry.h" />
     <ClInclude Include="utils\utils.h" />
     <ClInclude Include="windows\app.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="geometry\SimpleMath.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,6 +15,10 @@ HRESULT CompileShaderFromFile(
   HRESULT hr = S_OK;
 
   DWORD dwShaderFlags = D3DCOMPILE_ENABLE_STRICTNESS;
+
+  // To avoid requiring using the transpose when sending matrix to the ctes
+  dwShaderFlags |= D3DCOMPILE_PACK_MATRIX_ROW_MAJOR;
+
 #if defined( DEBUG ) || defined( _DEBUG )
   // Set the D3DCOMPILE_DEBUG flag to embed debug information in the shaders.
   // Setting this flag improves the shader debugging experience, but still allows 
@@ -30,7 +34,7 @@ HRESULT CompileShaderFromFile(
   ID3DBlob* pErrorBlob = nullptr;
   hr = D3DCompileFromFile(wFilename,
     nullptr,
-    nullptr,
+    D3D_COMPILE_STANDARD_FILE_INCLUDE,
     szEntryPoint,
     szShaderModel,
     0,

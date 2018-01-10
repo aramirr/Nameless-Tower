@@ -104,6 +104,11 @@ CVertexShader vs;
 CPixelShader ps;
 CRenderMesh triangle;
 
+#include "geometry/geometry.h"
+#include "render/cte_buffer.h"
+#include "ctes.h"
+CRenderCte<CCteCamera> cb_camera;
+
 //--------------------------------------------------------------------------------------
 bool CApp::start() {
   if (!Render.createDevice( xres, yres ))
@@ -113,7 +118,7 @@ bool CApp::start() {
     return false;
 
   // my custom code
-  if (!vs.create("shaders.fx", "VS", "Pos"))
+  if (!vs.create("shaders.fx", "VS", "PosClr"))
     return false;
 
   if (!ps.create("shaders.fx", "PS"))
@@ -121,18 +126,31 @@ bool CApp::start() {
 
   float vertices[] =
   {
-    0.0f, 0.5f, 0.5f,
-    0.5f, -0.5f, 0.5f,
-    -0.5f, -0.5f, 0.5f,
+    0.0f, 0.0f, 0.0f,  1, 0, 0, 1,
+    0.0f, 0.0f, 1.0f,  0, 1, 0, 1,
+    1.0f, 0.0f, 0.0f,  0, 0, 1, 1,
   };
-  if (!triangle.create(vertices, sizeof(vertices), "Pos", CRenderMesh::TRIANGLE_LIST))
+  if (!triangle.create(vertices, sizeof(vertices), "PosClr", CRenderMesh::TRIANGLE_LIST))
     return false;
+
+  // -------------------------------------------
+  if (!cb_camera.create(CB_CAMERAS))
+    return false;
+  cb_camera.world = MAT44::Identity;
+
+  VEC3 Eye = VEC3(3.0f, 4.0f, 5.0f);
+  VEC3 At = VEC3(0.0f, 0.0f, 0.0f);
+  VEC3 Up = VEC3(0.0f, 1.0f, 0.0f);
+  cb_camera.view = MAT44::CreateLookAt(Eye, At, Up);
+  cb_camera.proj = MAT44::CreatePerspectiveFieldOfView(M_PI * 0.5f, 1.0f, 0.01f, 100.f);
 
   return true;
 }
 
 //--------------------------------------------------------------------------------------
 bool CApp::stop() {
+
+  cb_camera.destroy();
 
   ps.destroy();
   vs.destroy();
@@ -151,6 +169,8 @@ void CApp::doFrame() {
   float ClearColor[4] = { 0.0f, 0.125f, 0.3f, 1.0f }; // red,green,blue,alpha
   Render.ctx->ClearRenderTargetView(Render.renderTargetView, ClearColor);
 
+  cb_camera.updateGPU();
+  cb_camera.activate();
   vs.activate();
   ps.activate();
   triangle.activateAndRender();
