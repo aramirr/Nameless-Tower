@@ -43,12 +43,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)..\Bin\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)..\Bin\</OutDir>
     <IntDir>$(SolutionDir)..\Build\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IntDir>$(SolutionDir)..\Build\$(Platform)\$(Configuration)\</IntDir>
-    <OutDir>$(SolutionDir)..\Bin\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)..\Bin\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -87,15 +87,23 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="render\mesh.cpp" />
+    <ClCompile Include="render\pixel_shader.cpp" />
     <ClCompile Include="render\render.cpp" />
+    <ClCompile Include="render\shader_compile.cpp" />
     <ClCompile Include="render\vertex_declarations.cpp" />
+    <ClCompile Include="render\vertex_shader.cpp" />
     <ClCompile Include="utils\utils.cpp" />
     <ClCompile Include="windows\app.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mcv_platform.h" />
+    <ClInclude Include="render\mesh.h" />
+    <ClInclude Include="render\pixel_shader.h" />
     <ClInclude Include="render\render.h" />
+    <ClInclude Include="render\shader_compiler.h" />
     <ClInclude Include="render\vertex_declarations.h" />
+    <ClInclude Include="render\vertex_shader.h" />
     <ClInclude Include="utils\geometry.h" />
     <ClInclude Include="utils\utils.h" />
     <ClInclude Include="windows\app.h" />

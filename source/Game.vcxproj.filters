@@ -18,6 +18,18 @@
     <ClCompile Include="render\vertex_declarations.cpp">
       <Filter>render</Filter>
     </ClCompile>
+    <ClCompile Include="render\shader_compile.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="render\vertex_shader.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="render\pixel_shader.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="render\mesh.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -48,6 +60,18 @@
       <Filter>geometry</Filter>
     </ClInclude>
     <ClInclude Include="render\vertex_declarations.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="render\shader_compiler.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="render\vertex_shader.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="render\pixel_shader.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="render\mesh.h">
       <Filter>render</Filter>
     </ClInclude>
   </ItemGroup>

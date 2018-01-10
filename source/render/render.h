@@ -19,5 +19,12 @@ public:
 
 extern CRender Render;
 
+#define SAFE_RELEASE(x)  if(x) x->Release(), x = nullptr;
+
+#include "render/vertex_shader.h"
+#include "render/pixel_shader.h"
+#include "render/mesh.h"
+
 #endif
+
 

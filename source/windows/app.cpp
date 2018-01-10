@@ -100,8 +100,32 @@ bool CApp::readConfig() {
 }
 
 //--------------------------------------------------------------------------------------
+CVertexShader vs;
+CPixelShader ps;
+CRenderMesh triangle;
+
+//--------------------------------------------------------------------------------------
 bool CApp::start() {
   if (!Render.createDevice( xres, yres ))
+    return false;
+
+  if (!CVertexDeclManager::get().create())
+    return false;
+
+  // my custom code
+  if (!vs.create("shaders.fx", "VS", "Pos"))
+    return false;
+
+  if (!ps.create("shaders.fx", "PS"))
+    return false;
+
+  float vertices[] =
+  {
+    0.0f, 0.5f, 0.5f,
+    0.5f, -0.5f, 0.5f,
+    -0.5f, -0.5f, 0.5f,
+  };
+  if (!triangle.create(vertices, sizeof(vertices), "Pos", CRenderMesh::TRIANGLE_LIST))
     return false;
 
   return true;
@@ -109,6 +133,11 @@ bool CApp::start() {
 
 //--------------------------------------------------------------------------------------
 bool CApp::stop() {
+
+  ps.destroy();
+  vs.destroy();
+  triangle.destroy();
+
   Render.destroyDevice();
   return true;
 }
@@ -121,6 +150,10 @@ void CApp::doFrame() {
   // Clear the back buffer 
   float ClearColor[4] = { 0.0f, 0.125f, 0.3f, 1.0f }; // red,green,blue,alpha
   Render.ctx->ClearRenderTargetView(Render.renderTargetView, ClearColor);
+
+  vs.activate();
+  ps.activate();
+  triangle.activateAndRender();
 
   // Present the information rendered to the back buffer to the front buffer (the screen)
   Render.swapChain->Present(0, 0);

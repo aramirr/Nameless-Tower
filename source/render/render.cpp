@@ -63,7 +63,6 @@ bool CRender::createDevice(int new_width, int new_height) {
 }
 
 // -------------------------------------------------------------------
-#define SAFE_RELEASE(x)  if(x) x->Release(), x = nullptr;
 void CRender::destroyDevice() {
   if (ctx) ctx->ClearState();
   SAFE_RELEASE(renderTargetView);
