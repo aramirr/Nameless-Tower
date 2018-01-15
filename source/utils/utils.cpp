@@ -19,4 +19,6 @@ void fatal(const char* format, ...) {
   MessageBox(nullptr, dest, "Error!", MB_OK);
 }
 
-
+bool isPressed(int key) {
+  return(::GetAsyncKeyState(key) & 0x8000) == 0x8000;
+}
