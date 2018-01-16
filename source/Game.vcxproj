@@ -81,6 +81,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="engine.cpp" />
     <ClCompile Include="geometry\geometry.cpp" />
     <ClCompile Include="geometry\SimpleMath.cpp" />
     <ClCompile Include="main.cpp" />
@@ -88,6 +89,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="modules\game\module_gameover.cpp" />
+    <ClCompile Include="modules\game\module_main_menu.cpp" />
+    <ClCompile Include="modules\game\module_splash.cpp" />
+    <ClCompile Include="modules\module_manager.cpp" />
+    <ClCompile Include="modules\module_render.cpp" />
     <ClCompile Include="render\cte_buffer.cpp" />
     <ClCompile Include="render\mesh.cpp" />
     <ClCompile Include="render\pixel_shader.cpp" />
@@ -100,9 +106,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Bin\ctes.h" />
+    <ClInclude Include="engine.h" />
     <ClInclude Include="geometry\geometry.h" />
     <ClInclude Include="geometry\SimpleMath.h" />
     <ClInclude Include="mcv_platform.h" />
+    <ClInclude Include="modules\gamestate.h" />
+    <ClInclude Include="modules\game\module_gameover.h" />
+    <ClInclude Include="modules\game\module_main_menu.h" />
+    <ClInclude Include="modules\game\module_splash.h" />
+    <ClInclude Include="modules\module.h" />
+    <ClInclude Include="modules\module_manager.h" />
+    <ClInclude Include="modules\module_render.h" />
     <ClInclude Include="render\cte_buffer.h" />
     <ClInclude Include="render\mesh.h" />
     <ClInclude Include="render\pixel_shader.h" />

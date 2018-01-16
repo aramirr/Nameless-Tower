@@ -25,6 +25,7 @@
 #include <d3d11.h>
 
 // Engine
+#include "engine.h"
 #include "geometry/geometry.h"
 #include "render/render.h"
 #include "render/vertex_declarations.h"
