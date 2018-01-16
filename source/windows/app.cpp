@@ -10,6 +10,10 @@ LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
   PAINTSTRUCT ps;
   HDC hdc;
 
+  // If the OS processes it, do not process anymore
+  if (CEngine::get().getModules().OnOSMsg(hWnd, message, wParam, lParam))
+    return 1;
+
   switch (message)
   {
   case WM_PAINT:

@@ -18,6 +18,8 @@ public:
   void changeGameState(const std::string& gsName);
   CGameState* getGameState(const std::string& gsName);
 
+  LRESULT OnOSMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
 private:
   bool startModules(VModules& modules);
   bool stopModules(VModules& modules);

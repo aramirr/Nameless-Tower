@@ -54,5 +54,5 @@ void CEngine::update(float delta)
 
 void CEngine::render()
 {
-  _modules.render();
+  _module_render.generateFrame();
 }

@@ -30,5 +30,6 @@
 #include "render/render.h"
 #include "render/vertex_declarations.h"
 #include "utils/utils.h"
+#include "imgui/imgui.h"
 
 #endif

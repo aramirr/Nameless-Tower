@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "module_render.h"
-
+#include "windows/app.h"
+#include "imgui/imgui_impl_dx11.h"
 
 //--------------------------------------------------------------------------------------
 CVertexShader vs;
@@ -20,6 +21,12 @@ bool CModuleRender::start()
     return false;
 
   if (!CVertexDeclManager::get().create())
+    return false;
+
+  // --------------------------------------------
+  // ImGui
+  auto& app = CApp::get();
+  if (!ImGui_ImplDX11_Init(app.getWnd(), Render.device, Render.ctx))
     return false;
 
   // --------------------------------------------
@@ -69,6 +76,11 @@ bool CModuleRender::start()
   return true;
 }
 
+// Forward the OS msg to the IMGUI
+LRESULT CModuleRender::OnOSMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
+  return ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam);
+}
+
 bool CModuleRender::stop()
 {
   cb_camera.destroy();
@@ -78,17 +90,23 @@ bool CModuleRender::stop()
   axis.destroy();
   triangle.destroy();
 
+  ImGui_ImplDX11_Shutdown();
+
   Render.destroyDevice();
   return true;
 }
 
 void CModuleRender::update(float delta)
 {
-
+  // Notify ImGUI that we are starting a new frame
+  ImGui_ImplDX11_NewFrame();
 }
 
 void CModuleRender::render()
 {
+  // Edit the Background color
+  ImGui::ColorEdit4("Background Color", _backgroundColor);
+
   Render.startRenderInBackbuffer();
 
   // Clear the back buffer 
@@ -101,8 +119,6 @@ void CModuleRender::render()
   ps.activate();
   triangle.activateAndRender();
 
-  // Present the information rendered to the back buffer to the front buffer (the screen)
-  Render.swapChain->Present(0, 0);
 }
 
 void CModuleRender::configure(int xres, int yres)
@@ -118,3 +134,14 @@ void CModuleRender::setBackgroundColor(float r, float g, float b, float a)
   _backgroundColor[2] = b;
   _backgroundColor[3] = a;
 }
+
+void CModuleRender::generateFrame() {
+
+  CEngine::get().getModules().render();
+
+  ImGui::Render();
+
+  // Present the information rendered to the back buffer to the front buffer (the screen)
+  Render.swapChain->Present(0, 0);
+}
+

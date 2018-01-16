@@ -14,6 +14,18 @@ bool CModuleManager::stop()
   return ok;
 }
 
+// Dispatch the OS msg to all modules registered as system module
+LRESULT CModuleManager::OnOSMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
+  bool processed = false;
+  for (auto& mod : _system_modules)
+  {
+    processed |= mod->OnOSMsg(hWnd, msg, wParam, lParam );
+  }
+  if (processed)
+    return 1;
+  return 0;
+}
+
 void CModuleManager::update(float delta)
 {
   for (auto& mod : _system_modules)
