@@ -36,7 +36,7 @@ bool CEngine::start() {
   bool ok = true;
   ok &= _modules.start();
 
-  _modules.changeGameState("splash");
+  //_modules.changeGameState("splash");
 
   return ok;
 }
