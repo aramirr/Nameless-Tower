@@ -98,8 +98,8 @@ void CApp::mainLoop() {
 //--------------------------------------------------------------------------------------
 bool CApp::readConfig() {
   // ...
-  xres = 640;
-  yres = 480;
+  xres = 1024;
+  yres = 640;
 
   CEngine::get().getRender().configure(xres, yres);
   return true;

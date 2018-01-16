@@ -27,9 +27,6 @@
     <ClCompile Include="render\pixel_shader.cpp">
       <Filter>render</Filter>
     </ClCompile>
-    <ClCompile Include="render\mesh.cpp">
-      <Filter>render</Filter>
-    </ClCompile>
     <ClCompile Include="render\cte_buffer.cpp">
       <Filter>render</Filter>
     </ClCompile>
@@ -46,6 +43,12 @@
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />
     <ClCompile Include="imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="render\mesh\mesh.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="render\render_objects.cpp" />
+    <ClCompile Include="camera\camera.cpp" />
+    <ClCompile Include="modules\game\module_test_axis.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -84,9 +87,6 @@
     <ClInclude Include="render\pixel_shader.h">
       <Filter>render</Filter>
     </ClInclude>
-    <ClInclude Include="render\mesh.h">
-      <Filter>render</Filter>
-    </ClInclude>
     <ClInclude Include="render\cte_buffer.h">
       <Filter>render</Filter>
     </ClInclude>
@@ -114,6 +114,13 @@
     <ClInclude Include="imgui\stb_rect_pack.h" />
     <ClInclude Include="imgui\stb_textedit.h" />
     <ClInclude Include="imgui\stb_truetype.h" />
+    <ClInclude Include="render\mesh\mesh.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="render\render_objects.h" />
+    <ClInclude Include="camera\camera.h" />
+    <ClInclude Include="modules\game\module_test_axis.h" />
+    <ClInclude Include="geometry\angular.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">

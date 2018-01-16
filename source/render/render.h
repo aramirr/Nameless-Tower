@@ -23,7 +23,7 @@ extern CRender Render;
 
 #include "render/vertex_shader.h"
 #include "render/pixel_shader.h"
-#include "render/mesh.h"
+#include "render/mesh/mesh.h"
 
 #endif
 
