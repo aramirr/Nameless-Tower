@@ -13,10 +13,14 @@ public:
 
   void registerSystemModule(IModule* mod);
   void registerGameModule(IModule* mod);
+	IModule* getModule(const std::string& gsName);
 
   void registerGameState(CGameState* gs);
   void changeGameState(const std::string& gsName);
   CGameState* getGameState(const std::string& gsName);
+
+	void loadModules(const std::string& filename);
+	void loadGamestates(const std::string& filename);
 
 private:
   bool startModules(VModules& modules);
@@ -24,7 +28,9 @@ private:
 
   VModules _registered_modules;
   VModules _system_modules;
-  VModules _active_modules;
+	VModules _update_modules;
+	VModules _render_modules;
 
   VGameStates _gamestates;
+	CGameState* _current_gs = nullptr;
 };

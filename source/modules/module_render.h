@@ -5,6 +5,7 @@
 class CModuleRender : public IModule
 {
 public:
+	CModuleRender(const std::string& name);
   bool start() override;
   bool stop() override;
   void update(float delta) override;

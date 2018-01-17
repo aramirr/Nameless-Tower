@@ -11,6 +11,6 @@ void CModuleMainMenu::update(float delta)
 {
   if (isPressed(VK_SPACE))
   {
-    CEngine::get().getModules().changeGameState("game over");
+    CEngine::get().getModules().changeGameState("game_over");
   }
 }

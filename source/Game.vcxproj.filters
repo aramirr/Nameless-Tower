@@ -103,6 +103,7 @@
     <ClInclude Include="modules\game\module_gameover.h" />
     <ClInclude Include="modules\game\module_main_menu.h" />
     <ClInclude Include="modules\gamestate.h" />
+    <ClInclude Include="utils\json.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">

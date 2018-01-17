@@ -6,6 +6,7 @@
 class CEngine
 {
 public:
+	CEngine();
   static CEngine& get();
 
   bool start();

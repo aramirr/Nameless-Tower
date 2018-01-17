@@ -13,6 +13,6 @@ void CModuleSplash::update(float delta)
   _timer -= delta;
   if (_timer <= 0.f)
   {
-    CEngine::get().getModules().changeGameState("main menu");
+    CEngine::get().getModules().changeGameState("main_menu");
   }
 }

@@ -124,6 +124,7 @@
     <ClInclude Include="render\shader_compiler.h" />
     <ClInclude Include="render\vertex_declarations.h" />
     <ClInclude Include="render\vertex_shader.h" />
+    <ClInclude Include="utils\json.hpp" />
     <ClInclude Include="utils\utils.h" />
     <ClInclude Include="windows\app.h" />
   </ItemGroup>

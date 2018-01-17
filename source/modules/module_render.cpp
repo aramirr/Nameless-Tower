@@ -14,6 +14,10 @@ CRenderCte<CCteCamera> cb_camera;
 
 
 //--------------------------------------------------------------------------------------
+CModuleRender::CModuleRender(const std::string& name)
+	: IModule(name)
+{}
+
 bool CModuleRender::start()
 {
   if (!Render.createDevice(_xres, _yres))
@@ -84,7 +88,7 @@ bool CModuleRender::stop()
 
 void CModuleRender::update(float delta)
 {
-
+	(void)delta;
 }
 
 void CModuleRender::render()

@@ -4,7 +4,9 @@
 
 class CModuleMainMenu : public IModule
 {
-public:
+public:CModuleMainMenu(const std::string& name)
+	: IModule(name)
+{}
   bool start() override;
   void update(float delta) override;
 };
