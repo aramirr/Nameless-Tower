@@ -74,6 +74,11 @@ bool CModuleTestAxis::start()
   return true;
 }
 
+bool CModuleTestAxis::stop()
+{
+  cb_camera.destroy();
+  return true;
+}
 
 void CModuleTestAxis::update(float delta)
 {

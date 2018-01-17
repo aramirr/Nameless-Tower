@@ -56,3 +56,16 @@ bool createRenderObjects() {
 
   return true;
 }
+
+void destroyRenderObjects() {
+  if (axis) {
+    axis->destroy();
+    delete axis;
+    axis = nullptr;
+  }
+  if (grid) {
+    grid->destroy();
+    delete grid;
+    grid = nullptr;
+  }
+}

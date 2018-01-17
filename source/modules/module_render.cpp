@@ -51,10 +51,10 @@ bool CModuleRender::stop()
 
   ps.destroy();
   vs.destroy();
-  axis->destroy();
-  grid->destroy();
 
   ImGui_ImplDX11_Shutdown();
+
+  destroyRenderObjects();
 
   Render.destroyDevice();
   return true;
