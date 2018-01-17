@@ -14,6 +14,7 @@ CEngine& CEngine::get() {
 
 CEngine::CEngine()
 	: _module_render("render")
+	, _module_input("input")
 {}
 
 bool CEngine::start() {
@@ -22,20 +23,10 @@ bool CEngine::start() {
   static CModuleGameOver module_game_over("game_over");
 
 	_modules.registerSystemModule(&_module_render);
+	_modules.registerSystemModule(&_module_input);
 	_modules.registerGameModule(&module_splash);
 	_modules.registerGameModule(&module_main_menu);
 	_modules.registerGameModule(&module_game_over);
-
-  /*static CGameState gs_splash("splash");
-  static CGameState gs_main_menu("main menu");
-  static CGameState gs_game_over("game over");
-  gs_splash.push_back(&module_splash);
-  gs_main_menu.push_back(&module_main_menu);
-  gs_game_over.push_back(&module_game_over);*/
-  
-  //_modules.registerGameState(&gs_splash);
-  //_modules.registerGameState(&gs_main_menu);
-  //_modules.registerGameState(&gs_game_over);
 
 	_modules.loadModules("data/modules.json");
 	_modules.loadGamestates("data/gamestates.json");

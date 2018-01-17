@@ -42,6 +42,9 @@
     <ClCompile Include="modules\game\module_splash.cpp" />
     <ClCompile Include="modules\game\module_gameover.cpp" />
     <ClCompile Include="modules\game\module_main_menu.cpp" />
+    <ClCompile Include="modules\system\module_input.cpp" />
+    <ClCompile Include="input\host.cpp" />
+    <ClCompile Include="input\devices\keyboard.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -104,6 +107,13 @@
     <ClInclude Include="modules\game\module_main_menu.h" />
     <ClInclude Include="modules\gamestate.h" />
     <ClInclude Include="utils\json.hpp" />
+    <ClInclude Include="modules\system\module_input.h" />
+    <ClInclude Include="input\button.h" />
+    <ClInclude Include="input\device.h" />
+    <ClInclude Include="input\enums.h" />
+    <ClInclude Include="input\host.h" />
+    <ClInclude Include="input\interfaces\interface_keyboard.h" />
+    <ClInclude Include="input\devices\keyboard.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">

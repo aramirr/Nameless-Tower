@@ -2,6 +2,7 @@
 
 #include "modules/module_manager.h"
 #include "modules/module_render.h"
+#include "modules/system/module_input.h"
 
 class CEngine
 {
@@ -16,9 +17,13 @@ public:
 
   CModuleManager& getModules() { return _modules; }
   CModuleRender& getRender() { return _module_render; }
-  //CModuleInput& getInput() { return _module_input; }
+  CModuleInput& getInput() { return _module_input; }
 
 private:
   CModuleManager _modules;
   CModuleRender _module_render;
+	CModuleInput _module_input;
 };
+
+//#define CEngine::get() Engine
+//#define CEngine::get().getInput() Input
