@@ -91,7 +91,7 @@ bool CModuleTestAxis::start()
   e.tech = &tech_objs;
   entities.push_back(e);
 
-  camera.lookAt(VEC3(2.0f, 2.0f, 3.0f), VEC3::Zero, VEC3::UnitY);
+  camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
   camera.setPerspective(60.0f * 180.f / (float)M_PI, 0.1f, 1000.f);
 
   // -------------------------------------------
@@ -179,6 +179,7 @@ void CModuleTestAxis::render()
   cb_camera.world = MAT44::Identity;
   cb_camera.updateGPU();
   grid->activateAndRender();
+  axis->activateAndRender();
 
   for (auto& e : entities) {
     cb_camera.world = e.transform.getWorld();
