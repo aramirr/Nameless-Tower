@@ -17,7 +17,10 @@ public:
     const void* vertex_data,
     size_t      num_bytes,
     const std::string& vtx_decl_name,
-    eTopology new_topology
+    eTopology   new_topology,
+    const void* index_data = nullptr,
+    size_t      num_index_bytes = 0,
+    size_t      bytes_per_index = 0 
   );
   void destroy();
   void activate();
@@ -27,9 +30,12 @@ public:
 private:
   
   ID3D11Buffer*      vb = nullptr;
+  ID3D11Buffer*      ib = nullptr;      // index buffer
   const CVertexDecl* vtx_decl = nullptr;
   eTopology          topology = eTopology::UNDEFINED;
   UINT               num_vertexs = 0;
+  UINT               num_indices = 0;
+  DXGI_FORMAT        index_fmt = DXGI_FORMAT_UNKNOWN;
 };
 
 

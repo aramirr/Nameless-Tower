@@ -5,7 +5,10 @@ bool CRenderMesh::create(
   const void* vertex_data,
   size_t      num_bytes,
   const std::string& vtx_decl_name,
-  eTopology new_topology
+  eTopology   new_topology,
+  const void* index_data,
+  size_t      num_index_bytes,
+  size_t      bytes_per_index
 ) {
   HRESULT hr;
 
@@ -24,13 +27,37 @@ bool CRenderMesh::create(
   bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
   bd.CPUAccessFlags = 0;
 
-  // This is the initial data
+  // This is the initial data for the vertexs
   D3D11_SUBRESOURCE_DATA InitData;
   ZeroMemory(&InitData, sizeof(InitData));
   InitData.pSysMem = vertex_data;
   hr = Render.device->CreateBuffer(&bd, &InitData, &vb);
   if (FAILED(hr))
     return false;
+
+  // -----------------------------------------------
+  // Prepare a struct to create the index buffer in gpu memory
+  if (num_index_bytes > 0) {
+    assert(bytes_per_index == 2 || bytes_per_index == 4);
+    ZeroMemory(&bd, sizeof(bd));
+    bd.Usage = D3D11_USAGE_DEFAULT;
+    bd.ByteWidth = (UINT)num_index_bytes;
+    bd.BindFlags = D3D11_BIND_INDEX_BUFFER;
+    bd.CPUAccessFlags = 0;
+
+    // This is the initial data for the indices
+    D3D11_SUBRESOURCE_DATA InitData;
+    ZeroMemory(&InitData, sizeof(InitData));
+    InitData.pSysMem = index_data;
+    hr = Render.device->CreateBuffer(&bd, &InitData, &ib);
+    if (FAILED(hr))
+      return false;
+
+    // Deduce the number of indices based on the index buffer size and the bytes per index
+    num_indices = num_index_bytes / bytes_per_index;
+    assert(num_indices * bytes_per_index == num_index_bytes);
+    index_fmt = ( bytes_per_index == 2 ) ? DXGI_FORMAT_R16_UINT : DXGI_FORMAT_R32_UINT;
+  }
 
   vtx_decl = CVertexDeclManager::get().getByName(vtx_decl_name);
   assert(vtx_decl);
@@ -57,10 +84,17 @@ void CRenderMesh::activate() {
 
   // Set primitive topology
   Render.ctx->IASetPrimitiveTopology( (D3D11_PRIMITIVE_TOPOLOGY)topology );
+
+  if (ib) 
+    Render.ctx->IASetIndexBuffer(ib, index_fmt, 0);
+
 }
 
 void CRenderMesh::render() {
-  Render.ctx->Draw(num_vertexs, 0);
+  if (ib)
+    Render.ctx->DrawIndexed(num_indices, 0, 0);
+  else
+    Render.ctx->Draw(num_vertexs, 0);
 }
 
 void CRenderMesh::activateAndRender() {

@@ -3,6 +3,7 @@
 #include "camera/camera.h"
 #include "geometry/angular.h"
 #include "render/render_objects.h"
+#include "render/mesh/mesh_loader.h"
 
 // pos_loc * world * view * proj = pos_proj
 // / wp => pos_homo
@@ -40,9 +41,29 @@ struct TTransform {
 };
 
 
+
+struct CRenderTechnique {
+  CVertexShader *vs = nullptr;
+  CPixelShader *ps = nullptr;
+  void activate() {
+    vs->activate();
+    ps->activate();
+  }
+};
+
+extern CVertexShader vs;
+extern CPixelShader ps;
+extern CVertexShader vs_obj;
+extern CPixelShader ps_obj;
+
+CRenderTechnique tech_solid = { &vs, &ps };
+CRenderTechnique tech_objs = { &vs_obj, &ps_obj };
+
 struct TEntity {
-  std::string name;
-  TTransform  transform;
+  std::string  name;
+  TTransform   transform;
+  CRenderMesh* mesh = nullptr;
+  CRenderTechnique* tech = nullptr;
 };
 
 std::vector< TEntity > entities;
@@ -52,6 +73,7 @@ CCamera camera;
 #include "ctes.h"
 CRenderCte<CCteCamera> cb_camera;
 
+
 bool CModuleTestAxis::start()
 {
   entities.clear();
@@ -59,10 +81,14 @@ bool CModuleTestAxis::start()
 
   e.name = "john";
   e.transform.pos = VEC3(0, 0, 1);
+  e.mesh = axis;
+  e.tech = &tech_solid;
   entities.push_back(e);
 
   e.name = "peter";
   e.transform.pos = VEC3(2, 0, -1);
+  e.mesh = loadMesh("data/meshes/Teapot001.mesh");
+  e.tech = &tech_objs;
   entities.push_back(e);
 
   camera.lookAt(VEC3(2.0f, 2.0f, 3.0f), VEC3::Zero, VEC3::UnitY);
@@ -143,6 +169,8 @@ void CModuleTestAxis::update(float delta)
 
 void CModuleTestAxis::render()
 {
+  tech_solid.activate();
+
   cb_camera.activate();
   cb_camera.view = camera.getView();
   cb_camera.proj = camera.getProjection();
@@ -155,7 +183,8 @@ void CModuleTestAxis::render()
   for (auto& e : entities) {
     cb_camera.world = e.transform.getWorld();
     cb_camera.updateGPU();
-    axis->activateAndRender();
+    e.tech->activate();
+    e.mesh->activateAndRender();
   }
 
 }

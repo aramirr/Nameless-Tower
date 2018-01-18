@@ -8,6 +8,8 @@
 //--------------------------------------------------------------------------------------
 CVertexShader vs;
 CPixelShader ps;
+CVertexShader vs_obj;
+CPixelShader ps_obj;
 
 //--------------------------------------------------------------------------------------
 bool CModuleRender::start()
@@ -29,10 +31,16 @@ bool CModuleRender::start()
 
   // --------------------------------------------
   // my custom code
-  if (!vs.create("shaders.fx", "VS", "PosClr"))
+  if (!vs.create("data/shaders/shaders.fx", "VS", "PosClr"))
     return false;
 
-  if (!ps.create("shaders.fx", "PS"))
+  if (!ps.create("data/shaders/shaders.fx", "PS"))
+    return false; 
+
+  if (!vs_obj.create("data/shaders/shaders_objs.fx", "VS", "PosNUv"))
+    return false;
+
+  if (!ps_obj.create("data/shaders/shaders_objs.fx", "PS"))
     return false;
 
   setBackgroundColor(0.0f, 0.125f, 0.3f, 1.f);

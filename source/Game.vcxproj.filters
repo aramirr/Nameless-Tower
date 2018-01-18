@@ -49,6 +49,7 @@
     <ClCompile Include="render\render_objects.cpp" />
     <ClCompile Include="camera\camera.cpp" />
     <ClCompile Include="modules\game\module_test_axis.cpp" />
+    <ClCompile Include="render\mesh\mesh_loader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -93,9 +94,6 @@
     <ClInclude Include="geometry\geometry.h">
       <Filter>geometry</Filter>
     </ClInclude>
-    <ClInclude Include="..\Bin\ctes.h">
-      <Filter>render</Filter>
-    </ClInclude>
     <ClInclude Include="geometry\SimpleMath.h">
       <Filter>geometry</Filter>
     </ClInclude>
@@ -121,6 +119,9 @@
     <ClInclude Include="camera\camera.h" />
     <ClInclude Include="modules\game\module_test_axis.h" />
     <ClInclude Include="geometry\angular.h" />
+    <ClInclude Include="..\Bin\data\shaders\ctes.h" />
+    <ClInclude Include="render\mesh\mesh_loader.h" />
+    <ClInclude Include="utils\data_provider.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">
