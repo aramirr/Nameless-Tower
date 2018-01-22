@@ -5,7 +5,7 @@
 
 namespace Input
 {
-	class TInterface_Keyboard
+	struct TInterface_Keyboard
 	{
 	public:
 		TButton _keys[NUM_KEYBOARD_KEYS];

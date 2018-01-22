@@ -5,6 +5,7 @@
 #include "SimpleMath.h"
 using namespace DirectX::SimpleMath;
 
+typedef Vector2     VEC2;
 typedef Vector3     VEC3;
 typedef Vector4     VEC4;
 typedef Matrix      MAT44;

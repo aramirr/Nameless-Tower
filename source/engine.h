@@ -25,5 +25,6 @@ private:
 	CModuleInput _module_input;
 };
 
-//#define CEngine::get() Engine
-//#define CEngine::get().getInput() Input
+#define Engine CEngine::get()
+#define EngineInput CEngine::get().getInput()
+

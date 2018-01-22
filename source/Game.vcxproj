@@ -85,6 +85,8 @@
     <ClCompile Include="geometry\geometry.cpp" />
     <ClCompile Include="geometry\SimpleMath.cpp" />
     <ClCompile Include="input\devices\keyboard.cpp" />
+    <ClCompile Include="input\devices\mouse.cpp" />
+    <ClCompile Include="input\devices\pad_xbox.cpp" />
     <ClCompile Include="input\host.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mcv_platform.cpp">
@@ -115,9 +117,14 @@
     <ClInclude Include="input\button.h" />
     <ClInclude Include="input\device.h" />
     <ClInclude Include="input\devices\keyboard.h" />
+    <ClInclude Include="input\devices\mouse.h" />
+    <ClInclude Include="input\devices\pad_xbox.h" />
     <ClInclude Include="input\enums.h" />
     <ClInclude Include="input\host.h" />
+    <ClInclude Include="input\interfaces\interface_feedback.h" />
     <ClInclude Include="input\interfaces\interface_keyboard.h" />
+    <ClInclude Include="input\interfaces\interface_mouse.h" />
+    <ClInclude Include="input\interfaces\interface_pad.h" />
     <ClInclude Include="mcv_platform.h" />
     <ClInclude Include="modules\gamestate.h" />
     <ClInclude Include="modules\game\module_gameover.h" />
