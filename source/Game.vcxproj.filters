@@ -33,23 +33,55 @@
     <ClCompile Include="geometry\SimpleMath.cpp">
       <Filter>geometry</Filter>
     </ClCompile>
-    <ClCompile Include="modules\module_render.cpp" />
     <ClCompile Include="engine.cpp" />
-    <ClCompile Include="modules\module_manager.cpp" />
-    <ClCompile Include="modules\game\module_splash.cpp" />
-    <ClCompile Include="modules\game\module_gameover.cpp" />
-    <ClCompile Include="modules\game\module_main_menu.cpp" />
-    <ClCompile Include="imgui\imgui.cpp" />
-    <ClCompile Include="imgui\imgui_demo.cpp" />
-    <ClCompile Include="imgui\imgui_draw.cpp" />
-    <ClCompile Include="imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="camera\camera.cpp">
+      <Filter>camera</Filter>
+    </ClCompile>
+    <ClCompile Include="geometry\angular.cpp">
+      <Filter>geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_demo.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_impl_dx11.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
     <ClCompile Include="render\mesh\mesh.cpp">
+      <Filter>render\mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="render\mesh\mesh_loader.cpp">
+      <Filter>render\mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\module_manager.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\module_render.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
+    <ClCompile Include="render\render_objects.cpp">
       <Filter>render</Filter>
     </ClCompile>
-    <ClCompile Include="render\render_objects.cpp" />
-    <ClCompile Include="camera\camera.cpp" />
-    <ClCompile Include="modules\game\module_test_axis.cpp" />
-    <ClCompile Include="render\mesh\mesh_loader.cpp" />
+    <ClCompile Include="geometry\transform.cpp">
+      <Filter>geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\game\module_gameover.cpp">
+      <Filter>modules\game</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\game\module_main_menu.cpp">
+      <Filter>modules\game</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\game\module_splash.cpp">
+      <Filter>modules\game</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\game\module_test_axis.cpp">
+      <Filter>modules\game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -63,6 +95,21 @@
     </Filter>
     <Filter Include="geometry">
       <UniqueIdentifier>{17cb7c13-2cc0-4dac-a74b-7ff23eb471ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="camera">
+      <UniqueIdentifier>{8ad50971-b2f8-472d-b2aa-68bc12f58643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules">
+      <UniqueIdentifier>{c4bce8e4-2de6-4baa-9684-b007922346a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{77913fb0-96e2-4cae-9e03-247c9aaabea5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render\mesh">
+      <UniqueIdentifier>{bc423af1-ca1b-409d-b7cf-a10870233979}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules\game">
+      <UniqueIdentifier>{c839f6d7-43fe-4f60-aaaf-a5b91ebc70b3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -97,31 +144,82 @@
     <ClInclude Include="geometry\SimpleMath.h">
       <Filter>geometry</Filter>
     </ClInclude>
-    <ClInclude Include="modules\module_render.h" />
     <ClInclude Include="engine.h" />
-    <ClInclude Include="modules\module.h" />
-    <ClInclude Include="modules\module_manager.h" />
-    <ClInclude Include="modules\game\module_splash.h" />
-    <ClInclude Include="modules\game\module_gameover.h" />
-    <ClInclude Include="modules\game\module_main_menu.h" />
-    <ClInclude Include="modules\gamestate.h" />
-    <ClInclude Include="imgui\imconfig.h" />
-    <ClInclude Include="imgui\imgui.h" />
-    <ClInclude Include="imgui\imgui_impl_dx11.h" />
-    <ClInclude Include="imgui\imgui_internal.h" />
-    <ClInclude Include="imgui\stb_rect_pack.h" />
-    <ClInclude Include="imgui\stb_textedit.h" />
-    <ClInclude Include="imgui\stb_truetype.h" />
-    <ClInclude Include="render\mesh\mesh.h">
+    <ClInclude Include="camera\camera.h">
+      <Filter>camera</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry\angular.h">
+      <Filter>geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Bin\data\shaders\ctes.h">
       <Filter>render</Filter>
     </ClInclude>
-    <ClInclude Include="render\render_objects.h" />
-    <ClInclude Include="camera\camera.h" />
-    <ClInclude Include="modules\game\module_test_axis.h" />
-    <ClInclude Include="geometry\angular.h" />
-    <ClInclude Include="..\Bin\data\shaders\ctes.h" />
-    <ClInclude Include="render\mesh\mesh_loader.h" />
-    <ClInclude Include="utils\data_provider.h" />
+    <ClInclude Include="utils\data_provider.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\gamestate.h">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_impl_dx11.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\json.hpp">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="render\mesh\mesh.h">
+      <Filter>render\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="render\mesh\mesh_loader.h">
+      <Filter>render\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\module.h">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\module_manager.h">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\module_render.h">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="render\render_objects.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\stb_rect_pack.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\stb_textedit.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\stb_truetype.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry\transform.h">
+      <Filter>geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\game\module_gameover.h">
+      <Filter>modules\game</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\game\module_main_menu.h">
+      <Filter>modules\game</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\game\module_splash.h">
+      <Filter>modules\game</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\game\module_test_axis.h">
+      <Filter>modules\game</Filter>
+    </ClInclude>
+    <ClInclude Include="render\render_technique.h">
+      <Filter>render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">

@@ -8,5 +8,12 @@ void destroyRenderObjects();
 extern CRenderMesh* axis;
 extern CRenderMesh* grid;
 
+#include "render/cte_buffer.h"
+#include "ctes.h"
+extern CRenderCte<CCteCamera> cb_camera;
+extern CRenderCte<CCteObject> cb_object;
+
+void activateCamera(const CCamera& cam);
+
 #endif
 

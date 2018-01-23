@@ -14,9 +14,9 @@ struct VS_OUTPUT
 VS_OUTPUT VS(float4 Pos : POSITION, float4 Color : COLOR)
 {
   VS_OUTPUT output = (VS_OUTPUT)0;
-  output.Pos = mul(Pos, world);
-  output.Pos = mul(output.Pos, view);
-  output.Pos = mul(output.Pos, proj);
+  output.Pos = mul(Pos, obj_world);
+  output.Pos = mul(output.Pos, camera_view);
+  output.Pos = mul(output.Pos, camera_proj);
   output.Color = Color;
   return output;
 }

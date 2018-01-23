@@ -1,55 +1,11 @@
 #include "mcv_platform.h"
 #include "module_test_axis.h"
 #include "camera/camera.h"
-#include "geometry/angular.h"
 #include "render/render_objects.h"
 #include "render/mesh/mesh_loader.h"
 
 // pos_loc * world * view * proj = pos_proj
 // / wp => pos_homo
-
-struct TTransform {
-  VEC3 pos;
-  //float scale;
-  //QUAT rot;
-  float yaw = 0.f;
-  float pitch = 0.f;
-
-  MAT44 getWorld() {
-    MAT44 t = MAT44::CreateTranslation(pos);
-    MAT44 r = MAT44::CreateFromYawPitchRoll(yaw, pitch, 0.0f);
-    return r * t;
-  }
-  VEC3 getFront() const {
-    return getVectorFromYaw(yaw);
-  }
-  VEC3 getLeft() const {
-    return getVectorFromYaw(yaw + (float)M_PI_2 );
-  }
-
-  bool isInFront( VEC3 p ) const {
-    VEC3 delta = p - pos;
-    return delta.Dot(getFront()) > 0.f;
-  }
-
-  bool isInLeft(VEC3 p) const {
-    VEC3 delta = p - pos;
-    return delta.Dot(getLeft()) > 0.f;
-  }
-
- 
-};
-
-
-
-struct CRenderTechnique {
-  CVertexShader *vs = nullptr;
-  CPixelShader *ps = nullptr;
-  void activate() {
-    vs->activate();
-    ps->activate();
-  }
-};
 
 extern CVertexShader vs;
 extern CPixelShader ps;
@@ -61,48 +17,59 @@ CRenderTechnique tech_objs = { &vs_obj, &ps_obj };
 
 struct TEntity {
   std::string  name;
-  TTransform   transform;
+  CTransform   transform;
   CRenderMesh* mesh = nullptr;
   CRenderTechnique* tech = nullptr;
 };
 
+void from_json(const json& j, TEntity& p) {
+	p.name = j.at("name").get<std::string>();
+	if (j.count("transform"))
+		p.transform.load(j["transform"]);
+	if (j.count("mesh")) {
+		std::string name = j["mesh"];
+		p.mesh = loadMesh(name.c_str());
+		p.tech = &tech_objs;
+	}
+	else {
+		p.mesh = axis;
+		p.tech = &tech_solid;
+	}
+}
+
 std::vector< TEntity > entities;
 CCamera camera;
-
-#include "render/cte_buffer.h"
-#include "ctes.h"
-CRenderCte<CCteCamera> cb_camera;
-
 
 bool CModuleTestAxis::start()
 {
   entities.clear();
-  TEntity e;
 
-  e.name = "john";
-  e.transform.pos = VEC3(0, 0, 1);
-  e.mesh = axis;
-  e.tech = &tech_solid;
-  entities.push_back(e);
+  // Load json with entities array
+  json j_entities = loadJson("data/entities.json");
 
-  e.name = "peter";
-  e.transform.pos = VEC3(2, 0, -1);
-  e.mesh = loadMesh("data/meshes/Teapot001.mesh");
-  e.tech = &tech_objs;
-  entities.push_back(e);
+  // Convert the json to an array of entities
+  entities = j_entities.get< std::vector<TEntity> >();
 
   camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
   camera.setPerspective(60.0f * 180.f / (float)M_PI, 0.1f, 1000.f);
 
   // -------------------------------------------
-  if (!cb_camera.create(CB_CAMERAS))
+  if (!cb_camera.create(CB_CAMERA))
     return false;
+  // -------------------------------------------
+  if (!cb_object.create(CB_OBJECT))
+    return false;
+
+  cb_object.activate();
+  cb_camera.activate();
+
   return true;
 }
 
 bool CModuleTestAxis::stop()
 {
   cb_camera.destroy();
+  cb_object.destroy();
   return true;
 }
 
@@ -116,30 +83,28 @@ void CModuleTestAxis::update(float delta)
     for (auto& e : entities) {
       ImGui::PushID(&e);
       if (ImGui::TreeNode(e.name.c_str())) {
-
         auto& t = e.transform;
-        ImGui::DragFloat3("Pos", &t.pos.x, 0.025f, -50.f, 50.f);
-
-        auto& front = t.getFront();
-        ImGui::LabelText("Front", "%1.3f %1.3f %1.3f", front.x, front.y, front.z);
-
+				t.debugInMenu();
         // All entities except the first one, check if are in the front/left of the first entity
         if (e0) {
-          bool is_e0_in_front_of_me = t.isInFront(e0->transform.pos);
-          bool is_e0_in_left_of_me = t.isInLeft(e0->transform.pos);
+          bool is_e0_in_front_of_me = t.isInFront(e0->transform.getPosition());
+          bool is_e0_in_left_of_me = t.isInLeft(e0->transform.getPosition());
           ImGui::LabelText("In Front", "%s", is_e0_in_front_of_me ? "YES" : "NO");
           ImGui::LabelText("In Left", "%s", is_e0_in_left_of_me ? "YES" : "NO" );
-        }
+          float delta_yaw_to_e0 = t.getDeltaYawToAimTo(e0->transform.getPosition());
+          ImGui::LabelText("Delta To e0", "%f", rad2deg( delta_yaw_to_e0 ));
 
-        {
-          float angle = rad2deg(t.yaw);
-          if (ImGui::DragFloat("Yaw", &angle, 1.0f, -180.f, 180.f))
-            e.transform.yaw = deg2rad(angle);
-        }
-        {
-          float angle = rad2deg(t.pitch);
-          if (ImGui::DragFloat("Pitch", &angle, 1.0f, -90.f, 90.f))
-            e.transform.pitch = deg2rad(angle);
+          if (ImGui::Button("Aim To..")) {
+            float old_yaw, old_pitch;
+            t.getYawPitchRoll(&old_yaw, &old_pitch);
+            float new_yaw = old_yaw + delta_yaw_to_e0 * 0.15f;
+            t.setYawPitchRoll(new_yaw, old_pitch);
+          }
+          static float fov = 90.f;
+          ImGui::SameLine();
+          bool in_in_fov = t.isInFov(e0->transform.getPosition(), deg2rad(fov));
+          ImGui::Text("Inside:%d", in_in_fov);
+          ImGui::DragFloat("Fov", &fov, 1.0f, 1.f, 120.f);
         }
 
         ImGui::TreePop();
@@ -171,19 +136,19 @@ void CModuleTestAxis::render()
 {
   tech_solid.activate();
 
-  cb_camera.activate();
-  cb_camera.view = camera.getView();
-  cb_camera.proj = camera.getProjection();
+  activateCamera(camera);
 
   // Render the grid
-  cb_camera.world = MAT44::Identity;
-  cb_camera.updateGPU();
+  cb_object.obj_world = MAT44::Identity;
+  cb_object.obj_color = VEC4(1,1,1,1);
+  cb_object.updateGPU();
   grid->activateAndRender();
   axis->activateAndRender();
 
   for (auto& e : entities) {
-    cb_camera.world = e.transform.getWorld();
-    cb_camera.updateGPU();
+    cb_object.obj_world = e.transform.asMatrix();
+    //cb_object.obj_color = e.color
+    cb_object.updateGPU();
     e.tech->activate();
     e.mesh->activateAndRender();
   }

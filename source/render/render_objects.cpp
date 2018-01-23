@@ -1,6 +1,9 @@
 #include "mcv_platform.h"
 #include "render_objects.h"
 
+CRenderCte<CCteCamera> cb_camera;
+CRenderCte<CCteObject> cb_object;
+
 struct TVtxPosClr {
   VEC3 pos;
   VEC4 color;
@@ -69,3 +72,11 @@ void destroyRenderObjects() {
     grid = nullptr;
   }
 }
+
+void activateCamera(const CCamera& camera) {
+  cb_camera.camera_view = camera.getView();
+  cb_camera.camera_proj = camera.getProjection();
+  cb_camera.camera_pos = camera.getPosition();
+  cb_camera.updateGPU();
+}
+

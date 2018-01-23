@@ -83,8 +83,10 @@
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
     <ClCompile Include="engine.cpp" />
+    <ClCompile Include="geometry\angular.cpp" />
     <ClCompile Include="geometry\geometry.cpp" />
     <ClCompile Include="geometry\SimpleMath.cpp" />
+    <ClCompile Include="geometry\transform.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />
@@ -119,6 +121,7 @@
     <ClInclude Include="geometry\angular.h" />
     <ClInclude Include="geometry\geometry.h" />
     <ClInclude Include="geometry\SimpleMath.h" />
+    <ClInclude Include="geometry\transform.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
     <ClInclude Include="imgui\imgui_impl_dx11.h" />
@@ -141,10 +144,12 @@
     <ClInclude Include="render\pixel_shader.h" />
     <ClInclude Include="render\render.h" />
     <ClInclude Include="render\render_objects.h" />
+    <ClInclude Include="render\render_technique.h" />
     <ClInclude Include="render\shader_compiler.h" />
     <ClInclude Include="render\vertex_declarations.h" />
     <ClInclude Include="render\vertex_shader.h" />
     <ClInclude Include="utils\data_provider.h" />
+    <ClInclude Include="utils\json.hpp" />
     <ClInclude Include="utils\utils.h" />
     <ClInclude Include="windows\app.h" />
   </ItemGroup>

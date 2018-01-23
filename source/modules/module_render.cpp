@@ -55,8 +55,6 @@ LRESULT CModuleRender::OnOSMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 
 bool CModuleRender::stop()
 {
-  //cb_camera.destroy();
-
   ps.destroy();
   vs.destroy();
 

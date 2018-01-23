@@ -20,9 +20,9 @@ VS_OUTPUT VS(
 
 {
   VS_OUTPUT output = (VS_OUTPUT)0;
-  output.Pos = mul(Pos, world);
-  output.Pos = mul(output.Pos, view);
-  output.Pos = mul(output.Pos, proj);
+  output.Pos = mul(Pos, obj_world);
+  output.Pos = mul(output.Pos, camera_view);
+  output.Pos = mul(output.Pos, camera_proj);
   output.N = N;
   output.UV = UV;
   return output;

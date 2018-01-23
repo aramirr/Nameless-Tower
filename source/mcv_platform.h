@@ -35,5 +35,6 @@ using json = nlohmann::json;
 #include "render/vertex_declarations.h"
 #include "utils/utils.h"
 #include "imgui/imgui.h"
+#include "camera/camera.h"
 
 #endif
