@@ -11,5 +11,7 @@ void fatal(const char* fmt, ...);
 
 bool isPressed(int key);
 
+json loadJson(const std::string& filename);
+
 #endif
 
