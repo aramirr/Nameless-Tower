@@ -135,7 +135,7 @@ function exportMeshObject given_obj = (
 		local normals = meshop.getFaceRNormals obj face_id
 		
 		-- For each vertex of each face
-		for vtx_id = 1 to 3 do (
+		for vtx_id in [1,3,2] do (
 			
 			-- Get the real vertex id: 1...num_vertexs
 			local posW = getVert obj face[ vtx_id ]
@@ -179,5 +179,5 @@ function exportMeshObject given_obj = (
 )
 
 
-exportMeshObject $Box001
---exportMeshObject $Teapot001
+--exportMeshObject $Box001
+exportMeshObject $Teapot001
