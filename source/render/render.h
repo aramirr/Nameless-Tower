@@ -4,10 +4,13 @@
 class CRender {
 
 public:
-  ID3D11Device*           device = NULL;
-  ID3D11DeviceContext*    ctx = NULL;
-  ID3D11RenderTargetView* renderTargetView = NULL;
-  IDXGISwapChain*         swapChain = NULL;
+  ID3D11Device*           device = nullptr;
+  ID3D11DeviceContext*    ctx = nullptr;
+  ID3D11RenderTargetView* renderTargetView = nullptr;
+  IDXGISwapChain*         swapChain = nullptr;
+
+  ID3D11Texture2D*        depthTexture = nullptr;
+  ID3D11DepthStencilView* depthStencilView = nullptr;
 
   int width = 0;
   int height = 0;

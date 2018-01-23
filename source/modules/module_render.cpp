@@ -84,6 +84,7 @@ void CModuleRender::render()
   // Clear the back buffer 
   float ClearColor[4] = { 0.0f, 0.125f, 0.3f, 1.0f }; // red,green,blue,alpha
   Render.ctx->ClearRenderTargetView(Render.renderTargetView, _backgroundColor);
+  Render.ctx->ClearDepthStencilView(Render.depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
 
   vs.activate();
   ps.activate();
