@@ -29,12 +29,12 @@
 #include "utils/json.hpp"
 using json = nlohmann::json;
 
-#include "engine.h"
 #include "geometry/geometry.h"
 #include "render/render.h"
 #include "render/vertex_declarations.h"
 #include "utils/utils.h"
 #include "imgui/imgui.h"
 #include "camera/camera.h"
+#include "engine.h"
 
 #endif

@@ -28,6 +28,9 @@ bool CEngine::start() {
   gs_game_over.push_back(&module_game_over);
 
   _modules.registerSystemModule(&_module_render);
+  _modules.registerSystemModule(&_module_entities);
+  _modules.registerSystemModule(&_module_ia);
+
   _modules.registerGameModule(&module_splash);
   _modules.registerGameModule(&module_main_menu);
   _modules.registerGameModule(&module_game_over);

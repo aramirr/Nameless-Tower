@@ -82,6 +82,15 @@
     <ClCompile Include="modules\game\module_test_axis.cpp">
       <Filter>modules\game</Filter>
     </ClCompile>
+    <ClCompile Include="entity\entity.cpp">
+      <Filter>entity</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\module_entities.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\module_ia.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -110,6 +119,12 @@
     </Filter>
     <Filter Include="modules\game">
       <UniqueIdentifier>{c839f6d7-43fe-4f60-aaaf-a5b91ebc70b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic">
+      <UniqueIdentifier>{e39f942c-ec30-4c53-85c1-ec3049f41d16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="entity">
+      <UniqueIdentifier>{8cc8ce76-c5c7-481e-8a57-e7bbafaf97f3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -219,6 +234,15 @@
     </ClInclude>
     <ClInclude Include="render\render_technique.h">
       <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="entity\entity.h">
+      <Filter>entity</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\module_entities.h">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\module_ia.h">
+      <Filter>modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

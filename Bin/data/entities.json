@@ -1,17 +1,26 @@
 [
   {
     "name": "john",
-    "transform" : {
-      "pos" : "1 0 0",
-      "lookat" :  "-1 0 -1"
+    "transform": {
+      "pos": "1 0 0",
+      "lookat": "-1 0 -1"
+    },
+    "ia": {
+      "type" : "turret"
     }
 
   },
   {
     "name": "peter",
-    "mesh": "data/meshes/Teapot001.mesh"
+    "mesh": "data/meshes/Teapot001.mesh",
+    "transform": {
+      "pos": "5 0 0"
+    }
   },
   {
-    "name": "Henry"
+    "name": "Henry",
+    "transform": {
+      "pos": "0 0 3"
+    }
   }
 ]

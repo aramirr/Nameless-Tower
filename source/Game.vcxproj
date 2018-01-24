@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -83,6 +83,7 @@
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
     <ClCompile Include="engine.cpp" />
+    <ClCompile Include="entity\entity.cpp" />
     <ClCompile Include="geometry\angular.cpp" />
     <ClCompile Include="geometry\geometry.cpp" />
     <ClCompile Include="geometry\SimpleMath.cpp" />
@@ -100,6 +101,8 @@
     <ClCompile Include="modules\game\module_main_menu.cpp" />
     <ClCompile Include="modules\game\module_splash.cpp" />
     <ClCompile Include="modules\game\module_test_axis.cpp" />
+    <ClCompile Include="modules\module_entities.cpp" />
+    <ClCompile Include="modules\module_ia.cpp" />
     <ClCompile Include="modules\module_manager.cpp" />
     <ClCompile Include="modules\module_render.cpp" />
     <ClCompile Include="render\cte_buffer.cpp" />
@@ -118,6 +121,7 @@
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
     <ClInclude Include="camera\camera.h" />
     <ClInclude Include="engine.h" />
+    <ClInclude Include="entity\entity.h" />
     <ClInclude Include="geometry\angular.h" />
     <ClInclude Include="geometry\geometry.h" />
     <ClInclude Include="geometry\SimpleMath.h" />
@@ -136,6 +140,8 @@
     <ClInclude Include="modules\game\module_splash.h" />
     <ClInclude Include="modules\game\module_test_axis.h" />
     <ClInclude Include="modules\module.h" />
+    <ClInclude Include="modules\module_entities.h" />
+    <ClInclude Include="modules\module_ia.h" />
     <ClInclude Include="modules\module_manager.h" />
     <ClInclude Include="modules\module_render.h" />
     <ClInclude Include="render\cte_buffer.h" />
