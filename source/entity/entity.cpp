@@ -3,6 +3,7 @@
 #include "render/mesh/mesh_loader.h"
 #include "render/render_objects.h"
 #include "modules/module_ia.h"
+#include "render/texture/texture.h"
 
 extern CVertexShader vs;
 extern CPixelShader ps;
@@ -24,11 +25,16 @@ void TEntity::load(const json& j) {
     std::string name = j["mesh"];
     mesh = Resources.get( name )->as<CRenderMesh>();
     tech = &tech_objs;
+
+    std::string texture_name = j["texture"];
+    texture = Resources.get(texture_name)->as<CTexture>();
   }
   else {
     mesh = Resources.get("axis.mesh")->as<CRenderMesh>();
     tech = &tech_solid;
   }
+
+
 
   // Load an AI controller
   if (j.count("ia")) {

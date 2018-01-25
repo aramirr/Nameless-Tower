@@ -112,6 +112,7 @@
     <ClCompile Include="render\render.cpp" />
     <ClCompile Include="render\render_objects.cpp" />
     <ClCompile Include="render\shader_compile.cpp" />
+    <ClCompile Include="render\texture\DDSTextureLoader.cpp" />
     <ClCompile Include="render\texture\texture.cpp" />
     <ClCompile Include="render\vertex_declarations.cpp" />
     <ClCompile Include="render\vertex_shader.cpp" />
@@ -154,6 +155,7 @@
     <ClInclude Include="render\render_objects.h" />
     <ClInclude Include="render\render_technique.h" />
     <ClInclude Include="render\shader_compiler.h" />
+    <ClInclude Include="render\texture\DDSTextureLoader.h" />
     <ClInclude Include="render\texture\texture.h" />
     <ClInclude Include="render\vertex_declarations.h" />
     <ClInclude Include="render\vertex_shader.h" />

@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "module_entities.h"
 #include "render/render_objects.h"
+#include "render/texture/texture.h"
 
 std::vector< TEntity* > entities;
 
@@ -85,6 +86,8 @@ void CModuleEntities::render()
     cb_object.obj_world = e->transform.asMatrix();
     //cb_object.obj_color = e->color
     cb_object.updateGPU();
+    if (e->texture)
+      e->texture->activate(0);
     e->tech->activate();
     e->mesh->activateAndRender();
   }

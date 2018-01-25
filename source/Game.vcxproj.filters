@@ -97,6 +97,9 @@
     <ClCompile Include="render\texture\texture.cpp">
       <Filter>render\texture</Filter>
     </ClCompile>
+    <ClCompile Include="render\texture\DDSTextureLoader.cpp">
+      <Filter>render\texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -263,6 +266,9 @@
       <Filter>resources</Filter>
     </ClInclude>
     <ClInclude Include="render\texture\texture.h">
+      <Filter>render\texture</Filter>
+    </ClInclude>
+    <ClInclude Include="render\texture\DDSTextureLoader.h">
       <Filter>render\texture</Filter>
     </ClInclude>
   </ItemGroup>

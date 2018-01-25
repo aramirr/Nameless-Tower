@@ -31,7 +31,11 @@ VS_OUTPUT VS(
 //--------------------------------------------------------------------------------------
 // Pixel Shader
 //--------------------------------------------------------------------------------------
+Texture2D    txDiffuse      : register(t0);
+SamplerState samLinear      : register(s0);
+
 float4 PS(VS_OUTPUT input) : SV_Target
 {
-  return float4(input.UV, 0, 1 );
+  float4 texture_color = txDiffuse.Sample(samLinear, input.UV);
+  return texture_color;
 }
