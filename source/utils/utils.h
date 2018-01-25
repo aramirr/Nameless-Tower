@@ -7,7 +7,7 @@ void dbg(const char* fmt, ...);
 //#define dbg(...)
 //#endif
 
-void fatal(const char* fmt, ...);
+bool fatal(const char* fmt, ...);
 
 bool isPressed(int key);
 

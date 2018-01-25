@@ -112,8 +112,10 @@
     <ClCompile Include="render\render.cpp" />
     <ClCompile Include="render\render_objects.cpp" />
     <ClCompile Include="render\shader_compile.cpp" />
+    <ClCompile Include="render\texture\texture.cpp" />
     <ClCompile Include="render\vertex_declarations.cpp" />
     <ClCompile Include="render\vertex_shader.cpp" />
+    <ClCompile Include="resources\resources_manager.cpp" />
     <ClCompile Include="utils\utils.cpp" />
     <ClCompile Include="windows\app.cpp" />
   </ItemGroup>
@@ -152,8 +154,11 @@
     <ClInclude Include="render\render_objects.h" />
     <ClInclude Include="render\render_technique.h" />
     <ClInclude Include="render\shader_compiler.h" />
+    <ClInclude Include="render\texture\texture.h" />
     <ClInclude Include="render\vertex_declarations.h" />
     <ClInclude Include="render\vertex_shader.h" />
+    <ClInclude Include="resources\resource.h" />
+    <ClInclude Include="resources\resources_manager.h" />
     <ClInclude Include="utils\data_provider.h" />
     <ClInclude Include="utils\json.hpp" />
     <ClInclude Include="utils\utils.h" />

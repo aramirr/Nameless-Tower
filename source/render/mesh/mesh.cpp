@@ -1,5 +1,30 @@
 #include "mcv_platform.h"
 #include "mesh.h"
+#include "mesh_loader.h"
+
+// ----------------------------------------------
+class CRenderMeshResourceClass : public CResourceClass {
+public:
+  CRenderMeshResourceClass() {
+    class_name = "Meshes";
+    extension = ".mesh";
+  }
+  IResource* create(const std::string& name) const override {
+    dbg("Creating mesh %s\n", name.c_str());
+    CRenderMesh* res = loadMesh(name.c_str());
+    return res;
+  }
+};
+
+// A specialization of the template defined at the top of this file
+// If someone class getResourceClassOf<CTexture>, use this function:
+template<>
+const CResourceClass* getResourceClassOf<CRenderMesh>() {
+  static CRenderMeshResourceClass the_resource_class;
+  return &the_resource_class;
+}
+
+
 
 bool CRenderMesh::create(
   const void* vertex_data,
@@ -73,7 +98,7 @@ void CRenderMesh::destroy() {
   SAFE_RELEASE(vb);
 }
 
-void CRenderMesh::activate() {
+void CRenderMesh::activate() const {
   assert(vb);
   assert(vtx_decl);
 
@@ -90,14 +115,20 @@ void CRenderMesh::activate() {
 
 }
 
-void CRenderMesh::render() {
+void CRenderMesh::render() const {
   if (ib)
     Render.ctx->DrawIndexed(num_indices, 0, 0);
   else
     Render.ctx->Draw(num_vertexs, 0);
 }
 
-void CRenderMesh::activateAndRender() {
+void CRenderMesh::activateAndRender() const {
   activate();
   render();
 }
+
+void CRenderMesh::debugInMenu() {
+  ImGui::Text("%d vertexs", num_vertexs);
+  // ...
+}
+

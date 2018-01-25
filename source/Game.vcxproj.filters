@@ -91,6 +91,12 @@
     <ClCompile Include="modules\module_ia.cpp">
       <Filter>modules</Filter>
     </ClCompile>
+    <ClCompile Include="resources\resources_manager.cpp">
+      <Filter>resources</Filter>
+    </ClCompile>
+    <ClCompile Include="render\texture\texture.cpp">
+      <Filter>render\texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -125,6 +131,12 @@
     </Filter>
     <Filter Include="entity">
       <UniqueIdentifier>{8cc8ce76-c5c7-481e-8a57-e7bbafaf97f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{1aba5716-4479-4658-a654-943d5a0828fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render\texture">
+      <UniqueIdentifier>{77db5160-d7db-4198-82cf-720819771bae}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -243,6 +255,15 @@
     </ClInclude>
     <ClInclude Include="modules\module_ia.h">
       <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="resources\resource.h">
+      <Filter>resources</Filter>
+    </ClInclude>
+    <ClInclude Include="resources\resources_manager.h">
+      <Filter>resources</Filter>
+    </ClInclude>
+    <ClInclude Include="render\texture\texture.h">
+      <Filter>render\texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

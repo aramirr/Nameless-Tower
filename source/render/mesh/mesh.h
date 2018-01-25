@@ -1,9 +1,11 @@
 #ifndef INC_RENDER_MESH_H_
 #define INC_RENDER_MESH_H_
 
+#include "resources/resource.h"
+
 class CVertexDecl;
 
-class CRenderMesh {
+class CRenderMesh : public IResource {
 
 public:
 
@@ -22,10 +24,12 @@ public:
     size_t      num_index_bytes = 0,
     size_t      bytes_per_index = 0 
   );
-  void destroy();
-  void activate();
-  void render();
-  void activateAndRender();
+  void destroy() override;
+  void activate() const;
+  void render() const;
+  void activateAndRender() const;
+
+  void debugInMenu();
 
 private:
   

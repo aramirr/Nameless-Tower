@@ -19,7 +19,7 @@ LRESULT CModuleManager::OnOSMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPara
   bool processed = false;
   for (auto& mod : _system_modules)
   {
-    processed |= mod->OnOSMsg(hWnd, msg, wParam, lParam );
+    processed |= (mod->OnOSMsg(hWnd, msg, wParam, lParam ) != 0);
   }
   if (processed)
     return 1;

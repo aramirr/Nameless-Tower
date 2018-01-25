@@ -10,9 +10,6 @@ struct TVtxPosClr {
   TVtxPosClr(VEC3 new_pos, VEC4 new_color) : pos(new_pos), color(new_color){}
 };
 
-CRenderMesh* axis;
-CRenderMesh* grid;
-
 // ---------------------------------------------------
 CRenderMesh* createAxis() {
   CRenderMesh* mesh = new CRenderMesh;
@@ -51,26 +48,21 @@ CRenderMesh* createGridXZ( int nsteps ) {
   return mesh;
 }
 
+// --------------------------
+void registerMesh( CRenderMesh* new_mesh, const char* name ) {
+  new_mesh->setNameAndClass(name, getResourceClassOf<CRenderMesh>());
+  Resources.registerResource(new_mesh);
+}
 
 bool createRenderObjects() {
 
-  axis = createAxis();
-  grid = createGridXZ(20);
+  registerMesh(createAxis(), "axis.mesh");
+  registerMesh(createGridXZ(20), "grid.mesh");
 
   return true;
 }
 
 void destroyRenderObjects() {
-  if (axis) {
-    axis->destroy();
-    delete axis;
-    axis = nullptr;
-  }
-  if (grid) {
-    grid->destroy();
-    delete grid;
-    grid = nullptr;
-  }
 }
 
 void activateCamera(const CCamera& camera) {

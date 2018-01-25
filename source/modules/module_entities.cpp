@@ -35,6 +35,8 @@ void CModuleEntities::update(float delta)
 void CModuleEntities::render()
 {
 
+  Resources.debugInMenu();
+
   if (ImGui::TreeNode("Entities")) {
 
     // Just to do some tests of the IsInFront/left/etc

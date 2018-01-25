@@ -4,10 +4,6 @@
 bool createRenderObjects();
 void destroyRenderObjects();
 
-// To be converted in resources and registered in the resources manager
-extern CRenderMesh* axis;
-extern CRenderMesh* grid;
-
 #include "render/cte_buffer.h"
 #include "ctes.h"
 extern CRenderCte<CCteCamera> cb_camera;

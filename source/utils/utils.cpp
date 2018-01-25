@@ -9,7 +9,7 @@ void dbg(const char* format, ...) {
   ::OutputDebugString(dest);
 }
 
-void fatal(const char* format, ...) {
+bool fatal(const char* format, ...) {
   va_list argptr;
   va_start(argptr, format);
   char dest[1024 * 16];
@@ -17,6 +17,7 @@ void fatal(const char* format, ...) {
   va_end(argptr);
   ::OutputDebugString(dest);
   MessageBox(nullptr, dest, "Error!", MB_OK);
+  return false;
 }
 
 bool isPressed(int key) {

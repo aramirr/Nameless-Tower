@@ -22,11 +22,11 @@ void TEntity::load(const json& j) {
   // Load some render mesh
   if (j.count("mesh")) {
     std::string name = j["mesh"];
-    mesh = loadMesh(name.c_str());
+    mesh = Resources.get( name )->as<CRenderMesh>();
     tech = &tech_objs;
   }
   else {
-    mesh = axis;
+    mesh = Resources.get("axis.mesh")->as<CRenderMesh>();
     tech = &tech_solid;
   }
 

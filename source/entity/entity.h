@@ -8,7 +8,7 @@ class IAIController;
 struct TEntity {
   std::string  name;
   CTransform   transform;
-  CRenderMesh* mesh = nullptr;
+  const CRenderMesh* mesh = nullptr;
   CRenderTechnique* tech = nullptr;
   IAIController* ai_controller = nullptr;
   

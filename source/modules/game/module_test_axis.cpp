@@ -4,6 +4,8 @@
 #include "render/render_objects.h"
 #include "entity/entity.h"
 #include "modules/module_entities.h"
+#include "resources/resources_manager.h"
+#include "render/texture/texture.h"
 
 extern CRenderTechnique tech_solid;
 
@@ -11,7 +13,10 @@ CCamera camera;
 
 bool CModuleTestAxis::start()
 {
-  
+  // One time at boot
+  Resources.registerResourceClass(getResourceClassOf<CTexture>());
+  Resources.registerResourceClass(getResourceClassOf<CRenderMesh>());
+
   loadEntities("data/entities.json");
 
   camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
@@ -62,7 +67,10 @@ void CModuleTestAxis::render()
   cb_object.obj_world = MAT44::Identity;
   cb_object.obj_color = VEC4(1,1,1,1);
   cb_object.updateGPU();
+
+  auto grid = Resources.get("grid.mesh")->as<CRenderMesh>();
   grid->activateAndRender();
+  auto axis = Resources.get("axis.mesh")->as<CRenderMesh>();
   axis->activateAndRender();
 
 }

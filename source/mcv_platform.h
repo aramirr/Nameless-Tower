@@ -36,5 +36,6 @@ using json = nlohmann::json;
 #include "imgui/imgui.h"
 #include "camera/camera.h"
 #include "engine.h"
+#include "resources/resources_manager.h"
 
 #endif
