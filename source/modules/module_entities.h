@@ -11,3 +11,4 @@ public:
 };
 
 void loadEntities(const char* filename);
+TEntity* getEntityByName(const char* name);

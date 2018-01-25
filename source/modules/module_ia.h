@@ -5,8 +5,8 @@
 
 class CModuleIA : public IModule
 {
+  //std::vector< IAIController* > controllers;
 
-  //std::vector< IA >
 public:
   void update(float delta) override;
   void render() override;

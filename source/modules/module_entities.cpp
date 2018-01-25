@@ -18,6 +18,14 @@ void loadEntities(const char* filename) {
   }
 }
 
+TEntity* getEntityByName(const char* name) {
+  for (auto& e : entities) {
+    if (e->name == name)
+      return e;
+  }
+  return nullptr;
+}
+
 
 void CModuleEntities::update(float delta)
 {
