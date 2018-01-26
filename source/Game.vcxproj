@@ -92,6 +92,12 @@
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />
     <ClCompile Include="imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="input\devices\keyboard.cpp" />
+    <ClCompile Include="input\devices\mouse.cpp" />
+    <ClCompile Include="input\devices\pad_xbox.cpp" />
+    <ClCompile Include="input\host.cpp" />
+    <ClCompile Include="input\interfaces\interface_mapping.cpp" />
+    <ClCompile Include="input\mapping.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mcv_platform.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -105,6 +111,8 @@
     <ClCompile Include="modules\module_ia.cpp" />
     <ClCompile Include="modules\module_manager.cpp" />
     <ClCompile Include="modules\module_render.cpp" />
+    <ClCompile Include="modules\system\module_input.cpp" />
+    <ClCompile Include="modules\test\module_test_input.cpp" />
     <ClCompile Include="render\cte_buffer.cpp" />
     <ClCompile Include="render\mesh\mesh.cpp" />
     <ClCompile Include="render\mesh\mesh_loader.cpp" />
@@ -136,6 +144,19 @@
     <ClInclude Include="imgui\stb_rect_pack.h" />
     <ClInclude Include="imgui\stb_textedit.h" />
     <ClInclude Include="imgui\stb_truetype.h" />
+    <ClInclude Include="input\button.h" />
+    <ClInclude Include="input\device.h" />
+    <ClInclude Include="input\devices\keyboard.h" />
+    <ClInclude Include="input\devices\mouse.h" />
+    <ClInclude Include="input\devices\pad_xbox.h" />
+    <ClInclude Include="input\enums.h" />
+    <ClInclude Include="input\host.h" />
+    <ClInclude Include="input\interfaces\interface_feedback.h" />
+    <ClInclude Include="input\interfaces\interface_keyboard.h" />
+    <ClInclude Include="input\interfaces\interface_mapping.h" />
+    <ClInclude Include="input\interfaces\interface_mouse.h" />
+    <ClInclude Include="input\interfaces\interface_pad.h" />
+    <ClInclude Include="input\mapping.h" />
     <ClInclude Include="mcv_platform.h" />
     <ClInclude Include="modules\gamestate.h" />
     <ClInclude Include="modules\game\module_gameover.h" />
@@ -147,6 +168,8 @@
     <ClInclude Include="modules\module_ia.h" />
     <ClInclude Include="modules\module_manager.h" />
     <ClInclude Include="modules\module_render.h" />
+    <ClInclude Include="modules\system\module_input.h" />
+    <ClInclude Include="modules\test\module_test_input.h" />
     <ClInclude Include="render\cte_buffer.h" />
     <ClInclude Include="render\mesh\mesh.h" />
     <ClInclude Include="render\mesh\mesh_loader.h" />

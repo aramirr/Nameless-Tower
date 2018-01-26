@@ -79,9 +79,6 @@
     <ClCompile Include="modules\game\module_splash.cpp">
       <Filter>modules\game</Filter>
     </ClCompile>
-    <ClCompile Include="modules\game\module_test_axis.cpp">
-      <Filter>modules\game</Filter>
-    </ClCompile>
     <ClCompile Include="entity\entity.cpp">
       <Filter>entity</Filter>
     </ClCompile>
@@ -99,6 +96,39 @@
     </ClCompile>
     <ClCompile Include="render\texture\DDSTextureLoader.cpp">
       <Filter>render\texture</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\module_render.cpp" />
+    <ClCompile Include="engine.cpp" />
+    <ClCompile Include="modules\module_manager.cpp" />
+    <ClCompile Include="modules\game\module_splash.cpp" />
+    <ClCompile Include="modules\game\module_gameover.cpp" />
+    <ClCompile Include="modules\game\module_main_menu.cpp" />
+    <ClCompile Include="modules\system\module_input.cpp">
+      <Filter>modules\system</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\test\module_test_input.cpp">
+      <Filter>modules\test</Filter>
+    </ClCompile>
+    <ClCompile Include="input\interfaces\interface_mapping.cpp">
+      <Filter>input\interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="input\host.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="input\mapping.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="input\devices\pad_xbox.cpp">
+      <Filter>input\devices</Filter>
+    </ClCompile>
+    <ClCompile Include="input\devices\mouse.cpp">
+      <Filter>input\devices</Filter>
+    </ClCompile>
+    <ClCompile Include="input\devices\keyboard.cpp">
+      <Filter>input\devices</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\game\module_test_axis.cpp">
+      <Filter>modules\game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +170,21 @@
     </Filter>
     <Filter Include="render\texture">
       <UniqueIdentifier>{77db5160-d7db-4198-82cf-720819771bae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules\system">
+      <UniqueIdentifier>{ce1b537e-9fa8-4f8e-92d6-b9fd66052911}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules\test">
+      <UniqueIdentifier>{37d64f1e-90ce-4bb3-b067-2e4887c6e666}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="input">
+      <UniqueIdentifier>{550e65b2-6608-451a-a754-aba45e471b1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="input\devices">
+      <UniqueIdentifier>{310a8e38-cf6c-497a-9c60-c1c12a0e1f22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="input\interfaces">
+      <UniqueIdentifier>{2a9c7dff-51a9-4ed9-8671-456d300842cb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -244,9 +289,6 @@
     <ClInclude Include="modules\game\module_splash.h">
       <Filter>modules\game</Filter>
     </ClInclude>
-    <ClInclude Include="modules\game\module_test_axis.h">
-      <Filter>modules\game</Filter>
-    </ClInclude>
     <ClInclude Include="render\render_technique.h">
       <Filter>render</Filter>
     </ClInclude>
@@ -291,6 +333,63 @@
     </ClInclude>
     <ClInclude Include="utils\json.hpp">
       <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\module_render.h" />
+    <ClInclude Include="engine.h" />
+    <ClInclude Include="modules\module.h" />
+    <ClInclude Include="modules\module_manager.h" />
+    <ClInclude Include="modules\game\module_splash.h" />
+    <ClInclude Include="modules\game\module_gameover.h" />
+    <ClInclude Include="modules\game\module_main_menu.h" />
+    <ClInclude Include="modules\gamestate.h" />
+    <ClInclude Include="utils\json.hpp" />
+    <ClInclude Include="modules\system\module_input.h">
+      <Filter>modules\system</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\test\module_test_input.h">
+      <Filter>modules\test</Filter>
+    </ClInclude>
+    <ClInclude Include="input\interfaces\interface_feedback.h">
+      <Filter>input\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="input\interfaces\interface_keyboard.h">
+      <Filter>input\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="input\interfaces\interface_mapping.h">
+      <Filter>input\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="input\interfaces\interface_mouse.h">
+      <Filter>input\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="input\interfaces\interface_pad.h">
+      <Filter>input\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="input\button.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="input\device.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="input\enums.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="input\host.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="input\mapping.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="input\devices\pad_xbox.h">
+      <Filter>input\devices</Filter>
+    </ClInclude>
+    <ClInclude Include="input\devices\mouse.h">
+      <Filter>input\devices</Filter>
+    </ClInclude>
+    <ClInclude Include="input\devices\keyboard.h">
+      <Filter>input\devices</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\game\module_test_axis.h">
+      <Filter>modules\game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
