@@ -16,9 +16,12 @@ public:
 	bool isActive() const { return _active; }
 	void setActive(bool how) { _active = how; }
 
+  virtual LRESULT OnOSMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) { return 0; }
+
 private:
 	std::string _name;
 	bool _active;
+
 };
 
 using VModules = std::vector<IModule*>;

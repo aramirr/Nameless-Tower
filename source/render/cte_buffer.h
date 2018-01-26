@@ -15,6 +15,11 @@ public:
   void activate();
 };
 
+// -----------------------------------------
+// I'm a join combination of the CPU struct (TPOD) and 
+// the struct (CCteBuffer) which have the members to have a 
+// version of myself in the GPU.
+// -----------------------------------------
 template< typename TPOD >
 class CRenderCte : public TPOD, public CCteBuffer {
 public:
@@ -36,8 +41,6 @@ cb_camera.world = ...
 cb_camera.updateGPU();
 cb_camera.activate();
 */
-
-
 
 #endif
 

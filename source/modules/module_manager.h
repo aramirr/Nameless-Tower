@@ -22,6 +22,8 @@ public:
 	void loadModules(const std::string& filename);
 	void loadGamestates(const std::string& filename);
 
+  LRESULT OnOSMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
 private:
   bool startModules(VModules& modules);
   bool stopModules(VModules& modules);

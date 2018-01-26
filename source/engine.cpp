@@ -4,7 +4,7 @@
 #include "modules/game/module_splash.h"
 #include "modules/game/module_main_menu.h"
 #include "modules/game/module_gameover.h"
-
+#include "modules/game/module_test_axis.h"
 
 //--------------------------------------------------------------------------------------
 CEngine& CEngine::get() {
@@ -13,29 +13,26 @@ CEngine& CEngine::get() {
 }
 
 CEngine::CEngine()
-	: _module_render("render")
+  : _module_render("render")
+  , _module_entities("entities")
+  , _module_ia("ia")
 {}
 
 bool CEngine::start() {
-  static CModuleSplash module_splash("splash");
+
+  static CModuleSplash   module_splash("splash");
   static CModuleMainMenu module_main_menu("main_menu");
   static CModuleGameOver module_game_over("game_over");
+  static CModuleTestAxis module_test_axis("test_axis");
 
-	_modules.registerSystemModule(&_module_render);
+  _modules.registerSystemModule(&_module_render);
+  _modules.registerSystemModule(&_module_entities);
+	_modules.registerSystemModule(&_module_ia);
+
 	_modules.registerGameModule(&module_splash);
 	_modules.registerGameModule(&module_main_menu);
-	_modules.registerGameModule(&module_game_over);
-
-  /*static CGameState gs_splash("splash");
-  static CGameState gs_main_menu("main menu");
-  static CGameState gs_game_over("game over");
-  gs_splash.push_back(&module_splash);
-  gs_main_menu.push_back(&module_main_menu);
-  gs_game_over.push_back(&module_game_over);*/
-  
-  //_modules.registerGameState(&gs_splash);
-  //_modules.registerGameState(&gs_main_menu);
-  //_modules.registerGameState(&gs_game_over);
+  _modules.registerGameModule(&module_game_over);
+	_modules.registerGameModule(&module_test_axis);
 
 	_modules.loadModules("data/modules.json");
 	_modules.loadGamestates("data/gamestates.json");
@@ -43,7 +40,7 @@ bool CEngine::start() {
   bool ok = true;
   ok &= _modules.start();
 
-  _modules.changeGameState("splash");
+  _modules.changeGameState("testing");
 
   return ok;
 }
@@ -61,5 +58,5 @@ void CEngine::update(float delta)
 
 void CEngine::render()
 {
-  _modules.render();
+  _module_render.generateFrame();
 }

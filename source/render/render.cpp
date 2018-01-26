@@ -59,12 +59,42 @@ bool CRender::createDevice(int new_width, int new_height) {
 
   dbg("Render.Device created at %dx%d\n", width, height);
 
+  // Crear un ZBuffer de la resolucion de mi backbuffer
+  D3D11_TEXTURE2D_DESC desc;
+  ZeroMemory(&desc, sizeof(desc));
+  desc.Width = width;
+  desc.Height = height;
+  desc.MipLevels = 1;
+  desc.ArraySize = 1;
+  desc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+  desc.SampleDesc.Count = 1;
+  desc.SampleDesc.Quality = 0;
+  desc.Usage = D3D11_USAGE_DEFAULT;
+  desc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
+  desc.CPUAccessFlags = 0;
+  desc.MiscFlags = 0;
+
+  hr = Render.device->CreateTexture2D(&desc, NULL, &depthTexture);
+  if (FAILED(hr))
+    return false;
+
+  // Create the depth stencil view
+  D3D11_DEPTH_STENCIL_VIEW_DESC descDSV;
+  ZeroMemory(&descDSV, sizeof(descDSV));
+  descDSV.Format = desc.Format;
+  descDSV.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
+  hr = Render.device->CreateDepthStencilView(depthTexture, &descDSV, &depthStencilView);
+  if (FAILED(hr))
+    return false;
+
   return true;
 }
 
 // -------------------------------------------------------------------
 void CRender::destroyDevice() {
   if (ctx) ctx->ClearState();
+  SAFE_RELEASE(depthTexture);
+  SAFE_RELEASE(depthStencilView);
   SAFE_RELEASE(renderTargetView);
   SAFE_RELEASE(swapChain);
   SAFE_RELEASE(ctx);
@@ -75,7 +105,8 @@ void CRender::destroyDevice() {
 void CRender::startRenderInBackbuffer() {
   assert(ctx);
 
-  ctx->OMSetRenderTargets(1, &renderTargetView, NULL);
+  // Activate also the depthStencil 
+  ctx->OMSetRenderTargets(1, &renderTargetView, depthStencilView);
 
   // Setup the viewport
   D3D11_VIEWPORT vp;

@@ -18,6 +18,7 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <fstream>
 
 // Windows/OS Platform
 #define NOMINMAX                    // To be able to use std::min without windows problems
@@ -25,10 +26,16 @@
 #include <d3d11.h>
 
 // Engine
-#include "engine.h"
+#include "utils/json.hpp"
+using json = nlohmann::json;
+
 #include "geometry/geometry.h"
 #include "render/render.h"
 #include "render/vertex_declarations.h"
 #include "utils/utils.h"
+#include "imgui/imgui.h"
+#include "camera/camera.h"
+#include "engine.h"
+#include "resources/resources_manager.h"
 
 #endif

@@ -10,6 +10,10 @@ LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
   PAINTSTRUCT ps;
   HDC hdc;
 
+  // If the OS processes it, do not process anymore
+  if (CEngine::get().getModules().OnOSMsg(hWnd, message, wParam, lParam))
+    return 1;
+
   switch (message)
   {
   case WM_PAINT:
@@ -94,8 +98,8 @@ void CApp::mainLoop() {
 //--------------------------------------------------------------------------------------
 bool CApp::readConfig() {
   // ...
-  xres = 640;
-  yres = 480;
+  xres = 1024;
+  yres = 640;
 
   CEngine::get().getRender().configure(xres, yres);
   return true;
