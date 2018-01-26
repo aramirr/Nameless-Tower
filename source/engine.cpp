@@ -5,6 +5,8 @@
 #include "modules/game/module_main_menu.h"
 #include "modules/game/module_gameover.h"
 
+#include "modules/test/module_test_input.h"
+
 
 //--------------------------------------------------------------------------------------
 CEngine& CEngine::get() {
@@ -21,12 +23,14 @@ bool CEngine::start() {
   static CModuleSplash module_splash("splash");
   static CModuleMainMenu module_main_menu("main_menu");
   static CModuleGameOver module_game_over("game_over");
+	static CModuleTestInput module_test_input("test_input");
 
 	_modules.registerSystemModule(&_module_render);
 	_modules.registerSystemModule(&_module_input);
 	_modules.registerGameModule(&module_splash);
 	_modules.registerGameModule(&module_main_menu);
 	_modules.registerGameModule(&module_game_over);
+	_modules.registerGameModule(&module_test_input);
 
 	_modules.loadModules("data/modules.json");
 	_modules.loadGamestates("data/gamestates.json");
@@ -34,7 +38,7 @@ bool CEngine::start() {
   bool ok = true;
   ok &= _modules.start();
 
-  _modules.changeGameState("splash");
+  _modules.changeGameState("test");
 
   return ok;
 }

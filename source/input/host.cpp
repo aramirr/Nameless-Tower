@@ -1,8 +1,12 @@
 #include "mcv_platform.h"
 #include "host.h"
+#include "mapping.h"
 
 namespace Input
 {
+	CHost::CHost()
+		: _mapping(*this)
+	{}
 
 	void CHost::update(float delta)
 	{
@@ -12,6 +16,8 @@ namespace Input
 			device->updateMouseData(delta, _mouse);
 			device->updatePadData(delta, _pad);
 		}
+
+		_mapping.update(delta);
 	}
 
 	void CHost::assignDevice(IDevice* device)
@@ -19,7 +25,16 @@ namespace Input
 		_devices.push_back(device);
 	}
 
-	void CHost::feedback(const TInterface_Feedback& data)
+	void CHost::assignMapping(CMapping* mapping)
+	{
+		_mapping.clear();
+		if (mapping)
+		{
+			_mapping.assignMapping(*mapping);
+		}
+	}
+
+	void CHost::feedback(const TInterface_Feedback& data) const
 	{
 		for (auto& device : _devices)
 		{
@@ -27,4 +42,16 @@ namespace Input
 		}
 	}
 
+	const TButton& CHost::button(const TButtonDef& def) const
+	{
+		static TButton dummy;
+
+		switch(def.type)
+		{
+			case KEYBOARD:		return _keyboard.key(def.id);
+			case MOUSE:				return _mouse.button(EMouseButton(def.id));
+			case PAD:					return _pad.button(EPadButton(def.id));
+			default:					return dummy;
+		}
+	}
 }

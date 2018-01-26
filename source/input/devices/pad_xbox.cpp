@@ -45,7 +45,6 @@ namespace Input
 			data._buttons[PAD_RANALOG_X].update(delta, rightAnalog.x);
 			data._buttons[PAD_RANALOG_Y].update(delta, rightAnalog.y);
 		}
-
 	}
 
 	float CPadXbox::getButtonValue(const XINPUT_STATE& state, int bt)
@@ -61,35 +60,34 @@ namespace Input
 
 	VEC2 CPadXbox::getAnalogValues(const XINPUT_STATE& state, bool left)
 	{
-		SHORT axisX;
-		SHORT axisY;
-		SHORT deadZone;
+		VEC2 value(0, 0);
+		float deadZone = 0.f;
 		if (left)
 		{
-			axisX = state.Gamepad.sThumbLX;
-			axisY = state.Gamepad.sThumbLY;
-			deadZone = XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE;
+			value.x = static_cast<float>(state.Gamepad.sThumbLX);
+			value.y = static_cast<float>(state.Gamepad.sThumbLY);
+			deadZone = static_cast<float>(XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE);
 		}
 		else
 		{
-			axisX = state.Gamepad.sThumbRX;
-			axisY = state.Gamepad.sThumbRY;
-			deadZone = XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE;
+			value.x = static_cast<float>(state.Gamepad.sThumbRX);
+			value.y = static_cast<float>(state.Gamepad.sThumbRY);
+			deadZone = static_cast<float>(XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE); ;
 		}
-		
-		VEC2 value;
-		value.x = static_cast<float>(axisX) / std::numeric_limits<SHORT>::max();
-		value.y = static_cast<float>(axisY) / std::numeric_limits<SHORT>::max();
-		float threshold = static_cast<float>(deadZone) / std::numeric_limits<SHORT>::max();
+
+		// normalize [-1..1]
+		value = value / std::numeric_limits<SHORT>().max();
+		deadZone = deadZone / std::numeric_limits<SHORT>().max();
+
 		float length = value.Length();
-		if (length < threshold)
+		if (length <= deadZone)
 		{
-			value = VEC2(0, 0);
+			value = VEC2(0.f, 0.f);
 		}
 		else
 		{
 			value.Normalize();
-			value = value * ((length - deadZone) / (1.f - deadZone));
+			value = value * ((length - deadZone) / (1.0f - deadZone));
 		}
 
 		return value;

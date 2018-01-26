@@ -12,6 +12,10 @@
 		{
 			"name" : "game_over",
 			"modules" : [ "game_over" ]
+		},
+		{
+			"name" : "test",
+			"modules" : [ "test_input" ]
 		}
 	]
 }

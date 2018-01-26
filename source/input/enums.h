@@ -2,12 +2,21 @@
 
 namespace Input
 {
-	enum PlayerId
+	enum PlayerID
 	{
-		PLAYER_1 = 0, PLAYER_2, PLAYER_3, PLAYER_4
+		PLAYER_1 = 0, PLAYER_2, PLAYER_3, PLAYER_4, NUM_PLAYERS
 	};
 
-	static const int NUM_PLAYERS = 4;
+	enum EInterface
+	{
+		KEYBOARD = 0,
+		MOUSE,
+		PAD,
+		NUM_INTERFACES
+	};
+
+	using KeyID = int;
+
 	static const int NUM_KEYBOARD_KEYS = 256;
 
 	enum EMouseButton
@@ -41,5 +50,11 @@ namespace Input
 		PAD_RANALOG_X,
 		PAD_RANALOG_Y,
 		PAD_BUTTONS
+	};
+
+	struct TButtonDef
+	{
+		EInterface type;
+		int id;
 	};
 };

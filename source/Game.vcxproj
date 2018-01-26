@@ -14,7 +14,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{BC06472A-AE43-4007-AE25-59879F8D23F2}</ProjectGuid>
     <RootNamespace>Game</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -88,6 +88,8 @@
     <ClCompile Include="input\devices\mouse.cpp" />
     <ClCompile Include="input\devices\pad_xbox.cpp" />
     <ClCompile Include="input\host.cpp" />
+    <ClCompile Include="input\interfaces\interface_mapping.cpp" />
+    <ClCompile Include="input\mapping.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mcv_platform.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -99,6 +101,7 @@
     <ClCompile Include="modules\module_manager.cpp" />
     <ClCompile Include="modules\module_render.cpp" />
     <ClCompile Include="modules\system\module_input.cpp" />
+    <ClCompile Include="modules\test\module_test_input.cpp" />
     <ClCompile Include="render\cte_buffer.cpp" />
     <ClCompile Include="render\mesh.cpp" />
     <ClCompile Include="render\pixel_shader.cpp" />
@@ -123,8 +126,10 @@
     <ClInclude Include="input\host.h" />
     <ClInclude Include="input\interfaces\interface_feedback.h" />
     <ClInclude Include="input\interfaces\interface_keyboard.h" />
+    <ClInclude Include="input\interfaces\interface_mapping.h" />
     <ClInclude Include="input\interfaces\interface_mouse.h" />
     <ClInclude Include="input\interfaces\interface_pad.h" />
+    <ClInclude Include="input\mapping.h" />
     <ClInclude Include="mcv_platform.h" />
     <ClInclude Include="modules\gamestate.h" />
     <ClInclude Include="modules\game\module_gameover.h" />
@@ -134,6 +139,7 @@
     <ClInclude Include="modules\module_manager.h" />
     <ClInclude Include="modules\module_render.h" />
     <ClInclude Include="modules\system\module_input.h" />
+    <ClInclude Include="modules\test\module_test_input.h" />
     <ClInclude Include="render\cte_buffer.h" />
     <ClInclude Include="render\mesh.h" />
     <ClInclude Include="render\pixel_shader.h" />
