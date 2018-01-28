@@ -9,7 +9,7 @@ public:
   bool start();
   bool stop();
   void update(float delta);
-  void render();
+	void render();
 
   void registerSystemModule(IModule* mod);
   void registerGameModule(IModule* mod);
@@ -17,7 +17,7 @@ public:
 
   void registerGameState(CGameState* gs);
   void changeGameState(const std::string& gsName);
-  CGameState* getGameState(const std::string& gsName);
+	CGameState* getGameState(const std::string& gsName);
 
 	void loadModules(const std::string& filename);
 	void loadGamestates(const std::string& filename);
@@ -25,6 +25,11 @@ public:
   LRESULT OnOSMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 private:
+	void applyRequestedGameState();
+	void renderDebug();
+
+	bool startModule(IModule* mod);
+	bool stopModule(IModule* mod);
   bool startModules(VModules& modules);
   bool stopModules(VModules& modules);
 
@@ -35,4 +40,6 @@ private:
 
   VGameStates _gamestates;
 	CGameState* _current_gs = nullptr;
+	CGameState* _startup_gs = nullptr;
+	CGameState* _requested_gs = nullptr;
 };

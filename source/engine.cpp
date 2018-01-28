@@ -42,12 +42,7 @@ bool CEngine::start() {
 	_modules.loadModules("data/modules.json");
 	_modules.loadGamestates("data/gamestates.json");
 
-  bool ok = true;
-  ok &= _modules.start();
-
-  _modules.changeGameState("testing");
-
-  return ok;
+	return _modules.start();
 }
 
 bool CEngine::stop() {

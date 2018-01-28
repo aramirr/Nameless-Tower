@@ -16,6 +16,7 @@ public:
   bool start() override;
   bool stop() override;
   void update(float delta) override;
+	void render() override;
 
 	void assignDevice(int hostIdx, Input::IDevice* device);
 	void assignMapping(int hostIdx, Input::CMapping* mapping);
@@ -36,8 +37,11 @@ public:
 
 	void loadButtonDefinitions(const std::string& filename);
 	const Input::TButtonDef* getButtonDefinition(const std::string& name) const;
+	const std::string& getButtonName(Input::EInterface type, int id) const;
 
 private:
+	void renderInMenu();
+
 	Input::CHost _hosts[Input::NUM_PLAYERS];
 	std::vector<Input::IDevice*> _registeredDevices;
 	std::map<std::string, Input::TButtonDef> _buttonDefinitions;

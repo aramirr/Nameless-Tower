@@ -1,4 +1,5 @@
 {
+	"startup" : "test_axis",
 	"gamestates" : 
 	[
 		{
@@ -14,8 +15,12 @@
 			"modules" : [ "game_over" ]
 		},
 		{
-			"name" : "testing",
+			"name" : "test_axis",
 			"modules" : [ "test_axis" ]
+		},
+		{
+			"name" : "test_input",
+			"modules" : [ "test_input" ]
 		}
 	]
 }

@@ -8,7 +8,14 @@ using json = nlohmann::json;
 
 bool CModuleManager::start()
 {
-  return startModules(_system_modules);
+  bool ok = startModules(_system_modules);
+
+	if (_startup_gs)
+	{
+		changeGameState(_startup_gs->getName());
+	}
+
+	return ok;
 }
 
 bool CModuleManager::stop() 
@@ -44,6 +51,8 @@ LRESULT CModuleManager::OnOSMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPara
 
 void CModuleManager::update(float delta)
 {
+	applyRequestedGameState();
+
 	for (auto& mod : _update_modules)
 	{
 		if (mod->isActive()) 
@@ -62,6 +71,8 @@ void CModuleManager::render()
 			mod->render();
 		}
 	}
+
+	renderDebug();
 }
 
 void CModuleManager::registerSystemModule(IModule* mod)
@@ -107,19 +118,31 @@ CGameState* CModuleManager::getGameState(const std::string& gsName)
 
 void CModuleManager::changeGameState(const std::string& gsName)
 {
-  // stop current game modules
-	if (_current_gs)
+	CGameState* gs = getGameState(gsName);
+	if (gs)
 	{
-		stopModules(*_current_gs);
+		_requested_gs = gs;
 	}
+}
 
-  // get requested gamestate
-  CGameState* gs = getGameState(gsName);
-  assert(gs);
-	
-  // start new gamestate modules
-  startModules(*gs);
-	_current_gs = gs;
+bool CModuleManager::startModule(IModule* mod)
+{
+	if (mod && !mod->isActive() && mod->start())
+	{
+		mod->setActive(true);
+		return true;
+	}
+	return false;
+}
+
+bool CModuleManager::stopModule(IModule* mod)
+{
+	if (mod && mod->isActive() && mod->stop())
+	{
+		mod->setActive(false);
+		return true;
+	}
+	return false;
 }
 
 bool CModuleManager::startModules(VModules& modules)
@@ -127,11 +150,7 @@ bool CModuleManager::startModules(VModules& modules)
   bool ok = true;
   for (auto& mod : modules)
   {
-    ok &= mod->start();
-		if (ok)
-		{
-			mod->setActive(true);
-		}
+		ok &= startModule(mod);
   }
   return ok;
 }
@@ -141,11 +160,7 @@ bool CModuleManager::stopModules(VModules& modules)
   bool ok = true;
   for (auto& mod : modules)
   {
-    ok &= mod->stop();
-		if (ok)
-		{
-			mod->setActive(false);
-		}
+		ok &= stopModule(mod);
   }
   return ok;
 }
@@ -218,5 +233,66 @@ void CModuleManager::loadGamestates(const std::string& filename)
 		}
 
 		registerGameState(newGs);
+	}
+
+	std::string start_name = json_data["startup"].get<std::string>();
+	_startup_gs = getGameState(start_name);
+}
+
+void CModuleManager::applyRequestedGameState()
+{
+	if (_requested_gs)
+	{
+		// stop current game modules
+		if (_current_gs)
+		{
+			stopModules(*_current_gs);
+		}
+
+		// start new gamestate modules
+		startModules(*_requested_gs);
+		
+		_current_gs = _requested_gs;
+		_requested_gs = nullptr;
+	}
+}
+
+void CModuleManager::renderDebug()
+{
+	if (ImGui::TreeNode("Modules"))
+	{
+		for (auto& mod : _registered_modules)
+		{
+			bool active = mod->isActive();
+			if (ImGui::Checkbox(mod->getName().c_str(), &active))
+			{
+				active ? startModule(mod) : stopModule(mod);
+			}
+		}
+
+		ImGui::TreePop();
+	}
+	if (ImGui::TreeNode("GameStates"))
+	{
+		ImGui::Text("Startup:");
+		ImGui::SameLine();
+		if (_startup_gs && ImGui::Button(_startup_gs->getName().c_str()))
+		{
+			changeGameState(_startup_gs->getName());
+		}
+
+		if (ImGui::BeginCombo("Current", _current_gs ? _current_gs->getName().c_str() : "none"))
+		{
+			for (auto& gs : _gamestates)
+			{
+				if (ImGui::Selectable(gs->getName().c_str(), gs == _current_gs))
+				{
+					changeGameState(gs->getName());
+				}
+			}
+			ImGui::EndCombo();
+		}
+
+		ImGui::TreePop();
 	}
 }

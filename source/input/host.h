@@ -25,6 +25,7 @@ namespace Input
 		const TInterface_Pad& pad() const { return _pad; }
 		const TInterface_Mapping& mapping() const { return _mapping; }
 		const TButton& button(const TButtonDef& def) const;
+		const VDevices& devices() const { return _devices; }
 
 		void feedback(const TInterface_Feedback& data) const;
 
