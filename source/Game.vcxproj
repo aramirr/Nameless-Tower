@@ -82,6 +82,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
+    <ClCompile Include="camera\controllers\camera_controller_free.cpp" />
+    <ClCompile Include="camera\controllers\camera_controller_orbit.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity\entity.cpp" />
     <ClCompile Include="geometry\angular.cpp" />
@@ -111,7 +113,9 @@
     <ClCompile Include="modules\module_ia.cpp" />
     <ClCompile Include="modules\module_manager.cpp" />
     <ClCompile Include="modules\module_render.cpp" />
+    <ClCompile Include="modules\system\module_cameras.cpp" />
     <ClCompile Include="modules\system\module_input.cpp" />
+    <ClCompile Include="modules\test\module_test_cameras.cpp" />
     <ClCompile Include="modules\test\module_test_input.cpp" />
     <ClCompile Include="render\cte_buffer.cpp" />
     <ClCompile Include="render\mesh\mesh.cpp" />
@@ -131,6 +135,9 @@
   <ItemGroup>
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
     <ClInclude Include="camera\camera.h" />
+    <ClInclude Include="camera\camera_controller.h" />
+    <ClInclude Include="camera\controllers\camera_controller_free.h" />
+    <ClInclude Include="camera\controllers\camera_controller_orbit.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="entity\entity.h" />
     <ClInclude Include="geometry\angular.h" />
@@ -168,7 +175,9 @@
     <ClInclude Include="modules\module_ia.h" />
     <ClInclude Include="modules\module_manager.h" />
     <ClInclude Include="modules\module_render.h" />
+    <ClInclude Include="modules\system\module_cameras.h" />
     <ClInclude Include="modules\system\module_input.h" />
+    <ClInclude Include="modules\test\module_test_cameras.h" />
     <ClInclude Include="modules\test\module_test_input.h" />
     <ClInclude Include="render\cte_buffer.h" />
     <ClInclude Include="render\mesh\mesh.h" />

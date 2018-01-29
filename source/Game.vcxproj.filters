@@ -130,6 +130,18 @@
     <ClCompile Include="modules\game\module_test_axis.cpp">
       <Filter>modules\game</Filter>
     </ClCompile>
+    <ClCompile Include="modules\test\module_test_cameras.cpp">
+      <Filter>modules\test</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\system\module_cameras.cpp">
+      <Filter>modules\system</Filter>
+    </ClCompile>
+    <ClCompile Include="camera\controllers\camera_controller_orbit.cpp">
+      <Filter>camera\controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="camera\controllers\camera_controller_free.cpp">
+      <Filter>camera\controllers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -185,6 +197,9 @@
     </Filter>
     <Filter Include="input\interfaces">
       <UniqueIdentifier>{2a9c7dff-51a9-4ed9-8671-456d300842cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="camera\controllers">
+      <UniqueIdentifier>{ad911070-d48a-4b1d-a39b-b386fc2dd9ef}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -390,6 +405,21 @@
     </ClInclude>
     <ClInclude Include="modules\game\module_test_axis.h">
       <Filter>modules\game</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\test\module_test_cameras.h">
+      <Filter>modules\test</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\system\module_cameras.h">
+      <Filter>modules\system</Filter>
+    </ClInclude>
+    <ClInclude Include="camera\controllers\camera_controller_orbit.h">
+      <Filter>camera\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="camera\camera_controller.h">
+      <Filter>camera</Filter>
+    </ClInclude>
+    <ClInclude Include="camera\controllers\camera_controller_free.h">
+      <Filter>camera\controllers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

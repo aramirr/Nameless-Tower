@@ -5,6 +5,7 @@
 #include "modules/module_entities.h"
 #include "modules/module_ia.h"
 #include "modules/system/module_input.h"
+#include "modules/system/module_cameras.h"
 
 class CEngine
 {
@@ -21,6 +22,7 @@ public:
   CModuleRender& getRender() { return _module_render; }
   CModuleIA& getIA() { return _module_ia; }
   CModuleInput& getInput() { return _module_input; }
+  CModuleCameras& getCameras() { return _module_cameras; }
 
 private:
   CModuleManager  _modules;
@@ -28,6 +30,7 @@ private:
   CModuleEntities _module_entities;
 	CModuleIA       _module_ia;
 	CModuleInput    _module_input;
+  CModuleCameras  _module_cameras;
 };
 
 #define Engine CEngine::get()

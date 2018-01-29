@@ -13,5 +13,25 @@
 		"name" : "blue",
 		"all" : false,
 		"buttons" : [ "pad_lanalogx"]
+	},
+	{
+		"name" : "front",
+		"all" : false,
+		"buttons" : [ "w", "up", "pad_lanalogy"]
+	},
+	{
+		"name" : "back",
+		"all" : false,
+		"buttons" : [ "s", "down"]
+	},
+	{
+		"name" : "left",
+		"all" : false,
+		"buttons" : [ "a", "left"]
+	},
+	{
+		"name" : "right",
+		"all" : false,
+		"buttons" : [ "d", "right", "pad_lanalogx"]
 	}
 ]
