@@ -13,6 +13,7 @@ class CApp {
   // 
   int xres = 0;
   int yres = 0;
+  CTimer time_since_last_render;
 
   static CApp* app_instance;
 

@@ -202,6 +202,8 @@ bool CApp::readConfig() {
   xres = 1024;
   yres = 640;
 
+  time_since_last_render.reset();
+
   CEngine::get().getRender().configure(xres, yres);
   return true;
 }
@@ -218,9 +220,8 @@ bool CApp::stop() {
 
 //--------------------------------------------------------------------------------------
 void CApp::doFrame() {
-  static const float frameTime = 1.f / 60.f;
-  CEngine::get().update(frameTime);
+  float dt = time_since_last_render.elapsedAndReset();
+  CEngine::get().update(dt);
   CEngine::get().render();
-  Sleep(static_cast<DWORD>(frameTime * 1000.f));
 }
 

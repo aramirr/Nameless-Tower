@@ -1,5 +1,24 @@
 #include "mcv_platform.h"
 #include "entity.h"
+
+DECL_OBJ_MANAGER("entity", CEntity);
+
+void CEntity::set(uint32_t comp_type, CHandle new_comp) {
+  assert(comp_type < CHandle::max_types);
+  assert(!comps[comp_type].isValid());
+  comps[comp_type] = new_comp;
+  new_comp.setOwner(CHandle(this));
+}
+
+void CEntity::debugInMenu() {
+  for (int i = 0; i < CHandle::max_types; ++i) {
+    CHandle h = comps[i];
+    if (h.isValid()) 
+      h.debugInMenu();
+  }
+}
+
+
 #include "render/mesh/mesh_loader.h"
 #include "render/render_objects.h"
 #include "modules/module_ia.h"

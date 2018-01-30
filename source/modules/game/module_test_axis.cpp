@@ -6,6 +6,8 @@
 #include "modules/module_entities.h"
 #include "resources/resources_manager.h"
 #include "render/texture/texture.h"
+#include "handle/handle.h"
+#include "components/comp_name.h"
 
 extern CRenderTechnique tech_solid;
 
@@ -97,6 +99,18 @@ bool CModuleTestAxis::start()
 
   cb_object.activate();
   cb_camera.activate();
+
+  getHandleManager<TCompName>()->init(128);
+  getHandleManager<CEntity>()->init(128);
+
+  auto om = CHandleManager::getByName("name");
+  CHandle h = om->createHandle();
+  assert(h.isValid());
+  TCompName* c_name = h;
+  c_name->setName("Peter");
+
+  json j = loadJson("data/test.json");
+  h.load(j, TEntityParseContext());
 
   return true;
 }

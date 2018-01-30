@@ -2,6 +2,7 @@
 #include "module_entities.h"
 #include "render/render_objects.h"
 #include "render/texture/texture.h"
+#include "entity/entity.h"
 
 std::vector< TEntity* > entities;
 
@@ -37,6 +38,13 @@ void CModuleEntities::render()
 {
 
   Resources.debugInMenu();
+
+  // For each handle manager defined
+  for (uint32_t i = 1; i < CHandleManager::getNumDefinedTypes(); ++i) {
+    auto hm = CHandleManager::getByType(i);
+    if (hm) 
+      hm->debugInMenuAll();
+  }
 
   if (ImGui::TreeNode("Entities")) {
 

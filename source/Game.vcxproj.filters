@@ -130,6 +130,15 @@
     <ClCompile Include="modules\game\module_test_axis.cpp">
       <Filter>modules\game</Filter>
     </ClCompile>
+    <ClCompile Include="handle\handle_manager.cpp">
+      <Filter>handle</Filter>
+    </ClCompile>
+    <ClCompile Include="handle\handle_def.cpp">
+      <Filter>handle</Filter>
+    </ClCompile>
+    <ClCompile Include="components\comp_name.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -185,6 +194,12 @@
     </Filter>
     <Filter Include="input\interfaces">
       <UniqueIdentifier>{2a9c7dff-51a9-4ed9-8671-456d300842cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="handle">
+      <UniqueIdentifier>{853f815f-18b8-44cc-944c-17d979fc6f48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components">
+      <UniqueIdentifier>{6eab8132-6d47-4b87-afd0-10534d4d1268}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -390,6 +405,27 @@
     </ClInclude>
     <ClInclude Include="modules\game\module_test_axis.h">
       <Filter>modules\game</Filter>
+    </ClInclude>
+    <ClInclude Include="handle\handle.h">
+      <Filter>handle</Filter>
+    </ClInclude>
+    <ClInclude Include="handle\handle_def.h">
+      <Filter>handle</Filter>
+    </ClInclude>
+    <ClInclude Include="handle\handle_manager.h">
+      <Filter>handle</Filter>
+    </ClInclude>
+    <ClInclude Include="handle\object_manager.h">
+      <Filter>handle</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_base.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_name.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\timer.h">
+      <Filter>utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
