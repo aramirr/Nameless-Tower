@@ -13,6 +13,6 @@ public:
   CModuleIA(const std::string& aname) : IModule(aname) { }
   void update(float delta) override;
   void render() override;
-  IAIController* getNewAIControler(const json& j, CEntity* e);
+  IAIController* getNewAIControler(const json& j, CHandle h_ia);
 };
 

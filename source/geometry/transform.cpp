@@ -45,6 +45,7 @@ void CTransform::setYawPitchRoll(float new_yaw, float new_pitch, float new_roll 
 }
 
 void CTransform::lookAt(VEC3 new_pos, VEC3 new_target) {
+  pos = new_pos;
   VEC3 front = new_target - new_pos;
   float yaw, pitch;
   getYawPitchFromVector(front, &yaw, &pitch);

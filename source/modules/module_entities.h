@@ -15,5 +15,4 @@ public:
   void render() override;
 };
 
-CHandle getEntityByName(const char* name);
-bool parseScene(const std::string& filename);
+CHandle getEntityByName(const std::string& name);

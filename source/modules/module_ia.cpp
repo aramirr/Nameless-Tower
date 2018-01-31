@@ -14,7 +14,7 @@ void CModuleIA::render()
 }
 
 // 
-IAIController* CModuleIA::getNewAIControler(const json& j, CEntity* e) {
+IAIController* CModuleIA::getNewAIControler(const json& j, CHandle h_ia) {
   IAIController* c = nullptr;
   
   if (j["type"] == "turret") {

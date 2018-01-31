@@ -151,6 +151,12 @@
     <ClCompile Include="components\comp_ia.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="components\comp_circular_controller.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\comp_camera.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -449,6 +455,12 @@
       <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="components\comp_ia.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_circular_controller.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_camera.h">
       <Filter>components</Filter>
     </ClInclude>
   </ItemGroup>

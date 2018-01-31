@@ -2,6 +2,25 @@
 #include "entity_parser.h"
 #include "entity.h"
 
+// Find in the current list of entities created, the first entity matching
+// the given name
+CHandle TEntityParseContext::findEntityByName(const std::string& name) const {
+
+  // Search linearly in the list of entity currently loaded
+  for (auto h : entities_loaded) {
+    CEntity* e = h;
+    if (e->getName() == name )
+      return h;
+  }
+
+  // Delegate it to my parent
+  if (parent)
+    return parent->findEntityByName(name);
+
+  return getEntityByName(name);
+}
+
+// 
 bool parseScene(const std::string& filename, TEntityParseContext& ctx) {
 
   ctx.filename = filename;
@@ -31,6 +50,13 @@ bool parseScene(const std::string& filename, TEntityParseContext& ctx) {
     }
 
   }
+
+  // Notify each entity created that we have finished
+  // processing this file
+  for (auto h : ctx.entities_loaded) {
+    
+  }
+
 
   return true;
 }

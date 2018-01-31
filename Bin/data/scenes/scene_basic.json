@@ -13,7 +13,7 @@
 	},
 	{
 		"entity": {
-			"name": "peter",
+			"name": "teapot",
 			"render" : {
 				"mesh": "data/meshes/Teapot001.mesh",
 				"texture": "data/textures/wood_d.dds"
@@ -26,11 +26,18 @@
 	},
 	{
 		"entity": {
-			"name": "Henry",
+			"name": "xthe_camera",
 			"transform": {
-				"pos": "0 0 3"
+				"pos": "0 3 3"
 			},
-			"render" : {}
+			"render" : {},
+			"circular_controller" : {
+				"radius" : 3,
+				"target" : "teapot"
+			},
+			"camera" : {
+				"fov" : 80 
+			}
 		}
 	}
 ]

@@ -5,15 +5,9 @@
 #include "entity/entity.h"
 #include "components/comp_render.h"
 #include "components/comp_transform.h"
+#include "components/comp_name.h"
 
 
-CHandle getEntityByName(const char* name) {
-  //for (auto& e : entities) {
-  //  if (e->name == name)
-  //    return e;
-  //}
-  return CHandle();
-}
 
 bool CModuleEntities::start()
 {
@@ -33,7 +27,12 @@ bool CModuleEntities::start()
   }
 
   // For each entry in j["update"] add entry to om_to_update
-  // ...
+  std::vector< std::string > names = j["update"];
+  for (auto& n : names) {
+    auto om = CHandleManager::getByName(n.c_str());
+    assert(om);
+    om_to_update.push_back(om);
+  }
 
   return true;
 }

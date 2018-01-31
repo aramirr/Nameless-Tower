@@ -9,10 +9,12 @@
 #include "handle/handle.h"
 #include "components/comp_name.h"
 #include "components/comp_transform.h"
+#include "components/comp_camera.h"
 #include "entity/entity_parser.h"
 
 extern CRenderTechnique tech_solid;
 
+/*
 struct TControllerFPS {
   
   VEC2    cursor;
@@ -77,9 +79,10 @@ struct TControllerFPS {
   }
 
 };
+*/
 
 CCamera        camera;
-TControllerFPS controller_fps;
+//TControllerFPS controller_fps;
 
 bool CModuleTestAxis::start()
 {
@@ -115,29 +118,25 @@ bool CModuleTestAxis::stop()
 
 void CModuleTestAxis::update(float delta)
 {
-  if (ImGui::TreeNode("Camera")) {
-    VEC3 new_pos = camera.getPosition();
-    VEC3 new_target = camera.getTarget();
-    bool changed = false;
-    changed |= ImGui::DragFloat3("Pos", &new_pos.x, 0.025f, -50.f, 50.f);
-    changed |= ImGui::DragFloat3("Target", &new_target.x, 0.025f, -50.f, 50.f);
-    if( changed ) 
-      camera.lookAt(new_pos, new_target);
-    ImGui::TreePop();
-  }
-  static bool open = false;
-  ImGui::ShowMetricsWindow(&open);
-
-  controller_fps.update(camera, delta);
-  controller_fps.debugInMenu();
-
+  //controller_fps.update(camera, delta);
+  //controller_fps.debugInMenu();
 }
 
 void CModuleTestAxis::render()
 {
   tech_solid.activate();
 
-  activateCamera(camera);
+  // Find the entity with name 'the_camera'
+  CHandle h_e_camera = getEntityByName("the_camera");
+  if (h_e_camera.isValid()) {
+    CEntity* e_camera = h_e_camera;
+    TCompCamera* c_camera = e_camera->get< TCompCamera >();
+    assert(c_camera);
+    activateCamera(*c_camera);
+  }
+  else {
+    activateCamera(camera);
+  }
 
   // Render the grid
   cb_object.obj_world = MAT44::Identity;
