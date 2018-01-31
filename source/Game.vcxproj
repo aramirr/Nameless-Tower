@@ -82,9 +82,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
+    <ClCompile Include="components\comp_ia.cpp" />
     <ClCompile Include="components\comp_name.cpp" />
+    <ClCompile Include="components\comp_render.cpp" />
+    <ClCompile Include="components\comp_transform.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity\entity.cpp" />
+    <ClCompile Include="entity\entity_parser.cpp" />
     <ClCompile Include="geometry\angular.cpp" />
     <ClCompile Include="geometry\geometry.cpp" />
     <ClCompile Include="geometry\SimpleMath.cpp" />
@@ -135,9 +139,13 @@
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
     <ClInclude Include="camera\camera.h" />
     <ClInclude Include="components\comp_base.h" />
+    <ClInclude Include="components\comp_ia.h" />
     <ClInclude Include="components\comp_name.h" />
+    <ClInclude Include="components\comp_render.h" />
+    <ClInclude Include="components\comp_transform.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="entity\entity.h" />
+    <ClInclude Include="entity\entity_parser.h" />
     <ClInclude Include="geometry\angular.h" />
     <ClInclude Include="geometry\geometry.h" />
     <ClInclude Include="geometry\SimpleMath.h" />

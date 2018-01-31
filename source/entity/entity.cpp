@@ -1,5 +1,7 @@
 #include "mcv_platform.h"
 #include "entity.h"
+#include "entity_parser.h"
+#include "components/comp_name.h"
 
 DECL_OBJ_MANAGER("entity", CEntity);
 
@@ -10,55 +12,67 @@ void CEntity::set(uint32_t comp_type, CHandle new_comp) {
   new_comp.setOwner(CHandle(this));
 }
 
+const char* CEntity::getName() const {
+  TCompName* comp_name = get<TCompName>();
+  return comp_name->getName();
+}
+
 void CEntity::debugInMenu() {
-  for (int i = 0; i < CHandle::max_types; ++i) {
-    CHandle h = comps[i];
-    if (h.isValid()) 
-      h.debugInMenu();
+  if (ImGui::TreeNode(getName())) {
+
+    for (int i = 0; i < CHandle::max_types; ++i) {
+      CHandle h = comps[i];
+      if (h.isValid()) {
+
+        // Open a tree using the name of the component
+        if (ImGui::TreeNode(h.getTypeName())) {
+          // Do the real show details of the component
+          h.debugInMenu();
+          ImGui::TreePop();
+        }
+      }
+    }
+
+    ImGui::TreePop();
   }
 }
 
+void CEntity::load(const json& j, TEntityParseContext& ctx) {
 
-#include "render/mesh/mesh_loader.h"
-#include "render/render_objects.h"
-#include "modules/module_ia.h"
-#include "render/texture/texture.h"
+  for (auto it = j.begin(); it != j.end(); ++it) {
 
-extern CVertexShader vs;
-extern CPixelShader ps;
-extern CVertexShader vs_obj;
-extern CPixelShader ps_obj;
+    auto& comp_name = it.key();
+    auto& comp_json = it.value();
 
-CRenderTechnique tech_solid = { &vs, &ps };
-CRenderTechnique tech_objs = { &vs_obj, &ps_obj };
-  
-void TEntity::load(const json& j) {
+    auto om = CHandleManager::getByName(comp_name.c_str());
+    if (!om) {
+      fatal("While parsing file %s. Invalid component named '%s'", ctx.filename.c_str(), comp_name.c_str());
+    }
+    assert(om);
+    
+    int comp_type = om->getType();      // 7
 
-  name = j.at("name").get<std::string>();
+    // This is my current handle of this type of component
+    CHandle h_comp = comps[comp_type];
+    if (h_comp.isValid()) {
+      // Give an option to reconfigure the existing comp with the new json
+      h_comp.load(comp_json, ctx);
+    }
+    else 
+    {
+      // Get a new fresh component of this type for me
+      h_comp = om->createHandle();
 
-  if (j.count("transform"))
-    transform.load(j["transform"]);
+      // Initialize the comp from the json. You still don't have an owner
+      h_comp.load(comp_json, ctx);
 
-  // Load some render mesh
-  if (j.count("mesh")) {
-    std::string name = j["mesh"];
-    mesh = Resources.get( name )->as<CRenderMesh>();
-    tech = &tech_objs;
+      // Bind it to me
+      set(comp_type, h_comp);
+    }
 
-    std::string texture_name = j["texture"];
-    texture = Resources.get(texture_name)->as<CTexture>();
   }
-  else {
-    mesh = Resources.get("axis.mesh")->as<CRenderMesh>();
-    tech = &tech_solid;
-  }
 
-
-
-  // Load an AI controller
-  if (j.count("ia")) {
-    // Get a new instance of the controller based on the json params and bind it to entity p
-    ai_controller = CEngine::get().getIA().getNewAIControler( j["ia"], this );
-  }
+  // Send a msg to the entity components to let them know
+  // the entity is fully loaded.
 
 }

@@ -3,8 +3,6 @@
 #include "handle/handle.h"
 #include "components/comp_base.h"
 
-// 1 entity son 128 handles => 128x4 => 512bytes
-
 class CEntity : public TCompBase {
 
   CHandle comps[CHandle::max_types];
@@ -15,27 +13,21 @@ public:
     assert(comp_type < CHandle::max_types);
     return comps[comp_type];
   }
+
+  template< typename TComp >
+  CHandle get() const {
+    auto om = getObjectManager<TComp>();
+    assert(om);
+    return comps[om->getType()];
+  }
+
   void debugInMenu();
 
   void set(uint32_t comp_type, CHandle new_comp);
+  void load(const json& j, TEntityParseContext& ctx);
+
+  const char* getName() const;
 
 };
 
-
-// Forward declarations
-class CRenderMesh;
-class CTexture;
-class CRenderTechnique;
-class IAIController;
-
-struct TEntity {
-  std::string  name;
-  CTransform   transform;
-  const CRenderMesh* mesh = nullptr;
-  const CTexture* texture = nullptr;
-  CRenderTechnique* tech = nullptr;
-  IAIController* ai_controller = nullptr;
-  
-  void load(const json& j);
-};
 

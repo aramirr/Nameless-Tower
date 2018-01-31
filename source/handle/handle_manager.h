@@ -53,12 +53,19 @@ protected:
   // Por nombre
   static std::map<std::string, CHandleManager*> all_manager_by_name;
 
+
   // ---------------------------------------------
   virtual void createObj(uint32_t internal_idx) = 0;
   virtual void destroyObj(uint32_t internal_idx) = 0;
   virtual void moveObj(uint32_t src_internal_idx, uint32_t dst_internal_idx) = 0;
   virtual void loadObj(uint32_t src_internal_idx, const json& j, TEntityParseContext& ctx) = 0;
   virtual void debugInMenuObj(uint32_t internal_idx) = 0;
+
+public:
+  // ---------------------------------------------------------
+  // Filled during ctor of the ObjectManagers
+  static CHandleManager* predefined_managers[CHandle::max_types];
+  static uint32_t        npredefined_managers;
 
 public:
 

@@ -51,6 +51,10 @@ public:
 
   CObjectManager(const char* new_name) : objs(nullptr) {
     name = new_name;
+
+    // Self registering in the ctor in the array of predefined managers
+    CHandleManager::predefined_managers[CHandleManager::npredefined_managers] = this;
+    CHandleManager::npredefined_managers++;
   }
 
   void init(uint32_t max_objects, bool is_multithreaded = false) override {
@@ -164,11 +168,10 @@ public:
 };
 
 #define DECL_OBJ_MANAGER( obj_name, obj_class_name ) \
+  CObjectManager< obj_class_name > om_ ## obj_class_name(obj_name); \
   template<> \
-  CObjectManager< obj_class_name >* getHandleManager<obj_class_name>() { \
-    static CObjectManager< obj_class_name > om(obj_name); \
-    return &om; \
+  CObjectManager< obj_class_name >* getObjectManager<obj_class_name>() { \
+    return &om_ ## obj_class_name; \
   }
-
 
 #endif

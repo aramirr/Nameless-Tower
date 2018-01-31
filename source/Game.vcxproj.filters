@@ -139,6 +139,18 @@
     <ClCompile Include="components\comp_name.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="components\comp_transform.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="entity\entity_parser.cpp">
+      <Filter>entity</Filter>
+    </ClCompile>
+    <ClCompile Include="components\comp_render.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\comp_ia.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -426,6 +438,18 @@
     </ClInclude>
     <ClInclude Include="utils\timer.h">
       <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_transform.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="entity\entity_parser.h">
+      <Filter>entity</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_render.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_ia.h">
+      <Filter>components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

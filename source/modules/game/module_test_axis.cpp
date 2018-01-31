@@ -8,6 +8,8 @@
 #include "render/texture/texture.h"
 #include "handle/handle.h"
 #include "components/comp_name.h"
+#include "components/comp_transform.h"
+#include "entity/entity_parser.h"
 
 extern CRenderTechnique tech_solid;
 
@@ -85,8 +87,9 @@ bool CModuleTestAxis::start()
   Resources.registerResourceClass(getResourceClassOf<CTexture>());
   Resources.registerResourceClass(getResourceClassOf<CRenderMesh>());
 
-  loadEntities("data/entities.json");
-
+  TEntityParseContext ctx;
+  parseScene("data/scenes/scene_basic.json", ctx);
+  
   camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
   camera.setPerspective(60.0f * 180.f / (float)M_PI, 0.1f, 1000.f);
 
@@ -99,18 +102,6 @@ bool CModuleTestAxis::start()
 
   cb_object.activate();
   cb_camera.activate();
-
-  getHandleManager<TCompName>()->init(128);
-  getHandleManager<CEntity>()->init(128);
-
-  auto om = CHandleManager::getByName("name");
-  CHandle h = om->createHandle();
-  assert(h.isValid());
-  TCompName* c_name = h;
-  c_name->setName("Peter");
-
-  json j = loadJson("data/test.json");
-  h.load(j, TEntityParseContext());
 
   return true;
 }

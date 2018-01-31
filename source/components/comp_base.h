@@ -11,4 +11,14 @@ struct TCompBase {
   static void registerMsgs() {}
 };
 
+#define DECL_SIBLING_ACCESS()   \
+  template< typename TComp >    \
+  CHandle get() {                            \
+    CEntity* e = CHandle(this).getOwner();   \
+    if (!e)                                  \
+      return CHandle();                      \
+    return e->get<TComp>();                  \
+  }
+
+
 #endif

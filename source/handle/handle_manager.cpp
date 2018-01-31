@@ -6,6 +6,9 @@ uint32_t CHandleManager::next_type_of_handle_manager = 1;
 CHandleManager* CHandleManager::all_managers[CHandle::max_types];
 std::map<std::string, CHandleManager*> CHandleManager::all_manager_by_name;
 
+CHandleManager* CHandleManager::predefined_managers[CHandle::max_types];
+uint32_t        CHandleManager::npredefined_managers = 0;
+
 void CHandleManager::destroyAllPendingObjects() {
   for (uint32_t i = 1; i < getNumDefinedTypes(); ++i)
     all_managers[i]->destroyPendingObjects();

@@ -1,8 +1,7 @@
 #pragma once
 
 // To de defined in the future
-struct TEntityParseContext {
-};
+struct TEntityParseContext;
 
 // CHandleManager is a class
 class CHandleManager;
@@ -15,7 +14,7 @@ class CObjectManager;
 // There is exists somewhere a function which returns
 // the handle manager of type TObj
 template<typename TObj>
-CObjectManager<TObj>* getHandleManager();
+CObjectManager<TObj>* getObjectManager();
 
 // 32 bits -> 
 class CHandle {
@@ -43,7 +42,7 @@ public:
   // pertenece al manager de ese tipo de objetos
   template< class TObj >
   CHandle(TObj* obj_addr) {
-    auto hm = getHandleManager<std::remove_const<TObj>::type>();
+    auto hm = getObjectManager<std::remove_const<TObj>::type>();
     *this = hm->getHandleFromAddr(obj_addr);
   }
 
@@ -76,7 +75,7 @@ public:
   // Create & Destroy
   template<class TObj>
   void create() {
-    auto hm = getHandleManager<TObj>();
+    auto hm = getObjectManager<TObj>();
     *this = hm->createHandle();
   }
   void destroy();
@@ -88,7 +87,7 @@ public:
     // std::remove_const<T>::type returns the TObj without const
     // Used when TObj is const*. We want the manager of <TLife> objs
     // not the manager of <const TLife>, so we use the remove_const
-    auto hm = getHandleManager< std::remove_const<TObj>::type >();
+    auto hm = getObjectManager< std::remove_const<TObj>::type >();
     return hm->getAddrFromHandle(*this);
   }
 
