@@ -66,6 +66,12 @@ void CModuleEntities::render()
   auto om = getObjectManager<CEntity>();
   om->debugInMenuAll();
 
+  if (ImGui::TreeNode("All Components...")) {
+    for (uint32_t i = 1; i < CHandleManager::getNumDefinedTypes(); ++i)
+      CHandleManager::getByType(i)->debugInMenuAll();
+    ImGui::TreePop();
+  }
+
   // Do the basic render
   auto om_render = getObjectManager<TCompRender>();
   om_render->forEach([](TCompRender* c) {
