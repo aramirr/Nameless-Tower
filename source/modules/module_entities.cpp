@@ -12,12 +12,26 @@
 bool CModuleEntities::start()
 {
   json j = loadJson("data/components.json");
-  json j_sizes = j["sizes"];
   
   // Initialize the ObjManager preregistered in their constructors
   // with the amount of components defined in the data/components.json
-  std::map< std::string, int > comp_sizes = j_sizes;
+  std::map< std::string, int > comp_sizes = j["sizes"];;
   int default_size = comp_sizes["default"];
+
+  // Reorder the init manager based on the json
+  // The bigger the number in the init_order section, the lower comp_type id you get
+  std::map< std::string, int > init_order = j["init_order"];;
+  std::sort( CHandleManager::predefined_managers
+           , CHandleManager::predefined_managers + CHandleManager::npredefined_managers
+    , [&init_order](CHandleManager* m1, CHandleManager* m2) {
+    int priority_m1 = init_order[m1->getName()];
+    int priority_m2 = init_order[m2->getName()];
+    return priority_m1 > priority_m2;
+  });
+  // Important that the entity is the first one for the chain destruction of components
+  assert(strcmp(CHandleManager::predefined_managers[0]->getName(), "entity") == 0);
+
+  // Now with the sorted array
   for (size_t i = 0; i < CHandleManager::npredefined_managers; ++i) {
     auto om = CHandleManager::predefined_managers[i];
     auto it = comp_sizes.find(om->getName());

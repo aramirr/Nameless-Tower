@@ -31,8 +31,6 @@ void TCompBulletController::load(const json& j, TEntityParseContext& ctx) {
 void TCompBulletController::update(float dt) {
 
   TCompTransform *c_tmx = get<TCompTransform>();
-  if (!c_tmx)
-    return;
   assert(c_tmx);
 
   float amount_moved = dt * speed;
