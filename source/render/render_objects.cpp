@@ -37,10 +37,12 @@ CRenderMesh* createGridXZ( int nsteps ) {
   VEC4 clr1(0.25f, 0.25f, 0.25f, 1.0f);
   for (int i = -nsteps; i <= nsteps; ++i) {
     VEC4 clr = (i % 5) ? clr1 : clr2;
-    vtxs.emplace_back(VEC3(i, 0, nsteps), clr);
-    vtxs.emplace_back(VEC3(i, 0, -nsteps), clr);
-    vtxs.emplace_back(VEC3(nsteps, 0, i), clr);
-    vtxs.emplace_back(VEC3(-nsteps, 0, i), clr);
+    float fi = (float)i;
+    float fnsteps = (float)nsteps;
+    vtxs.emplace_back(VEC3(fi, 0, fnsteps), clr);
+    vtxs.emplace_back(VEC3(fi, 0, -fnsteps), clr);
+    vtxs.emplace_back(VEC3(fnsteps, 0, fi), clr);
+    vtxs.emplace_back(VEC3(-fnsteps, 0, fi), clr);
   }
 
   if (!mesh->create(vtxs.data(), vtxs.size() * sizeof(TVtxPosClr), "PosClr", CRenderMesh::LINE_LIST))
