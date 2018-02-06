@@ -59,4 +59,11 @@ uint32_t getNextUniqueMsgID();
     return msg_id;                                    \
   }
 
+template< class TMsg >
+void CHandle::sendMsg(const TMsg& msg) {
+  CEntity* e = getObjectManager< std::remove_const<CEntity>::type >()->getAddrFromHandle(*this);
+  if (e)
+    e->sendMsg(msg);
+}
+
 #endif

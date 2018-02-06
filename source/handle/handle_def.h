@@ -98,11 +98,8 @@ public:
   void    debugInMenu();
   void    load(const json& j, TEntityParseContext& ctx);
 
-  /*
   template< class TMsg >
-  void    sendMsg(const TMsg& msg);
-
-  */
+  void sendMsg(const TMsg& msg);
 
 private:
 

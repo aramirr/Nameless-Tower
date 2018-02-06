@@ -51,9 +51,8 @@ void TCompPlayerController::update(float dt) {
     TEntityParseContext ctx;
     if (parseScene("data/prefabs/bullet.prefab", ctx)) {
       assert(!ctx.entities_loaded.empty());
-      CEntity* e = ctx.entities_loaded[0];
       // Send the entity who has generated the bullet
-      e->sendMsg(TMsgAssignBulletOwner{ CHandle(this).getOwner() });
+      ctx.entities_loaded[0].sendMsg(TMsgAssignBulletOwner{ CHandle(this).getOwner() });
     }
   }
 
