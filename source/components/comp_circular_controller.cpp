@@ -17,6 +17,15 @@ void TCompCircularController::debugInMenu() {
   }
 }
 
+void TCompCircularController::onCreate(const TMsgEntityCreated& msg) {
+  dbg("Hi, I'm TCompCircularController at onCreate\n");
+}
+
+void TCompCircularController::registerMsgs() {
+  DECL_MSG(TCompCircularController, TMsgEntityCreated, onCreate);
+}
+
+
 void TCompCircularController::load(const json& j, TEntityParseContext& ctx) {
   radius = j.value("radius", 1.0f);
   speed = j.value("speed", 1.0f);

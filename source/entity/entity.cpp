@@ -2,8 +2,16 @@
 #include "entity.h"
 #include "entity_parser.h"
 #include "components/comp_name.h"
+#include "common_msgs.h"
 
 DECL_OBJ_MANAGER("entity", CEntity);
+
+std::unordered_multimap< uint32_t, TCallbackSlot > all_registered_msgs;
+uint32_t getNextUniqueMsgID() {
+  static uint32_t unique_msg_id = 0;
+  ++unique_msg_id;
+  return unique_msg_id;
+}
 
 void CEntity::set(uint32_t comp_type, CHandle new_comp) {
   assert(comp_type < CHandle::max_types);
@@ -74,5 +82,6 @@ void CEntity::load(const json& j, TEntityParseContext& ctx) {
 
   // Send a msg to the entity components to let them know
   // the entity is fully loaded.
+  sendMsg(TMsgEntityCreated());
 
 }

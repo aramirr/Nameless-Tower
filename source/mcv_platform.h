@@ -14,6 +14,7 @@
 #include <cstdarg>
 #include <cstdint>        // uint32_t
 #include <algorithm>
+#include <unordered_map>
 
 #include <vector>
 #include <string>

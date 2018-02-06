@@ -86,6 +86,7 @@
     <ClCompile Include="components\comp_circular_controller.cpp" />
     <ClCompile Include="components\comp_ia.cpp" />
     <ClCompile Include="components\comp_name.cpp" />
+    <ClCompile Include="components\comp_player_controller.cpp" />
     <ClCompile Include="components\comp_render.cpp" />
     <ClCompile Include="components\comp_transform.cpp" />
     <ClCompile Include="engine.cpp" />
@@ -145,11 +146,14 @@
     <ClInclude Include="components\comp_circular_controller.h" />
     <ClInclude Include="components\comp_ia.h" />
     <ClInclude Include="components\comp_name.h" />
+    <ClInclude Include="components\comp_player_controller.h" />
     <ClInclude Include="components\comp_render.h" />
     <ClInclude Include="components\comp_transform.h" />
     <ClInclude Include="engine.h" />
+    <ClInclude Include="entity\common_msgs.h" />
     <ClInclude Include="entity\entity.h" />
     <ClInclude Include="entity\entity_parser.h" />
+    <ClInclude Include="entity\msgs.h" />
     <ClInclude Include="geometry\angular.h" />
     <ClInclude Include="geometry\geometry.h" />
     <ClInclude Include="geometry\SimpleMath.h" />

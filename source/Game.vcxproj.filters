@@ -157,6 +157,9 @@
     <ClCompile Include="components\comp_camera.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="components\comp_player_controller.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -462,6 +465,15 @@
     </ClInclude>
     <ClInclude Include="components\comp_camera.h">
       <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_player_controller.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="entity\msgs.h">
+      <Filter>entity</Filter>
+    </ClInclude>
+    <ClInclude Include="entity\common_msgs.h">
+      <Filter>entity</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
