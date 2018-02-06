@@ -13,6 +13,12 @@ struct TMsgAssignBulletOwner {
   DECL_MSG_ID();
 };
 
+struct TMsgDamage {
+  CHandle h_sender;
+  CHandle h_bullet;
+  DECL_MSG_ID();
+};
+
 /*
 struct TMsgTimeOut {
   DECL_MSG_ID();

@@ -8,6 +8,7 @@ class CEntity : public TCompBase {
   CHandle comps[CHandle::max_types];
 
 public:
+  ~CEntity();
 
   CHandle get(uint32_t comp_type) const {
     assert(comp_type < CHandle::max_types);

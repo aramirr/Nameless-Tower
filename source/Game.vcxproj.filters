@@ -160,6 +160,9 @@
     <ClCompile Include="components\comp_player_controller.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="components\comp_bullet_controller.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -474,6 +477,9 @@
     </ClInclude>
     <ClInclude Include="entity\common_msgs.h">
       <Filter>entity</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_bullet_controller.h">
+      <Filter>components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

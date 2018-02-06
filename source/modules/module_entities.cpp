@@ -41,6 +41,8 @@ void CModuleEntities::update(float delta)
 {
   for (auto om : om_to_update)
     om->updateAll(delta);
+
+  CHandleManager::destroyAllPendingObjects();
 }
 
 void CModuleEntities::render()
@@ -55,6 +57,8 @@ void CModuleEntities::render()
   om_render->forEach([](TCompRender* c) {
 
     TCompTransform* c_transform = c->get<TCompTransform>();
+    if (!c_transform)
+      return;
 
     cb_object.obj_world = c_transform->asMatrix();
     //cb_object.obj_color = e->color
