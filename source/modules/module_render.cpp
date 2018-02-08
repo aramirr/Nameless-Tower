@@ -3,6 +3,7 @@
 #include "windows/app.h"
 #include "imgui/imgui_impl_dx11.h"
 #include "render/render_objects.h"
+#include "render/render_utils.h"
 #include "render/texture/material.h"
 #include "render/texture/texture.h"
 #include "camera/camera.h"
@@ -47,6 +48,9 @@ bool CModuleRender::start()
   if (!createRenderObjects())
     return false;
 
+  if (!createRenderUtils())
+    return false;
+
   // --------------------------------------------
   // ImGui
   auto& app = CApp::get();
@@ -70,7 +74,10 @@ bool CModuleRender::stop()
 {
   ImGui_ImplDX11_Shutdown();
 
+  destroyRenderUtils();
   destroyRenderObjects();
+
+  Resources.destroyAll();
 
   Render.destroyDevice();
   return true;
