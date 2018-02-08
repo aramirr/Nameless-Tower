@@ -53,15 +53,12 @@
 	},
 	{
 		"entity": {
-			"name": "xthe_camera",
+			"name": "the_camera",
 			"transform": {
 				"pos": "0 3 3"
 			},
 			"render" : {},
-			"circular_controller" : {
-				"radius" : 3,
-				"target" : "teapot"
-			},
+			"flyover_controller" : {},
 			"camera" : {
 				"fov" : 80 
 			}

@@ -175,6 +175,9 @@
     <ClCompile Include="render\render_technique.cpp">
       <Filter>render</Filter>
     </ClCompile>
+    <ClCompile Include="components\comp_flyover_controller.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -501,6 +504,9 @@
     </ClInclude>
     <ClInclude Include="render\texture\material.h">
       <Filter>render\texture</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_flyover_controller.h">
+      <Filter>components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
