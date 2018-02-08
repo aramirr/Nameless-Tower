@@ -5,31 +5,38 @@ DECL_OBJ_MANAGER("render", TCompRender);
 
 #include "render/render_objects.h"
 #include "render/texture/texture.h"
-extern CVertexShader vs;
-extern CPixelShader ps;
-extern CVertexShader vs_obj;
-extern CPixelShader ps_obj;
-
-CRenderTechnique tech_solid = { &vs, &ps };
-CRenderTechnique tech_objs = { &vs_obj, &ps_obj };
+#include "render/texture/material.h"
 
 void TCompRender::debugInMenu() {
+  ImGui::ColorEdit4("Color", &color.x);
+}
+
+void TCompRender::loadMesh(const json& j, TEntityParseContext& ctx) {
+  // Load some render mesh
+  if (j.count("mesh")) {
+    std::string name_mesh = j["mesh"];
+    mesh = Resources.get(name_mesh)->as<CRenderMesh>();
+
+    std::string name_material = j["material"];
+    const CMaterial* material = Resources.get(name_material)->as<CMaterial>();
+    materials.push_back(material);
+  }
+  else {
+    mesh = Resources.get("axis.mesh")->as<CRenderMesh>();
+    const CMaterial* material = Resources.get("data/materials/solid.material")->as<CMaterial>();
+    materials.push_back(material);
+  }
 }
 
 void TCompRender::load(const json& j, TEntityParseContext& ctx) {
 
-  // Load some render mesh
-  if (j.count("mesh")) {
-    std::string name = j["mesh"];
-    mesh = Resources.get(name)->as<CRenderMesh>();
-    tech = &tech_objs;
+  if (j.is_array()) {
+    for (size_t i = 0; i < j.size(); ++i )
+      loadMesh(j[i], ctx);
+  }
 
-    std::string texture_name = j["texture"];
-    texture = Resources.get(texture_name)->as<CTexture>();
-  }
-  else {
-    mesh = Resources.get("axis.mesh")->as<CRenderMesh>();
-    tech = &tech_solid;
-  }
+  // If there is a color in the json, read it
+  if (j.count("color"))
+    color = loadVEC4(j["color"]);
 
 }

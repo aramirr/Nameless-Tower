@@ -6,13 +6,13 @@
 #include "modules/module_entities.h"
 #include "resources/resources_manager.h"
 #include "render/texture/texture.h"
+#include "render/texture/material.h"
+#include "render/render_technique.h"
 #include "handle/handle.h"
 #include "components/comp_name.h"
 #include "components/comp_transform.h"
 #include "components/comp_camera.h"
 #include "entity/entity_parser.h"
-
-extern CRenderTechnique tech_solid;
 
 /*
 struct TControllerFPS {
@@ -90,9 +90,15 @@ bool CModuleTestAxis::start()
   Resources.registerResourceClass(getResourceClassOf<CTexture>());
   Resources.registerResourceClass(getResourceClassOf<CRenderMesh>());
 
-  TEntityParseContext ctx;
-  parseScene("data/scenes/scene_basic.json", ctx);
-  
+  {
+    TEntityParseContext ctx;
+    parseScene("data/scenes/scene_basic.json", ctx);
+  }
+  {
+    TEntityParseContext ctx;
+    parseScene("data/scenes/level1.scene", ctx);
+  }
+
   camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
   camera.setPerspective(60.0f * 180.f / (float)M_PI, 0.1f, 1000.f);
 
@@ -124,7 +130,6 @@ void CModuleTestAxis::update(float delta)
 
 void CModuleTestAxis::render()
 {
-  tech_solid.activate();
 
   // Find the entity with name 'the_camera'
   CHandle h_e_camera = getEntityByName("the_camera");
@@ -142,6 +147,9 @@ void CModuleTestAxis::render()
   cb_object.obj_world = MAT44::Identity;
   cb_object.obj_color = VEC4(1,1,1,1);
   cb_object.updateGPU();
+
+  auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
+  solid->activate();
 
   auto grid = Resources.get("grid.mesh")->as<CRenderMesh>();
   grid->activateAndRender();

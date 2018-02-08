@@ -6,15 +6,25 @@
 #include "camera/camera.h"
 
 //--------------------------------------------------------------------------------------
-CVertexShader vs;
-CPixelShader ps;
-CVertexShader vs_obj;
-CPixelShader ps_obj;
-
-//--------------------------------------------------------------------------------------
 CModuleRender::CModuleRender(const std::string& name)
 	: IModule(name)
 {}
+
+bool parseTechniques() {
+  json j = loadJson("data/techniques.json");
+  for (auto it = j.begin(); it != j.end(); ++it) {
+
+    std::string tech_name = it.key();
+    json& tech_j = it.value();
+
+    CRenderTechnique* tech = new CRenderTechnique();
+    if (!tech->create(tech_name, tech_j))
+      return false;
+    Resources.registerResource(tech);
+  }
+
+  return true;
+}
 
 bool CModuleRender::start()
 {
@@ -33,18 +43,7 @@ bool CModuleRender::start()
   if (!ImGui_ImplDX11_Init(app.getWnd(), Render.device, Render.ctx))
     return false;
 
-  // --------------------------------------------
-  // my custom code
-  if (!vs.create("data/shaders/shaders.fx", "VS", "PosClr"))
-    return false;
-
-  if (!ps.create("data/shaders/shaders.fx", "PS"))
-    return false; 
-
-  if (!vs_obj.create("data/shaders/shaders_objs.fx", "VS", "PosNUv"))
-    return false;
-
-  if (!ps_obj.create("data/shaders/shaders_objs.fx", "PS"))
+  if (!parseTechniques())
     return false;
 
   setBackgroundColor(0.0f, 0.125f, 0.3f, 1.f);
@@ -59,9 +58,6 @@ LRESULT CModuleRender::OnOSMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 
 bool CModuleRender::stop()
 {
-  ps.destroy();
-  vs.destroy();
-
   ImGui_ImplDX11_Shutdown();
 
   destroyRenderObjects();
@@ -88,9 +84,6 @@ void CModuleRender::render()
   float ClearColor[4] = { 0.0f, 0.125f, 0.3f, 1.0f }; // red,green,blue,alpha
   Render.ctx->ClearRenderTargetView(Render.renderTargetView, _backgroundColor);
   Render.ctx->ClearDepthStencilView(Render.depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
-
-  vs.activate();
-  ps.activate();
 }
 
 void CModuleRender::configure(int xres, int yres)

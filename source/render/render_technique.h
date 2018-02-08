@@ -1,12 +1,15 @@
 #pragma once
 
-class CRenderTechnique {
+class CRenderTechnique : public IResource {
 public:
-  CVertexShader *vs = nullptr;
-  CPixelShader *ps = nullptr;
-  void activate() {
-    vs->activate();
-    ps->activate();
-  }
+  CVertexShader vs;
+  CPixelShader  ps;
+  
+  // CTexture* textures;
+
+  void activate() const;
+  bool create(const std::string& name, json& j);
+  void debugInMenu() override;
+  void destroy() override;
 };
 

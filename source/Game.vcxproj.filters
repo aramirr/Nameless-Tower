@@ -169,6 +169,12 @@
     <ClCompile Include="render\render_utils.cpp">
       <Filter>render</Filter>
     </ClCompile>
+    <ClCompile Include="render\texture\material.cpp">
+      <Filter>render\texture</Filter>
+    </ClCompile>
+    <ClCompile Include="render\render_technique.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -492,6 +498,9 @@
     </ClInclude>
     <ClInclude Include="render\render_utils.h">
       <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="render\texture\material.h">
+      <Filter>render\texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
