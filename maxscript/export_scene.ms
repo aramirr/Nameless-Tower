@@ -125,7 +125,7 @@ struct TMaterialExporter (
 			copyFile map_filename ofull_path
 		)
 		
-		fs.writeName json_filename
+		fs.writeKeyValue alias json_filename
 	),
 	
 	-- Exports a single std material to a json format
@@ -138,15 +138,14 @@ struct TMaterialExporter (
 			fs.writeKeyValue "shadows" true
 			fs.writeComma()
 			fs.writeKey "textures" 
-			fs.beginArray()
+			fs.beginObj()
 				
 			if classof mat == Standardmaterial then (
-				exportMap mat.diffusemap "diffuse"
+				exportMap mat.diffusemap "albedo"
 				-- ... other maps..
 			)
 		
-		--"data/textures/bricks.dds"
-		fs.endArray()
+			fs.endObj()
 		fs.endObj()
 		fs.end()
 	),
