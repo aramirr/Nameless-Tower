@@ -4,7 +4,7 @@
   "shadows": true
   ,
   "textures":
-  [
-    "data/textures/wood_d.dds"
-  ]
+  {
+    "albedo": "data/textures/wood_d.dds"
+  }
 }

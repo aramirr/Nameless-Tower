@@ -86,13 +86,10 @@ CCamera        camera;
 
 bool CModuleTestAxis::start()
 {
-  // One time at boot
-  Resources.registerResourceClass(getResourceClassOf<CTexture>());
-  Resources.registerResourceClass(getResourceClassOf<CRenderMesh>());
 
   {
     TEntityParseContext ctx;
-    parseScene("data/scenes/scene_basic.json", ctx);
+    parseScene("data/scenes/scene_basic.scene", ctx);
   }
   {
     TEntityParseContext ctx;

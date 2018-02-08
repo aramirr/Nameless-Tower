@@ -9,7 +9,7 @@ public:
     extension = ".tech";
   }
   IResource* create(const std::string& name) const override {
-    fatal("All techniques should be declared in the data/techniques.json");
+    fatal("Can't create a technique '%s'. All techniques should be declared in the data/techniques.json", name.c_str());
     return nullptr;
   }
 };

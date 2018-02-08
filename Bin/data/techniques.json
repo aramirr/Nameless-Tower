@@ -6,7 +6,7 @@
 		"ps_file": "data/shaders/shaders.fx",
 		"ps_entry_point" : "PS"
 	},
-	"basic_objs" : {
+	"textured" : {
 		"vs_file": "data/shaders/shaders_objs.fx",
 		"vs_entry_point" : "VS",
 		"vertex_type" : "PosNUv",

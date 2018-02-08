@@ -12,17 +12,20 @@ void TCompRender::debugInMenu() {
 }
 
 void TCompRender::loadMesh(const json& j, TEntityParseContext& ctx) {
-  // Load some render mesh
-  if (j.count("mesh")) {
-    std::string name_mesh = j["mesh"];
-    mesh = Resources.get(name_mesh)->as<CRenderMesh>();
 
-    std::string name_material = j["material"];
-    const CMaterial* material = Resources.get(name_material)->as<CMaterial>();
-    materials.push_back(material);
+  std::string name_mesh = j.value("mesh", "axis.mesh");
+  mesh = Resources.get(name_mesh)->as<CRenderMesh>();
+
+  if (j.count("materials")) {
+    auto& j_mats = j["materials"];
+    assert(j_mats.is_array());
+    for (size_t i = 0; i < j_mats.size(); ++i) {
+      std::string name_material = j_mats[i];
+      const CMaterial* material = Resources.get(name_material)->as<CMaterial>();
+      materials.push_back(material);
+    }
   }
   else {
-    mesh = Resources.get("axis.mesh")->as<CRenderMesh>();
     const CMaterial* material = Resources.get("data/materials/solid.material")->as<CMaterial>();
     materials.push_back(material);
   }
@@ -30,9 +33,14 @@ void TCompRender::loadMesh(const json& j, TEntityParseContext& ctx) {
 
 void TCompRender::load(const json& j, TEntityParseContext& ctx) {
 
+  // We expect an array of things to render: mesh + materials, mesh + materials, ..
   if (j.is_array()) {
     for (size_t i = 0; i < j.size(); ++i )
       loadMesh(j[i], ctx);
+  }
+  else {
+    // We accept not receiving an array of mesh inside the comp_render, for handle files
+    loadMesh(j, ctx);
   }
 
   // If there is a color in the json, read it

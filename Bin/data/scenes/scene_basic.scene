@@ -15,10 +15,14 @@
 	{
 		"entity": {
 			"name": "The Player",
-			"render" : {
-				"mesh": "data/meshes/Teapot001.mesh",
-				"texture": "data/textures/wood_d.dds"
-			}
+			"render" : [
+				{
+					"mesh": "data/meshes/Teapot001.mesh",
+					"materials" : [
+						"data/materials/madera.material"
+					]
+				}
+			]
 			,
 			"transform": {
 				"pos": "5 0 0"
@@ -33,10 +37,14 @@
 	{
 		"entity": {
 			"name": "Teapot 2",
-			"render" : {
-				"mesh": "data/meshes/Teapot001.mesh",
-				"texture": "data/textures/wood_d.dds"
-			}
+			"render" : [
+				{
+					"mesh": "data/meshes/Teapot001.mesh",
+					"materials" : [
+						"data/materials/madera.material"
+					]
+				}
+			]
 			,
 			"transform": {
 				"pos": "-4 0 0"

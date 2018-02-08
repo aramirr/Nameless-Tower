@@ -3,6 +3,8 @@
 #include "windows/app.h"
 #include "imgui/imgui_impl_dx11.h"
 #include "render/render_objects.h"
+#include "render/texture/material.h"
+#include "render/texture/texture.h"
 #include "camera/camera.h"
 
 //--------------------------------------------------------------------------------------
@@ -10,11 +12,13 @@ CModuleRender::CModuleRender(const std::string& name)
 	: IModule(name)
 {}
 
+//--------------------------------------------------------------------------------------
+// All techs are loaded from this json file
 bool parseTechniques() {
   json j = loadJson("data/techniques.json");
   for (auto it = j.begin(); it != j.end(); ++it) {
 
-    std::string tech_name = it.key();
+    std::string tech_name = it.key() + ".tech";
     json& tech_j = it.value();
 
     CRenderTechnique* tech = new CRenderTechnique();
@@ -33,6 +37,12 @@ bool CModuleRender::start()
 
   if (!CVertexDeclManager::get().create())
     return false;
+
+  // Register the resource types
+  Resources.registerResourceClass(getResourceClassOf<CTexture>());
+  Resources.registerResourceClass(getResourceClassOf<CRenderMesh>());
+  Resources.registerResourceClass(getResourceClassOf<CRenderTechnique>());
+  Resources.registerResourceClass(getResourceClassOf<CMaterial>());
 
   if (!createRenderObjects())
     return false;
