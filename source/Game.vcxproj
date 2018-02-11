@@ -45,6 +45,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)..\Bin\</OutDir>
     <IntDir>$(SolutionDir)..\Build\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(SolutionDir)..\tools\PhysX\PhysX_3.4\Include;$(SolutionDir)..\tools\PhysX\PxShared\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IntDir>$(SolutionDir)..\Build\$(Platform)\$(Configuration)\</IntDir>
@@ -61,6 +62,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>C:\Program Files (x86)\Visual Leak Detector\lib\Win64;%(AdditionalLibraryDirectories);$(SolutionDir)../libs/debug/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -119,6 +121,7 @@
     <ClCompile Include="modules\module_entities.cpp" />
     <ClCompile Include="modules\module_ia.cpp" />
     <ClCompile Include="modules\module_manager.cpp" />
+    <ClCompile Include="modules\module_physics.cpp" />
     <ClCompile Include="modules\module_render.cpp" />
     <ClCompile Include="modules\system\module_input.cpp" />
     <ClCompile Include="modules\test\module_test_input.cpp" />
@@ -188,6 +191,7 @@
     <ClInclude Include="modules\module_entities.h" />
     <ClInclude Include="modules\module_ia.h" />
     <ClInclude Include="modules\module_manager.h" />
+    <ClInclude Include="modules\module_physics.h" />
     <ClInclude Include="modules\module_render.h" />
     <ClInclude Include="modules\system\module_input.h" />
     <ClInclude Include="modules\test\module_test_input.h" />
