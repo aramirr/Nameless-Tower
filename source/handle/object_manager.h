@@ -149,7 +149,13 @@ public:
 
   void debugInMenuAll() {
     assert(objs);
-    if (ImGui::TreeNode(getName())) {
+
+    // Report some usage information about this type of object
+    // The ### tells the ImGUI to use the OM%d as Identifier of the tree, not the title text
+    // which avoids closing the tree node automatically when the title changes
+    char buf[80];
+    sprintf(buf, "%s [%d/%d (%dKb)]###OM%d", getName(), (int)size(), (int)capacity(), (int)( allocated_memory.size() >> 10 ), getType());
+    if (ImGui::TreeNode(buf)) {
       for (uint32_t i = 0; i < num_objs_used; ++i) {
         ImGui::PushID(i);
         objs[i].debugInMenu();

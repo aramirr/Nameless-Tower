@@ -5,5 +5,8 @@ Bin/*.ipdb
 Bin/*.iobj
 Build
 .vs/Game/v15
+source/.vs/
+source/ipch/
+*.db
 source/.vs/Game/v15
 /Bin/imgui.ini

@@ -84,12 +84,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
+    <ClCompile Include="components\comp_bullet_controller.cpp" />
     <ClCompile Include="components\comp_camera.cpp" />
     <ClCompile Include="components\comp_circular_controller.cpp" />
-    <ClCompile Include="components\comp_ia.cpp" />
+    <ClCompile Include="components\comp_flyover_controller.cpp" />
     <ClCompile Include="components\comp_name.cpp" />
+    <ClCompile Include="components\comp_player_controller.cpp" />
     <ClCompile Include="components\comp_render.cpp" />
     <ClCompile Include="components\comp_transform.cpp" />
+    <ClCompile Include="components\ia\ai_controller.cpp" />
+    <ClCompile Include="components\ia\ai_patrol.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity\entity.cpp" />
     <ClCompile Include="entity\entity_parser.cpp" />
@@ -131,8 +135,11 @@
     <ClCompile Include="render\pixel_shader.cpp" />
     <ClCompile Include="render\render.cpp" />
     <ClCompile Include="render\render_objects.cpp" />
+    <ClCompile Include="render\render_technique.cpp" />
+    <ClCompile Include="render\render_utils.cpp" />
     <ClCompile Include="render\shader_compile.cpp" />
     <ClCompile Include="render\texture\DDSTextureLoader.cpp" />
+    <ClCompile Include="render\texture\material.cpp" />
     <ClCompile Include="render\texture\texture.cpp" />
     <ClCompile Include="render\vertex_declarations.cpp" />
     <ClCompile Include="render\vertex_shader.cpp" />
@@ -144,15 +151,21 @@
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
     <ClInclude Include="camera\camera.h" />
     <ClInclude Include="components\comp_base.h" />
+    <ClInclude Include="components\comp_bullet_controller.h" />
     <ClInclude Include="components\comp_camera.h" />
     <ClInclude Include="components\comp_circular_controller.h" />
-    <ClInclude Include="components\comp_ia.h" />
+    <ClInclude Include="components\comp_flyover_controller.h" />
     <ClInclude Include="components\comp_name.h" />
+    <ClInclude Include="components\comp_player_controller.h" />
     <ClInclude Include="components\comp_render.h" />
     <ClInclude Include="components\comp_transform.h" />
+    <ClInclude Include="components\ia\ai_controller.h" />
+    <ClInclude Include="components\ia\ai_patrol.h" />
     <ClInclude Include="engine.h" />
+    <ClInclude Include="entity\common_msgs.h" />
     <ClInclude Include="entity\entity.h" />
     <ClInclude Include="entity\entity_parser.h" />
+    <ClInclude Include="entity\msgs.h" />
     <ClInclude Include="geometry\angular.h" />
     <ClInclude Include="geometry\geometry.h" />
     <ClInclude Include="geometry\SimpleMath.h" />
@@ -202,8 +215,10 @@
     <ClInclude Include="render\render.h" />
     <ClInclude Include="render\render_objects.h" />
     <ClInclude Include="render\render_technique.h" />
+    <ClInclude Include="render\render_utils.h" />
     <ClInclude Include="render\shader_compiler.h" />
     <ClInclude Include="render\texture\DDSTextureLoader.h" />
+    <ClInclude Include="render\texture\material.h" />
     <ClInclude Include="render\texture\texture.h" />
     <ClInclude Include="render\vertex_declarations.h" />
     <ClInclude Include="render\vertex_shader.h" />
