@@ -181,6 +181,9 @@
     <ClCompile Include="components\comp_flyover_controller.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="components\comp_collider.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -512,6 +515,9 @@
       <Filter>render\texture</Filter>
     </ClInclude>
     <ClInclude Include="components\comp_flyover_controller.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_collider.h">
       <Filter>components</Filter>
     </ClInclude>
   </ItemGroup>

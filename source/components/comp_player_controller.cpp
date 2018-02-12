@@ -2,6 +2,7 @@
 #include "entity/entity_parser.h"
 #include "comp_player_controller.h"
 #include "comp_transform.h"
+#include "comp_collider.h"
 #include "entity/common_msgs.h"
 
 DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
@@ -59,10 +60,20 @@ void TCompPlayerController::update(float dt) {
   // Using TransformNormal because I just want to rotate
   VEC3 world_speed = VEC3::TransformNormal(local_speed, c_my_transform->asMatrix());
   // Guardo la y de la posicion y le sumo la nueva posicion a la x y a la z
-  VEC3 my_new_pos = c_my_transform->getPosition() + world_speed * amount_moved;
+  VEC3 delta_move = world_speed * amount_moved;
+  VEC3 my_new_pos = c_my_transform->getPosition() + delta_move;
   c_my_transform->setYawPitchRoll(current_yaw, current_pitch, 0.f);
 
-  //Actualizo la posicion del transform
-  c_my_transform->setPosition(my_new_pos);
+  TCompCollider* comp_collider= get<TCompCollider>();
+  if(comp_collider && comp_collider->controller)
+  {
+    delta_move.y += -9.81*dt;
+    comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+  }
+  else 
+  {
+    //Actualizo la posicion del transform
+    c_my_transform->setPosition(my_new_pos);
+  }
 }
 

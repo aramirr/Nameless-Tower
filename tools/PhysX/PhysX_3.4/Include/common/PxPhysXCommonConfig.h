@@ -40,7 +40,7 @@
 https://developercommunity.visualstudio.com/content/problem/66047/possible-compiler-bug.html
 */
 #if (PX_VC == 15) && PX_WINDOWS && (_MSC_FULL_VER < 191225830)
-#error Visual studio 2017 prior to 15.5.1 is not supported because of a compiler bug.
+//#error Visual studio 2017 prior to 15.5.1 is not supported because of a compiler bug.
 #endif
 
 // define API function declaration (public API only needed because of extensions)
