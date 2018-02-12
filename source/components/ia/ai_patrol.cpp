@@ -48,7 +48,6 @@ void CAIPatrol::load(const json& j, TEntityParseContext& ctx) {
 
 }
 
-
 void CAIPatrol::IdleState()
 {
   CEntity *player = (CEntity *)getEntityByName("The Player");
@@ -57,7 +56,6 @@ void CAIPatrol::IdleState()
   bool in_fov = mypos->isInFov(ppos->getPosition(), deg2rad(60));
   if (in_fov) ChangeState("seekwpt");
 }
-
 
 void CAIPatrol::SeekWptState()
 {

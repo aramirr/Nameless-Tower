@@ -25,11 +25,11 @@ bool CModuleTestAxis::start()
   }
   {
     TEntityParseContext ctx;
-    parseScene("data/scenes/level1.scene", ctx);
+    //parseScene("data/scenes/level1.scene", ctx);
   }
 
-  camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
-  camera.setPerspective(60.0f * 180.f / (float)M_PI, 0.1f, 1000.f);
+  //camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
+  //camera.setPerspective(60.0f * 180.f / (float)M_PI, 0.1f, 1000.f);
 
   // -------------------------------------------
   if (!cb_camera.create(CB_CAMERA))
