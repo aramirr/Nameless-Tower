@@ -37,6 +37,15 @@ const char* CEntity::getName() const {
 
 void CEntity::debugInMenu() {
   if (ImGui::TreeNode(getName())) {
+    
+    // Give option to destroy the entity
+    ImGui::SameLine();
+    if (ImGui::SmallButton("Del")) {
+      CHandle(this).destroy();
+      // If destroyed, exit the menu asap
+      ImGui::TreePop();
+      return;
+    }
 
     for (int i = 0; i < CHandle::max_types; ++i) {
       CHandle h = comps[i];
