@@ -18,6 +18,7 @@ void TCompPlayerController::MovePlayer(bool left) {
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	//Detecto el teclado
+	center.y = myPos.y;
 	float distance = VEC3::Distance(myPos, center);
 	VEC3 move_vector = center + myPos;
 	c_my_transform->setPosition(center);
@@ -31,6 +32,7 @@ void TCompPlayerController::MovePlayer(bool left) {
 	if (comp_collider && comp_collider->controller)
 	{
 		VEC3 delta_move = newPos - myPos;
+		delta_move.y += -9.81*delta;
 		comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, delta, physx::PxControllerFilters());
 	}
 	else
