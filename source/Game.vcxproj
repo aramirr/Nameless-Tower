@@ -223,6 +223,7 @@
     <ClInclude Include="resources\resource.h" />
     <ClInclude Include="resources\resources_manager.h" />
     <ClInclude Include="utils\data_provider.h" />
+    <ClInclude Include="utils\directory_watcher.h" />
     <ClInclude Include="utils\json.hpp" />
     <ClInclude Include="utils\timer.h" />
     <ClInclude Include="utils\utils.h" />

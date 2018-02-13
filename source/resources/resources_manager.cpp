@@ -4,6 +4,7 @@
 CResourceManager Resources;
 
 void CResourceManager::registerResourceClass(const CResourceClass* new_class) {
+
   // Given obj can't be null
   assert(new_class);
   
@@ -18,6 +19,18 @@ void CResourceManager::registerResourceClass(const CResourceClass* new_class) {
     resource_classes[e] = new_class;
   }
 
+  resource_classes_by_file_change_priority.push_back(new_class);
+}
+
+void CResourceManager::onFileChanged(const std::string& filename) {
+  // Scan each category in the order that were registered
+  for (auto& rc : resource_classes_by_file_change_priority) {
+    // Give the oportunity to each resource to reload/refresh if the file has changed
+    for (auto& r : all_resources) {
+      if( r.second->getClass() == rc )
+        r.second->onFileChanged(filename);
+    }
+  }
 }
 
 const IResource* CResourceManager::get(const std::string& res_name) {

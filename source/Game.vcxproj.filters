@@ -514,6 +514,9 @@
     <ClInclude Include="resources\json_resource.h">
       <Filter>resources</Filter>
     </ClInclude>
+    <ClInclude Include="utils\directory_watcher.h">
+      <Filter>utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">
