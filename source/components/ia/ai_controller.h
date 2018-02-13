@@ -23,6 +23,7 @@ protected:
   CHandle         h_entity;
   CHandle         h_transform;        // Cached
   TCompTransform* getMyTransform();
+	float						delta;
 
   std::string                         state;
   // the states, as maps to functions

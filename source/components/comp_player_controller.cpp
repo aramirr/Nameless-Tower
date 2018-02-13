@@ -14,31 +14,30 @@ void TCompPlayerController::MovePlayer(bool left) {
 	// Current orientation
 	float current_yaw = 0.f;
 	float current_pitch = 0.f;
+	float amount_moved = speedFactor * delta;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	//Detecto el teclado
 	float distance = VEC3::Distance(myPos, center);
 	VEC3 move_vector = center + myPos;
 	c_my_transform->setPosition(center);
+	
 	current_yaw = left ? current_yaw + 0.001 * speedFactor : current_yaw - 0.001 * speedFactor;
 	c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 	VEC3 newPos = c_my_transform->getPosition() + (c_my_transform->getFront() * distance);
-	c_my_transform->setPosition(newPos);
-	c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-	
-	/*
-	TCompCollider* comp_collider= get<TCompCollider>();
-  if(comp_collider && comp_collider->controller)
-  {
-    delta_move.y += -9.81*dt;
-    comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
-  }
-  else 
-  {
-    //Actualizo la posicion del transform
-    c_my_transform->setPosition(my_new_pos);
-  }
-	*/
+	c_my_transform->setYawPitchRoll(current_yaw, current_pitch);	
+
+	TCompCollider* comp_collider = get<TCompCollider>();
+	if (comp_collider && comp_collider->controller)
+	{
+		VEC3 delta_move = newPos - myPos;
+		comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, delta, physx::PxControllerFilters());
+	}
+	else
+	{
+		//Actualizo la posicion del transform
+		c_my_transform->setPosition(newPos);
+	}
 }
 
 void TCompPlayerController::debugInMenu() {
