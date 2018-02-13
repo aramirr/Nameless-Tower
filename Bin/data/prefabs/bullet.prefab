@@ -4,7 +4,10 @@
 			"transform": {
 				"pos": "0 0 0"
 			},
-			"render" : {},
+			"render" : {
+				"mesh" : "circle_xz.mesh"
+			}
+			,
 			"bullet_controller" : {
 				"speed" : 4.0
 			}

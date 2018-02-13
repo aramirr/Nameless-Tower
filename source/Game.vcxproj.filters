@@ -181,6 +181,12 @@
     <ClCompile Include="resources\json_resource.cpp">
       <Filter>resources</Filter>
     </ClCompile>
+    <ClCompile Include="utils\murmur3\murmur3.cpp">
+      <Filter>utils\Murmur3</Filter>
+    </ClCompile>
+    <ClCompile Include="components\comp_tags.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -242,6 +248,9 @@
     </Filter>
     <Filter Include="components\ia">
       <UniqueIdentifier>{7aeb0eeb-059f-413e-b7de-f85b7219d16d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\Murmur3">
+      <UniqueIdentifier>{76a39d3d-d65a-4583-8455-9f2c70f20f87}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -516,6 +525,12 @@
     </ClInclude>
     <ClInclude Include="utils\directory_watcher.h">
       <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\murmur3\murmur3.h">
+      <Filter>utils\Murmur3</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_tags.h">
+      <Filter>components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
