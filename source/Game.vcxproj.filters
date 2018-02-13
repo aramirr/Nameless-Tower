@@ -178,6 +178,9 @@
     <ClCompile Include="components\comp_flyover_controller.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="resources\json_resource.cpp">
+      <Filter>resources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -507,6 +510,9 @@
     </ClInclude>
     <ClInclude Include="components\comp_flyover_controller.h">
       <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="resources\json_resource.h">
+      <Filter>resources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
