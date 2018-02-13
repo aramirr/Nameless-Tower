@@ -65,6 +65,10 @@ void CModuleEntities::render()
 
   if (ImGui::TreeNode("All Entities...")) {
 
+    ImGui::SameLine();
+    static bool flat = false;
+    ImGui::Checkbox("Flat", &flat);
+
     static ImGuiTextFilter Filter;
     ImGui::SameLine();
     Filter.Draw("Filter");
@@ -72,6 +76,8 @@ void CModuleEntities::render()
     auto om = getObjectManager<CEntity>();
     om->forEach([](CEntity* e) {
       CHandle h_e(e);
+      if (!flat && h_e.getOwner().isValid())
+        return;
       if (Filter.IsActive() && !Filter.PassFilter(e->getName()))
         return;
       ImGui::PushID(e);
@@ -90,6 +96,11 @@ void CModuleEntities::render()
 
   CTagsManager::get().debugInMenu();
 
+  //static bool is_open = false;
+  //ImGui::Checkbox("ImGui Demo", &is_open);
+  //ImGui::ShowDemoWindow(&is_open);
+   
+  // ------------------------------------------
   // Do the basic render
   auto om_render = getObjectManager<TCompRender>();
   om_render->forEach([](TCompRender* c) {

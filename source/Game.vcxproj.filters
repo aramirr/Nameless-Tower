@@ -187,6 +187,12 @@
     <ClCompile Include="components\comp_tags.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="components\comp_hierarchy.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\comp_group.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -530,6 +536,12 @@
       <Filter>utils\Murmur3</Filter>
     </ClInclude>
     <ClInclude Include="components\comp_tags.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_hierarchy.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_group.h">
       <Filter>components</Filter>
     </ClInclude>
   </ItemGroup>
