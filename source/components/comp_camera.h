@@ -7,6 +7,10 @@ class TCompCamera : public CCamera, public TCompBase {
 
 	CEntity *player;
 	VEC3 towerCentre;
+	VEC3 pos;
+	VEC3 up;
+	float dist = 10.f;
+	float h = 5.f;
 
 public:
   void debugInMenu();
