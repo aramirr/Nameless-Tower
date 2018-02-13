@@ -33,7 +33,13 @@
 				"rotation_speed" : 3.0,
 				"speed" : 3.0,
 				"dashing_speed": 5
-			}
+			},
+		  "collider": {
+			"shape": "capsule",
+			"is_character_controller": true,
+			"radius": 0.5,
+			"height": 1.0
+		  }
 		}
 	},
 	{
@@ -48,9 +54,16 @@
 				}
 			]
 			,
-			"transform": {
-				"pos": "-4 0 0"
-			}
+      "transform": {
+        "pos": "-4 0 0"
+      }
+      ,
+      "collider": {
+        "is_dynamic": false,
+        "is_trigger": true,
+        "shape": "sphere",
+        "radius": 2
+      }
 		}
 	},
 	{

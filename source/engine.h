@@ -3,6 +3,7 @@
 #include "modules/module_manager.h"
 #include "modules/module_render.h"
 #include "modules/module_entities.h"
+#include "modules/module_physics.h"
 #include "modules/module_ia.h"
 #include "modules/system/module_input.h"
 
@@ -21,11 +22,13 @@ public:
   CModuleRender& getRender() { return _module_render; }
   CModuleIA& getIA() { return _module_ia; }
   CModuleInput& getInput() { return _module_input; }
+  CModulePhysics& getPhysics() { return _module_physics; }
 
 private:
   CModuleManager  _modules;
   CModuleRender   _module_render;
   CModuleEntities _module_entities;
+  CModulePhysics _module_physics;
 	CModuleIA       _module_ia;
 	CModuleInput    _module_input;
 };

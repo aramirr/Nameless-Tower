@@ -178,6 +178,9 @@
     <ClCompile Include="components\comp_flyover_controller.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="modules\module_physics.cpp">
+      <Filter>modules\system</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -507,6 +510,9 @@
     </ClInclude>
     <ClInclude Include="components\comp_flyover_controller.h">
       <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\module_physics.h">
+      <Filter>modules\system</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

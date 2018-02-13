@@ -1,3 +1,4 @@
+
 #include "mcv_platform.h"
 #include "entity/entity_parser.h"
 #include "comp_player_controller.h"
@@ -24,6 +25,20 @@ void TCompPlayerController::MovePlayer(bool left) {
 	VEC3 newPos = c_my_transform->getPosition() + (c_my_transform->getFront() * distance);
 	c_my_transform->setPosition(newPos);
 	c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+	
+	/*
+	TCompCollider* comp_collider= get<TCompCollider>();
+  if(comp_collider && comp_collider->controller)
+  {
+    delta_move.y += -9.81*dt;
+    comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+  }
+  else 
+  {
+    //Actualizo la posicion del transform
+    c_my_transform->setPosition(my_new_pos);
+  }
+	*/
 }
 
 void TCompPlayerController::debugInMenu() {
