@@ -1,5 +1,8 @@
 #pragma once
 
+class CVertexShader;
+class CPixelShader;
+
 class CRenderTechnique : public IResource {
 
   std::string vs_file;

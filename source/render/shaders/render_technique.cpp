@@ -1,5 +1,7 @@
 #include "mcv_platform.h"
 #include "render_technique.h"
+#include "pixel_shader.h"
+#include "vertex_shader.h"
 
 // ----------------------------------------------
 class CRenderTechniqueResourceClass : public CResourceClass {

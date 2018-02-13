@@ -15,18 +15,6 @@
     <ClCompile Include="geometry\geometry.cpp">
       <Filter>geometry</Filter>
     </ClCompile>
-    <ClCompile Include="render\vertex_declarations.cpp">
-      <Filter>render</Filter>
-    </ClCompile>
-    <ClCompile Include="render\shader_compile.cpp">
-      <Filter>render</Filter>
-    </ClCompile>
-    <ClCompile Include="render\vertex_shader.cpp">
-      <Filter>render</Filter>
-    </ClCompile>
-    <ClCompile Include="render\pixel_shader.cpp">
-      <Filter>render</Filter>
-    </ClCompile>
     <ClCompile Include="render\cte_buffer.cpp">
       <Filter>render</Filter>
     </ClCompile>
@@ -172,9 +160,6 @@
     <ClCompile Include="render\texture\material.cpp">
       <Filter>render\texture</Filter>
     </ClCompile>
-    <ClCompile Include="render\render_technique.cpp">
-      <Filter>render</Filter>
-    </ClCompile>
     <ClCompile Include="components\comp_flyover_controller.cpp">
       <Filter>components</Filter>
     </ClCompile>
@@ -192,6 +177,21 @@
     </ClCompile>
     <ClCompile Include="components\comp_group.cpp">
       <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="render\shaders\shader_compile.cpp">
+      <Filter>render\shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="render\shaders\vertex_declarations.cpp">
+      <Filter>render\shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="render\shaders\vertex_shader.cpp">
+      <Filter>render\shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="render\shaders\pixel_shader.cpp">
+      <Filter>render\shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="render\shaders\render_technique.cpp">
+      <Filter>render\shaders</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -258,6 +258,9 @@
     <Filter Include="utils\Murmur3">
       <UniqueIdentifier>{76a39d3d-d65a-4583-8455-9f2c70f20f87}</UniqueIdentifier>
     </Filter>
+    <Filter Include="render\shaders">
+      <UniqueIdentifier>{020bd702-6652-4fe5-98d9-f8882f90dd57}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="windows\app.h">
@@ -268,18 +271,6 @@
       <Filter>utils</Filter>
     </ClInclude>
     <ClInclude Include="render\render.h">
-      <Filter>render</Filter>
-    </ClInclude>
-    <ClInclude Include="render\vertex_declarations.h">
-      <Filter>render</Filter>
-    </ClInclude>
-    <ClInclude Include="render\shader_compiler.h">
-      <Filter>render</Filter>
-    </ClInclude>
-    <ClInclude Include="render\vertex_shader.h">
-      <Filter>render</Filter>
-    </ClInclude>
-    <ClInclude Include="render\pixel_shader.h">
       <Filter>render</Filter>
     </ClInclude>
     <ClInclude Include="render\cte_buffer.h">
@@ -360,9 +351,6 @@
     </ClInclude>
     <ClInclude Include="modules\game\module_splash.h">
       <Filter>modules\game</Filter>
-    </ClInclude>
-    <ClInclude Include="render\render_technique.h">
-      <Filter>render</Filter>
     </ClInclude>
     <ClInclude Include="entity\entity.h">
       <Filter>entity</Filter>
@@ -543,6 +531,21 @@
     </ClInclude>
     <ClInclude Include="components\comp_group.h">
       <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="render\shaders\render_technique.h">
+      <Filter>render\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="render\shaders\shader_compiler.h">
+      <Filter>render\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="render\shaders\vertex_declarations.h">
+      <Filter>render\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="render\shaders\vertex_shader.h">
+      <Filter>render\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="render\shaders\pixel_shader.h">
+      <Filter>render\shaders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
