@@ -25,12 +25,14 @@
 			]
 			,
 			"transform": {
-				"pos": "5 0 0"
+				"pos": "15 0 0",
+				"front": "1 0 0"
 			}
 			, 
 			"player_controller" : {
 				"rotation_speed" : 3.0,
-				"speed" : 3.0
+				"speed" : 3.0,
+				"dashing_speed": 5
 			}
 		}
 	},
@@ -55,7 +57,8 @@
 		"entity": {
 			"name": "the_camera",
 			"transform": {
-				"pos": "0 3 3"
+				"pos": "-14 16 12",
+				"lookat": "-1 0 -1"
 			},
 			"render" : {},
 			"flyover_controller" : {},

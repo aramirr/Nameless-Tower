@@ -6,63 +6,119 @@
 
 DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
+void TCompPlayerController::MovePlayer(bool left) {
+	TCompTransform *c_my_transform = get<TCompTransform>();
+	VEC3 myPos = c_my_transform->getPosition();
+
+	// Current orientation
+	float current_yaw = 0.f;
+	float current_pitch = 0.f;
+	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
+
+	//Detecto el teclado
+	float distance = VEC3::Distance(myPos, center);
+	VEC3 move_vector = center + myPos;
+	c_my_transform->setPosition(center);
+	current_yaw = left ? current_yaw + 0.001 * speedFactor : current_yaw - 0.001 * speedFactor;
+	c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+	VEC3 newPos = c_my_transform->getPosition() + (c_my_transform->getFront() * distance);
+	c_my_transform->setPosition(newPos);
+	c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+}
+
 void TCompPlayerController::debugInMenu() {
   ImGui::DragFloat("Speed", &speedFactor, 0.1f, 0.f, 20.f);
-  ImGui::DragFloat("Rotation", &rotationSpeed, 0.1f, 0.f, 20.f);
+	ImGui::Text("State: %s", state.c_str());
+	ImGui::Text("Dashing ammount: %f", dashingAmount);
 }
 
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
   speedFactor = j.value("speed", 1.0f);
-  rotationSpeed = j.value("rotation_speed", 1.0f);
+  center = VEC3(0.f, 0.f, 0.f);
+	dashingSpeed = j.value("dashing_speed", 5);
+	Init();
 }
 
-void TCompPlayerController::update(float dt) {
-  
-  //Guardo mi transform
-  TCompTransform *c_my_transform = get<TCompTransform>();
+void TCompPlayerController::Init() {
+	// insert all states in the map
+	AddState("idle", (statehandler)&TCompPlayerController::IdleState);
+	AddState("run", (statehandler)&TCompPlayerController::RunningState);
+	AddState("jump", (statehandler)&TCompPlayerController::JumpingState);
+	AddState("omni", (statehandler)&TCompPlayerController::OmniDashingState);
+	AddState("dash", (statehandler)&TCompPlayerController::DashingState);
+	AddState("dead", (statehandler)&TCompPlayerController::DeadState);
 
-  //----------------------------------------------
-  //Pongo a cero la velocidad actual
-  float amount_moved = speedFactor * dt;
-  float amount_rotated = rotationSpeed * dt;
-
-  // Current orientation
-  float current_yaw = 0.f;
-  float current_pitch = 0.f;
-  c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-
-  //Detecto el teclado
-  VEC3 local_speed = VEC3::Zero;
-  if (isPressed('W'))
-    local_speed.z += 1.f;
-  if (isPressed('S'))
-    local_speed.z -= 1.f;
-  if (isPressed('A'))
-    local_speed.x += 1.f;
-  if (isPressed('D'))
-    local_speed.x -= 1.f;
-  if (isPressed('Q'))
-    current_yaw += amount_rotated;
-  if (isPressed('E'))
-    current_yaw -= amount_rotated;
-
-  const Input::TButton& bt = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
-  if (bt.getsPressed()) {
-    TEntityParseContext ctx;
-    if (parseScene("data/prefabs/bullet.prefab", ctx)) {
-      assert(!ctx.entities_loaded.empty());
-      // Send the entity who has generated the bullet
-      ctx.entities_loaded[0].sendMsg(TMsgAssignBulletOwner{ CHandle(this).getOwner() });
-    }
-  }
-
-  // Using TransformNormal because I just want to rotate
-  VEC3 world_speed = VEC3::TransformNormal(local_speed, c_my_transform->asMatrix());
-  // Guardo la y de la posicion y le sumo la nueva posicion a la x y a la z
-  VEC3 my_new_pos = c_my_transform->getPosition() + world_speed * amount_moved;
-  c_my_transform->setYawPitchRoll(current_yaw, current_pitch, 0.f);
-
-  //Actualizo la posicion del transform
-  c_my_transform->setPosition(my_new_pos);
+	// reset the state
+	ChangeState("idle");
 }
 
+void TCompPlayerController::IdleState() {
+	const Input::TButton& bt = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
+	if (bt.getsPressed()) {
+		dashingAmount = 0;
+		dashingMax = 3;
+		speedFactor = speedFactor * dashingSpeed;
+		ChangeState("dash");
+	}
+
+	if (isPressed('A')) {
+		MovePlayer(false);
+		lookingLeft = true;
+		ChangeState("run");
+	}
+	if (isPressed('D')) {
+		MovePlayer(true);
+		lookingLeft = false;
+		ChangeState("run");
+	}
+}
+
+void TCompPlayerController::RunningState() {	
+	// Compruebo si sigue corriendo
+	if (isPressed('A')) {
+		lookingLeft = true;
+		MovePlayer(false);
+	}
+	if (isPressed('D')) {
+		lookingLeft = false;
+		MovePlayer(true);
+	}
+	// Si no sigue corriendo pasa a estado idle
+	if (!isPressed('A') && !isPressed('D'))
+		ChangeState("idle");
+
+	// Si presiona la barra pasa a estado dashing
+	const Input::TButton& bt = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
+	if (bt.getsPressed()) {
+		dashingAmount = 0;
+		dashingMax = 3;
+		speedFactor = speedFactor * dashingSpeed;
+		ChangeState("dash");
+	}
+}
+
+void TCompPlayerController::JumpingState() {
+	const Input::TButton& bt = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
+	if (bt.getsPressed())
+		ChangeState("dash");
+}
+
+void TCompPlayerController::OmniDashingState() {
+}
+
+void TCompPlayerController::DashingState() {
+	if (lookingLeft)
+		MovePlayer(false);
+	else
+		MovePlayer(true);
+	
+	dashingAmount += 0.1;
+	if (dashingAmount > dashingMax) {
+		ChangeState("idle");
+		dashingAmount = 0;
+		speedFactor = speedFactor / dashingSpeed;
+	}
+}
+
+void TCompPlayerController::DeadState() {
+}
