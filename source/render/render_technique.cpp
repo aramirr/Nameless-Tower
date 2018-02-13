@@ -23,19 +23,53 @@ const CResourceClass* getResourceClassOf<CRenderTechnique>() {
 }
 
 // ----------------------------------------------------------
+bool CRenderTechnique::reloadVS() {
+  auto new_vs = new CVertexShader;
+  if (!new_vs->create(vs_file.c_str(), vs_entry_point.c_str(), vertex_type))
+    return false;
+
+  // Delete the old one if it was valid
+  if (vs)
+    delete vs;
+
+  // Keep the new one
+  vs = new_vs;
+  return true;
+}
+
+// ----------------------------------------------------------
+bool CRenderTechnique::reloadPS() {
+
+  // To support shadow map generation which does not use any PS
+  //if (ps_name.empty())
+  //  return true;
+
+  auto new_ps = new CPixelShader;
+  if (!new_ps->create(ps_file.c_str(), ps_entry_point.c_str()))
+    return false;
+
+  // Delete the old one if it was valid
+  if (ps)
+    delete ps;
+  
+  // Keep the new one
+  ps = new_ps;
+  return true;
+}
+
+// ----------------------------------------------------------
 bool CRenderTechnique::create(const std::string& name, json& j) {
 
   // --------------------------------------------
-  std::string vs_file = j.value("vs_file", "data/shaders/shaders.fx");
-  std::string vs_entry_point = j.value("vs_entry_point", "VS");
-  std::string vertex_type = j["vertex_type"];
-  std::string ps_file = j.value("ps_file", vs_file);
-  std::string ps_entry_point = j.value("ps_entry_point", "PS");
+  vs_file = j.value("vs_file", "data/shaders/shaders.fx");
+  vs_entry_point = j.value("vs_entry_point", "VS");
+  vertex_type = j["vertex_type"];
+  ps_file = j.value("ps_file", vs_file);
+  ps_entry_point = j.value("ps_entry_point", "PS");
 
-  if (!vs.create(vs_file, vs_entry_point, vertex_type))
+  if (!reloadVS())
     return false;
-
-  if (!ps.create(ps_file, ps_entry_point))
+  if (!reloadPS())
     return false;
 
   setNameAndClass(name, getResourceClassOf<CRenderTechnique>());
@@ -44,15 +78,35 @@ bool CRenderTechnique::create(const std::string& name, json& j) {
 }
 
 void CRenderTechnique::destroy() {
-  vs.destroy();
-  ps.destroy();
+  if (vs)
+    vs->destroy(), vs = nullptr;
+  if (ps)
+    ps->destroy(), ps = nullptr;
 }
 
 void CRenderTechnique::activate() const {
-  vs.activate();
-  ps.activate();
+  assert(vs);
+  vs->activate();
+  assert(ps);
+  ps->activate();
 }
 
 void CRenderTechnique::debugInMenu() {
-  ImGui::Text("Technique %s", name.c_str());
+  ImGui::LabelText("VS FX", "%s", vs_file.c_str());
+  ImGui::LabelText("VS", "%s", vs_entry_point.c_str());
+  ImGui::LabelText("PS FX", "%s", ps_file.c_str());
+  ImGui::LabelText("VS", "%s", ps_entry_point.c_str());
+}
+
+void CRenderTechnique::onFileChanged(const std::string& filename) {
+
+  if (filename == vs_file) {
+    dbg("Reloading vs of tech %s\n", this->getName().c_str());
+    reloadVS();
+  }
+
+  if (filename == ps_file) {
+    dbg("Reloading ps of tech %s\n", this->getName().c_str());
+    reloadPS();
+  }
 }

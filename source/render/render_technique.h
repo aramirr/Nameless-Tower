@@ -1,9 +1,19 @@
 #pragma once
 
 class CRenderTechnique : public IResource {
+
+  std::string vs_file;
+  std::string ps_file;
+  std::string vs_entry_point;
+  std::string ps_entry_point;
+  std::string vertex_type;
+  
+  bool reloadVS();
+  bool reloadPS();
+
 public:
-  CVertexShader vs;
-  CPixelShader  ps;
+  CVertexShader* vs = nullptr;
+  CPixelShader*  ps = nullptr;
   
   // CTexture* textures;
 
@@ -11,5 +21,6 @@ public:
   bool create(const std::string& name, json& j);
   void debugInMenu() override;
   void destroy() override;
+  void onFileChanged(const std::string& filename) override;
 };
 
