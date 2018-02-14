@@ -9,7 +9,7 @@
 	"textured" : {
 		"vs_file": "data/shaders/shaders_objs.fx",
 		"vs_entry_point" : "VS",
-		"vertex_type" : "PosNUv",
+		"vertex_type" : "PosNUvUv",
 		"ps_file": "data/shaders/shaders_objs.fx",
 		"ps_entry_point" : "PS"
 	}

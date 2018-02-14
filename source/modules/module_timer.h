@@ -7,9 +7,10 @@ class IAIController;
 
 class CModuleTimer : public IModule {
 
-public:
+protected:
 	float time_slower;
 
+public:
 	CModuleTimer(const std::string& aname) : IModule(aname) { }
 	bool start() override;
   void update(float delta) override;
