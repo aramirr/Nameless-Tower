@@ -29,6 +29,7 @@ void IAIController::update(float dt)
   assert(!state.empty());
   assert(statemap.find(state) != statemap.end());
   // this is a trusted jump as we've tested for coherence in ChangeState
+	delta = dt;
   (this->*statemap[state])();
 }
 
