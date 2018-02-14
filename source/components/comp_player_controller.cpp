@@ -1,4 +1,3 @@
-
 #include "mcv_platform.h"
 #include "entity/entity_parser.h"
 #include "comp_player_controller.h"

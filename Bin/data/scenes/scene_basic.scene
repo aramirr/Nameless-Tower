@@ -8,8 +8,8 @@
 			"render" : {},
 			"ai_patrol": {
 				"waypoints" : [ "-10 0 0", "5 0 5", "2 0 10"] 
-			}
-
+			},
+			"tags" : ["enemy"]
 		}
 	},
 	{
@@ -63,9 +63,9 @@
         "is_trigger": true,
         "shape": "sphere",
         "radius": 2
-      }
-		}
-	},
+      },
+		"tags" : ["enemy"]
+	}},
 	{
 		"entity": {
 			"name": "the_camera",
