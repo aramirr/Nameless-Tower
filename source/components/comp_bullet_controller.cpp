@@ -26,6 +26,7 @@ void TCompBulletController::registerMsgs() {
 }
 
 void TCompBulletController::load(const json& j, TEntityParseContext& ctx) {
+  h_sender = ctx.entity_starting_the_parse;
   speed = j.value("speed", 1.0f);
 }
 

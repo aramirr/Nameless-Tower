@@ -51,10 +51,13 @@ void TCompPlayerController::update(float dt) {
   const Input::TButton& bt = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
   if (bt.getsPressed()) {
     TEntityParseContext ctx;
+    ctx.entity_starting_the_parse = CHandle(this).getOwner();
+    ctx.root_transform = *(TCompTransform*)get<TCompTransform>();
     if (parseScene("data/prefabs/bullet.prefab", ctx)) {
       assert(!ctx.entities_loaded.empty());
-      // Send the entity who has generated the bullet
-      ctx.entities_loaded[0].sendMsg(TMsgAssignBulletOwner{ CHandle(this).getOwner() });
+      // No need to send the entity who has generated the bullet anymore
+      // The comp_bullet_controller will take information from ctx
+      // ctx.entities_loaded[0].sendMsg(TMsgAssignBulletOwner{ CHandle(this).getOwner() });
     }
   }
 

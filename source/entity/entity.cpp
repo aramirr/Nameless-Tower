@@ -75,7 +75,9 @@ void CEntity::load(const json& j, TEntityParseContext& ctx) {
 
     auto om = CHandleManager::getByName(comp_name.c_str());
     if (!om) {
-      fatal("While parsing file %s. Invalid component named '%s'", ctx.filename.c_str(), comp_name.c_str());
+      if( comp_name != "prefab" )
+        dbg("While parsing file %s. Unknown component named '%s'\n", ctx.filename.c_str(), comp_name.c_str());
+      continue;
     }
     assert(om);
     

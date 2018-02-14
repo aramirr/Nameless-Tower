@@ -14,28 +14,6 @@
 	},
 	{
 		"entity": {
-			"name": "The Player",
-			"render" : [
-				{
-					"mesh": "data/meshes/Teapot001.mesh",
-					"materials" : [
-						"data/materials/madera.material"
-					]
-				}
-			]
-			,
-			"transform": {
-				"pos": "5 0 0"
-			}
-			, 
-			"player_controller" : {
-				"rotation_speed" : 3.0,
-				"speed" : 3.0
-			}
-		}
-	},
-	{
-		"entity": {
 			"name": "Teapot 2",
 			"render" : [
 				{
@@ -54,14 +32,23 @@
 	},
 	{
 		"entity": {
-			"name": "the_camera",
+			"prefab" : "data/prefabs/teapot.prefab",
+			"name": "Teapot1",
 			"transform": {
-				"pos": "0 3 3"
-			},
-			"render" : {},
-			"flyover_controller" : {},
-			"camera" : {
-				"fov" : 80 
+				"pos": "5 0 3",
+				"axis": "0 1 0", 
+				"angle" : 30
+			}
+		}
+	},
+	{
+		"entity": {
+			"prefab" : "data/prefabs/teapot.prefab",
+			"name": "Teapot2",
+			"transform": {
+				"pos": "-5 0 3",
+				"axis": "0 1 0", 
+				"angle" : -30
 			}
 		}
 	}
