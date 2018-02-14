@@ -53,8 +53,9 @@ bool CModuleEntities::start()
 
 void CModuleEntities::update(float delta)
 {
+	float timeSlower = EngineTimer.getTimeSlower();
   for (auto om : om_to_update)
-    om->updateAll(delta);
+    om->updateAll(delta * timeSlower);
 
   CHandleManager::destroyAllPendingObjects();
 }

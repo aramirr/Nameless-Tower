@@ -102,6 +102,11 @@ void TCompPlayerController::RunningState() {
 	if (!isPressed('A') && !isPressed('D'))
 		ChangeState("idle");
 
+	if (isPressed('O')) {
+		EngineTimer.setTimeSlower(0.25f);
+		ChangeState("omni");
+	}
+
 	// Si presiona la barra pasa a estado dashing
 	const Input::TButton& bt = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
 	if (bt.getsPressed()) {
@@ -119,6 +124,10 @@ void TCompPlayerController::JumpingState() {
 }
 
 void TCompPlayerController::OmniDashingState() {
+	if (isPressed('P')) {
+		EngineTimer.setTimeSlower(1.f);
+		ChangeState("idle");
+	}
 }
 
 void TCompPlayerController::DashingState() {

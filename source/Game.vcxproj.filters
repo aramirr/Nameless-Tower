@@ -193,6 +193,9 @@
     <ClCompile Include="windows\app.cpp">
       <Filter>windows</Filter>
     </ClCompile>
+    <ClCompile Include="modules\module_timer.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine.h" />
@@ -454,6 +457,9 @@
     </ClInclude>
     <ClInclude Include="windows\app.h">
       <Filter>windows</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\module_timer.h">
+      <Filter>modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

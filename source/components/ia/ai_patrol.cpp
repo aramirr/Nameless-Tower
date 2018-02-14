@@ -45,6 +45,7 @@ void CAIPatrol::load(const json& j, TEntityParseContext& ctx) {
     VEC3 p = loadVEC3(it.value());
     addWaypoint(p);
   }
+	speed = j.value("speed", 2.0f);
 
 }
 
@@ -61,20 +62,21 @@ void CAIPatrol::SeekWptState()
 {
   TCompTransform *mypos = getMyTransform();
   float y, r, p;
+	float amount_moved = speed * delta;
   mypos->getYawPitchRoll(&y, &p, &r);
   if (mypos->isInLeft(getWaypoint()))
   {
-    y += 0.001f;
+    y += amount_moved;
   }
   else
   {
-    y -= 0.001f;
+    y -= amount_moved;
   }
   mypos->setYawPitchRoll(y, p, r);
   VEC3 vp = mypos->getPosition();
   VEC3 vfwd = mypos->getFront();
   vfwd.Normalize();
-  vp = vp + 0.001f*vfwd;
+  vp = vp + amount_moved * vfwd;
   mypos->setPosition(vp);
   // next wpt
   if (VEC3::Distance(getWaypoint(), vp) < 1) ChangeState("nextwpt");
@@ -98,20 +100,21 @@ void CAIPatrol::ChaseState()
   CEntity *player = (CEntity *)getEntityByName("The Player");
   TCompTransform *ppos = player->get<TCompTransform>();
   float y, r, p;
+	float amount_moved = speed * delta;
   mypos->getYawPitchRoll(&y, &p, &r);
   if (mypos->isInLeft(ppos->getPosition()))
   {
-    y += 0.001f;
+    y += amount_moved;
   }
   else
   {
-    y -= 0.001f;
+    y -= amount_moved;
   }
   mypos->setYawPitchRoll(y, p, r);
   VEC3 vp = mypos->getPosition();
   VEC3 vfwd = mypos->getFront();
   vfwd.Normalize();
-  vp = vp + 0.001f*vfwd;
+  vp = vp + amount_moved * vfwd;
   mypos->setPosition(vp);
 
   bool in_fov = mypos->isInFov(ppos->getPosition(), deg2rad(60));
