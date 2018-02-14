@@ -21,7 +21,11 @@
             "data/materials/GeoSphere001_mtl.material"
           ]
         }
-      ]
+      ],
+	"collider": {
+        "shape": "plane"
+      }
+
     }
   }
 ]
