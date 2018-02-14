@@ -124,7 +124,7 @@ void TCompPlayerController::JumpingState() {
 }
 
 void TCompPlayerController::OmniDashingState() {
-	if (isPressed('P')) {
+	if (!isPressed('O')) {
 		EngineTimer.setTimeSlower(1.f);
 		ChangeState("idle");
 	}
