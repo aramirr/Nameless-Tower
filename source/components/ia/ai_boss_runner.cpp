@@ -42,6 +42,7 @@ void CAIBossRunner::load(const json& j, TEntityParseContext& ctx) {
 	Init();
 	chase_distance = j.value("chase_distance", 3.0f);
 	attack_distance = j.value("attack_distance", 1.0f);
+	speed_factor = j.value("speed_factor", 5.0f);
 	auto& j_waypoints = j["waypoints"];
 	for (auto it = j_waypoints.begin(); it != j_waypoints.end(); ++it) {
 		VEC3 p = loadVEC3(it.value());
@@ -105,13 +106,15 @@ void CAIBossRunner::AppearState() {
 	ChangeState("chase");
 }
 
-void CAIBossRunner::ChaseState() {
+void CAIBossRunner::ChaseState(float dt) {
 	TCompTransform *my_pos = getMyTransform();
 	CEntity *player = (CEntity *)getEntityByName("The Player");
 	TCompTransform *ppos = player->get<TCompTransform>();
 
 	TCompRender *my_render = getMyRender();
 	my_render->color = VEC4(0, 1, 0, 1);
+
+	float amount_moved = speed_factor * dt;
 	
 	float y, p, r;
 	my_pos->getYawPitchRoll(&y, &p, &r);
@@ -119,7 +122,7 @@ void CAIBossRunner::ChaseState() {
 	if (going_right) {
 		if (my_pos->isInFront(ppos->getPosition())) {
 			my_pos->setPosition(tower_center);
-			y += 0.0005f;
+			y += 0.1 * amount_moved;
 			my_pos->setYawPitchRoll(y, p, r);
 			my_pos->setPosition(my_pos->getPosition() - my_pos->getLeft() * distance_center);
 		}
@@ -132,7 +135,7 @@ void CAIBossRunner::ChaseState() {
 	else {
 		if (my_pos->isInFront(ppos->getPosition())) {
 			my_pos->setPosition(tower_center);
-			y -= 0.0005f;
+			y -= 0.1 * amount_moved;
 			my_pos->setYawPitchRoll(y, p, r);
 			my_pos->setPosition(my_pos->getPosition() + my_pos->getLeft() * distance_center);
 		}

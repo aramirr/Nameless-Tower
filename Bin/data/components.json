@@ -10,9 +10,11 @@
 	"update" : [
 		"circular_controller",
 		"player_controller",
-		"bullet_controller",
-		"ai_patrol",
+		"bullet_controller",		
 		"ai_boss_runner",
+		"ai_destroyable",
+        "ai_linear_patrol",
+		"ai_orbit_patrol",
     	"flyover_controller",
     	"hierarchy",
 		"camera"

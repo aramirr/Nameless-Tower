@@ -11,6 +11,7 @@ class CAIBossRunner : public IAIController
 	float chase_distance;
 	float attack_distance;
 	float distance_to_player = 0.f;
+	float speed_factor;
 	bool going_right = false;
 	VEC3 tower_center = VEC3::Zero;
 
@@ -23,7 +24,7 @@ public:
 	void ResetWptsState();
 	void HideState();
 	void AppearState();
-	void ChaseState();
+	void ChaseState(float dt);
 	void AttackState();
 	void DissapearState();
 	void NextWptState();

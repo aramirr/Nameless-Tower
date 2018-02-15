@@ -10,9 +10,6 @@
     <ClCompile Include="components\ia\ai_controller.cpp">
       <Filter>components\ia</Filter>
     </ClCompile>
-    <ClCompile Include="components\ia\ai_patrol.cpp">
-      <Filter>components\ia</Filter>
-    </ClCompile>
     <ClCompile Include="components\comp_bullet_controller.cpp">
       <Filter>components</Filter>
     </ClCompile>
@@ -199,6 +196,15 @@
     <ClCompile Include="components\ia\ai_boss_runner.cpp">
       <Filter>components\ia</Filter>
     </ClCompile>
+    <ClCompile Include="components\ia\ai_destoyable.cpp">
+      <Filter>components\ia</Filter>
+    </ClCompile>
+    <ClCompile Include="components\ia\ai_linear_patrol.cpp">
+      <Filter>components\ia</Filter>
+    </ClCompile>
+    <ClCompile Include="components\ia\ai_orbit_patrol.cpp">
+      <Filter>components\ia</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine.h" />
@@ -207,9 +213,6 @@
       <Filter>camera</Filter>
     </ClInclude>
     <ClInclude Include="components\ia\ai_controller.h">
-      <Filter>components\ia</Filter>
-    </ClInclude>
-    <ClInclude Include="components\ia\ai_patrol.h">
       <Filter>components\ia</Filter>
     </ClInclude>
     <ClInclude Include="components\comp_base.h">
@@ -465,6 +468,15 @@
       <Filter>modules</Filter>
     </ClInclude>
     <ClInclude Include="components\ia\ai_boss_runner.h">
+      <Filter>components\ia</Filter>
+    </ClInclude>
+    <ClInclude Include="components\ia\ai_destoyable.h">
+      <Filter>components\ia</Filter>
+    </ClInclude>
+    <ClInclude Include="components\ia\ai_linear_patrol.h">
+      <Filter>components\ia</Filter>
+    </ClInclude>
+    <ClInclude Include="components\ia\ai_orbit_patrol.h">
       <Filter>components\ia</Filter>
     </ClInclude>
   </ItemGroup>

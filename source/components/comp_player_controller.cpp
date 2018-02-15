@@ -6,14 +6,14 @@
 
 DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
-void TCompPlayerController::MovePlayer(bool left) {
+void TCompPlayerController::MovePlayer(bool left, float dt) {
 	TCompTransform *c_my_transform = get<TCompTransform>();
 	VEC3 myPos = c_my_transform->getPosition();
 
 	// Current orientation
 	float current_yaw = 0.f;
 	float current_pitch = 0.f;
-	float amount_moved = speedFactor * delta;
+	float amount_moved = speedFactor * dt;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	//Detecto el teclado
@@ -70,7 +70,7 @@ void TCompPlayerController::Init() {
 	ChangeState("idle");
 }
 
-void TCompPlayerController::IdleState() {
+void TCompPlayerController::IdleState(float dt) {
 	const Input::TButton& bt = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
 	if (bt.getsPressed()) {
 		dashingAmount = 0;
@@ -80,26 +80,26 @@ void TCompPlayerController::IdleState() {
 	}
 
 	if (isPressed('A')) {
-		MovePlayer(false);
+		MovePlayer(false, dt);
 		lookingLeft = true;
 		ChangeState("run");
 	}
 	if (isPressed('D')) {
-		MovePlayer(true);
+		MovePlayer(true, dt);
 		lookingLeft = false;
 		ChangeState("run");
 	}
 }
 
-void TCompPlayerController::RunningState() {	
+void TCompPlayerController::RunningState(float dt) {
 	// Compruebo si sigue corriendo
 	if (isPressed('A')) {
 		lookingLeft = true;
-		MovePlayer(false);
+		MovePlayer(false, dt);
 	}
 	if (isPressed('D')) {
 		lookingLeft = false;
-		MovePlayer(true);
+		MovePlayer(true, dt);
 	}
 	// Si no sigue corriendo pasa a estado idle
 	if (!isPressed('A') && !isPressed('D'))
@@ -120,24 +120,24 @@ void TCompPlayerController::RunningState() {
 	}
 }
 
-void TCompPlayerController::JumpingState() {
+void TCompPlayerController::JumpingState(float dt) {
 	const Input::TButton& bt = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
 	if (bt.getsPressed())
 		ChangeState("dash");
 }
 
-void TCompPlayerController::OmniDashingState() {
+void TCompPlayerController::OmniDashingState(float dt) {
 	if (!isPressed('O')) {
 		EngineTimer.setTimeSlower(1.f);
 		ChangeState("idle");
 	}
 }
 
-void TCompPlayerController::DashingState() {
+void TCompPlayerController::DashingState(float dt) {
 	if (lookingLeft)
-		MovePlayer(false);
+		MovePlayer(false, dt);
 	else
-		MovePlayer(true);
+		MovePlayer(true, dt);
 	
 	dashingAmount += 0.1;
 	if (dashingAmount > dashingMax) {
@@ -147,5 +147,5 @@ void TCompPlayerController::DashingState() {
 	}
 }
 
-void TCompPlayerController::DeadState() {
+void TCompPlayerController::DeadState(float dt) {
 }

@@ -26,7 +26,6 @@ protected:
   CHandle         h_render;        // Cached
   TCompTransform* getMyTransform();
   TCompRender* getMyRender();
-	float						delta;
 
   std::string                         state;
   // the states, as maps to functions
