@@ -51,6 +51,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
   speedFactor = j.value("speed", 1.0f);
   center = VEC3(0.f, 0.f, 0.f);
 	dashingSpeed = j.value("dashing_speed", 5);
+	max_jump = j.value("max_jump", 5);
 	Init();
 }
 
@@ -68,6 +69,11 @@ void TCompPlayerController::Init() {
 }
 
 void TCompPlayerController::IdleState(float dt) {
+	TCompCollider* comp_collider = get<TCompCollider>();
+	if (comp_collider && comp_collider->controller)
+	{
+		comp_collider->controller->move(physx::PxVec3(0, -9.81*dt, 0), 0.f, dt, physx::PxControllerFilters());
+	}
 	// Chequea el dash
 	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
 	if (space.getsPressed()) {
@@ -130,12 +136,30 @@ void TCompPlayerController::RunningState(float dt) {
 }
 
 void TCompPlayerController::JumpingState(float dt) {
-	TCompCollider* comp_collider = get<TCompCollider>();
-	TCompTransform *c_my_transform = get<TCompTransform>();
-	assert(c_my_transform);
-	VEC3 myPos = c_my_transform->getPosition();
-	comp_collider->controller->move(physx::PxVec3(myPos.x, myPos.y + 5, myPos.z), 0.f, dt, physx::PxControllerFilters());
-	ChangeState("idle");
+	if (isPressed('A')) {
+		MovePlayer(false, dt);
+		lookingLeft = true;
+	}
+	if (isPressed('D')) {
+		MovePlayer(true, dt);
+		lookingLeft = false;
+	}
+	const Input::TButton& shift = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
+	if (shift.isPressed()) {
+		TCompCollider* comp_collider = get<TCompCollider>();
+		TCompTransform *c_my_transform = get<TCompTransform>();
+		assert(c_my_transform);
+		VEC3 new_pos = c_my_transform->getPosition();
+		new_pos.y += 50 * dt;		
+		VEC3 delta_move = new_pos - c_my_transform->getPosition();
+		if (new_pos.y < max_jump)
+			comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+		else
+			ChangeState("idle");
+	}
+	else {
+		ChangeState("idle");
+	}
 }
 
 void TCompPlayerController::OmniDashingState(float dt) {

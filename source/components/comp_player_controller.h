@@ -11,6 +11,7 @@ class TCompPlayerController : public IAIController {
   float	  radius;
 	float   dashingMax;
 	float   dashingAmount;
+	float   max_jump;
 	int     dashingSpeed;
 	bool    lookingLeft;
 
