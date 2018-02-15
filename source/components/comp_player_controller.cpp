@@ -27,7 +27,8 @@ void TCompPlayerController::MovePlayer(bool left) {
 	VEC3 newPos = c_my_transform->getPosition() + (c_my_transform->getFront() * distance);
 	c_my_transform->setYawPitchRoll(current_yaw, current_pitch);	
 
-	TCompCollider* comp_collider = get<TCompCollider>();
+
+	/*TCompCollider* comp_collider = get<TCompCollider>();
 	if (comp_collider && comp_collider->controller)
 	{
 		VEC3 delta_move = newPos - myPos;
@@ -38,7 +39,9 @@ void TCompPlayerController::MovePlayer(bool left) {
 	{
 		//Actualizo la posicion del transform
 		c_my_transform->setPosition(newPos);
-	}
+	}*/
+
+	c_my_transform->setPosition(newPos);
 }
 
 void TCompPlayerController::debugInMenu() {
