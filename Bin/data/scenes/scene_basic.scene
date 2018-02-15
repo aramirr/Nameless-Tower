@@ -5,11 +5,21 @@
 				"pos": "1 0 0",
 				"lookat": "-1 0 -1"
 			},
-			"render" : {},
-			"ai_patrol": {
-				"waypoints" : [ "-10 0 0", "5 0 5", "2 0 10"] 
-			}
-
+			"render" : [
+				{
+					"mesh": "data/meshes/Teapot001.mesh",
+					"materials" : [
+						"data/materials/madera.material"
+					]
+				}
+			]
+			,
+			"ai_boss_runner": {
+				"chase_distance": 6,
+				"attack_distance": 1,
+				"waypoints" : [ "-15 0 0", "15 0 0", "-15 0 0"] 
+ 			},
+			"tags" : ["enemy"]
 		}
 	},
 	{
@@ -31,9 +41,15 @@
 			, 
 			"player_controller" : {
 				"rotation_speed" : 3.0,
-				"speed" : 3.0,
+				"speed" : 8.0,
 				"dashing_speed": 5
-			}
+			},
+		  "collider": {
+			"shape": "capsule",
+			"is_character_controller": true,
+			"radius": 0.5,
+			"height": 1.0
+		  }
 		}
 	},
 	{
@@ -48,11 +64,18 @@
 				}
 			]
 			,
-			"transform": {
-				"pos": "-4 0 0"
-			}
-		}
-	},
+      "transform": {
+        "pos": "-4 0 0"
+      }
+      ,
+      "collider": {
+        "is_dynamic": false,
+        "is_trigger": true,
+        "shape": "sphere",
+        "radius": 2
+      },
+		"tags" : ["enemy"]
+	}},
 	{
 		"entity": {
 			"name": "the_camera",

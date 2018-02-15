@@ -7,6 +7,7 @@
 #include "components/comp_render.h"
 #include "components/comp_transform.h"
 #include "components/comp_name.h"
+#include "components/comp_tags.h"
 
 bool CModuleEntities::start()
 {
@@ -52,8 +53,9 @@ bool CModuleEntities::start()
 
 void CModuleEntities::update(float delta)
 {
+	float timeSlower = EngineTimer.getTimeSlower();
   for (auto om : om_to_update)
-    om->updateAll(delta);
+    om->updateAll(delta * timeSlower);
 
   CHandleManager::destroyAllPendingObjects();
 }
@@ -62,8 +64,30 @@ void CModuleEntities::render()
 {
   Resources.debugInMenu();
 
-  auto om = getObjectManager<CEntity>();
-  om->debugInMenuAll();
+  if (ImGui::TreeNode("All Entities...")) {
+
+    ImGui::SameLine();
+    static bool flat = false;
+    ImGui::Checkbox("Flat", &flat);
+
+    static ImGuiTextFilter Filter;
+    ImGui::SameLine();
+    Filter.Draw("Filter");
+
+    auto om = getObjectManager<CEntity>();
+    om->forEach([](CEntity* e) {
+      CHandle h_e(e);
+      if (!flat && h_e.getOwner().isValid())
+        return;
+      if (Filter.IsActive() && !Filter.PassFilter(e->getName()))
+        return;
+      ImGui::PushID(e);
+      e->debugInMenu();
+      ImGui::PopID();
+    });
+    ImGui::TreePop();
+  }
+
 
   if (ImGui::TreeNode("All Components...")) {
     for (uint32_t i = 1; i < CHandleManager::getNumDefinedTypes(); ++i)
@@ -71,21 +95,29 @@ void CModuleEntities::render()
     ImGui::TreePop();
   }
 
+  CTagsManager::get().debugInMenu();
+
+  //static bool is_open = false;
+  //ImGui::Checkbox("ImGui Demo", &is_open);
+  //ImGui::ShowDemoWindow(&is_open);
+   
+  // ------------------------------------------
   // Do the basic render
   auto om_render = getObjectManager<TCompRender>();
   om_render->forEach([](TCompRender* c) {
+	  if (c->is_active) {
+		  TCompTransform* c_transform = c->get<TCompTransform>();
+		  if (!c_transform)
+			  return;
 
-    TCompTransform* c_transform = c->get<TCompTransform>();
-    if (!c_transform)
-      return;
+		  cb_object.obj_world = c_transform->asMatrix();
+		  cb_object.obj_color = c->color;
+		  cb_object.updateGPU();
 
-    cb_object.obj_world = c_transform->asMatrix();
-    cb_object.obj_color = c->color;
-    cb_object.updateGPU();
-
-    for (auto& m : c->materials)
-      m->activate();
-    c->mesh->activateAndRender();
+		  for (auto& m : c->materials)
+			  m->activate();
+		  c->mesh->activateAndRender();
+	  }
   });
 
 }

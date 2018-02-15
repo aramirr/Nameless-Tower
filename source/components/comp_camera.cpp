@@ -11,6 +11,7 @@ void TCompCamera::debugInMenu() {
 	ImGui::DragFloat("Look_X", &X, 0.1f, -100.f, 100.f);
 	ImGui::DragFloat("Look_Y", &Z, 0.1f, -100.f, 100.f);
 	ImGui::DragFloat("Look_Z", &Y, 0.1f, -100.f, 100.f);
+
 }
 
 void TCompCamera::load(const json& j, TEntityParseContext& ctx) {

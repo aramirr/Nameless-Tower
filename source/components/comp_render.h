@@ -11,7 +11,8 @@ class TCompRender : public TCompBase {
   void loadMesh(const json& j, TEntityParseContext& ctx);
 
 public:
-  VEC4               color = VEC4(1, 1, 1, 1);
+  VEC4 color = VEC4(1, 1, 1, 1);
+  bool is_active = true;
 
   const CRenderMesh* mesh = nullptr;
   std::vector<const CMaterial*> materials;

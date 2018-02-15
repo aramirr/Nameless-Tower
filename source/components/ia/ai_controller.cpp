@@ -14,6 +14,18 @@ TCompTransform* IAIController::getMyTransform() {
   return c;
 }
 
+TCompRender* IAIController::getMyRender() {
+	TCompRender* r = h_render;
+	if (!r) {
+		CEntity* e = h_entity;
+		assert(e);
+		h_render = e->get< TCompRender >();
+		assert(h_render.isValid());
+		r = h_render;
+	}
+	return r;
+}
+
 // Show common information for the AIControllers
 void IAIController::debugInMenu() {
   ImGui::Text("State: %s", state.c_str());
@@ -29,6 +41,7 @@ void IAIController::update(float dt)
   assert(!state.empty());
   assert(statemap.find(state) != statemap.end());
   // this is a trusted jump as we've tested for coherence in ChangeState
+	delta = dt;
   (this->*statemap[state])();
 }
 

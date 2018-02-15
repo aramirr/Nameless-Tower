@@ -7,6 +7,7 @@ class CAIPatrol : public IAIController
 {
   std::vector<VEC3> _waypoints;
   int currentWaypoint;
+	float speed;
 
   DECL_SIBLING_ACCESS();
 

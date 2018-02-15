@@ -2,6 +2,7 @@
 #include "entity/entity_parser.h"
 #include "comp_bullet_controller.h"
 #include "comp_transform.h"
+#include "comp_tags.h"
 
 DECL_OBJ_MANAGER("bullet_controller", TCompBulletController);
 
@@ -30,33 +31,35 @@ void TCompBulletController::load(const json& j, TEntityParseContext& ctx) {
 
 void TCompBulletController::update(float dt) {
 
-  TCompTransform *c_tmx = get<TCompTransform>();
-  assert(c_tmx);
+  TCompTransform *c_my_transform = get<TCompTransform>();
+  if (!c_my_transform)
+    return;
 
+  // Advance
   float amount_moved = dt * speed;
-  c_tmx->setPosition(c_tmx->getPosition() + c_tmx->getFront() * amount_moved);
+  c_my_transform->setPosition(c_my_transform->getPosition() + c_my_transform->getFront() * amount_moved);
   
   // ---------------------
   // Check for collisions 
-  auto om_tmx = getObjectManager<TCompTransform>();
-
   // This will store the handle close enough to me
   CHandle h_near;
-  om_tmx->forEach([this, &h_near, c_tmx](TCompTransform* c) {
 
-    // Discard myself
-    if (c_tmx == c)
-      return;
+  // Get all entities with the tag 'enemy'
+  auto& handles = CTagsManager::get().getAllEntitiesByTag(getID("enemy"));
+  for (auto h : handles) {
+    // Get the entity
+    CEntity* e_candidate = h;
+    if (!e_candidate)
+      continue;
+    // Get his transform
+    TCompTransform* c_candidate_transform = e_candidate->get<TCompTransform>();
+    assert(c_candidate_transform);
 
-    float distance_to_c = VEC3::Distance( c->getPosition(), c_tmx->getPosition());
-    if (distance_to_c < this->collision_radius) {
-      CHandle h_candidate = CHandle(c).getOwner();
-      
-      // Discard my sender (the teapot)
-      if(h_candidate != h_sender )
-        h_near = h_candidate;
-    }
-  });
+    // Find if it's close enough
+    float distance_to_c = VEC3::Distance(c_my_transform->getPosition(), c_candidate_transform->getPosition());
+    if (distance_to_c < this->collision_radius)
+      h_near = h;
+  }
 
   // 
   if (h_near.isValid()) {
