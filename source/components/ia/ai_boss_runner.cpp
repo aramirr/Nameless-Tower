@@ -27,7 +27,6 @@ void CAIBossRunner::Init()
 void CAIBossRunner::debugInMenu() {
 	IAIController::debugInMenu();
 	ImGui::Text("Distance player %f", distance_to_player);
-	ImGui::Text("DEBUG %f", debug);
 	if (ImGui::TreeNode("Waypoints")) {
 		for (auto& v : _waypoints) {
 			ImGui::PushID(&v);
@@ -58,6 +57,9 @@ void CAIBossRunner::ResetWptsState() {
 	my_pos->getYawPitchRoll(&y, &p, &r);
 	y += deg2rad(90);
 	my_pos->setYawPitchRoll(y, p, r);
+	if (my_pos->isInLeft(tower_center))
+		going_right = true;
+	else going_right = false;
 	TCompRender *my_render = getMyRender();
 	my_render->color = VEC4(1, 1, 0, 1);
 	//my_render->is_active = false;
@@ -73,6 +75,9 @@ void CAIBossRunner::NextWptState() {
 		my_pos->getYawPitchRoll(&y, &p, &r);
 		y += deg2rad(90);
 		my_pos->setYawPitchRoll(y, p, r);
+		if (my_pos->isInLeft(tower_center))
+			going_right = true;
+		else going_right = false;
 		TCompRender *my_render = getMyRender();
 		my_render->color = VEC4(1, 1, 0, 1);
 		//my_render->is_active = false;
@@ -107,22 +112,18 @@ void CAIBossRunner::ChaseState() {
 
 	TCompRender *my_render = getMyRender();
 	my_render->color = VEC4(0, 1, 0, 1);
-
+	
 	float y, p, r;
 	my_pos->getYawPitchRoll(&y, &p, &r);
 	float distance_center = VEC3::Distance(my_pos->getPosition(), tower_center);
 	if (going_right) {
 		if (my_pos->isInFront(ppos->getPosition())) {
-			debug = 1.0f;
-
 			my_pos->setPosition(tower_center);
 			y += 0.0005f;
 			my_pos->setYawPitchRoll(y, p, r);
 			my_pos->setPosition(my_pos->getPosition() - my_pos->getLeft() * distance_center);
 		}
 		else {
-			debug = 2.0f;
-
 			going_right = false;
 			y += deg2rad(180);
 			my_pos->setYawPitchRoll(y, p, r);
@@ -130,16 +131,12 @@ void CAIBossRunner::ChaseState() {
 	}
 	else {
 		if (my_pos->isInFront(ppos->getPosition())) {
-			debug = 3.0f;
-
 			my_pos->setPosition(tower_center);
 			y -= 0.0005f;
 			my_pos->setYawPitchRoll(y, p, r);
 			my_pos->setPosition(my_pos->getPosition() + my_pos->getLeft() * distance_center);
 		}
 		else {
-			debug = 4.0f;
-
 			going_right = true;
 			y += deg2rad(180);
 			my_pos->setYawPitchRoll(y, p, r);

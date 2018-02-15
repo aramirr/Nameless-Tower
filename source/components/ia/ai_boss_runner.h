@@ -12,7 +12,6 @@ class CAIBossRunner : public IAIController
 	float attack_distance;
 	float distance_to_player = 0.f;
 	bool going_right = false;
-	float debug = 70.0f;
 	VEC3 tower_center = VEC3::Zero;
 
 	DECL_SIBLING_ACCESS();
