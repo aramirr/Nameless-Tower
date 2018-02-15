@@ -9,7 +9,7 @@ DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 void TCompPlayerController::MovePlayer(bool left, float dt) {
 	TCompTransform *c_my_transform = get<TCompTransform>();
 	VEC3 myPos = c_my_transform->getPosition();
-
+	assert(c_my_transform);
 	// Current orientation
 	float current_yaw = 0.f;
 	float current_pitch = 0.f;
@@ -20,11 +20,10 @@ void TCompPlayerController::MovePlayer(bool left, float dt) {
 	center.y = myPos.y;
 	float distance = VEC3::Distance(myPos, center);
 	VEC3 move_vector = center + myPos;
-	c_my_transform->setPosition(center);
 	
 	current_yaw = left ? current_yaw + 0.1 * amount_moved : current_yaw - 0.1 * amount_moved;
 	c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-	VEC3 newPos = c_my_transform->getPosition() + (c_my_transform->getLeft() * distance);
+	VEC3 newPos = center + (c_my_transform->getLeft() * distance);
 	c_my_transform->setYawPitchRoll(current_yaw, current_pitch);	
 
 
@@ -40,8 +39,6 @@ void TCompPlayerController::MovePlayer(bool left, float dt) {
 		//Actualizo la posicion del transform
 		c_my_transform->setPosition(newPos);
 	}
-
-	c_my_transform->setPosition(newPos);
 }
 
 void TCompPlayerController::debugInMenu() {
@@ -135,6 +132,7 @@ void TCompPlayerController::RunningState(float dt) {
 void TCompPlayerController::JumpingState(float dt) {
 	TCompCollider* comp_collider = get<TCompCollider>();
 	TCompTransform *c_my_transform = get<TCompTransform>();
+	assert(c_my_transform);
 	VEC3 myPos = c_my_transform->getPosition();
 	comp_collider->controller->move(physx::PxVec3(myPos.x, myPos.y + 5, myPos.z), 0.f, dt, physx::PxControllerFilters());
 	ChangeState("idle");
