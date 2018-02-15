@@ -5,10 +5,20 @@
 				"pos": "1 0 0",
 				"lookat": "-1 0 -1"
 			},
-			"render" : {},
-			"ai_patrol": {
-				"waypoints" : [ "-10 0 0", "5 0 5", "2 0 10"] 
-			},
+			"render" : [
+				{
+					"mesh": "data/meshes/Teapot001.mesh",
+					"materials" : [
+						"data/materials/madera.material"
+					]
+				}
+			]
+			,
+			"ai_boss_runner": {
+				"chase_distance": 6,
+				"attack_distance": 1,
+				"waypoints" : [ "-15 0 0", "15 0 0", "-15 0 0"] 
+ 			},
 			"tags" : ["enemy"]
 		}
 	},

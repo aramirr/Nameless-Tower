@@ -10,6 +10,7 @@
 #include "entity/entity.h"
 #include "components/comp_base.h"
 #include "components/comp_transform.h"
+#include "components/comp_render.h"
 
 // states are a map to member function pointers, to 
 // be defined on a derived class. 
@@ -22,7 +23,9 @@ class IAIController : public TCompBase {
 protected:
   CHandle         h_entity;
   CHandle         h_transform;        // Cached
+  CHandle         h_render;        // Cached
   TCompTransform* getMyTransform();
+  TCompRender* getMyRender();
 	float						delta;
 
   std::string                         state;

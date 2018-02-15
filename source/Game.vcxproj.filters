@@ -196,6 +196,9 @@
     <ClCompile Include="modules\module_timer.cpp">
       <Filter>modules</Filter>
     </ClCompile>
+    <ClCompile Include="components\ia\ai_boss_runner.cpp">
+      <Filter>components\ia</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine.h" />
@@ -460,6 +463,9 @@
     </ClInclude>
     <ClInclude Include="modules\module_timer.h">
       <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="components\ia\ai_boss_runner.h">
+      <Filter>components\ia</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

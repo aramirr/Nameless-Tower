@@ -51,5 +51,5 @@ float4 PS(VS_OUTPUT input) : SV_Target
   diffuseAmount = 0.3 + diffuseAmount * 0.7;
 
   float4 texture_color = txDiffuse.Sample(samLinear, input.UV);
-  return texture_color * obj_color * diffuseAmount * lightmap_color;
+  return texture_color * obj_color * diffuseAmount;
 }
