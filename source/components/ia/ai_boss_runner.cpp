@@ -150,7 +150,7 @@ void CAIBossRunner::ChaseState(float dt) {
 	distance_to_player = VEC3::Distance(a, b);
 	if (distance_to_player < attack_distance)
 		ChangeState("attack");
-	if (distance_to_player > chase_distance + 0.5f)
+	if (distance_to_player > chase_distance +4.f)
 		ChangeState("disappear");
 }
 
@@ -161,7 +161,7 @@ void CAIBossRunner::AttackState() {
 	CEntity *player = (CEntity *)getEntityByName("The Player");
 	TCompTransform *ppos = player->get<TCompTransform>();
 	distance_to_player = VEC3::Distance(my_pos->getPosition(), ppos->getPosition());
-	if (distance_to_player > attack_distance + 0.5f)
+	if (distance_to_player > attack_distance + 1.5f)
 		ChangeState("chase");
 }
 

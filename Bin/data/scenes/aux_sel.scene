@@ -1,0 +1,703 @@
+[
+  {
+    "entity":
+    {
+      "name": "env_Torre_Cylinder016"
+      ,
+      "transform":
+      {
+        "pos": "0.145659 2.98238 0.38917"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Cylinder016.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ARBOL.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Cylinder017"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Cylinder017.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TURBINAS.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Cylinder018"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Cylinder018.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TURBINAS.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Cylinder019"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Cylinder019.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VIENTO.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SOLIDAS.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma2"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma2.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SOLIDAS.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma003"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DEFAULT.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_plataforma3"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_plataforma3.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DESTRUIBLES.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma4"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma4.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DEFAULT.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma5"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma5.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DEFAULT.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma6"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma6.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DEFAULT.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma7"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma7.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DEFAULT.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma8"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma8.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DEFAULT.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma9"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma9.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DESTRUIBLES.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma010"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma010.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DEFAULT.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma11"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma11.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DEFAULT.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma12"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma12.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MOVILES.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma13"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma13.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DESTRUIBLES.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma14"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma14.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DEFAULT.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma15"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma15.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DEFAULT.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma16"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma16.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DEFAULT.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma17"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma17.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DEFAULT.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma18"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma18.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DEFAULT.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma19"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma19.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DEFAULT.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Plataforma20"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Plataforma20.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SOLIDAS.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_TorrePrincipal"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 -0.689094 0.0 -0.724672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_TorrePrincipal.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DEFAULT.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "env_Torre_Viento"
+      ,
+      "transform":
+      {
+        "pos": "0.0728417 2.98238 0.194584"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/env_Torre_Viento.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VIENTO.material"
+          ]
+        }
+      ]
+    }
+  }
+]

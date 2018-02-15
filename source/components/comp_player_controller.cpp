@@ -27,19 +27,19 @@ void TCompPlayerController::MovePlayer(bool left, float dt) {
 	VEC3 newPos = c_my_transform->getPosition() + (c_my_transform->getLeft() * distance);
 	c_my_transform->setYawPitchRoll(current_yaw, current_pitch);	
 
-
-	/*TCompCollider* comp_collider = get<TCompCollider>();
+	//TODO: Solo tiene gravedad cuando se mueve
+	TCompCollider* comp_collider = get<TCompCollider>();
 	if (comp_collider && comp_collider->controller)
 	{
 		VEC3 delta_move = newPos - myPos;
-		delta_move.y += -9.81*delta;
-		comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, delta, physx::PxControllerFilters());
+		delta_move.y += -9.81*dt;
+		comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 	}
 	else
 	{
 		//Actualizo la posicion del transform
 		c_my_transform->setPosition(newPos);
-	}*/
+	}
 
 	c_my_transform->setPosition(newPos);
 }
