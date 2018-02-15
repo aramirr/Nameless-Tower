@@ -24,7 +24,7 @@ void TCompPlayerController::MovePlayer(bool left, float dt) {
 	
 	current_yaw = left ? current_yaw + 0.1 * amount_moved : current_yaw - 0.1 * amount_moved;
 	c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-	VEC3 newPos = c_my_transform->getPosition() + (c_my_transform->getFront() * distance);
+	VEC3 newPos = c_my_transform->getPosition() + (c_my_transform->getLeft() * distance);
 	c_my_transform->setYawPitchRoll(current_yaw, current_pitch);	
 
 

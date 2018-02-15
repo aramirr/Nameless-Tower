@@ -25,14 +25,17 @@
 	{
 		"entity": {
 			"name": "The Player",
-			"render" : [
-				{
-					"mesh": "data/meshes/Teapot001.mesh",
-					"materials" : [
-						"data/materials/madera.material"
-					]
-				}
-			]
+			"render":
+		      [
+		        {
+		          "mesh": "data/meshes/chr_NajaRun_NajaRun.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/MaterialNaja.material"
+		          ]
+		        }
+		      ]
 			,
 			"transform": {
 				"pos": "15 0 0",
