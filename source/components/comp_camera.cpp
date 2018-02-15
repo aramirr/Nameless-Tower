@@ -39,7 +39,7 @@ void TCompCamera::update(float dt) {
 
 	VEC3 centre = VEC3(0 + X, pPos.y + h + Y, 0 + Z);
 	
-	float d = sqrt(pow(centre.x - pPos.x, 2) + pow(centre.z - pPos.z, 2));
+	float d = VEC3::Distance(centre, pPos);
 	d = (dist + d) / d;
 	float x = pPos.x - d * (centre.x - pPos.x);
 	float z = pPos.z - d * (centre.z - pPos.z);
