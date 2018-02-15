@@ -55,30 +55,7 @@
 		  }
 		}
 	},
-	{
-		"entity": {
-			"name": "Teapot 2",
-			"render" : [
-				{
-					"mesh": "data/meshes/Teapot001.mesh",
-					"materials" : [
-						"data/materials/madera.material"
-					]
-				}
-			]
-			,
-      "transform": {
-        "pos": "-4 0 0"
-      }
-      ,
-      "collider": {
-        "is_dynamic": false,
-        "is_trigger": true,
-        "shape": "sphere",
-        "radius": 2
-      },
-		"tags" : ["enemy"]
-	}},
+	
 	{
 		"entity": {
 			"name": "the_camera",
@@ -114,55 +91,6 @@
 			},
 			"tags" : ["enemy"]
 		}
-	},
-	{
-		"entity": {
-			"name": "Linear Plattform",
-			"render" : [
-				{
-					"mesh": "data/meshes/Box001.mesh",
-					"materials" : [
-						"data/materials/madera.material"
-					]
-				}
-			]
-			,
-			"transform": {
-				"pos": "-5 0 0",
-				"lookat": "-1 0 0"
-			},
-			"ai_linear_patrol": {
-				"waypoints" : [ "-5 0 0", "10 0 0", "10 10 0", "10 0 0"] ,
-				"speed" : 0.01,
-				"delay" : 3
-			},
-			"tags" : ["enemy"]
-		}
-	},
-	{
-		"entity": {
-			"name": "Orbital Plattform",
-			"render" : [
-				{
-					"mesh": "data/meshes/Box001.mesh",
-					"materials" : [
-						"data/materials/baldosas.material"
-					]
-				}
-			]
-			,
-			"transform": {
-				"pos": "-50 0 0",
-				"lookat": "-1 0 0"
-			},
-			"ai_orbit_patrol": {
-				"waypoints" : [ "-1 0 0", "0 0 1"] ,
-				"speed" : 6.0,
-				"delay" : 3,
-				"center" : "0 0 0",
-				"radius" : 50
-			},
-			"tags" : ["enemy"]
-		}
 	}
+	
 ]
