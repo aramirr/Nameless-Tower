@@ -2,6 +2,11 @@
 #include "components/comp_transform.h"
 #include "ai_controller.h"
 
+void IAIController::change_color(VEC4 color) {
+	TCompRender *my_render = getMyRender();
+	my_render->color = color;
+}
+
 TCompTransform* IAIController::getMyTransform() {
   TCompTransform* c = h_transform;
   if (!c) {
@@ -54,7 +59,6 @@ void IAIController::ChangeState(const std::string& newstate)
   }
   state = newstate;
 }
-
 
 void IAIController::AddState(const std::string& name, statehandler sh)
 {

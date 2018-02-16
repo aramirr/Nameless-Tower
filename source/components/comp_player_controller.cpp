@@ -48,6 +48,7 @@ void TCompPlayerController::debugInMenu() {
 }
 
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
+	setEntity(ctx.current_entity);
   speedFactor = j.value("speed", 1.0f);
   center = VEC3(0.f, 0.f, 0.f);
 	dashingSpeed = j.value("dashing_speed", 5);
@@ -80,6 +81,7 @@ void TCompPlayerController::IdleState(float dt) {
 		dashingAmount = 0;
 		dashingMax = 3;
 		speedFactor = speedFactor * dashingSpeed;
+		change_color(VEC4(0, 1, 1, 1));
 		ChangeState("dash");
 	}
 
@@ -97,6 +99,7 @@ void TCompPlayerController::IdleState(float dt) {
 	// Chequea el salto
 	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
 	if (space.getsPressed()) {
+		change_color(VEC4(1, 0, 1, 1));
 		ChangeState("jump");
 	}
 }
@@ -112,10 +115,13 @@ void TCompPlayerController::RunningState(float dt) {
 		MovePlayer(true, dt);
 	}
 	// Si no sigue corriendo pasa a estado idle
-	if (!isPressed('A') && !isPressed('D'))
+	if (!isPressed('A') && !isPressed('D')){
+		change_color(VEC4(1, 1, 1, 1));
 		ChangeState("idle");
+	}
 
 	if (isPressed('O')) {
+		change_color(VEC4(0, 1, 0, 1));
 		EngineTimer.setTimeSlower(0.25f);
 		ChangeState("omni");
 	}
@@ -123,6 +129,7 @@ void TCompPlayerController::RunningState(float dt) {
 	// Chequea el salto
 	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
 	if (space.getsPressed()) {
+		change_color(VEC4(1, 0, 1, 1));
 		ChangeState("jump");
 	}
 	// Chequea el dash
@@ -131,6 +138,7 @@ void TCompPlayerController::RunningState(float dt) {
 		dashingAmount = 0;
 		dashingMax = 10;
 		speedFactor = speedFactor * dashingSpeed;
+		change_color(VEC4(0, 1, 1, 1));
 		ChangeState("dash");
 	}
 }
@@ -154,10 +162,13 @@ void TCompPlayerController::JumpingState(float dt) {
 		VEC3 delta_move = new_pos - c_my_transform->getPosition();
 		if (new_pos.y < max_jump)
 			comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
-		else
+		else {
+			change_color(VEC4(1, 1, 1, 1));
 			ChangeState("idle");
+		}
 	}
 	else {
+		change_color(VEC4(1, 1, 1, 1));
 		ChangeState("idle");
 	}
 }
@@ -165,6 +176,7 @@ void TCompPlayerController::JumpingState(float dt) {
 void TCompPlayerController::OmniDashingState(float dt) {
 	if (!isPressed('O')) {
 		EngineTimer.setTimeSlower(1.f);
+		change_color(VEC4(1, 1, 1, 1));
 		ChangeState("idle");
 	}
 }
@@ -177,6 +189,7 @@ void TCompPlayerController::DashingState(float dt) {
 	
 	dashingAmount += 0.1;
 	if (dashingAmount > dashingMax) {
+		change_color(VEC4(1, 1, 1, 1));
 		ChangeState("idle");
 		dashingAmount = 0;
 		speedFactor = speedFactor / dashingSpeed;

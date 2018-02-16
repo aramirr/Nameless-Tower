@@ -61,8 +61,7 @@ void CAIBossRunner::ResetWptsState() {
 	if (my_pos->isInLeft(tower_center))
 		going_right = true;
 	else going_right = false;
-	TCompRender *my_render = getMyRender();
-	my_render->color = VEC4(1, 1, 0, 1);
+	change_color(VEC4(1, 1, 0, 1));
 	//my_render->is_active = false;
 	ChangeState("hide");
 }
@@ -111,8 +110,7 @@ void CAIBossRunner::ChaseState(float dt) {
 	CEntity *player = (CEntity *)getEntityByName("The Player");
 	TCompTransform *ppos = player->get<TCompTransform>();
 
-	TCompRender *my_render = getMyRender();
-	my_render->color = VEC4(0, 1, 0, 1);
+	change_color(VEC4(0, 1, 0, 1));
 
 	float amount_moved = speed_factor * dt;
 	
@@ -155,8 +153,7 @@ void CAIBossRunner::ChaseState(float dt) {
 }
 
 void CAIBossRunner::AttackState() {
-	TCompRender *my_render = getMyRender();
-	my_render->color = VEC4(0, 0, 0, 1);
+	change_color(VEC4(0, 0, 0, 1));
 	TCompTransform *my_pos = getMyTransform();
 	CEntity *player = (CEntity *)getEntityByName("The Player");
 	TCompTransform *ppos = player->get<TCompTransform>();
@@ -172,6 +169,5 @@ void CAIBossRunner::DissapearState() {
 }
 
 void CAIBossRunner::DieState() {
-	TCompRender *my_render = getMyRender();
-	my_render->color = VEC4(1, 1, 1, 1);
+	change_color(VEC4(1, 1, 1, 1));
 }

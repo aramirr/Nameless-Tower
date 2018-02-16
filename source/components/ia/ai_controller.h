@@ -37,7 +37,8 @@ public:
   virtual void Init() { }// resets the controller
   void update(float dt);	// recompute behaviour
   void AddState(const std::string&, statehandler);
-  void setEntity(CHandle new_entity);
+	void setEntity(CHandle new_entity);
+	void change_color(VEC4 color);
 };
 
 #endif
