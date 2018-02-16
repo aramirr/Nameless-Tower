@@ -75,8 +75,8 @@ void TCompPlayerController::IdleState(float dt) {
 		comp_collider->controller->move(physx::PxVec3(0, -9.81*dt, 0), 0.f, dt, physx::PxControllerFilters());
 	}
 	// Chequea el dash
-	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
-	if (space.getsPressed()) {
+	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
+	if (dash.getsPressed()) {
 		dashingAmount = 0;
 		dashingMax = 3;
 		speedFactor = speedFactor * dashingSpeed;
@@ -95,8 +95,8 @@ void TCompPlayerController::IdleState(float dt) {
 	}
 
 	// Chequea el salto
-	const Input::TButton& shift = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
-	if (shift.getsPressed()) {
+	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
+	if (space.getsPressed()) {
 		ChangeState("jump");
 	}
 }
@@ -121,13 +121,13 @@ void TCompPlayerController::RunningState(float dt) {
 	}
 
 	// Chequea el salto
-	const Input::TButton& shift = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
-	if (shift.getsPressed()) {
+	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
+	if (space.getsPressed()) {
 		ChangeState("jump");
 	}
 	// Chequea el dash
-	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
-	if (space.getsPressed()) {
+	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
+	if (dash.getsPressed()) {
 		dashingAmount = 0;
 		dashingMax = 10;
 		speedFactor = speedFactor * dashingSpeed;
@@ -144,8 +144,8 @@ void TCompPlayerController::JumpingState(float dt) {
 		MovePlayer(true, dt);
 		lookingLeft = false;
 	}
-	const Input::TButton& shift = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
-	if (shift.isPressed()) {
+	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
+	if (space.isPressed()) {
 		TCompCollider* comp_collider = get<TCompCollider>();
 		TCompTransform *c_my_transform = get<TCompTransform>();
 		assert(c_my_transform);
