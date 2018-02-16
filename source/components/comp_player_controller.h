@@ -22,13 +22,14 @@ public:
   void load(const json& j, TEntityParseContext& ctx);
 
   // IA
-  void IdleState(float dt);
+	void InitialState(float dt);
+	void IdleState(float dt);
   void RunningState(float dt);
   void JumpingState(float dt);
 	void OmniDashingState(float dt);
 	void DashingState(float dt);
 	void DeadState(float dt);
-	void MovePlayer(bool left, float dt);
+	void MovePlayer(bool left, bool change_orientation, float dt);
 
   void Init();
 };

@@ -6,39 +6,43 @@
 
 DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
-void TCompPlayerController::MovePlayer(bool left, float dt) {
+void TCompPlayerController::MovePlayer(bool left, bool change_orientation, float dt) {
 	TCompTransform *c_my_transform = get<TCompTransform>();
 	VEC3 myPos = c_my_transform->getPosition();
 	assert(c_my_transform);
 	// Current orientation
-	float current_yaw = 0.f;
-	float current_pitch = 0.f;
+	float current_yaw;
+	float current_pitch;
 	float amount_moved = speedFactor * dt;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
-	//Detecto el teclado
 	center.y = myPos.y;
 	float distance = VEC3::Distance(myPos, center);
 	VEC3 move_vector = center + myPos;
 	
-	current_yaw = left ? current_yaw + 0.1 * amount_moved : current_yaw - 0.1 * amount_moved;
-	c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-	VEC3 newPos = center + (c_my_transform->getLeft() * distance);
-	c_my_transform->setYawPitchRoll(current_yaw, current_pitch);	
-
-	TCompCollider* comp_collider = get<TCompCollider>();
-	if (comp_collider && comp_collider->controller)
-	{
-		VEC3 delta_move = newPos - myPos;
-		delta_move.y += -9.81*dt;
-		comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+	if (change_orientation) {
+		current_yaw = left ? current_yaw + deg2rad(180) : current_yaw - deg2rad(180);
+		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 	}
-	else
-	{
-		//Actualizo la posicion del transform
-		c_my_transform->setPosition(newPos);
-	}
-
+	else {
+		current_yaw = left ? current_yaw + 0.1 * amount_moved : current_yaw - 0.1 * amount_moved;
+		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+		VEC3 aux_vector = left ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
+		VEC3 newPos = center + (aux_vector * distance);
+		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+		TCompCollider* comp_collider = get<TCompCollider>();
+		if (comp_collider && comp_collider->controller)
+		{
+			VEC3 delta_move = newPos - myPos;
+			delta_move.y += -9.81*dt;
+			comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+		}
+		else
+		{
+			//Actualizo la posicion del transform
+			c_my_transform->setPosition(newPos);
+		}
+	}		
 }
 
 void TCompPlayerController::debugInMenu() {
@@ -53,12 +57,14 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
   center = VEC3(0.f, 0.f, 0.f);
 	dashingSpeed = j.value("dashing_speed", 5);
 	max_jump = j.value("max_jump", 5);
-	Init();
+
+	Init();	
 }
 
 void TCompPlayerController::Init() {
 	// insert all states in the map
 	AddState("idle", (statehandler)&TCompPlayerController::IdleState);
+	AddState("initial", (statehandler)&TCompPlayerController::InitialState);
 	AddState("run", (statehandler)&TCompPlayerController::RunningState);
 	AddState("jump", (statehandler)&TCompPlayerController::JumpingState);
 	AddState("omni", (statehandler)&TCompPlayerController::OmniDashingState);
@@ -66,11 +72,25 @@ void TCompPlayerController::Init() {
 	AddState("dead", (statehandler)&TCompPlayerController::DeadState);
 
 	// reset the state
+	ChangeState("initial");
+
+}
+
+void TCompPlayerController::InitialState(float dt) {
+	TCompTransform *my_pos = getMyTransform();
+	my_pos->lookAt(my_pos->getPosition(), center);
+	float y, p, r;
+	my_pos->getYawPitchRoll(&y, &p, &r);
+	y += deg2rad(90);
+	my_pos->setYawPitchRoll(y, p, r);
+
+	lookingLeft = my_pos->isInLeft(center) ? false : true;
 	ChangeState("idle");
 }
 
-void TCompPlayerController::IdleState(float dt) {
+void TCompPlayerController::IdleState(float dt) {	
 	TCompCollider* comp_collider = get<TCompCollider>();
+	TCompTransform *c_my_transform = getMyTransform();
 	if (comp_collider && comp_collider->controller)
 	{
 		comp_collider->controller->move(physx::PxVec3(0, -9.81*dt, 0), 0.f, dt, physx::PxControllerFilters());
@@ -85,14 +105,25 @@ void TCompPlayerController::IdleState(float dt) {
 		ChangeState("dash");
 	}
 
+	float y, p, r;
 	if (isPressed('A')) {
-		MovePlayer(false, dt);
-		lookingLeft = true;
+		if (!lookingLeft) {			
+			lookingLeft = true;
+			MovePlayer(false, true, dt);
+		}
+		else {			
+			MovePlayer(false, false, dt);
+		}		
 		ChangeState("run");
 	}
 	if (isPressed('D')) {
-		MovePlayer(true, dt);
-		lookingLeft = false;
+		if (!lookingLeft) {			
+			MovePlayer(true, false, dt);
+		}
+		else {
+			lookingLeft = false;
+			MovePlayer(true, true, dt);
+		}		
 		ChangeState("run");
 	}
 
@@ -106,13 +137,24 @@ void TCompPlayerController::IdleState(float dt) {
 
 void TCompPlayerController::RunningState(float dt) {
 	// Compruebo si sigue corriendo
+
 	if (isPressed('A')) {
-		lookingLeft = true;
-		MovePlayer(false, dt);
+		if (!lookingLeft) {
+			lookingLeft = true;
+			MovePlayer(false, true, dt);
+		}
+		else {
+			MovePlayer(false, false, dt);
+		}		
 	}
 	if (isPressed('D')) {
-		lookingLeft = false;
-		MovePlayer(true, dt);
+		if (!lookingLeft) {
+			MovePlayer(true, false, dt);
+		}
+		else {
+			lookingLeft = false;
+			MovePlayer(true, true, dt);
+		}		
 	}
 	// Si no sigue corriendo pasa a estado idle
 	if (!isPressed('A') && !isPressed('D')){
@@ -145,11 +187,11 @@ void TCompPlayerController::RunningState(float dt) {
 
 void TCompPlayerController::JumpingState(float dt) {
 	if (isPressed('A')) {
-		MovePlayer(false, dt);
+		MovePlayer(false, false, dt);
 		lookingLeft = true;
 	}
 	if (isPressed('D')) {
-		MovePlayer(true, dt);
+		MovePlayer(true, false, dt);
 		lookingLeft = false;
 	}
 	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
@@ -183,9 +225,9 @@ void TCompPlayerController::OmniDashingState(float dt) {
 
 void TCompPlayerController::DashingState(float dt) {
 	if (lookingLeft)
-		MovePlayer(false, dt);
+		MovePlayer(false, false, dt);
 	else
-		MovePlayer(true, dt);
+		MovePlayer(true, false, dt);
 	
 	dashingAmount += 0.1;
 	if (dashingAmount > dashingMax) {
