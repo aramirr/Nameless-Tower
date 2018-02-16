@@ -17,8 +17,8 @@ class TCompCamera : public CCamera, public TCompBase {
 	float z_near;
 	float z_far;
 
-	float dist = 10.f;
-	float h = 5.f;
+	float distance;
+	float height;
 
 public:
   void debugInMenu();

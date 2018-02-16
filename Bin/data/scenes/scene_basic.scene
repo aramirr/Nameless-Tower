@@ -66,7 +66,9 @@
 			"render" : {},
 			"flyover_controller" : {},
 			"camera" : {
-				"fov" : 80 
+				"fov" : 80,
+				"height": 2.5,
+				"distance": -8.5
 			}
 		}
 	},

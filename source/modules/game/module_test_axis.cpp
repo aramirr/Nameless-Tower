@@ -28,7 +28,7 @@ bool CModuleTestAxis::start()
   }
 	{
 		TEntityParseContext ctx;
-		parseScene("data/scenes/aux_sel.scene", ctx);
+		//parseScene("data/scenes/aux_sel.scene", ctx);
 	}
 
   //camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
