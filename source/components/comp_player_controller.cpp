@@ -131,6 +131,7 @@ void TCompPlayerController::IdleState(float dt) {
 	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
 	if (space.getsPressed()) {
 		change_color(VEC4(1, 0, 1, 1));
+		jump_end = c_my_transform->getPosition().y + max_jump;
 		ChangeState("jump");
 	}
 }
@@ -172,6 +173,8 @@ void TCompPlayerController::RunningState(float dt) {
 	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
 	if (space.getsPressed()) {
 		change_color(VEC4(1, 0, 1, 1));
+		TCompTransform *c_my_transform = get<TCompTransform>();
+		jump_end = c_my_transform->getPosition().y + max_jump;
 		ChangeState("jump");
 	}
 	// Chequea el dash
@@ -194,21 +197,15 @@ void TCompPlayerController::JumpingState(float dt) {
 		MovePlayer(true, false, dt);
 		lookingLeft = false;
 	}
-	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
-	if (space.isPressed()) {
-		TCompCollider* comp_collider = get<TCompCollider>();
-		TCompTransform *c_my_transform = get<TCompTransform>();
-		assert(c_my_transform);
-		VEC3 new_pos = c_my_transform->getPosition();
-		new_pos.y += 50 * dt;		
-		VEC3 delta_move = new_pos - c_my_transform->getPosition();
-		if (new_pos.y < max_jump)
-			comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
-		else {
-			change_color(VEC4(1, 1, 1, 1));
-			ChangeState("idle");
-		}
-	}
+	TCompCollider* comp_collider = get<TCompCollider>();
+	TCompTransform *c_my_transform = get<TCompTransform>();
+	assert(c_my_transform);
+	VEC3 my_pos = c_my_transform->getPosition();
+	VEC3 new_pos = my_pos;
+	new_pos.y += 50 * dt;		
+	VEC3 delta_move = new_pos - my_pos;
+	if (new_pos.y < jump_end)
+		comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 	else {
 		change_color(VEC4(1, 1, 1, 1));
 		ChangeState("idle");
