@@ -34,26 +34,31 @@ void TCompPlayerController::update(float dt) {
 
   //Detecto el teclado
   VEC3 local_speed = VEC3::Zero;
-  if (isPressed('W'))
-    local_speed.z += 1.f;
-  if (isPressed('S'))
-    local_speed.z -= 1.f;
-  if (isPressed('A'))
-    local_speed.x += 1.f;
-  if (isPressed('D'))
-    local_speed.x -= 1.f;
-  if (isPressed('Q'))
-    current_yaw += amount_rotated;
-  if (isPressed('E'))
-    current_yaw -= amount_rotated;
+  if (!ImGui::IsMouseDown(1)) {  // To avoid conflict with flyover camera
+    if (isPressed('W'))
+      local_speed.z += 1.f;
+    if (isPressed('S'))
+      local_speed.z -= 1.f;
+    if (isPressed('A'))
+      local_speed.x += 1.f;
+    if (isPressed('D'))
+      local_speed.x -= 1.f;
+    if (isPressed('Q'))
+      current_yaw += amount_rotated;
+    if (isPressed('E'))
+      current_yaw -= amount_rotated;
+  }
 
   const Input::TButton& bt = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
   if (bt.getsPressed()) {
     TEntityParseContext ctx;
+    ctx.entity_starting_the_parse = CHandle(this).getOwner();
+    ctx.root_transform = *(TCompTransform*)get<TCompTransform>();
     if (parseScene("data/prefabs/bullet.prefab", ctx)) {
       assert(!ctx.entities_loaded.empty());
-      // Send the entity who has generated the bullet
-      ctx.entities_loaded[0].sendMsg(TMsgAssignBulletOwner{ CHandle(this).getOwner() });
+      // No need to send the entity who has generated the bullet anymore
+      // The comp_bullet_controller will take information from ctx
+      // ctx.entities_loaded[0].sendMsg(TMsgAssignBulletOwner{ CHandle(this).getOwner() });
     }
   }
 

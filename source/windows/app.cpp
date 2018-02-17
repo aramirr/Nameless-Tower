@@ -18,6 +18,15 @@ LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 
   switch (message)
   {
+
+  case CDirectoyWatcher::WM_FILE_CHANGED: {
+    const char* filename = (const char*)lParam;
+    dbg("File has changed! %s (%d)\n", filename, wParam);
+    Resources.onFileChanged(filename);
+    delete[] filename;
+    break;
+  }
+
   case WM_PAINT:
     // Validate screen repaint in os/windows 
     hdc = BeginPaint(hWnd, &ps);
@@ -210,6 +219,9 @@ bool CApp::readConfig() {
 
 //--------------------------------------------------------------------------------------
 bool CApp::start() {
+
+  resources_dir_watcher.start("data", getWnd());
+
   return CEngine::get().start();
 }
 
