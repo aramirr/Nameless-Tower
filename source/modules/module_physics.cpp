@@ -13,6 +13,30 @@
 
 using namespace physx;
 
+
+CModulePhysics::FilterGroup CModulePhysics::getFilterByName(const std::string& name)
+{
+    if ( strcmp("player", name.c_str()) == 0 ) {
+        return CModulePhysics::FilterGroup::Player;
+    }
+    else if ( strcmp("enemy", name.c_str()) == 0 ) {
+        return CModulePhysics::FilterGroup::Enemy;
+    }
+    else if ( strcmp("characters", name.c_str()) == 0 ) {
+        return CModulePhysics::FilterGroup::Characters;
+    }
+    else if ( strcmp("wall", name.c_str()) == 0 ) {
+        return CModulePhysics::FilterGroup::Wall;
+    }
+    else if ( strcmp("floor", name.c_str()) == 0 ) {
+        return CModulePhysics::FilterGroup::Floor;
+    }
+    else if ( strcmp("scenario", name.c_str()) == 0 ) {
+        return CModulePhysics::FilterGroup::Scenario;
+    }
+    return CModulePhysics::FilterGroup::All;
+}
+
 void CModulePhysics::createActor(TCompCollider& comp_collider)
 {
   const TCompCollider::TConfig & config = comp_collider.config;
@@ -29,6 +53,7 @@ void CModulePhysics::createActor(TCompCollider& comp_collider)
   {
     PxRigidStatic* plane = PxCreatePlane(*gPhysics, PxPlane(0, 1, 0, 0), *gMaterial);
     actor = plane;
+    setupFiltering(actor, config.group, config.mask);
     gScene->addActor(*actor);
   }
   else if (config.shapeType == physx::PxGeometryType::eCAPSULE
@@ -45,11 +70,12 @@ void CModulePhysics::createActor(TCompCollider& comp_collider)
 
     cDesc->material = gMaterial;
 
-    ctrl = static_cast<PxCapsuleController*>(mControllerManager->createController(*cDesc));
+    PxCapsuleController* ctrl = static_cast<PxCapsuleController*>(mControllerManager->createController(*cDesc));
     PX_ASSERT(ctrl);
     ctrl->setFootPosition(PxExtendedVec3(pos.x, pos.y, pos.z));
     actor = ctrl->getActor();
     comp_collider.controller = ctrl;
+    setupFiltering(actor, config.group, config.mask);
   }
   else
   {
@@ -67,6 +93,7 @@ void CModulePhysics::createActor(TCompCollider& comp_collider)
     //....todo: more shapes
 
 
+    setupFiltering(shape, config.group, config.mask);
     shape->setLocalPose(offset);
    
     if (config.is_dynamic)
@@ -80,33 +107,59 @@ void CModulePhysics::createActor(TCompCollider& comp_collider)
       PxRigidStatic* body = gPhysics->createRigidStatic(initialTrans);
       actor = body;
     }
-
-
+    
     if (config.is_trigger)
     {
       shape->setFlag(PxShapeFlag::eSIMULATION_SHAPE, false);
       shape->setFlag(PxShapeFlag::eTRIGGER_SHAPE, true);
+      actor->setActorFlag(PxActorFlag::eDISABLE_GRAVITY, true);
     }
     assert(shape);
     assert(actor);
     actor->attachShape(*shape);
+
     shape->release();
     gScene->addActor(*actor);
   }
 
-
   comp_collider.actor = actor;
   actor->userData = h_comp_collider.asVoidPtr();
+
 }
 
-bool CustomFilterShader(
+void CModulePhysics::setupFiltering(PxShape* shape, PxU32 filterGroup, PxU32 filterMask)
+{
+    PxFilterData filterData;
+    filterData.word0 = filterGroup; // word0 = own ID
+    filterData.word1 = filterMask;	// word1 = ID mask to filter pairs that trigger a contact callback;
+    shape->setSimulationFilterData(filterData);
+    shape->setQueryFilterData(filterData);
+}
+
+void CModulePhysics::setupFiltering(PxRigidActor* actor, PxU32 filterGroup, PxU32 filterMask)
+{
+    PxFilterData filterData;
+    filterData.word0 = filterGroup; // word0 = own ID
+    filterData.word1 = filterMask;	// word1 = ID mask to filter pairs that trigger a contact callback;
+    const PxU32 numShapes = actor->getNbShapes();
+    std::vector<PxShape*> shapes;
+    shapes.resize(numShapes);
+    actor->getShapes(&shapes[0], numShapes);
+    for ( PxU32 i = 0; i < numShapes; i++ )
+    {
+        PxShape* shape = shapes[i];
+        shape->setSimulationFilterData(filterData);
+        shape->setQueryFilterData(filterData);
+    }
+}
+
+PxFilterFlags CustomFilterShader(
   PxFilterObjectAttributes attributes0, PxFilterData filterData0,
   PxFilterObjectAttributes attributes1, PxFilterData filterData1,
   PxPairFlags& pairFlags, const void* constantBlock, PxU32 constantBlockSize
 )
 {
-  if ((filterData0.word0 & filterData1.word1)
-    && (filterData1.word0 & filterData1.word0))
+  if ( (filterData0.word0 & filterData1.word1) && (filterData1.word0 & filterData0.word1) )
   {
     if (PxFilterObjectIsTrigger(attributes0) || PxFilterObjectIsTrigger(attributes1))
     {
@@ -144,7 +197,7 @@ bool CModulePhysics::start()
     sceneDesc.gravity = PxVec3(0.0f, -9.81f, 0.0f);
     gDispatcher = PxDefaultCpuDispatcherCreate(2);
     sceneDesc.cpuDispatcher = gDispatcher;
-    sceneDesc.filterShader = PxDefaultSimulationFilterShader;
+    sceneDesc.filterShader = CustomFilterShader;
     gScene = gPhysics->createScene(sceneDesc);
     gScene->setFlag(PxSceneFlag::eENABLE_ACTIVE_ACTORS, true);
     PxPvdSceneClient* pvdClient = gScene->getScenePvdClient();

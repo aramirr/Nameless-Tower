@@ -7,11 +7,25 @@
 class CModulePhysics : public IModule
 {
 public:
+
+    enum FilterGroup {
+        Wall = 1 << 1,
+        Floor = 1 << 2,
+        Player = 1 << 3,
+        Enemy = 1 << 4,
+        Scenario = Wall | Floor,
+        Characters = Player | Enemy,
+        All = -1
+    };
+
   CModulePhysics(const std::string& aname) : IModule(aname) { }
   virtual bool start() override;
   virtual void update(float delta) override;
   virtual void render() override;
+  FilterGroup getFilterByName(const std::string& name);
   void createActor(TCompCollider& comp_collider);
+  void setupFiltering(physx::PxShape* shape, physx::PxU32 filterGroup, physx::PxU32 filterMask);
+  void setupFiltering(physx::PxRigidActor* actor, physx::PxU32 filterGroup, physx::PxU32 filterMask);
 
 private:
     physx::PxDefaultAllocator gDefaultAllocatorCallback;
@@ -27,11 +41,7 @@ private:
     physx::PxPvd*                  gPvd;
     physx::PxFoundation*			gFoundation;
     physx::PxControllerManager*     mControllerManager;
-    physx::PxCapsuleController* ctrl;
     
-
-    void createStack(const physx::PxTransform& t, physx::PxU32 size, physx::PxReal halfExtent);
-
   class CustomSimulationEventCallback : public physx::PxSimulationEventCallback
   {
     virtual void onConstraintBreak(physx::PxConstraintInfo* constraints, physx::PxU32 count) override {};
