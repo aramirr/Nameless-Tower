@@ -46,14 +46,13 @@ void TCompPlayerController::MovePlayer(bool left, bool change_orientation, float
 }
 
 void TCompPlayerController::debugInMenu() {
-  ImGui::DragFloat("Speed", &speedFactor, 0.1f, 0.f, 20.f);
 	ImGui::Text("State: %s", state.c_str());
 	ImGui::Text("Dashing ammount: %f", dashingAmount);
 }
 
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
-    speedFactor = j.value("speed", 1.0f);
+	speedFactor = j.value("speed", 1.0f);
     center = VEC3(0.f, 0.f, 0.f);
 	tower_radius = j.value("tower_radius", 15.f);
 	dashingSpeed = j.value("dashing_speed", 5);

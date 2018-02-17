@@ -5,7 +5,7 @@
 #include "ia/ai_controller.h"
 
 class TCompPlayerController : public IAIController {
-    float   speedFactor = 8.0f;
+	float   speedFactor = 8.0f;
     VEC3    speed;
     VEC3	  center;
     float	  tower_radius;
