@@ -1,4 +1,4 @@
-[{
+[	{
 		"entity": {
 			"name": "The Enemy",
 			"transform": {
@@ -19,7 +19,10 @@
 				"attack_distance": 1,
 				"waypoints" : [ "-15 0 0", "15 0 0", "-15 0 0"] 
  			},
-			"tags" : ["enemy"]
+			"collider": {
+				"shape": "box",
+				"halfExtent": "1 1 1"
+			}
 		}
 	},
 	{
@@ -55,7 +58,28 @@
 		  }
 		}
 	},
-	
+	{
+		"entity": {
+			"name": "Box Collider",
+			"transform": {
+				"pos": "0 0 15",
+				"lookat": "-1 0 -1"
+			},
+			"render" : [
+				{
+					"mesh": "data/meshes/Teapot001.mesh",
+					"materials" : [
+						"data/materials/madera.material"
+					]
+				}
+			]
+			,
+			"collider": {
+				"shape": "box",
+				"halfExtent": "1 1 1"
+			}
+		}
+	},
 	{
 		"entity": {
 			"name": "the_camera",

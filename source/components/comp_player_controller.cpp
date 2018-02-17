@@ -17,7 +17,7 @@ void TCompPlayerController::MovePlayer(bool left, bool change_orientation, float
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	center.y = myPos.y;
-	float distance = VEC3::Distance(myPos, center);
+	//float distance = VEC3::Distance(myPos, center);
 	VEC3 move_vector = center + myPos;
 	
 	if (change_orientation) {
@@ -28,7 +28,7 @@ void TCompPlayerController::MovePlayer(bool left, bool change_orientation, float
 		current_yaw = left ? current_yaw + 0.1 * amount_moved : current_yaw - 0.1 * amount_moved;
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		VEC3 aux_vector = left ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
-		VEC3 newPos = center + (aux_vector * distance);
+		VEC3 newPos = center + (aux_vector * tower_radius);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		TCompCollider* comp_collider = get<TCompCollider>();
 		if (comp_collider && comp_collider->controller)
@@ -53,8 +53,9 @@ void TCompPlayerController::debugInMenu() {
 
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
-  speedFactor = j.value("speed", 1.0f);
-  center = VEC3(0.f, 0.f, 0.f);
+    speedFactor = j.value("speed", 1.0f);
+    center = VEC3(0.f, 0.f, 0.f);
+	tower_radius = j.value("tower_radius", 15.f);
 	dashingSpeed = j.value("dashing_speed", 5);
 	max_jump = j.value("max_jump", 5);
 

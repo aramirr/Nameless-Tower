@@ -12,6 +12,7 @@ class CAIBossRunner : public IAIController
 	float attack_distance;
 	float distance_to_player = 0.f;
 	float speed_factor;
+	float tower_radius;
 	bool going_right = false;
 	VEC3 tower_center = VEC3::Zero;
 

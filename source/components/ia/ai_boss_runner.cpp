@@ -43,6 +43,7 @@ void CAIBossRunner::load(const json& j, TEntityParseContext& ctx) {
 	chase_distance = j.value("chase_distance", 3.0f);
 	attack_distance = j.value("attack_distance", 1.0f);
 	speed_factor = j.value("speed_factor", 5.0f);
+	tower_radius = j.value("tower_radius", 15.0f);
 	auto& j_waypoints = j["waypoints"];
 	for (auto it = j_waypoints.begin(); it != j_waypoints.end(); ++it) {
 		VEC3 p = loadVEC3(it.value());
@@ -116,13 +117,13 @@ void CAIBossRunner::ChaseState(float dt) {
 	
 	float y, p, r;
 	my_pos->getYawPitchRoll(&y, &p, &r);
-	float distance_center = VEC3::Distance(my_pos->getPosition(), tower_center);
+	//float distance_center = VEC3::Distance(my_pos->getPosition(), tower_center);
 	if (going_right) {
 		if (my_pos->isInFront(ppos->getPosition())) {
 			my_pos->setPosition(tower_center);
 			y += 0.1 * amount_moved;
 			my_pos->setYawPitchRoll(y, p, r);
-			my_pos->setPosition(my_pos->getPosition() - my_pos->getLeft() * distance_center);
+			my_pos->setPosition(my_pos->getPosition() - my_pos->getLeft() * tower_radius);
 		}
 		else {
 			going_right = false;
@@ -135,7 +136,7 @@ void CAIBossRunner::ChaseState(float dt) {
 			my_pos->setPosition(tower_center);
 			y -= 0.1 * amount_moved;
 			my_pos->setYawPitchRoll(y, p, r);
-			my_pos->setPosition(my_pos->getPosition() + my_pos->getLeft() * distance_center);
+			my_pos->setPosition(my_pos->getPosition() + my_pos->getLeft() * tower_radius);
 		}
 		else {
 			going_right = true;
