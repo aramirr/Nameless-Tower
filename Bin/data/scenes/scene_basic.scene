@@ -50,11 +50,9 @@
 				"angle" : 30
 			},
 			"collider": {
-				"is_dynamic": true,
+				"is_dynamic": false,
 				"shape": "sphere",
-				"radius": 1,
-				"group": "enemy",
-				"mask":"floor"
+				"radius": 1
 			}
 		}
 	},
@@ -68,11 +66,9 @@
 				"angle" : -30
 			},
 			"collider": {
-				"is_dynamic": true,
+				"is_dynamic": false,
 				"shape": "sphere",
-				"radius": 1,
-				"group": "player",
-				"mask":"floor"
+				"radius": 1
 			}
 		}
 	}
