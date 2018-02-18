@@ -5,7 +5,7 @@
 
 DECL_OBJ_MANAGER("camera", TCompCamera);
 
-bool TCompCamera::isForward(VEC3 player, VEC3 frontPlayer){
+bool TCompCamera::isForward(VEC3 player, VEC3 frontPlayer) {
 	if (player.x > 0 && player.z < 0) {								// CUADRANTE 1 (+-)
 		if (frontPlayer.x < 0 && frontPlayer.z < 0) return true;
 		return false;
@@ -68,12 +68,15 @@ void TCompCamera::update(float dt) {
 
 	bool playerForward = isForward(pPos, p->getFront());  //Vemos si el player se esta moviendo hacia delante o hacia atras
 
+	VEC3 v = p->getLeft();
+	if (playerForward) v *= -1;
+
 	VEC3 centre = VEC3(0 + X, pPos.y + height + Y, 0 + Z);
-	
-	float d = VEC3::Distance(centre, pPos);
-	d = (distance + d) / d;
-	float x = pPos.x - d * (centre.x - pPos.x);
-	float z = pPos.z - d * (centre.z - pPos.z);
+
+	//float d = VEC3::Distance(centre, pPos);
+	//d = (distance + d) / d;
+	float x = pPos.x - distance * (v.x - pPos.x);
+	float z = pPos.z - distance * (v.z - pPos.z);
 
 	pos.x = x;
 	pos.y = pPos.y + height;
