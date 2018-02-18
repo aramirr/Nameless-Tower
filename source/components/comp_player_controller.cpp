@@ -6,7 +6,7 @@
 
 DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
-void TCompPlayerController::MovePlayer(bool left, bool change_orientation, float dt) {
+void TCompPlayerController::MovePlayer(bool left, bool change_orientation, float dt, float gravity) {
 	TCompTransform *c_my_transform = get<TCompTransform>();
 	VEC3 myPos = c_my_transform->getPosition();
 	assert(c_my_transform);
@@ -34,7 +34,7 @@ void TCompPlayerController::MovePlayer(bool left, bool change_orientation, float
 		if (comp_collider && comp_collider->controller)
 		{
 			VEC3 delta_move = newPos - myPos;
-			delta_move.y += -9.81*dt;
+			delta_move.y += -gravity*dt;
 			comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 		}
 		else
@@ -47,13 +47,16 @@ void TCompPlayerController::MovePlayer(bool left, bool change_orientation, float
 
 void TCompPlayerController::debugInMenu() {
 	ImGui::Text("State: %s", state.c_str());
-	ImGui::Text("Dashing ammount: %f", dashingAmount);
+	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 100.f);
+	ImGui::DragFloat("Jump speed: %f", &jump_speed, 0.01f, 0.f, 100.f);
 }
 
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
 	speedFactor = j.value("speed", 1.0f);
-    center = VEC3(0.f, 0.f, 0.f);
+	gravity = j.value("gravity", 16.5f);
+	jump_speed = j.value("jump_speed", 25.8f);
+  center = VEC3(0.f, 0.f, 0.f);
 	tower_radius = j.value("tower_radius", 15.f);
 	dashingSpeed = j.value("dashing_speed", 5);
 	max_jump = j.value("max_jump", 5);
@@ -93,7 +96,7 @@ void TCompPlayerController::IdleState(float dt) {
 	TCompTransform *c_my_transform = getMyTransform();
 	if (comp_collider && comp_collider->controller)
 	{
-		comp_collider->controller->move(physx::PxVec3(0, -9.81*dt, 0), 0.f, dt, physx::PxControllerFilters());
+		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(0, -gravity*dt, 0), 0.f, dt, physx::PxControllerFilters());
 	}
 	// Chequea el dash
 	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
@@ -109,20 +112,20 @@ void TCompPlayerController::IdleState(float dt) {
 	if (isPressed('A')) {
 		if (!lookingLeft) {			
 			lookingLeft = true;
-			MovePlayer(false, true, dt);
+			MovePlayer(false, true, dt, gravity);
 		}
 		else {			
-			MovePlayer(false, false, dt);
+			MovePlayer(false, false, dt, gravity);
 		}		
 		ChangeState("run");
 	}
 	if (isPressed('D')) {
 		if (!lookingLeft) {			
-			MovePlayer(true, false, dt);
+			MovePlayer(true, false, dt, gravity);
 		}
 		else {
 			lookingLeft = false;
-			MovePlayer(true, true, dt);
+			MovePlayer(true, true, dt, gravity);
 		}		
 		ChangeState("run");
 	}
@@ -142,19 +145,18 @@ void TCompPlayerController::RunningState(float dt) {
 	if (isPressed('A')) {
 		if (!lookingLeft) {
 			lookingLeft = true;
-			MovePlayer(false, true, dt);
+			MovePlayer(false, true, dt, gravity);
 		}
 		else {
-			MovePlayer(false, false, dt);
+			MovePlayer(false, false, dt, gravity);
 		}		
-	}
-	if (isPressed('D')) {
+	} else if (isPressed('D')) {
 		if (!lookingLeft) {
-			MovePlayer(true, false, dt);
+			MovePlayer(true, false, dt, gravity);
 		}
 		else {
 			lookingLeft = false;
-			MovePlayer(true, true, dt);
+			MovePlayer(true, true, dt, gravity);
 		}		
 	}
 	// Si no sigue corriendo pasa a estado idle
@@ -189,23 +191,36 @@ void TCompPlayerController::RunningState(float dt) {
 }
 
 void TCompPlayerController::JumpingState(float dt) {
-	if (isPressed('A')) {
-		MovePlayer(false, false, dt);
-		lookingLeft = true;
-	}
-	if (isPressed('D')) {
-		MovePlayer(true, false, dt);
-		lookingLeft = false;
-	}
+	
 	TCompCollider* comp_collider = get<TCompCollider>();
 	TCompTransform *c_my_transform = get<TCompTransform>();
 	assert(c_my_transform);
 	VEC3 my_pos = c_my_transform->getPosition();
 	VEC3 new_pos = my_pos;
-	new_pos.y += 50 * dt;		
-	VEC3 delta_move = new_pos - my_pos;
-	if (new_pos.y < jump_end)
-		comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+	new_pos.y += (jump_speed - gravity * dt) * dt;
+	if (new_pos.y < jump_end) {
+		if (isPressed('A')) {
+			if (!lookingLeft) {
+				lookingLeft = true;
+				MovePlayer(false, true, dt, -(jump_speed - gravity * dt));
+			}
+			else {
+				MovePlayer(false, false, dt, -(jump_speed - gravity * dt));
+			}
+		}
+		else if (isPressed('D')) {
+			if (!lookingLeft) {
+				MovePlayer(true, false, dt, -(jump_speed - gravity * dt));
+			}
+			else {
+				lookingLeft = false;
+				MovePlayer(true, true, dt, -(jump_speed - gravity * dt));
+			}
+		}	else {
+			VEC3 delta_move = new_pos - my_pos;
+			comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+		}
+	}
 	else {
 		change_color(VEC4(1, 1, 1, 1));
 		ChangeState("idle");
@@ -222,9 +237,9 @@ void TCompPlayerController::OmniDashingState(float dt) {
 
 void TCompPlayerController::DashingState(float dt) {
 	if (lookingLeft)
-		MovePlayer(false, false, dt);
+		MovePlayer(false, false, dt, gravity);
 	else
-		MovePlayer(true, false, dt);
+		MovePlayer(true, false, dt, gravity);
 	
 	dashingAmount += 0.1;
 	if (dashingAmount > dashingMax) {

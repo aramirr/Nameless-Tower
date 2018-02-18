@@ -13,6 +13,8 @@ class TCompPlayerController : public IAIController {
 	float   dashingAmount;
 	float   max_jump;
 	float   jump_end;
+	float   gravity;
+	float   jump_speed;
 	int     dashingSpeed;
 	bool    lookingLeft;
 
@@ -30,7 +32,7 @@ public:
 	void OmniDashingState(float dt);
 	void DashingState(float dt);
 	void DeadState(float dt);
-	void MovePlayer(bool left, bool change_orientation, float dt);
+	void MovePlayer(bool left, bool change_orientation, float dt, float gravity);
 
   void Init();
 };
