@@ -9,6 +9,9 @@ class TCompCamera : public CCamera, public TCompBase {
 	VEC3 towerCentre;
 	VEC3 pos;
 
+	//VEC3 front;
+	//float dir;
+
 	float X;
 	float Y;
 	float Z;
@@ -19,6 +22,8 @@ class TCompCamera : public CCamera, public TCompBase {
 
 	float distance;
 	float height;
+
+	bool isForward(VEC3 player, VEC3 frontPlayer);
 
 public:
   void debugInMenu();
