@@ -9,7 +9,12 @@
 			"ai_patrol": {
 				"waypoints" : [ "-10 0 0", "5 0 5", "2 0 10"] 
 			},
-			"tags" : ["enemy"]
+			"tags" : ["enemy"],
+			"collider": {
+				"is_dynamic": false,
+				"shape": "sphere",
+				"radius": 1
+			}
 		}
 	},
 	{
@@ -27,7 +32,12 @@
 			"transform": {
 				"pos": "-4 0 0"
 			},
-			"tags" : ["enemy"]
+			"tags" : ["enemy"],
+			"collider": {
+				"is_dynamic": false,
+				"shape": "sphere",
+				"radius": 1
+			}
 		}
 	},
 	{
@@ -38,6 +48,13 @@
 				"pos": "5 0 3",
 				"axis": "0 1 0", 
 				"angle" : 30
+			},
+			"collider": {
+				"is_dynamic": true,
+				"shape": "sphere",
+				"radius": 1,
+				"group": "enemy",
+				"mask":"floor"
 			}
 		}
 	},
@@ -49,6 +66,13 @@
 				"pos": "-5 0 3",
 				"axis": "0 1 0", 
 				"angle" : -30
+			},
+			"collider": {
+				"is_dynamic": true,
+				"shape": "sphere",
+				"radius": 1,
+				"group": "player",
+				"mask":"floor"
 			}
 		}
 	}
