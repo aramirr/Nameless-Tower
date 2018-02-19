@@ -12,6 +12,7 @@ typedef Matrix      MAT44;
 typedef Quaternion  QUAT;
 
 #include "angular.h"
+#include "interpolators.h"
 
 VEC2 loadVEC2(const json& j);
 VEC3 loadVEC3(const json& j);
