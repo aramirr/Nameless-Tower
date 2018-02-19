@@ -30,7 +30,7 @@ public:
 	void ChaseState(float dt);
 	void AttackState();
 	void DissapearState();
-	void NextWptState();
+	void NextWptState(float dt);
 	void DieState();
 
 	void Init();
