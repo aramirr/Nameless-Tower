@@ -13,5 +13,10 @@
 		"name" : "blue",
 		"all" : false,
 		"buttons" : [ "pad_lanalogx"]
+	},
+	{
+		"name" :"action_button",
+		"all" : false,
+		"buttons" : [ "mouse_left"]
 	}
 ]

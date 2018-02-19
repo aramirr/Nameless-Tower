@@ -205,6 +205,9 @@
     <ClCompile Include="components\ia\ai_orbit_patrol.cpp">
       <Filter>components\ia</Filter>
     </ClCompile>
+    <ClCompile Include="components\ui\ui_mouse_pos.cpp">
+      <Filter>components\ui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine.h" />
@@ -479,6 +482,9 @@
     <ClInclude Include="components\ia\ai_orbit_patrol.h">
       <Filter>components\ia</Filter>
     </ClInclude>
+    <ClInclude Include="components\ui\ui_mouse_pos.h">
+      <Filter>components\ui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="camera">
@@ -546,6 +552,9 @@
     </Filter>
     <Filter Include="utils\Murmur3">
       <UniqueIdentifier>{0808aa14-26cd-4a7d-a986-fb243257ffa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\ui">
+      <UniqueIdentifier>{f4bd09f3-ca9f-4781-aa53-dfda4553df7c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
