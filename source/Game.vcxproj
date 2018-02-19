@@ -101,6 +101,7 @@
     <ClCompile Include="components\ia\ai_destoyable.cpp" />
     <ClCompile Include="components\ia\ai_linear_patrol.cpp" />
     <ClCompile Include="components\ia\ai_orbit_patrol.cpp" />
+    <ClCompile Include="components\ui\ui_mouse_pos.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity\entity.cpp" />
     <ClCompile Include="entity\entity_parser.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="components\ia\ai_destoyable.h" />
     <ClInclude Include="components\ia\ai_linear_patrol.h" />
     <ClInclude Include="components\ia\ai_orbit_patrol.h" />
+    <ClInclude Include="components\ui\ui_mouse_pos.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="entity\common_msgs.h" />
     <ClInclude Include="entity\entity.h" />

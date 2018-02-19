@@ -2,6 +2,7 @@
 #include "entity/entity_parser.h"
 #include "comp_player_controller.h"
 #include "comp_transform.h"
+#include "ui/ui_mouse_pos.h"
 #include "entity/common_msgs.h"
 
 DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
@@ -66,8 +67,9 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	dashing_speed = j.value("dashing_speed", 3);
 	max_jump = j.value("max_jump", 5);
 	omnidash_max_time = j.value("omnidash_max_time", 0.3);
+	//omnidashing_max = j.value("omnidashing_max", 0.3);
 	is_grounded = true;
-	can_omni = true;
+	can_omni = true; 
 
 	init();	
 }
@@ -81,6 +83,7 @@ void TCompPlayerController::init() {
 	AddState("omni", (statehandler)&TCompPlayerController::omnidashing_state);
 	AddState("dash", (statehandler)&TCompPlayerController::dashing_state);
 	AddState("dead", (statehandler)&TCompPlayerController::dead_state);
+	AddState("omni_jump", (statehandler)&TCompPlayerController::omnidashing_jump_state);
 
 	// reset the state
 	ChangeState("initial");
@@ -276,23 +279,47 @@ void TCompPlayerController::jumping_state(float dt) {
 
 void TCompPlayerController::omnidashing_state(float dt) {
 	omnidash_timer += dt;
-	//const VEC2 _position = CEngine::get().getInput().host(Input::PLAYER_1).mouse()._position;
+	bool change_state = false;
+	// Chequea si hay que realizar el salto
 	if (omnidash_timer < omnidash_max_time) {
 		const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);
 		if (!omni.isPressed()) {
-			EngineTimer.setTimeSlower(1.f);
-			change_color(VEC4(1, 1, 1, 1));
-			omnidash_timer = 0;
-			ChangeState("idle");
+			change_state = true;			
 		}
 	}
 	else {
-		EngineTimer.setTimeSlower(1.f);
-		change_color(VEC4(1, 1, 1, 1)); 
-		omnidash_timer = 0;
-		ChangeState("idle");
+		change_state = true;		
 	}
-	
+	// Salgo del omni dash
+	if (change_state) {		
+		TCompArrowUI *c_my_arrow = get<TCompArrowUI>();
+		VEC3 omni_jump = c_my_arrow->unit_force_vector;
+		omnidash_vector = omni_jump;
+		omnidash_vector.Normalize();
+		omnidashing_ammount = 0;
+		ChangeState("omni_jump");		
+	}	
+}
+
+void TCompPlayerController::omnidashing_jump_state(float dt) {
+	if (omnidashing_ammount < 50) {
+		TCompCollider* comp_collider = get<TCompCollider>();
+		TCompTransform *c_my_transform = get<TCompTransform>();
+		VEC3 my_pos = c_my_transform->getPosition();
+		VEC3 new_pos = my_pos + (omnidash_vector * ((jump_speed - gravity * dt) * dt));
+		//new_pos.y += (jump_speed - gravity * dt) * dt;
+		//omni_jump.y += (jump_speed - gravity * dt) * dt;
+		VEC3 delta_move = new_pos - my_pos;
+		comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+		omnidashing_ammount += 0.1;
+	}
+	else {
+		EngineTimer.setTimeSlower(1.f);
+		omnidash_timer = 0;
+		omnidashing_ammount = 0;
+		change_color(VEC4(1, 1, 1, 1));
+		ChangeState("idle");
+	}	
 }
 
 void TCompPlayerController::dashing_state(float dt) {
