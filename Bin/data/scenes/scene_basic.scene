@@ -2,8 +2,8 @@
 		"entity": {
 			"name": "The Enemy",
 			"transform": {
-				"pos": "1 0 0",
-				"lookat": "-1 0 -1"
+				"pos": "-15 0 0",
+				"lookat": "0 0 0"
 			},
 			"render" : [
 				{
@@ -20,8 +20,10 @@
 				"waypoints" : [ "-15 0 0", "15 0 0", "-15 0 0"] 
  			},
 			"collider": {
-				"shape": "box",
-				"halfExtent": "1 1 1"
+				"shape": "capsule",
+				"is_character_controller": true,
+				"radius": 0.5,
+				"height": 1.0
 			}
 		}
 	},
@@ -63,7 +65,7 @@
 			"name": "Box Collider",
 			"transform": {
 				"pos": "0 0 15",
-				"lookat": "-1 0 -1"
+				"lookat": "-1 0 15"
 			},
 			"render" : [
 				{
@@ -73,11 +75,6 @@
 					]
 				}
 			]
-			,
-			"collider": {
-				"shape": "box",
-				"halfExtent": "1 1 1"
-			}
 		}
 	},
 	{
