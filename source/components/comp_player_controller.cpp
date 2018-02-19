@@ -38,6 +38,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
 				is_grounded = true;
+				can_omni = true;
 			}
 		}
 		else
@@ -66,6 +67,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	max_jump = j.value("max_jump", 5);
 	omnidash_max_time = j.value("omnidash_max_time", 0.3);
 	is_grounded = true;
+	can_omni = true;
 
 	init();	
 }
@@ -105,6 +107,7 @@ void TCompPlayerController::idle_state(float dt) {
 		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(0, -gravity*dt, 0), 0.f, dt, physx::PxControllerFilters());
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
 			is_grounded = true;
+			can_omni = true;
 		}
 	}
 	// Chequea el dash
@@ -116,6 +119,7 @@ void TCompPlayerController::idle_state(float dt) {
 		ChangeState("dash");
 	}
 
+	// Chequea el movimiento
 	float y, p, r;
 	if (isPressed('A')) {
 		if (!looking_left) {			
@@ -140,11 +144,20 @@ void TCompPlayerController::idle_state(float dt) {
 
 	// Chequea el salto
 	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
-	if (space.getsPressed()) {
+	if (space.getsPressed() && is_grounded) {
 		change_color(VEC4(1, 0, 1, 1));
 		jump_end = c_my_transform->getPosition().y + max_jump;
 		is_grounded = false;
 		ChangeState("jump");
+	}
+
+	// Chequea el omnidash si es que esta en bajada
+	const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);
+	if (omni.getsPressed() && !is_grounded && can_omni) {
+		change_color(VEC4(0, 1, 0, 1));
+		EngineTimer.setTimeSlower(0.25f);
+		can_omni = false;
+		ChangeState("omni");
 	}
 }
 
@@ -176,13 +189,14 @@ void TCompPlayerController::running_state(float dt) {
 
 	// Chequea el salto
 	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
-	if (space.getsPressed() && is_grounded) {
+	if (space.getsPressed()) {
 		change_color(VEC4(1, 0, 1, 1));
 		TCompTransform *c_my_transform = get<TCompTransform>();
 		jump_end = c_my_transform->getPosition().y + max_jump;
 		is_grounded = false;
 		ChangeState("jump");
 	}
+
 	// Chequea el dash
 	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
 	if (dash.getsPressed()) {
@@ -190,6 +204,15 @@ void TCompPlayerController::running_state(float dt) {
 		speed_factor = speed_factor * dashing_speed;
 		change_color(VEC4(0, 1, 1, 1));
 		ChangeState("dash");
+	}
+
+	// Chequea el omnidash si es que esta en bajada
+	const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);
+	if (omni.getsPressed() && !is_grounded && can_omni) {
+		change_color(VEC4(0, 1, 0, 1));
+		EngineTimer.setTimeSlower(0.25f);
+		can_omni = false;
+		ChangeState("omni");
 	}
 }
 
@@ -226,9 +249,10 @@ void TCompPlayerController::jumping_state(float dt) {
 
 		// Chequea si se presiona el omnidash
 		const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);
-		if (omni.getsPressed()) {
+		if (omni.getsPressed() && can_omni) {
 			change_color(VEC4(0, 1, 0, 1));
 			EngineTimer.setTimeSlower(0.25f);
+			can_omni = false;
 			ChangeState("omni");
 		}
 	}

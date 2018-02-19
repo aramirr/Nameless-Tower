@@ -20,6 +20,7 @@ class TCompPlayerController : public IAIController {
 	int     dashing_speed;
 	bool    looking_left;
 	bool    is_grounded;
+	bool		can_omni;
 
   DECL_SIBLING_ACCESS();
 
