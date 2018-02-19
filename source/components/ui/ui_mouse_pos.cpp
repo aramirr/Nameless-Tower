@@ -29,17 +29,15 @@ void TCompArrowUI::update(float dt) {
 		start_pos = mouse._position;
 	}
 
-	std::vector<VEC3> _waypoints;
-
-	for (size_t i = 0; i < _waypoints.size(); ++i)
-		renderLine(_waypoints[i], _waypoints[(i + 1) % _waypoints.size()], VEC4(0, 1, 0, 1));
-
 
 	if (action_button == 1) {
 		VEC2 move_vector = mouse._position - start_pos;
 		move_vector.Normalize();
-		dbg("MOUSE VECTOR: %.2f, %.2f\n", move_vector.x, move_vector.y * -1);
-		dbg("World COORD VECTOR: %.2f, %.2f, %.2f\n", (pos.x + move_vector.x), (pos.y), (pos.z + (move_vector.y*-1)));
+		//dbg("MOUSE VECTOR: %.2f, %.2f\n", move_vector.x, move_vector.y * -1);
+		//dbg("World COORD VECTOR: %.2f, %.2f, %.2f\n", (pos.x + move_vector.x), (pos.y + (move_vector.y*-1)), (pos.z));
+		unit_force_vector.x = pos.x + move_vector.x;
+		unit_force_vector.y = pos.y + (move_vector.y*-1);
+		unit_force_vector.z = pos.z;
 	}
 	
 	if (action_button == 0 && available_capture == false) {

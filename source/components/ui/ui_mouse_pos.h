@@ -8,6 +8,7 @@
 class TCompArrowUI : public TCompBase {
 public:
 	VEC2 start_pos;
+	VEC3 unit_force_vector;
 	float vector_module;
 	boolean available_capture = 1;
 	CHandle         h_entity;
