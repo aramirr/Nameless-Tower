@@ -58,12 +58,12 @@ void TCompPlayerController::debugInMenu() {
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
 	speed_factor = j.value("speed", 1.0f);
-	dashing_max = j.value("dashing_max", 5.0f);
+	dashing_max = j.value("dashing_max", 25.0f);
 	gravity = j.value("gravity", 16.5f);
 	jump_speed = j.value("jump_speed", 25.8f);
   center = VEC3(0.f, 0.f, 0.f);
 	tower_radius = j.value("tower_radius", 15.f);
-	dashing_speed = j.value("dashing_speed", 5);
+	dashing_speed = j.value("dashing_speed", 3);
 	max_jump = j.value("max_jump", 5);
 	omnidash_max_time = j.value("omnidash_max_time", 0.3);
 	is_grounded = true;
@@ -224,7 +224,19 @@ void TCompPlayerController::jumping_state(float dt) {
 	VEC3 my_pos = c_my_transform->getPosition();
 	VEC3 new_pos = my_pos;
 	new_pos.y += (jump_speed - gravity * dt) * dt;
+
+	// Chequea que no llego a la altura maxima 
 	if (new_pos.y < jump_end) {
+		// Chequea el dash		
+		const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
+		if (dash.getsPressed()) {
+			dashing_amount = 0;
+			speed_factor = speed_factor * dashing_speed;
+			change_color(VEC4(0, 1, 1, 1));
+			ChangeState("dash");
+		}
+
+		// Chequea movimiento
 		if (isPressed('A')) {
 			if (!looking_left) {
 				looking_left = true;
