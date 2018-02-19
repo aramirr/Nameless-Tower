@@ -1,20 +1,5 @@
 [
 	{
-		"name" : "red",
-		"all" : false,
-		"buttons" : [ "pad_a", "mouse_right", "r"]
-	},
-	{
-		"name" : "green",
-		"all" : true,
-		"buttons" : [ "pad_x", "pad_y"]
-	},
-	{
-		"name" : "blue",
-		"all" : false,
-		"buttons" : [ "pad_lanalogx"]
-	},
-	{
 		"name" :"action_button",
 		"all" : false,
 		"buttons" : [ "mouse_left"]
