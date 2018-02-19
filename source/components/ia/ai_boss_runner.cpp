@@ -27,6 +27,7 @@ void CAIBossRunner::Init()
 void CAIBossRunner::debugInMenu() {
 	IAIController::debugInMenu();
 	ImGui::Text("Distance player %f", distance_to_player);
+	ImGui::Text("aux_count  %f", aux_count);
 	if (ImGui::TreeNode("Waypoints")) {
 		for (auto& v : _waypoints) {
 			ImGui::PushID(&v);
@@ -57,7 +58,7 @@ void CAIBossRunner::ResetWptsState() {
 	my_pos->lookAt(_waypoints[currentWaypoint], tower_center);
 	float y, p, r;
 	my_pos->getYawPitchRoll(&y, &p, &r);
-	y += deg2rad(90);
+	y -= deg2rad(90);
 	my_pos->setYawPitchRoll(y, p, r);
 	if (my_pos->isInLeft(tower_center))
 		going_right = true;
@@ -110,41 +111,50 @@ void CAIBossRunner::AppearState() {
 
 void CAIBossRunner::ChaseState(float dt) {
 	TCompTransform *c_my_transform = getMyTransform();
+	VEC3 myPos = c_my_transform->getPosition();
 	CEntity *player = (CEntity *)getEntityByName("The Player");
 	TCompTransform *c_p_transform = player->get<TCompTransform>();
 	VEC3 ppos = c_p_transform->getPosition();
 
-	change_color(VEC4(0, 1, 0, 1));
-
+	
+	float current_yaw;
+	float current_pitch;
 	float amount_moved = speed_factor * dt;
-	tower_center.y = c_my_transform->getPosition().y;
-	float y, p, r;
-	c_my_transform->getYawPitchRoll(&y, &p, &r);
+	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
-	if (c_my_transform->isInFront(ppos)) {
-		y = going_right ? y + 0.1*amount_moved : y - 0.1*amount_moved;
-		c_my_transform->setYawPitchRoll(y, p, r);
-		VEC3 new_position = going_right ? tower_center - c_my_transform->getLeft() * tower_radius : tower_center + c_my_transform->getLeft() * tower_radius;
+	tower_center.y = myPos.y;
+	//float distance = VEC3::Distance(myPos, center);
+	VEC3 move_vector = tower_center + myPos;
 
-		VEC3 delta_move = new_position - c_my_transform->getPosition();
-		delta_move.y += -10 * dt;
-		TCompCollider* comp_collider = get<TCompCollider>();
-		comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
-
+	if (! c_my_transform->isInFront(ppos)) {
+		current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
+		float debug = rad2deg(current_yaw);
+		going_right = !going_right;
+		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 	}
 	else {
-		y += deg2rad(180);
-		c_my_transform->setYawPitchRoll(y, p, r);
-		going_right = !going_right;
+		current_yaw = going_right ? current_yaw - 0.1 * amount_moved : current_yaw + 0.1 * amount_moved;
+		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+		VEC3 aux_vector = going_right ? -1 * c_my_transform->getLeft() :  c_my_transform->getLeft();
+		VEC3 newPos = tower_center + (aux_vector * tower_radius);
+		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+		TCompCollider* comp_collider = get<TCompCollider>();
+		if (comp_collider && comp_collider->controller)
+		{
+			VEC3 delta_move = newPos - myPos;
+			distance_to_player = VEC3::Distance(myPos, ppos);
+			delta_move.y += -10*dt;
+			comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+		}
 	}
-	
-	VEC3 a = c_my_transform->getPosition();
-	VEC3 b = ppos;
-	distance_to_player = VEC3::Distance(a, b);
-	if (distance_to_player < attack_distance)
+
+
+	distance_to_player = VEC3::Distance(myPos, ppos);
+	if (distance_to_player < attack_distance + 2.f)
 		ChangeState("attack");
-	if (distance_to_player > chase_distance +4.f)
-		ChangeState("disappear");
+	if (distance_to_player > chase_distance + 4.f)
+		++aux_count;
+		//ChangeState("disappear");
 }
 
 void CAIBossRunner::AttackState() {

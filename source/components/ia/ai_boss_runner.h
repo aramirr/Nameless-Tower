@@ -16,6 +16,8 @@ class CAIBossRunner : public IAIController
 	bool going_right = false;
 	VEC3 tower_center = VEC3::Zero;
 
+	float aux_count = 0.f;
+
 	DECL_SIBLING_ACCESS();
 
 public:
