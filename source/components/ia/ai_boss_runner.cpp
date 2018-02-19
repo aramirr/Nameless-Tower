@@ -112,64 +112,8 @@ void CAIBossRunner::AppearState() {
 }
 
 void CAIBossRunner::ChaseState(float dt) {
-	TCompTransform *my_pos = getMyTransform();
-	CEntity *player = (CEntity *)getEntityByName("The Player");
-	TCompTransform *ppos = player->get<TCompTransform>();
-
-	change_color(VEC4(0, 1, 0, 1));
-
-	float amount_moved = speed_factor * dt;
-
-	float y, p, r;
-	my_pos->getYawPitchRoll(&y, &p, &r);
-	float distance_center = VEC3::Distance(my_pos->getPosition(), tower_center);
-
-
-	VEC3 new_position;
-	if (going_right) {
-		if (my_pos->isInFront(ppos->getPosition())) {
-			y += 0.1 * amount_moved;
-			my_pos->setYawPitchRoll(y, p, r);
-			new_position = tower_center - my_pos->getLeft() * tower_radius;
-			//my_pos->setPosition(new_position);
-			
-			VEC3 delta_move = new_position - my_pos->getPosition();
-			delta_move.y += -10 * dt;
-			TCompCollider* comp_collider = get<TCompCollider>();
-			comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
-		}
-		else {
-			going_right = false;
-			y += deg2rad(180);
-			my_pos->setYawPitchRoll(y, p, r);
-		}
-	}
-	else {
-		if (my_pos->isInFront(ppos->getPosition())) {
-			y -= 0.1 * amount_moved;
-			my_pos->setYawPitchRoll(y, p, r);
-			new_position = tower_center + my_pos->getLeft() * tower_radius;
-			//my_pos->setPosition(new_position);
-
-			VEC3 delta_move = new_position - my_pos->getPosition();
-			delta_move.y += -10 * dt;
-			TCompCollider* comp_collider = get<TCompCollider>();
-			comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
-		}
-		else {
-			going_right = true;
-			y += deg2rad(180);
-			my_pos->setYawPitchRoll(y, p, r);
-		}
-	}
-	VEC3 a = my_pos->getPosition();
-	VEC3 b = ppos->getPosition();
-	distance_to_player = VEC3::Distance(a, b);
-	if (distance_to_player < attack_distance + 2.f)
-		ChangeState("attack");  
-	if (distance_to_player > chase_distance + 4.f)
-		ChangeState("disappear");
-	/*TCompTransform *c_my_transform = getMyTransform();
+	change_color(VEC4(1, 0, 1, 1));
+	TCompTransform *c_my_transform = getMyTransform();
 	VEC3 myPos = c_my_transform->getPosition();
 	CEntity *player = (CEntity *)getEntityByName("The Player");
 	TCompTransform *c_p_transform = player->get<TCompTransform>();
@@ -182,8 +126,6 @@ void CAIBossRunner::ChaseState(float dt) {
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	tower_center.y = myPos.y;
-	//float distance = VEC3::Distance(myPos, center);
-	VEC3 move_vector = tower_center + myPos;
 
 	if (! c_my_transform->isInFront(ppos)) {
 		current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
@@ -192,7 +134,7 @@ void CAIBossRunner::ChaseState(float dt) {
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 	}
 	else {
-		current_yaw = going_right ? current_yaw - 0.1 * amount_moved : current_yaw + 0.1 * amount_moved;
+		current_yaw = going_right ? current_yaw + 0.1 * amount_moved : current_yaw - 0.1 * amount_moved;
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		VEC3 aux_vector = going_right ? -1 * c_my_transform->getLeft() :  c_my_transform->getLeft();
 		VEC3 newPos = tower_center + (aux_vector * tower_radius);
@@ -207,13 +149,11 @@ void CAIBossRunner::ChaseState(float dt) {
 		}
 	}
 
-
 	distance_to_player = VEC3::Distance(myPos, ppos);
 	if (distance_to_player < attack_distance + 2.f)
 		ChangeState("attack");
 	if (distance_to_player > chase_distance + 4.f)
-		++aux_count;
-		//ChangeState("disappear");*/
+		ChangeState("disappear");
 }
 
 void CAIBossRunner::AttackState() {
