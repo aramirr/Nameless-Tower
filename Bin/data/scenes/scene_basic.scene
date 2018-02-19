@@ -74,7 +74,12 @@
 						"data/materials/madera.material"
 					]
 				}
-			]
+			],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			}
 		}
 	},
 	{

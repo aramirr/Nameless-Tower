@@ -19,6 +19,11 @@ struct TMsgDamage {
   DECL_MSG_ID();
 };
 
+struct TMsgJump {
+	int aux;
+	DECL_MSG_ID();
+};
+
 // Sent to all entities from a parsed file once all the entities
 // in that file has been created. Used to link entities between them
 struct TEntityParseContext;

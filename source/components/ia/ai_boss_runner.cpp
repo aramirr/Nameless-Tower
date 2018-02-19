@@ -24,6 +24,16 @@ void CAIBossRunner::Init()
 	currentWaypoint = 0;
 }
 
+void CAIBossRunner::onPlayerJump(const TMsgJump& msg) {
+	dbg("Hi, I'm TCompCircularController at onCreate\n");
+
+	change_color(VEC4(rand(), rand(), rand(), 1));
+}
+
+void CAIBossRunner::registerMsgs() {
+	DECL_MSG(CAIBossRunner, TMsgJump, onPlayerJump);
+}
+
 void CAIBossRunner::debugInMenu() {
 	IAIController::debugInMenu();
 	ImGui::Text("Distance player %f", distance_to_player);

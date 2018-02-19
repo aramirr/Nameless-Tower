@@ -35,6 +35,10 @@ public:
 
 	void Init();
 
+	void onPlayerJump(const TMsgJump& msg);
+
+	static void registerMsgs();
+
 	void addWaypoint(VEC3 waypoint) { _waypoints.push_back(waypoint); };
 	VEC3 getWaypoint() { return _waypoints[currentWaypoint]; }
 };
