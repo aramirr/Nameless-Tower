@@ -14,6 +14,10 @@ class TCompCamera : public CCamera, public TCompBase {
 
 	bool pForwarding; //guarda la direccion en la que estaba moviendose el player en el ultimo frame (True = para adelante || False = para atras)
 
+	float xOffset;
+
+	float radio;
+
 	float X;
 	float Y;
 	float Z;
@@ -24,6 +28,8 @@ class TCompCamera : public CCamera, public TCompBase {
 
 	float distance;
 	float height;
+
+	float apertura;
 
 	bool isForward(VEC3 player, VEC3 frontPlayer);
 

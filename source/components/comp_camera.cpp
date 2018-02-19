@@ -26,7 +26,9 @@ bool TCompCamera::isForward(VEC3 player, VEC3 frontPlayer) {
 }
 
 void TCompCamera::debugInMenu() {
-	ImGui::DragFloat("Distancia", &distance, 0.1f, -20.f, 20.f);
+	ImGui::DragFloat("Distancia", &distance, 0.1f, -200.f, 200.f);
+	ImGui::DragFloat("AP", &apertura, 0.1f, -2000.f, 2000.f);
+	ImGui::DragFloat("OS", &xOffset, 0.1f, -2000.f, 2000.f);
 	ImGui::DragFloat("Altura", &height, 0.1f, -20.f, 20.f);
 	ImGui::DragFloat("Fov", &fov_deg, 0.1f, -1000.f, 1000.f);
 	ImGui::DragFloat("Look_X", &X, 0.1f, -100.f, 100.f);
@@ -47,19 +49,25 @@ void TCompCamera::load(const json& j, TEntityParseContext& ctx) {
 	z_far = j.value("z_far", 1000.f);
 	distance = j.value("distance", 5.f);
 	height = j.value("height", 5.f);
+	radio = j.value("radio", 15.f);
 	setPerspective(deg2rad(fov_deg), z_near, z_far);
 
 	X = 0;
 	Y = 0;
 	Z = 0;
+	
+	apertura = -300.f;
 
 	//front = VEC3(0, 0, 0);
 	//dir = 0;
 
 	pForwarding = true;
+
+	xOffset = deg2rad(((2 * 3.14159 * radio) / 360) * apertura);
 }
 
 void TCompCamera::update(float dt) {
+	xOffset = deg2rad(((2 * 3.14159 * radio) / 360) * apertura);
 	TCompTransform* c = get<TCompTransform>();
 	assert(c);
 	pos = c->getPosition();
@@ -70,34 +78,48 @@ void TCompCamera::update(float dt) {
 
 	bool playerForward = isForward(pPos, p->getFront());  //Vemos si el player se esta moviendo hacia delante o hacia atras
 
-	float xOffset = 0; // Desplazamiento de la camara en el eje X
+	float os;
 
 	VEC3 v = p->getLeft();
 	if (playerForward) {
-		v *= -1;
-		if (pForwarding) xOffset = 0;
-
+		//if (pForwarding)
+		os = xOffset;
 		pForwarding = true;
 	}
 	else {
 		// . . .
-
+		os = -xOffset;
 		pForwarding = false;
 	}
 
-	//float d = VEC3::Distance(centre, pPos);
-	//d = (distance + d) / d;
-	float x = pPos.x - distance * (v.x - pPos.x);
-	float z = pPos.z - distance * (v.z - pPos.z);
+	VEC3 center = VEC3(0 + X, pPos.y + height + Y, 0 + Z);
 
-	pos.x = x + xOffset;
+	float d = VEC3::Distance(center, pPos);
+	float _d = d / d;
+	float x = pPos.x - _d * (center.x - pPos.x);
+	float z = pPos.z - _d * (center.z - pPos.z);
+
+	pos.x = x;
 	pos.y = pPos.y + height;
 	pos.z = z;
-	c->setPosition(pos);
+	//c->setPosition(pos);
 
-	VEC3 centre = VEC3(0 + X, pPos.y + height + Y, 0 + Z);
+	float _distance = VEC3::Distance(center, pos);
+
+	float y, p2, _y, _p2;
+	c->getYawPitchRoll(&y, &p2);
+	p->getYawPitchRoll(&_y, &_p2);
+
+	c->setPosition(center);
+
+	y = _y + os;
+
+	c->setYawPitchRoll(y, p2);
+	VEC3 newPos = c->getPosition() + (c->getFront() * _distance);
+	newPos.y = pPos.y + height;
+	c->setPosition(newPos);
 
 	this->setPerspective(deg2rad(fov_deg), z_near, z_far);
-	this->lookAt(pos, centre, VEC3::UnitY);
+	this->lookAt(newPos, center, VEC3::UnitY);
 }
 
