@@ -19,6 +19,7 @@ class TCompPlayerController : public IAIController {
 	float   omnidash_max_time;
 	int     dashing_speed;
 	bool    looking_left;
+	bool    is_grounded;
 
   DECL_SIBLING_ACCESS();
 

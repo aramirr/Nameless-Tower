@@ -35,7 +35,10 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 		{
 			VEC3 delta_move = newPos - myPos;
 			delta_move.y += -gravity*dt;
-			comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
+				is_grounded = true;
+			}
 		}
 		else
 		{
@@ -62,6 +65,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	dashing_speed = j.value("dashing_speed", 5);
 	max_jump = j.value("max_jump", 5);
 	omnidash_max_time = j.value("omnidash_max_time", 0.3);
+	is_grounded = true;
 
 	init();	
 }
@@ -99,6 +103,9 @@ void TCompPlayerController::idle_state(float dt) {
 	if (comp_collider && comp_collider->controller)
 	{
 		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(0, -gravity*dt, 0), 0.f, dt, physx::PxControllerFilters());
+		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
+			is_grounded = true;
+		}
 	}
 	// Chequea el dash
 	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
@@ -136,6 +143,7 @@ void TCompPlayerController::idle_state(float dt) {
 	if (space.getsPressed()) {
 		change_color(VEC4(1, 0, 1, 1));
 		jump_end = c_my_transform->getPosition().y + max_jump;
+		is_grounded = false;
 		ChangeState("jump");
 	}
 }
@@ -168,10 +176,11 @@ void TCompPlayerController::running_state(float dt) {
 
 	// Chequea el salto
 	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
-	if (space.getsPressed()) {
+	if (space.getsPressed() && is_grounded) {
 		change_color(VEC4(1, 0, 1, 1));
 		TCompTransform *c_my_transform = get<TCompTransform>();
 		jump_end = c_my_transform->getPosition().y + max_jump;
+		is_grounded = false;
 		ChangeState("jump");
 	}
 	// Chequea el dash
