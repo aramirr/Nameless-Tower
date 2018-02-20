@@ -12,8 +12,12 @@
 		"player_controller",
 		"bullet_controller",
 		"ai_patrol",
-    "flyover_controller",
-    "hierarchy",
+    	"flyover_controller",
+    	"hierarchy",
 		"camera"
+	],
+	"render_debug" : 
+	[
+		"transform"
 	]
 }
