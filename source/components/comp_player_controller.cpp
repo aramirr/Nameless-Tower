@@ -30,7 +30,6 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		VEC3 aux_vector = left ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
 		VEC3 newPos = center + (aux_vector * tower_radius);
-		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		TCompCollider* comp_collider = get<TCompCollider>();
 		if (comp_collider && comp_collider->controller)
 		{
@@ -295,7 +294,7 @@ void TCompPlayerController::omnidashing_state(float dt) {
 		TCompArrowUI *c_my_arrow = get<TCompArrowUI>();
 		VEC3 omni_jump = c_my_arrow->unit_force_vector;
 		omnidash_vector = omni_jump;
-		omnidash_vector.Normalize();
+		//omnidash_vector.Normalize();
 		omnidashing_ammount = 0;
 		ChangeState("omni_jump");		
 	}	
@@ -306,12 +305,32 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 		TCompCollider* comp_collider = get<TCompCollider>();
 		TCompTransform *c_my_transform = get<TCompTransform>();
 		VEC3 my_pos = c_my_transform->getPosition();
-		VEC3 new_pos = my_pos + (omnidash_vector * ((jump_speed - gravity * dt) * dt));
+		//VEC3 new_pos = my_pos + (omnidash_vector * ((jump_speed - gravity * dt) * dt));
+		float x, y;
+		x = 1;
+		y = 1.5;
+		omnidash_vector = c_my_transform->getFront();
+		omnidash_vector.y += y;
+		VEC3 new_pos = my_pos + (omnidash_vector * x * ((jump_speed * 5 - gravity * dt) * dt));
+
+		VEC3 centre = VEC3(0, new_pos.y, 0);
+		float d = VEC3::Distance(centre, new_pos);
+		d = (tower_radius) / d;
+		new_pos.x = new_pos.x * d;
+		new_pos.z = new_pos.z * d;
+
 		//new_pos.y += (jump_speed - gravity * dt) * dt;
 		//omni_jump.y += (jump_speed - gravity * dt) * dt;
-		VEC3 delta_move = new_pos - my_pos;
-		comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+		VEC3 delta_move = new_pos - my_pos;		
 		omnidashing_ammount += 0.1;
+
+		float current_yaw;
+		float current_pitch;
+		float amount_moved = speed_factor * dt;
+		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
+		current_yaw = !looking_left ? current_yaw + (1.08 * x * amount_moved) : current_yaw - (1.08 * x * amount_moved);
+		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+		comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 	}
 	else {
 		EngineTimer.setTimeSlower(1.f);
