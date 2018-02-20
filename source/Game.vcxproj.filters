@@ -547,6 +547,9 @@
     <ClInclude Include="render\shaders\pixel_shader.h">
       <Filter>render\shaders</Filter>
     </ClInclude>
+    <ClInclude Include="render\mesh\mesh_subgroup.h">
+      <Filter>render\mesh</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">

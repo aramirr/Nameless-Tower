@@ -33,7 +33,8 @@ bool CRenderMesh::create(
   eTopology   new_topology,
   const void* index_data,
   size_t      num_index_bytes,
-  size_t      bytes_per_index
+  size_t      bytes_per_index,
+  VMeshSubGroups* new_subgroups
 ) {
   HRESULT hr;
 
@@ -91,6 +92,17 @@ bool CRenderMesh::create(
   num_vertexs = (UINT)(num_bytes / vtx_decl->bytes_per_vertex);
   assert(num_vertexs * vtx_decl->bytes_per_vertex == num_bytes);
 
+  // Save group information if given
+  if (new_subgroups) {
+    subgroups = *new_subgroups; 
+  }
+  else {
+    if (num_indices > 0)
+      subgroups.push_back({ 0, num_indices, 0, 0 });
+    else
+      subgroups.push_back({ 0, num_vertexs, 0, 0 });
+  }
+
   return true;
 }
 
@@ -121,6 +133,15 @@ void CRenderMesh::render() const {
     Render.ctx->DrawIndexed(num_indices, 0, 0);
   else
     Render.ctx->Draw(num_vertexs, 0);
+}
+
+void CRenderMesh::renderSubMesh(uint32_t subgroup_idx) const {
+  assert(subgroup_idx < subgroups.size());
+  auto& g = subgroups[subgroup_idx];
+  if (ib)
+    Render.ctx->DrawIndexed(g.num_indices, g.first_idx, 0);
+  else 
+    Render.ctx->Draw(g.num_indices, g.first_idx);
 }
 
 void CRenderMesh::activateAndRender() const {

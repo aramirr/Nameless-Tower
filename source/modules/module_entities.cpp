@@ -113,9 +113,15 @@ void CModuleEntities::render()
     cb_object.obj_color = c->color;
     cb_object.updateGPU();
 
-    for (auto& m : c->materials)
-      m->activate();
-    c->mesh->activateAndRender();
+    int idx = 0;
+    c->mesh->activate();
+    for (auto& m : c->materials) {
+      if (m) {
+        m->activate();
+        c->mesh->renderSubMesh(idx);
+      }
+      ++idx;
+    }
   });
 
 }

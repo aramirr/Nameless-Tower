@@ -9,6 +9,8 @@ DECL_OBJ_MANAGER("render", TCompRender);
 
 void TCompRender::debugInMenu() {
   ImGui::ColorEdit4("Color", &color.x);
+  for (auto &m : materials) 
+    ((CMaterial*)m)->debugInMenu();
 }
 
 void TCompRender::loadMesh(const json& j, TEntityParseContext& ctx) {
@@ -20,10 +22,15 @@ void TCompRender::loadMesh(const json& j, TEntityParseContext& ctx) {
     auto& j_mats = j["materials"];
     assert(j_mats.is_array());
     for (size_t i = 0; i < j_mats.size(); ++i) {
-      std::string name_material = j_mats[i];
-      const CMaterial* material = Resources.get(name_material)->as<CMaterial>();
+      // Allow to define a null and not render that material idx of the mesh
+      const CMaterial* material = nullptr;
+      if (j_mats[i].is_string()) {
+        std::string name_material = j_mats[i];
+        material = Resources.get(name_material)->as<CMaterial>();
+      }
       materials.push_back(material);
     }
+    assert(materials.size() <= mesh->getSubGroups().size());
   }
   else {
     const CMaterial* material = Resources.get("data/materials/solid.material")->as<CMaterial>();
