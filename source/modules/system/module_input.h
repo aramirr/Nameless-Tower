@@ -11,6 +11,10 @@ namespace Input
 
 class CModuleInput : public IModule
 {
+
+  void startRawInputData();
+  LRESULT OnOSMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) override;
+
 public:
 	CModuleInput(const std::string& name);
   bool start() override;

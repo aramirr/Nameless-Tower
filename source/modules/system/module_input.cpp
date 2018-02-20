@@ -5,6 +5,7 @@
 #include "input/devices/pad_xbox.h"
 #include "input/mapping.h"
 #include "utils/json.hpp"
+#include "windows/app.h"
 #include <fstream>
 
 // for convenience
@@ -15,9 +16,51 @@ CModuleInput::CModuleInput(const std::string& name)
 	: IModule(name)
 {}
 
+void CModuleInput::startRawInputData() {
+#ifndef HID_USAGE_PAGE_GENERIC
+#define HID_USAGE_PAGE_GENERIC         ((USHORT) 0x01)
+#endif
+#ifndef HID_USAGE_GENERIC_MOUSE
+#define HID_USAGE_GENERIC_MOUSE        ((USHORT) 0x02)
+#endif
+
+  RAWINPUTDEVICE Rid[1];
+  Rid[0].usUsagePage = HID_USAGE_PAGE_GENERIC;
+  Rid[0].usUsage = HID_USAGE_GENERIC_MOUSE;
+  Rid[0].dwFlags = RIDEV_INPUTSINK;
+  Rid[0].hwndTarget = CApp::get().getWnd();
+  RegisterRawInputDevices(Rid, 1, sizeof(Rid[0]));
+}
+
+LRESULT CModuleInput::OnOSMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
+  if (msg == WM_INPUT) {
+    UINT dwSize = 64;
+    static BYTE lpb[64];
+
+    int rc = ::GetRawInputData((HRAWINPUT)lParam, RID_INPUT,
+      lpb, &dwSize, sizeof(RAWINPUTHEADER));
+    if (rc == -1)
+      return 0;
+
+    RAWINPUT* raw = (RAWINPUT*)lpb;
+    if (raw->header.dwType == RIM_TYPEMOUSE)
+    {
+      int xPosRelative = raw->data.mouse.lLastX;
+      int yPosRelative = raw->data.mouse.lLastY;
+      // Save mouse relative movement!
+      //dbg("Mouse delta is %d,%d\n", xPosRelative, yPosRelative);
+      //mouse()._position_delta = VEC2(xPosRelative, yPosRelative);
+    }
+  }
+  return 0;
+}
+
+
 bool CModuleInput::start()
 {
 	loadButtonDefinitions("data/keyboard_keys.json");
+
+  startRawInputData();
 
 	static Input::CKeyboard keyboard("keyboard");
 	static Input::CMouse mouse("mouse");
