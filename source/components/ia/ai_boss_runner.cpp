@@ -23,6 +23,13 @@ void CAIBossRunner::Init()
 	ChangeState("resetwpts");
 	currentWaypoint = 0;
 }
+void CAIBossRunner::Appear(const TMsgAppear& msg) {
+	TCompTransform* my_transform = getMyTransform();
+	VEC3 delta_move = msg.appearing_position - my_transform->getPosition();
+	TCompCollider* my_collider = get<TCompCollider>();
+	//my_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+
+}
 
 void CAIBossRunner::onPlayerJump(const TMsgJump& msg) {
 	dbg("Hi, I'm TCompCircularController at onCreate\n");
@@ -32,6 +39,7 @@ void CAIBossRunner::onPlayerJump(const TMsgJump& msg) {
 
 void CAIBossRunner::registerMsgs() {
 	DECL_MSG(CAIBossRunner, TMsgJump, onPlayerJump);
+	DECL_MSG(CAIBossRunner, TMsgAppear, Appear);
 }
 
 void CAIBossRunner::debugInMenu() {

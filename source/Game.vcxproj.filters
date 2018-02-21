@@ -208,6 +208,9 @@
     <ClCompile Include="components\ui\ui_mouse_pos.cpp">
       <Filter>components\ui</Filter>
     </ClCompile>
+    <ClCompile Include="components\comp_trigger.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine.h" />
@@ -484,6 +487,9 @@
     </ClInclude>
     <ClInclude Include="components\ui\ui_mouse_pos.h">
       <Filter>components\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_trigger.h">
+      <Filter>components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

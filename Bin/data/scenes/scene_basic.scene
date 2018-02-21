@@ -1,6 +1,6 @@
 [	{
 		"entity": {
-			"name": "The Enemy",
+			"name": "Boss Runner",
 			"transform": {
 				"pos": "-15 0 0",
 				"lookat": "0 0 0"
@@ -82,6 +82,10 @@
 				"shape": "box",
 				"is_trigger": true,
 				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "runner",
+				"appearing_position": "15 3 0"
 			}
 		}
 	},

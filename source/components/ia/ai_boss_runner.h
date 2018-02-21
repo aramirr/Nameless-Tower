@@ -36,6 +36,7 @@ public:
 	void Init();
 
 	void onPlayerJump(const TMsgJump& msg);
+	void Appear(const TMsgAppear& msg);
 
 	static void registerMsgs();
 
