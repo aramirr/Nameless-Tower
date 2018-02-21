@@ -5,17 +5,21 @@
 		"entities",
 		"physics",
 		"render",
+		"cameras",
 		"main_menu",
 		"splash",
 		"game_over",
-	    "test_input",
-	    "test_axis"
+		"test_input",
+		"test_axis",
+		"test_cameras"
 	],
 	"render" : 
 	[
 		"render",
 		"test_axis",
 		"entities",
-		"input"
+		"input",
+		"cameras",
+		"test_cameras"
 	]
 }

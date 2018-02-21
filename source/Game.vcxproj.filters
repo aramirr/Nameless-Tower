@@ -142,9 +142,6 @@
     <ClCompile Include="components\comp_camera.cpp">
       <Filter>components</Filter>
     </ClCompile>
-    <ClCompile Include="modules\module_physics.cpp">
-      <Filter>modules\system</Filter>
-    </ClCompile>
     <ClCompile Include="components\comp_player_controller.cpp">
       <Filter>components</Filter>
     </ClCompile>
@@ -198,6 +195,24 @@
     </ClCompile>
     <ClCompile Include="render\shaders\render_technique.cpp">
       <Filter>render\shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="geometry\curve.cpp">
+      <Filter>geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\system\module_physics.cpp">
+      <Filter>modules\system</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\system\module_cameras.cpp">
+      <Filter>modules\system</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\test\module_test_cameras.cpp">
+      <Filter>modules\test</Filter>
+    </ClCompile>
+    <ClCompile Include="components\controllers\comp_camera_flyover.cpp">
+      <Filter>components\controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="components\controllers\comp_camera_orbit.cpp">
+      <Filter>components\controllers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -266,6 +281,9 @@
     </Filter>
     <Filter Include="render\shaders">
       <UniqueIdentifier>{020bd702-6652-4fe5-98d9-f8882f90dd57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\controllers">
+      <UniqueIdentifier>{35593611-dc98-40a8-8b74-e77b7bfe7abc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -493,9 +511,6 @@
     <ClInclude Include="components\comp_camera.h">
       <Filter>components</Filter>
     </ClInclude>
-    <ClInclude Include="modules\module_physics.h">
-      <Filter>modules\system</Filter>
-    </ClInclude>
     <ClInclude Include="components\comp_player_controller.h">
       <Filter>components</Filter>
     </ClInclude>
@@ -558,6 +573,27 @@
     </ClInclude>
     <ClInclude Include="render\shaders\pixel_shader.h">
       <Filter>render\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry\curve.h">
+      <Filter>geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry\interpolators.h">
+      <Filter>geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\system\module_physics.h">
+      <Filter>modules\system</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\system\module_cameras.h">
+      <Filter>modules\system</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\test\module_test_cameras.h">
+      <Filter>modules\test</Filter>
+    </ClInclude>
+    <ClInclude Include="components\controllers\comp_camera_flyover.h">
+      <Filter>components\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="components\controllers\comp_camera_orbit.h">
+      <Filter>components\controllers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

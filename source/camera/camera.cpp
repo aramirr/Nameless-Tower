@@ -20,6 +20,10 @@ void CCamera::lookAt(VEC3 new_pos, VEC3 new_target, VEC3 new_up_aux) {
 
   front = (target - pos);
   front.Normalize();
+  left = front.Cross(new_up_aux);
+  left.Normalize();
+  up = front.Cross(left);
+  up.Normalize();
 
   left = new_up_aux.Cross(front);
   left.Normalize();

@@ -1,0 +1,68 @@
+[
+	{
+		"entity": {
+			"name": "test_camera_flyover",
+			"transform": {
+				"pos": "5 5 0",
+				"lookat" : "0 0 0"
+			},
+			"render" : {},
+			"camera_flyover" : {},
+			"camera" : {
+				"fov" : 80 
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "test_camera_orbit",
+			"transform": {
+				"pos": "0 5 5"
+			},
+			"render" : {},
+			"camera_orbit" : {},
+			"camera" : {
+				"fov" : 60 
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "test_camera_fixed_A",
+			"transform": {
+				"pos": "10 5 10",
+				"lookat": "0 0 0"
+			},
+			"render" : {},
+			"camera" : {
+				"fov" : 60 
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "test_camera_fixed_B",
+			"transform": {
+				"pos": "-10 5 -10",
+				"lookat": "0 0 0"
+			},
+			"render" : {},
+			"camera" : {
+				"fov" : 60 
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "test_camera_fixed_C",
+			"transform": {
+				"pos": "5 25 0",
+				"lookat": "0 0 0"
+			},
+			"render" : {},
+			"camera" : {
+				"fov" : 60 
+			}
+		}
+	}
+]

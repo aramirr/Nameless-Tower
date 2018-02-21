@@ -14,7 +14,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{BC06472A-AE43-4007-AE25-59879F8D23F2}</ProjectGuid>
     <RootNamespace>Game</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -96,12 +96,15 @@
     <ClCompile Include="components\comp_render.cpp" />
     <ClCompile Include="components\comp_tags.cpp" />
     <ClCompile Include="components\comp_transform.cpp" />
+    <ClCompile Include="components\controllers\comp_camera_flyover.cpp" />
+    <ClCompile Include="components\controllers\comp_camera_orbit.cpp" />
     <ClCompile Include="components\ia\ai_controller.cpp" />
     <ClCompile Include="components\ia\ai_patrol.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity\entity.cpp" />
     <ClCompile Include="entity\entity_parser.cpp" />
     <ClCompile Include="geometry\angular.cpp" />
+    <ClCompile Include="geometry\curve.cpp" />
     <ClCompile Include="geometry\geometry.cpp" />
     <ClCompile Include="geometry\SimpleMath.cpp" />
     <ClCompile Include="geometry\transform.cpp" />
@@ -129,9 +132,11 @@
     <ClCompile Include="modules\module_entities.cpp" />
     <ClCompile Include="modules\module_ia.cpp" />
     <ClCompile Include="modules\module_manager.cpp" />
-    <ClCompile Include="modules\module_physics.cpp" />
     <ClCompile Include="modules\module_render.cpp" />
+    <ClCompile Include="modules\system\module_cameras.cpp" />
     <ClCompile Include="modules\system\module_input.cpp" />
+    <ClCompile Include="modules\system\module_physics.cpp" />
+    <ClCompile Include="modules\test\module_test_cameras.cpp" />
     <ClCompile Include="modules\test\module_test_input.cpp" />
     <ClCompile Include="render\cte_buffer.cpp" />
     <ClCompile Include="render\mesh\mesh.cpp" />
@@ -169,6 +174,8 @@
     <ClInclude Include="components\comp_render.h" />
     <ClInclude Include="components\comp_tags.h" />
     <ClInclude Include="components\comp_transform.h" />
+    <ClInclude Include="components\controllers\comp_camera_flyover.h" />
+    <ClInclude Include="components\controllers\comp_camera_orbit.h" />
     <ClInclude Include="components\ia\ai_controller.h" />
     <ClInclude Include="components\ia\ai_patrol.h" />
     <ClInclude Include="engine.h" />
@@ -177,7 +184,9 @@
     <ClInclude Include="entity\entity_parser.h" />
     <ClInclude Include="entity\msgs.h" />
     <ClInclude Include="geometry\angular.h" />
+    <ClInclude Include="geometry\curve.h" />
     <ClInclude Include="geometry\geometry.h" />
+    <ClInclude Include="geometry\interpolators.h" />
     <ClInclude Include="geometry\SimpleMath.h" />
     <ClInclude Include="geometry\transform.h" />
     <ClInclude Include="handle\handle.h" />
@@ -214,9 +223,11 @@
     <ClInclude Include="modules\module_entities.h" />
     <ClInclude Include="modules\module_ia.h" />
     <ClInclude Include="modules\module_manager.h" />
-    <ClInclude Include="modules\module_physics.h" />
     <ClInclude Include="modules\module_render.h" />
+    <ClInclude Include="modules\system\module_cameras.h" />
     <ClInclude Include="modules\system\module_input.h" />
+    <ClInclude Include="modules\system\module_physics.h" />
+    <ClInclude Include="modules\test\module_test_cameras.h" />
     <ClInclude Include="modules\test\module_test_input.h" />
     <ClInclude Include="render\cte_buffer.h" />
     <ClInclude Include="render\mesh\mesh.h" />
