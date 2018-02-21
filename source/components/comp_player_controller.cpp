@@ -98,6 +98,7 @@ void TCompPlayerController::initial_state(float dt) {
 	my_pos->setYawPitchRoll(y, p, r);
 
 	looking_left = my_pos->isInLeft(center) ? false : true;
+	change_mesh(1);
 	ChangeState("idle");
 }
 
@@ -118,6 +119,7 @@ void TCompPlayerController::idle_state(float dt) {
 		dashing_amount = 0;
 		speed_factor = speed_factor * dashing_speed;
 		change_color(VEC4(0, 1, 1, 1));
+		change_mesh(0);
 		ChangeState("dash");
 	}
 
@@ -131,6 +133,7 @@ void TCompPlayerController::idle_state(float dt) {
 		else {			
 			move_player(false, false, dt, gravity);
 		}		
+		change_mesh(0);
 		ChangeState("run");
 	}
 	if (isPressed('D')) {
@@ -141,6 +144,7 @@ void TCompPlayerController::idle_state(float dt) {
 			looking_left = false;
 			move_player(true, true, dt, gravity);
 		}		
+		change_mesh(0);
 		ChangeState("run");
 	}
 
@@ -150,6 +154,7 @@ void TCompPlayerController::idle_state(float dt) {
 		change_color(VEC4(1, 0, 1, 1));
 		jump_end = c_my_transform->getPosition().y + max_jump;
 		is_grounded = false;
+		change_mesh(2);
 		ChangeState("jump");
 	}
 
@@ -186,6 +191,7 @@ void TCompPlayerController::running_state(float dt) {
 	// Si no sigue corriendo pasa a estado idle
 	if (!isPressed('A') && !isPressed('D')){
 		change_color(VEC4(1, 1, 1, 1));
+		change_mesh(1);
 		ChangeState("idle");
 	}
 
@@ -196,6 +202,7 @@ void TCompPlayerController::running_state(float dt) {
 		TCompTransform *c_my_transform = get<TCompTransform>();
 		jump_end = c_my_transform->getPosition().y + max_jump;
 		is_grounded = false;
+		change_mesh(2);
 		ChangeState("jump");
 	}
 
@@ -205,6 +212,7 @@ void TCompPlayerController::running_state(float dt) {
 		dashing_amount = 0;
 		speed_factor = speed_factor * dashing_speed;
 		change_color(VEC4(0, 1, 1, 1));
+		change_mesh(0);
 		ChangeState("dash");
 	}
 
@@ -235,6 +243,7 @@ void TCompPlayerController::jumping_state(float dt) {
 			dashing_amount = 0;
 			speed_factor = speed_factor * dashing_speed;
 			change_color(VEC4(0, 1, 1, 1));
+			change_mesh(0);
 			ChangeState("dash");
 		}
 
@@ -272,6 +281,7 @@ void TCompPlayerController::jumping_state(float dt) {
 	}
 	else {
 		change_color(VEC4(1, 1, 1, 1));
+		change_mesh(1);
 		ChangeState("idle");
 	}
 }
@@ -337,6 +347,7 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 		omnidash_timer = 0;
 		omnidashing_ammount = 0;
 		change_color(VEC4(1, 1, 1, 1));
+		change_mesh(1);
 		ChangeState("idle");
 	}	
 }
@@ -350,6 +361,7 @@ void TCompPlayerController::dashing_state(float dt) {
 	dashing_amount += 0.1;
 	if (dashing_amount > dashing_max) {
 		change_color(VEC4(1, 1, 1, 1));
+		change_mesh(1);
 		ChangeState("idle");
 		dashing_amount = 0;
 		speed_factor = speed_factor / dashing_speed;
@@ -357,4 +369,9 @@ void TCompPlayerController::dashing_state(float dt) {
 }
 
 void TCompPlayerController::dead_state(float dt) {
+}
+
+void TCompPlayerController::change_mesh(int mesh_index) {
+	TCompRender* render = get<TCompRender>();
+	render->mesh = render->meshes[mesh_index];
 }

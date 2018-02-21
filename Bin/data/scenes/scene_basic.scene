@@ -31,7 +31,7 @@
 			"render":
 		      [
 		        {
-		          "mesh": "data/meshes/chr_NajaRun_NajaRun.mesh"
+		          "mesh": ["data/meshes/chr_NajaRun_NajaRun.mesh", "data/meshes/chr_NajaIdle_NajaIdle.mesh", "data/meshes/chr_NajaJump_NajaJump.mesh"]
 		          ,
 		          "materials":
 		          [

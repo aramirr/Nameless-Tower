@@ -31,6 +31,7 @@ public:
   void load(const json& j, TEntityParseContext& ctx);
 
   // IA
+	void change_mesh(int mesh_index);
 	void initial_state(float dt);
 	void idle_state(float dt);
   void running_state(float dt);

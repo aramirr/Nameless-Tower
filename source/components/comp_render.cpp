@@ -13,8 +13,27 @@ void TCompRender::debugInMenu() {
 
 void TCompRender::loadMesh(const json& j, TEntityParseContext& ctx) {
 
-  std::string name_mesh = j.value("mesh", "axis.mesh");
-  mesh = Resources.get(name_mesh)->as<CRenderMesh>();
+  //std::string name_mesh = j.value("mesh", "axis.mesh");
+  //mesh = Resources.get(name_mesh)->as<CRenderMesh>();
+	if (j.count("mesh")) {
+		auto& j_mesh = j["mesh"];
+		if (j_mesh.is_array()) {
+			for (size_t i = 0; i < j_mesh.size(); ++i) {
+				std::string name_mesh = j_mesh[i];
+				const CRenderMesh* aux_mesh = Resources.get(name_mesh)->as<CRenderMesh>();
+				meshes.push_back(aux_mesh);
+			}
+		}
+		else {
+			const CRenderMesh* aux_mesh = Resources.get(j_mesh)->as<CRenderMesh>();
+			meshes.push_back(aux_mesh);
+		}
+	}
+	else {
+		const CRenderMesh* aux_mesh = Resources.get("axis.mesh")->as<CRenderMesh>();
+		meshes.push_back(aux_mesh);
+	}
+	mesh = meshes[0];
 
   if (j.count("materials")) {
     auto& j_mats = j["materials"];
