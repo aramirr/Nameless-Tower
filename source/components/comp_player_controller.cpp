@@ -62,11 +62,11 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	gravity = j.value("gravity", 16.5f);
 	jump_speed = j.value("jump_speed", 25.8f);
   center = VEC3(0.f, 0.f, 0.f);
-	tower_radius = j.value("tower_radius", 15.f);
+	tower_radius = j.value("tower_radius", 12.f);
 	dashing_speed = j.value("dashing_speed", 3);
 	max_jump = j.value("max_jump", 5);
 	omnidash_max_time = j.value("omnidash_max_time", 0.3);
-	//omnidashing_max = j.value("omnidashing_max", 0.3);
+	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 100);
 	is_grounded = true;
 	can_omni = true; 
 
@@ -168,6 +168,7 @@ void TCompPlayerController::idle_state(float dt) {
 		change_color(VEC4(0, 1, 0, 1));
 		EngineTimer.setTimeSlower(0.25f);
 		can_omni = false;
+		change_mesh(3);
 		ChangeState("omni");
 	}
 }
@@ -230,6 +231,7 @@ void TCompPlayerController::running_state(float dt) {
 		change_color(VEC4(0, 1, 0, 1));
 		EngineTimer.setTimeSlower(0.25f);
 		can_omni = false;
+		change_mesh(3);
 		ChangeState("omni");
 	}
 }
@@ -284,6 +286,7 @@ void TCompPlayerController::jumping_state(float dt) {
 			change_color(VEC4(0, 1, 0, 1));
 			EngineTimer.setTimeSlower(0.25f);
 			can_omni = false;
+			change_mesh(3);
 			ChangeState("omni");
 		}
 	}
@@ -319,7 +322,7 @@ void TCompPlayerController::omnidashing_state(float dt) {
 }
 
 void TCompPlayerController::omnidashing_jump_state(float dt) {
-	if (omnidashing_ammount < 50) {
+	if (omnidashing_ammount < omnidashing_max_ammount * 1000 * dt) {
 		TCompCollider* comp_collider = get<TCompCollider>();
 		TCompTransform *c_my_transform = get<TCompTransform>();
 		VEC3 my_pos = c_my_transform->getPosition();
@@ -367,7 +370,7 @@ void TCompPlayerController::dashing_state(float dt) {
 		move_player(true, false, dt, gravity);
 	
 	dashing_amount += 0.1;
-	if (dashing_amount > dashing_max) {
+	if (dashing_amount > dashing_max * 1000 * dt) {
 		change_color(VEC4(1, 1, 1, 1));
 		change_mesh(1);
 		ChangeState("idle");
@@ -377,9 +380,4 @@ void TCompPlayerController::dashing_state(float dt) {
 }
 
 void TCompPlayerController::dead_state(float dt) {
-}
-
-void TCompPlayerController::change_mesh(int mesh_index) {
-	TCompRender* render = get<TCompRender>();
-	render->mesh = render->meshes[mesh_index];
 }

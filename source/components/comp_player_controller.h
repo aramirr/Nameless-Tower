@@ -19,6 +19,7 @@ class TCompPlayerController : public IAIController {
 	float   omnidash_timer = 0;
 	float   omnidash_max_time;
 	float		omnidashing_ammount;
+	float		omnidashing_max_ammount;
 	int     dashing_speed;
 	bool    looking_left;
 	bool    is_grounded;
@@ -31,7 +32,6 @@ public:
   void load(const json& j, TEntityParseContext& ctx);
 
   // IA
-	void change_mesh(int mesh_index);
 	void initial_state(float dt);
 	void idle_state(float dt);
   void running_state(float dt);
