@@ -6,8 +6,8 @@
 
 class CAIBossRunner : public IAIController
 {
-	std::vector<VEC3> _waypoints;
-	int currentWaypoint;
+	
+	VEC3 appearing_position;
 	float chase_distance;
 	float attack_distance;
 	float distance_to_player = 0.f;
@@ -15,8 +15,7 @@ class CAIBossRunner : public IAIController
 	float tower_radius;
 	bool going_right = false;
 	VEC3 tower_center = VEC3::Zero;
-
-	float aux_count = 0.f;
+	std::string actual_state;
 
 	DECL_SIBLING_ACCESS();
 
@@ -24,14 +23,11 @@ public:
 	void load(const json& j, TEntityParseContext& ctx);
 	void debugInMenu();
 
-	void ResetWptsState();
-	void HideState();
-	void AppearState();
+	
+	void AppearState(float dt);
 	void ChaseState(float dt);
 	void AttackState();
 	void DissapearState();
-	void NextWptState(float dt);
-	void DieState();
 
 	void Init();
 
@@ -39,9 +35,6 @@ public:
 	void Appear(const TMsgAppear& msg);
 
 	static void registerMsgs();
-
-	void addWaypoint(VEC3 waypoint) { _waypoints.push_back(waypoint); };
-	VEC3 getWaypoint() { return _waypoints[currentWaypoint]; }
 };
 
 #endif
