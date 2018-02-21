@@ -1,7 +1,20 @@
 #include "mcv_platform.h"
 #include "module_cameras.h"
+#include "components/comp_camera.h"
 
-extern CCamera camera;
+void CModuleCameras::TMixedCamera::blendIn(float duration)
+{
+  blendInTime = duration;
+  state = blendInTime == 0.f ? ST_IDLE : ST_BLENDING_IN;
+  time = 0.f;
+}
+
+void CModuleCameras::TMixedCamera::blendOut(float duration)
+{
+  blendOutTime = duration;
+  state = ST_BLENDING_OUT;
+  time = 0.f;
+}
 
 CModuleCameras::CModuleCameras(const std::string& name)
 	: IModule(name)
@@ -9,7 +22,6 @@ CModuleCameras::CModuleCameras(const std::string& name)
 
 bool CModuleCameras::start()
 {
-
   return true;
 }
 
@@ -21,9 +33,12 @@ bool CModuleCameras::stop()
 void CModuleCameras::update(float delta)
 {
   CCamera resultCamera;
-  if (_defaultCamera)
+
+  if (_defaultCamera.isValid())
   {
-    resultCamera = *_defaultCamera;
+    CEntity* e = _defaultCamera;
+    TCompCamera* c_camera = e->get<TCompCamera>();
+    blendCameras(c_camera, c_camera, 1.f, &resultCamera);
   }
 
   for (int i = 0; i < NUM_PRIORITIES; ++i)
@@ -36,8 +51,8 @@ void CModuleCameras::update(float delta)
       mc.time += delta;
       if (mc.state == TMixedCamera::ST_BLENDING_IN)
       {
-        mc.ratio = clamp(mc.time / mc.blendInTime, 0.f, 1.f);
-        if (mc.ratio >= 1.f)
+        mc.weight = clamp(mc.time / mc.blendInTime, 0.f, 1.f);
+        if (mc.weight >= 1.f)
         {
           mc.state = TMixedCamera::ST_IDLE;
           mc.time = 0.f;
@@ -45,31 +60,124 @@ void CModuleCameras::update(float delta)
       }
       else if (mc.state == TMixedCamera::ST_BLENDING_OUT)
       {
-        mc.ratio = 1.f - clamp(mc.time / mc.blendOutTime, 0.f, 1.f);
+        mc.weight = 1.f - clamp(mc.time / mc.blendOutTime, 0.f, 1.f);
       }
 
-      if (mc.ratio > 0.f)
+      if (mc.weight > 0.f)
       {
-        float ratio = mc.ratio;
+        float ratio = mc.weight;
         if (mc.interpolator)
           ratio = mc.interpolator->blend(0.f, 1.f, ratio);
 
-        resultCamera = blendCameras(&resultCamera, mc.camera, ratio);
+        // blend them
+        CEntity* e = mc.camera;
+        TCompCamera* c_camera = e->get<TCompCamera>();
+        blendCameras(&resultCamera, c_camera, ratio, &resultCamera);
       }
     }
   }
 
-  // remove old ones
+  checkDeprecated();
+
+  // remove deprecated ones
   VMixedCameras::iterator it = _mixedCameras.begin();
   while (it != _mixedCameras.end())
   {
-    if (it->ratio <= 0.f)
+    if (it->weight <= 0.f)
       it = _mixedCameras.erase(it);
     else
       ++it;
   }
 
-  camera = resultCamera;
+  // save the result
+  if (_outputCamera.isValid())
+  {
+    CEntity* e = _outputCamera;
+    TCompCamera* c_camera = e->get<TCompCamera>();
+    blendCameras(&resultCamera, &resultCamera, 1.f, c_camera);
+  }
+}
+
+void CModuleCameras::setDefaultCamera(CHandle camera)
+{
+  _defaultCamera = camera;
+}
+
+void CModuleCameras::setOutputCamera(CHandle camera)
+{
+  _outputCamera = camera;
+}
+
+void CModuleCameras::blendInCamera(CHandle camera, float blendTime, EPriority priority, Interpolator::IInterpolator* interpolator)
+{
+  TMixedCamera* mc = getMixedCamera(camera);
+  if (!mc)
+  {
+    TMixedCamera new_mc;
+    new_mc.camera = camera;
+    new_mc.type = priority;
+    new_mc.interpolator = interpolator;
+    new_mc.blendIn(blendTime);
+
+    _mixedCameras.push_back(new_mc);
+  }
+}
+
+void CModuleCameras::blendOutCamera(CHandle camera, float blendTime)
+{
+  TMixedCamera* mc = getMixedCamera(camera);
+  if (mc)
+  {
+    mc->blendOut(blendTime);
+  }
+}
+
+CModuleCameras::TMixedCamera* CModuleCameras::getMixedCamera(CHandle camera)
+{
+  for (auto& mc : _mixedCameras)
+  {
+    if (mc.camera == camera)
+    {
+      return &mc;
+    }
+  }
+  return nullptr;
+}
+
+void CModuleCameras::blendCameras(const CCamera* camera1, const CCamera* camera2, float ratio, CCamera* output) const
+{
+  assert(camera1 && camera2 && output);
+
+  VEC3 newPos = VEC3::Lerp(camera1->getPosition(), camera2->getPosition(), ratio);
+  VEC3 newFront = VEC3::Lerp(camera1->getFront(), camera2->getFront(), ratio);
+  float newFov = lerp(camera1->getFov(), camera2->getFov(), ratio);
+  float newZnear = lerp(camera1->getZNear(), camera2->getZNear(), ratio);
+  float newZfar = lerp(camera1->getZFar(), camera2->getZFar(), ratio);
+
+  output->setPerspective(newFov, newZnear, newZfar);
+  output->lookAt(newPos, newPos + newFront);
+}
+
+void CModuleCameras::checkDeprecated()
+{
+  // checks if there are cameras that should be removed
+  for (int i = _mixedCameras.size() - 1; i >= 0; --i)
+  {
+    TMixedCamera& mc = _mixedCameras[i];
+    if (mc.type == GAMEPLAY && mc.weight >= 1.f)
+    {
+      // check if there's another gameplay camera
+      // if so, and prepare it to be removed
+      for (size_t j = 0; j < i; ++j)
+      {
+        TMixedCamera& otherMc = _mixedCameras[j];
+        if (otherMc.type == GAMEPLAY)
+        {
+          otherMc.weight = 0.f;
+        }
+      }
+    }
+  }
 }
 
 void CModuleCameras::render()
@@ -92,27 +200,32 @@ void renderInterpolator(const char* name, Interpolator::IInterpolator& interpola
 
 void CModuleCameras::renderInMenu()
 {
-	if (ImGui::TreeNode("Cameras"))
-	{
+  if (ImGui::TreeNode("Cameras"))
+  {
+    ImGui::Columns(5);
+    ImGui::SetColumnWidth(0, 200);
     for (auto& mc : _mixedCameras)
     {
-      ImGui::Text(mc.name.c_str());
-      ImGui::SameLine();
+      CEntity* e = mc.camera;
+      ImGui::Text(e->getName());
+      ImGui::NextColumn();
       ImGui::Text("TYPE: %d", mc.type);
-      ImGui::SameLine();
-      if(mc.state == TMixedCamera::ST_BLENDING_IN)
+      ImGui::NextColumn();
+      if (mc.state == TMixedCamera::ST_BLENDING_IN)
         ImGui::Text("Blending In");
       else if (mc.state == TMixedCamera::ST_BLENDING_OUT)
         ImGui::Text("Blending Out");
       else
         ImGui::Text("Idle");
-      ImGui::SameLine();
+      ImGui::NextColumn();
       ImGui::DragFloat("Time", &mc.time);
-      ImGui::SameLine();
-      ImGui::ProgressBar(mc.ratio);
+      ImGui::NextColumn();
+      ImGui::ProgressBar(mc.weight);
+      ImGui::NextColumn();
     }
-		ImGui::TreePop();
-	}
+    ImGui::TreePop();
+    ImGui::Columns();
+  }
 
   if (ImGui::TreeNode("Interpolators"))
   {
@@ -150,94 +263,4 @@ void CModuleCameras::renderInMenu()
 
     ImGui::TreePop();
   }
-}
-
-void CModuleCameras::setDefaultCamera(CCamera* camera)
-{
-  _defaultCamera = camera;
-}
-
-void CModuleCameras::blendInCamera(CCamera* camera, float blendTime, const std::string& name, EPriority priority, Interpolator::IInterpolator* interpolator)
-{
-  TMixedCamera* mc = getMixedCamera(camera);
-  if (mc)
-  {
-    return;
-  }
-
-  if (priority == EPriority::GAMEPLAY)
-  {
-    for (auto& mc : _mixedCameras)
-    {
-      if (mc.type == priority)
-      {
-        mc.blendOut(blendTime);
-      }
-    }
-  }
-
-  TMixedCamera new_mc;
-  new_mc.camera = camera;
-  new_mc.name = name;
-  new_mc.type = priority;
-  new_mc.blendIn(blendTime);
-  new_mc.interpolator = interpolator;
-
-  _mixedCameras.push_back(new_mc);
-}
-
-void CModuleCameras::blendOutCamera(CCamera* camera, float blendTime)
-{
-  TMixedCamera* mc = getMixedCamera(camera);
-  if (mc)
-  {
-    mc->blendOut(blendTime);
-  }
-}
-
-CModuleCameras::TMixedCamera* CModuleCameras::getMixedCamera(CCamera* camera)
-{
-  for (auto& mc : _mixedCameras)
-  {
-    if (mc.camera == camera)
-    {
-      return &mc;
-    }
-  }
-  return nullptr;
-}
-
-CCamera CModuleCameras::blendCameras(const CCamera* camera1, const CCamera* camera2, float ratio) const
-{
-  if (ratio == 0.f)
-  {
-    return *camera1;
-  }
-  else if (ratio == 1.f)
-  {
-    return *camera2;
-  }
-  else
-  {
-    CCamera camera = *camera1;
-    VEC3 newPos = VEC3::Lerp(camera1->getPosition(), camera2->getPosition(), ratio);
-    VEC3 newFront = VEC3::Lerp(camera1->getFront(), camera2->getFront(), ratio);
-    camera.lookAt(newPos, newPos + newFront);
-    return camera;
-  }
-}
-
-
-void CModuleCameras::TMixedCamera::blendIn(float duration)
-{
-  blendInTime = duration;
-  state = blendInTime == 0.f ? ST_IDLE : ST_BLENDING_IN;
-  time = 0.f;
-}
-
-void CModuleCameras::TMixedCamera::blendOut(float duration)
-{
-  blendOutTime = duration;
-  state = ST_BLENDING_OUT;
-  time = 0.f;
 }

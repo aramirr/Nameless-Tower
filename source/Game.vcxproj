@@ -84,8 +84,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
-    <ClCompile Include="camera\controllers\camera_controller_free.cpp" />
-    <ClCompile Include="camera\controllers\camera_controller_orbit.cpp" />
     <ClCompile Include="components\comp_bullet_controller.cpp" />
     <ClCompile Include="components\comp_camera.cpp" />
     <ClCompile Include="components\comp_circular_controller.cpp" />
@@ -98,6 +96,8 @@
     <ClCompile Include="components\comp_render.cpp" />
     <ClCompile Include="components\comp_tags.cpp" />
     <ClCompile Include="components\comp_transform.cpp" />
+    <ClCompile Include="components\controllers\comp_camera_flyover.cpp" />
+    <ClCompile Include="components\controllers\comp_camera_orbit.cpp" />
     <ClCompile Include="components\ia\ai_controller.cpp" />
     <ClCompile Include="components\ia\ai_patrol.cpp" />
     <ClCompile Include="engine.cpp" />
@@ -161,9 +161,6 @@
   <ItemGroup>
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
     <ClInclude Include="camera\camera.h" />
-    <ClInclude Include="camera\camera_controller.h" />
-    <ClInclude Include="camera\controllers\camera_controller_free.h" />
-    <ClInclude Include="camera\controllers\camera_controller_orbit.h" />
     <ClInclude Include="components\comp_base.h" />
     <ClInclude Include="components\comp_bullet_controller.h" />
     <ClInclude Include="components\comp_camera.h" />
@@ -177,6 +174,8 @@
     <ClInclude Include="components\comp_render.h" />
     <ClInclude Include="components\comp_tags.h" />
     <ClInclude Include="components\comp_transform.h" />
+    <ClInclude Include="components\controllers\comp_camera_flyover.h" />
+    <ClInclude Include="components\controllers\comp_camera_orbit.h" />
     <ClInclude Include="components\ia\ai_controller.h" />
     <ClInclude Include="components\ia\ai_patrol.h" />
     <ClInclude Include="engine.h" />

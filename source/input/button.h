@@ -46,5 +46,10 @@ namespace Input
 				time_pressed = 0.f;
 			}
 		}
+
+    operator bool() const
+    {
+      return isPressed();
+    }
 	};
 }

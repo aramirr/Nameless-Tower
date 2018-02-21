@@ -196,12 +196,6 @@
     <ClCompile Include="render\shaders\render_technique.cpp">
       <Filter>render\shaders</Filter>
     </ClCompile>
-    <ClCompile Include="camera\controllers\camera_controller_free.cpp">
-      <Filter>camera\controllers</Filter>
-    </ClCompile>
-    <ClCompile Include="camera\controllers\camera_controller_orbit.cpp">
-      <Filter>camera\controllers</Filter>
-    </ClCompile>
     <ClCompile Include="geometry\curve.cpp">
       <Filter>geometry</Filter>
     </ClCompile>
@@ -213,6 +207,12 @@
     </ClCompile>
     <ClCompile Include="modules\test\module_test_cameras.cpp">
       <Filter>modules\test</Filter>
+    </ClCompile>
+    <ClCompile Include="components\controllers\comp_camera_flyover.cpp">
+      <Filter>components\controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="components\controllers\comp_camera_orbit.cpp">
+      <Filter>components\controllers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -282,8 +282,8 @@
     <Filter Include="render\shaders">
       <UniqueIdentifier>{020bd702-6652-4fe5-98d9-f8882f90dd57}</UniqueIdentifier>
     </Filter>
-    <Filter Include="camera\controllers">
-      <UniqueIdentifier>{c52db6f3-6521-4068-8534-70c6007a15ee}</UniqueIdentifier>
+    <Filter Include="components\controllers">
+      <UniqueIdentifier>{35593611-dc98-40a8-8b74-e77b7bfe7abc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -574,15 +574,6 @@
     <ClInclude Include="render\shaders\pixel_shader.h">
       <Filter>render\shaders</Filter>
     </ClInclude>
-    <ClInclude Include="camera\camera_controller.h">
-      <Filter>camera</Filter>
-    </ClInclude>
-    <ClInclude Include="camera\controllers\camera_controller_free.h">
-      <Filter>camera\controllers</Filter>
-    </ClInclude>
-    <ClInclude Include="camera\controllers\camera_controller_orbit.h">
-      <Filter>camera\controllers</Filter>
-    </ClInclude>
     <ClInclude Include="geometry\curve.h">
       <Filter>geometry</Filter>
     </ClInclude>
@@ -597,6 +588,12 @@
     </ClInclude>
     <ClInclude Include="modules\test\module_test_cameras.h">
       <Filter>modules\test</Filter>
+    </ClInclude>
+    <ClInclude Include="components\controllers\comp_camera_flyover.h">
+      <Filter>components\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="components\controllers\comp_camera_orbit.h">
+      <Filter>components\controllers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -34,20 +34,20 @@ void TCompPlayerController::update(float dt) {
 
   //Detecto el teclado
   VEC3 local_speed = VEC3::Zero;
-  if (!ImGui::IsMouseDown(1)) {  // To avoid conflict with flyover camera
-    if (isPressed('W'))
+  //if (!ImGui::IsMouseDown(1)) {  // To avoid conflict with flyover camera
+    if (isPressed(VK_UP))
       local_speed.z += 1.f;
-    if (isPressed('S'))
+    if (isPressed(VK_DOWN))
       local_speed.z -= 1.f;
-    if (isPressed('A'))
+    if (isPressed(VK_LEFT))
       local_speed.x += 1.f;
-    if (isPressed('D'))
+    if (isPressed(VK_RIGHT))
       local_speed.x -= 1.f;
-    if (isPressed('Q'))
+    if (isPressed(VK_RSHIFT))
       current_yaw += amount_rotated;
-    if (isPressed('E'))
+    if (isPressed(VK_RCONTROL))
       current_yaw -= amount_rotated;
-  }
+  //}
 
   const Input::TButton& bt = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
   if (bt.getsPressed()) {
