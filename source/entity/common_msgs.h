@@ -20,7 +20,7 @@ struct TMsgDamage {
 };
 
 struct TMsgJump {
-	int aux;
+	VEC3 jump_position;
 	DECL_MSG_ID();
 };
 

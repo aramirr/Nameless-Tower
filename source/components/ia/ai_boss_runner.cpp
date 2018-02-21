@@ -14,6 +14,7 @@ void CAIBossRunner::Init()
 	AddState("disappear", (statehandler)&CAIBossRunner::DissapearState);
 	AddState("chase", (statehandler)&CAIBossRunner::ChaseState);
 	AddState("attack", (statehandler)&CAIBossRunner::AttackState);
+	AddState("jump", (statehandler)&CAIBossRunner::JumpingState);
 
 	// reset the state
 	actual_state = "disappear";
@@ -28,9 +29,7 @@ void CAIBossRunner::Appear(const TMsgAppear& msg) {
 }
 
 void CAIBossRunner::onPlayerJump(const TMsgJump& msg) {
-	dbg("Hi, I'm TCompCircularController at onCreate\n");
-
-	change_color(VEC4(rand(), rand(), rand(), 1));
+	jump_positions.push(msg.jump_position);
 }
 
 void CAIBossRunner::registerMsgs() {
@@ -41,6 +40,7 @@ void CAIBossRunner::registerMsgs() {
 void CAIBossRunner::debugInMenu() {
 	IAIController::debugInMenu();
 	ImGui::Text("Distance player %f", distance_to_player);
+	ImGui::DragFloat("Jump speed: %f", &jump_speed, 0.01f, 0.f, 100.f);
 }
 
 void CAIBossRunner::load(const json& j, TEntityParseContext& ctx) {
@@ -50,6 +50,8 @@ void CAIBossRunner::load(const json& j, TEntityParseContext& ctx) {
 	attack_distance = j.value("attack_distance", 1.0f);
 	speed_factor = j.value("speed_factor", 5.0f);
 	tower_radius = j.value("tower_radius", 15.0f);
+	gravity = j.value("gravity", 16.5f);
+	jump_speed = j.value("jump_speed", 25.8f);
 }
 
 void CAIBossRunner::AppearState(float dt) {
@@ -78,6 +80,11 @@ void CAIBossRunner::ChaseState(float dt) {
 	TCompTransform *c_p_transform = player->get<TCompTransform>();
 	VEC3 ppos = c_p_transform->getPosition();
 
+	if (!jump_positions.empty() && VEC3::Distance(myPos, jump_positions.front()) < 1.f) {
+		jump_end = c_my_transform->getPosition().y + 5.f;
+		jump_positions.pop();
+		ChangeState("jump");
+	}
 
 	float current_yaw;
 	float current_pitch;
@@ -135,5 +142,35 @@ void CAIBossRunner::DissapearState() {
 	TCompRender *my_render = getMyRender();
 	//my_render->is_active = false;
 	change_color(VEC4(0, 1, 0, 1));
+	jump_positions = std::queue<VEC3>();
 }
 
+void CAIBossRunner::JumpingState(float dt) {
+	change_color(VEC4(1, 0, 1, 1));
+	TCompTransform *c_my_transform = get<TCompTransform>();
+	VEC3 my_pos = c_my_transform->getPosition();
+	VEC3 new_pos = my_pos;
+	new_pos.y += (jump_speed - gravity * dt) * dt;
+	tower_center.y = my_pos.y;
+	// Chequea que no llego a la altura maxima 
+	if (new_pos.y < jump_end) {
+		float current_yaw, current_pitch;
+		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
+		float amount_moved = speed_factor * dt;
+		current_yaw = going_right ? current_yaw + 0.1 * amount_moved : current_yaw - 0.1 * amount_moved;
+		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+		VEC3 aux_vector = going_right ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
+		new_pos = tower_center + (aux_vector * tower_radius);
+		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+		TCompCollider* comp_collider = get<TCompCollider>();
+		if (comp_collider && comp_collider->controller)
+		{
+			VEC3 delta_move = new_pos - my_pos;
+			delta_move.y += -(-(jump_speed - gravity * dt)) * dt;
+			comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+		}
+	}
+	else {
+		ChangeState("chase");
+	}
+}

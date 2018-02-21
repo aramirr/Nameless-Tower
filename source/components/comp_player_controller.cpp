@@ -155,6 +155,10 @@ void TCompPlayerController::idle_state(float dt) {
 		jump_end = c_my_transform->getPosition().y + max_jump;
 		is_grounded = false;
 		change_mesh(2);
+		TMsgJump msg_jump;
+		msg_jump.jump_position = c_my_transform->getPosition();
+		CEntity* e_runner = (CEntity*)getEntityByName("Boss Runner");
+		e_runner->sendMsg(msg_jump);
 		ChangeState("jump");
 	}
 
@@ -203,6 +207,10 @@ void TCompPlayerController::running_state(float dt) {
 		jump_end = c_my_transform->getPosition().y + max_jump;
 		is_grounded = false;
 		change_mesh(2);
+		TMsgJump msg_jump;
+		msg_jump.jump_position = c_my_transform->getPosition();
+		CEntity* e_runner = (CEntity*)getEntityByName("Boss Runner");
+		e_runner->sendMsg(msg_jump);
 		ChangeState("jump");
 	}
 
