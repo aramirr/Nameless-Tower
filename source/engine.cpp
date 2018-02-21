@@ -16,7 +16,8 @@ CEngine& CEngine::get() {
 
 CEngine::CEngine()
   : _module_render("render")
-  , _module_entities("entities")
+    , _module_entities("entities")
+    , _module_physics("physics")
   , _module_ia("ia")
   , _module_input("input")
   , _module_cameras("cameras")
@@ -33,6 +34,7 @@ bool CEngine::start() {
 
   _modules.registerSystemModule(&_module_render);
   _modules.registerSystemModule(&_module_entities);
+  _modules.registerSystemModule(&_module_physics);
 	_modules.registerSystemModule(&_module_ia);
   _modules.registerSystemModule(&_module_input);
   _modules.registerSystemModule(&_module_cameras);

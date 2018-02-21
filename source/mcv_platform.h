@@ -14,6 +14,7 @@
 #include <cstdarg>
 #include <cstdint>        // uint32_t
 #include <algorithm>
+#include <unordered_map>
 
 #include <vector>
 #include <string>
@@ -31,8 +32,8 @@ using json = nlohmann::json;
 
 #include "geometry/geometry.h"
 #include "render/render.h"
-#include "render/vertex_declarations.h"
 #include "utils/utils.h"
+#include "utils/timer.h"
 #include "imgui/imgui.h"
 #include "camera/camera.h"
 #include "engine.h"

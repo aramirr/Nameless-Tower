@@ -18,6 +18,15 @@ LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 
   switch (message)
   {
+
+  case CDirectoyWatcher::WM_FILE_CHANGED: {
+    const char* filename = (const char*)lParam;
+    dbg("File has changed! %s (%d)\n", filename, wParam);
+    Resources.onFileChanged(filename);
+    delete[] filename;
+    break;
+  }
+
   case WM_PAINT:
     // Validate screen repaint in os/windows 
     hdc = BeginPaint(hWnd, &ps);
@@ -202,12 +211,17 @@ bool CApp::readConfig() {
   xres = 1024;
   yres = 640;
 
+  time_since_last_render.reset();
+
   CEngine::get().getRender().configure(xres, yres);
   return true;
 }
 
 //--------------------------------------------------------------------------------------
 bool CApp::start() {
+
+  resources_dir_watcher.start("data", getWnd());
+
   return CEngine::get().start();
 }
 
@@ -218,9 +232,8 @@ bool CApp::stop() {
 
 //--------------------------------------------------------------------------------------
 void CApp::doFrame() {
-  static const float frameTime = 1.f / 60.f;
-  CEngine::get().update(frameTime);
+  float dt = time_since_last_render.elapsedAndReset();
+  CEngine::get().update(dt);
   CEngine::get().render();
-  Sleep(static_cast<DWORD>(frameTime * 1000.f));
 }
 

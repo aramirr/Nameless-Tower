@@ -14,7 +14,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{BC06472A-AE43-4007-AE25-59879F8D23F2}</ProjectGuid>
     <RootNamespace>Game</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -45,6 +45,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)..\Bin\</OutDir>
     <IntDir>$(SolutionDir)..\Build\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(SolutionDir)..\tools\PhysX\PhysX_3.4\Include;$(SolutionDir)..\tools\PhysX\PxShared\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IntDir>$(SolutionDir)..\Build\$(Platform)\$(Configuration)\</IntDir>
@@ -61,6 +62,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>C:\Program Files (x86)\Visual Leak Detector\lib\Win64;%(AdditionalLibraryDirectories);$(SolutionDir)../libs/debug/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -84,13 +86,30 @@
     <ClCompile Include="camera\camera.cpp" />
     <ClCompile Include="camera\controllers\camera_controller_free.cpp" />
     <ClCompile Include="camera\controllers\camera_controller_orbit.cpp" />
+    <ClCompile Include="components\comp_bullet_controller.cpp" />
+    <ClCompile Include="components\comp_camera.cpp" />
+    <ClCompile Include="components\comp_circular_controller.cpp" />
+    <ClCompile Include="components\comp_collider.cpp" />
+    <ClCompile Include="components\comp_flyover_controller.cpp" />
+    <ClCompile Include="components\comp_group.cpp" />
+    <ClCompile Include="components\comp_hierarchy.cpp" />
+    <ClCompile Include="components\comp_name.cpp" />
+    <ClCompile Include="components\comp_player_controller.cpp" />
+    <ClCompile Include="components\comp_render.cpp" />
+    <ClCompile Include="components\comp_tags.cpp" />
+    <ClCompile Include="components\comp_transform.cpp" />
+    <ClCompile Include="components\ia\ai_controller.cpp" />
+    <ClCompile Include="components\ia\ai_patrol.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity\entity.cpp" />
+    <ClCompile Include="entity\entity_parser.cpp" />
     <ClCompile Include="geometry\angular.cpp" />
     <ClCompile Include="geometry\curve.cpp" />
     <ClCompile Include="geometry\geometry.cpp" />
     <ClCompile Include="geometry\SimpleMath.cpp" />
     <ClCompile Include="geometry\transform.cpp" />
+    <ClCompile Include="handle\handle_def.cpp" />
+    <ClCompile Include="handle\handle_manager.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />
@@ -116,20 +135,26 @@
     <ClCompile Include="modules\module_render.cpp" />
     <ClCompile Include="modules\system\module_cameras.cpp" />
     <ClCompile Include="modules\system\module_input.cpp" />
+    <ClCompile Include="modules\system\module_physics.cpp" />
     <ClCompile Include="modules\test\module_test_cameras.cpp" />
     <ClCompile Include="modules\test\module_test_input.cpp" />
     <ClCompile Include="render\cte_buffer.cpp" />
     <ClCompile Include="render\mesh\mesh.cpp" />
     <ClCompile Include="render\mesh\mesh_loader.cpp" />
-    <ClCompile Include="render\pixel_shader.cpp" />
     <ClCompile Include="render\render.cpp" />
     <ClCompile Include="render\render_objects.cpp" />
-    <ClCompile Include="render\shader_compile.cpp" />
+    <ClCompile Include="render\render_utils.cpp" />
+    <ClCompile Include="render\shaders\pixel_shader.cpp" />
+    <ClCompile Include="render\shaders\render_technique.cpp" />
+    <ClCompile Include="render\shaders\shader_compile.cpp" />
+    <ClCompile Include="render\shaders\vertex_declarations.cpp" />
+    <ClCompile Include="render\shaders\vertex_shader.cpp" />
     <ClCompile Include="render\texture\DDSTextureLoader.cpp" />
+    <ClCompile Include="render\texture\material.cpp" />
     <ClCompile Include="render\texture\texture.cpp" />
-    <ClCompile Include="render\vertex_declarations.cpp" />
-    <ClCompile Include="render\vertex_shader.cpp" />
+    <ClCompile Include="resources\json_resource.cpp" />
     <ClCompile Include="resources\resources_manager.cpp" />
+    <ClCompile Include="utils\murmur3\murmur3.cpp" />
     <ClCompile Include="utils\utils.cpp" />
     <ClCompile Include="windows\app.cpp" />
   </ItemGroup>
@@ -139,14 +164,36 @@
     <ClInclude Include="camera\camera_controller.h" />
     <ClInclude Include="camera\controllers\camera_controller_free.h" />
     <ClInclude Include="camera\controllers\camera_controller_orbit.h" />
+    <ClInclude Include="components\comp_base.h" />
+    <ClInclude Include="components\comp_bullet_controller.h" />
+    <ClInclude Include="components\comp_camera.h" />
+    <ClInclude Include="components\comp_circular_controller.h" />
+    <ClInclude Include="components\comp_collider.h" />
+    <ClInclude Include="components\comp_flyover_controller.h" />
+    <ClInclude Include="components\comp_group.h" />
+    <ClInclude Include="components\comp_hierarchy.h" />
+    <ClInclude Include="components\comp_name.h" />
+    <ClInclude Include="components\comp_player_controller.h" />
+    <ClInclude Include="components\comp_render.h" />
+    <ClInclude Include="components\comp_tags.h" />
+    <ClInclude Include="components\comp_transform.h" />
+    <ClInclude Include="components\ia\ai_controller.h" />
+    <ClInclude Include="components\ia\ai_patrol.h" />
     <ClInclude Include="engine.h" />
+    <ClInclude Include="entity\common_msgs.h" />
     <ClInclude Include="entity\entity.h" />
+    <ClInclude Include="entity\entity_parser.h" />
+    <ClInclude Include="entity\msgs.h" />
     <ClInclude Include="geometry\angular.h" />
     <ClInclude Include="geometry\curve.h" />
     <ClInclude Include="geometry\geometry.h" />
     <ClInclude Include="geometry\interpolators.h" />
     <ClInclude Include="geometry\SimpleMath.h" />
     <ClInclude Include="geometry\transform.h" />
+    <ClInclude Include="handle\handle.h" />
+    <ClInclude Include="handle\handle_def.h" />
+    <ClInclude Include="handle\handle_manager.h" />
+    <ClInclude Include="handle\object_manager.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
     <ClInclude Include="imgui\imgui_impl_dx11.h" />
@@ -180,24 +227,31 @@
     <ClInclude Include="modules\module_render.h" />
     <ClInclude Include="modules\system\module_cameras.h" />
     <ClInclude Include="modules\system\module_input.h" />
+    <ClInclude Include="modules\system\module_physics.h" />
     <ClInclude Include="modules\test\module_test_cameras.h" />
     <ClInclude Include="modules\test\module_test_input.h" />
     <ClInclude Include="render\cte_buffer.h" />
     <ClInclude Include="render\mesh\mesh.h" />
     <ClInclude Include="render\mesh\mesh_loader.h" />
-    <ClInclude Include="render\pixel_shader.h" />
     <ClInclude Include="render\render.h" />
     <ClInclude Include="render\render_objects.h" />
-    <ClInclude Include="render\render_technique.h" />
-    <ClInclude Include="render\shader_compiler.h" />
+    <ClInclude Include="render\render_utils.h" />
+    <ClInclude Include="render\shaders\pixel_shader.h" />
+    <ClInclude Include="render\shaders\render_technique.h" />
+    <ClInclude Include="render\shaders\shader_compiler.h" />
+    <ClInclude Include="render\shaders\vertex_declarations.h" />
+    <ClInclude Include="render\shaders\vertex_shader.h" />
     <ClInclude Include="render\texture\DDSTextureLoader.h" />
+    <ClInclude Include="render\texture\material.h" />
     <ClInclude Include="render\texture\texture.h" />
-    <ClInclude Include="render\vertex_declarations.h" />
-    <ClInclude Include="render\vertex_shader.h" />
+    <ClInclude Include="resources\json_resource.h" />
     <ClInclude Include="resources\resource.h" />
     <ClInclude Include="resources\resources_manager.h" />
     <ClInclude Include="utils\data_provider.h" />
+    <ClInclude Include="utils\directory_watcher.h" />
     <ClInclude Include="utils\json.hpp" />
+    <ClInclude Include="utils\murmur3\murmur3.h" />
+    <ClInclude Include="utils\timer.h" />
     <ClInclude Include="utils\utils.h" />
     <ClInclude Include="windows\app.h" />
   </ItemGroup>

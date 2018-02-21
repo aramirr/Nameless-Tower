@@ -5,11 +5,14 @@
 
 class CModuleEntities : public IModule
 {
+
+  std::vector< CHandleManager* > om_to_update;
+
 public:
   CModuleEntities(const std::string& aname) : IModule(aname) { }
+  bool start();
   void update(float delta) override;
   void render() override;
 };
 
-void loadEntities(const char* filename);
-TEntity* getEntityByName(const char* name);
+CHandle getEntityByName(const std::string& name);

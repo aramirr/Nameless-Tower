@@ -26,6 +26,8 @@ class CCamera {
 
 public:
 
+  CCamera();
+
   // 
   VEC3 getPosition() const { return pos; }
   VEC3 getTarget() const { return target; }
@@ -49,6 +51,8 @@ public:
   
   // -------------------------------------
   float getFov() const { return fov_vertical; }
+  float getZNear() const { return z_near; }
+  float getZFar() const { return z_far; }
 
   // 
   void lookAt(VEC3 new_pos, VEC3 new_target, VEC3 new_up_aux = VEC3(0, 1, 0));

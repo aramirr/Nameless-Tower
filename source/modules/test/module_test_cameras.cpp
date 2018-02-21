@@ -1,9 +1,9 @@
 #include "mcv_platform.h"
 #include "module_test_cameras.h"
 #include "render/render_objects.h"
+#include "render/texture/material.h"
 
 extern CCamera camera;
-extern CRenderTechnique tech_solid;
 extern void registerMesh(CRenderMesh* new_mesh, const char* name);
 
 struct TVtxPosClr {
@@ -96,7 +96,8 @@ void CModuleTestCameras::update(float delta)
 
 void CModuleTestCameras::render()
 {
-  tech_solid.activate();
+  auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
+  solid->activate();
 
   activateCamera(camera);
 
