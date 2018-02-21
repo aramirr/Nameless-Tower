@@ -62,11 +62,11 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	gravity = j.value("gravity", 16.5f);
 	jump_speed = j.value("jump_speed", 25.8f);
   center = VEC3(0.f, 0.f, 0.f);
-	tower_radius = j.value("tower_radius", 12.f);
+	tower_radius = j.value("tower_radius", 15.f);
 	dashing_speed = j.value("dashing_speed", 3);
 	max_jump = j.value("max_jump", 5);
 	omnidash_max_time = j.value("omnidash_max_time", 0.3);
-	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 100);
+	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 90);
 	is_grounded = true;
 	can_omni = true; 
 
@@ -119,7 +119,7 @@ void TCompPlayerController::idle_state(float dt) {
 		dashing_amount = 0;
 		speed_factor = speed_factor * dashing_speed;
 		change_color(VEC4(0, 1, 1, 1));
-		change_mesh(0);
+		change_mesh(4);
 		ChangeState("dash");
 	}
 
@@ -221,7 +221,7 @@ void TCompPlayerController::running_state(float dt) {
 		dashing_amount = 0;
 		speed_factor = speed_factor * dashing_speed;
 		change_color(VEC4(0, 1, 1, 1));
-		change_mesh(0);
+		change_mesh(4);
 		ChangeState("dash");
 	}
 
@@ -253,7 +253,7 @@ void TCompPlayerController::jumping_state(float dt) {
 			dashing_amount = 0;
 			speed_factor = speed_factor * dashing_speed;
 			change_color(VEC4(0, 1, 1, 1));
-			change_mesh(0);
+			change_mesh(4);
 			ChangeState("dash");
 		}
 
