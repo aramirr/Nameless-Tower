@@ -10,17 +10,17 @@ DECL_OBJ_MANAGER("ai_boss_runner", CAIBossRunner);
 void CAIBossRunner::Init()
 {
 	// insert all states in the map
-	AddState("appear", (statehandler)&CAIBossRunner::AppearState);
-	AddState("disappear", (statehandler)&CAIBossRunner::DissapearState);
-	AddState("chase", (statehandler)&CAIBossRunner::ChaseState);
-	AddState("attack", (statehandler)&CAIBossRunner::AttackState);
-	AddState("jump", (statehandler)&CAIBossRunner::JumpingState);
+	AddState("appear", (statehandler)&CAIBossRunner::appear_state);
+	AddState("disappear", (statehandler)&CAIBossRunner::disapear_state);
+	AddState("chase", (statehandler)&CAIBossRunner::chase_state);
+	AddState("attack", (statehandler)&CAIBossRunner::attack_state);
+	AddState("jump", (statehandler)&CAIBossRunner::jumping_state);
 
 	// reset the state
 	actual_state = "disappear";
 	ChangeState("disappear");
 }
-void CAIBossRunner::Appear(const TMsgAppear& msg) {
+void CAIBossRunner::appear(const TMsgAppear& msg) {
 	if (actual_state == "disappear") {
 		appearing_position = msg.appearing_position;
 		actual_state = "appear";
@@ -28,13 +28,13 @@ void CAIBossRunner::Appear(const TMsgAppear& msg) {
 	}
 }
 
-void CAIBossRunner::onPlayerJump(const TMsgJump& msg) {
+void CAIBossRunner::on_player_jump(const TMsgJump& msg) {
 	jump_positions.push(msg.jump_position);
 }
 
 void CAIBossRunner::registerMsgs() {
-	DECL_MSG(CAIBossRunner, TMsgJump, onPlayerJump);
-	DECL_MSG(CAIBossRunner, TMsgAppear, Appear);
+	DECL_MSG(CAIBossRunner, TMsgJump, on_player_jump);
+	DECL_MSG(CAIBossRunner, TMsgAppear, appear);
 }
 
 void CAIBossRunner::debugInMenu() {
@@ -54,7 +54,7 @@ void CAIBossRunner::load(const json& j, TEntityParseContext& ctx) {
 	jump_speed = j.value("jump_speed", 25.8f);
 }
 
-void CAIBossRunner::AppearState(float dt) {
+void CAIBossRunner::appear_state(float dt) {
 	TCompTransform* my_transform = getMyTransform();
 	VEC3 delta_move = appearing_position - my_transform->getPosition();
 	TCompCollider* my_collider = get<TCompCollider>();
@@ -72,7 +72,7 @@ void CAIBossRunner::AppearState(float dt) {
  	ChangeState("chase");
 }
 
-void CAIBossRunner::ChaseState(float dt) {
+void CAIBossRunner::chase_state(float dt) {
 	change_color(VEC4(1, 1, 0, 1));
 	TCompTransform *c_my_transform = getMyTransform();
 	VEC3 myPos = c_my_transform->getPosition();
@@ -120,32 +120,32 @@ void CAIBossRunner::ChaseState(float dt) {
 		actual_state = "attack";
 		ChangeState("attack");
 	}
-	if (distance_to_player > chase_distance + 4.f) {
+	if (distance_to_player > chase_distance + 10.f) {
 		actual_state = "disappear";
 		ChangeState("disappear");
 	}
 }
 
-void CAIBossRunner::AttackState() {
+void CAIBossRunner::attack_state() {
 	change_color(VEC4(0, 0, 0, 1));
 	TCompTransform *my_pos = getMyTransform();
 	CEntity *player = (CEntity *)getEntityByName("The Player");
 	TCompTransform *ppos = player->get<TCompTransform>();
 	distance_to_player = VEC3::Distance(my_pos->getPosition(), ppos->getPosition());
-	if (distance_to_player > attack_distance + 1.5f) {
+	if (distance_to_player > attack_distance + 2.5f) {
 		actual_state = "chase";
 		ChangeState("chase");
 	}
 }
 
-void CAIBossRunner::DissapearState() {
+void CAIBossRunner::disapear_state() {
 	TCompRender *my_render = getMyRender();
 	//my_render->is_active = false;
 	change_color(VEC4(0, 1, 0, 1));
 	jump_positions = std::queue<VEC3>();
 }
 
-void CAIBossRunner::JumpingState(float dt) {
+void CAIBossRunner::jumping_state(float dt) {
 	change_color(VEC4(1, 0, 1, 1));
 	TCompTransform *c_my_transform = get<TCompTransform>();
 	VEC3 my_pos = c_my_transform->getPosition();
