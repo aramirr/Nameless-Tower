@@ -24,6 +24,7 @@ class TCompPlayerController : public IAIController {
 	bool    looking_left;
 	bool    is_grounded;
 	bool		can_omni;
+	bool		can_dash;
 
   DECL_SIBLING_ACCESS();
 

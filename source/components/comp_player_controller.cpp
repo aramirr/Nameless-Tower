@@ -39,6 +39,10 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
 				is_grounded = true;
 				can_omni = true;
+			} 
+			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
+				current_yaw = left ? current_yaw - 0.1 * amount_moved : current_yaw + 0.1 * amount_moved;
+				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 			}
 		}
 		else
@@ -58,7 +62,7 @@ void TCompPlayerController::debugInMenu() {
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
 	speed_factor = j.value("speed", 1.0f);
-	dashing_max = j.value("dashing_max", 25.0f);
+	dashing_max = j.value("dashing_max", 10.0f);
 	gravity = j.value("gravity", 16.5f);
 	jump_speed = j.value("jump_speed", 25.8f);
   center = VEC3(0.f, 0.f, 0.f);
@@ -68,7 +72,8 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	omnidash_max_time = j.value("omnidash_max_time", 0.3);
 	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 90);
 	is_grounded = true;
-	can_omni = true; 
+	can_omni = true;
+	can_dash = true;
 
 	init();	
 }
@@ -365,9 +370,9 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 
 void TCompPlayerController::dashing_state(float dt) {
 	if (looking_left)
-		move_player(false, false, dt, gravity);
+		move_player(false, false, dt, 0);
 	else
-		move_player(true, false, dt, gravity);
+		move_player(true, false, dt, 0);
 	
 	dashing_amount += 0.1;
 	if (dashing_amount > dashing_max * 1000 * dt) {
