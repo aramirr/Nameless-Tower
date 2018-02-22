@@ -58,7 +58,7 @@ void TCompPlayerController::debugInMenu() {
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
 	speed_factor = j.value("speed", 1.0f);
-	dashing_max = j.value("dashing_max", 25.0f);
+	dashing_max = j.value("dashing_max", 10.0f);
 	gravity = j.value("gravity", 16.5f);
 	jump_speed = j.value("jump_speed", 25.8f);
   center = VEC3(0.f, 0.f, 0.f);
@@ -365,9 +365,9 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 
 void TCompPlayerController::dashing_state(float dt) {
 	if (looking_left)
-		move_player(false, false, dt, gravity);
+		move_player(false, false, dt, 0);
 	else
-		move_player(true, false, dt, gravity);
+		move_player(true, false, dt, 0);
 	
 	dashing_amount += 0.1;
 	if (dashing_amount > dashing_max * 1000 * dt) {
