@@ -6,6 +6,22 @@
 		"ps_file": "data/shaders/shaders.fx",
 		"ps_entry_point" : "PS"
 	},
+	"solid_objs" : {
+		"vs_file": "data/shaders/shaders.fx",
+		"vs_entry_point" : "VS_Objs",
+		"vertex_type" : "PosNUv",
+		"ps_file": "data/shaders/shaders.fx",
+		"ps_entry_point" : "PS"
+	},
+	"solid_objs_uv2" : {
+		"vs_file": "data/shaders/shaders.fx",
+		"vs_entry_point" : "VS_Objs_uv2",
+		"vertex_type" : "PosNUvUv",
+		"ps_file": "data/shaders/shaders.fx",
+		"ps_entry_point" : "PS"
+	},
+
+
 	"textured" : {
 		"vs_file": "data/shaders/shaders_objs.fx",
 		"vs_entry_point" : "VS",

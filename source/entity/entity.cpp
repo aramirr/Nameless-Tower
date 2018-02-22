@@ -35,9 +35,18 @@ const char* CEntity::getName() const {
   return comp_name->getName();
 }
 
+void CEntity::renderDebug() {
+  for (int i = 0; i < CHandleManager::getNumDefinedTypes(); ++i) {
+    CHandle h = comps[i];
+    if (h.isValid())
+      h.renderDebug();
+  }
+}
+
 void CEntity::debugInMenu() {
   if (ImGui::TreeNode(getName())) {
-    
+    renderDebug();
+
     // Give option to destroy the entity
     ImGui::SameLine();
     if (ImGui::SmallButton("Del")) {

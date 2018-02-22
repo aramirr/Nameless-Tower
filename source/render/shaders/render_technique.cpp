@@ -3,6 +3,8 @@
 #include "pixel_shader.h"
 #include "vertex_shader.h"
 
+const CRenderTechnique* CRenderTechnique::current = nullptr;
+
 // ----------------------------------------------
 class CRenderTechniqueResourceClass : public CResourceClass {
 public:
@@ -87,10 +89,15 @@ void CRenderTechnique::destroy() {
 }
 
 void CRenderTechnique::activate() const {
+  // If I'm the current active tech, no need to reactive myself in DX
+  if (current == this)
+    return;
   assert(vs);
   vs->activate();
   assert(ps);
   ps->activate();
+  // Save me as the current active technique
+  current = this;
 }
 
 void CRenderTechnique::debugInMenu() {

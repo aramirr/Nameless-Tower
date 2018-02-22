@@ -37,6 +37,7 @@ public:
   const VMeshSubGroups& getSubGroups() const {
     return subgroups;
   }
+  const CVertexDecl* getVertexDecl() const { return vtx_decl; }
 
 private:
   

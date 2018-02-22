@@ -1,11 +1,13 @@
 #include "mcv_platform.h"
 #include "comp_render.h"
+#include "comp_transform.h"
 
 DECL_OBJ_MANAGER("render", TCompRender);
 
 #include "render/render_objects.h"
 #include "render/texture/texture.h"
 #include "render/texture/material.h"
+#include "render/render_utils.h"
 
 void TCompRender::debugInMenu() {
   ImGui::ColorEdit4("Color", &color.x);
@@ -16,10 +18,12 @@ void TCompRender::debugInMenu() {
 }
 
 void TCompRender::renderDebug() {
-  //mesh->activate();
-  //mesh->render();
+  activateRSConfig(RSCFG_WIREFRAME);
+  TCompTransform *transform = get<TCompTransform>();
+  assert(transform);
+  renderMesh(mesh, transform->asMatrix(), color);
+  activateRSConfig(RSCFG_DEFAULT);
 }
-
 
 void TCompRender::loadMesh(const json& j, TEntityParseContext& ctx) {
 

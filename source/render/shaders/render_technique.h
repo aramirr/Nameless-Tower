@@ -17,6 +17,7 @@ class CRenderTechnique : public IResource {
 public:
   CVertexShader* vs = nullptr;
   CPixelShader*  ps = nullptr;
+  static const CRenderTechnique* current;
   
   // CTexture* textures;
 

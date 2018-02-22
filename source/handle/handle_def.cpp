@@ -23,7 +23,13 @@ const char* CHandle::getTypeName() const {
 void CHandle::debugInMenu() {
   auto hm = CHandleManager::getByType(type);
   if (hm)
-    hm->debugInMenu( *this );
+    hm->debugInMenu(*this);
+}
+
+void CHandle::renderDebug() {
+  auto hm = CHandleManager::getByType(type);
+  if (hm)
+    hm->renderDebug(*this);
 }
 
 void CHandle::load(const json& j, TEntityParseContext& ctx) {
