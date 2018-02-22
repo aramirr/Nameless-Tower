@@ -39,6 +39,10 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
 				is_grounded = true;
 				can_omni = true;
+			} 
+			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
+				current_yaw = left ? current_yaw - 0.1 * amount_moved : current_yaw + 0.1 * amount_moved;
+				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 			}
 		}
 		else
@@ -68,7 +72,8 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	omnidash_max_time = j.value("omnidash_max_time", 0.3);
 	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 90);
 	is_grounded = true;
-	can_omni = true; 
+	can_omni = true;
+	can_dash = true;
 
 	init();	
 }
