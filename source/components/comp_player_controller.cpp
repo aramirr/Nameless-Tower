@@ -43,6 +43,10 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
 				current_yaw = left ? current_yaw - 0.1 * amount_moved : current_yaw + 0.1 * amount_moved;
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+			} else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
+				change_color(VEC4(1, 1, 1, 1));
+				change_mesh(1);
+				ChangeState("idle");
 			}
 		}
 		else
@@ -70,7 +74,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	dashing_speed = j.value("dashing_speed", 3);
 	max_jump = j.value("max_jump", 5);
 	omnidash_max_time = j.value("omnidash_max_time", 0.3);
-	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 90);
+	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 50);
 	is_grounded = true;
 	can_omni = true;
 	can_dash = true;
@@ -282,7 +286,12 @@ void TCompPlayerController::jumping_state(float dt) {
 			}
 		}	else {
 			VEC3 delta_move = new_pos - my_pos;
-			comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
+				change_color(VEC4(1, 1, 1, 1));
+				change_mesh(1);
+				ChangeState("idle");
+			}
 		}
 
 		// Chequea si se presiona el omnidash
