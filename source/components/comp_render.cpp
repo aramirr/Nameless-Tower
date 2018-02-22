@@ -8,27 +8,39 @@ DECL_OBJ_MANAGER("render", TCompRender);
 #include "render/texture/texture.h"
 #include "render/texture/material.h"
 #include "render/render_utils.h"
+#include "render/render_manager.h"
+#include "entity/entity_parser.h"
+
+TCompRender::~TCompRender() {
+  // Delete all references of me in the render manager
+  CRenderManager::get().delRenderKeys(CHandle(this));
+}
 
 void TCompRender::debugInMenu() {
   ImGui::ColorEdit4("Color", &color.x);
-  for (auto &m : materials) {
-    if( m )
-      ((CMaterial*)m)->debugInMenu();
-  }
+  //for (auto &m : mwmmaterials) {
+  //  if( m )
+  //    ((CMaterial*)m)->debugInMenu();
+  //}
 }
 
 void TCompRender::renderDebug() {
   activateRSConfig(RSCFG_WIREFRAME);
   TCompTransform *transform = get<TCompTransform>();
   assert(transform);
-  renderMesh(mesh, transform->asMatrix(), color);
+  for( auto& mwm : meshes ) 
+    renderMesh(mwm.mesh, transform->asMatrix(), color);
   activateRSConfig(RSCFG_DEFAULT);
 }
 
 void TCompRender::loadMesh(const json& j, TEntityParseContext& ctx) {
 
+  CHandle(this).setOwner(ctx.current_entity);
+
+  CMeshWithMaterials mwm;
+
   std::string name_mesh = j.value("mesh", "axis.mesh");
-  mesh = Resources.get(name_mesh)->as<CRenderMesh>();
+  mwm.mesh = Resources.get(name_mesh)->as<CRenderMesh>();
 
   if (j.count("materials")) {
     auto& j_mats = j["materials"];
@@ -40,18 +52,22 @@ void TCompRender::loadMesh(const json& j, TEntityParseContext& ctx) {
         std::string name_material = j_mats[i];
         material = Resources.get(name_material)->as<CMaterial>();
       }
-      materials.push_back(material);
+      mwm.materials.push_back(material);
     }
-    assert(materials.size() <= mesh->getSubGroups().size());
+    assert(mwm.materials.size() <= mwm.mesh->getSubGroups().size());
   }
   else {
     const CMaterial* material = Resources.get("data/materials/solid.material")->as<CMaterial>();
-    materials.push_back(material);
+    mwm.materials.push_back(material);
   }
+
+  mwm.enabled = j.value("enabled", true);
 
   // If there is a color in the json, read it
   if (j.count("color"))
     color = loadVEC4(j["color"]);
+
+  meshes.push_back(mwm);
 }
 
 void TCompRender::load(const json& j, TEntityParseContext& ctx) {
@@ -66,4 +82,33 @@ void TCompRender::load(const json& j, TEntityParseContext& ctx) {
     loadMesh(j, ctx);
   }
 
+  refreshMeshesInRenderManager();
+}
+
+void TCompRender::refreshMeshesInRenderManager() {
+  CHandle h_me = CHandle(this);
+  CRenderManager::get().delRenderKeys(h_me);
+  
+  // The house and the trees..
+  for (auto& mwm : meshes) {
+
+    // Do not register disabled meshes
+    if (!mwm.enabled)
+      continue;
+
+    // All materials of the house...
+    uint32_t idx = 0;
+    for (auto& m : mwm.materials) {
+      // Supporting null materials to discard submeshes
+      if (m) {
+        CRenderManager::get().addRenderKey(
+          h_me,
+          mwm.mesh,
+          m,
+          idx
+        );
+      }
+      ++idx;
+    }
+  }
 }
