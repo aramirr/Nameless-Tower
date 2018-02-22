@@ -46,6 +46,11 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			} else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
 				change_color(VEC4(1, 1, 1, 1));
 				change_mesh(1);
+				// Si cambia de estado puede estar en dashing y que el dashing nunca termine, chequea por si acaso
+				if (dashing_amount > 0) {
+					speed_factor = speed_factor / dashing_speed;
+					dashing_amount = 0;
+				}
 				ChangeState("idle");
 			}
 		}
