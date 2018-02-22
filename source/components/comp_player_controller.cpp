@@ -202,7 +202,7 @@ void TCompPlayerController::running_state(float dt) {
 
 	// Chequea el salto
 	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
-	if (space.getsPressed()) {
+	if (space.getsPressed() && is_grounded) {
 		change_color(VEC4(1, 0, 1, 1));
 		TCompTransform *c_my_transform = get<TCompTransform>();
 		jump_end = c_my_transform->getPosition().y + max_jump;
