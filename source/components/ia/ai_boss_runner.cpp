@@ -111,7 +111,11 @@ void CAIBossRunner::chase_state(float dt) {
 			VEC3 delta_move = newPos - myPos;
 			distance_to_player = VEC3::Distance(myPos, ppos);
 			delta_move.y += -10 * dt;
-			comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
+				current_yaw = going_right ? current_yaw - 0.1 * amount_moved : current_yaw + 0.1 * amount_moved;
+				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+			}
 		}
 	}
 
@@ -167,7 +171,14 @@ void CAIBossRunner::jumping_state(float dt) {
 		{
 			VEC3 delta_move = new_pos - my_pos;
 			delta_move.y += -(-(jump_speed - gravity * dt)) * dt;
-			comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
+				current_yaw = going_right ? current_yaw - 0.1 * amount_moved : current_yaw + 0.1 * amount_moved;
+				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+			}
+			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
+				ChangeState("chase");
+			}
 		}
 	}
 	else {
