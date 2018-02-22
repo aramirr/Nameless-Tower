@@ -66,7 +66,7 @@ void TCompPlayerController::debugInMenu() {
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
 	speed_factor = j.value("speed", 1.0f);
-	dashing_max = j.value("dashing_max", 10.0f);
+	dashing_max = j.value("dashing_max", 15.0f);
 	gravity = j.value("gravity", 16.5f);
 	jump_speed = j.value("jump_speed", 25.8f);
   center = VEC3(0.f, 0.f, 0.f);
@@ -74,7 +74,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	dashing_speed = j.value("dashing_speed", 3);
 	max_jump = j.value("max_jump", 5);
 	omnidash_max_time = j.value("omnidash_max_time", 0.3);
-	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 50);
+	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 140);
 	is_grounded = true;
 	can_omni = true;
 	can_dash = true;
@@ -342,11 +342,11 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 		VEC3 my_pos = c_my_transform->getPosition();
 		//VEC3 new_pos = my_pos + (omnidash_vector * ((jump_speed - gravity * dt) * dt));
 		float x, y;
-		x = 1;
-		y = 1.5;
+		VEC2 aux = VEC2(10, 15);
+		aux.Normalize();
 		omnidash_vector = c_my_transform->getFront();
-		omnidash_vector.y += y;
-		VEC3 new_pos = my_pos + (omnidash_vector * x * ((jump_speed * 5 - gravity * dt) * dt));
+		omnidash_vector.y += aux.y;
+		VEC3 new_pos = my_pos + (omnidash_vector * aux.x * ((jump_speed * 5 - gravity * dt) * dt));
 
 		VEC3 centre = VEC3(0, new_pos.y, 0);
 		float d = VEC3::Distance(centre, new_pos);
@@ -363,7 +363,7 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 		float current_pitch;
 		float amount_moved = speed_factor * dt;
 		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-		current_yaw = !looking_left ? current_yaw + (1.08 * x * amount_moved) : current_yaw - (1.08 * x * amount_moved);
+		current_yaw = !looking_left ? current_yaw + (1.08 * aux.x * amount_moved) : current_yaw - (1.08 * aux.x * amount_moved);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 	}
