@@ -67,7 +67,7 @@ bool CRenderTechnique::create(const std::string& name, json& j) {
   // --------------------------------------------
   vs_file = j.value("vs_file", "data/shaders/shaders.fx");
   vs_entry_point = j.value("vs_entry_point", "VS");
-  vertex_type = j["vertex_type"];
+  vertex_type = j.value("vertex_type", "");
   ps_file = j.value("ps_file", vs_file);
   ps_entry_point = j.value("ps_entry_point", "PS");
 
@@ -75,6 +75,9 @@ bool CRenderTechnique::create(const std::string& name, json& j) {
     return false;
   if (!reloadPS())
     return false;
+
+  category = j.value("category", "default");
+  category_id = getID(category.c_str());
 
   setNameAndClass(name, getResourceClassOf<CRenderTechnique>());
 

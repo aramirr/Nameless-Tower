@@ -11,6 +11,10 @@ class CRenderTechnique : public IResource {
   std::string ps_entry_point;
   std::string vertex_type;
   
+  std::string category = "default";
+  // To compare categories string faster than comparing strings
+  uint32_t category_id = 0;
+
   bool reloadVS();
   bool reloadPS();
 
@@ -26,5 +30,8 @@ public:
   void debugInMenu() override;
   void destroy() override;
   void onFileChanged(const std::string& filename) override;
+
+  uint32_t getCategoryID() const { return category_id; }
+  const std::string& getCategory() const { return category; }
 };
 
