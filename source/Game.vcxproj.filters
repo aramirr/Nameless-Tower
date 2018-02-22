@@ -595,6 +595,9 @@
     <ClInclude Include="components\controllers\comp_camera_orbit.h">
       <Filter>components\controllers</Filter>
     </ClInclude>
+    <ClInclude Include="render\mesh\mesh_subgroup.h">
+      <Filter>render\mesh</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">
