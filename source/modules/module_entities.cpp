@@ -8,6 +8,7 @@
 #include "components/comp_transform.h"
 #include "components/comp_name.h"
 #include "components/comp_tags.h"
+#include "render/render_manager.h"
 
 void CModuleEntities::loadListOfManagers( const json& j, std::vector< CHandleManager* > &managers) {
   managers.clear();
@@ -106,6 +107,7 @@ void CModuleEntities::render()
   //ImGui::Checkbox("ImGui Demo", &is_open);
   //ImGui::ShowDemoWindow(&is_open);
    
+  /*
   // ------------------------------------------
   // Do the basic render
   auto om_render = getObjectManager<TCompRender>();
@@ -129,6 +131,10 @@ void CModuleEntities::render()
       ++idx;
     }
   });
+  */
+
+  CRenderManager::get().renderCategory("default");
+  CRenderManager::get().debugInMenu();
 
   // Change the technique to some debug solid
   auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();

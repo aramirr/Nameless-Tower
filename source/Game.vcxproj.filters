@@ -214,6 +214,9 @@
     <ClCompile Include="components\controllers\comp_camera_orbit.cpp">
       <Filter>components\controllers</Filter>
     </ClCompile>
+    <ClCompile Include="render\render_manager.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -597,6 +600,9 @@
     </ClInclude>
     <ClInclude Include="render\mesh\mesh_subgroup.h">
       <Filter>render\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="render\render_manager.h">
+      <Filter>render</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
