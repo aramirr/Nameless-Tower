@@ -28,16 +28,16 @@ public:
 	void debugInMenu();
 
 	
-	void AppearState(float dt);
-	void ChaseState(float dt);
-	void AttackState();
-	void DissapearState();
-	void JumpingState(float dt);
+	void appear_state(float dt);
+	void chase_state(float dt);
+	void attack_state();
+	void disapear_state();
+	void jumping_state(float dt);
 
 	void Init();
 
-	void onPlayerJump(const TMsgJump& msg);
-	void Appear(const TMsgAppear& msg);
+	void on_player_jump(const TMsgJump& msg);
+	void appear(const TMsgAppear& msg);
 
 	static void registerMsgs();
 };
