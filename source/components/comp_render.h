@@ -18,7 +18,7 @@ public:
   std::vector<const CMaterial*> materials;
 
   void debugInMenu();
+  void renderDebug();
   void load(const json& j, TEntityParseContext& ctx);
-
   DECL_SIBLING_ACCESS();
 };
