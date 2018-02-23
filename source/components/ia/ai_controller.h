@@ -33,6 +33,7 @@ protected:
 
 public:
   void debugInMenu();
+	void change_mesh(int mesh_index);
   void ChangeState(const std::string&);	// state we wish to go to
   virtual void Init() { }// resets the controller
   void update(float dt);	// recompute behaviour

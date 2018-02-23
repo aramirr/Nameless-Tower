@@ -75,3 +75,8 @@ void IAIController::setEntity(CHandle new_entity) {
   h_entity = new_entity;
   assert(h_entity.isValid());
 }
+
+void IAIController::change_mesh(int mesh_index) {
+	TCompRender *my_render = getMyRender();
+	my_render->mesh = my_render->meshes[mesh_index];
+}

@@ -15,6 +15,7 @@ public:
   bool is_active = true;
 
   const CRenderMesh* mesh = nullptr;
+	std::vector<const CRenderMesh*> meshes;
   std::vector<const CMaterial*> materials;
 
   void debugInMenu();
