@@ -40,7 +40,13 @@ void CAIBossRunner::registerMsgs() {
 void CAIBossRunner::debugInMenu() {
 	IAIController::debugInMenu();
 	ImGui::Text("Distance player %f", distance_to_player);
-	ImGui::DragFloat("Jump speed: %f", &jump_speed, 0.01f, 0.f, 100.f);
+  ImGui::DragFloat("Chase Distance: %f", &chase_distance, 0.01f, 0.f, 100.f);
+  ImGui::DragFloat("Attack Distance: %f", &attack_distance, 0.01f, 0.f, 100.f);
+  ImGui::DragFloat("Speed: %f", &speed_factor, 0.01f, 0.f, 100.f);
+  ImGui::DragFloat("Jump speed: %f", &jump_speed, 0.01f, 0.f, 100.f);
+  ImGui::DragFloat("Jump altitude: %f", &jump_altitude, 0.01f, 0.f, 100.f);
+  ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 100.f);
+  ImGui::DragFloat("Tower Radius: %f", &tower_radius, 0.01f, 0.f, 100.f);
 }
 
 void CAIBossRunner::load(const json& j, TEntityParseContext& ctx) {
@@ -51,7 +57,8 @@ void CAIBossRunner::load(const json& j, TEntityParseContext& ctx) {
 	speed_factor = j.value("speed_factor", 5.0f);
 	tower_radius = j.value("tower_radius", 15.0f);
 	gravity = j.value("gravity", 16.5f);
-	jump_speed = j.value("jump_speed", 25.8f);
+  jump_speed = j.value("jump_speed", 25.8f);
+  jump_altitude = j.value("jump_altitude", 5.0f);
 }
 
 void CAIBossRunner::appear_state(float dt) {
@@ -81,7 +88,7 @@ void CAIBossRunner::chase_state(float dt) {
 	VEC3 ppos = c_p_transform->getPosition();
 
 	if (!jump_positions.empty() && VEC3::Distance(myPos, jump_positions.front()) < 1.f) {
-		jump_end = c_my_transform->getPosition().y + 5.f;
+		jump_end = c_my_transform->getPosition().y + jump_altitude;
 		jump_positions.pop();
 		ChangeState("jump");
 	}
