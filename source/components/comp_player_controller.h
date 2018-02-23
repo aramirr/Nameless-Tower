@@ -9,6 +9,7 @@ class TCompPlayerController : public IAIController {
   VEC3    speed;
 	VEC3	  center;
 	VEC3	  omnidash_vector;
+	VEC2	  omnidash_arrow;
   float	  tower_radius;
 	float   dashing_max;
 	float   dashing_amount;

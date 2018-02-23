@@ -2,6 +2,7 @@
 #include "entity/entity_parser.h"
 #include "comp_player_controller.h"
 #include "comp_transform.h"
+#include "comp_camera.h"
 #include "ui/ui_mouse_pos.h"
 #include "entity/common_msgs.h"
 
@@ -326,11 +327,17 @@ void TCompPlayerController::omnidashing_state(float dt) {
 	}
 	// Salgo del omni dash
 	if (change_state) {		
-		TCompArrowUI *c_my_arrow = get<TCompArrowUI>();
-		VEC3 omni_jump = c_my_arrow->unit_force_vector;
-		omnidash_vector = omni_jump;
-		//omnidash_vector.Normalize();
 		omnidashing_ammount = 0;
+		CHandle h_e_camera = getEntityByName("the_camera");
+		CEntity* e_camera = h_e_camera;
+		TCompCamera* c_camera = e_camera->get< TCompCamera >();
+		TCompTransform *c_my_transform = get<TCompTransform>();
+		const Input::TInterface_Mouse& mouse = EngineInput.mouse();
+		VEC3 my_pos = c_my_transform->getPosition();
+		VEC3 player_position;
+		c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
+		omnidash_arrow = mouse._position - VEC2(player_position.x, player_position.y);
+		omnidash_arrow.Normalize();
 		ChangeState("omni_jump");		
 	}	
 }
@@ -340,13 +347,15 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 		TCompCollider* comp_collider = get<TCompCollider>();
 		TCompTransform *c_my_transform = get<TCompTransform>();
 		VEC3 my_pos = c_my_transform->getPosition();
-		//VEC3 new_pos = my_pos + (omnidash_vector * ((jump_speed - gravity * dt) * dt));
-		float x, y;
-		VEC2 aux = VEC2(10, 15);
-		aux.Normalize();
+		CHandle h_e_camera = getEntityByName("the_camera");
+		CEntity* e_camera = h_e_camera;
+		TCompCamera* c_camera = e_camera->get< TCompCamera >();		
 		omnidash_vector = c_my_transform->getFront();
-		omnidash_vector.y += aux.y;
-		VEC3 new_pos = my_pos + (omnidash_vector * aux.x * ((jump_speed * 5 - gravity * dt) * dt));
+		omnidash_vector *= omnidash_arrow.x;		
+			
+		omnidash_vector.y += omnidash_arrow.y;
+		VEC3 new_pos;
+		new_pos = my_pos + (omnidash_vector * ((jump_speed * 5 - gravity * dt) * dt));
 
 		VEC3 centre = VEC3(0, new_pos.y, 0);
 		float d = VEC3::Distance(centre, new_pos);
@@ -354,8 +363,6 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 		new_pos.x = new_pos.x * d;
 		new_pos.z = new_pos.z * d;
 
-		//new_pos.y += (jump_speed - gravity * dt) * dt;
-		//omni_jump.y += (jump_speed - gravity * dt) * dt;
 		VEC3 delta_move = new_pos - my_pos;		
 		omnidashing_ammount += 0.1;
 
@@ -363,9 +370,17 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 		float current_pitch;
 		float amount_moved = speed_factor * dt;
 		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-		current_yaw = !looking_left ? current_yaw + (1.08 * aux.x * amount_moved) : current_yaw - (1.08 * aux.x * amount_moved);
+		current_yaw = !looking_left ? current_yaw + (1.08 * omnidash_arrow.x * amount_moved) : current_yaw - (1.08 * omnidash_arrow.x * amount_moved);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-		comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
+			EngineTimer.setTimeSlower(1.f);
+			omnidash_timer = 0;
+			omnidashing_ammount = 0;
+			change_color(VEC4(1, 1, 1, 1));
+			change_mesh(1);
+			ChangeState("idle");
+		}
 	}
 	else {
 		EngineTimer.setTimeSlower(1.f);
