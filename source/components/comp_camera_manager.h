@@ -7,12 +7,15 @@ class TCompCameraManager : public TCompBase {
 
 	CEntity *player;
 
-	bool isForward(VEC3 player, VEC3 frontPlayer);
+	bool isForward();
 	bool pForwarding;
 
 	bool carga;
 
+  void changeHeight(const TMsgisGrounded& msg);
+
 public:
+  static void registerMsgs();
 	void debugInMenu();
 	void load(const json& j, TEntityParseContext& ctx);
 	void update(float dt);

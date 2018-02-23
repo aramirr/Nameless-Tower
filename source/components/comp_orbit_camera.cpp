@@ -1,9 +1,30 @@
 #include "mcv_platform.h"
 #include "comp_orbit_camera.h"
 #include "comp_transform.h"
+#include "comp_player_controller.h"
 #include <iostream>
 
 DECL_OBJ_MANAGER("orbitCamera", TCompOrbitCamera);
+
+bool TCompOrbitCamera::isForward()
+{
+  TCompPlayerController* pc = player->get<TCompPlayerController>();
+  return !pc->isForward();
+}
+
+void TCompOrbitCamera::changeHeight(const TMsgisGrounded & msg)
+{
+  TCompTransform* p = player->get<TCompTransform>();
+  assert(p);
+  VEC3 pPos = p->getPosition();
+
+  playerY = pPos.y;
+}
+
+void TCompOrbitCamera::registerMsgs()
+{
+  DECL_MSG(TCompOrbitCamera, TMsgisGrounded, changeHeight);
+}
 
 void TCompOrbitCamera::debugInMenu() {
 	ImGui::DragFloat("Distancia", &distance, 0.1f, -200.f, 200.f);
@@ -35,6 +56,12 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
 
 	apertura = -300.f;
 
+  TCompTransform* p = player->get<TCompTransform>();
+  assert(p);
+  VEC3 pPos = p->getPosition();
+
+  playerY = pPos.y;
+
 	xOffset = deg2rad(((2 * 3.14159 * radio) / 360) * apertura);
 }
 
@@ -48,32 +75,40 @@ void TCompOrbitCamera::update(float dt) {
 	assert(p);
 	VEC3 pPos = p->getPosition();
 
-	if (izq)xOffset *= -1;
+  VEC3 center = VEC3(0 + X, playerY + height + Y, 0 + Z);
 
-	VEC3 center = VEC3(0 + X, pPos.y + height + Y, 0 + Z);
+  VEC3 newPos;
 
-	float d = VEC3::Distance(center, pPos);
-	float _d = d / d;
-	float x = pPos.x - _d * (center.x - pPos.x);
-	float z = pPos.z - _d * (center.z - pPos.z);
+  if ((izq && !isForward()) || (!izq && isForward())) {
+    newPos = pos;
+  }
+  else {
+    if (izq)xOffset *= -1;
 
-	pos.x = x;
-	pos.y = pPos.y + height;
-	pos.z = z;
+    float d = VEC3::Distance(center, pPos);
+    float _d = d / d;
+    float x = pPos.x - _d * (center.x - pPos.x);
+    float z = pPos.z - _d * (center.z - pPos.z);
 
-	float _distance = VEC3::Distance(center, pos);
+    pos.x = x;
+    pos.y = playerY + height;
+    pos.z = z;
 
-	float y, p2, _y, _p2;
-	c->getYawPitchRoll(&y, &p2);
-	p->getYawPitchRoll(&_y, &_p2);
+    float _distance = VEC3::Distance(center, pos);
 
-	c->setPosition(center);
+    float y, p2, _y, _p2;
+    c->getYawPitchRoll(&y, &p2);
+    p->getYawPitchRoll(&_y, &_p2);
 
-	y = _y + xOffset;
+    c->setPosition(center);
 
-	c->setYawPitchRoll(y, p2);
-	VEC3 newPos = c->getPosition() - (c->getFront() * (_distance - distance));
-	newPos.y = pPos.y + height;
+    y = _y + xOffset;
+
+    c->setYawPitchRoll(y, p2);
+    newPos = c->getPosition() - (c->getFront() * (_distance - distance));
+    newPos.y = playerY + height;
+  }
+
 	c->setPosition(newPos);
 
 	//c->setPerspective(deg2rad(fov_deg), z_near, z_far);

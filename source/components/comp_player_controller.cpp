@@ -39,6 +39,15 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
 				is_grounded = true;
 				can_omni = true;
+
+        //MENSAJE
+        TMsgisGrounded msg;
+        CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
+        CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
+        CEntity* camManager = (CEntity *)getEntityByName("camera_manager");
+        camDER->sendMsg(msg);
+        camIZQ->sendMsg(msg);
+        camManager->sendMsg(msg);
 			}
 		}
 		else
@@ -110,6 +119,15 @@ void TCompPlayerController::idle_state(float dt) {
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
 			is_grounded = true;
 			can_omni = true;
+
+      //MENSAJE
+      TMsgisGrounded msg;
+      CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
+      CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
+      CEntity* camManager = (CEntity *)getEntityByName("camera_manager");
+      camDER->sendMsg(msg);
+      camIZQ->sendMsg(msg);
+      camManager->sendMsg(msg);
 		}
 	}
 	// Chequea el dash

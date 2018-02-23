@@ -28,7 +28,15 @@ class TCompOrbitCamera : public TCompBase {
 
 	bool izq;
 
+  bool isForward();
+
+  void changeHeight(const TMsgisGrounded& msg);
+
+  float playerY;
+
 public:
+  static void registerMsgs();
+
 	void debugInMenu();
 	void load(const json& j, TEntityParseContext& ctx);
 	void update(float dt);
