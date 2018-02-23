@@ -12,10 +12,7 @@ class TCompCameraManager : public TCompBase {
 
 	bool carga;
 
-  void changeHeight(const TMsgisGrounded& msg);
-
 public:
-  static void registerMsgs();
 	void debugInMenu();
 	void load(const json& j, TEntityParseContext& ctx);
 	void update(float dt);

@@ -54,13 +54,14 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
 	Y = 0;
 	Z = 0;
 
-	apertura = -300.f;
+	apertura = -400.f;
 
   TCompTransform* p = player->get<TCompTransform>();
   assert(p);
   VEC3 pPos = p->getPosition();
 
   playerY = pPos.y;
+  currentPlayerY = pPos.y;
 
 	xOffset = deg2rad(((2 * 3.14159 * radio) / 360) * apertura);
 }
@@ -75,9 +76,12 @@ void TCompOrbitCamera::update(float dt) {
 	assert(p);
 	VEC3 pPos = p->getPosition();
 
-  VEC3 center = VEC3(0 + X, playerY + height + Y, 0 + Z);
+  VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
 
   VEC3 newPos;
+
+  if (currentPlayerY < playerY)currentPlayerY += 0.01f;
+  if (currentPlayerY > playerY)currentPlayerY -= 0.01f;
 
   if ((izq && !isForward()) || (!izq && isForward())) {
     newPos = pos;
@@ -91,7 +95,7 @@ void TCompOrbitCamera::update(float dt) {
     float z = pPos.z - _d * (center.z - pPos.z);
 
     pos.x = x;
-    pos.y = playerY + height;
+    pos.y = currentPlayerY + height;
     pos.z = z;
 
     float _distance = VEC3::Distance(center, pos);
@@ -106,7 +110,7 @@ void TCompOrbitCamera::update(float dt) {
 
     c->setYawPitchRoll(y, p2);
     newPos = c->getPosition() - (c->getFront() * (_distance - distance));
-    newPos.y = playerY + height;
+    newPos.y = currentPlayerY + height;
   }
 
 	c->setPosition(newPos);

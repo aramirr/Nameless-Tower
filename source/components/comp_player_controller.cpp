@@ -40,17 +40,13 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
 				is_grounded = true;
 				can_omni = true;
-<<<<<<< HEAD
 
         //MENSAJE
         TMsgisGrounded msg;
         CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
         CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
-        CEntity* camManager = (CEntity *)getEntityByName("camera_manager");
         camDER->sendMsg(msg);
         camIZQ->sendMsg(msg);
-        camManager->sendMsg(msg);
-=======
 			} 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
 				current_yaw = left ? current_yaw - 0.1 * amount_moved : current_yaw + 0.1 * amount_moved;
@@ -59,7 +55,6 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				change_color(VEC4(1, 1, 1, 1));
 				change_mesh(1);
 				ChangeState("idle");
->>>>>>> af027d3ba22cd07ad1e6021a6ab941514156c6a2
 			}
 		}
 		else
@@ -138,10 +133,8 @@ void TCompPlayerController::idle_state(float dt) {
       TMsgisGrounded msg;
       CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
       CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
-      CEntity* camManager = (CEntity *)getEntityByName("camera_manager");
       camDER->sendMsg(msg);
       camIZQ->sendMsg(msg);
-      camManager->sendMsg(msg);
 		}
 	}
 	// Chequea el dash

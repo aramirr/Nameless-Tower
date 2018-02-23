@@ -29,35 +29,6 @@ bool TCompCameraManager::isForward()
 	//else return false;
 }
 
-void TCompCameraManager::changeHeight(const TMsgisGrounded & msg)
-{
-  bool playerForward = isForward();  //Vemos si el player se esta moviendo hacia delante o hacia atras
-
-  static Interpolator::TLinearInterpolator interpolator;
-
-  if (playerForward) {
-    //if (!pForwarding) {
-    CHandle h_camera = getEntityByName("camera_orbit_IZQ");
-    Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
-
-    pForwarding = true;
-    //}
-  }
-  else {
-    //if (pForwarding) {
-    CHandle h_camera = getEntityByName("camera_orbit_DER");
-    Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
-
-    pForwarding = false;
-    //}
-  }
-}
-
-void TCompCameraManager::registerMsgs()
-{
-  DECL_MSG(TCompCameraManager, TMsgisGrounded, changeHeight);
-}
-
 void TCompCameraManager::debugInMenu() {
 
 	/*float fov_deg = rad2deg(getFov());
@@ -100,9 +71,21 @@ void TCompCameraManager::update(float dt) {
 
 	bool playerForward = isForward();  //Vemos si el player se esta moviendo hacia delante o hacia atras
 
-	static Interpolator::TLinearInterpolator interpolator;
+	static Interpolator::TBackOutInterpolator interpolator;
 
-	if (playerForward) {
+  CEntity* camIzq = (CEntity *)getEntityByName("camera_orbit_IZQ");
+  TCompTransform* ci = camIzq->get<TCompTransform>();
+  assert(ci);
+  VEC3 cip = ci->getPosition();
+  float distanceCamIzq = VEC3::Distance(pPos, cip);
+
+  CEntity* camDer = (CEntity *)getEntityByName("camera_orbit_DER");
+  TCompTransform* cd = camDer->get<TCompTransform>();
+  assert(cd);
+  VEC3 cdp = cd->getPosition();
+  float distanceCamDer = VEC3::Distance(pPos, cdp);
+
+	if (playerForward && distanceCamDer > 15.f) {
 		//if (!pForwarding) {
 			CHandle h_camera = getEntityByName("camera_orbit_IZQ");
 			Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
@@ -110,7 +93,7 @@ void TCompCameraManager::update(float dt) {
 			pForwarding = true;
 		//}
 	}
-	else {
+	else if (distanceCamIzq > 15.f){
 		//if (pForwarding) {
 			CHandle h_camera = getEntityByName("camera_orbit_DER");
 			Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
