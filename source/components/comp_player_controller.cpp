@@ -38,7 +38,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			delta_move.y += y_speed;
 			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
-				y_speed_factor = 0;
+				//y_speed_factor = 0;
 				is_grounded = true;
 				can_omni = true;
 			} 
@@ -50,7 +50,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				change_mesh(1);
 				// Si cambia de estado puede estar en dashing y que el dashing nunca termine, chequea por si acaso
 				if (dashing_amount > 0) {
-					speed_factor = speed_factor / dashing_speed;
+					x_speed_factor = x_speed_factor / dashing_speed;
 					dashing_amount = 0;
 				}
 				ChangeState("idle");
@@ -125,11 +125,12 @@ void TCompPlayerController::initial_state(float dt) {
 void TCompPlayerController::idle_state(float dt) {
 	TCompCollider* comp_collider = get<TCompCollider>();
 	TCompTransform *c_my_transform = getMyTransform();
+	float y_speed = (y_speed_factor * dt) - (gravity * dt * dt);
 	if (comp_collider && comp_collider->controller)
 	{
-		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(0, -gravity*dt, 0), 0.f, dt, physx::PxControllerFilters());
+		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(0, -y_speed, 0), 0.f, dt, physx::PxControllerFilters());
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
-			y_speed_factor = 0;
+			//y_speed_factor = 0;
 			is_grounded = true;
 			can_omni = true;
 		}
@@ -146,7 +147,7 @@ void TCompPlayerController::idle_state(float dt) {
 
 	// Chequea el movimiento
 	float y, p, r;
-	float y_speed = (y_speed_factor * dt) - (gravity * dt * dt);
+	
 	if (isPressed('A')) {
 		if (!looking_left) {			
 			looking_left = true;
