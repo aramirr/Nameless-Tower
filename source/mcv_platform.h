@@ -15,6 +15,7 @@
 #include <cstdint>        // uint32_t
 #include <algorithm>
 #include <unordered_map>
+#include <queue>
 
 #include <vector>
 #include <string>

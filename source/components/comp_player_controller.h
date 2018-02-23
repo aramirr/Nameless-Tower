@@ -9,6 +9,7 @@ class TCompPlayerController : public IAIController {
   VEC3    speed;
 	VEC3	  center;
 	VEC3	  omnidash_vector;
+	VEC2	  omnidash_arrow;
   float	  tower_radius;
 	float   dashing_max;
 	float   dashing_amount;
@@ -19,10 +20,12 @@ class TCompPlayerController : public IAIController {
 	float   omnidash_timer = 0;
 	float   omnidash_max_time;
 	float		omnidashing_ammount;
+	float		omnidashing_max_ammount;
 	int     dashing_speed;
 	bool    looking_left;
 	bool    is_grounded;
 	bool		can_omni;
+	bool		can_dash;
 
   DECL_SIBLING_ACCESS();
 
