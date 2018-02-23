@@ -48,13 +48,16 @@
 			"player_controller" : {
 				"rotation_speed" : 3.0,
 				"speed" : 8.0,
-				"dashing_speed": 5
+				"dashing_speed": 3
 			},
 		  "collider": {
 			"shape": "capsule",
 			"is_character_controller": true,
 			"radius": 0.5,
 			"height": 1.0
+		  },
+		  "arrow_ui":{
+		  
 		  }
 		}
 	},

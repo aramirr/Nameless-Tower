@@ -5,16 +5,24 @@
 #include "ia/ai_controller.h"
 
 class TCompPlayerController : public IAIController {
-	float   speedFactor = 8.0f;
-    VEC3    speed;
-    VEC3	  center;
-    float	  tower_radius;
-	float   dashingMax;
-	float   dashingAmount;
+	float   speed_factor = 8.0f;
+  VEC3    speed;
+	VEC3	  center;
+	VEC3	  omnidash_vector;
+  float	  tower_radius;
+	float   dashing_max;
+	float   dashing_amount;
 	float   max_jump;
 	float   jump_end;
-	int     dashingSpeed;
-	bool    lookingLeft;
+	float   gravity;
+	float   jump_speed;
+	float   omnidash_timer = 0;
+	float   omnidash_max_time;
+	float		omnidashing_ammount;
+	int     dashing_speed;
+	bool    looking_left;
+	bool    is_grounded;
+	bool		can_omni;
 
   DECL_SIBLING_ACCESS();
 
@@ -23,14 +31,15 @@ public:
   void load(const json& j, TEntityParseContext& ctx);
 
   // IA
-	void InitialState(float dt);
-	void IdleState(float dt);
-  void RunningState(float dt);
-  void JumpingState(float dt);
-	void OmniDashingState(float dt);
-	void DashingState(float dt);
-	void DeadState(float dt);
-	void MovePlayer(bool left, bool change_orientation, float dt);
+	void initial_state(float dt);
+	void idle_state(float dt);
+  void running_state(float dt);
+  void jumping_state(float dt);
+	void omnidashing_state(float dt);
+	void omnidashing_jump_state(float dt);
+	void dashing_state(float dt);
+	void dead_state(float dt);
+	void move_player(bool left, bool change_orientation, float dt, float gravity);
 
-  void Init();
+  void init();
 };
