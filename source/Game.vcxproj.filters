@@ -13,9 +13,6 @@
     <ClCompile Include="components\comp_bullet_controller.cpp">
       <Filter>components</Filter>
     </ClCompile>
-    <ClCompile Include="components\comp_camera.cpp">
-      <Filter>components</Filter>
-    </ClCompile>
     <ClCompile Include="components\comp_circular_controller.cpp">
       <Filter>components</Filter>
     </ClCompile>
@@ -205,6 +202,21 @@
     <ClCompile Include="components\ia\ai_orbit_patrol.cpp">
       <Filter>components\ia</Filter>
     </ClCompile>
+    <ClCompile Include="components\comp_camera.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\comp_orbit_camera.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\system\module_cameras.cpp">
+      <Filter>modules\system</Filter>
+    </ClCompile>
+    <ClCompile Include="components\comp_camera_manager.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="geometry\curve.cpp">
+      <Filter>geometry</Filter>
+    </ClCompile>
     <ClCompile Include="components\ui\ui_mouse_pos.cpp">
       <Filter>components\ui</Filter>
     </ClCompile>
@@ -222,9 +234,6 @@
       <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="components\comp_bullet_controller.h">
-      <Filter>components</Filter>
-    </ClInclude>
-    <ClInclude Include="components\comp_camera.h">
       <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="components\comp_circular_controller.h">
@@ -482,6 +491,24 @@
     <ClInclude Include="components\ia\ai_orbit_patrol.h">
       <Filter>components\ia</Filter>
     </ClInclude>
+    <ClInclude Include="components\comp_orbit_camera.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_camera.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\system\module_cameras.h">
+      <Filter>modules\system</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_camera_manager.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry\curve.h">
+      <Filter>geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry\interpolators.h">
+      <Filter>geometry</Filter>
+    </ClInclude>
     <ClInclude Include="components\ui\ui_mouse_pos.h">
       <Filter>components\ui</Filter>
     </ClInclude>
@@ -554,7 +581,7 @@
       <UniqueIdentifier>{0808aa14-26cd-4a7d-a986-fb243257ffa9}</UniqueIdentifier>
     </Filter>
     <Filter Include="components\ui">
-      <UniqueIdentifier>{f4bd09f3-ca9f-4781-aa53-dfda4553df7c}</UniqueIdentifier>
+      <UniqueIdentifier>{1129aa12-378e-4c23-b1fc-daf7c646e2c2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

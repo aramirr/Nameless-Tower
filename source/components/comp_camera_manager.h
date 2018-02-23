@@ -3,12 +3,14 @@
 #include "comp_base.h"
 #include "camera/camera.h"
 
-class TCompCamera : public CCamera, public TCompBase {
-	
-	CEntity *player;
-	VEC3 pos;
+class TCompCameraManager : public TCompBase {
 
-	float height;
+	CEntity *player;
+
+	bool isForward(VEC3 player, VEC3 frontPlayer);
+	bool pForwarding;
+
+	bool carga;
 
 public:
 	void debugInMenu();

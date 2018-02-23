@@ -63,6 +63,16 @@
 	},
 	{
 		"entity": {
+			"name": "camera_manager",
+			"transform": {
+				"pos": "0 3 3"
+			},
+			"render" : {},
+			"cameraManager" : {}
+		}
+	},
+	{
+		"entity": {
 			"name": "Box Collider",
 			"transform": {
 				"pos": "0 0 15",
@@ -83,19 +93,47 @@
 			}
 		}
 	},
-	{
+		{
 		"entity": {
 			"name": "the_camera",
+			"transform": {
+				"pos": "15 0 0"
+			},
+			"render" : {},
+			"camera" : {
+				"fov" : 80 
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_orbit_IZQ",
 			"transform": {
 				"pos": "-14 16 12",
 				"lookat": "-1 0 -1"
 			},
 			"render" : {},
-			"flyover_controller" : {},
+			"orbitCamera" : {
+				"izq" : true
+			},
 			"camera" : {
-				"fov" : 80,
-				"height": 2.5,
-				"distance": 8
+				"fov" : 80 
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_orbit_DER",
+			"transform": {
+				"pos": "-14 16 12",
+				"lookat": "-1 0 -1"
+			},
+			"render" : {},
+			"orbitCamera" : {
+				"izq" : false
+			},
+			"camera" : {
+				"fov" : 80 
 			}
 		}
 	},

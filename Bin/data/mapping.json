@@ -3,5 +3,10 @@
 		"name" :"action_button",
 		"all" : false,
 		"buttons" : [ "mouse_left"]
+	},
+	{
+		"name" : "turbo",
+		"all" : false,
+		"buttons" : [ "shift"]
 	}
 ]

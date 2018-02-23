@@ -41,5 +41,7 @@ public:
 	void dead_state(float dt);
 	void move_player(bool left, bool change_orientation, float dt, float gravity);
 
+	bool isForward() { return looking_left; };
+
   void init();
 };

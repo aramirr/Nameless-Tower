@@ -3,12 +3,30 @@
 #include "comp_base.h"
 #include "camera/camera.h"
 
-class TCompCamera : public CCamera, public TCompBase {
-	
+class TCompOrbitCamera : public TCompBase {
+
 	CEntity *player;
+	VEC3 towerCentre;
 	VEC3 pos;
 
+	float xOffset;
+
+	float radio;
+
+	float X;
+	float Y;
+	float Z;
+
+	float fov_deg;
+	float z_near;
+	float z_far;
+
+	float distance;
 	float height;
+
+	float apertura;
+
+	bool izq;
 
 public:
 	void debugInMenu();
