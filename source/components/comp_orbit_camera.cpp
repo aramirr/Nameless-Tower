@@ -54,7 +54,7 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
 	Y = 0;
 	Z = 0;
      
-	apertura = -400.f;
+	apertura = -300.f;
 
   TCompTransform* p = player->get<TCompTransform>();
   assert(p);
