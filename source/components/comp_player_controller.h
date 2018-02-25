@@ -14,7 +14,6 @@ class TCompPlayerController : public IAIController {
 	float	  tower_radius;
 	float   dashing_max;
 	float   dashing_amount;
-	float   max_jump;
 	float   jump_end;
 	float   gravity;
 	float   jump_speed;
