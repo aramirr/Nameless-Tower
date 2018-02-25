@@ -364,7 +364,10 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 		TCompTransform *c_my_transform = get<TCompTransform>();
 		VEC3 my_pos = c_my_transform->getPosition();
 		omnidash_vector = c_my_transform->getFront();
-		omnidash_vector *= omnidash_arrow.x;		
+		if (looking_left)
+			omnidash_vector *= omnidash_arrow.x;		
+		else
+			omnidash_vector *= omnidash_arrow.x * -1;
 			
 		omnidash_vector.y += omnidash_arrow.y;
 		VEC3 new_pos;
@@ -383,7 +386,7 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 		float current_pitch;
 		float amount_moved = x_speed_factor * dt;
 		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-		current_yaw = !looking_left ? current_yaw + (1.08 * omnidash_arrow.x * amount_moved) : current_yaw - (1.08 * omnidash_arrow.x * amount_moved);
+		current_yaw = current_yaw - (0.8 * omnidash_arrow.x * amount_moved);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
