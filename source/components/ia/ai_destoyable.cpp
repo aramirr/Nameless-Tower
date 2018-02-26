@@ -72,5 +72,10 @@ void CAIDestroyable::TriggerDestroyState(float dt)
 
 void CAIDestroyable::DestoyState()
 {
+	TCompCollider* comp_collider = get<TCompCollider>();
+	if (comp_collider)
+	{
+		comp_collider->actor->release();
+	}
 	CHandle(this).getOwner().destroy();
 }
