@@ -14,6 +14,8 @@ public:
   void IdleState();
   void TriggerDestroyState(float dt);
   void DestoyState();
+  void change_color(VEC4 color);
+
 
   void Init();
 
