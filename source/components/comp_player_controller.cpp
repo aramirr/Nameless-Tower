@@ -48,7 +48,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
 				camDER->sendMsg(msg);
 				camIZQ->sendMsg(msg);
-
+				can_dash = true;
 				if (dashing_amount == 0) {
 					ChangeState("idle");
 				}
@@ -60,13 +60,21 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
 				current_yaw = left ? current_yaw - 0.1 * amount_moved : current_yaw + 0.1 * amount_moved;
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-			}
-			else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
+				// Dashing ammount por algun motivo no vuelve a cero, queda en 0.001 y por eso no contemplo esos valores
+				if (dashing_amount > 0.01) {
+					change_mesh(1);
+					dashing_amount = 0.0;
+					x_speed_factor = x_speed_factor / dashing_speed;
+					ChangeState("idle");
+				}
+			} else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
 				change_mesh(1);
 				// Si cambia de estado puede estar en dashing y que el dashing nunca termine, chequea por si acaso
-				if (dashing_amount > 0) {
+				// Dashing ammount por algun motivo no vuelve a cero, queda en 0.001 y por eso no contemplo esos valores
+				if (dashing_amount > 0.01) {
 					x_speed_factor = x_speed_factor / dashing_speed;
-					dashing_amount = 0;
+					dashing_amount = 0.0;
+					can_dash = true;
 				}
 				ChangeState("idle");
 			}
@@ -86,7 +94,7 @@ void TCompPlayerController::debugInMenu() {
 	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Jump speed: %f", &jump_speed, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Omnidash max: %f", &omnidashing_max_ammount, 0.1f, 0.f, 10.f);
-	ImGui::DragFloat("Dashing ammount: %f", &dashing_amount, 0.01f, 0.f, 10.f);
+	ImGui::Text("Dashing ammount: %f", dashing_amount);
 	ImGui::DragFloat("Radio torre: %f", &tower_radius, 1.f, 0.f, 40.f);
 }
 
@@ -150,21 +158,23 @@ void TCompPlayerController::idle_state(float dt) {
 			y_speed_factor = 0;
 			is_grounded = true;
 			can_omni = true;
+			can_dash = true;
 
 			//MENSAJE
 			TMsgisGrounded msg;
 			CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
 			CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
 			camDER->sendMsg(msg);
-			camIZQ->sendMsg(msg);
+			camIZQ->sendMsg(msg);						
 		}
 	}
 	// Chequea el dash
 	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
-	if (dash.getsPressed()) {
+	if (dash.getsPressed() && can_dash) {
 		dashing_amount = 0;
 		x_speed_factor = x_speed_factor * dashing_speed;
 		change_mesh(4);
+		can_dash = false;
 		ChangeState("dash");
 	}
 
@@ -262,10 +272,11 @@ void TCompPlayerController::running_state(float dt) {
 
 	// Chequea el dash
 	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
-	if (dash.getsPressed()) {
+	if (dash.getsPressed() && can_dash) {
 		dashing_amount = 0;
 		x_speed_factor = x_speed_factor * dashing_speed;
 		change_mesh(4);
+		can_dash = false;
 		ChangeState("dash");
 	}
 
@@ -296,10 +307,11 @@ void TCompPlayerController::jumping_state(float dt) {
 
 	// Chequea el dash		
 	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
-	if (dash.getsPressed()) {
+	if (dash.getsPressed() && can_dash) {
 		dashing_amount = 0;
 		x_speed_factor = x_speed_factor * dashing_speed;
 		change_mesh(4);
+		can_dash = false;
 		ChangeState("dash");
 	}
 

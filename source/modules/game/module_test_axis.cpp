@@ -24,7 +24,7 @@ bool CModuleTestAxis::start()
   }
   {
     TEntityParseContext ctx;
-    parseScene("data/scenes/scene_lightmap.scene", ctx);
+    //parseScene("data/scenes/scene_lightmap.scene", ctx);
   }
 	{
 		TEntityParseContext ctx;
