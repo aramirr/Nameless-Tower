@@ -4,6 +4,8 @@
 #include "render/texture/material.h"
 #include "entity/entity_parser.h"
 #include "components/comp_camera.h"
+#include "components/comp_transform.h"
+#include "components/controllers/comp_curve.h"
 
 extern CCamera camera;
 extern void registerMesh(CRenderMesh* new_mesh, const char* name);
@@ -43,19 +45,8 @@ bool CModuleTestCameras::start()
   h_camera = getEntityByName("the_camera");
   Engine.getCameras().setOutputCamera(h_camera);
 
-  _curve.addKnot(VEC3(-10, -3, 5));
-  _curve.addKnot(VEC3(-8, 3, 5));
-  _curve.addKnot(VEC3(-6, 3, 5));
-  _curve.addKnot(VEC3(-4, -3, 5));
-  _curve.addKnot(VEC3(-2, -3, 5));
-  _curve.addKnot(VEC3(0, 3, 5));
-  _curve.addKnot(VEC3(2, 3, 5));
-  _curve.addKnot(VEC3(4, -3, 5));
-  _curve.addKnot(VEC3(6, -3, 5));
-  _curve.addKnot(VEC3(8, 3, 5));
-  _curve.addKnot(VEC3(10, 3, 5));
-
-  registerMesh(createCurveMesh(_curve, 100), "curve.mesh");
+  const CCurve* curve = Resources.get("data/curves/test_curve.curve")->as<CCurve>();
+  registerMesh(createCurveMesh(*curve, 100), "curve.mesh");
 
   return true;
 }
@@ -87,6 +78,26 @@ void CModuleTestCameras::update(float delta)
   {
     CHandle h_camera = getEntityByName("test_camera_fixed_C");
     Engine.getCameras().blendOutCamera(h_camera, 0.f);
+  }
+  if (EngineInput['6'].getsPressed())
+  {
+    CHandle h_camera = getEntityByName("test_camera_curve");
+    Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY);
+  }
+
+  CEntity* e_teapot = getEntityByName("Teapot1");
+  if (e_teapot)
+  {
+    static float time = 0.f;
+    time += delta;
+    VEC3 pos(10.f * sinf(time), 0.f, 2.0f * cosf(time));
+    TCompTransform* c_transform = e_teapot->get<TCompTransform>();
+    c_transform->setPosition(pos);
+
+    CEntity* e_curve = getEntityByName("test_camera_curve");
+    TCompCurve* c_curve = e_curve->get<TCompCurve>();
+    float ratio = (pos.x + 10.f) / 20.f;
+    c_curve->setRatio(ratio);
   }
 }
 
