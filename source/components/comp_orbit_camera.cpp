@@ -8,28 +8,28 @@ DECL_OBJ_MANAGER("orbitCamera", TCompOrbitCamera);
 
 bool TCompOrbitCamera::isForward()
 {
-  TCompPlayerController* pc = player->get<TCompPlayerController>();
-  return !pc->isForward();
+	TCompPlayerController* pc = player->get<TCompPlayerController>();
+	return !pc->isForward();
 }
 
 void TCompOrbitCamera::changeHeight(const TMsgisGrounded & msg)
 {
-  TCompTransform* p = player->get<TCompTransform>();
-  assert(p);
-  VEC3 pPos = p->getPosition();
+	TCompTransform* p = player->get<TCompTransform>();
+	assert(p);
+	VEC3 pPos = p->getPosition();
 
-  playerY = pPos.y;
+	playerY = pPos.y;
 }
 
 void TCompOrbitCamera::registerMsgs()
 {
-  DECL_MSG(TCompOrbitCamera, TMsgisGrounded, changeHeight);
+	DECL_MSG(TCompOrbitCamera, TMsgisGrounded, changeHeight);
 }
 
 void TCompOrbitCamera::debugInMenu() {
 	ImGui::DragFloat("Distancia", &distance, 0.1f, -200.f, 200.f);
-	ImGui::DragFloat("AP", &distanceCam, 0.1f, -2000.f, 2000.f);
-	ImGui::DragFloat("OS", &distance, 0.1f, -2000.f, 2000.f);
+	ImGui::DragFloat("AP", &apertura, 0.1f, -2000.f, 2000.f);
+	ImGui::DragFloat("OS", &xOffset, 0.1f, -2000.f, 2000.f);
 	ImGui::DragFloat("Altura", &height, 0.1f, -20.f, 20.f);
 	ImGui::DragFloat("Fov", &fov_deg, 0.1f, -1000.f, 1000.f);
 	ImGui::DragFloat("Look_X", &X, 0.1f, -100.f, 100.f);
@@ -53,19 +53,19 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
 	X = 0;
 	Y = 0;
 	Z = 0;
-     
+
 	apertura = -360.f;
 
-  TCompTransform* p = player->get<TCompTransform>();
-  assert(p);
-  VEC3 pPos = p->getPosition();
+	TCompTransform* p = player->get<TCompTransform>();
+	assert(p);
+	VEC3 pPos = p->getPosition();
 
-  playerY = pPos.y;
-  currentPlayerY = pPos.y;
+	playerY = pPos.y;
+	currentPlayerY = pPos.y;
 
 	xOffset = deg2rad(((2 * 3.14159 * radio) / 360) * apertura);
 
-  carga = true;
+	carga = true;
 }
 
 void TCompOrbitCamera::update(float dt) {
@@ -78,52 +78,47 @@ void TCompOrbitCamera::update(float dt) {
 	assert(p);
 	VEC3 pPos = p->getPosition();
 
-  VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
+	VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
 
-  VEC3 newPos;
+	VEC3 newPos;
 
-  /*VEC3 pPos2 = pPos;
-  pPos2.y += height;*/
+	float distanceCam = VEC3::Distance(pPos, pos);
 
-  distanceCam = VEC3::Distance(pPos, pos);
+	bool izquierda = c->isInLeft(pPos);
 
-  if (abs(distanceCam - distance) <= 0.3)carga = false;
+	if (currentPlayerY < playerY)currentPlayerY += 0.02f;
+	if (currentPlayerY > playerY)currentPlayerY -= 0.02f;
 
-  if (!carga)dbg("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n");
+	if ((izq && !isForward() || ((izq && isForward()) && (distanceCam > (distance + 0.25f)) && (distanceCam < 9.f) && izquierda))
+		|| (!izq && isForward() || ((!izq && !isForward()) && (distanceCam > (distance + 0.25f)) && (distanceCam < 9.f) && !izquierda))) {
+		newPos = pos;
+	}
+	else {
+		if (izq)xOffset *= -1;
 
-  if (currentPlayerY < playerY)currentPlayerY += 0.02f;
-  if (currentPlayerY > playerY)currentPlayerY -= 0.02f;
+		float d = VEC3::Distance(center, pPos);
+		float _d = d / d;
+		float x = pPos.x - _d * (center.x - pPos.x);
+		float z = pPos.z - _d * (center.z - pPos.z);
 
-  if ((izq && !isForward() || (izq && isForward() && distanceCam > distance && distanceCam < 9.f))
-    || (!izq && isForward() || (!izq && !isForward() && distanceCam > distance && distanceCam < 9.f))) {
-    newPos = pos;
-  }
-  else {
-    if (izq)xOffset *= -1;
+		pos.x = x;
+		pos.y = currentPlayerY + height;
+		pos.z = z;
 
-    float d = VEC3::Distance(center, pPos);
-    float _d = d / d;
-    float x = pPos.x - _d * (center.x - pPos.x);
-    float z = pPos.z - _d * (center.z - pPos.z);
+		float _distance = VEC3::Distance(center, pos);
 
-    pos.x = x;
-    pos.y = currentPlayerY + height;
-    pos.z = z;
+		float y, p2, _y, _p2;
+		c->getYawPitchRoll(&y, &p2);
+		p->getYawPitchRoll(&_y, &_p2);
 
-    float _distance = VEC3::Distance(center, pos);
+		c->setPosition(center);
 
-    float y, p2, _y, _p2;
-    c->getYawPitchRoll(&y, &p2);
-    p->getYawPitchRoll(&_y, &_p2);
+		y = _y + xOffset;
 
-    c->setPosition(center);
-
-    y = _y + xOffset;
-
-    c->setYawPitchRoll(y, p2);
-    newPos = c->getPosition() - (c->getFront() * (_distance - distance));
-    newPos.y = currentPlayerY + height;
-  }
+		c->setYawPitchRoll(y, p2);
+		newPos = c->getPosition() - (c->getFront() * (_distance - distance));
+		newPos.y = currentPlayerY + height;
+	}
 
 	c->setPosition(newPos);
 
