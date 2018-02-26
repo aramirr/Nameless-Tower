@@ -235,36 +235,10 @@ void TCompPlayerController::idle_state(float dt) {
 }
 
 void TCompPlayerController::running_state(float dt) {
-	// Compruebo si sigue corriendo
-	float y_speed = (y_speed_factor * dt) - (gravity * dt * dt / 2);
-	if (!is_grounded)
-		y_speed_factor -= gravity * dt / 2;
-	if (isPressed('A')) {
-		if (!looking_left) {
-			looking_left = true;
-			move_player(false, true, dt, y_speed);
-		}
-		else {
-			move_player(false, false, dt, y_speed);
-		}
-	}
-	else if (isPressed('D')) {
-		if (!looking_left) {
-			move_player(true, false, dt, y_speed);
-		}
-		else {
-			looking_left = false;
-			move_player(true, true, dt, y_speed);
-		}
-	}
-	// Si no sigue corriendo pasa a estado idle
-	if (!isPressed('A') && !isPressed('D')) {
-		change_mesh(1);
-		ChangeState("idle");
-	}
-
-	// Chequea el salto
+	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
 	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
+
+	// Chequea el salto	
 	if (space.getsPressed() && is_grounded) {
 		TCompTransform *c_my_transform = get<TCompTransform>();
 		is_grounded = false;
@@ -277,24 +251,52 @@ void TCompPlayerController::running_state(float dt) {
 		ChangeState("jump");
 	}
 
-	// Chequea el dash
-	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
-	if (dash.getsPressed() && can_dash) {
+	// Chequea el dash	
+	else if (dash.getsPressed() && can_dash) {
 		dashing_amount = 0;
 		x_speed_factor = x_speed_factor * dashing_speed;
 		change_mesh(4);
 		can_dash = false;
 		ChangeState("dash");
 	}
+	else {
+		// Compruebo si sigue corriendo
+		float y_speed = (y_speed_factor * dt) - (gravity * dt * dt / 2);
+		if (!is_grounded)
+			y_speed_factor -= gravity * dt / 2;
+		if (isPressed('A')) {
+			if (!looking_left) {
+				looking_left = true;
+				move_player(false, true, dt, y_speed);
+			}
+			else {
+				move_player(false, false, dt, y_speed);
+			}
+		}
+		else if (isPressed('D')) {
+			if (!looking_left) {
+				move_player(true, false, dt, y_speed);
+			}
+			else {
+				looking_left = false;
+				move_player(true, true, dt, y_speed);
+			}
+		}
+		// Si no sigue corriendo pasa a estado idle
+		if (!isPressed('A') && !isPressed('D')) {
+			change_mesh(1);
+			ChangeState("idle");
+		}
 
-	// Chequea el omnidash si es que esta en bajada
-	const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);
-	if (omni.getsPressed() && !is_grounded && can_omni) {
-		EngineTimer.setTimeSlower(0.25f);
-		can_omni = false;
-		change_mesh(3);
-		ChangeState("omni");
-	}
+		// Chequea el omnidash si es que esta en bajada
+		const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);
+		if (omni.getsPressed() && !is_grounded && can_omni) {
+			EngineTimer.setTimeSlower(0.25f);
+			can_omni = false;
+			change_mesh(3);
+			ChangeState("omni");
+		}
+	}	
 }
 
 void TCompPlayerController::jumping_state(float dt) {
