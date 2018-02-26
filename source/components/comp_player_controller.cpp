@@ -52,6 +52,8 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				if (dashing_amount == 0) {
 					ChangeState("idle");
 				}
+				if (state == "jump")
+					ChangeState("idle");
 			}
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 				is_grounded = false;
