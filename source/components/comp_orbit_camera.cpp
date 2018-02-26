@@ -28,8 +28,8 @@ void TCompOrbitCamera::registerMsgs()
 
 void TCompOrbitCamera::debugInMenu() {
 	ImGui::DragFloat("Distancia", &distance, 0.1f, -200.f, 200.f);
-	ImGui::DragFloat("AP", &distanceCam, 0.1f, -2000.f, 2000.f);
-	ImGui::DragFloat("OS", &distance, 0.1f, -2000.f, 2000.f);
+	ImGui::DragFloat("AP", &apertura, 0.1f, -2000.f, 2000.f);
+	ImGui::DragFloat("OS", &xOffset, 0.1f, -2000.f, 2000.f);
 	ImGui::DragFloat("Altura", &height, 0.1f, -20.f, 20.f);
 	ImGui::DragFloat("Fov", &fov_deg, 0.1f, -1000.f, 1000.f);
 	ImGui::DragFloat("Look_X", &X, 0.1f, -100.f, 100.f);
@@ -87,8 +87,20 @@ void TCompOrbitCamera::update(float dt) {
 
 	bool izquierda = c->isInLeft(pPos);
 
-	if (currentPlayerY < playerY)currentPlayerY += 0.02f;
-	if (currentPlayerY > playerY)currentPlayerY -= 0.02f;
+	float dY = abs(currentPlayerY - pPos.y);
+
+	if (currentPlayerY < pPos.y) {
+		if (dY > 20.f)currentPlayerY += 5.f;
+		else if(dY > 10.f)currentPlayerY += 0.5f;
+		else if(dY > 5.f)currentPlayerY += 0.05f;
+		else currentPlayerY += 0.005f;
+	}
+	if (currentPlayerY > pPos.y) {
+		if (dY > 20.f)currentPlayerY -= 5.f;
+		else if (dY > 10.f)currentPlayerY -= 0.5f;
+		else if (dY > 5.f)currentPlayerY -= 0.05f;
+		else currentPlayerY -= 0.005f;
+	}
 
 	VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
 
