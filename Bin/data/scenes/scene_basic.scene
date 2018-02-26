@@ -126,6 +126,27 @@
 			},
 			"tags" : ["enemy"]
 		}
-	}
+	},
+ {
+    "entity": {
+      "name": "Plane001",
+      "transform": {
+        "pos": "5.0 2.18557e-07 5.0",
+        "rotation": "0.0 0.0 0.0 -1.0"
+      },
+      "render": [
+        {
+          "mesh": "data/meshes/Plane001.mesh",
+          "materials": [
+            "data/materials/GeoSphere001_mtl.material"
+          ]
+        }
+      ],
+      "collider": {
+        "shape": "plane"
+      }
+    }
+  }
+
 	
 ]
