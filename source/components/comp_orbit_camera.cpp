@@ -28,8 +28,8 @@ void TCompOrbitCamera::registerMsgs()
 
 void TCompOrbitCamera::debugInMenu() {
 	ImGui::DragFloat("Distancia", &distance, 0.1f, -200.f, 200.f);
-	ImGui::DragFloat("AP", &apertura, 0.1f, -2000.f, 2000.f);
-	ImGui::DragFloat("OS", &xOffset, 0.1f, -2000.f, 2000.f);
+	ImGui::DragFloat("AP", &distanceCam, 0.1f, -2000.f, 2000.f);
+	ImGui::DragFloat("OS", &distance, 0.1f, -2000.f, 2000.f);
 	ImGui::DragFloat("Altura", &height, 0.1f, -20.f, 20.f);
 	ImGui::DragFloat("Fov", &fov_deg, 0.1f, -1000.f, 1000.f);
 	ImGui::DragFloat("Look_X", &X, 0.1f, -100.f, 100.f);
@@ -45,8 +45,8 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
 	fov_deg = j.value("fov", 75.f);
 	z_near = j.value("z_near", 0.1f);
 	z_far = j.value("z_far", 1000.f);
-	distance = j.value("distance", 5.f);
-	height = j.value("height", 5.f);
+	distance = j.value("distance", 7.7f);
+	height = j.value("height", 2.7f);
 	radio = j.value("radio", 15.f);
 	izq = j.value("izq", true);
 
@@ -54,7 +54,7 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
 	Y = 0;
 	Z = 0;
      
-	apertura = -300.f;
+	apertura = -360.f;
 
   TCompTransform* p = player->get<TCompTransform>();
   assert(p);
@@ -64,6 +64,8 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
   currentPlayerY = pPos.y;
 
 	xOffset = deg2rad(((2 * 3.14159 * radio) / 360) * apertura);
+
+  carga = true;
 }
 
 void TCompOrbitCamera::update(float dt) {
@@ -80,10 +82,20 @@ void TCompOrbitCamera::update(float dt) {
 
   VEC3 newPos;
 
-  if (currentPlayerY < playerY)currentPlayerY += 0.01f;
-  if (currentPlayerY > playerY)currentPlayerY -= 0.01f;
+  /*VEC3 pPos2 = pPos;
+  pPos2.y += height;*/
 
-  if ((izq && !isForward()) || (!izq && isForward())) {
+  distanceCam = VEC3::Distance(pPos, pos);
+
+  if (abs(distanceCam - distance) <= 0.3)carga = false;
+
+  if (!carga)dbg("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n");
+
+  if (currentPlayerY < playerY)currentPlayerY += 0.02f;
+  if (currentPlayerY > playerY)currentPlayerY -= 0.02f;
+
+  if ((izq && !isForward() || (izq && isForward() && distanceCam > distance && distanceCam < 9.f))
+    || (!izq && isForward() || (!izq && !isForward() && distanceCam > distance && distanceCam < 9.f))) {
     newPos = pos;
   }
   else {

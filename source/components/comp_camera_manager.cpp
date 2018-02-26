@@ -85,15 +85,15 @@ void TCompCameraManager::update(float dt) {
   VEC3 cdp = cd->getPosition();
   float distanceCamDer = VEC3::Distance(pPos, cdp);
 
-	if (playerForward && distanceCamDer > 15.f) {
+	if (playerForward && distanceCamDer > 9.f) {
 		//if (!pForwarding) {
 			CHandle h_camera = getEntityByName("camera_orbit_IZQ");
-			Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
+      Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY , &interpolator);
 
 			pForwarding = true;
 		//}
 	}
-	else if (distanceCamIzq > 15.f){
+	else if (distanceCamIzq > 9.f){
 		//if (pForwarding) {
 			CHandle h_camera = getEntityByName("camera_orbit_DER");
 			Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);

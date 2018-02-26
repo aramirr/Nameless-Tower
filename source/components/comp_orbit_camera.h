@@ -35,6 +35,10 @@ class TCompOrbitCamera : public TCompBase {
   float playerY;
   float currentPlayerY;
 
+  float distanceCam;
+
+  bool carga;
+
 public:
   static void registerMsgs();
 
