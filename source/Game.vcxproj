@@ -102,6 +102,8 @@
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity\entity.cpp" />
     <ClCompile Include="entity\entity_parser.cpp" />
+    <ClCompile Include="fsm\context.cpp" />
+    <ClCompile Include="fsm\fsm.cpp" />
     <ClCompile Include="geometry\angular.cpp" />
     <ClCompile Include="geometry\curve.cpp" />
     <ClCompile Include="geometry\geometry.cpp" />
@@ -182,6 +184,12 @@
     <ClInclude Include="entity\entity.h" />
     <ClInclude Include="entity\entity_parser.h" />
     <ClInclude Include="entity\msgs.h" />
+    <ClInclude Include="fsm\context.h" />
+    <ClInclude Include="fsm\custom_states.h" />
+    <ClInclude Include="fsm\fsm.h" />
+    <ClInclude Include="fsm\state.h" />
+    <ClInclude Include="fsm\transition.h" />
+    <ClInclude Include="fsm\variable.h" />
     <ClInclude Include="geometry\angular.h" />
     <ClInclude Include="geometry\curve.h" />
     <ClInclude Include="geometry\geometry.h" />

@@ -214,6 +214,12 @@
     <ClCompile Include="components\controllers\comp_camera_orbit.cpp">
       <Filter>components\controllers</Filter>
     </ClCompile>
+    <ClCompile Include="fsm\fsm.cpp">
+      <Filter>fsm</Filter>
+    </ClCompile>
+    <ClCompile Include="fsm\context.cpp">
+      <Filter>fsm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -284,6 +290,9 @@
     </Filter>
     <Filter Include="components\controllers">
       <UniqueIdentifier>{35593611-dc98-40a8-8b74-e77b7bfe7abc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="fsm">
+      <UniqueIdentifier>{eee02197-0066-464f-a05d-c5c0dae4e09d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -597,6 +606,24 @@
     </ClInclude>
     <ClInclude Include="render\mesh\mesh_subgroup.h">
       <Filter>render\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="fsm\fsm.h">
+      <Filter>fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="fsm\state.h">
+      <Filter>fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="fsm\transition.h">
+      <Filter>fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="fsm\context.h">
+      <Filter>fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="fsm\variable.h">
+      <Filter>fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="fsm\custom_states.h">
+      <Filter>fsm</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
