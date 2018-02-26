@@ -28,8 +28,8 @@ void TCompOrbitCamera::registerMsgs()
 
 void TCompOrbitCamera::debugInMenu() {
 	ImGui::DragFloat("Distancia", &distance, 0.1f, -200.f, 200.f);
-	ImGui::DragFloat("AP", &apertura, 0.1f, -2000.f, 2000.f);
-	ImGui::DragFloat("OS", &xOffset, 0.1f, -2000.f, 2000.f);
+	ImGui::DragFloat("AP", &distanceCam, 0.1f, -2000.f, 2000.f);
+	ImGui::DragFloat("OS", &distance, 0.1f, -2000.f, 2000.f);
 	ImGui::DragFloat("Altura", &height, 0.1f, -20.f, 20.f);
 	ImGui::DragFloat("Fov", &fov_deg, 0.1f, -1000.f, 1000.f);
 	ImGui::DragFloat("Look_X", &X, 0.1f, -100.f, 100.f);
@@ -78,20 +78,24 @@ void TCompOrbitCamera::update(float dt) {
 	assert(p);
 	VEC3 pPos = p->getPosition();
 
-	VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
-
 	VEC3 newPos;
 
-	float distanceCam = VEC3::Distance(pPos, pos);
+	VEC2 pPos2D = VEC2(pPos.x, pPos.z);
+	VEC2 pos2D = VEC2(pos.x, pos.z);
+
+	distanceCam = VEC2::Distance(pPos2D, pos2D);
 
 	bool izquierda = c->isInLeft(pPos);
 
 	if (currentPlayerY < playerY)currentPlayerY += 0.02f;
 	if (currentPlayerY > playerY)currentPlayerY -= 0.02f;
 
-	if ((izq && !isForward() || ((izq && isForward()) && (distanceCam > (distance + 0.25f)) && (distanceCam < 9.f) && izquierda))
-		|| (!izq && isForward() || ((!izq && !isForward()) && (distanceCam > (distance + 0.25f)) && (distanceCam < 9.f) && !izquierda))) {
+	VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
+
+	if ((izq && !isForward() || ((izq && isForward()) && (distanceCam > (distance - 0.25f)) && (distanceCam < 9.f) && izquierda))
+		|| (!izq && isForward() || ((!izq && !isForward()) && (distanceCam > (distance - 0.25f)) && (distanceCam < 9.f) && !izquierda))) {
 		newPos = pos;
+		newPos.y = currentPlayerY + height;
 	}
 	else {
 		if (izq)xOffset *= -1;

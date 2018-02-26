@@ -8,20 +8,20 @@
 
 DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
-void TCompPlayerController::move_player(bool left, bool change_orientation, float dt, float gravity) {
+void TCompPlayerController::move_player(bool left, bool change_orientation, float dt, float y_speed) {
 	TCompTransform *c_my_transform = get<TCompTransform>();
 	VEC3 myPos = c_my_transform->getPosition();
 	assert(c_my_transform);
 	// Current orientation
 	float current_yaw;
 	float current_pitch;
-	float amount_moved = speed_factor * dt;
+	float amount_moved = x_speed_factor * dt;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	center.y = myPos.y;
 	//float distance = VEC3::Distance(myPos, center);
 	VEC3 move_vector = center + myPos;
-	
+
 	if (change_orientation) {
 		current_yaw = left ? current_yaw + deg2rad(180) : current_yaw - deg2rad(180);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
@@ -35,25 +35,39 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 		if (comp_collider && comp_collider->controller)
 		{
 			VEC3 delta_move = newPos - myPos;
-			delta_move.y += -gravity*dt;
+			delta_move.y += y_speed;
 			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
+				y_speed_factor = 0;
 				is_grounded = true;
 				can_omni = true;
 
-        //MENSAJE
-        TMsgisGrounded msg;
-        CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
-        CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
-        camDER->sendMsg(msg);
-        camIZQ->sendMsg(msg);
-			} 
+				//MENSAJE
+				TMsgisGrounded msg;
+				CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
+				CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
+				camDER->sendMsg(msg);
+				camIZQ->sendMsg(msg);
+
+				if (dashing_amount == 0) {
+					ChangeState("idle");
+				}
+			}
+			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
+				is_grounded = false;
+			}
+
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
 				current_yaw = left ? current_yaw - 0.1 * amount_moved : current_yaw + 0.1 * amount_moved;
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-			} else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
-				change_color(VEC4(1, 1, 1, 1));
+			}
+			else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
 				change_mesh(1);
+				// Si cambia de estado puede estar en dashing y que el dashing nunca termine, chequea por si acaso
+				if (dashing_amount > 0) {
+					x_speed_factor = x_speed_factor / dashing_speed;
+					dashing_amount = 0;
+				}
 				ChangeState("idle");
 			}
 		}
@@ -62,32 +76,36 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			//Actualizo la posicion del transform
 			c_my_transform->setPosition(newPos);
 		}
-	}		
+	}
 }
 
 void TCompPlayerController::debugInMenu() {
 	ImGui::Text("State: %s", state.c_str());
+	ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
+	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Jump speed: %f", &jump_speed, 0.01f, 0.f, 100.f);
+	ImGui::DragFloat("Omnidash max: %f", &omnidashing_max_ammount, 0.1f, 0.f, 10.f);
+	ImGui::DragFloat("Dashing ammount: %f", &dashing_amount, 0.01f, 0.f, 10.f);
+	ImGui::DragFloat("Radio torre: %f", &tower_radius, 1.f, 0.f, 40.f);
 }
 
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
-	speed_factor = j.value("speed", 1.0f);
-	dashing_max = j.value("dashing_max", 15.0f);
-	gravity = j.value("gravity", 16.5f);
-	jump_speed = j.value("jump_speed", 25.8f);
-  center = VEC3(0.f, 0.f, 0.f);
+	x_speed_factor = j.value("speed", 1.0f);
+	dashing_max = j.value("dashing_max", 0.3f);
+	gravity = j.value("gravity", 90.5f);
+	jump_speed = j.value("jump_speed", 18.8f);
+	center = VEC3(0.f, 0.f, 0.f);
 	tower_radius = j.value("tower_radius", 15.f);
 	dashing_speed = j.value("dashing_speed", 3);
-	max_jump = j.value("max_jump", 5);
 	omnidash_max_time = j.value("omnidash_max_time", 0.3);
-	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 140);
+	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 2);
 	is_grounded = true;
 	can_omni = true;
 	can_dash = true;
 
-	init();	
+	init();
 }
 
 void TCompPlayerController::init() {
@@ -122,52 +140,56 @@ void TCompPlayerController::initial_state(float dt) {
 void TCompPlayerController::idle_state(float dt) {
 	TCompCollider* comp_collider = get<TCompCollider>();
 	TCompTransform *c_my_transform = getMyTransform();
+	float y_speed = (y_speed_factor * dt) - (gravity * dt * dt / 2);
+	if (!is_grounded)
+		y_speed_factor -= gravity * dt / 2;
 	if (comp_collider && comp_collider->controller)
 	{
-		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(0, -gravity*dt, 0), 0.f, dt, physx::PxControllerFilters());
+		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(0, y_speed, 0), 0.f, dt, physx::PxControllerFilters());
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
+			y_speed_factor = 0;
 			is_grounded = true;
 			can_omni = true;
 
-      //MENSAJE
-      TMsgisGrounded msg;
-      CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
-      CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
-      camDER->sendMsg(msg);
-      camIZQ->sendMsg(msg);
+			//MENSAJE
+			TMsgisGrounded msg;
+			CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
+			CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
+			camDER->sendMsg(msg);
+			camIZQ->sendMsg(msg);
 		}
 	}
 	// Chequea el dash
 	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
 	if (dash.getsPressed()) {
 		dashing_amount = 0;
-		speed_factor = speed_factor * dashing_speed;
-		change_color(VEC4(0, 1, 1, 1));
+		x_speed_factor = x_speed_factor * dashing_speed;
 		change_mesh(4);
 		ChangeState("dash");
 	}
 
 	// Chequea el movimiento
 	float y, p, r;
+
 	if (isPressed('A')) {
-		if (!looking_left) {			
+		if (!looking_left) {
 			looking_left = true;
-			move_player(false, true, dt, gravity);
+			move_player(false, true, dt, y_speed);
 		}
-		else {			
-			move_player(false, false, dt, gravity);
-		}		
+		else {
+			move_player(false, false, dt, y_speed);
+		}
 		change_mesh(0);
 		ChangeState("run");
 	}
 	if (isPressed('D')) {
 		if (!looking_left) {
-			move_player(true, false, dt, gravity);
+			move_player(true, false, dt, y_speed);
 		}
 		else {
 			looking_left = false;
-			move_player(true, true, dt, gravity);
-		}		
+			move_player(true, true, dt, y_speed);
+		}
 		change_mesh(0);
 		ChangeState("run");
 	}
@@ -175,21 +197,19 @@ void TCompPlayerController::idle_state(float dt) {
 	// Chequea el salto
 	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
 	if (space.getsPressed() && is_grounded) {
-		change_color(VEC4(1, 0, 1, 1));
-		jump_end = c_my_transform->getPosition().y + max_jump;
 		is_grounded = false;
 		change_mesh(2);
 		TMsgJump msg_jump;
 		msg_jump.jump_position = c_my_transform->getPosition();
 		CEntity* e_runner = (CEntity*)getEntityByName("Boss Runner");
 		e_runner->sendMsg(msg_jump);
+		y_speed_factor = jump_speed;
 		ChangeState("jump");
 	}
 
 	// Chequea el omnidash si es que esta en bajada
 	const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);
 	if (omni.getsPressed() && !is_grounded && can_omni) {
-		change_color(VEC4(0, 1, 0, 1));
 		EngineTimer.setTimeSlower(0.25f);
 		can_omni = false;
 		change_mesh(3);
@@ -199,27 +219,29 @@ void TCompPlayerController::idle_state(float dt) {
 
 void TCompPlayerController::running_state(float dt) {
 	// Compruebo si sigue corriendo
-
+	float y_speed = (y_speed_factor * dt) - (gravity * dt * dt / 2);
+	if (!is_grounded)
+		y_speed_factor -= gravity * dt / 2;
 	if (isPressed('A')) {
 		if (!looking_left) {
 			looking_left = true;
-			move_player(false, true, dt, gravity);
+			move_player(false, true, dt, y_speed);
 		}
 		else {
-			move_player(false, false, dt, gravity);
-		}		
-	} else if (isPressed('D')) {
+			move_player(false, false, dt, y_speed);
+		}
+	}
+	else if (isPressed('D')) {
 		if (!looking_left) {
-			move_player(true, false, dt, gravity);
+			move_player(true, false, dt, y_speed);
 		}
 		else {
 			looking_left = false;
-			move_player(true, true, dt, gravity);
-		}		
+			move_player(true, true, dt, y_speed);
+		}
 	}
 	// Si no sigue corriendo pasa a estado idle
-	if (!isPressed('A') && !isPressed('D')){
-		change_color(VEC4(1, 1, 1, 1));
+	if (!isPressed('A') && !isPressed('D')) {
 		change_mesh(1);
 		ChangeState("idle");
 	}
@@ -227,15 +249,14 @@ void TCompPlayerController::running_state(float dt) {
 	// Chequea el salto
 	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
 	if (space.getsPressed() && is_grounded) {
-		change_color(VEC4(1, 0, 1, 1));
 		TCompTransform *c_my_transform = get<TCompTransform>();
-		jump_end = c_my_transform->getPosition().y + max_jump;
 		is_grounded = false;
 		change_mesh(2);
 		TMsgJump msg_jump;
 		msg_jump.jump_position = c_my_transform->getPosition();
 		CEntity* e_runner = (CEntity*)getEntityByName("Boss Runner");
 		e_runner->sendMsg(msg_jump);
+		y_speed_factor = jump_speed;
 		ChangeState("jump");
 	}
 
@@ -243,8 +264,7 @@ void TCompPlayerController::running_state(float dt) {
 	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
 	if (dash.getsPressed()) {
 		dashing_amount = 0;
-		speed_factor = speed_factor * dashing_speed;
-		change_color(VEC4(0, 1, 1, 1));
+		x_speed_factor = x_speed_factor * dashing_speed;
 		change_mesh(4);
 		ChangeState("dash");
 	}
@@ -252,7 +272,6 @@ void TCompPlayerController::running_state(float dt) {
 	// Chequea el omnidash si es que esta en bajada
 	const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);
 	if (omni.getsPressed() && !is_grounded && can_omni) {
-		change_color(VEC4(0, 1, 0, 1));
 		EngineTimer.setTimeSlower(0.25f);
 		can_omni = false;
 		change_mesh(3);
@@ -261,68 +280,70 @@ void TCompPlayerController::running_state(float dt) {
 }
 
 void TCompPlayerController::jumping_state(float dt) {
-	
+
 	TCompCollider* comp_collider = get<TCompCollider>();
 	TCompTransform *c_my_transform = get<TCompTransform>();
 	assert(c_my_transform);
 	VEC3 my_pos = c_my_transform->getPosition();
 	VEC3 new_pos = my_pos;
-	new_pos.y += (jump_speed - gravity * dt) * dt;
+	float y_speed;
+	if (y_speed_factor > 0)
+		y_speed = (y_speed_factor * dt) - (gravity * dt * dt / 2);
+	else
+		y_speed = (y_speed_factor * dt) - (gravity * dt * dt * 3);
+	y_speed_factor -= gravity * dt / 2;
+	new_pos.y += y_speed;
 
-	// Chequea que no llego a la altura maxima 
-	if (new_pos.y < jump_end) {
-		// Chequea el dash		
-		const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
-		if (dash.getsPressed()) {
-			dashing_amount = 0;
-			speed_factor = speed_factor * dashing_speed;
-			change_color(VEC4(0, 1, 1, 1));
-			change_mesh(4);
-			ChangeState("dash");
-		}
+	// Chequea el dash		
+	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
+	if (dash.getsPressed()) {
+		dashing_amount = 0;
+		x_speed_factor = x_speed_factor * dashing_speed;
+		change_mesh(4);
+		ChangeState("dash");
+	}
 
-		// Chequea movimiento
-		if (isPressed('A')) {
-			if (!looking_left) {
-				looking_left = true;
-				move_player(false, true, dt, -(jump_speed - gravity * dt));
-			}
-			else {
-				move_player(false, false, dt, -(jump_speed - gravity * dt));
-			}
+	// Chequea movimiento
+	if (isPressed('A')) {
+		if (!looking_left) {
+			looking_left = true;
+			move_player(false, true, dt, y_speed);
 		}
-		else if (isPressed('D')) {
-			if (!looking_left) {
-				move_player(true, false, dt, -(jump_speed - gravity * dt));
-			}
-			else {
-				looking_left = false;
-				move_player(true, true, dt, -(jump_speed - gravity * dt));
-			}
-		}	else {
-			VEC3 delta_move = new_pos - my_pos;
-			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
-			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
-				change_color(VEC4(1, 1, 1, 1));
-				change_mesh(1);
-				ChangeState("idle");
-			}
+		else {
+			move_player(false, false, dt, y_speed);
 		}
-
-		// Chequea si se presiona el omnidash
-		const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);
-		if (omni.getsPressed() && can_omni) {
-			change_color(VEC4(0, 1, 0, 1));
-			EngineTimer.setTimeSlower(0.25f);
-			can_omni = false;
-			change_mesh(3);
-			ChangeState("omni");
+	}
+	else if (isPressed('D')) {
+		if (!looking_left) {
+			move_player(true, false, dt, y_speed);
+		}
+		else {
+			looking_left = false;
+			move_player(true, true, dt, y_speed);
 		}
 	}
 	else {
-		change_color(VEC4(1, 1, 1, 1));
-		change_mesh(1);
-		ChangeState("idle");
+		VEC3 delta_move = new_pos - my_pos;
+		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
+			change_mesh(1);
+			y_speed_factor = 0;
+			ChangeState("idle");
+		}
+		else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
+			change_mesh(1);
+			y_speed_factor = 0;
+			ChangeState("idle");
+		}
+	}
+
+	// Chequea si se presiona el omnidash
+	const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);
+	if (omni.getsPressed() && can_omni) {
+		EngineTimer.setTimeSlower(0.25f);
+		can_omni = false;
+		change_mesh(3);
+		ChangeState("omni");
 	}
 }
 
@@ -333,14 +354,14 @@ void TCompPlayerController::omnidashing_state(float dt) {
 	if (omnidash_timer < omnidash_max_time) {
 		const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);
 		if (!omni.isPressed()) {
-			change_state = true;			
+			change_state = true;
 		}
 	}
 	else {
-		change_state = true;		
+		change_state = true;
 	}
 	// Salgo del omni dash
-	if (change_state) {		
+	if (change_state) {
 		omnidashing_ammount = 0;
 		CHandle h_e_camera = getEntityByName("the_camera");
 		CEntity* e_camera = h_e_camera;
@@ -352,21 +373,21 @@ void TCompPlayerController::omnidashing_state(float dt) {
 		c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
 		omnidash_arrow = mouse._position - VEC2(player_position.x, player_position.y);
 		omnidash_arrow.Normalize();
-		ChangeState("omni_jump");		
-	}	
+		ChangeState("omni_jump");
+	}
 }
 
 void TCompPlayerController::omnidashing_jump_state(float dt) {
-	if (omnidashing_ammount < omnidashing_max_ammount * 1000 * dt) {
+	if (omnidashing_ammount < omnidashing_max_ammount / 20) {
 		TCompCollider* comp_collider = get<TCompCollider>();
 		TCompTransform *c_my_transform = get<TCompTransform>();
 		VEC3 my_pos = c_my_transform->getPosition();
-		CHandle h_e_camera = getEntityByName("the_camera");
-		CEntity* e_camera = h_e_camera;
-		TCompCamera* c_camera = e_camera->get< TCompCamera >();		
 		omnidash_vector = c_my_transform->getFront();
-		omnidash_vector *= omnidash_arrow.x;		
-			
+		if (looking_left)
+			omnidash_vector *= omnidash_arrow.x;
+		else
+			omnidash_vector *= omnidash_arrow.x * -1;
+
 		omnidash_vector.y += omnidash_arrow.y;
 		VEC3 new_pos;
 		new_pos = my_pos + (omnidash_vector * ((jump_speed * 5 - gravity * dt) * dt));
@@ -377,21 +398,20 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 		new_pos.x = new_pos.x * d;
 		new_pos.z = new_pos.z * d;
 
-		VEC3 delta_move = new_pos - my_pos;		
-		omnidashing_ammount += 0.1;
+		VEC3 delta_move = new_pos - my_pos;
+		omnidashing_ammount += dt;
 
 		float current_yaw;
 		float current_pitch;
-		float amount_moved = speed_factor * dt;
+		float amount_moved = x_speed_factor * dt;
 		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-		current_yaw = !looking_left ? current_yaw + (1.08 * omnidash_arrow.x * amount_moved) : current_yaw - (1.08 * omnidash_arrow.x * amount_moved);
+		current_yaw = current_yaw - (0.8 * omnidash_arrow.x * amount_moved);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 			EngineTimer.setTimeSlower(1.f);
 			omnidash_timer = 0;
 			omnidashing_ammount = 0;
-			change_color(VEC4(1, 1, 1, 1));
 			change_mesh(1);
 			ChangeState("idle");
 		}
@@ -400,10 +420,9 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 		EngineTimer.setTimeSlower(1.f);
 		omnidash_timer = 0;
 		omnidashing_ammount = 0;
-		change_color(VEC4(1, 1, 1, 1));
 		change_mesh(1);
 		ChangeState("idle");
-	}	
+	}
 }
 
 void TCompPlayerController::dashing_state(float dt) {
@@ -411,14 +430,13 @@ void TCompPlayerController::dashing_state(float dt) {
 		move_player(false, false, dt, 0);
 	else
 		move_player(true, false, dt, 0);
-	
-	dashing_amount += 0.1;
-	if (dashing_amount > dashing_max * 1000 * dt) {
-		change_color(VEC4(1, 1, 1, 1));
+
+	dashing_amount += dt;
+	if (dashing_amount > dashing_max) {
 		change_mesh(1);
-		ChangeState("idle");
 		dashing_amount = 0;
-		speed_factor = speed_factor / dashing_speed;
+		x_speed_factor = x_speed_factor / dashing_speed;
+		ChangeState("idle");
 	}
 }
 

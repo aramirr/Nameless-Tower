@@ -5,15 +5,15 @@
 #include "ia/ai_controller.h"
 
 class TCompPlayerController : public IAIController {
-	float   speed_factor = 8.0f;
-  VEC3    speed;
+	float   x_speed_factor = 8.0f;
+	float   y_speed_factor = 0.f;
+	VEC3    speed;
 	VEC3	  center;
 	VEC3	  omnidash_vector;
 	VEC2	  omnidash_arrow;
-  float	  tower_radius;
+	float	  tower_radius;
 	float   dashing_max;
 	float   dashing_amount;
-	float   max_jump;
 	float   jump_end;
 	float   gravity;
 	float   jump_speed;
@@ -42,7 +42,7 @@ public:
 	void omnidashing_jump_state(float dt);
 	void dashing_state(float dt);
 	void dead_state(float dt);
-	void move_player(bool left, bool change_orientation, float dt, float gravity);
+	void move_player(bool left, bool change_orientation, float dt, float y_speed);
 
 	bool isForward() { return looking_left; };
 

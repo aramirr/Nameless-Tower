@@ -32,6 +32,8 @@ class TCompOrbitCamera : public TCompBase {
 
   void changeHeight(const TMsgisGrounded& msg);
 
+  float distanceCam;
+
   float playerY;
   float currentPlayerY;
 
