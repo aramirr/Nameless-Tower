@@ -71,7 +71,7 @@ void TCompCameraManager::update(float dt) {
 
 	bool playerForward = isForward();  //Vemos si el player se esta moviendo hacia delante o hacia atras
 
-	static Interpolator::TBackOutInterpolator interpolator;
+	static Interpolator::TSineInOutInterpolator interpolator;
 
   CEntity* camIzq = (CEntity *)getEntityByName("camera_orbit_IZQ");
   TCompTransform* ci = camIzq->get<TCompTransform>();
