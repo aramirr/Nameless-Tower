@@ -76,7 +76,14 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 					dashing_amount = 0.0;
 					can_dash = true;
 				}
-				ChangeState("idle");
+				if (!isPressed('A') && !isPressed('D')) {
+					change_mesh(1);
+					ChangeState("idle");
+				}
+				else {
+					change_mesh(0);
+					ChangeState("run");
+				}
 			}
 		}
 		else
