@@ -397,6 +397,7 @@ void TCompPlayerController::omnidashing_state(float dt) {
 		c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
 		omnidash_arrow = mouse._position - VEC2(player_position.x, player_position.y);
 		omnidash_arrow.Normalize();
+		y_speed_factor = 0;
 		ChangeState("omni_jump");
 	}
 }
