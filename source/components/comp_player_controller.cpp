@@ -151,6 +151,7 @@ void TCompPlayerController::initial_state(float dt) {
 void TCompPlayerController::idle_state(float dt) {
 	TCompCollider* comp_collider = get<TCompCollider>();
 	TCompTransform *c_my_transform = getMyTransform();
+
 	float y_speed = (y_speed_factor * dt) - (gravity * dt * dt / 2);
 	if (!is_grounded)
 		y_speed_factor -= gravity * dt / 2;

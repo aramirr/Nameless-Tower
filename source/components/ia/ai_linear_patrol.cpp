@@ -4,6 +4,9 @@
 #include "entity/entity_parser.h"
 #include "components/comp_transform.h"
 #include "render/render_utils.h"
+#include "modules/system/module_physics.h"
+
+using namespace physx;
 
 DECL_OBJ_MANAGER("ai_linear_patrol", CAILinearPatrol);
 
@@ -91,6 +94,15 @@ void CAILinearPatrol::MoveToWaypointState()
 	VEC3 delta_pos = mypos->getPosition() + speed * dir;
 	mypos->setPosition(delta_pos);
 	
+	TCompCollider* comp_collider = get<TCompCollider>();
+	if (comp_collider)
+	{
+		PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
+		PxTransform tr = rigidActor->getGlobalPose();
+		tr.p = PxVec3(delta_pos.x, delta_pos.y, delta_pos.z);
+		rigidActor->setGlobalPose(tr);
+	}
+
 	if (VEC3::Distance(getWaypoint(), mypos->getPosition()) < 1)
 	{
 		acum_delay = 0;

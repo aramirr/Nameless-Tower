@@ -4,6 +4,10 @@
 #include "entity/entity_parser.h"
 #include "components/comp_transform.h"
 #include "render/render_utils.h"
+#include "modules/system/module_physics.h"
+#include "components/comp_player_controller.h"
+
+using namespace physx;
 
 DECL_OBJ_MANAGER("ai_orbit_patrol", CAIOrbitPatrol);
 
@@ -98,8 +102,10 @@ void CAIOrbitPatrol::NextWaypointState()
 
 void CAIOrbitPatrol::MoveToWaypointState(float dt)
 {
+	
 	TCompTransform *c_my_transform = get<TCompTransform>();
 	VEC3 myPos = c_my_transform->getPosition();
+	QUAT myRot = c_my_transform->getRotation();
 
 	float y, p;
 	c_my_transform->getYawPitchRoll(&y, &p);
@@ -116,17 +122,52 @@ void CAIOrbitPatrol::MoveToWaypointState(float dt)
 	}
 	c_my_transform->setYawPitchRoll(y, p);
 	VEC3 newPos = c_my_transform->getPosition() - (c_my_transform->getFront() * distance);
-	/*
-	VEC3 vertical_distance;
-	vertical_distance.y = getWaypoint().y - c_my_transform->getPosition().y;
-	if (vertical_distance.y > 0)
-	{
-		newPos = newPos + (vertical_distance * 0.01 * speed);
-	}
-	*/
 	c_my_transform->setPosition(newPos);
+	QUAT newRot = c_my_transform->getRotation();
+
+	TCompCollider* comp_collider = get<TCompCollider>();
+	if (comp_collider)
+	{
+		PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
+		PxTransform tr = rigidActor->getGlobalPose();
+		tr.p = PxVec3(newPos.x, newPos.y, newPos.z); 
+		tr.q = PxQuat(newRot.x, newRot.y, newRot.z, newRot.w);
+		rigidActor->setGlobalPose(tr);
+		if (attached.isValid()) {
+			CEntity* e = attached;
+			assert(e);
+			TCompCollider *player_collider = e->get< TCompCollider >();
+			TCompTransform *player_transform = e->get< TCompTransform >();
+			VEC3 delta_pos = newPos - myPos;
+			float p_y, p_p;
+			player_transform->getYawPitchRoll(&p_y, &p_p);
+
+			if (move_left == true)
+			{
+				p_y -= dt * speed;
+			}
+			else
+			{
+				p_y += dt * speed;
+			}
+			player_transform->setYawPitchRoll(p_y, p_p);
+			player_collider->controller->move(physx::PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, dt, physx::PxControllerFilters());
+			
+			TCompPlayerController *player_controller = e->get<TCompPlayerController>();
+			VEC3 tower_center = player_controller->center;
+			VEC3 player_pos = player_transform->getPosition();
+			float d = VEC3::Distance({ tower_center.x, 0, tower_center.z }, { player_pos.x, 0, player_pos.z });
+			if (d != player_controller->tower_radius)
+			{
+				VEC3 d_vector = player_pos - tower_center;
+				d_vector.Normalize();
+				VEC3 new_pos = d_vector * player_controller->tower_radius;
+
+			}
+		}
+	}
 	
-	if (VEC3::Distance(getWaypoint(), myPos) < 1)
+	if (VEC3::Distance(getWaypoint(), myPos) < 5)
 	{
 		acum_delay = 0;
 		ChangeState("wait_state");
@@ -139,4 +180,18 @@ void CAIOrbitPatrol::WaitState(float dt)
 	if (delay < acum_delay) {
 		ChangeState("next_waypoint");
 	}
+}
+
+
+void CAIOrbitPatrol::registerMsgs() {
+DECL_MSG(CAIOrbitPatrol, TMsgAttachTo, attachPlayer);
+DECL_MSG(CAIOrbitPatrol, TMsgDetachOf, detachPlayer);
+}
+
+void CAIOrbitPatrol::attachPlayer(const TMsgAttachTo& msg) {
+	attached = msg.h_attacher;
+}
+
+void CAIOrbitPatrol::detachPlayer(const TMsgDetachOf& msg) {
+	attached = CHandle();
 }

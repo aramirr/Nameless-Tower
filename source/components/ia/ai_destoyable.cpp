@@ -48,6 +48,7 @@ void CAIDestroyable::load(const json& j, TEntityParseContext& ctx) {
 
 void CAIDestroyable::IdleState()
 {
+  change_color(VEC4(0, 1, 0, 1));
   CEntity *c_trigger = (CEntity *)getEntityByName(trigger_actor);
   if (!c_trigger)
 	  return;
@@ -65,6 +66,7 @@ void CAIDestroyable::IdleState()
 
 void CAIDestroyable::TriggerDestroyState(float dt)
 {
+	change_color(VEC4 (1, 0, 0, 1));
 	acum_time += dt;
 	if (acum_time >= destroy_time)
 		ChangeState("destroy");
@@ -72,5 +74,18 @@ void CAIDestroyable::TriggerDestroyState(float dt)
 
 void CAIDestroyable::DestoyState()
 {
+	TCompCollider* comp_collider = get<TCompCollider>();
+	if (comp_collider)
+	{
+		comp_collider->actor->release();
+	}
 	CHandle(this).getOwner().destroy();
+}
+
+void CAIDestroyable::change_color(VEC4 color) {
+	TCompRender *my_render = getMyRender();
+	if (my_render)
+	{
+		my_render->color = color;
+	}
 }

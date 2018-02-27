@@ -28,6 +28,7 @@ bool CModuleTestAxis::start()
   }
 	{
 		TEntityParseContext ctx;
+
 		//parseScene("data/scenes/TorreEspiralExport_2.scene", ctx);
 		parseScene("data/scenes/TorreRadio30.scene", ctx);
 	}

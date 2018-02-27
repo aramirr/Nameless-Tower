@@ -33,8 +33,8 @@ void TCompArrowUI::update(float dt) {
 	if (action_button == 1) {
 		VEC2 move_vector = mouse._position - start_pos;
 		move_vector.Normalize();
-		dbg("MOUSE VECTOR: %.2f, %.2f\n", move_vector.x, move_vector.y * -1);
-		dbg("World COORD VECTOR: %.2f, %.2f, %.2f\n", (pos.x + move_vector.x), (pos.y + (move_vector.y*-1)), (pos.z));
+		//dbg("MOUSE VECTOR: %.2f, %.2f\n", move_vector.x, move_vector.y * -1);
+		//dbg("World COORD VECTOR: %.2f, %.2f, %.2f\n", (pos.x + move_vector.x), (pos.y + (move_vector.y*-1)), (pos.z));
 		unit_force_vector.x = pos.x + move_vector.x;
 		unit_force_vector.y = pos.y + (move_vector.y*-1);
 		unit_force_vector.z = pos.z;

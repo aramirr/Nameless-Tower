@@ -29,6 +29,18 @@ struct TMsgAppear {
 	DECL_MSG_ID();
 };
 
+struct TMsgAttachTo {
+	CHandle h_attached;
+	CHandle h_attacher;
+	DECL_MSG_ID();
+};
+
+struct TMsgDetachOf {
+	CHandle h_attached;
+	CHandle h_attacher;
+	DECL_MSG_ID();
+};
+
 // Sent to all entities from a parsed file once all the entities
 // in that file has been created. Used to link entities between them
 struct TEntityParseContext;
