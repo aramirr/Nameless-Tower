@@ -9,7 +9,6 @@ class CMaterial;
 
 class TCompRender : public TCompBase {
   void loadMesh(const json& j, TEntityParseContext& ctx);
-  void refreshMeshesInRenderManager();
 
 public:
   VEC4 color = VEC4(1, 1, 1, 1);
@@ -28,7 +27,8 @@ public:
     std::vector<const CMaterial*> materials;
   };
   std::vector<CMeshWithMaterials> meshes;
-
+  
+  void refreshMeshesInRenderManager();
   void debugInMenu();
   void renderDebug();
   void load(const json& j, TEntityParseContext& ctx);
