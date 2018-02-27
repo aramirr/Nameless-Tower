@@ -10,6 +10,11 @@
 	"update" : [
 		"circular_controller",
 		"player_controller",
+		"bullet_controller",
+	    "flyover_controller",
+	    "camera_flyover",
+	    "hierarchy",
+		"camera",
 		"bullet_controller",		
 		"ai_boss_runner",
 		"ai_destroyable",
@@ -18,7 +23,11 @@
 		"arrow_ui",
     	"flyover_controller",
     	"hierarchy",
-		"camera",
+    	"orbitCamera",
+    	"cameraManager",
 		"trigger"
+	],
+	"render_debug" : 
+	[
 	]
 }

@@ -7,7 +7,7 @@
 			},
 			"render" : [
 				{
-					"mesh": "data/meshes/Teapot001.mesh",
+					"mesh": "data/meshes/chr_runner_Box001.mesh",
 					"materials" : [
 						"data/materials/madera.material"
 					]
@@ -32,15 +32,27 @@
 			"name": "The Player",
 			"render":
 		      [
-		        {
-		          "mesh": ["data/meshes/chr_NajaRun_NajaRun.mesh", "data/meshes/chr_NajaIdle_NajaIdle.mesh", "data/meshes/chr_NajaJump_NajaJump.mesh", "data/meshes/chr_NajaOmni_NajaOmnidash.mesh",  "data/meshes/chr_Naja_NajaDash.mesh"]
-		          ,
-		          "materials":
-		          [
-		            "data/materials/MaterialNaja.material"
-		          ]
-		        }
-		      ]
+			  {"mesh": "data/meshes/chr_NajaRun_NajaRun.mesh",
+		          "materials":["data/materials/MaterialNaja.material"]
+		      }
+			,
+			{"mesh": "data/meshes/chr_NajaIdle_NajaIdle.mesh",
+		          "materials":["data/materials/MaterialNaja.material"]
+
+		      }
+			,
+			{"mesh": "data/meshes/chr_NajaJump_NajaJump.mesh",
+		          "materials":["data/materials/MaterialNaja.material"]
+		      }
+			,
+			{"mesh": "data/meshes/chr_NajaOmni_NajaOmnidash.mesh",
+		          "materials":["data/materials/MaterialNaja.material"]
+		      }
+			,
+			{"mesh": "data/meshes/chr_Naja_NajaDash.mesh",
+		          "materials":["data/materials/MaterialNaja.material"]
+		      }
+			  ]			
 			,
 			"transform": {
 				"pos": "15 0 0",
@@ -49,7 +61,7 @@
 			, 
 			"player_controller" : {
 				"rotation_speed" : 3.0,
-				"speed" : 8.0,
+				"speed" : 2.0,
 				"dashing_speed": 3
 			},
 		  "collider": {
@@ -61,6 +73,15 @@
 		  "arrow_ui":{
 		  
 		  }
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_manager",
+			"transform": {
+				"pos": "0 3 3"
+			},
+			"cameraManager" : {}
 		}
 	},
 	{
@@ -89,19 +110,44 @@
 			}
 		}
 	},
-	{
+		{
 		"entity": {
 			"name": "the_camera",
+			"transform": {
+				"pos": "15 0 0"
+			},
+			"camera" : {
+				"fov" : 80 
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_orbit_IZQ",
 			"transform": {
 				"pos": "-14 16 12",
 				"lookat": "-1 0 -1"
 			},
-			"render" : {},
-			"flyover_controller" : {},
+			"orbitCamera" : {
+				"izq" : true
+			},
 			"camera" : {
-				"fov" : 80,
-				"height": 3.7,
-				"distance": -8.3
+				"fov" : 80 
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_orbit_DER",
+			"transform": {
+				"pos": "-14 16 12",
+				"lookat": "-1 0 -1"
+			},
+			"orbitCamera" : {
+				"izq" : false
+			},
+			"camera" : {
+				"fov" : 80
 			}
 		}
 	},
@@ -126,6 +172,27 @@
 			},
 			"tags" : ["enemy"]
 		}
-	}
+	},
+ {
+    "entity": {
+      "name": "Plane001",
+      "transform": {
+        "pos": "5.0 2.18557e-07 5.0",
+        "rotation": "0.0 0.0 0.0 -1.0"
+      },
+      "render": [
+        {
+          "mesh": "data/meshes/Plane001.mesh",
+          "materials": [
+            "data/materials/GeoSphere001_mtl.material"
+          ]
+        }
+      ],
+      "collider": {
+        "shape": "plane"
+      }
+    }
+  }
+
 	
 ]

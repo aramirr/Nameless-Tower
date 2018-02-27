@@ -12,6 +12,7 @@ typedef Matrix      MAT44;
 typedef Quaternion  QUAT;
 
 #include "angular.h"
+#include "interpolators.h"
 
 VEC2 loadVEC2(const json& j);
 VEC3 loadVEC3(const json& j);
@@ -19,6 +20,18 @@ VEC4 loadVEC4(const json& j);
 QUAT loadQUAT(const json& j);
 
 #include "geometry/transform.h"
+
+template<typename T>
+T clamp(const T& value, const T& minValue, const T& maxValue)
+{
+	return value < minValue ? minValue : (value > maxValue ? maxValue : value);
+}
+
+template<typename T>
+T lerp(const T& minValue, const T& maxValue, float ratio)
+{
+	return minValue + (maxValue - minValue) * ratio;
+}
 
 #endif
 

@@ -5,12 +5,14 @@
 #include "ia/ai_controller.h"
 
 class TCompPlayerController : public IAIController {
-	float   speed_factor = 8.0f;
-  VEC3    speed;
+	float   current_x_speed_factor = 2.0f;
+	float   x_speed_factor = 2.0f;
+	float   y_speed_factor = 0.f;
+	VEC3    speed;
 	VEC3	  omnidash_vector;
+	VEC2	  omnidash_arrow;
 	float   dashing_max;
 	float   dashing_amount;
-	float   max_jump;
 	float   jump_end;
 	float   gravity;
 	float   jump_speed;
@@ -22,7 +24,7 @@ class TCompPlayerController : public IAIController {
 	bool    looking_left;
 	bool    is_grounded;
 	bool		can_omni;
-	//CHandle	 attached;
+	bool		can_dash;
 
   DECL_SIBLING_ACCESS();
 
@@ -41,10 +43,9 @@ public:
 	void omnidashing_jump_state(float dt);
 	void dashing_state(float dt);
 	void dead_state(float dt);
-	void move_player(bool left, bool change_orientation, float dt, float gravity);
-	//static void registerMsgs();
-	//void attachPlayer(const TMsgAttachTo& msg);
-	//void detachPlayer(const TMsgDetachOf& msg);
+	void move_player(bool left, bool change_orientation, float dt, float y_speed);
+
+	bool isForward() { return looking_left; };
 
   void init();
 };

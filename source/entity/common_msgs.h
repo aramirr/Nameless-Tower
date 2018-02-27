@@ -49,6 +49,10 @@ struct TMsgEntitiesGroupCreated {
   DECL_MSG_ID();
 };
 
+struct TMsgisGrounded {
+  DECL_MSG_ID();
+};
+
 /*
 struct TMsgTimeOut {
   DECL_MSG_ID();

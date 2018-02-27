@@ -35,9 +35,18 @@ const char* CEntity::getName() const {
   return comp_name->getName();
 }
 
+void CEntity::renderDebug() {
+  for (int i = 0; i < CHandleManager::getNumDefinedTypes(); ++i) {
+    CHandle h = comps[i];
+    if (h.isValid())
+      h.renderDebug();
+  }
+}
+
 void CEntity::debugInMenu() {
   if (ImGui::TreeNode(getName())) {
-    
+    renderDebug();
+
     // Give option to destroy the entity
     ImGui::SameLine();
     if (ImGui::SmallButton("Del")) {
@@ -75,7 +84,9 @@ void CEntity::load(const json& j, TEntityParseContext& ctx) {
 
     auto om = CHandleManager::getByName(comp_name.c_str());
     if (!om) {
-      fatal("While parsing file %s. Invalid component named '%s'", ctx.filename.c_str(), comp_name.c_str());
+      if( comp_name != "prefab" )
+        dbg("While parsing file %s. Unknown component named '%s'\n", ctx.filename.c_str(), comp_name.c_str());
+      continue;
     }
     assert(om);
     

@@ -5,6 +5,7 @@ struct TEntityParseContext;
 
 struct TCompBase {
   void debugInMenu() {}
+  void renderDebug() {}
   void load( const json& j, TEntityParseContext& ctx ) {}
   void update(float dt) {}
 

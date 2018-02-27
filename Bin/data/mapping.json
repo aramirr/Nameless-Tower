@@ -3,5 +3,45 @@
 		"name" :"action_button",
 		"all" : false,
 		"buttons" : [ "mouse_left"]
+	},
+	{
+		"name" : "turbo",
+		"all" : false,
+		"buttons" : [ "pad_lanalogx"]
+	},
+	{
+		"name" : "front",
+		"all" : false,
+		"buttons" : [ "w", "pad_lanalogy"]
+	},
+	{
+		"name" : "back",
+		"all" : false,
+		"buttons" : [ "s"]
+	},
+	{
+		"name" : "left",
+		"all" : false,
+		"buttons" : [ "a"]
+	},
+	{
+		"name" : "right",
+		"all" : false,
+		"buttons" : [ "d", "pad_lanalogx"]
+	},
+	{
+		"name" : "up",
+		"all" : false,
+		"buttons" : [ "e"]
+	},
+	{
+		"name" : "down",
+		"all" : false,
+		"buttons" : [ "q"]
+	},
+	{
+		"name" : "turbo",
+		"all" : false,
+		"buttons" : [ "shift"]
 	}
 ]

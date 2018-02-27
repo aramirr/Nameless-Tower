@@ -17,6 +17,7 @@ class CAIBossRunner : public IAIController
 	float jump_speed;
 	float tower_radius;
 	float jump_end;
+  float jump_altitude;
 	bool going_right = false;
 	VEC3 tower_center = VEC3::Zero;
 	std::string actual_state;
@@ -28,16 +29,16 @@ public:
 	void debugInMenu();
 
 	
-	void AppearState(float dt);
-	void ChaseState(float dt);
-	void AttackState();
-	void DissapearState();
-	void JumpingState(float dt);
+	void appear_state(float dt);
+	void chase_state(float dt);
+	void attack_state();
+	void disapear_state();
+	void jumping_state(float dt);
 
 	void Init();
 
-	void onPlayerJump(const TMsgJump& msg);
-	void Appear(const TMsgAppear& msg);
+	void on_player_jump(const TMsgJump& msg);
+	void appear(const TMsgAppear& msg);
 
 	static void registerMsgs();
 };

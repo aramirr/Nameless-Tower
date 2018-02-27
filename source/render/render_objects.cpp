@@ -86,6 +86,48 @@ CRenderMesh* createGridXZ( int nsteps ) {
   return mesh;
 }
 
+// ---------------------------------------------------
+CRenderMesh* createCameraFrustum() {
+  CRenderMesh* mesh = new CRenderMesh;
+
+  std::vector<TVtxPosClr> vtxs;
+  VEC4 clr(1, 1, 1, 1);
+  vtxs.emplace_back(VEC3(-1, -1, 0), clr);
+  vtxs.emplace_back(VEC3(1, -1, 0), clr);
+  vtxs.emplace_back(VEC3(-1, -1, 1), clr);
+  vtxs.emplace_back(VEC3(1, -1, 1), clr);
+  vtxs.emplace_back(VEC3(-1, 1, 0), clr);
+  vtxs.emplace_back(VEC3(1, 1, 0), clr);
+  vtxs.emplace_back(VEC3(-1, 1, 1), clr);
+  vtxs.emplace_back(VEC3(1, 1, 1), clr);
+
+  std::vector<uint16_t> idxs;
+  for (int i = 0; i < 4; ++i) {
+    // Lines along +x
+    idxs.push_back(i * 2);
+    idxs.push_back(i * 2 + 1);
+    // Vertical lines
+    idxs.push_back(i);
+    idxs.push_back(i + 4);
+  }
+  idxs.push_back(0);
+  idxs.push_back(2);
+  idxs.push_back(1);
+  idxs.push_back(3);
+  idxs.push_back(4);
+  idxs.push_back(6);
+  idxs.push_back(5);
+  idxs.push_back(7);
+  if (!mesh->create(vtxs.data(), vtxs.size() * sizeof(TVtxPosClr), "PosClr"
+    , CRenderMesh::LINE_LIST
+    , idxs.data(), idxs.size() * sizeof( uint16_t ), sizeof(uint16_t)
+  ))
+    return nullptr;
+  return mesh;
+}
+
+
+
 // --------------------------
 void registerMesh( CRenderMesh* new_mesh, const char* name ) {
   new_mesh->setNameAndClass(name, getResourceClassOf<CRenderMesh>());
@@ -98,7 +140,8 @@ bool createRenderObjects() {
   registerMesh(createGridXZ(20), "grid.mesh");
   registerMesh(createLineZ(), "line.mesh");
   registerMesh(createUnitCircleXZ(32), "circle_xz.mesh");
-
+  registerMesh(createCameraFrustum(), "unit_frustum.mesh");
+  
   return true;
 }
 
@@ -112,4 +155,30 @@ void activateCamera(const CCamera& camera) {
   cb_camera.updateGPU();
 }
 
+void setWorldTransform(MAT44 new_matrix, VEC4 new_color) {
+  cb_object.obj_world = new_matrix;
+  cb_object.obj_color = new_color;
+  cb_object.updateGPU();
+}
+
+void renderMesh(const CRenderMesh* mesh, MAT44 new_matrix, VEC4 color) {
+  assert(mesh);
+  auto vdecl = mesh->getVertexDecl();
+  assert(vdecl);
+  const char* tech_name = "solid.tech";
+  if (vdecl->name == "PosNUv")
+    tech_name = "solid_objs.tech";
+  else if (vdecl->name == "PosNUvUv")
+    tech_name = "solid_objs_uv2.tech";
+
+  auto prev_tech = CRenderTechnique::current;
+  auto tech = Resources.get(tech_name)->as<CRenderTechnique>();
+  tech->activate();
+  
+  setWorldTransform(new_matrix, color);
+
+  mesh->activateAndRender();
+
+  prev_tech->activate();
+}
 

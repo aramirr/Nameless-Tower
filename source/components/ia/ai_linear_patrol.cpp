@@ -4,7 +4,7 @@
 #include "entity/entity_parser.h"
 #include "components/comp_transform.h"
 #include "render/render_utils.h"
-#include "modules\module_physics.h"
+#include "modules/system/module_physics.h"
 
 using namespace physx;
 
