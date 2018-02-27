@@ -18,6 +18,7 @@ TCompRender::~TCompRender() {
 
 void TCompRender::debugInMenu() {
   ImGui::ColorEdit4("Color", &color.x);
+
   bool changed = false;
   for (auto& mwm : meshes) {
     ImGui::PushID(&mwm);
@@ -40,6 +41,7 @@ void TCompRender::renderDebug() {
   activateRSConfig(RSCFG_WIREFRAME);
   TCompTransform *transform = get<TCompTransform>();
   assert(transform);
+
   for (auto& mwm : meshes) {
     if (!mwm.enabled)
       continue;
