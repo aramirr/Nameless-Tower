@@ -104,7 +104,7 @@ void TCompPlayerController::debugInMenu() {
 	ImGui::DragFloat("Jump speed: %f", &jump_speed, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Omnidash max: %f", &omnidashing_max_ammount, 0.1f, 0.f, 10.f);
 	ImGui::Text("Dashing ammount: %f", dashing_amount);
-	ImGui::DragFloat("Radio torre: %f", &tower_radius, 1.f, 0.f, 40.f);
+	ImGui::DragFloat("Radio torre: %f", &tower_radius, 1.f, 0.f, 50.f);
 }
 
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
@@ -114,7 +114,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	gravity = j.value("gravity", 90.5f);
 	jump_speed = j.value("jump_speed", 18.8f);
 	center = VEC3(0.f, 0.f, 0.f);
-	tower_radius = j.value("tower_radius", 15.f);
+	tower_radius = j.value("tower_radius", 32.f);
 	dashing_speed = j.value("dashing_speed", 3);
 	omnidash_max_time = j.value("omnidash_max_time", 0.3);
 	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 1.5);
