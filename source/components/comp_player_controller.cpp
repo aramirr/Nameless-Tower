@@ -101,7 +101,7 @@ void TCompPlayerController::debugInMenu() {
 	ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
 	ImGui::DragFloat("X speed: %f", &x_speed_factor, 0.01f, 0.f, 5.f);
 	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
-	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 100.f);
+	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
 	ImGui::DragFloat("Jump speed: %f", &jump_speed, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Omnidash max: %f", &omnidashing_max_ammount, 0.1f, 0.f, 10.f);
 	ImGui::Text("Dashing ammount: %f", dashing_amount);
@@ -112,8 +112,8 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
 	x_speed_factor = j.value("speed", 1.0f);
 	dashing_max = j.value("dashing_max", 0.3f);
-	gravity = j.value("gravity", 90.5f);
-	jump_speed = j.value("jump_speed", 18.8f);
+	gravity = j.value("gravity", 75.f);
+	jump_speed = j.value("jump_speed", 12.3f);
 	center = VEC3(0.f, 0.f, 0.f);
 	tower_radius = j.value("tower_radius", 32.f);
 	dashing_speed = j.value("dashing_speed", 3);
