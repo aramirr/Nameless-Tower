@@ -15,7 +15,9 @@
 	    "flyover_controller",
 	    "camera_flyover",
 	    "hierarchy",
-		"camera"
+	    "local_aabb",
+		"camera",
+		"culling"
 	],
 	"render_debug" : 
 	[

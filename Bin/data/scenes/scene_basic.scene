@@ -14,7 +14,9 @@
 				"is_dynamic": false,
 				"shape": "sphere",
 				"radius": 1
-			}
+			},
+			"abs_aabb": true,
+			"local_aabb": true
 		}
 	},
 	{
