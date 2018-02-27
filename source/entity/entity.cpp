@@ -36,7 +36,7 @@ const char* CEntity::getName() const {
 }
 
 void CEntity::renderDebug() {
-  for (int i = 0; i < CHandleManager::getNumDefinedTypes(); ++i) {
+  for (uint32_t i = 0; i < CHandleManager::getNumDefinedTypes(); ++i) {
     CHandle h = comps[i];
     if (h.isValid())
       h.renderDebug();
@@ -114,6 +114,7 @@ void CEntity::load(const json& j, TEntityParseContext& ctx) {
 
   // Send a msg to the entity components to let them know
   // the entity is fully loaded.
-  sendMsg(TMsgEntityCreated());
+  if(!ctx.parsing_prefab)
+    sendMsg(TMsgEntityCreated());
 
 }
