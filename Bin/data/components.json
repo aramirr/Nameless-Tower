@@ -11,11 +11,21 @@
 		"circular_controller",
 		"player_controller",
 		"bullet_controller",
-		"ai_patrol",
 	    "flyover_controller",
 	    "camera_flyover",
 	    "hierarchy",
-		"camera"
+		"camera",
+		"bullet_controller",		
+		"ai_boss_runner",
+		"ai_destroyable",
+        "ai_linear_patrol",
+		"ai_orbit_patrol",
+		"arrow_ui",
+    	"flyover_controller",
+    	"hierarchy",
+    	"orbitCamera",
+    	"cameraManager",
+		"trigger"
 	],
 	"render_debug" : 
 	[

@@ -24,13 +24,13 @@ QUAT loadQUAT(const json& j);
 template<typename T>
 T clamp(const T& value, const T& minValue, const T& maxValue)
 {
-  return value < minValue ? minValue : (value > maxValue ? maxValue : value);
+	return value < minValue ? minValue : (value > maxValue ? maxValue : value);
 }
 
 template<typename T>
 T lerp(const T& minValue, const T& maxValue, float ratio)
 {
-  return minValue + (maxValue - minValue) * ratio;
+	return minValue + (maxValue - minValue) * ratio;
 }
 
 #endif

@@ -34,7 +34,7 @@ bool CModuleTestCameras::start()
 {
   {
     TEntityParseContext ctx;
-    parseScene("data/scenes/test_cameras.scene", ctx);
+    //parseScene("data/scenes/test_cameras.scene", ctx);
   }
 
   CHandle h_camera = getEntityByName("test_camera_flyover");

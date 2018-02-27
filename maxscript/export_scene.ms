@@ -142,6 +142,8 @@ struct TMaterialExporter (
 				
 			if classof mat == Standardmaterial then (
 				exportMap mat.diffusemap "albedo"
+				fs.writeComma()
+				exportMap mat.selfIllumMap "lightmap"
 				-- ... other maps..
 			)
 		
@@ -196,7 +198,7 @@ fn isCollider obj = (
 struct TSceneExporter (
 
 	fs = TJsonFormatter(), 
-	project_path = "c:/code/engine/bin/",
+	project_path = "C:/Users/mcv16_alumne/torre/engine/bin/",
 	base_path = "data/",
 	scenes_path = base_path + "scenes/",
 	mesh_path = base_path + "meshes/",

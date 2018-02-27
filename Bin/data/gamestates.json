@@ -16,15 +16,11 @@
 		},
 		{
 			"name" : "test_axis",
-			"modules" : [ "test_axis", "test_cameras" ]
+			"modules" : [ "test_axis" ]
 		},
 		{
 			"name" : "test_input",
 			"modules" : [ "test_input" ]
-		},
-		{
-			"name" : "test_cameras",
-			"modules" : [ "test_cameras" ]
 		}
 	]
 }

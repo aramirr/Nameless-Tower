@@ -11,10 +11,12 @@ class TCompRender : public TCompBase {
   void loadMesh(const json& j, TEntityParseContext& ctx);
 
 public:
-  VEC4               color = VEC4(1, 1, 1, 1);
+  VEC4 color = VEC4(1, 1, 1, 1);
+  bool is_active = true;
 
   // This represents a single object mesh with several materials. Not multiples meshes
   const CRenderMesh* mesh = nullptr;
+	std::vector<const CRenderMesh*> meshes;
   std::vector<const CMaterial*> materials;
 
   void debugInMenu();

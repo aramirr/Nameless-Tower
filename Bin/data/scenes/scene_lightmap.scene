@@ -1,0 +1,31 @@
+[
+  {
+    "entity":
+    {
+      "name": "GeoSphere001"
+      ,
+      "transform":
+      {
+        "pos": "11.5818 5.02862 -8.30606"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/GeoSphere001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/GeoSphere001_mtl.material"
+          ]
+        }
+      ],
+	"collider": {
+        "shape": "plane"
+      }
+
+    }
+  }
+]

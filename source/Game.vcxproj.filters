@@ -151,9 +151,6 @@
     <ClCompile Include="components\ia\ai_controller.cpp">
       <Filter>components\ia</Filter>
     </ClCompile>
-    <ClCompile Include="components\ia\ai_patrol.cpp">
-      <Filter>components\ia</Filter>
-    </ClCompile>
     <ClCompile Include="render\render_utils.cpp">
       <Filter>render</Filter>
     </ClCompile>
@@ -205,14 +202,38 @@
     <ClCompile Include="modules\system\module_cameras.cpp">
       <Filter>modules\system</Filter>
     </ClCompile>
-    <ClCompile Include="modules\test\module_test_cameras.cpp">
-      <Filter>modules\test</Filter>
-    </ClCompile>
     <ClCompile Include="components\controllers\comp_camera_flyover.cpp">
       <Filter>components\controllers</Filter>
     </ClCompile>
     <ClCompile Include="components\controllers\comp_camera_orbit.cpp">
       <Filter>components\controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\module_timer.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
+    <ClCompile Include="components\ia\ai_linear_patrol.cpp">
+      <Filter>components\ia</Filter>
+    </ClCompile>
+    <ClCompile Include="components\ia\ai_orbit_patrol.cpp">
+      <Filter>components\ia</Filter>
+    </ClCompile>
+    <ClCompile Include="components\ia\ai_boss_runner.cpp">
+      <Filter>components\ia</Filter>
+    </ClCompile>
+    <ClCompile Include="components\ia\ai_destoyable.cpp">
+      <Filter>components\ia</Filter>
+    </ClCompile>
+    <ClCompile Include="components\ui\ui_mouse_pos.cpp">
+      <Filter>components\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="components\comp_trigger.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\comp_orbit_camera.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\comp_camera_manager.cpp">
+      <Filter>components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -284,6 +305,9 @@
     </Filter>
     <Filter Include="components\controllers">
       <UniqueIdentifier>{35593611-dc98-40a8-8b74-e77b7bfe7abc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\ui">
+      <UniqueIdentifier>{b09d66ec-bf68-46e5-ab7d-f58f5556fa04}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -526,9 +550,6 @@
     <ClInclude Include="components\ia\ai_controller.h">
       <Filter>components\ia</Filter>
     </ClInclude>
-    <ClInclude Include="components\ia\ai_patrol.h">
-      <Filter>components\ia</Filter>
-    </ClInclude>
     <ClInclude Include="render\render_utils.h">
       <Filter>render</Filter>
     </ClInclude>
@@ -586,9 +607,6 @@
     <ClInclude Include="modules\system\module_cameras.h">
       <Filter>modules\system</Filter>
     </ClInclude>
-    <ClInclude Include="modules\test\module_test_cameras.h">
-      <Filter>modules\test</Filter>
-    </ClInclude>
     <ClInclude Include="components\controllers\comp_camera_flyover.h">
       <Filter>components\controllers</Filter>
     </ClInclude>
@@ -597,6 +615,33 @@
     </ClInclude>
     <ClInclude Include="render\mesh\mesh_subgroup.h">
       <Filter>render\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\module_timer.h">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="components\ia\ai_destoyable.h">
+      <Filter>components\ia</Filter>
+    </ClInclude>
+    <ClInclude Include="components\ia\ai_linear_patrol.h">
+      <Filter>components\ia</Filter>
+    </ClInclude>
+    <ClInclude Include="components\ia\ai_orbit_patrol.h">
+      <Filter>components\ia</Filter>
+    </ClInclude>
+    <ClInclude Include="components\ia\ai_boss_runner.h">
+      <Filter>components\ia</Filter>
+    </ClInclude>
+    <ClInclude Include="components\ui\ui_mouse_pos.h">
+      <Filter>components\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_trigger.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_orbit_camera.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_camera_manager.h">
+      <Filter>components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 	"update" : 
 	[
 		"input",
+		"timer",
 		"entities",
 		"physics",
 		"render",
@@ -9,17 +10,16 @@
 		"main_menu",
 		"splash",
 		"game_over",
-		"test_input",
-		"test_axis",
-		"test_cameras"
+	    "test_input",
+	    "cameras",
+	    "test_axis"
 	],
 	"render" : 
 	[
 		"render",
 		"test_axis",
 		"entities",
-		"input",
 		"cameras",
-		"test_cameras"
+		"input"
 	]
 }

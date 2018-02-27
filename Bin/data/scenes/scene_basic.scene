@@ -1,25 +1,147 @@
-[{
+[	{
 		"entity": {
-			"name": "The Enemy",
+			"name": "Boss Runner",
 			"transform": {
-				"pos": "1 0 0",
-				"lookat": "-1 0 -1"
+				"pos": "-15 0 0",
+				"lookat": "0 0 0"
 			},
-			"render" : {},
-			"ai_patrol": {
-				"waypoints" : [ "-10 0 0", "5 0 5", "2 0 10"] 
-			},
-			"tags" : ["enemy"],
+			"render" : [
+				{
+					"mesh": "data/meshes/chr_runner_Box001.mesh",
+					"materials" : [
+						"data/materials/madera.material"
+					]
+				}
+			]
+			,
+			"ai_boss_runner": {
+				"chase_distance": 6,
+				"attack_distance": 1,
+				"waypoints" : [ "-15 0 0", "15 0 0", "-15 0 0"] 
+ 			},
 			"collider": {
-				"is_dynamic": false,
-				"shape": "sphere",
-				"radius": 1
+				"shape": "capsule",
+				"is_character_controller": true,
+				"radius": 0.5,
+				"height": 1.0
 			}
 		}
 	},
 	{
 		"entity": {
-			"name": "Teapot 2",
+			"name": "The Player",
+			"render":
+		      [
+		        {
+		          "mesh": ["data/meshes/chr_NajaRun_NajaRun.mesh", "data/meshes/chr_NajaIdle_NajaIdle.mesh", "data/meshes/chr_NajaJump_NajaJump.mesh", "data/meshes/chr_NajaOmni_NajaOmnidash.mesh",  "data/meshes/chr_Naja_NajaDash.mesh"]
+		          ,
+		          "materials":
+		          [
+		            "data/materials/MaterialNaja.material"
+		          ]
+		        }
+		      ]
+			,
+			"transform": {
+				"pos": "15 0 0",
+				"front": "1 0 0"
+			}
+			, 
+			"player_controller" : {
+				"rotation_speed" : 3.0,
+				"speed" : 8.0,
+				"dashing_speed": 3
+			},
+		  "collider": {
+			"shape": "capsule",
+			"is_character_controller": true,
+			"radius": 0.5,
+			"height": 1.0
+		  },
+		  "arrow_ui":{
+		  
+		  }
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_manager",
+			"transform": {
+				"pos": "0 3 3"
+			},
+			"cameraManager" : {}
+		}
+	},
+	{
+		"entity": {
+			"name": "Box Collider",
+			"transform": {
+				"pos": "0 0 15",
+				"lookat": "-1 0 15"
+			},
+			"render" : [
+				{
+					"mesh": "data/meshes/Teapot001.mesh",
+					"materials" : [
+						"data/materials/madera.material"
+					]
+				}
+			],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "runner",
+				"appearing_position": "0 0 15"
+			}
+		}
+	},
+		{
+		"entity": {
+			"name": "the_camera",
+			"transform": {
+				"pos": "15 0 0"
+			},
+			"camera" : {
+				"fov" : 80 
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_orbit_IZQ",
+			"transform": {
+				"pos": "-14 16 12",
+				"lookat": "-1 0 -1"
+			},
+			"orbitCamera" : {
+				"izq" : true
+			},
+			"camera" : {
+				"fov" : 80 
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_orbit_DER",
+			"transform": {
+				"pos": "-14 16 12",
+				"lookat": "-1 0 -1"
+			},
+			"orbitCamera" : {
+				"izq" : false
+			},
+			"camera" : {
+				"fov" : 80
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "Teapot Destroyable",
 			"render" : [
 				{
 					"mesh": "data/meshes/Teapot001.mesh",
@@ -32,44 +154,33 @@
 			"transform": {
 				"pos": "-4 0 0"
 			},
-			"tags" : ["enemy"],
-			"collider": {
-				"is_dynamic": false,
-				"shape": "sphere",
-				"radius": 1
-			}
+			"ai_destroyable": {
+				"trigger_actor" : "The Player",
+				"destoy_time" : 5
+			},
+			"tags" : ["enemy"]
 		}
 	},
-	{
-		"entity": {
-			"prefab" : "data/prefabs/teapot.prefab",
-			"name": "Teapot1",
-			"transform": {
-				"pos": "5 0 3",
-				"axis": "0 1 0", 
-				"angle" : 30
-			},
-			"collider": {
-				"is_dynamic": false,
-				"shape": "sphere",
-				"radius": 1
-			}
-		}
-	},
-	{
-		"entity": {
-			"prefab" : "data/prefabs/teapot.prefab",
-			"name": "Teapot2",
-			"transform": {
-				"pos": "-5 0 3",
-				"axis": "0 1 0", 
-				"angle" : -30
-			},
-			"collider": {
-				"is_dynamic": false,
-				"shape": "sphere",
-				"radius": 1
-			}
-		}
-	}
+ {
+    "entity": {
+      "name": "Plane001",
+      "transform": {
+        "pos": "5.0 2.18557e-07 5.0",
+        "rotation": "0.0 0.0 0.0 -1.0"
+      },
+      "render": [
+        {
+          "mesh": "data/meshes/Plane001.mesh",
+          "materials": [
+            "data/materials/GeoSphere001_mtl.material"
+          ]
+        }
+      ],
+      "collider": {
+        "shape": "plane"
+      }
+    }
+  }
+
+	
 ]

@@ -158,6 +158,7 @@ function exportMeshObject given_obj outfilename = (
 	if meshop.getMapSupport obj mapB == false then (
 		mapB = mapA
 	)
+
 	
 	local maxLocalToWorld = obj.transform
 	local maxToMCV = rotateXMatrix  -90
@@ -191,6 +192,29 @@ function exportMeshObject given_obj outfilename = (
 			local faceA = meshop.getMapFace obj mapA face_id
 			local faceB = meshop.getMapFace obj mapB face_id
 			local normals = meshop.getFaceRNormals obj face_id
+
+			
+			-- For each vertex of each face
+			local vtx_id
+			for vtx_id in #(1,3,2) do (
+				
+				-- Get the real vertex id: 1...num_vertexs
+				local posW = getVert obj face[ vtx_id ]
+				local pos = posW * maxWorldToLocalMCV
+				
+				-- Get normals
+				local WN = normals[ vtx_id ]
+				local N = WN * maxWorldToLocalMCV.rotationpart
+				
+				-- Get UV's values
+				local uvA = meshop.getMapVert obj mapA faceA[vtx_id]
+
+				local uvB = meshop.getMapVert obj mapB faceB[vtx_id]
+			 
+				local new_vtx = #( pos.x, pos.y, pos.z, N.x, N.y, N.z, uvA.x, 1-uvA.y, uvB.x, 1-uvB.y ) 
+				
+				-- Check if the vtx is unique
+				local new_idx = findIndexOrRegister ht vtxs new_vtx
 			
 			-- For each vertex of each face
 			local vtx_id
@@ -238,7 +262,7 @@ function exportMeshObject given_obj outfilename = (
 	*/
 	
 	saveMeshToFile outfilename obj vtxs idxs "PosNUvUv" subgroups
-	
+
 	-- If we created a copy of the mesh, it's time to remove it
 	if obj != given_obj then delete obj
 	
@@ -246,4 +270,4 @@ function exportMeshObject given_obj outfilename = (
 
 
 --exportMeshObject $Box001
---exportMeshObject $ "c:\\code\\pep.mesh"
+exportMeshObject $ "c:\\code\\pep.mesh"
