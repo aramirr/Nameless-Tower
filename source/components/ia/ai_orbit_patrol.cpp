@@ -4,6 +4,9 @@
 #include "entity/entity_parser.h"
 #include "components/comp_transform.h"
 #include "render/render_utils.h"
+#include "modules\module_physics.h"
+
+using namespace physx;
 
 DECL_OBJ_MANAGER("ai_orbit_patrol", CAIOrbitPatrol);
 
@@ -98,6 +101,7 @@ void CAIOrbitPatrol::NextWaypointState()
 
 void CAIOrbitPatrol::MoveToWaypointState(float dt)
 {
+	
 	TCompTransform *c_my_transform = get<TCompTransform>();
 	VEC3 myPos = c_my_transform->getPosition();
 
@@ -116,17 +120,20 @@ void CAIOrbitPatrol::MoveToWaypointState(float dt)
 	}
 	c_my_transform->setYawPitchRoll(y, p);
 	VEC3 newPos = c_my_transform->getPosition() - (c_my_transform->getFront() * distance);
-	/*
-	VEC3 vertical_distance;
-	vertical_distance.y = getWaypoint().y - c_my_transform->getPosition().y;
-	if (vertical_distance.y > 0)
-	{
-		newPos = newPos + (vertical_distance * 0.01 * speed);
-	}
-	*/
 	c_my_transform->setPosition(newPos);
+	QUAT newRot = c_my_transform->getRotation();
+
+	TCompCollider* comp_collider = get<TCompCollider>();
+	if (comp_collider)
+	{
+		PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
+		PxTransform tr = rigidActor->getGlobalPose();
+		tr.p = PxVec3(newPos.x, newPos.y, newPos.z); 
+		tr.q = PxQuat(newRot.x, newRot.y, newRot.z, newRot.w);
+		rigidActor->setGlobalPose(tr);
+	}
 	
-	if (VEC3::Distance(getWaypoint(), myPos) < 1)
+	if (VEC3::Distance(getWaypoint(), myPos) < 5)
 	{
 		acum_delay = 0;
 		ChangeState("wait_state");

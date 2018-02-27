@@ -24,6 +24,7 @@ class TCompPlayerController : public IAIController {
 	bool    looking_left;
 	bool    is_grounded;
 	bool		can_omni;
+	CHandle	 attached;
 
   DECL_SIBLING_ACCESS();
 
@@ -41,6 +42,9 @@ public:
 	void dashing_state(float dt);
 	void dead_state(float dt);
 	void move_player(bool left, bool change_orientation, float dt, float gravity);
+	static void registerMsgs();
+	void attachPlayer(const TMsgAttachTo& msg);
+	void detachPlayer(const TMsgDetachOf& msg);
 
   void init();
 };
