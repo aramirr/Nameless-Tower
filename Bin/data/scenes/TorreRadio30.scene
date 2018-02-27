@@ -96,30 +96,29 @@
         ,
         "is_trigger": false
       }
+      ,
+      "ai_spikes":
+      {
+        "fixed_spikes": false
+      }
     }
   }
   ,
   {
     "entity":
     {
-      "name": "Plataforma_R30_001"
+      "name": "Plataforma_R30_T"
       ,
       "transform":
       {
-        "pos": "-4.51894 3.25 -31.328"
+        "pos": "-0.314132 2.25 -31.6507"
         ,
-        "rotation": "0.0 -0.0666173 0.0 -0.997779"
+        "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Plataforma_R30_001.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
         }
       ]
       ,
@@ -127,11 +126,18 @@
       {
         "shape": "box"
         ,
-        "halfExtent": "1.5 0.25 1.5"
+        "halfExtent": "1.5 1.0 1.5"
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "collider_entity": "Plataforma_R30_0",
+        "trigger_type":"spikes",
+        "trigger_actor": "The Player"
       }
     }
   }

@@ -28,6 +28,12 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		attach_msg.h_attached = e_collider_entity;
 		e_collider_entity->sendMsg(attach_msg);
 	}
+	if (trigger_type == "spikes" && other_entity_name == "The Player") {
+		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
+		TMsgTriggerSpike triggerSpikeMsg;
+		triggerSpikeMsg.h_player = e_other_entity;
+		e_collider_entity->sendMsg(triggerSpikeMsg);
+	}
 }
 void TCompTrigger::onTriggerExit(const TMsgTriggerExit& msg) {
 	h_other_entity = msg.h_other_entity;

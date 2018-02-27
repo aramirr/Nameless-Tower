@@ -47,5 +47,8 @@ public:
 
 	bool isForward() { return looking_left; };
 
+	static void registerMsgs();
+	void killPlayer(const TMsgKillPlayer& msg);
+
   void init();
 };

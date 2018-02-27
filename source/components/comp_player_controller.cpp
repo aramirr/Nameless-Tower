@@ -461,3 +461,12 @@ void TCompPlayerController::dashing_state(float dt) {
 
 void TCompPlayerController::dead_state(float dt) {
 }
+
+void TCompPlayerController::registerMsgs() {
+	DECL_MSG(TCompPlayerController, TMsgKillPlayer, killPlayer);
+}
+
+void TCompPlayerController::killPlayer(const TMsgKillPlayer& msg)
+{
+	ChangeState("dead");
+}

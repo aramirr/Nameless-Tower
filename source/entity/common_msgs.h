@@ -41,6 +41,16 @@ struct TMsgDetachOf {
 	DECL_MSG_ID();
 };
 
+struct TMsgTriggerSpike{
+	CHandle h_player;
+	DECL_MSG_ID();
+};
+
+struct TMsgKillPlayer {
+	DECL_MSG_ID();
+};
+
+
 // Sent to all entities from a parsed file once all the entities
 // in that file has been created. Used to link entities between them
 struct TEntityParseContext;
