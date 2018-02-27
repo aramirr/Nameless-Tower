@@ -131,6 +131,13 @@ void CAIOrbitPatrol::MoveToWaypointState(float dt)
 		tr.p = PxVec3(newPos.x, newPos.y, newPos.z); 
 		tr.q = PxQuat(newRot.x, newRot.y, newRot.z, newRot.w);
 		rigidActor->setGlobalPose(tr);
+		if (attached.isValid()) {
+			CEntity* e = attached;
+			assert(e);
+			TCompCollider *player_collider = e->get< TCompCollider >();
+			VEC3 delta_pos = newPos - myPos;
+			player_collider->controller->move(physx::PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, dt, physx::PxControllerFilters());
+		}
 	}
 	
 	if (VEC3::Distance(getWaypoint(), myPos) < 5)
@@ -146,4 +153,18 @@ void CAIOrbitPatrol::WaitState(float dt)
 	if (delay < acum_delay) {
 		ChangeState("next_waypoint");
 	}
+}
+
+
+void CAIOrbitPatrol::registerMsgs() {
+DECL_MSG(CAIOrbitPatrol, TMsgAttachTo, attachPlayer);
+DECL_MSG(CAIOrbitPatrol, TMsgDetachOf, detachPlayer);
+}
+
+void CAIOrbitPatrol::attachPlayer(const TMsgAttachTo& msg) {
+	attached = msg.h_attacher;
+}
+
+void CAIOrbitPatrol::detachPlayer(const TMsgDetachOf& msg) {
+	attached = CHandle();
 }

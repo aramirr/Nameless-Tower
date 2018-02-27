@@ -105,27 +105,6 @@ void TCompPlayerController::initial_state(float dt) {
 void TCompPlayerController::idle_state(float dt) {
 	TCompCollider* comp_collider = get<TCompCollider>();
 	TCompTransform *c_my_transform = getMyTransform();
-	if (attached.isValid())
-	{
-		VEC3 offset = { 0,0.3f,0 };
-		CEntity* e_attached = attached;
-		assert(e_attached);
-		TCompTransform *h_transform = e_attached->get< TCompTransform >();
-		assert(h_transform);
-		VEC3 tmp_position = h_transform->getPosition() + offset;
-		TCompCollider* comp_collider = get<TCompCollider>();
-		if (comp_collider)
-		{
-			physx::PxRigidActor* rigidActor = ((physx::PxRigidActor*)comp_collider->actor);
-			physx::PxTransform tr = rigidActor->getGlobalPose();
-			tr.p = physx::PxVec3(tmp_position.x, tmp_position.y, tmp_position.z);
-			rigidActor->setGlobalPose(tr);
-			c_my_transform->setPosition(tmp_position);
-			//physx::PxQuat rotation = tr.q;
-			//QUAT converted_rot = { tr.q.x, -tr.q.z, tr.q.y, tr.q.w };
-			//c_my_transform->setRotation(converted_rot);
-		}
-	}
 
 	if (comp_collider && comp_collider->controller)
 	{
@@ -403,17 +382,3 @@ void TCompPlayerController::dashing_state(float dt) {
 
 void TCompPlayerController::dead_state(float dt) {
 }
-
-void TCompPlayerController::registerMsgs() {
-	DECL_MSG(TCompPlayerController, TMsgAttachTo, attachPlayer);
-	DECL_MSG(TCompPlayerController, TMsgDetachOf, detachPlayer);
-}
-
-void TCompPlayerController::attachPlayer(const TMsgAttachTo& msg) {
-	attached = msg.h_attached;
-}
-
-void TCompPlayerController::detachPlayer(const TMsgDetachOf& msg) {
-	attached = CHandle();
-}
-

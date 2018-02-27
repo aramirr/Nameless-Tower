@@ -7,6 +7,7 @@
 class TCompTrigger : public IAIController {
 	enum TriggerTypes {player, runner, plattform_orbit, none};
 	std::string trigger_type;
+	std::string collider_entity;
 
 	CHandle h_other_entity;
 	VEC3 appearing_position;
