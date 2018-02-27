@@ -79,10 +79,9 @@ void IAIController::setEntity(CHandle new_entity) {
 void IAIController::change_mesh(int mesh_index) {
 	TCompRender *my_render = getMyRender();
 	//my_render->mesh = my_render->meshes_leo[mesh_index];
-	for (size_t i = 0; i < my_render->meshes.size(); ++i) {
-		if (i != mesh_index)
-			my_render->meshes[mesh_index].enabled = false;
-		else
-			my_render->meshes[mesh_index].enabled = true;
+	for (int i = 0; i < my_render->meshes.size(); ++i) {
+			my_render->meshes[i].enabled = false;		
 	}
+	my_render->meshes[mesh_index].enabled = true;
+	my_render->refreshMeshesInRenderManager();
 }
