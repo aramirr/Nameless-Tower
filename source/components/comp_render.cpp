@@ -18,18 +18,33 @@ TCompRender::~TCompRender() {
 
 void TCompRender::debugInMenu() {
   ImGui::ColorEdit4("Color", &color.x);
-  //for (auto &m : mwmmaterials) {
-  //  if( m )
-  //    ((CMaterial*)m)->debugInMenu();
-  //}
+  bool changed = false;
+  for (auto& mwm : meshes) {
+    ImGui::PushID(&mwm);
+    // if the users changed the 'enabled' flag, save it
+    changed |= ImGui::Checkbox("Enabled", &mwm.enabled);
+    ImGui::LabelText("Mesh", "%s", mwm.mesh->getName().c_str());
+    for (auto &m : mwm.materials) {
+      if (m)
+        ((CMaterial*)m)->debugInMenu();
+    }
+    ImGui::PopID();
+  }
+
+  // Notify the rendermanager that we should regenerate our contents
+  if (changed)
+    refreshMeshesInRenderManager();
 }
 
 void TCompRender::renderDebug() {
   activateRSConfig(RSCFG_WIREFRAME);
   TCompTransform *transform = get<TCompTransform>();
   assert(transform);
-  for( auto& mwm : meshes ) 
+  for (auto& mwm : meshes) {
+    if (!mwm.enabled)
+      continue;
     renderMesh(mwm.mesh, transform->asMatrix(), color);
+  }
   activateRSConfig(RSCFG_DEFAULT);
 }
 
