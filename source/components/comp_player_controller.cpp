@@ -76,6 +76,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			if (state != "dash" && current_x_speed_factor != x_speed_factor) {
 				current_x_speed_factor = x_speed_factor;
 				change_mesh(1);
+				can_dash = true;
 				ChangeState("idle");
 			}
 		}
