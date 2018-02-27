@@ -15,7 +15,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 	// Current orientation
 	float current_yaw;
 	float current_pitch;
-	float amount_moved = x_speed_factor * dt;
+	float amount_moved = current_x_speed_factor * dt;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	center.y = myPos.y;
@@ -61,23 +61,9 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
 				current_yaw = left ? current_yaw - 0.1 * amount_moved : current_yaw + 0.1 * amount_moved;
-				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-				// Dashing ammount por algun motivo no vuelve a cero, queda en 0.001 y por eso no contemplo esos valores
-				if (dashing_amount > 0.01) {
-					change_mesh(1);
-					dashing_amount = 0.0;
-					x_speed_factor = x_speed_factor / dashing_speed;
-					ChangeState("idle");
-				}
+				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);				
 			} else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
-				change_mesh(1);
-				// Si cambia de estado puede estar en dashing y que el dashing nunca termine, chequea por si acaso
-				// Dashing ammount por algun motivo no vuelve a cero, queda en 0.001 y por eso no contemplo esos valores
-				if (dashing_amount > 0.01) {
-					x_speed_factor = x_speed_factor / dashing_speed;
-					dashing_amount = 0.0;
-					can_dash = true;
-				}
+				change_mesh(1);			
 				if (!isPressed('A') && !isPressed('D')) {
 					change_mesh(1);
 					ChangeState("idle");
@@ -86,6 +72,11 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 					change_mesh(0);
 					ChangeState("run");
 				}
+			}
+			if (state != "dash" && current_x_speed_factor != x_speed_factor) {
+				current_x_speed_factor = x_speed_factor;
+				change_mesh(1);
+				ChangeState("idle");
 			}
 		}
 		else
@@ -118,7 +109,8 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	tower_radius = j.value("tower_radius", 32.f);
 	dashing_speed = j.value("dashing_speed", 3);
 	omnidash_max_time = j.value("omnidash_max_time", 0.3);
-	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 1.5);
+	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 2);
+	current_x_speed_factor = x_speed_factor;
 	is_grounded = true;
 	can_omni = true;
 	can_dash = true;
@@ -182,7 +174,7 @@ void TCompPlayerController::idle_state(float dt) {
 	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
 	if (dash.getsPressed() && can_dash) {
 		dashing_amount = 0;
-		x_speed_factor = x_speed_factor * dashing_speed;
+		current_x_speed_factor = x_speed_factor * dashing_speed;
 		change_mesh(4);
 		can_dash = false;
 		ChangeState("dash");
@@ -257,7 +249,7 @@ void TCompPlayerController::running_state(float dt) {
 	// Chequea el dash	
 	else if (dash.getsPressed() && can_dash) {
 		dashing_amount = 0;
-		x_speed_factor = x_speed_factor * dashing_speed;
+		current_x_speed_factor = x_speed_factor * dashing_speed;
 		change_mesh(4);
 		can_dash = false;
 		ChangeState("dash");
@@ -321,7 +313,7 @@ void TCompPlayerController::jumping_state(float dt) {
 	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
 	if (dash.getsPressed() && can_dash) {
 		dashing_amount = 0;
-		x_speed_factor = x_speed_factor * dashing_speed;
+		current_x_speed_factor = x_speed_factor * dashing_speed;
 		change_mesh(4);
 		can_dash = false;
 		ChangeState("dash");
@@ -415,7 +407,7 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 
 		omnidash_vector.y += omnidash_arrow.y;
 		VEC3 new_pos;
-		new_pos = my_pos + (omnidash_vector * ((jump_speed * 5 - gravity * dt) * dt));
+		new_pos = my_pos + (omnidash_vector * ((jump_speed * 6 - gravity * dt) * dt));
 
 		VEC3 centre = VEC3(0, new_pos.y, 0);
 		float d = VEC3::Distance(centre, new_pos);
@@ -428,9 +420,9 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 
 		float current_yaw;
 		float current_pitch;
-		float amount_moved = x_speed_factor * dt;
+		float amount_moved = current_x_speed_factor * dt;
 		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-		current_yaw = current_yaw - (0.6 * omnidash_arrow.x * amount_moved);
+		current_yaw = current_yaw - (1.15 * omnidash_arrow.x * amount_moved);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
@@ -460,7 +452,7 @@ void TCompPlayerController::dashing_state(float dt) {
 	if (dashing_amount > dashing_max) {
 		change_mesh(1);
 		dashing_amount = 0;
-		x_speed_factor = x_speed_factor / dashing_speed;
+		current_x_speed_factor = x_speed_factor / dashing_speed;
 		ChangeState("idle");
 	}
 }
