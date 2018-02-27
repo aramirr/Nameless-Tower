@@ -5,6 +5,7 @@
 #include "components/comp_transform.h"
 #include "render/render_utils.h"
 #include "modules\module_physics.h"
+#include "components/comp_player_controller.h"
 
 using namespace physx;
 
@@ -104,6 +105,7 @@ void CAIOrbitPatrol::MoveToWaypointState(float dt)
 	
 	TCompTransform *c_my_transform = get<TCompTransform>();
 	VEC3 myPos = c_my_transform->getPosition();
+	QUAT myRot = c_my_transform->getRotation();
 
 	float y, p;
 	c_my_transform->getYawPitchRoll(&y, &p);
@@ -135,8 +137,33 @@ void CAIOrbitPatrol::MoveToWaypointState(float dt)
 			CEntity* e = attached;
 			assert(e);
 			TCompCollider *player_collider = e->get< TCompCollider >();
+			TCompTransform *player_transform = e->get< TCompTransform >();
 			VEC3 delta_pos = newPos - myPos;
+			float p_y, p_p;
+			player_transform->getYawPitchRoll(&p_y, &p_p);
+
+			if (move_left == true)
+			{
+				p_y -= dt * speed;
+			}
+			else
+			{
+				p_y += dt * speed;
+			}
+			player_transform->setYawPitchRoll(p_y, p_p);
 			player_collider->controller->move(physx::PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, dt, physx::PxControllerFilters());
+			
+			TCompPlayerController *player_controller = e->get<TCompPlayerController>();
+			VEC3 tower_center = player_controller->center;
+			VEC3 player_pos = player_transform->getPosition();
+			float d = VEC3::Distance({ tower_center.x, 0, tower_center.z }, { player_pos.x, 0, player_pos.z });
+			if (d != player_controller->tower_radius)
+			{
+				VEC3 d_vector = player_pos - tower_center;
+				d_vector.Normalize();
+				VEC3 new_pos = d_vector * player_controller->tower_radius;
+
+			}
 		}
 	}
 	

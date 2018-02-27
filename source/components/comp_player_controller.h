@@ -7,9 +7,7 @@
 class TCompPlayerController : public IAIController {
 	float   speed_factor = 8.0f;
   VEC3    speed;
-	VEC3	  center;
 	VEC3	  omnidash_vector;
-  float	  tower_radius;
 	float   dashing_max;
 	float   dashing_amount;
 	float   max_jump;
@@ -29,6 +27,8 @@ class TCompPlayerController : public IAIController {
   DECL_SIBLING_ACCESS();
 
 public:
+	VEC3	  center;
+	float	  tower_radius;
   void debugInMenu();
   void load(const json& j, TEntityParseContext& ctx);
 

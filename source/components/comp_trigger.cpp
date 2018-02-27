@@ -23,7 +23,7 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 	}
 	if (trigger_type == "plattform_orbit" && other_entity_name == "The Player"){
 		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
-		TMsgAttachTo attach_msg;
+ 		TMsgAttachTo attach_msg;
 		attach_msg.h_attacher = h_other_entity;
 		attach_msg.h_attached = e_collider_entity;
 		e_collider_entity->sendMsg(attach_msg);

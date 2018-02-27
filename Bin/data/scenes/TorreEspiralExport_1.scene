@@ -285,12 +285,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/PlataformaBase005.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
+          
         }
       ]
       ,
@@ -324,7 +319,8 @@
       }
       ,
       "trigger": {
-		"trigger_type": "plattform_orbit"
+		"trigger_type": "plattform_orbit",
+		"collider_entity": "PlataformaBase005"
 	  }
     }
   }
