@@ -59,5 +59,4 @@ public:
 	void setPerspective(float new_fov_vertical, float new_z_near, float new_z_far);
 
 	bool getScreenCoordsOfWorldCoord(VEC3 world_pos, VEC3 *screen_coords) const;
-
 };

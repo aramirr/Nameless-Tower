@@ -235,6 +235,9 @@
     <ClCompile Include="components\comp_camera_manager.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="render\render_manager.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -642,6 +645,9 @@
     </ClInclude>
     <ClInclude Include="components\comp_camera_manager.h">
       <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="render\render_manager.h">
+      <Filter>render</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

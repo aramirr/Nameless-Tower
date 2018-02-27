@@ -65,5 +65,3 @@ bool CCamera::getScreenCoordsOfWorldCoord(VEC3 world_pos, VEC3* result) const {
 		&& pos_in_homo_space.z >= 0.0f && pos_in_homo_space.z <= 1.0f
 		;
 }
-
-

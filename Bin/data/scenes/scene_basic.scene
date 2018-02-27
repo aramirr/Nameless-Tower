@@ -32,15 +32,30 @@
 			"name": "The Player",
 			"render":
 		      [
-		        {
-		          "mesh": ["data/meshes/chr_NajaRun_NajaRun.mesh", "data/meshes/chr_NajaIdle_NajaIdle.mesh", "data/meshes/chr_NajaJump_NajaJump.mesh", "data/meshes/chr_NajaOmni_NajaOmnidash.mesh",  "data/meshes/chr_Naja_NajaDash.mesh"]
-		          ,
-		          "materials":
-		          [
-		            "data/materials/MaterialNaja.material"
-		          ]
-		        }
-		      ]
+			  {"mesh": "data/meshes/chr_NajaRun_NajaRun.mesh",
+		          "materials":["data/materials/MaterialNaja.material"],
+				  "enabled": false
+		      }
+			,
+			{"mesh": "data/meshes/chr_NajaIdle_NajaIdle.mesh",
+		          "materials":["data/materials/MaterialNaja.material"]
+		      }
+			,
+			{"mesh": "data/meshes/chr_NajaJump_NajaJump.mesh",
+		          "materials":["data/materials/MaterialNaja.material"],
+				  "enabled": false
+		      }
+			,
+			{"mesh": "data/meshes/chr_NajaOmni_NajaOmnidash.mesh",
+		          "materials":["data/materials/MaterialNaja.material"],
+				  "enabled": false
+		      }
+			,
+			{"mesh": "data/meshes/chr_Naja_NajaDash.mesh",
+		          "materials":["data/materials/MaterialNaja.material"],
+				  "enabled": false
+		      }
+			  ]			
 			,
 			"transform": {
 				"pos": "15 0 0",
