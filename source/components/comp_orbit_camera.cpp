@@ -36,6 +36,7 @@ void TCompOrbitCamera::debugInMenu() {
 	ImGui::DragFloat("Look_Y", &Z, 0.1f, -100.f, 100.f);
 	ImGui::DragFloat("Look_Z", &Y, 0.1f, -100.f, 100.f);
 	ImGui::DragFloat("Radio", &radio, 0.1f, -100.f, 100.f);
+	ImGui::DragFloat("DISTCAM", &distanceCam, 0.1f, -100.f, 100.f);
 }
 
 void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
@@ -105,8 +106,15 @@ void TCompOrbitCamera::update(float dt) {
 
 	VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
 
-	if ((izq && !isForward() || ((izq && isForward()) && (distanceCam > (distance - 0.25f)) && (distanceCam < 9.f) && izquierda))
-		|| (!izq && isForward() || ((!izq && !isForward()) && (distanceCam > (distance - 0.25f)) && (distanceCam < 9.f) && !izquierda))) {
+	VEC3 center2 = center;
+	center2.y = pPos.y + height + Y;
+
+	float distanceT = VEC3::Distance(center2, pPos);
+
+	dbg("%f\n", (distance - distanceT));
+
+	if ((izq && !isForward() || ((izq && isForward()) && (distanceCam > (abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && izquierda))
+		|| (!izq && isForward() || ((!izq && !isForward()) && (distanceCam >(abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && !izquierda))) {
 		newPos = pos;
 		newPos.y = currentPlayerY + height;
 	}
