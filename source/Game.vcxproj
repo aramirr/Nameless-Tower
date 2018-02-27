@@ -83,6 +83,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
+    <ClCompile Include="components\comp_aabb.cpp" />
     <ClCompile Include="components\comp_bullet_controller.cpp" />
     <ClCompile Include="components\comp_camera.cpp" />
     <ClCompile Include="components\comp_circular_controller.cpp" />
@@ -161,6 +162,7 @@
   <ItemGroup>
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
     <ClInclude Include="camera\camera.h" />
+    <ClInclude Include="components\comp_aabb.h" />
     <ClInclude Include="components\comp_base.h" />
     <ClInclude Include="components\comp_bullet_controller.h" />
     <ClInclude Include="components\comp_camera.h" />

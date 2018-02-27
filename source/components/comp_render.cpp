@@ -11,11 +11,22 @@ DECL_OBJ_MANAGER("render", TCompRender);
 #include "render/render_manager.h"
 #include "entity/entity_parser.h"
 
+// --------------------------------------------
 TCompRender::~TCompRender() {
   // Delete all references of me in the render manager
   CRenderManager::get().delRenderKeys(CHandle(this));
 }
 
+// --------------------------------------------
+void TCompRender::onDefineLocalAABB(const TMsgDefineLocalAABB& msg) {
+  AABB::CreateMerged(*msg.aabb, *msg.aabb, aabb);
+}
+
+void TCompRender::registerMsgs() {
+  DECL_MSG(TCompRender, TMsgDefineLocalAABB, onDefineLocalAABB);
+}
+
+// --------------------------------------------
 void TCompRender::debugInMenu() {
   ImGui::ColorEdit4("Color", &color.x);
 
@@ -50,6 +61,7 @@ void TCompRender::renderDebug() {
   activateRSConfig(RSCFG_DEFAULT);
 }
 
+// --------------------------------------------
 void TCompRender::loadMesh(const json& j, TEntityParseContext& ctx) {
 
   CHandle(this).setOwner(ctx.current_entity);
@@ -58,6 +70,7 @@ void TCompRender::loadMesh(const json& j, TEntityParseContext& ctx) {
 
   std::string name_mesh = j.value("mesh", "axis.mesh");
   mwm.mesh = Resources.get(name_mesh)->as<CRenderMesh>();
+
 
   if (j.count("materials")) {
     auto& j_mats = j["materials"];
@@ -84,10 +97,17 @@ void TCompRender::loadMesh(const json& j, TEntityParseContext& ctx) {
   if (j.count("color"))
     color = loadVEC4(j["color"]);
 
+  AABB::CreateMerged(aabb, aabb, mwm.mesh->getAABB());
+
   meshes.push_back(mwm);
 }
 
+// --------------------------------------------
 void TCompRender::load(const json& j, TEntityParseContext& ctx) {
+
+  // Reset the AABB
+  aabb.Center = VEC3(0, 0, 0);
+  aabb.Extents = VEC3(0, 0, 0);
 
   // We expect an array of things to render: mesh + materials, mesh + materials, ..
   if (j.is_array()) {
@@ -102,6 +122,7 @@ void TCompRender::load(const json& j, TEntityParseContext& ctx) {
   refreshMeshesInRenderManager();
 }
 
+// --------------------------------------------
 void TCompRender::refreshMeshesInRenderManager() {
   CHandle h_me = CHandle(this);
   CRenderManager::get().delRenderKeys(h_me);

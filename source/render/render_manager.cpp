@@ -3,7 +3,7 @@
 #include "render/render.h"
 #include "render/texture/material.h"
 #include "components/comp_transform.h"
-
+#include "components/comp_render.h"
 #include "render_objects.h"
 
 /*
@@ -194,6 +194,8 @@ void CRenderManager::renderCategory(const char* category_name) {
     // World asociada a mi objeto
     const TCompTransform* c_transform = it->h_transform;
     cb_object.obj_world = c_transform->asMatrix();
+    const TCompRender* c_render = it->h_render_owner;
+    cb_object.obj_color = c_render->color;
     cb_object.updateGPU();
 
     // Do we have to change the material wrt the prev draw call?
