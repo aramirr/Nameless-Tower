@@ -99,6 +99,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 void TCompPlayerController::debugInMenu() {
 	ImGui::Text("State: %s", state.c_str());
 	ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
+	ImGui::DragFloat("X speed: %f", &x_speed_factor, 0.01f, 0.f, 5.f);
 	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Jump speed: %f", &jump_speed, 0.01f, 0.f, 100.f);
@@ -428,7 +429,7 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 		float current_pitch;
 		float amount_moved = x_speed_factor * dt;
 		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-		current_yaw = current_yaw - (0.8 * omnidash_arrow.x * amount_moved);
+		current_yaw = current_yaw - (0.6 * omnidash_arrow.x * amount_moved);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
