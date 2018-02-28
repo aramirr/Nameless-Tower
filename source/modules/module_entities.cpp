@@ -61,8 +61,11 @@ bool CModuleEntities::start()
 void CModuleEntities::update(float delta)
 {
 	float timeSlower = EngineTimer.getTimeSlower();
-  for (auto om : om_to_update)
-    om->updateAll(delta * timeSlower);
+	for (auto om : om_to_update) {
+		PROFILE_FUNCTION(om->getName());
+		om->updateAll(delta * timeSlower);
+	}
+
 
   CHandleManager::destroyAllPendingObjects();
 }
@@ -107,7 +110,7 @@ void CModuleEntities::render()
   //static bool is_open = false;
   //ImGui::Checkbox("ImGui Demo", &is_open);
   //ImGui::ShowDemoWindow(&is_open);
-   
+
   /*
   // ------------------------------------------
   // Do the basic render
@@ -136,11 +139,16 @@ void CModuleEntities::render()
 
   CRenderManager::get().renderCategory("default");
   CRenderManager::get().debugInMenu();
+}
 
+void CModuleEntities::renderDebugOfComponents() {
+  PROFILE_FUNCTION("renderDebugOfComponents");
   // Change the technique to some debug solid
   auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
   solid->activate();
-  for (auto om : om_to_render_debug)
+  for (auto om : om_to_render_debug) {
+    PROFILE_FUNCTION(om->getName());
     om->renderDebugAll();
+  }
 
 }

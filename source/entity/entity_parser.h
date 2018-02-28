@@ -7,6 +7,9 @@ struct TEntityParseContext {
   // or prefabs
   TEntityParseContext* parent = nullptr;
 
+  // True only when we are parsing a prefab source
+  bool                 parsing_prefab = false;
+
   // In case our prefab creates other prefabs which creates...
   int                  recursion_level = 0;
 

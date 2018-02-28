@@ -57,7 +57,8 @@ void CModuleManager::update(float delta)
 	{
 		if (mod->isActive()) 
 		{
-			mod->update(delta);
+      PROFILE_FUNCTION(mod->getName().c_str());
+      mod->update(delta);
 		}
 	}
 }
@@ -68,7 +69,8 @@ void CModuleManager::render()
 	{
 		if (mod->isActive())
 		{
-			mod->render();
+      PROFILE_FUNCTION(mod->getName().c_str());
+      mod->render();
 		}
 	}
 
@@ -241,7 +243,8 @@ void CModuleManager::loadGamestates(const std::string& filename)
 
 void CModuleManager::applyRequestedGameState()
 {
-	if (_requested_gs)
+  PROFILE_FUNCTION("CModuleManager::applyRequestedGameState");
+  if (_requested_gs)
 	{
 		// stop current game modules
 		if (_current_gs)
@@ -259,7 +262,8 @@ void CModuleManager::applyRequestedGameState()
 
 void CModuleManager::renderDebug()
 {
-	if (ImGui::TreeNode("Modules"))
+  PROFILE_FUNCTION("CModuleManager::renderDebug");
+  if (ImGui::TreeNode("Modules"))
 	{
 		for (auto& mod : _registered_modules)
 		{

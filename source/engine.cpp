@@ -61,10 +61,13 @@ bool CEngine::stop() {
 
 void CEngine::update(float delta)
 {
-	_modules.update(delta);
+  PROFILE_FUNCTION("CEngine::update");
+  _modules.update(delta);
 }
 
 void CEngine::render()
 {
-	_module_render.generateFrame();
+
+  PROFILE_FUNCTION("CEngine::render");
+  _module_render.generateFrame();
 }
