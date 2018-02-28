@@ -2,7 +2,7 @@
 		"entity": {
 			"name": "Boss Runner",
 			"transform": {
-				"pos": "-15 0 0",
+				"pos": "32 0 0",
 				"lookat": "0 0 0"
 			},
 			"render" : [
@@ -15,9 +15,13 @@
 			]
 			,
 			"ai_boss_runner": {
-				"chase_distance": 6,
-				"attack_distance": 1,
-				"waypoints" : [ "-15 0 0", "15 0 0", "-15 0 0"] 
+				"chase_distance": 10,
+				"attack_distance": 1.5,
+				"speed_factor": 2.1,
+				"tower_radius": 32,
+				"gravity": 16.5,
+				"jump_speed": 25.8,
+				"jump_altitude": 5
  			},
 			"collider": {
 				"shape": "capsule",
@@ -88,7 +92,7 @@
 		"entity": {
 			"name": "Box Collider",
 			"transform": {
-				"pos": "0 0 15",
+				"pos": "32 0 0",
 				"lookat": "-1 0 15"
 			},
 			"render" : [
@@ -106,7 +110,7 @@
 			},
 			"trigger": {
 				"trigger_type": "runner",
-				"appearing_position": "0 0 15"
+				"appearing_position": "32 0 0"
 			}
 		}
 	},
