@@ -10,7 +10,7 @@ DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
 void TCompPlayerController::move_player(bool left, bool change_orientation, float dt, float y_speed) {
 	TCompTransform *c_my_transform = get<TCompTransform>();
-	VEC3 myPos = c_my_transform->getPosition();
+	
 	assert(c_my_transform);
 	// Current orientation
 	float current_yaw;
@@ -18,6 +18,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 	float amount_moved = current_x_speed_factor * dt;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
+	VEC3 myPos = c_my_transform->getPosition();
 	center.y = myPos.y;
 	//float distance = VEC3::Distance(myPos, center);
 	VEC3 move_vector = center + myPos;
@@ -65,10 +66,12 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				change_mesh(1);			
 				if (!isPressed('A') && !isPressed('D')) {
 					change_mesh(1);
+					can_dash = true;
 					ChangeState("idle");
 				}
 				else {
 					change_mesh(0);
+					can_dash = true;
 					ChangeState("run");
 				}
 			}
