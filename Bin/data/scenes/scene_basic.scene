@@ -7,9 +7,21 @@
 			},
 			"render" : [
 				{
-					"mesh": "data/meshes/chr_runner_Box001.mesh",
+					"mesh": "data/meshes/AtraparBoss.mesh",
 					"materials" : [
-						"data/materials/madera.material"
+						"data/materials/MaterialNaja.material"
+					]
+				},
+				{
+					"mesh": "data/meshes/BossNormal.mesh",
+					"materials" : [
+						"data/materials/MaterialNaja.material"
+					]
+				},
+				{
+					"mesh": "data/meshes/CuerpoBossRun.mesh",
+					"materials" : [
+						"data/materials/MaterialNaja.material"
 					]
 				}
 			]
@@ -20,8 +32,8 @@
 				"speed_factor": 2.1,
 				"tower_radius": 32,
 				"gravity": 16.5,
-				"jump_speed": 25.8,
-				"jump_altitude": 5
+				"jump_speed": 12.3,
+				"jump_altitude": 3
  			},
 			"collider": {
 				"shape": "capsule",
