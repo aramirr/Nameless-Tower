@@ -55,7 +55,7 @@ void CAIBossRunner::load(const json& j, TEntityParseContext& ctx) {
 	chase_distance = j.value("chase_distance", 3.0f);
 	attack_distance = j.value("attack_distance", 1.0f);
 	speed_factor = j.value("speed_factor", 5.0f);
-	tower_radius = j.value("tower_radius", 15.0f);
+	tower_radius = j.value("tower_radius", 32.0f);
 	gravity = j.value("gravity", 16.5f);
   jump_speed = j.value("jump_speed", 25.8f);
   jump_altitude = j.value("jump_altitude", 5.0f);
@@ -127,11 +127,11 @@ void CAIBossRunner::chase_state(float dt) {
 	}
 
 	distance_to_player = VEC3::Distance(myPos, ppos);
-	if (distance_to_player < attack_distance + 2.f) {
+	if (distance_to_player < attack_distance) {
 		actual_state = "attack";
 		ChangeState("attack");
 	}
-	if (distance_to_player > chase_distance + 10.f) {
+	if (distance_to_player > chase_distance + 5.f) {
 		actual_state = "disappear";
 		ChangeState("disappear");
 	}
@@ -161,9 +161,16 @@ void CAIBossRunner::jumping_state(float dt) {
 	TCompTransform *c_my_transform = get<TCompTransform>();
 	VEC3 my_pos = c_my_transform->getPosition();
 	VEC3 new_pos = my_pos;
-	new_pos.y += (jump_speed - gravity * dt) * dt;
+	float y_speed;
+	if (y_speed_factor > 0)
+		y_speed = (y_speed_factor * dt) - (gravity * dt * dt / 2);
+	else
+		y_speed = (y_speed_factor * dt) - (gravity * dt * dt * 3);
+	y_speed_factor -= gravity * dt / 2;
+	new_pos.y += y_speed;
+
 	tower_center.y = my_pos.y;
-	// Chequea que no llego a la altura maxima 
+
 	if (new_pos.y < jump_end) {
 		float current_yaw, current_pitch;
 		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
