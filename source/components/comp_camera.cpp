@@ -8,7 +8,6 @@ DECL_OBJ_MANAGER("camera", TCompCamera);
 // -------------------------------------------------
 void TCompCamera::debugInMenu() {
 
-
 	float fov_deg = rad2deg(getFov());
 	float new_znear = getZNear();
 	float new_zfar = getZFar();

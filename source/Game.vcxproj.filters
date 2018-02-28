@@ -238,6 +238,12 @@
     <ClCompile Include="render\render_manager.cpp">
       <Filter>render</Filter>
     </ClCompile>
+    <ClCompile Include="components\comp_culling.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\comp_aabb.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -648,6 +654,12 @@
     </ClInclude>
     <ClInclude Include="render\render_manager.h">
       <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_culling.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_aabb.h">
+      <Filter>components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

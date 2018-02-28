@@ -36,7 +36,7 @@ const char* CEntity::getName() const {
 }
 
 void CEntity::renderDebug() {
-  for (int i = 0; i < CHandleManager::getNumDefinedTypes(); ++i) {
+  for (uint32_t i = 0; i < CHandleManager::getNumDefinedTypes(); ++i) {
     CHandle h = comps[i];
     if (h.isValid())
       h.renderDebug();
