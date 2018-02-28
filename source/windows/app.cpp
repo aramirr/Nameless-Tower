@@ -208,8 +208,8 @@ void CApp::mainLoop() {
 //--------------------------------------------------------------------------------------
 bool CApp::readConfig() {
   // ...
-  xres = 1024;
-  yres = 640;
+  xres = GetSystemMetrics(SM_CXSCREEN);
+  yres = GetSystemMetrics(SM_CYSCREEN);
 
   time_since_last_render.reset();
 
