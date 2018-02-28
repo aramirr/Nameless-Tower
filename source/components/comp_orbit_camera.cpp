@@ -65,13 +65,13 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
 	playerY = pPos.y;
 	currentPlayerY = pPos.y;
 
-	xOffset = deg2rad(((2 * 3.14159 * radio) / 360) * apertura);
+	xOffset = deg2rad(((2 * 3.14159f * radio) / 360) * apertura);
 
 	carga = true;
 }
 
 void TCompOrbitCamera::update(float dt) {
-	xOffset = deg2rad(((2 * 3.14159 * radio) / 360) * apertura);
+	xOffset = deg2rad(((2 * 3.14159f * radio) / 360) * apertura);
 	TCompTransform* c = get<TCompTransform>();
 	assert(c);
 	pos = c->getPosition();

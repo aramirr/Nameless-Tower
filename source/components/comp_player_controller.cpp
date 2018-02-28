@@ -28,7 +28,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 	}
 	else {
-		current_yaw = left ? current_yaw + 0.1 * amount_moved : current_yaw - 0.1 * amount_moved;
+		current_yaw = left ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		VEC3 aux_vector = left ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
 		VEC3 newPos = center + (aux_vector * tower_radius);
@@ -60,7 +60,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			}
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
-				current_yaw = left ? current_yaw - 0.1 * amount_moved : current_yaw + 0.1 * amount_moved;
+				current_yaw = left ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);				
 			} else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
 				change_mesh(1);			
@@ -111,7 +111,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	center = VEC3(0.f, 0.f, 0.f);
 	tower_radius = j.value("tower_radius", 32.f);
 	dashing_speed = j.value("dashing_speed", 3);
-	omnidash_max_time = j.value("omnidash_max_time", 0.3);
+	omnidash_max_time = j.value("omnidash_max_time", 0.3f);
 	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 1.6f);
 	current_x_speed_factor = x_speed_factor;
 	is_grounded = true;
@@ -183,9 +183,6 @@ void TCompPlayerController::idle_state(float dt) {
 		can_dash = false;
 		ChangeState("dash");
 	}
-
-	// Chequea el movimiento
-	float y, p, r;
 
 	if (isPressed('A')) {
 		if (!looking_left) {
@@ -426,7 +423,7 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 		float current_pitch;
 		float amount_moved = current_x_speed_factor * dt;
 		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-		current_yaw = current_yaw - (1.15 * omnidash_arrow.x * amount_moved);
+		current_yaw = current_yaw - (1.15f * omnidash_arrow.x * amount_moved);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
