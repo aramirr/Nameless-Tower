@@ -49,6 +49,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IntDir>$(SolutionDir)..\Build\$(Platform)\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)..\Bin\</OutDir>
+    <IncludePath>$(SolutionDir)..\tools\PhysX\PhysX_3.4\Include;$(SolutionDir)..\tools\PhysX\PxShared\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -75,11 +76,13 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>mcv_platform.h</PrecompiledHeaderFile>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>NDEBUG;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>$(SolutionDir)../libs/$(Configuration)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -140,6 +143,7 @@
     <ClCompile Include="modules\system\module_physics.cpp" />
     <ClCompile Include="modules\test\module_test_cameras.cpp" />
     <ClCompile Include="modules\test\module_test_input.cpp" />
+    <ClCompile Include="profiling\profiling.cpp" />
     <ClCompile Include="render\cte_buffer.cpp" />
     <ClCompile Include="render\mesh\mesh.cpp" />
     <ClCompile Include="render\mesh\mesh_loader.cpp" />
@@ -234,6 +238,7 @@
     <ClInclude Include="modules\system\module_physics.h" />
     <ClInclude Include="modules\test\module_test_cameras.h" />
     <ClInclude Include="modules\test\module_test_input.h" />
+    <ClInclude Include="profiling\profiling.h" />
     <ClInclude Include="render\cte_buffer.h" />
     <ClInclude Include="render\mesh\mesh.h" />
     <ClInclude Include="render\mesh\mesh_loader.h" />

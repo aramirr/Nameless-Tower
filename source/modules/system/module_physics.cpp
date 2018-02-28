@@ -190,6 +190,8 @@ bool CModulePhysics::start()
     bool  is_ok = gPvd->connect(*transport, PxPvdInstrumentationFlag::eALL);
 
     gPhysics = PxCreatePhysics(PX_PHYSICS_VERSION, *gFoundation, PxTolerancesScale(), true, gPvd);
+    if (!gPhysics)
+      fatal("PxCreatePhysics failed");
 
     PxSceneDesc sceneDesc(gPhysics->getTolerancesScale());
     sceneDesc.gravity = PxVec3(0.0f, -9.81f, 0.0f);

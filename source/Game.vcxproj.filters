@@ -223,6 +223,9 @@
     <ClCompile Include="components\comp_culling.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="profiling\profiling.cpp">
+      <Filter>profiling</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -293,6 +296,9 @@
     </Filter>
     <Filter Include="components\controllers">
       <UniqueIdentifier>{35593611-dc98-40a8-8b74-e77b7bfe7abc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="profiling">
+      <UniqueIdentifier>{f8293cf5-bd8e-4fed-a082-e83abcb71aa2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -615,6 +621,9 @@
     </ClInclude>
     <ClInclude Include="components\comp_culling.h">
       <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="profiling\profiling.h">
+      <Filter>profiling</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
