@@ -140,6 +140,7 @@ void CModuleEntities::render()
 }
 
 void CModuleEntities::renderDebugOfComponents() {
+  CTraceScoped gpu_scope("renderDebugOfComponents");
   PROFILE_FUNCTION("renderDebugOfComponents");
   // Change the technique to some debug solid
   auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();

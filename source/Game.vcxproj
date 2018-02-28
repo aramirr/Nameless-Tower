@@ -240,6 +240,7 @@
     <ClInclude Include="modules\test\module_test_input.h" />
     <ClInclude Include="profiling\profiling.h" />
     <ClInclude Include="render\cte_buffer.h" />
+    <ClInclude Include="render\gpu_trace.h" />
     <ClInclude Include="render\mesh\mesh.h" />
     <ClInclude Include="render\mesh\mesh_loader.h" />
     <ClInclude Include="render\mesh\mesh_subgroup.h" />

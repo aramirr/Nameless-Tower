@@ -139,7 +139,7 @@ void CRenderManager::setEntityCamera(CHandle h_new_entity_camera) {
 
 void CRenderManager::renderCategory(const char* category_name) {
   PROFILE_FUNCTION(category_name);
-  //CTraceScoped gpu_scope(category_name);
+  CTraceScoped gpu_scope(category_name);
 
   uint32_t category_id = getID(category_name);
 
