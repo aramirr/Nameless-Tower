@@ -17,7 +17,7 @@ VS_OUTPUT VS(float4 Pos : POSITION, float4 Color : COLOR)
   output.Pos = mul(Pos, obj_world);
   output.Pos = mul(output.Pos, camera_view);
   output.Pos = mul(output.Pos, camera_proj);
-  output.Color = Color;
+  output.Color = Color * obj_color;
   return output;
 }
 

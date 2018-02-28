@@ -53,17 +53,22 @@ struct TMsgisGrounded {
   DECL_MSG_ID();
 };
 
+struct TMsgDefineLocalAABB {
+	AABB* aabb;
+	DECL_MSG_ID();
+};
+
+/*
+struct TMsgTimeOut {
+=======
+
+
 /*
 struct TMsgTimeOut {
   DECL_MSG_ID();
 };
 
 struct TMsgSpawn {
-  DECL_MSG_ID();
-};
-
-struct TMsgDefineLocalAABB {
-  AABB* aabb;
   DECL_MSG_ID();
 };
 
@@ -74,4 +79,3 @@ struct TMsgSpawnAt {
 */
 
 #endif
-
