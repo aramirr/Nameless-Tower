@@ -74,11 +74,12 @@ void CAISpikes::SpikesOnState(float dt)
 		player->sendMsg(kill_player_message);
 	}
 	
-
-	if (acum_time >= time_to_trigger)
-	{
-		ChangeState("off");
-		acum_time = 0;
+	if (!fixed_spikes) {
+		if (acum_time >= time_to_trigger)
+		{
+			ChangeState("off");
+			acum_time = 0;
+		}
 	}
 }
 

@@ -14,7 +14,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{BC06472A-AE43-4007-AE25-59879F8D23F2}</ProjectGuid>
     <RootNamespace>Game</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -109,6 +109,7 @@
     <ClCompile Include="components\ia\ai_destoyable.cpp" />
     <ClCompile Include="components\ia\ai_linear_patrol.cpp" />
     <ClCompile Include="components\ia\ai_orbit_patrol.cpp" />
+    <ClCompile Include="components\ia\ai_spikes.cpp" />
     <ClCompile Include="components\ui\ui_mouse_pos.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity\entity.cpp" />
@@ -198,6 +199,7 @@
     <ClInclude Include="components\ia\ai_destoyable.h" />
     <ClInclude Include="components\ia\ai_linear_patrol.h" />
     <ClInclude Include="components\ia\ai_orbit_patrol.h" />
+    <ClInclude Include="components\ia\ai_spikes.h" />
     <ClInclude Include="components\ui\ui_mouse_pos.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="entity\common_msgs.h" />

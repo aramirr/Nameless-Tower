@@ -103,7 +103,7 @@ void CAILinearPatrol::MoveToWaypointState()
 		rigidActor->setGlobalPose(tr);
 	}
 
-	if (VEC3::Distance(getWaypoint(), mypos->getPosition()) < 1)
+	if (VEC3::Distance(getWaypoint(), mypos->getPosition()) <= 0.25f)
 	{
 		acum_delay = 0;
 		ChangeState("wait_state");

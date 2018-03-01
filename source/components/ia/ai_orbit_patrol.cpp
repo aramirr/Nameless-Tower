@@ -167,7 +167,7 @@ void CAIOrbitPatrol::MoveToWaypointState(float dt)
 		}
 	}
 	
-	if (VEC3::Distance(getWaypoint(), myPos) < 5)
+	if (VEC3::Distance(getWaypoint(), myPos) < 2.5)
 	{
 		acum_delay = 0;
 		ChangeState("wait_state");

@@ -104,10 +104,10 @@
     }
   }
   ,
-  {
+   {
     "entity":
     {
-      "name": "Plataforma_R30_T"
+      "name": "Plataforma_R30_0T"
       ,
       "transform":
       {
@@ -119,6 +119,12 @@
       "render":
       [
         {
+          "mesh": "data/meshes/Plataforma_R30_0.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerTorre.material"
+          ]
         }
       ]
       ,
@@ -126,7 +132,7 @@
       {
         "shape": "box"
         ,
-        "halfExtent": "1.5 1.0 1.5"
+        "halfExtent": "1.5 2 1.5"
         ,
         "is_dynamic": false
         ,
@@ -135,9 +141,9 @@
       ,
       "trigger":
       {
-        "collider_entity": "Plataforma_R30_0",
-        "trigger_type":"spikes",
-        "trigger_actor": "The Player"
+        "trigger_type": "spikes"
+      ,
+      "collider_entity": "Plataforma_R30_0"
       }
     }
   }
@@ -165,6 +171,13 @@
           ]
         }
       ]
+      ,
+      "ai_destroyable":
+      {
+        "trigger_actor": "The Player"
+        ,
+        "destoy_time": 1.0
+      }
       ,
       "collider":
       {
@@ -203,6 +216,20 @@
         }
       ]
       ,
+      "ai_linear_patrol":
+      {
+        "speed": 0.5
+        ,
+        "delay": 1.0
+        ,
+        "waypoints":
+        [
+          "-12.6147 5.25 -29.0299"
+          ,
+          "-12.6147 12.9318 -29.0299"
+        ]
+      }
+      ,
       "collider":
       {
         "shape": "box"
@@ -239,6 +266,20 @@
           ]
         }
       ]
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 0.5
+        ,
+        "delay": 1.0
+        ,
+        "waypoints":
+        [
+          "-16.3619 6.25 -27.0952"
+          ,
+          "-14.7617 6.25 -24.3849"
+        ]
+      }
       ,
       "collider":
       {
@@ -277,42 +318,23 @@
         }
       ]
       ,
-      "collider":
+      "ai_orbit_patrol":
       {
-        "shape": "box"
+        "speed": 0.05
         ,
-        "halfExtent": "1.5 0.25 1.5"
+        "delay": 1.0
         ,
-        "is_dynamic": false
+        "center": "0.0 7.25 0.0"
         ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_006"
-      ,
-      "transform":
-      {
-        "pos": "-22.9237 8.25 -21.8259"
+        "radius": 30.0
         ,
-        "rotation": "0.0 -0.389418 0.0 -0.921061"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_006.mesh"
+        "waypoints":
+        [
+          "-19.8187 7.25 -24.6796"
           ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
+          "-31.6317 7.25 -1.13953"
+        ]
+      }
       ,
       "collider":
       {
@@ -327,1631 +349,61 @@
     }
   }
   ,
+   {
+  "entity":
   {
-    "entity":
+    "name": "Plataforma_R30_005T"
+    ,
+    "transform":
     {
-      "name": "Plataforma_R30_007"
+      "pos": "-19.8187 8.25 -24.6796"
       ,
-      "transform":
+      "rotation": "0.0 -0.327195 0.0 -0.944957"
+    }
+    ,
+    "render":
+    [
       {
-        "pos": "-25.6217 9.25 -18.5847"
-        ,
-        "rotation": "0.0 -0.449912 0.0 -0.893073"
       }
+    ]
+    ,
+    "ai_orbit_patrol":
+    {
+      "speed": 0.05
       ,
-      "render":
+      "delay": 1.0
+      ,
+      "center": "0.0 8.25 0.0"
+      ,
+      "radius": 30.0
+      ,
+      "waypoints":
       [
-        {
-          "mesh": "data/meshes/Plataforma_R30_007.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
+        "-19.8187 8.25 -24.6796"
+        ,
+        "-31.6317 8.25 -1.13953"
       ]
+    }
+    ,
+    "collider":
+    {
+      "shape": "box"
       ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
+      "halfExtent": "1.5 0.5 1.5"
+      ,
+      "is_dynamic": false
+      ,
+      "is_trigger": true
+    }
+    ,
+    "trigger":
+    {
+      "trigger_type": "plattform_orbit"
+      ,
+      "collider_entity": "Plataforma_R30_005"
     }
   }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_008"
-      ,
-      "transform":
-      {
-        "pos": "-27.8649 10.25 -15.0137"
-        ,
-        "rotation": "0.0 -0.508407 0.0 -0.861117"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_008.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_009"
-      ,
-      "transform":
-      {
-        "pos": "-29.6135 11.25 -11.1761"
-        ,
-        "rotation": "0.0 -0.564642 0.0 -0.825336"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_009.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_010"
-      ,
-      "transform":
-      {
-        "pos": "-30.8364 12.25 -7.14011"
-        ,
-        "rotation": "0.0 -0.61837 0.0 -0.785887"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_010.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_011"
-      ,
-      "transform":
-      {
-        "pos": "-31.5936 13.25 -1.92553"
-        ,
-        "rotation": "0.0 -0.681639 0.0 -0.731689"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_011.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_012"
-      ,
-      "transform":
-      {
-        "pos": "-31.4753 14.25 3.3424"
-        ,
-        "rotation": "0.0 -0.740177 0.0 -0.672412"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_012.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_013"
-      ,
-      "transform":
-      {
-        "pos": "-30.4846 15.25 8.51771"
-        ,
-        "rotation": "0.0 -0.793578 0.0 -0.608469"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_013.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_014"
-      ,
-      "transform":
-      {
-        "pos": "-28.6491 16.25 13.457"
-        ,
-        "rotation": "0.0 -0.841471 0.0 -0.540302"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_014.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_015"
-      ,
-      "transform":
-      {
-        "pos": "-26.0197 17.25 18.0233"
-        ,
-        "rotation": "0.0 -0.883524 0.0 -0.468386"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_015.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_016"
-      ,
-      "transform":
-      {
-        "pos": "-22.6692 18.25 22.0901"
-        ,
-        "rotation": "0.0 -0.919445 0.0 -0.393219"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_016.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_017"
-      ,
-      "transform":
-      {
-        "pos": "-18.6904 19.25 25.5447"
-        ,
-        "rotation": "0.0 -0.948985 0.0 -0.315322"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_017.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_018"
-      ,
-      "transform":
-      {
-        "pos": "-14.1936 20.25 28.2914"
-        ,
-        "rotation": "0.0 -0.971938 0.0 -0.235238"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_018.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_019"
-      ,
-      "transform":
-      {
-        "pos": "-9.3035 21.25 30.2541"
-        ,
-        "rotation": "0.0 -0.988146 0.0 -0.15352"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_019.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_020"
-      ,
-      "transform":
-      {
-        "pos": "-4.15555 22.25 31.3783"
-        ,
-        "rotation": "0.0 -0.997495 0.0 -0.0707371"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_020.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_021"
-      ,
-      "transform":
-      {
-        "pos": "3.2124 23.25 31.4888"
-        ,
-        "rotation": "0.0 -0.998948 0.0 0.0458544"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_021.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_022"
-      ,
-      "transform":
-      {
-        "pos": "10.4062 24.25 29.8927"
-        ,
-        "rotation": "0.0 -0.98682 0.0 0.161822"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_022.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_023"
-      ,
-      "transform":
-      {
-        "pos": "17.0361 25.25 26.6765"
-        ,
-        "rotation": "0.0 -0.961275 0.0 0.27559"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_023.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_024"
-      ,
-      "transform":
-      {
-        "pos": "22.7426 26.25 22.0145"
-        ,
-        "rotation": "0.0 -0.922661 0.0 0.385612"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_024.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_025"
-      ,
-      "transform":
-      {
-        "pos": "27.2165 27.25 16.1593"
-        ,
-        "rotation": "0.0 -0.871503 0.0 0.49039"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_025.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_026"
-      ,
-      "transform":
-      {
-        "pos": "30.2154 28.25 9.42834"
-        ,
-        "rotation": "0.0 0.808496 0.0 -0.588501"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_026.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_027"
-      ,
-      "transform":
-      {
-        "pos": "31.5766 29.25 2.18638"
-        ,
-        "rotation": "0.0 0.734497 0.0 -0.678612"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_027.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_028"
-      ,
-      "transform":
-      {
-        "pos": "31.2265 30.25 -5.17408"
-        ,
-        "rotation": "0.0 0.650512 0.0 -0.759496"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_028.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_029"
-      ,
-      "transform":
-      {
-        "pos": "29.1839 31.25 -12.2541"
-        ,
-        "rotation": "0.0 0.557683 0.0 -0.830054"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_029.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_030"
-      ,
-      "transform":
-      {
-        "pos": "25.5596 32.25 -18.67"
-        ,
-        "rotation": "0.0 0.457272 0.0 -0.889327"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_030.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_031"
-      ,
-      "transform":
-      {
-        "pos": "17.1673 33.25 -26.5922"
-        ,
-        "rotation": "0.0 0.287477 0.0 -0.957787"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_031.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_032"
-      ,
-      "transform":
-      {
-        "pos": "6.49268 34.25 -30.9792"
-        ,
-        "rotation": "0.0 0.108047 0.0 -0.994146"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_032.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_033"
-      ,
-      "transform":
-      {
-        "pos": "-5.04511 35.25 -31.2476"
-        ,
-        "rotation": "0.0 -0.0750045 0.0 -0.997183"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_033.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_034"
-      ,
-      "transform":
-      {
-        "pos": "-15.9122 36.25 -27.3618"
-        ,
-        "rotation": "0.0 -0.255542 0.0 -0.966798"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_034.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_035"
-      ,
-      "transform":
-      {
-        "pos": "-24.6638 37.25 -19.8383"
-        ,
-        "rotation": "0.0 -0.427515 0.0 -0.904008"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_035.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_036"
-      ,
-      "transform":
-      {
-        "pos": "-30.1365 38.25 -9.67753"
-        ,
-        "rotation": "0.0 -0.585158 0.0 -0.810919"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_036.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_037"
-      ,
-      "transform":
-      {
-        "pos": "-31.6027 39.25 1.76987"
-        ,
-        "rotation": "0.0 -0.723189 0.0 -0.69065"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_037.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_038"
-      ,
-      "transform":
-      {
-        "pos": "-28.8675 40.25 12.982"
-        ,
-        "rotation": "0.0 -0.836981 0.0 -0.547233"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_038.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_039"
-      ,
-      "transform":
-      {
-        "pos": "-22.2945 41.25 22.4682"
-        ,
-        "rotation": "0.0 -0.922719 0.0 -0.385474"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_039.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_040"
-      ,
-      "transform":
-      {
-        "pos": "-12.7575 42.25 28.9674"
-        ,
-        "rotation": "0.0 -0.97753 0.0 -0.210794"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_040.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_041"
-      ,
-      "transform":
-      {
-        "pos": "6.86058 43.25 30.8998"
-        ,
-        "rotation": "0.0 -0.994568 0.0 0.10409"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_041.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_042"
-      ,
-      "transform":
-      {
-        "pos": "23.8176 44.25 20.8467"
-        ,
-        "rotation": "0.0 -0.912703 0.0 0.408624"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_042.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_043"
-      ,
-      "transform":
-      {
-        "pos": "31.5362 45.25 2.70761"
-        ,
-        "rotation": "0.0 0.740076 0.0 -0.672523"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_043.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_044"
-      ,
-      "transform":
-      {
-        "pos": "27.0225 46.25 -16.4817"
-        ,
-        "rotation": "0.0 0.493855 0.0 -0.869544"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_044.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_045"
-      ,
-      "transform":
-      {
-        "pos": "12.0273 47.25 -29.2781"
-        ,
-        "rotation": "0.0 0.198523 0.0 -0.980096"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_045.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_046"
-      ,
-      "transform":
-      {
-        "pos": "-7.6331 48.25 -30.7181"
-        ,
-        "rotation": "0.0 -0.11655 0.0 -0.993185"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_046.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_047"
-      ,
-      "transform":
-      {
-        "pos": "-24.3327 49.25 -20.243"
-        ,
-        "rotation": "0.0 -0.420034 0.0 -0.907509"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_047.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_048"
-      ,
-      "transform":
-      {
-        "pos": "-31.5942 50.25 -1.91612"
-        ,
-        "rotation": "0.0 -0.681748 0.0 -0.731587"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_048.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_049"
-      ,
-      "transform":
-      {
-        "pos": "-26.6008 51.25 17.154"
-        ,
-        "rotation": "0.0 -0.875667 0.0 -0.482915"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_049.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_R30_050"
-      ,
-      "transform":
-      {
-        "pos": "0.0 52.0 -2.27299e-06"
-        ,
-        "rotation": "0.0 -0.982508 0.0 -0.186221"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_R30_050.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerTorre.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.5 0.25 1.5"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
+}
 ]
+
+
