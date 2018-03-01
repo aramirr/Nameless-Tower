@@ -71,7 +71,7 @@ void CAISpikes::SpikesOnState(float dt)
 	float distance = VEC3::Distance(p_trans->getPosition(), curr_trans->getPosition());
 	if (distance < 1) {
 		TMsgKillPlayer kill_player_message;
-		current_e->sendMsg(kill_player_message);
+		player->sendMsg(kill_player_message);
 	}
 	
 
