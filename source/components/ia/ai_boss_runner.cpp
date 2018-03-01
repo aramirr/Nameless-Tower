@@ -147,6 +147,11 @@ void CAIBossRunner::attack_state() {
 		change_mesh(2);
 		ChangeState("chase");
 	}
+	else {
+		TMsgKillPlayer kill;
+		player->sendMsg(kill);
+		ChangeState("disappear");
+	}
 }
 
 void CAIBossRunner::disapear_state() {
