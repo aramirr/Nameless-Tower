@@ -459,4 +459,5 @@ void TCompPlayerController::dashing_state(float dt) {
 }
 
 void TCompPlayerController::dead_state(float dt) {
+	change_mesh(5);
 }
