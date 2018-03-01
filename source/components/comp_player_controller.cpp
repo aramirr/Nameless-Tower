@@ -459,7 +459,11 @@ void TCompPlayerController::dashing_state(float dt) {
 }
 
 void TCompPlayerController::dead_state(float dt) {
-	change_mesh(5);
+	if (isPressed('P')) {
+		TCompTransform *c_my_transform = get<TCompTransform>();
+		c_my_transform->setPosition(VEC3(-32, 0, 0));
+		ChangeState("initial");
+	}
 }
 
 void TCompPlayerController::registerMsgs() {
@@ -468,5 +472,6 @@ void TCompPlayerController::registerMsgs() {
 
 void TCompPlayerController::killPlayer(const TMsgKillPlayer& msg)
 {
+	change_mesh(5);
 	ChangeState("dead");
 }
