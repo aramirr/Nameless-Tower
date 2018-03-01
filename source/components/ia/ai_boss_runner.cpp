@@ -64,7 +64,7 @@ void CAIBossRunner::load(const json& j, TEntityParseContext& ctx) {
 void CAIBossRunner::appear_state(float dt) {
 	TCompTransform* my_transform = getMyTransform();
 	VEC3 delta_move = appearing_position - my_transform->getPosition();
-	TCompCollider* my_collider = get<TCompCollider>();
+	TCompCollider* my_collider = getMyCollider();
 	my_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 	my_transform->lookAt(appearing_position, tower_center);
 	float y, p, r;
@@ -132,6 +132,7 @@ void CAIBossRunner::chase_state(float dt) {
 		ChangeState("attack");
 	}
 	if (distance_to_player > chase_distance + 5.f) {
+		jump_positions = std::queue<VEC3>();
 		actual_state = "disappear";
 		ChangeState("disappear");
 	}
@@ -150,14 +151,15 @@ void CAIBossRunner::attack_state() {
 	else {
 		TMsgKillPlayer kill;
 		player->sendMsg(kill);
+		jump_positions = std::queue<VEC3>();
+		actual_state = "disappear";
 		ChangeState("disappear");
 	}
 }
 
 void CAIBossRunner::disapear_state() {
 	TCompRender *my_render = getMyRender();
-	//my_render->is_active = false;
-	jump_positions = std::queue<VEC3>();
+	my_render->is_active = false;
 }
 
 void CAIBossRunner::jumping_state(float dt) {

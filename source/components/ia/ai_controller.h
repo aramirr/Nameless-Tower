@@ -23,9 +23,11 @@ class IAIController : public TCompBase {
 protected:
   CHandle         h_entity;
   CHandle         h_transform;        // Cached
-  CHandle         h_render;        // Cached
+	CHandle         h_render;        // Cached
+	CHandle         h_collider;        // Cached
   TCompTransform* getMyTransform();
   TCompRender* getMyRender();
+	TCompCollider* getMyCollider();
 
   std::string                         state;
   // the states, as maps to functions

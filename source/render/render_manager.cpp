@@ -195,39 +195,42 @@ void CRenderManager::renderCategory(const char* category_name) {
     const TCompTransform* c_transform = it->h_transform;
     cb_object.obj_world = c_transform->asMatrix();
     const TCompRender* c_render = it->h_render_owner;
-    cb_object.obj_color = c_render->color;
-    cb_object.updateGPU();
+		
+		cb_object.obj_color = c_render->color;
+		cb_object.updateGPU();
 
-    // Do we have to change the material wrt the prev draw call?
-    if (prev_it->material != it->material) {
-      it->material->activate();
-      //using_skin = it->material->usesSkin();
-    }
+		// Do we have to change the material wrt the prev draw call?
+		if (prev_it->material != it->material) {
+			it->material->activate();
+			//using_skin = it->material->usesSkin();
+		}
 
-    // Is our material using skinning data?
-    //if (using_skin) {
-    //  CEntity* e = it->h_render_owner.getOwner();
-    //  assert(e);
-    //  TCompSkeleton* cs = e->get<TCompSkeleton>();
-    //  assert(cs);
-    //  cs->updateCtesBones();
-    //  cs->cte_bones.activate();
-    //}
+		// Is our material using skinning data?
+		//if (using_skin) {
+		//  CEntity* e = it->h_render_owner.getOwner();
+		//  assert(e);
+		//  TCompSkeleton* cs = e->get<TCompSkeleton>();
+		//  assert(cs);
+		//  cs->updateCtesBones();
+		//  cs->cte_bones.activate();
+		//}
 
-    //if (uses_capa) {
-    //  CCapaShader* cp = (CCapaShader*) it->tech;
-    //  cp->setValues(it->h_render_owner.getOwner());
-    //}
+		//if (uses_capa) {
+		//  CCapaShader* cp = (CCapaShader*) it->tech;
+		//  cp->setValues(it->h_render_owner.getOwner());
+		//}
 
-    //if (it->usesCustomCtes) 
-     // it->material->tech->updateCustomCtes(h_render_owner.getOwner());
+		//if (it->usesCustomCtes) 
+			// it->material->tech->updateCustomCtes(h_render_owner.getOwner());
 
-    // Has the mesh changed?
-    if (prev_it->mesh != it->mesh)
-      it->mesh->activate();
+		// Has the mesh changed?
+		if (prev_it->mesh != it->mesh)
+			it->mesh->activate();
 
-    // Do the render
-    it->mesh->renderSubMesh(it->subgroup_idx);
+			// Do the render
+		if (c_render->is_active) {
+			it->mesh->renderSubMesh(it->subgroup_idx);
+		}
 
     prev_it = it;
     ++it;

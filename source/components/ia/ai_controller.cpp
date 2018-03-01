@@ -31,6 +31,18 @@ TCompRender* IAIController::getMyRender() {
 	return r;
 }
 
+TCompCollider* IAIController::getMyCollider() {
+	TCompCollider* c = h_collider;
+	if (!c) {
+		CEntity* e = h_entity;
+		assert(e);
+		h_collider = e->get< TCompCollider >();
+		assert(h_collider.isValid());
+		c = h_collider;
+	}
+	return c;
+}
+
 // Show common information for the AIControllers
 void IAIController::debugInMenu() {
   ImGui::Text("State: %s", state.c_str());
