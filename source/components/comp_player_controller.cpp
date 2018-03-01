@@ -10,7 +10,7 @@ DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
 void TCompPlayerController::move_player(bool left, bool change_orientation, float dt, float y_speed) {
 	TCompTransform *c_my_transform = get<TCompTransform>();
-	VEC3 myPos = c_my_transform->getPosition();
+	
 	assert(c_my_transform);
 	// Current orientation
 	float current_yaw;
@@ -18,6 +18,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 	float amount_moved = current_x_speed_factor * dt;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
+	VEC3 myPos = c_my_transform->getPosition();
 	center.y = myPos.y;
 	//float distance = VEC3::Distance(myPos, center);
 	VEC3 move_vector = center + myPos;
@@ -27,7 +28,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 	}
 	else {
-		current_yaw = left ? current_yaw + 0.1 * amount_moved : current_yaw - 0.1 * amount_moved;
+		current_yaw = left ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		VEC3 aux_vector = left ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
 		VEC3 newPos = center + (aux_vector * tower_radius);
@@ -41,14 +42,13 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				y_speed_factor = 0;
 				is_grounded = true;
 				can_omni = true;
-
+				can_dash = true;
 				//MENSAJE
 				TMsgisGrounded msg;
 				CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
 				CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
 				camDER->sendMsg(msg);
 				camIZQ->sendMsg(msg);
-				can_dash = true;
 				if (dashing_amount == 0) {
 					ChangeState("idle");
 				}
@@ -60,23 +60,24 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			}
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
-				current_yaw = left ? current_yaw - 0.1 * amount_moved : current_yaw + 0.1 * amount_moved;
+				current_yaw = left ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);				
 			} else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
 				change_mesh(1);			
 				if (!isPressed('A') && !isPressed('D')) {
 					change_mesh(1);
+					can_dash = true;
 					ChangeState("idle");
 				}
 				else {
 					change_mesh(0);
+					can_dash = true;
 					ChangeState("run");
 				}
 			}
 			if (state != "dash" && current_x_speed_factor != x_speed_factor) {
 				current_x_speed_factor = x_speed_factor;
 				change_mesh(1);
-				can_dash = true;
 				ChangeState("idle");
 			}
 		}
@@ -90,6 +91,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 
 void TCompPlayerController::debugInMenu() {
 	ImGui::Text("State: %s", state.c_str());
+	ImGui::Text("Can dash: %s", can_dash ? "Si" : "No");
 	ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
 	ImGui::DragFloat("X speed: %f", &x_speed_factor, 0.01f, 0.f, 5.f);
 	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
@@ -109,7 +111,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	center = VEC3(0.f, 0.f, 0.f);
 	tower_radius = j.value("tower_radius", 32.f);
 	dashing_speed = j.value("dashing_speed", 3);
-	omnidash_max_time = j.value("omnidash_max_time", 0.3);
+	omnidash_max_time = j.value("omnidash_max_time", 0.3f);
 	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 1.6f);
 	current_x_speed_factor = x_speed_factor;
 	is_grounded = true;
@@ -181,9 +183,6 @@ void TCompPlayerController::idle_state(float dt) {
 		can_dash = false;
 		ChangeState("dash");
 	}
-
-	// Chequea el movimiento
-	float y, p, r;
 
 	if (isPressed('A')) {
 		if (!looking_left) {
@@ -424,7 +423,7 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 		float current_pitch;
 		float amount_moved = current_x_speed_factor * dt;
 		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-		current_yaw = current_yaw - (1.15 * omnidash_arrow.x * amount_moved);
+		current_yaw = current_yaw - (1.15f * omnidash_arrow.x * amount_moved);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
@@ -460,6 +459,7 @@ void TCompPlayerController::dashing_state(float dt) {
 }
 
 void TCompPlayerController::dead_state(float dt) {
+	change_mesh(5);
 }
 
 void TCompPlayerController::registerMsgs() {

@@ -238,6 +238,15 @@
     <ClCompile Include="render\render_manager.cpp">
       <Filter>render</Filter>
     </ClCompile>
+    <ClCompile Include="components\comp_culling.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\comp_aabb.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="profiling\profiling.cpp">
+      <Filter>profiling</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -311,6 +320,9 @@
     </Filter>
     <Filter Include="components\ui">
       <UniqueIdentifier>{b09d66ec-bf68-46e5-ab7d-f58f5556fa04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="profiling">
+      <UniqueIdentifier>{aebf1d93-5199-42c1-839a-4c7983bc8fc1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -648,6 +660,15 @@
     </ClInclude>
     <ClInclude Include="render\render_manager.h">
       <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_culling.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_aabb.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="profiling\profiling.h">
+      <Filter>profiling</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

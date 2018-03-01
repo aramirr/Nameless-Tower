@@ -2,22 +2,38 @@
 		"entity": {
 			"name": "Boss Runner",
 			"transform": {
-				"pos": "-15 0 0",
+				"pos": "32 0 0",
 				"lookat": "0 0 0"
 			},
 			"render" : [
 				{
-					"mesh": "data/meshes/chr_runner_Box001.mesh",
+					"mesh": "data/meshes/AtraparBoss.mesh",
 					"materials" : [
-						"data/materials/madera.material"
+						"data/materials/MaterialNaja.material"
+					]
+				},
+				{
+					"mesh": "data/meshes/BossNormal.mesh",
+					"materials" : [
+						"data/materials/MaterialNaja.material"
+					]
+				},
+				{
+					"mesh": "data/meshes/CuerpoBossRun.mesh",
+					"materials" : [
+						"data/materials/MaterialNaja.material"
 					]
 				}
 			]
 			,
 			"ai_boss_runner": {
-				"chase_distance": 6,
-				"attack_distance": 1,
-				"waypoints" : [ "-15 0 0", "15 0 0", "-15 0 0"] 
+				"chase_distance": 10,
+				"attack_distance": 1.5,
+				"speed_factor": 2.1,
+				"tower_radius": 32,
+				"gravity": 16.5,
+				"jump_speed": 12.3,
+				"jump_altitude": 3
  			},
 			"collider": {
 				"shape": "capsule",
@@ -32,26 +48,30 @@
 			"name": "The Player",
 			"render":
 		      [
-			  {"mesh": "data/meshes/chr_NajaRun_NajaRun.mesh",
+			  {"mesh": "data/meshes/NajaRun.mesh",
 		          "materials":["data/materials/MaterialNaja.material"]
 		      }
 			,
-			{"mesh": "data/meshes/chr_NajaIdle_NajaIdle.mesh",
+			{"mesh": "data/meshes/NajaIdle.mesh",
 		          "materials":["data/materials/MaterialNaja.material"]
 
 		      }
 			,
-			{"mesh": "data/meshes/chr_NajaJump_NajaJump.mesh",
+			{"mesh": "data/meshes/NajaJump.mesh",
 		          "materials":["data/materials/MaterialNaja.material"]
 		      }
 			,
-			{"mesh": "data/meshes/chr_NajaOmni_NajaOmnidash.mesh",
+			{"mesh": "data/meshes/NajaOmnidash.mesh",
 		          "materials":["data/materials/MaterialNaja.material"]
 		      }
 			,
-			{"mesh": "data/meshes/chr_Naja_NajaDash.mesh",
+			{"mesh": "data/meshes/NajaDash.mesh",
+		          "materials":["data/materials/MaterialNaja.material"]
+		      },
+			{"mesh": "data/meshes/NajaDeath.mesh",
 		          "materials":["data/materials/MaterialNaja.material"]
 		      }
+
 			  ]			
 			,
 			"transform": {
@@ -88,7 +108,7 @@
 		"entity": {
 			"name": "Box Collider",
 			"transform": {
-				"pos": "0 0 15",
+				"pos": "32 0 0",
 				"lookat": "-1 0 15"
 			},
 			"render" : [
@@ -106,7 +126,7 @@
 			},
 			"trigger": {
 				"trigger_type": "runner",
-				"appearing_position": "0 0 15"
+				"appearing_position": "32 0 0"
 			}
 		}
 	},

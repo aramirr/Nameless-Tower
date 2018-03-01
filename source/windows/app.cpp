@@ -2,6 +2,7 @@
 #include "app.h"
 #include "render/render.h"
 #include "input/devices/mouse.h"
+#include "profiling/profiling.h"
 #include <windowsx.h>
 
 CApp* CApp::app_instance = nullptr;
@@ -208,8 +209,8 @@ void CApp::mainLoop() {
 //--------------------------------------------------------------------------------------
 bool CApp::readConfig() {
   // ...
-  xres = 1024;
-  yres = 640;
+  xres = GetSystemMetrics(SM_CXSCREEN);
+  yres = GetSystemMetrics(SM_CYSCREEN);
 
   time_since_last_render.reset();
 
@@ -232,6 +233,8 @@ bool CApp::stop() {
 
 //--------------------------------------------------------------------------------------
 void CApp::doFrame() {
+  PROFILE_FRAME_BEGINS();
+  PROFILE_FUNCTION("App::doFrame");
   float dt = time_since_last_render.elapsedAndReset();
   CEngine::get().update(dt);
   CEngine::get().render();

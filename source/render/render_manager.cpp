@@ -3,14 +3,14 @@
 #include "render/render.h"
 #include "render/texture/material.h"
 #include "components/comp_transform.h"
-
+#include "components/comp_render.h"
 #include "render_objects.h"
+#include "components/comp_culling.h"
+#include "components/comp_aabb.h"
 
 /*
 #include "render/shader_cte_buffer.h"
 #include "shader_ctes.h"
-#include "components/comp_aabb.h"
-#include "components/comp_culling.h"
 #include "components/comp_camera.h"
 #include "skeleton/comp_skeleton.h"
 #include "resources/resources_manager.h"
@@ -67,7 +67,7 @@ void CRenderManager::addRenderKey(
   // Register the basic mesh
   TRenderKey key;
   key.h_render_owner = h_comp_render_owner;
-  //key.h_aabb = e_owner->get<TCompAbsAABB>();
+  key.h_aabb = e_owner->get<TCompAbsAABB>();
   key.mesh = mesh;
   key.material = material;
   key.subgroup_idx = subgroup_idx;
@@ -138,7 +138,7 @@ void CRenderManager::setEntityCamera(CHandle h_new_entity_camera) {
 }
 
 void CRenderManager::renderCategory(const char* category_name) {
-  //PROFILE_FUNCTION(category_name);
+  PROFILE_FUNCTION(category_name);
   //CTraceScoped gpu_scope(category_name);
 
   uint32_t category_id = getID(category_name);
@@ -153,11 +153,11 @@ void CRenderManager::renderCategory(const char* category_name) {
     return;
 
   // Check if we have culling information from the camera source
-  //CEntity* e_camera = h_camera;
-  //const TCompCulling* culling = nullptr;
-  //if( e_camera )
-  //  culling = e_camera->get<TCompCulling>();
-  //const TCompCulling::TCullingBits* culling_bits = culling ? &culling->bits : nullptr;
+  CEntity* e_camera = h_camera;
+  const TCompCulling* culling = nullptr;
+  if( e_camera )
+    culling = e_camera->get<TCompCulling>();
+  const TCompCulling::TCullingBits* culling_bits = culling ? &culling->bits : nullptr;
 
   //cte_object.activate();
   //cte_material.activate();
@@ -177,23 +177,25 @@ void CRenderManager::renderCategory(const char* category_name) {
 
   // For each key in the range of keys
   while (it != last) {
-    //PROFILE_FUNCTION("Key");
+    PROFILE_FUNCTION("Key");
 
     // Do the culling
-    //if (culling_bits) {
-    //  TCompAbsAABB* aabb = it->h_aabb;
-    //  if (aabb) {
-    //    auto idx = it->h_aabb.getExternalIndex();
-    //    if (!culling_bits->test(idx)) {
-    //      ++it;
-    //      continue;
-    //    }
-    //  }
-    //}
+    if (culling_bits) {
+      TCompAbsAABB* aabb = it->h_aabb;
+      if (aabb) {
+        auto idx = it->h_aabb.getExternalIndex();
+        if (!culling_bits->test(idx)) {
+          ++it;
+          continue;
+        }
+      }
+    }
 
     // World asociada a mi objeto
     const TCompTransform* c_transform = it->h_transform;
     cb_object.obj_world = c_transform->asMatrix();
+    const TCompRender* c_render = it->h_render_owner;
+    cb_object.obj_color = c_render->color;
     cb_object.updateGPU();
 
     // Do we have to change the material wrt the prev draw call?

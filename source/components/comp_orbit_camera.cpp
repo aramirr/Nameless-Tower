@@ -65,13 +65,13 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
 	playerY = pPos.y;
 	currentPlayerY = pPos.y;
 
-	xOffset = deg2rad(((2 * 3.14159 * radio) / 360) * apertura);
+	xOffset = deg2rad(((2 * 3.14159f * radio) / 360) * apertura);
 
 	carga = true;
 }
 
 void TCompOrbitCamera::update(float dt) {
-	xOffset = deg2rad(((2 * 3.14159 * radio) / 360) * apertura);
+	xOffset = deg2rad(((2 * 3.14159f * radio) / 360) * apertura);
 	TCompTransform* c = get<TCompTransform>();
 	assert(c);
 	pos = c->getPosition();
@@ -95,13 +95,13 @@ void TCompOrbitCamera::update(float dt) {
 		if (dY > 10.f)currentPlayerY += 5.f;
 		else if(dY > 7.f)currentPlayerY += 0.5f;
 		else if(dY > 4.f)currentPlayerY += 0.05f;
-		else currentPlayerY += 0.005f;
+		else currentPlayerY += 0.01f;
 	}
 	if (currentPlayerY > pPos.y) {
 		if (dY > 10.f)currentPlayerY -= 5.f;
 		else if (dY > 7.f)currentPlayerY -= 0.5f;
 		else if (dY > 4.f)currentPlayerY -= 0.05f;
-		else currentPlayerY -= 0.005f;
+		else currentPlayerY -= 0.01f;
 	}
 
 	VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
