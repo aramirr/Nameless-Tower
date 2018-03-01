@@ -43,12 +43,16 @@ void CAISpikes::load(const json& j, TEntityParseContext& ctx) {
 
 void CAISpikes::SpikesOffState()
 {
+  TCompRender *my_render = getMyRender();
+  my_render->is_active = false;
   change_color(VEC4(0, 1, 0, 1));
 }
 
 
 void CAISpikes::TriggerSpikeState(float dt)
 {
+	TCompRender *my_render = getMyRender();
+	my_render->is_active = true;
 	change_color(VEC4 (1, 0, 0, 1));
 	acum_time += dt;
 	if (acum_time >= time_to_trigger)
@@ -60,6 +64,8 @@ void CAISpikes::TriggerSpikeState(float dt)
 
 void CAISpikes::SpikesOnState(float dt)
 {
+	TCompRender *my_render = getMyRender();
+	my_render->is_active = true;
 	change_color(VEC4(0, 0, 1, 1));
 	acum_time += dt;
 	CEntity *player = (CEntity *)getEntityByName("The Player");
