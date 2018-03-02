@@ -26,17 +26,18 @@ bool TCompOrbitCamera::isForward()
 //	DECL_MSG(TCompOrbitCamera, TMsgisGrounded, changeHeight);
 //}
 
-void TCompOrbitCamera::attachPlayer(const TMsgAttachTo & msg){
-  inOrbitPlatform = true;
+void TCompOrbitCamera::attachPlayer(const TMsgAttachTo & msg) {
+	inOrbitPlatform = true;
 }
 
-void TCompOrbitCamera::detachPlayer(const TMsgDetachOf & msg){
-  inOrbitPlatform = false;
+void TCompOrbitCamera::detachPlayer(const TMsgDetachOf & msg) {
+	inOrbitPlatform = false;
+	jumpinOrbitPlatform = true;
 }
 
-void TCompOrbitCamera::registerMsgs(){
-  DECL_MSG(TCompOrbitCamera, TMsgAttachTo, attachPlayer);
-  DECL_MSG(TCompOrbitCamera, TMsgDetachOf, detachPlayer);
+void TCompOrbitCamera::registerMsgs() {
+	DECL_MSG(TCompOrbitCamera, TMsgAttachTo, attachPlayer);
+	DECL_MSG(TCompOrbitCamera, TMsgDetachOf, detachPlayer);
 }
 
 void TCompOrbitCamera::debugInMenu() {
@@ -82,7 +83,8 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
 
 	carga = true;
 
-  inOrbitPlatform = false;
+	inOrbitPlatform = false;
+	jumpinOrbitPlatform = false;
 }
 
 void TCompOrbitCamera::update(float dt) {
@@ -109,8 +111,8 @@ void TCompOrbitCamera::update(float dt) {
 
 	if (currentPlayerY < pPos.y) {
 		if (dY > 10.f)currentPlayerY += 5.f;
-		else if(dY > 7.f)currentPlayerY += 0.5f;
-		else if(dY > 4.f)currentPlayerY += 0.05f;
+		else if (dY > 7.f)currentPlayerY += 0.5f;
+		else if (dY > 4.f)currentPlayerY += 0.05f;
 		else currentPlayerY += 0.01f;
 	}
 	if (currentPlayerY > pPos.y) {
@@ -129,59 +131,68 @@ void TCompOrbitCamera::update(float dt) {
 
 	//dbg("%f\n", (distance - distanceT));
 
-	if ((izq && !isForward() && !inOrbitPlatform || ((izq && isForward()) && (distanceCam > (abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && izquierda && !inOrbitPlatform)) 
+	if (jumpinOrbitPlatform || (izq && !isForward() && !inOrbitPlatform || ((izq && isForward()) && (distanceCam > (abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && izquierda && !inOrbitPlatform))
 		|| (!izq && isForward() && !inOrbitPlatform || ((!izq && !isForward()) && (distanceCam > (abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && !izquierda && !inOrbitPlatform))) {
-    newPos = pos;
+		newPos = pos;
 		newPos.y = currentPlayerY + height;
+		if (jumpinOrbitPlatform) {
+			if (inOrbitPlatform)jumpinOrbitPlatform = false;
+		}
 	}
 	else {
-    /*if (inOrbitPlatform && ((izq && isForward()) || (!izq && !isForward()))) {
-      TMsgchangeCamerainPlatform msg;
-      CEntity* camManager = (CEntity *)getEntityByName("camera_manager");
-      camManager->sendMsg(msg);
-    }*/
-    /*else {*/
-      if (izq)xOffset *= -1;
+		/*if (inOrbitPlatform && ((izq && isForward()) || (!izq && !isForward()))) {
+			TMsgchangeCamerainPlatform msg;
+			CEntity* camManager = (CEntity *)getEntityByName("camera_manager");
+			camManager->sendMsg(msg);
+		}*/
+		/*else {*/
+		if (izq)xOffset *= -1;
 
-      float d = VEC3::Distance(center, pPos);
-      float _d = d / d;
-      float x = pPos.x - _d * (center.x - pPos.x);
-      float z = pPos.z - _d * (center.z - pPos.z);
+		float d = VEC3::Distance(center, pPos);
+		float _d = d / d;
+		float x = pPos.x - _d * (center.x - pPos.x);
+		float z = pPos.z - _d * (center.z - pPos.z);
 
-      pos.x = x;
-      pos.y = currentPlayerY + height;
-      pos.z = z;
+		pos.x = x;
+		pos.y = currentPlayerY + height;
+		pos.z = z;
 
-      float _distance = VEC3::Distance(center, pos);
+		float _distance = VEC3::Distance(center, pos);
 
-      float y, p2, _y, _p2;
-      c->getYawPitchRoll(&y, &p2);
-      p->getYawPitchRoll(&_y, &_p2);
+		float y, p2, _y, _p2;
+		c->getYawPitchRoll(&y, &p2);
+		p->getYawPitchRoll(&_y, &_p2);
 
-      c->setPosition(center);
+		c->setPosition(center);
 
 
-      if (!inOrbitPlatform)y = _y + xOffset;
-      else if (((izq && isForward()) || (!izq && !isForward())))y = _y + xOffset;
+		if (!inOrbitPlatform)y = _y + xOffset;
+		else if (((izq && isForward()) || (!izq && !isForward())))y = _y + xOffset;
 
-      c->setYawPitchRoll(y, p2);
-      newPos = c->getPosition() - (c->getFront() * (_distance - distance));
-      newPos.y = currentPlayerY + height;
-    }
+		c->setYawPitchRoll(y, p2);
+		newPos = c->getPosition() - (c->getFront() * (_distance - distance));
+		//if (jumpinOrbitPlatform && inOrbitPlatform) {
+	//		//newPos = actualPos;
+		//	newPos = ((newPos - actualPos) / 200.f);
+		//	newPos += actualPos;
+		//	jumpinOrbitPlatform = false;
+		//}
+		newPos.y = currentPlayerY + height;
+	}
 
-		float distanceBC = VEC3::Distance(newPos, actualPos);
-		if (inOrbitPlatform /*&& distanceBC > 3.f*/) {
-			newPos = ((newPos - actualPos) / 200.f);
-			newPos += actualPos;
-			c->setPosition(newPos);
-		}
-		else {
-			c->setPosition(newPos);
-		}
-   
+	float distanceBC = VEC3::Distance(newPos, actualPos);
+	if (inOrbitPlatform /*&& distanceBC > 3.f*/) {
+		newPos = ((newPos - actualPos) / 200.f);
+		newPos += actualPos;
+		newPos.y = currentPlayerY + height;
+		c->setPosition(newPos);
+	}
+	else {
+		c->setPosition(newPos);
+	}
 
-    //c->setPerspective(deg2rad(fov_deg), z_near, z_far);
-    c->lookAt(newPos, center);
-    /*}*/
+	//c->setPerspective(deg2rad(fov_deg), z_near, z_far);
+	c->lookAt(newPos, center);
+	/*}*/
 }
 
