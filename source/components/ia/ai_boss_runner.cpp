@@ -29,7 +29,8 @@ void CAIBossRunner::appear(const TMsgAppear& msg) {
 }
 
 void CAIBossRunner::on_player_jump(const TMsgJump& msg) {
-	jump_positions.push(msg.jump_position);
+	if (actual_state == "chase")
+		jump_positions.push(msg.jump_position);
 }
 
 void CAIBossRunner::registerMsgs() {
