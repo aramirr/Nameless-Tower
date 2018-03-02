@@ -33,7 +33,7 @@ public:
 	void appear_state(float dt);
 	void chase_state(float dt);
 	void attack_state();
-	void disapear_state();
+	void disapear_state(float dt);
 	void jumping_state(float dt);
 
 	void Init();

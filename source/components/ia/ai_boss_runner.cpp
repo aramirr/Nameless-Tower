@@ -157,9 +157,14 @@ void CAIBossRunner::attack_state() {
 	}
 }
 
-void CAIBossRunner::disapear_state() {
+void CAIBossRunner::disapear_state(float dt) {
 	TCompRender *my_render = getMyRender();
 	my_render->is_active = false;
+	TCompTransform *my_transform = getMyTransform();
+	VEC3 delta_move = tower_center - my_transform->getPosition();
+	TCompCollider *comp_collider = getMyCollider();
+	physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+
 }
 
 void CAIBossRunner::jumping_state(float dt) {
