@@ -467,6 +467,32 @@ void TCompPlayerController::dead_state(float dt) {
 		c_my_transform->setPosition(VEC3(-32, 0, 0));
 		ChangeState("initial");
 	}
+	TCompCollider* comp_collider = get<TCompCollider>();
+	TCompTransform *c_my_transform = getMyTransform();
+
+	float y_speed = (y_speed_factor * dt) - (gravity * dt * dt / 2);
+	if (!is_grounded)
+		y_speed_factor -= gravity * dt / 2;
+	if (comp_collider && comp_collider->controller)
+	{
+		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(0, y_speed, 0), 0.f, dt, physx::PxControllerFilters());
+		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
+			y_speed_factor = 0;
+			is_grounded = true;
+			can_omni = true;
+			can_dash = true;
+
+			//MENSAJE
+			/*TMsgisGrounded msg;
+			CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
+			CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
+			camDER->sendMsg(msg);
+			camIZQ->sendMsg(msg);	*/
+		}
+		else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && is_grounded) {
+			is_grounded = false;
+		}
+	}
 }
 
 void TCompPlayerController::registerMsgs() {
