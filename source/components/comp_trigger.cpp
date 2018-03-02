@@ -21,7 +21,13 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		msg2.appearing_position = appearing_position;
 		tunner_entity->sendMsg(msg2);
 	}
-	if (trigger_type == "plattform_orbit" && other_entity_name == "The Player"){
+	else if (trigger_type == "checkpoint" && other_entity_name == "The Player") {
+		TMsgCheckpoint msg2;
+		msg2.appearing_position = appearing_position;
+		e_other_entity->sendMsg(msg2);
+		CHandle(this).getOwner().destroy(); //En lugares con 2 caminos no puedes poner checkpoint a mitad del camino, solo en la interseccion entre los dos caminos (culpas a manu y leo)
+	}
+	else if (trigger_type == "plattform_orbit" && other_entity_name == "The Player"){
 		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
  		TMsgAttachTo attach_msg;
 		attach_msg.h_attacher = h_other_entity;
@@ -33,7 +39,7 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
     camDER->sendMsg(attach_msg);
     camIZQ->sendMsg(attach_msg);
 	}
-	if (trigger_type == "spikes" && other_entity_name == "The Player") {
+	else if (trigger_type == "spikes" && other_entity_name == "The Player") {
 		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
 		TMsgTriggerSpike triggerSpikeMsg;
 		triggerSpikeMsg.h_player = e_other_entity;

@@ -130,7 +130,44 @@
 			}
 		}
 	},
-		{
+	{
+		"entity": {
+			"name": "Checkpoint Trigger",
+			"transform": {
+				"pos": "30.705 0 9.013",
+				"lookat": "-1 0 15"
+			},
+			"render" : [
+				{
+					"mesh": "data/meshes/Teapot001.mesh",
+					"materials" : [
+						"data/materials/madera.material"
+					]
+				}
+			],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "checkpoiny",
+				"appearing_position": "32 0 0"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "the_camera",
+			"transform": {
+				"pos": "15 0 0"
+			},
+			"camera" : {
+				"fov" : 80 
+			}
+		}
+	},
+	{
 		"entity": {
 			"name": "the_camera",
 			"transform": {

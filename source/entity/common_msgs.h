@@ -29,6 +29,11 @@ struct TMsgAppear {
 	DECL_MSG_ID();
 };
 
+struct TMsgCheckpoint {
+	VEC3 appearing_position;
+	DECL_MSG_ID();
+};
+
 struct TMsgAttachTo {
 	CHandle h_attached;
 	CHandle h_attacher;
