@@ -173,6 +173,9 @@ void TCompPlayerController::idle_state(float dt) {
 			camDER->sendMsg(msg);
 			camIZQ->sendMsg(msg);	*/					
 		}
+		else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && is_grounded) {
+			is_grounded = false;
+		}
 	}
 	// Chequea el dash
 	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);

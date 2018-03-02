@@ -1,0 +1,27 @@
+[
+  {
+    "entity":
+    {
+      "name": "Skybox"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Skybox.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SkyboxMat.material"
+          ]
+        }
+      ]
+    }
+  }
+]

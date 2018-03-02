@@ -24,6 +24,10 @@ bool CModuleTestAxis::start()
     parseScene("data/scenes/scene_basic.scene", ctx);
   }
   {
+	  TEntityParseContext ctx;
+	  parseScene("data/scenes/Skybox01.scene", ctx);
+  }
+  {
     TEntityParseContext ctx;
     //parseScene("data/scenes/scene_lightmap.scene", ctx);
   }
