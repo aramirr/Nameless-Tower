@@ -31,6 +31,7 @@ class TCompOrbitCamera : public TCompBase {
 	bool izq;
 
   bool isForward();
+	bool isGrounded();
 
   //void changeHeight(const TMsgisGrounded& msg);
 

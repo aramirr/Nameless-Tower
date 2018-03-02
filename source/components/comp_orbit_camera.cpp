@@ -12,6 +12,12 @@ bool TCompOrbitCamera::isForward()
 	return !pc->isForward();
 }
 
+bool TCompOrbitCamera::isGrounded()
+{
+	TCompPlayerController* pc = player->get<TCompPlayerController>();
+	return !pc->isGrounded();
+}
+
 //void TCompOrbitCamera::changeHeight(const TMsgisGrounded & msg)
 //{
 //	TCompTransform* p = player->get<TCompTransform>();
@@ -136,7 +142,12 @@ void TCompOrbitCamera::update(float dt) {
 		newPos = pos;
 		newPos.y = currentPlayerY + height;
 		if (jumpinOrbitPlatform) {
-			if (inOrbitPlatform)jumpinOrbitPlatform = false;
+			dY = abs(currentPlayerY - pPos.y);
+			if (inOrbitPlatform || (dY > 4.f && isGrounded())) jumpinOrbitPlatform = false;
+			//else if(inOrbitPlatform || isGrounded()) jumpinOrbitPlatform = false;
+			/*if (isGrounded()) {
+ 				jumpinOrbitPlatform = false;
+			}*/
 		}
 	}
 	else {
