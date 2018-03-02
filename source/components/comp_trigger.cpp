@@ -15,11 +15,16 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 	h_other_entity = msg.h_other_entity;
 	CEntity* e_other_entity = h_other_entity;
 	std::string other_entity_name = e_other_entity->getName();
-	if (trigger_type == "runner" && other_entity_name == "The Player") {
-		CEntity* tunner_entity = (CEntity*)getEntityByName("Boss Runner");
-		TMsgAppear msg2;
+	if (trigger_type == "runner_appear" && other_entity_name == "The Player") {
+		CEntity* runner_entity = (CEntity*)getEntityByName("Boss Runner");
+		TMsgRunnerAppear msg2;
 		msg2.appearing_position = appearing_position;
-		tunner_entity->sendMsg(msg2);
+		runner_entity->sendMsg(msg2);
+	}
+	else if (trigger_type == "runner_stop" && other_entity_name == "Boss Runner") {
+		CEntity* runner_entity = (CEntity*)getEntityByName("Boss Runner");
+		TMsgRunnerStop msg2;
+		runner_entity->sendMsg(msg2);
 	}
 	else if (trigger_type == "checkpoint" && other_entity_name == "The Player") {
 		TMsgCheckpoint msg2;
@@ -75,7 +80,7 @@ void TCompTrigger::load(const json& j, TEntityParseContext& ctx) {
 	h_entity = ctx.current_entity;
 	trigger_type = j.value("trigger_type", "none");
 	collider_entity = j.value("collider_entity", "none");
-	if (trigger_type == "runner")
+	if (trigger_type == "runner_appear" || trigger_type == "checkpoint")
 	{
 		appearing_position = loadVEC3(j["appearing_position"]);
 	}

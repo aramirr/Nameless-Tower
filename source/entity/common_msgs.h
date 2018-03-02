@@ -24,8 +24,12 @@ struct TMsgJump {
 	DECL_MSG_ID();
 };
 
-struct TMsgAppear {
+struct TMsgRunnerAppear {
 	VEC3 appearing_position;
+	DECL_MSG_ID();
+};
+
+struct TMsgRunnerStop {
 	DECL_MSG_ID();
 };
 

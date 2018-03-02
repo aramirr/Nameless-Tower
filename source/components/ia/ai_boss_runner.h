@@ -35,11 +35,13 @@ public:
 	void attack_state();
 	void disapear_state(float dt);
 	void jumping_state(float dt);
+	void idle_state();
 
 	void Init();
 
 	void on_player_jump(const TMsgJump& msg);
-	void appear(const TMsgAppear& msg);
+	void appear(const TMsgRunnerAppear& msg);
+	void stop(const TMsgRunnerStop& msg);
 
 	static void registerMsgs();
 };

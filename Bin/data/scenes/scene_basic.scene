@@ -125,7 +125,7 @@
 				"halfExtent": "1 1 1"
 			},
 			"trigger": {
-				"trigger_type": "runner",
+				"trigger_type": "runner_appear",
 				"appearing_position": "30.705 0 9.013"
 			}
 		}
@@ -134,7 +134,7 @@
 		"entity": {
 			"name": "Checkpoint Trigger",
 			"transform": {
-				"pos": "30.705 0 9.013",
+				"pos": "32 0 0",
 				"lookat": "-1 0 15"
 			},
 			"render" : [
@@ -151,8 +151,7 @@
 				"halfExtent": "1 1 1"
 			},
 			"trigger": {
-				"trigger_type": "checkpoiny",
-				"appearing_position": "32 0 0"
+				"trigger_type": "runner_stop"
 			}
 		}
 	},

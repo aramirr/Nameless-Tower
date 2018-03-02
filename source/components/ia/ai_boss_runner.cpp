@@ -15,13 +15,14 @@ void CAIBossRunner::Init()
 	AddState("chase", (statehandler)&CAIBossRunner::chase_state);
 	AddState("attack", (statehandler)&CAIBossRunner::attack_state);
 	AddState("jump", (statehandler)&CAIBossRunner::jumping_state);
+	AddState("idle", (statehandler)&CAIBossRunner::idle_state);
 
 	// reset the state
 	actual_state = "disappear";
 	ChangeState("disappear");
 }
-void CAIBossRunner::appear(const TMsgAppear& msg) {
-	if (actual_state == "disappear") {
+void CAIBossRunner::appear(const TMsgRunnerAppear& msg) {
+	if (actual_state == "disappear" || actual_state == "idle") {
 		appearing_position = msg.appearing_position;
 		actual_state = "appear";
 		ChangeState("appear");
@@ -33,9 +34,17 @@ void CAIBossRunner::on_player_jump(const TMsgJump& msg) {
 		jump_positions.push(msg.jump_position);
 }
 
+void CAIBossRunner::stop(const TMsgRunnerStop& msg) {
+	if (actual_state == "chase") {
+		change_mesh(1);
+		ChangeState("idle");
+	}
+}
+
 void CAIBossRunner::registerMsgs() {
 	DECL_MSG(CAIBossRunner, TMsgJump, on_player_jump);
-	DECL_MSG(CAIBossRunner, TMsgAppear, appear);
+	DECL_MSG(CAIBossRunner, TMsgRunnerAppear, appear);
+	DECL_MSG(CAIBossRunner, TMsgRunnerStop, stop);
 }
 
 void CAIBossRunner::debugInMenu() {
@@ -209,4 +218,22 @@ void CAIBossRunner::jumping_state(float dt) {
 	else {
 		ChangeState("chase");
 	}
+}
+
+void CAIBossRunner::idle_state() {
+	TCompTransform* my_transform = getMyTransform();
+	CEntity *player = (CEntity *)getEntityByName("The Player");
+	TCompTransform *p_transform = player->get<TCompTransform>();
+	distance_to_player = VEC3::Distance(my_transform->getPosition(), p_transform->getPosition());
+	if (distance_to_player < attack_distance) {
+		actual_state = "attack";
+		change_mesh(0);
+		ChangeState("attack");
+	}
+	if (distance_to_player > chase_distance + 10.f) {
+		jump_positions = std::queue<VEC3>();
+		actual_state = "disappear";
+		ChangeState("disappear");
+	}
+	
 }
