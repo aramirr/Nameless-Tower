@@ -28,6 +28,8 @@ class TCompPlayerController : public IAIController {
 	bool	can_omni;
 	bool	can_dash;
 
+	VEC3 checkpoint;
+
   DECL_SIBLING_ACCESS();
 
 public:
@@ -51,6 +53,7 @@ public:
 
 	static void registerMsgs();
 	void killPlayer(const TMsgKillPlayer& msg);
+	void setCheckpoint(const TMsgCheckpoint& msg);
 
   void init();
 };

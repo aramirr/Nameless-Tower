@@ -12,12 +12,12 @@ class TCompCameraManager : public TCompBase {
 
 	bool carga;
 
-  void changeCamerainPlatform(const TMsgchangeCamerainPlatform& msg);
+  //void changeCamerainPlatform(const TMsgchangeCamerainPlatform& msg);
 
   bool inPlatform;
 
 public:
-  static void registerMsgs();
+  //static void registerMsgs();
 
 	void debugInMenu();
 	void load(const json& j, TEntityParseContext& ctx);

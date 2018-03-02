@@ -510,10 +510,16 @@ void TCompPlayerController::dead_state(float dt) {
 
 void TCompPlayerController::registerMsgs() {
 	DECL_MSG(TCompPlayerController, TMsgKillPlayer, killPlayer);
+	DECL_MSG(TCompPlayerController, TMsgCheckpoint, setCheckpoint);
 }
 
 void TCompPlayerController::killPlayer(const TMsgKillPlayer& msg)
 {
 	change_mesh(5);
 	ChangeState("dead");
+}
+
+void TCompPlayerController::setCheckpoint(const TMsgCheckpoint& msg)
+{
+   	checkpoint = msg.appearing_position;
 }
