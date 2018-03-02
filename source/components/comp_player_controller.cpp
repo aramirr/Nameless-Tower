@@ -39,6 +39,10 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			delta_move.y += y_speed;
 			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
+				if (c_my_transform->getPosition().y - jumping_start_height > jumping_death_height) {
+					change_mesh(5);
+					ChangeState("dead");
+				}
 				y_speed_factor = 0;
 				is_grounded = true;
 				can_omni = true;
@@ -57,6 +61,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			}
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 				is_grounded = false;
+				jumping_start_height = c_my_transform->getPosition().y;
 			}
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
@@ -113,7 +118,8 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	dashing_speed = j.value("dashing_speed", 3);
 	omnidash_max_time = j.value("omnidash_max_time", 0.3f);
 	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 1.6f);
-	current_x_speed_factor = x_speed_factor;
+	jumping_death_height = j.value("jumping_death_height", 10.f);
+	current_x_speed_factor = x_speed_factor; 
 	is_grounded = true;
 	can_omni = true;
 	can_dash = true;
@@ -161,6 +167,10 @@ void TCompPlayerController::idle_state(float dt) {
 	{
 		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(0, y_speed, 0), 0.f, dt, physx::PxControllerFilters());
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
+			if (jumping_start_height - c_my_transform->getPosition().y > jumping_death_height) {
+				change_mesh(5);
+				ChangeState("dead");
+			}
 			y_speed_factor = 0;
 			is_grounded = true;
 			can_omni = true;
@@ -175,6 +185,7 @@ void TCompPlayerController::idle_state(float dt) {
 		}
 		else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && is_grounded) {
 			is_grounded = false;
+			jumping_start_height = c_my_transform->getPosition().y;
 		}
 	}
 	// Chequea el dash
@@ -214,6 +225,7 @@ void TCompPlayerController::idle_state(float dt) {
 	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
 	if (space.getsPressed() && is_grounded) {
 		is_grounded = false;
+		jumping_start_height = c_my_transform->getPosition().y;
 		change_mesh(2);
 		TMsgJump msg_jump;
 		msg_jump.jump_position = c_my_transform->getPosition();
@@ -241,6 +253,7 @@ void TCompPlayerController::running_state(float dt) {
 	if (space.getsPressed() && is_grounded) {
 		TCompTransform *c_my_transform = get<TCompTransform>();
 		is_grounded = false;
+		jumping_start_height = c_my_transform->getPosition().y;
 		change_mesh(2);
 		TMsgJump msg_jump;
 		msg_jump.jump_position = c_my_transform->getPosition();
@@ -477,6 +490,10 @@ void TCompPlayerController::dead_state(float dt) {
 	{
 		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(0, y_speed, 0), 0.f, dt, physx::PxControllerFilters());
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
+			if (c_my_transform->getPosition().y - jumping_start_height > jumping_death_height) {
+				change_mesh(5);
+				ChangeState("dead");
+			}
 			y_speed_factor = 0;
 			is_grounded = true;
 			can_omni = true;

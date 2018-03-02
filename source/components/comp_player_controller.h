@@ -9,8 +9,8 @@ class TCompPlayerController : public IAIController {
 	float   x_speed_factor = 2.0f;
 	float   y_speed_factor = 0.f;
 	VEC3    speed;
-	VEC3	  omnidash_vector;
-	VEC2	  omnidash_arrow;
+	VEC3	omnidash_vector;
+	VEC2	omnidash_arrow;
 	float   dashing_max;
 	float   dashing_amount;
 	float   jump_end;
@@ -18,13 +18,15 @@ class TCompPlayerController : public IAIController {
 	float   jump_speed;
 	float   omnidash_timer = 0;
 	float   omnidash_max_time;
-	float		omnidashing_ammount;
-	float		omnidashing_max_ammount;
+	float	omnidashing_ammount;
+	float	omnidashing_max_ammount;
+	float	jumping_start_height;
+	float	jumping_death_height;
 	int     dashing_speed;
 	bool    looking_left;
 	bool    is_grounded;
-	bool		can_omni;
-	bool		can_dash;
+	bool	can_omni;
+	bool	can_dash;
 
   DECL_SIBLING_ACCESS();
 
