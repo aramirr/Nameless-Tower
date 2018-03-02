@@ -29,13 +29,13 @@ bool TCompCameraManager::isForward()
   //else return false;
 }
 
-void TCompCameraManager::changeCamerainPlatform(const TMsgchangeCamerainPlatform & msg) {
-  inPlatform = true;
-}
-
-void TCompCameraManager::registerMsgs() {
-  DECL_MSG(TCompCameraManager, TMsgchangeCamerainPlatform, changeCamerainPlatform);
-}
+//void TCompCameraManager::changeCamerainPlatform(const TMsgchangeCamerainPlatform & msg) {
+//  inPlatform = true;
+//}
+//
+//void TCompCameraManager::registerMsgs() {
+//  DECL_MSG(TCompCameraManager, TMsgchangeCamerainPlatform, changeCamerainPlatform);
+//}
 
 void TCompCameraManager::debugInMenu() {
 

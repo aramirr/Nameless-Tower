@@ -9,6 +9,8 @@ class TCompOrbitCamera : public TCompBase {
 	VEC3 towerCentre;
 	VEC3 pos;
 
+	VEC3 actualPos;
+
 	float xOffset;
 
 	float radio;

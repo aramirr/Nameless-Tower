@@ -59,13 +59,13 @@ struct TMsgEntitiesGroupCreated {
   DECL_MSG_ID();
 };
 
-struct TMsgisGrounded {
-  DECL_MSG_ID();
-};
-
-struct TMsgchangeCamerainPlatform {
-  DECL_MSG_ID();
-};
+//struct TMsgisGrounded {
+//  DECL_MSG_ID();
+//};
+//
+//struct TMsgchangeCamerainPlatform {
+//  DECL_MSG_ID();
+//};
 
 struct TMsgDefineLocalAABB {
 	AABB* aabb;

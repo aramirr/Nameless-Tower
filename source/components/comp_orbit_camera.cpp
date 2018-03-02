@@ -90,6 +90,7 @@ void TCompOrbitCamera::update(float dt) {
 	TCompTransform* c = get<TCompTransform>();
 	assert(c);
 	pos = c->getPosition();
+	actualPos = pos;
 
 	TCompTransform* p = player->get<TCompTransform>();
 	assert(p);
@@ -129,7 +130,7 @@ void TCompOrbitCamera::update(float dt) {
 	//dbg("%f\n", (distance - distanceT));
 
 	if ((izq && !isForward() && !inOrbitPlatform || ((izq && isForward()) && (distanceCam > (abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && izquierda && !inOrbitPlatform)) 
-		|| (!izq && isForward() && !inOrbitPlatform || ((!izq && !isForward()) && (distanceCam >(abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && !izquierda && !inOrbitPlatform))) {
+		|| (!izq && isForward() && !inOrbitPlatform || ((!izq && !isForward()) && (distanceCam > (abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && !izquierda && !inOrbitPlatform))) {
     newPos = pos;
 		newPos.y = currentPlayerY + height;
 	}
@@ -168,7 +169,16 @@ void TCompOrbitCamera::update(float dt) {
       newPos.y = currentPlayerY + height;
     }
 
-    c->setPosition(newPos);
+		float distanceBC = VEC3::Distance(newPos, actualPos);
+		if (inOrbitPlatform /*&& distanceBC > 3.f*/) {
+			newPos = ((newPos - actualPos) / 200.f);
+			newPos += actualPos;
+			c->setPosition(newPos);
+		}
+		else {
+			c->setPosition(newPos);
+		}
+   
 
     //c->setPerspective(deg2rad(fov_deg), z_near, z_far);
     c->lookAt(newPos, center);
