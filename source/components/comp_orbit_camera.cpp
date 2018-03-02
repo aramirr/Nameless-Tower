@@ -12,18 +12,31 @@ bool TCompOrbitCamera::isForward()
 	return !pc->isForward();
 }
 
-void TCompOrbitCamera::changeHeight(const TMsgisGrounded & msg)
-{
-	TCompTransform* p = player->get<TCompTransform>();
-	assert(p);
-	VEC3 pPos = p->getPosition();
+//void TCompOrbitCamera::changeHeight(const TMsgisGrounded & msg)
+//{
+//	TCompTransform* p = player->get<TCompTransform>();
+//	assert(p);
+//	VEC3 pPos = p->getPosition();
+//
+//	playerY = pPos.y;
+//}
+//
+//void TCompOrbitCamera::registerMsgs()
+//{
+//	DECL_MSG(TCompOrbitCamera, TMsgisGrounded, changeHeight);
+//}
 
-	playerY = pPos.y;
+void TCompOrbitCamera::attachPlayer(const TMsgAttachTo & msg){
+  inOrbitPlatform = true;
 }
 
-void TCompOrbitCamera::registerMsgs()
-{
-	DECL_MSG(TCompOrbitCamera, TMsgisGrounded, changeHeight);
+void TCompOrbitCamera::detachPlayer(const TMsgDetachOf & msg){
+  inOrbitPlatform = false;
+}
+
+void TCompOrbitCamera::registerMsgs(){
+  DECL_MSG(TCompOrbitCamera, TMsgAttachTo, attachPlayer);
+  DECL_MSG(TCompOrbitCamera, TMsgDetachOf, detachPlayer);
 }
 
 void TCompOrbitCamera::debugInMenu() {
@@ -68,6 +81,8 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
 	xOffset = deg2rad(((2 * 3.14159f * radio) / 360) * apertura);
 
 	carga = true;
+
+  inOrbitPlatform = false;
 }
 
 void TCompOrbitCamera::update(float dt) {
@@ -111,43 +126,52 @@ void TCompOrbitCamera::update(float dt) {
 
 	float distanceT = VEC3::Distance(center2, pPos);
 
-	dbg("%f\n", (distance - distanceT));
+	//dbg("%f\n", (distance - distanceT));
 
-	if ((izq && !isForward() || ((izq && isForward()) && (distanceCam > (abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && izquierda))
-		|| (!izq && isForward() || ((!izq && !isForward()) && (distanceCam >(abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && !izquierda))) {
-		newPos = pos;
+	if ((izq && !isForward() && !inOrbitPlatform || ((izq && isForward()) && (distanceCam > (abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && izquierda && !inOrbitPlatform)) 
+		|| (!izq && isForward() && !inOrbitPlatform || ((!izq && !isForward()) && (distanceCam >(abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && !izquierda && !inOrbitPlatform))) {
+    newPos = pos;
 		newPos.y = currentPlayerY + height;
 	}
 	else {
-		if (izq)xOffset *= -1;
+    /*if (inOrbitPlatform && ((izq && isForward()) || (!izq && !isForward()))) {
+      TMsgchangeCamerainPlatform msg;
+      CEntity* camManager = (CEntity *)getEntityByName("camera_manager");
+      camManager->sendMsg(msg);
+    }*/
+    /*else {*/
+      if (izq)xOffset *= -1;
 
-		float d = VEC3::Distance(center, pPos);
-		float _d = d / d;
-		float x = pPos.x - _d * (center.x - pPos.x);
-		float z = pPos.z - _d * (center.z - pPos.z);
+      float d = VEC3::Distance(center, pPos);
+      float _d = d / d;
+      float x = pPos.x - _d * (center.x - pPos.x);
+      float z = pPos.z - _d * (center.z - pPos.z);
 
-		pos.x = x;
-		pos.y = currentPlayerY + height;
-		pos.z = z;
+      pos.x = x;
+      pos.y = currentPlayerY + height;
+      pos.z = z;
 
-		float _distance = VEC3::Distance(center, pos);
+      float _distance = VEC3::Distance(center, pos);
 
-		float y, p2, _y, _p2;
-		c->getYawPitchRoll(&y, &p2);
-		p->getYawPitchRoll(&_y, &_p2);
+      float y, p2, _y, _p2;
+      c->getYawPitchRoll(&y, &p2);
+      p->getYawPitchRoll(&_y, &_p2);
 
-		c->setPosition(center);
+      c->setPosition(center);
 
-		y = _y + xOffset;
 
-		c->setYawPitchRoll(y, p2);
-		newPos = c->getPosition() - (c->getFront() * (_distance - distance));
-		newPos.y = currentPlayerY + height;
-	}
+      if (!inOrbitPlatform)y = _y + xOffset;
+      else if (((izq && isForward()) || (!izq && !isForward())))y = _y + xOffset;
 
-	c->setPosition(newPos);
+      c->setYawPitchRoll(y, p2);
+      newPos = c->getPosition() - (c->getFront() * (_distance - distance));
+      newPos.y = currentPlayerY + height;
+    }
 
-	//c->setPerspective(deg2rad(fov_deg), z_near, z_far);
-	c->lookAt(newPos, center);
+    c->setPosition(newPos);
+
+    //c->setPerspective(deg2rad(fov_deg), z_near, z_far);
+    c->lookAt(newPos, center);
+    /*}*/
 }
 

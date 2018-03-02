@@ -44,11 +44,11 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				can_omni = true;
 				can_dash = true;
 				//MENSAJE
-				TMsgisGrounded msg;
+				/*TMsgisGrounded msg;
 				CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
 				CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
 				camDER->sendMsg(msg);
-				camIZQ->sendMsg(msg);
+				camIZQ->sendMsg(msg);*/
 				if (dashing_amount == 0) {
 					ChangeState("idle");
 				}
@@ -167,11 +167,11 @@ void TCompPlayerController::idle_state(float dt) {
 			can_dash = true;
 
 			//MENSAJE
-			TMsgisGrounded msg;
+			/*TMsgisGrounded msg;
 			CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
 			CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
 			camDER->sendMsg(msg);
-			camIZQ->sendMsg(msg);						
+			camIZQ->sendMsg(msg);	*/					
 		}
 	}
 	// Chequea el dash

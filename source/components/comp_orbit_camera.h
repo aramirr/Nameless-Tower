@@ -30,7 +30,7 @@ class TCompOrbitCamera : public TCompBase {
 
   bool isForward();
 
-  void changeHeight(const TMsgisGrounded& msg);
+  //void changeHeight(const TMsgisGrounded& msg);
 
   float distanceCam;
 
@@ -39,9 +39,14 @@ class TCompOrbitCamera : public TCompBase {
 
   bool carga;
 
+  void attachPlayer(const TMsgAttachTo& msg);
+  void detachPlayer(const TMsgDetachOf& msg);
+
+  bool inOrbitPlatform;
+
 public:
   static void registerMsgs();
-
+  
 	void debugInMenu();
 	void load(const json& j, TEntityParseContext& ctx);
 	void update(float dt);

@@ -63,6 +63,10 @@ struct TMsgisGrounded {
   DECL_MSG_ID();
 };
 
+struct TMsgchangeCamerainPlatform {
+  DECL_MSG_ID();
+};
+
 struct TMsgDefineLocalAABB {
 	AABB* aabb;
 	DECL_MSG_ID();
