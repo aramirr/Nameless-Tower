@@ -159,70 +159,14 @@ void TCompPlayerController::initial_state(float dt) {
 void TCompPlayerController::idle_state(float dt) {
 	TCompCollider* comp_collider = get<TCompCollider>();
 	TCompTransform *c_my_transform = getMyTransform();
+	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
+	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
 
 	float y_speed = (y_speed_factor * dt) - (gravity * dt * dt / 2);
 	if (!is_grounded)
 		y_speed_factor -= gravity * dt / 2;
-	if (comp_collider && comp_collider->controller)
-	{
-		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(0, y_speed, 0), 0.f, dt, physx::PxControllerFilters());
-		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
-			if (jumping_start_height - c_my_transform->getPosition().y > jumping_death_height) {
-				change_mesh(5);
-				ChangeState("dead");
-			}
-			y_speed_factor = 0;
-			is_grounded = true;
-			can_omni = true;
-			can_dash = true;
-
-			//MENSAJE
-			/*TMsgisGrounded msg;
-			CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
-			CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
-			camDER->sendMsg(msg);
-			camIZQ->sendMsg(msg);	*/					
-		}
-		else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && is_grounded) {
-			is_grounded = false;
-			jumping_start_height = c_my_transform->getPosition().y;
-		}
-	}
-	// Chequea el dash
-	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
-	if (dash.getsPressed() && can_dash) {
-		dashing_amount = 0;
-		current_x_speed_factor = x_speed_factor * dashing_speed;
-		change_mesh(4);
-		can_dash = false;
-		ChangeState("dash");
-	}
-
-	if (isPressed('A')) {
-		if (!looking_left) {
-			looking_left = true;
-			move_player(false, true, dt, y_speed);
-		}
-		else {
-			move_player(false, false, dt, y_speed);
-		}
-		change_mesh(0);
-		ChangeState("run");
-	}
-	if (isPressed('D')) {
-		if (!looking_left) {
-			move_player(true, false, dt, y_speed);
-		}
-		else {
-			looking_left = false;
-			move_player(true, true, dt, y_speed);
-		}
-		change_mesh(0);
-		ChangeState("run");
-	}
 
 	// Chequea el salto
-	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
 	if (space.getsPressed() && is_grounded) {
 		is_grounded = false;
 		jumping_start_height = c_my_transform->getPosition().y;
@@ -233,15 +177,67 @@ void TCompPlayerController::idle_state(float dt) {
 		e_runner->sendMsg(msg_jump);
 		y_speed_factor = jump_speed;
 		ChangeState("jump");
+	} 
+	// Chequea el dash
+	else if (dash.getsPressed() && can_dash) {
+		dashing_amount = 0;
+		current_x_speed_factor = x_speed_factor * dashing_speed;
+		change_mesh(4);
+		can_dash = false;
+		ChangeState("dash");
 	}
 
-	// Chequea el omnidash si es que esta en bajada
-	const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);
-	if (omni.getsPressed() && !is_grounded && can_omni) {
-		EngineTimer.setTimeSlower(0.25f);
-		can_omni = false;
-		change_mesh(3);
-		ChangeState("omni");
+	else {
+		if (comp_collider && comp_collider->controller)
+		{
+			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(0, y_speed, 0), 0.f, dt, physx::PxControllerFilters());
+			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
+				if (jumping_start_height - c_my_transform->getPosition().y > jumping_death_height) {
+					change_mesh(5);
+					ChangeState("dead");
+				}
+				y_speed_factor = 0;
+				is_grounded = true;
+				can_omni = true;
+				can_dash = true;
+			}
+			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && is_grounded) {
+				is_grounded = false;
+				jumping_start_height = c_my_transform->getPosition().y;
+			}
+		}
+
+		if (isPressed('A')) {
+			if (!looking_left) {
+				looking_left = true;
+				move_player(false, true, dt, y_speed);
+			}
+			else {
+				move_player(false, false, dt, y_speed);
+			}
+			change_mesh(0);
+			ChangeState("run");
+		}
+		if (isPressed('D')) {
+			if (!looking_left) {
+				move_player(true, false, dt, y_speed);
+			}
+			else {
+				looking_left = false;
+				move_player(true, true, dt, y_speed);
+			}
+			change_mesh(0);
+			ChangeState("run");
+		}
+
+		// Chequea el omnidash si es que esta en bajada
+		const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);
+		if (omni.getsPressed() && !is_grounded && can_omni) {
+			EngineTimer.setTimeSlower(0.25f);
+			can_omni = false;
+			change_mesh(3);
+			ChangeState("omni");
+		}
 	}
 }
 

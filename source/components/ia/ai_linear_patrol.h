@@ -11,6 +11,9 @@ class CAILinearPatrol : public IAIController
   float delay;
   float acum_delay;
 
+  CHandle	 attached;
+
+
   DECL_SIBLING_ACCESS();
 
 public:
@@ -19,12 +22,16 @@ public:
 
   void InitializeWaypointState();
   void NextWaypointState();
-  void MoveToWaypointState();
+  void MoveToWaypointState(float dt);
   void WaitState(float dt);
 
   void Init();
   void addWaypoint(VEC3 waypoint) { _waypoints.push_back(waypoint); };
   VEC3 getWaypoint() { return _waypoints[currentWaypoint]; }
+
+  static void registerMsgs();
+  void attachPlayer(const TMsgAttachTo& msg);
+  void detachPlayer(const TMsgDetachOf& msg);
 
 };
 

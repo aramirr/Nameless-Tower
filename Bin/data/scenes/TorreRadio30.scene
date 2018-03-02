@@ -218,7 +218,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 0.05
+        "speed": 0.005
         ,
         "delay": 1.0
         ,
@@ -398,12 +398,65 @@
     ,
     "trigger":
     {
-      "trigger_type": "plattform_orbit"
+      "trigger_type": "plattform"
       ,
       "collider_entity": "Plataforma_R30_005"
     }
   }
 }
+  ,
+   {
+    "entity":
+    {
+      "name": "Plataforma_R30_003T"
+      ,
+      "transform":
+      {
+        "pos": "-12.6147 5.25 -29.0299"
+        ,
+        "rotation": "0.0 -0.198669 0.0 -0.980067"
+      }
+      ,
+      "render":
+      [
+        {
+          
+        }
+      ]
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 0.005
+        ,
+        "delay": 1.0
+        ,
+        "waypoints":
+        [
+          "-12.6147 5.25 -29.0299"
+          ,
+          "-12.6147 12.9318 -29.0299"
+        ]
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.5 1 1.5"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "Plataforma_R30_003"
+      }
+    }
+  }
 ]
 
 

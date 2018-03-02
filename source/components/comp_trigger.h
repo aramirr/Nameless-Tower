@@ -5,7 +5,7 @@
 #include "ia/ai_controller.h"
 
 class TCompTrigger : public IAIController {
-	enum TriggerTypes {player, runner, plattform_orbit, spikes, none};
+	enum TriggerTypes {player, runner, plattform, spikes, none};
 	std::string trigger_type;
 	std::string collider_entity;
 

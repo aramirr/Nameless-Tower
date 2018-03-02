@@ -21,18 +21,18 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		msg2.appearing_position = appearing_position;
 		tunner_entity->sendMsg(msg2);
 	}
-	if (trigger_type == "plattform_orbit" && other_entity_name == "The Player"){
+	if (trigger_type == "plattform" && other_entity_name == "The Player") {
 		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
- 		TMsgAttachTo attach_msg;
+		TMsgAttachTo attach_msg;
 		attach_msg.h_attacher = h_other_entity;
 		attach_msg.h_attached = e_collider_entity;
 		e_collider_entity->sendMsg(attach_msg);
-
-    CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
-    CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
-    camDER->sendMsg(attach_msg);
-    camIZQ->sendMsg(attach_msg);
+		CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
+		CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
+		camDER->sendMsg(attach_msg);
+		camIZQ->sendMsg(attach_msg);
 	}
+	
 	if (trigger_type == "spikes" && other_entity_name == "The Player") {
 		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
 		TMsgTriggerSpike triggerSpikeMsg;
@@ -44,18 +44,19 @@ void TCompTrigger::onTriggerExit(const TMsgTriggerExit& msg) {
 	h_other_entity = msg.h_other_entity;
 	CEntity* e_other_entity = h_other_entity;
 	std::string other_entity_name = e_other_entity->getName();
-	if (trigger_type == "plattform_orbit" && other_entity_name == "The Player") {
+	if (trigger_type == "plattform" && other_entity_name == "The Player") {
 		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
 		TMsgDetachOf detach_msg;
 		detach_msg.h_attacher = h_other_entity;
 		detach_msg.h_attached = e_collider_entity;
 		e_collider_entity->sendMsg(detach_msg);
 
-    CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
-    CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
-    camDER->sendMsg(detach_msg);
-    camIZQ->sendMsg(detach_msg);
+		CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
+		CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
+		camDER->sendMsg(detach_msg);
+		camIZQ->sendMsg(detach_msg);
 	}
+
 }
 
 

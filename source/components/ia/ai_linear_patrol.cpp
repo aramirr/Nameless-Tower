@@ -84,23 +84,33 @@ void CAILinearPatrol::NextWaypointState()
 	ChangeState("move_to_waypoint");
 }
 
-void CAILinearPatrol::MoveToWaypointState()
+void CAILinearPatrol::MoveToWaypointState(float dt)
 {
 	TCompTransform *mypos = getMyTransform();
 	VEC3 wppos = getWaypoint();
-
+	VEC3 my_pos = mypos->getPosition();
 	VEC3 dir = wppos - mypos->getPosition();
 	dir.Normalize();
-	VEC3 delta_pos = mypos->getPosition() + speed * dir;
-	mypos->setPosition(delta_pos);
+	VEC3 new_pos = mypos->getPosition() + speed * dir;
+	mypos->setPosition(new_pos);
+
 	
 	TCompCollider* comp_collider = get<TCompCollider>();
 	if (comp_collider)
 	{
 		PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
 		PxTransform tr = rigidActor->getGlobalPose();
-		tr.p = PxVec3(delta_pos.x, delta_pos.y, delta_pos.z);
+		tr.p = PxVec3(new_pos.x, new_pos.y, new_pos.z);
 		rigidActor->setGlobalPose(tr);
+	}
+
+	if (attached.isValid()) {
+		CEntity* e = attached;
+		assert(e);
+		TCompCollider *player_collider = e->get< TCompCollider >();
+		TCompTransform *player_transform = e->get< TCompTransform >();
+		VEC3 delta_pos = new_pos - my_pos;
+		player_collider->controller->move(physx::PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, dt, physx::PxControllerFilters());
 	}
 
 	if (VEC3::Distance(getWaypoint(), mypos->getPosition()) <= 0.25f)
@@ -117,4 +127,18 @@ void CAILinearPatrol::WaitState(float dt)
 	if (delay < acum_delay) {
 		ChangeState("next_waypoint");
 	}
+}
+
+
+void CAILinearPatrol::registerMsgs() {
+	DECL_MSG(CAILinearPatrol, TMsgAttachTo, attachPlayer);
+	DECL_MSG(CAILinearPatrol, TMsgDetachOf, detachPlayer);
+}
+
+void CAILinearPatrol::attachPlayer(const TMsgAttachTo& msg) {
+	attached = msg.h_attacher;
+}
+
+void CAILinearPatrol::detachPlayer(const TMsgDetachOf& msg) {
+	attached = CHandle();
 }
