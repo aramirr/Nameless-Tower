@@ -206,8 +206,9 @@ void TCompOrbitCamera::update(float dt) {
     if (exitPlatform || inPlatform) {
      // dbg("Saaaaaaaaaaaaaaalgoooooooooooooooooo\n");
       //newPos = actualPos;
-      newPos = ((newPos - actualPos) / 200.f);
-      newPos += actualPos;
+      VEC3 newPos2 = ((newPos - actualPos) / 200.f);
+      newPos.x = actualPos.x + newPos2.x;
+      newPos.z = actualPos.z + newPos2.z;
       exitPlatform = false;
     }
   }
