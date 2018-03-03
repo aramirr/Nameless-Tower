@@ -95,16 +95,15 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 }
 
 void TCompPlayerController::debugInMenu() {
-	ImGui::Text("State: %s", state.c_str());
-	ImGui::Text("Can dash: %s", can_dash ? "Si" : "No");
-	ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
+	//ImGui::Text("State: %s", state.c_str());
+	//ImGui::Text("Can dash: %s", can_dash ? "Si" : "No");
+	//ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
 	ImGui::DragFloat("X speed: %f", &x_speed_factor, 0.01f, 0.f, 5.f);
 	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
 	ImGui::DragFloat("Jump speed: %f", &jump_speed, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Omnidash max: %f", &omnidashing_max_ammount, 0.1f, 0.f, 10.f);
-	ImGui::Text("Dashing ammount: %f", dashing_amount);
-	ImGui::DragFloat("Radio torre: %f", &tower_radius, 1.f, 0.f, 50.f);
+	ImGui::DragFloat("Dash max: %f", &dashing_max, 0.05f, 0.f, 1.f);
 }
 
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
@@ -148,7 +147,7 @@ void TCompPlayerController::initial_state(float dt) {
 	my_pos->lookAt(my_pos->getPosition(), center);
 	float y, p, r;
 	my_pos->getYawPitchRoll(&y, &p, &r);
-	y += deg2rad(90);
+	y -= deg2rad(90);
 	my_pos->setYawPitchRoll(y, p, r);
 
 	looking_left = my_pos->isInLeft(center) ? false : true;
@@ -472,11 +471,9 @@ void TCompPlayerController::dashing_state(float dt) {
 
 void TCompPlayerController::dead_state(float dt) {
 	if (isPressed('P')) {
-		//TCompTransform *c_my_transform = get<TCompTransform>();
-		//c_my_transform->setPosition(VEC3(-32, 0, 0));
-		//ChangeState("initial");	
-		
-
+		TCompTransform *c_my_transform = get<TCompTransform>();
+		c_my_transform->setPosition(VEC3(-30.106, 0, 10.87));
+		ChangeState("initial");	
 	}
 	TCompCollider* comp_collider = get<TCompCollider>();
 	TCompTransform *c_my_transform = getMyTransform();
