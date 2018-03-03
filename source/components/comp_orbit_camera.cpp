@@ -203,7 +203,7 @@ void TCompOrbitCamera::update(float dt) {
     newPos = c->getPosition() - (c->getFront() * (_distance - distance));
     newPos.y = currentPlayerY + height;
 
-    if (exitPlatform) {
+    if (exitPlatform || inPlatform) {
      // dbg("Saaaaaaaaaaaaaaalgoooooooooooooooooo\n");
       //newPos = actualPos;
       newPos = ((newPos - actualPos) / 200.f);
