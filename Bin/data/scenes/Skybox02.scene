@@ -2,7 +2,7 @@
   {
     "entity":
     {
-      "name": "Sphere001"
+      "name": "Sphere002"
       ,
       "transform":
       {
@@ -14,11 +14,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Sphere001.mesh"
+          "mesh": "data/meshes/Sphere002.mesh"
           ,
           "materials":
           [
-            "data/materials/SkyboxMat.material"
+            "data/materials/SkyboxMat2.material"
           ]
         }
       ]

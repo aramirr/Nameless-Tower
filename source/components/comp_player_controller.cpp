@@ -472,9 +472,11 @@ void TCompPlayerController::dashing_state(float dt) {
 
 void TCompPlayerController::dead_state(float dt) {
 	if (isPressed('P')) {
-		TCompTransform *c_my_transform = get<TCompTransform>();
-		c_my_transform->setPosition(VEC3(-32, 0, 0));
-		ChangeState("initial");
+		//TCompTransform *c_my_transform = get<TCompTransform>();
+		//c_my_transform->setPosition(VEC3(-32, 0, 0));
+		//ChangeState("initial");	
+		
+
 	}
 	TCompCollider* comp_collider = get<TCompCollider>();
 	TCompTransform *c_my_transform = getMyTransform();
@@ -494,13 +496,7 @@ void TCompPlayerController::dead_state(float dt) {
 			is_grounded = true;
 			can_omni = true;
 			can_dash = true;
-
-			//MENSAJE
-			/*TMsgisGrounded msg;
-			CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
-			CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
-			camDER->sendMsg(msg);
-			camIZQ->sendMsg(msg);	*/
+			
 		}
 		else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && is_grounded) {
 			is_grounded = false;
