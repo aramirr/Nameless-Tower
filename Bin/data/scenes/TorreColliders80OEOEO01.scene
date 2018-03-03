@@ -1,0 +1,9886 @@
+[
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 -0.00121863 0.0 -0.999999"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal006"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 -2.25 0.0075532"
+        ,
+        "rotation": "0.0 -0.588771 0.0 -0.8083"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal006.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal010"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 -2.25 0.0075532"
+        ,
+        "rotation": "0.0 -0.866634 0.0 -0.498944"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal010.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal011"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 -0.91404 0.0 -0.405623"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal011.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal012"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 -0.951432 0.0 -0.307858"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal012.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal013"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 -0.9784 0.0 -0.20672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal013.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal014"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 -0.994649 0.0 -0.103316"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal014.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal015"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 -0.999999 0.0 0.0012186"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal015.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal017"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 -0.977894 0.0 0.209104"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal017.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal018"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 -0.950679 0.0 0.310176"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal018.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal019"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 -0.913049 0.0 0.40785"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal019.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal020"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 0.865415 0.0 -0.501055"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal020.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal022"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 0.742329 0.0 -0.670036"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal022.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal023"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 0.668225 0.0 -0.74396"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal023.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal024"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 0.586799 0.0 -0.809733"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal024.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal025"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 0.498945 0.0 -0.866634"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal025.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal026"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 0.405623 0.0 -0.91404"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal026.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal027"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 0.307858 0.0 -0.951432"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal027.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal028"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 0.20672 0.0 -0.9784"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal028.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal029"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 2.86135e-06 0.0075531"
+        ,
+        "rotation": "0.0 0.103317 0.0 -0.994648"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal029.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal030"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 4.5 0.0075529"
+        ,
+        "rotation": "0.0 -0.00121863 0.0 -0.999999"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal030.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal051"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 6.75 0.00755281"
+        ,
+        "rotation": "0.0 0.8083 0.0 -0.588771"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal051.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal055"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 4.5 0.0075529"
+        ,
+        "rotation": "0.0 0.498945 0.0 -0.866634"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal055.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal056"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 4.5 0.0075529"
+        ,
+        "rotation": "0.0 0.405623 0.0 -0.91404"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal056.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal057"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 4.5 0.0075529"
+        ,
+        "rotation": "0.0 0.307858 0.0 -0.951432"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal057.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal058"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 4.5 0.0075529"
+        ,
+        "rotation": "0.0 0.20672 0.0 -0.9784"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal058.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal059"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 4.5 0.0075529"
+        ,
+        "rotation": "0.0 0.103317 0.0 -0.994648"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal059.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal060"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.00121863 0.0 -0.999999"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal060.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal061"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.10574 0.0 -0.994394"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal061.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal062"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.209104 0.0 -0.977894"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal062.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal063"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.310176 0.0 -0.950679"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal063.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal064"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.40785 0.0 -0.913049"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal064.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal065"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.501055 0.0 -0.865415"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal065.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal066"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.588771 0.0 -0.8083"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal066.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal067"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.670036 0.0 -0.742329"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal067.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal068"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.74396 0.0 -0.668225"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal068.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal069"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.809733 0.0 -0.586799"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal069.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal070"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.866634 0.0 -0.498944"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal070.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal071"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.91404 0.0 -0.405623"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal071.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal072"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.951432 0.0 -0.307858"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal072.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal073"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.9784 0.0 -0.20672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal073.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal074"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.994649 0.0 -0.103316"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal074.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal075"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.999999 0.0 0.0012186"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal075.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal076"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.994394 0.0 0.10574"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal076.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal077"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.977894 0.0 0.209104"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal077.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal078"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.950679 0.0 0.310176"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal078.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal079"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 -0.913049 0.0 0.40785"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal079.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal080"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 0.865415 0.0 -0.501055"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal080.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal081"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 0.8083 0.0 -0.588771"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal081.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal082"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 0.742329 0.0 -0.670036"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal082.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal083"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 0.668225 0.0 -0.74396"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal083.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal084"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 0.586799 0.0 -0.809733"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal084.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal085"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 0.498945 0.0 -0.866634"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal085.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal086"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 0.405623 0.0 -0.91404"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal086.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal087"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 0.307858 0.0 -0.951432"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal087.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal088"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 0.20672 0.0 -0.9784"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal088.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal089"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 9.0 0.00755271"
+        ,
+        "rotation": "0.0 0.103317 0.0 -0.994648"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal089.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal090"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.00121863 0.0 -0.999999"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal090.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal091"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.10574 0.0 -0.994394"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal091.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal092"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.209104 0.0 -0.977894"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal092.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal093"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.310176 0.0 -0.950679"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal093.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal094"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.40785 0.0 -0.913049"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal094.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal095"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.501055 0.0 -0.865415"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal095.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal096"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.588771 0.0 -0.8083"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal096.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal097"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.670036 0.0 -0.742329"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal097.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal098"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.74396 0.0 -0.668225"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal098.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal099"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.809733 0.0 -0.586799"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal099.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal100"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.866634 0.0 -0.498944"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal100.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal101"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.91404 0.0 -0.405623"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal101.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal102"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.951432 0.0 -0.307858"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal102.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal103"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.9784 0.0 -0.20672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal103.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal104"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.994649 0.0 -0.103316"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal104.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal105"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.999999 0.0 0.0012186"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal105.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal106"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.994394 0.0 0.10574"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal106.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal107"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.977894 0.0 0.209104"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal107.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal108"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.950679 0.0 0.310176"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal108.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal109"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 -0.913049 0.0 0.40785"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal109.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal110"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 0.865415 0.0 -0.501055"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal110.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal111"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 0.8083 0.0 -0.588771"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal111.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal112"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 0.742329 0.0 -0.670036"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal112.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal113"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 0.668225 0.0 -0.74396"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal113.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal114"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 0.586799 0.0 -0.809733"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal114.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal115"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 0.498945 0.0 -0.866634"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal115.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal116"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 0.405623 0.0 -0.91404"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal116.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal117"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 0.307858 0.0 -0.951432"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal117.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal118"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 0.20672 0.0 -0.9784"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal118.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal119"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 13.5 0.00755251"
+        ,
+        "rotation": "0.0 0.103317 0.0 -0.994648"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal119.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal120"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.00121863 0.0 -0.999999"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal120.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal121"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.10574 0.0 -0.994394"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal121.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal122"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.209104 0.0 -0.977894"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal122.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal123"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.310176 0.0 -0.950679"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal123.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal124"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.40785 0.0 -0.913049"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal124.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal125"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.501055 0.0 -0.865415"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal125.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal126"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.588771 0.0 -0.8083"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal126.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal127"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.670036 0.0 -0.742329"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal127.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal128"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.74396 0.0 -0.668225"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal128.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal129"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.809733 0.0 -0.586799"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal129.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal130"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.866634 0.0 -0.498944"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal130.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal131"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.91404 0.0 -0.405623"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal131.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal132"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.951432 0.0 -0.307858"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal132.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal133"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.9784 0.0 -0.20672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal133.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal134"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.994649 0.0 -0.103316"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal134.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal135"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.999999 0.0 0.0012186"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal135.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal136"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.994394 0.0 0.10574"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal136.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal137"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.977894 0.0 0.209104"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal137.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal138"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.950679 0.0 0.310176"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal138.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal139"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 -0.913049 0.0 0.40785"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal139.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal140"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 0.865415 0.0 -0.501055"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal140.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal141"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 0.8083 0.0 -0.588771"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal141.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal142"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 0.742329 0.0 -0.670036"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal142.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal143"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 0.668225 0.0 -0.74396"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal143.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal144"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 0.586799 0.0 -0.809733"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal144.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal145"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 0.498945 0.0 -0.866634"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal145.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal146"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 0.405623 0.0 -0.91404"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal146.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal147"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 0.307858 0.0 -0.951432"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal147.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal148"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 0.20672 0.0 -0.9784"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal148.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal149"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 18.0 0.00755231"
+        ,
+        "rotation": "0.0 0.103317 0.0 -0.994648"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal149.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal150"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.00121863 0.0 -0.999999"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal150.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal151"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.10574 0.0 -0.994394"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal151.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal152"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.209104 0.0 -0.977894"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal152.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal153"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.310176 0.0 -0.950679"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal153.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal154"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.40785 0.0 -0.913049"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal154.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal155"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.501055 0.0 -0.865415"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal155.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal156"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.588771 0.0 -0.8083"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal156.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal157"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.670036 0.0 -0.742329"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal157.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal158"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.74396 0.0 -0.668225"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal158.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal159"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.809733 0.0 -0.586799"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal159.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal160"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.866634 0.0 -0.498944"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal160.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal161"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.91404 0.0 -0.405623"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal161.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal162"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.951432 0.0 -0.307858"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal162.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal163"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.9784 0.0 -0.20672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal163.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal164"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.994649 0.0 -0.103316"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal164.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal165"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.999999 0.0 0.0012186"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal165.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal166"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.994394 0.0 0.10574"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal166.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal167"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.977894 0.0 0.209104"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal167.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal168"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.950679 0.0 0.310176"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal168.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal169"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 -0.913049 0.0 0.40785"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal169.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal170"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 0.865415 0.0 -0.501055"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal170.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal171"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 0.8083 0.0 -0.588771"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal171.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal172"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 0.742329 0.0 -0.670036"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal172.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal173"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 0.668225 0.0 -0.74396"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal173.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal174"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 0.586799 0.0 -0.809733"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal174.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal175"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 0.498945 0.0 -0.866634"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal175.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal176"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 0.405623 0.0 -0.91404"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal176.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal177"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 0.307858 0.0 -0.951432"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal177.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal178"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 0.20672 0.0 -0.9784"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal178.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal179"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 22.5 0.00755212"
+        ,
+        "rotation": "0.0 0.103317 0.0 -0.994648"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal179.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal180"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.00121863 0.0 -0.999999"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal180.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal181"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.10574 0.0 -0.994394"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal181.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal182"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.209104 0.0 -0.977894"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal182.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal183"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.310176 0.0 -0.950679"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal183.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal184"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.40785 0.0 -0.913049"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal184.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal185"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.501055 0.0 -0.865415"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal185.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal186"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.588771 0.0 -0.8083"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal186.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal187"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.670036 0.0 -0.742329"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal187.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal188"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.74396 0.0 -0.668225"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal188.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal189"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.809733 0.0 -0.586799"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal189.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal190"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.866634 0.0 -0.498944"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal190.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal191"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.91404 0.0 -0.405623"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal191.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal192"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.951432 0.0 -0.307858"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal192.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal193"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.9784 0.0 -0.20672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal193.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal194"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.994649 0.0 -0.103316"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal194.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal195"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.999999 0.0 0.0012186"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal195.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal196"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.994394 0.0 0.10574"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal196.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal197"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.977894 0.0 0.209104"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal197.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal198"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.950679 0.0 0.310176"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal198.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal199"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 -0.913049 0.0 0.40785"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal199.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal200"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 0.865415 0.0 -0.501055"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal200.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal201"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 0.8083 0.0 -0.588771"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal201.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal202"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 0.742329 0.0 -0.670036"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal202.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal203"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 0.668225 0.0 -0.74396"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal203.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal204"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 0.586799 0.0 -0.809733"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal204.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal205"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 0.498945 0.0 -0.866634"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal205.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal206"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 0.405623 0.0 -0.91404"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal206.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal207"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 0.307858 0.0 -0.951432"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal207.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal208"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 0.20672 0.0 -0.9784"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal208.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal209"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 27.0 0.00755192"
+        ,
+        "rotation": "0.0 0.103317 0.0 -0.994648"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal209.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal210"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.00121863 0.0 -0.999999"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal210.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal211"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.10574 0.0 -0.994394"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal211.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal212"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.209104 0.0 -0.977894"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal212.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal213"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.310176 0.0 -0.950679"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal213.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal214"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.40785 0.0 -0.913049"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal214.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal215"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.501055 0.0 -0.865415"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal215.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal216"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.588771 0.0 -0.8083"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal216.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal217"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.670036 0.0 -0.742329"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal217.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal218"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.74396 0.0 -0.668225"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal218.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal219"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.809733 0.0 -0.586799"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal219.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal220"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.866634 0.0 -0.498944"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal220.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal221"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.91404 0.0 -0.405623"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal221.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal222"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.951432 0.0 -0.307858"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal222.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal223"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.9784 0.0 -0.20672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal223.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal224"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.994649 0.0 -0.103316"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal224.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal225"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.999999 0.0 0.0012186"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal225.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal226"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.994394 0.0 0.10574"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal226.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal227"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.977894 0.0 0.209104"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal227.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal228"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.950679 0.0 0.310176"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal228.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal229"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 -0.913049 0.0 0.40785"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal229.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal230"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 0.865415 0.0 -0.501055"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal230.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal231"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 0.8083 0.0 -0.588771"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal231.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal232"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 0.742329 0.0 -0.670036"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal232.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal233"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 0.668225 0.0 -0.74396"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal233.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal234"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 0.586799 0.0 -0.809733"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal234.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal235"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 0.498945 0.0 -0.866634"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal235.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal236"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 0.405623 0.0 -0.91404"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal236.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal237"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 0.307858 0.0 -0.951432"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal237.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal238"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 0.20672 0.0 -0.9784"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal238.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal239"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 31.5 0.00755172"
+        ,
+        "rotation": "0.0 0.103317 0.0 -0.994648"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal239.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal240"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.00121863 0.0 -0.999999"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal240.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal241"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.10574 0.0 -0.994394"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal241.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal242"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.209104 0.0 -0.977894"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal242.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal243"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.310176 0.0 -0.950679"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal243.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal244"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.40785 0.0 -0.913049"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal244.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal245"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.501055 0.0 -0.865415"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal245.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal246"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.588771 0.0 -0.8083"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal246.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal247"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.670036 0.0 -0.742329"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal247.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal248"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.74396 0.0 -0.668225"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal248.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal249"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.809733 0.0 -0.586799"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal249.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal250"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.866634 0.0 -0.498944"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal250.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal251"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.91404 0.0 -0.405623"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal251.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal252"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.951432 0.0 -0.307858"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal252.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal253"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.9784 0.0 -0.20672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal253.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal254"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.994649 0.0 -0.103316"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal254.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal255"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.999999 0.0 0.0012186"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal255.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal256"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.994394 0.0 0.10574"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal256.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal257"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.977894 0.0 0.209104"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal257.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal258"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.950679 0.0 0.310176"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal258.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal259"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 -0.913049 0.0 0.40785"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal259.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal260"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 0.865415 0.0 -0.501055"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal260.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal261"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 0.8083 0.0 -0.588771"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal261.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal262"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 0.742329 0.0 -0.670036"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal262.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal263"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 0.668225 0.0 -0.74396"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal263.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal264"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 0.586799 0.0 -0.809733"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal264.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal265"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 0.498945 0.0 -0.866634"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal265.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal266"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 0.405623 0.0 -0.91404"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal266.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal267"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 0.307858 0.0 -0.951432"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal267.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal268"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 0.20672 0.0 -0.9784"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal268.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal269"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 36.0 0.00755153"
+        ,
+        "rotation": "0.0 0.103317 0.0 -0.994648"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal269.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal270"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.00121863 0.0 -0.999999"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal270.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal271"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.10574 0.0 -0.994394"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal271.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal272"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.209104 0.0 -0.977894"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal272.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal273"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.310176 0.0 -0.950679"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal273.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal274"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.40785 0.0 -0.913049"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal274.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal275"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.501055 0.0 -0.865415"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal275.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal276"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.588771 0.0 -0.8083"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal276.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal277"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.670036 0.0 -0.742329"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal277.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal278"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.74396 0.0 -0.668225"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal278.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal279"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.809733 0.0 -0.586799"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal279.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal280"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.866634 0.0 -0.498944"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal280.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal281"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.91404 0.0 -0.405623"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal281.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal282"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.951432 0.0 -0.307858"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal282.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal283"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.9784 0.0 -0.20672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal283.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal284"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.994649 0.0 -0.103316"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal284.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal285"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.999999 0.0 0.0012186"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal285.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal286"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.994394 0.0 0.10574"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal286.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal287"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.977894 0.0 0.209104"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal287.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal288"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.950679 0.0 0.310176"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal288.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal289"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 -0.913049 0.0 0.40785"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal289.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal290"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 0.865415 0.0 -0.501055"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal290.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal291"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 0.8083 0.0 -0.588771"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal291.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal292"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 0.742329 0.0 -0.670036"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal292.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal293"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 0.668225 0.0 -0.74396"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal293.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal294"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 0.586799 0.0 -0.809733"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal294.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal295"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 0.498945 0.0 -0.866634"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal295.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal296"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 0.405623 0.0 -0.91404"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal296.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal297"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 0.307858 0.0 -0.951432"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal297.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal298"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 0.20672 0.0 -0.9784"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal298.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BloqueOriginal299"
+      ,
+      "transform":
+      {
+        "pos": "0.0727263 40.5 0.00755133"
+        ,
+        "rotation": "0.0 0.103317 0.0 -0.994648"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BloqueOriginal299.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.0 2.25 3.45"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+]

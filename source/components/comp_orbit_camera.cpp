@@ -15,7 +15,7 @@ bool TCompOrbitCamera::isForward()
 bool TCompOrbitCamera::isGrounded()
 {
   TCompPlayerController* pc = player->get<TCompPlayerController>();
-  return !pc->isGrounded();
+  return pc->isGrounded();
 }
 
 //void TCompOrbitCamera::changeHeight(const TMsgisGrounded & msg)
@@ -58,6 +58,10 @@ void TCompOrbitCamera::registerMsgs() {
 }
 
 void TCompOrbitCamera::debugInMenu() {
+  ImGui::Text("inPlatform: %s", inPlatform ? "Si" : "No");
+  ImGui::Text("jumpinPlatform: %s", jumpinPlatform ? "Si" : "No");
+  ImGui::Text("exitPlatform: %s", exitPlatform ? "Si" : "No");
+  ImGui::Text("Suelo: %s", isGrounded() ? "Si" : "No");
   ImGui::DragFloat("Distancia", &distance, 0.1f, -200.f, 200.f);
   ImGui::DragFloat("AP", &apertura, 0.1f, -2000.f, 2000.f);
   ImGui::DragFloat("OS", &xOffset, 0.1f, -2000.f, 2000.f);
@@ -153,16 +157,24 @@ void TCompOrbitCamera::update(float dt) {
 //    dbg("AAAAAAAAAA\n");
 //  }
 
-  if (jumpinPlatform || (izq && !isForward() && !inPlatform || ((izq && isForward()) && (distanceCam > (abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && izquierda && !inPlatform))
+  if (jumpinPlatform || (exitPlatform && !isGrounded()) || (izq && !isForward() && !inPlatform || ((izq && isForward()) && (distanceCam > (abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && izquierda && !inPlatform))
     || (!izq && isForward() && !inPlatform || ((!izq && !isForward()) && (distanceCam > (abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && !izquierda && !inPlatform))) {
     newPos = pos;
     newPos.y = currentPlayerY + height;
+    //if (exitPlatform && isGrounded()) {
+    //  // dbg("Saaaaaaaaaaaaaaalgoooooooooooooooooo\n");
+    //  //newPos = actualPos;
+    //  //VEC3 newPos2 = ((newPos - actualPos) / 200.f);
+    //  //newPos.x = actualPos.x + newPos2.x;
+    //  //newPos.z = actualPos.z + newPos2.z;
+    //  exitPlatform = false;
+    //}
     if (jumpinPlatform) {
      // dY = abs(currentPlayerY - pPos.y);
-      if (/*inPlatform || (dY > 4.f && */isGrounded()/*)*/) {
+      //if (/*inPlatform || (dY > 4.f && */isGrounded()/*)*/) {
         jumpinPlatform = false;
         exitPlatform = true;
-      }
+      //}
       //else if(inOrbitPlatform || isGrounded()) jumpinOrbitPlatform = false;
       /*if (isGrounded()) {
         jumpinOrbitPlatform = false;
@@ -203,13 +215,22 @@ void TCompOrbitCamera::update(float dt) {
     newPos = c->getPosition() - (c->getFront() * (_distance - distance));
     newPos.y = currentPlayerY + height;
 
-    if (exitPlatform || inPlatform) {
+    if ((exitPlatform && isGrounded()) || inPlatform) {
      // dbg("Saaaaaaaaaaaaaaalgoooooooooooooooooo\n");
       //newPos = actualPos;
-      VEC3 newPos2 = ((newPos - actualPos) / 200.f);
-      newPos.x = actualPos.x + newPos2.x;
-      newPos.z = actualPos.z + newPos2.z;
-      exitPlatform = false;
+      float dist = VEC3::Distance(newPos, actualPos);
+      if(dist <= 0.25 && exitPlatform && isGrounded())exitPlatform = false;
+      else {
+        float div = 100.f;
+        if (dist > 10.f)div = 20.f;
+        else if (dist > 7.f)div = 50.f;
+        else if (dist > 4.f)div = 90.f;
+        VEC3 newPos2 = ((newPos - actualPos) / div);
+        newPos.x = actualPos.x + newPos2.x;
+        newPos.z = actualPos.z + newPos2.z;
+      }
+      
+ 
     }
   }
 
