@@ -27,14 +27,10 @@ bool CModuleTestAxis::start()
 	  TEntityParseContext ctx;
 	  parseScene("data/scenes/Skybox01.scene", ctx);
   }
-  {
-    TEntityParseContext ctx;
-    //parseScene("data/scenes/scene_lightmap.scene", ctx);
-  }
 	{
 		TEntityParseContext ctx;
 
-		//parseScene("data/scenes/TorreEspiralExport_2.scene", ctx);
+		parseScene("data/scenes/TorreMilestone.scene", ctx);
 	}
 
   camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
