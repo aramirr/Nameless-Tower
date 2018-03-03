@@ -85,6 +85,11 @@ void TCompTrigger::load(const json& j, TEntityParseContext& ctx) {
 	{
 		appearing_position = loadVEC3(j["appearing_position"]);
 	}
+	collider_entity = j.value("collider_entity", "none");
+	if (collider_entity == "none") {
+		CEntity* e = h_entity;
+		collider_entity = e->getName();
+	}
 	if (!render) {
 		CEntity* e = h_entity;
 		assert(e);
