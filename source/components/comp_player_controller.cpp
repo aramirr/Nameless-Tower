@@ -117,7 +117,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	dashing_speed = j.value("dashing_speed", 3);
 	omnidash_max_time = j.value("omnidash_max_time", 0.3f);
 	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 1.3f);
-	jumping_death_height = j.value("jumping_death_height", 8.f);
+	jumping_death_height = j.value("jumping_death_height", 10.f);
 	current_x_speed_factor = x_speed_factor; 
 	is_grounded = true;
 	can_omni = true;
@@ -470,17 +470,14 @@ void TCompPlayerController::dashing_state(float dt) {
 }
 
 void TCompPlayerController::dead_state(float dt) {
-	//Engine.getModules().changeGameState("game_over");
-	//Engine.getModules().changeGameState("game_over");
-	
-	if (isPressed('P')) {
-		TCompTransform *c_my_transform = get<TCompTransform>();
-		c_my_transform->setPosition(VEC3(-30.106, 0, 10.87));
+	TCompTransform *c_my_transform = getMyTransform();
+	TCompCollider* comp_collider = get<TCompCollider>();
+	if (isPressed('P')) {		
+		if (comp_collider && comp_collider->controller) {
+			comp_collider->controller->setPosition(physx::PxExtendedVec3(-7.154, 0.5, -31.192));
+		}
 		ChangeState("initial");	
 	}
-	TCompCollider* comp_collider = get<TCompCollider>();
-	TCompTransform *c_my_transform = getMyTransform();
-
 	float y_speed = (y_speed_factor * dt) - (gravity * dt * dt / 2);
 	if (!is_grounded)
 		y_speed_factor -= gravity * dt / 2;
