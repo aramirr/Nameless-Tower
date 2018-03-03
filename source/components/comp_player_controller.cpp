@@ -109,14 +109,14 @@ void TCompPlayerController::debugInMenu() {
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
 	x_speed_factor = j.value("speed", 1.0f);
-	dashing_max = j.value("dashing_max", 0.3f);
+	dashing_max = j.value("dashing_max", 0.35f);
 	gravity = j.value("gravity", 75.f);
 	jump_speed = j.value("jump_speed", 12.6f);
 	center = VEC3(0.f, 0.f, 0.f);
 	tower_radius = j.value("tower_radius", 32.f);
 	dashing_speed = j.value("dashing_speed", 3);
 	omnidash_max_time = j.value("omnidash_max_time", 0.3f);
-	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 1.6f);
+	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 1.3f);
 	jumping_death_height = j.value("jumping_death_height", 10.f);
 	current_x_speed_factor = x_speed_factor; 
 	is_grounded = true;

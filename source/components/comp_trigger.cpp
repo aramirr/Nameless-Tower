@@ -51,6 +51,7 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		e_collider_entity->sendMsg(triggerSpikeMsg);
 	}
 }
+
 void TCompTrigger::onTriggerExit(const TMsgTriggerExit& msg) {
 	h_other_entity = msg.h_other_entity;
 	CEntity* e_other_entity = h_other_entity;
@@ -70,17 +71,16 @@ void TCompTrigger::onTriggerExit(const TMsgTriggerExit& msg) {
 
 }
 
-
 void TCompTrigger::registerMsgs() {
 	DECL_MSG(TCompTrigger, TMsgTriggerEnter, onTriggerEnter);
 	DECL_MSG(TCompTrigger, TMsgTriggerExit, onTriggerExit);
 }
 
-
 void TCompTrigger::load(const json& j, TEntityParseContext& ctx) {
 	h_entity = ctx.current_entity;
 	trigger_type = j.value("trigger_type", "none");
 	collider_entity = j.value("collider_entity", "none");
+	render = j.value("render", true);
 	if (trigger_type == "runner_appear" || trigger_type == "checkpoint")
 	{
 		appearing_position = loadVEC3(j["appearing_position"]);
