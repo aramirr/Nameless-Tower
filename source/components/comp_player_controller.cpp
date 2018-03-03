@@ -470,6 +470,9 @@ void TCompPlayerController::dashing_state(float dt) {
 }
 
 void TCompPlayerController::dead_state(float dt) {
+	//Engine.getModules().changeGameState("game_over");
+	//Engine.getModules().changeGameState("game_over");
+	
 	if (isPressed('P')) {
 		TCompTransform *c_my_transform = get<TCompTransform>();
 		c_my_transform->setPosition(VEC3(-30.106, 0, 10.87));

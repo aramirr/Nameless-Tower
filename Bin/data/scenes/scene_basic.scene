@@ -7,19 +7,19 @@
 			},
 			"render" : [
 				{
-					"mesh": "data/meshes/AtraparBoss.mesh",
+					"mesh": "data/meshes/cuerpoatra.mesh",
 					"materials" : [
 						"data/materials/MaterialNaja.material"
 					]
 				},
 				{
-					"mesh": "data/meshes/BossNormal.mesh",
+					"mesh": "data/meshes/cuerponormal.mesh",
 					"materials" : [
 						"data/materials/MaterialNaja.material"
 					]
 				},
 				{
-					"mesh": "data/meshes/CuerpoBossRun.mesh",
+					"mesh": "data/meshes/cuerporun.mesh",
 					"materials" : [
 						"data/materials/MaterialNaja.material"
 					]
@@ -246,7 +246,7 @@
         {
           "mesh": "data/meshes/Plane001.mesh",
           "materials": [
-            "data/materials/GeoSphere001_mtl.material"
+            "data/materials/madera.material"
           ]
         }
       ],
