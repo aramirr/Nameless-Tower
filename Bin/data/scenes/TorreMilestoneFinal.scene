@@ -2881,7 +2881,7 @@
       ,
       "transform":
       {
-        "pos": "-0.00484043 1.125 -31.8171"
+        "pos": "-0.00484044 1.125 -31.8171"
         ,
         "rotation": "0.0 -0.00121863 0.0 -0.999999"
       }
@@ -4214,43 +4214,6 @@
   {
     "entity":
     {
-      "name": "PisoOriginal033"
-      ,
-      "transform":
-      {
-        "pos": "-23.6295 35.75 -21.2296"
-        ,
-        "rotation": "0.0 -0.40785 0.0 -0.913049"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/PisoOriginal033.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerMat.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "3.45 0.25 2.0"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "PisoOriginal038"
       ,
       "transform":
@@ -4264,43 +4227,6 @@
       [
         {
           "mesh": "data/meshes/PisoOriginal038.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CheckerMat.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "3.45 0.25 2.0"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "PisoOriginal039"
-      ,
-      "transform":
-      {
-        "pos": "-30.1703 35.75 9.91566"
-        ,
-        "rotation": "0.0 -0.809733 0.0 -0.586799"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/PisoOriginal039.mesh"
           ,
           "materials":
           [
@@ -4542,7 +4468,7 @@
       ,
       "transform":
       {
-        "pos": "0.150291 13.25 31.8322"
+        "pos": "0.150291 17.5 31.8322"
         ,
         "rotation": "0.0 -0.999999 0.0 0.0012186"
       }
@@ -4579,7 +4505,7 @@
       ,
       "transform":
       {
-        "pos": "6.7653 13.25 31.1206"
+        "pos": "6.76531 17.75 31.1206"
         ,
         "rotation": "0.0 -0.994394 0.0 0.10574"
       }
@@ -5074,7 +5000,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
+        "is_trigger": true
       }
       ,
       "ai_spikes":
@@ -5113,6 +5039,8 @@
         "trigger_type": "plattform"
         ,
         "collider_entity": "PisoOriginal043"
+		,
+		"render":false
       }
       ,
       "ai_linear_patrol":
@@ -5171,6 +5099,8 @@
         "trigger_type": "plattform"
         ,
         "collider_entity": "PisoOriginal044"
+		,
+		"render":false
       }
       ,
       "ai_linear_patrol":
@@ -5468,7 +5398,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
+        "is_trigger": true
       }
       ,
       "ai_spikes":
@@ -5517,7 +5447,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
+        "is_trigger": true
       }
       ,
       "ai_spikes":
@@ -5566,7 +5496,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
+        "is_trigger": true
       }
       ,
       "ai_spikes":
@@ -5615,7 +5545,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
+        "is_trigger": true
       }
       ,
       "ai_spikes":
@@ -5698,6 +5628,324 @@
         "shape": "box"
         ,
         "halfExtent": "3.45 2.25 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PisoOriginal060"
+      ,
+      "transform":
+      {
+        "pos": "13.0878 17.75 29.0492"
+        ,
+        "rotation": "0.0 -0.977894 0.0 0.209104"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PisoOriginal060.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.45 0.25 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PisoOriginal061"
+      ,
+      "transform":
+      {
+        "pos": "23.7749 17.75 21.2447"
+        ,
+        "rotation": "0.0 -0.913049 0.0 0.40785"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PisoOriginal061.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.45 0.25 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PisoOriginal033"
+      ,
+      "transform":
+      {
+        "pos": "-23.6295 35.75 -21.2296"
+        ,
+        "rotation": "0.0 -0.407849 0.0 -0.913049"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PisoOriginal033.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_orbit_patrol":
+      {
+        "speed": 0.05
+        ,
+        "delay": 1.0
+        ,
+        "waypoints":
+        [
+          "-23.6295 35.75 -21.2296"
+          ,
+          "-30.2215 35.75 -9.78326"
+        ]
+        ,
+        "center": "0.0 35.75 -1.56268e-06"
+        ,
+        "radius": 31.7655
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.45 0.25 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PisoOriginal033T"
+      ,
+      "transform":
+      {
+        "pos": "-23.6295 36.2549 -21.2296"
+        ,
+        "rotation": "0.0 -0.407849 0.0 -0.913049"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PisoOriginal033T.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "PisoOriginal033"
+		,
+		"render":false
+      }
+      ,
+      "ai_orbit_patrol":
+      {
+        "speed": 0.05
+        ,
+        "delay": 1.0
+        ,
+        "waypoints":
+        [
+          "-23.6295 36.2549 -21.2296"
+          ,
+          "-30.2215 36.2549 -9.78326"
+        ]
+        ,
+        "center": "0.0 36.2549 -1.58475e-06"
+        ,
+        "radius": 31.7655
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.45 0.25 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PisoOriginal039T"
+      ,
+      "transform":
+      {
+        "pos": "-30.1703 36.2433 9.91566"
+        ,
+        "rotation": "0.0 -0.809735 0.0 -0.586796"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PisoOriginal039T.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "PisoOriginal039"
+		,
+		"render":false
+      }
+      ,
+      "ai_orbit_patrol":
+      {
+        "speed": 0.05
+        ,
+        "delay": 1.0
+        ,
+        "waypoints":
+        [
+          "-30.1703 36.2433 9.91566"
+          ,
+          "-31.595 36.2433 -3.21296"
+        ]
+        ,
+        "center": "0.0 36.2433 -1.58425e-06"
+        ,
+        "radius": 31.7579
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.45 0.25 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PisoOriginal039"
+      ,
+      "transform":
+      {
+        "pos": "-30.1703 35.75 9.91566"
+        ,
+        "rotation": "0.0 -0.809735 0.0 -0.586796"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PisoOriginal039.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_orbit_patrol":
+      {
+        "speed": 0.05
+        ,
+        "delay": 1.0
+        ,
+        "waypoints":
+        [
+          "-30.1703 35.75 9.91566"
+          ,
+          "-31.595 35.75 -3.21296"
+        ]
+        ,
+        "center": "0.0 35.75 -1.56268e-06"
+        ,
+        "radius": 31.7579
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.45 0.25 2.0"
         ,
         "is_dynamic": false
         ,
