@@ -79,11 +79,21 @@ void TCompTrigger::registerMsgs() {
 void TCompTrigger::load(const json& j, TEntityParseContext& ctx) {
 	h_entity = ctx.current_entity;
 	trigger_type = j.value("trigger_type", "none");
-	collider_entity = j.value("collider_entity", "none");
+
 	render = j.value("render", true);
 	if (trigger_type == "runner_appear" || trigger_type == "checkpoint")
 	{
 		appearing_position = loadVEC3(j["appearing_position"]);
+	}
+	if (!render) {
+		CEntity* e = h_entity;
+		assert(e);
+		h_render = e->get< TCompRender >();
+		assert(h_render.isValid());
+		TCompRender* r = h_render;
+		r = h_render;
+		TCompRender *my_render = getMyRender();
+		my_render->is_active = false;
 	}
 }
 
