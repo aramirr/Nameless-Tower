@@ -6,6 +6,7 @@
 class TCompOrbitCamera : public TCompBase {
 
 	CEntity *player;
+  CEntity *platform;
 	VEC3 towerCentre;
 	VEC3 pos;
 
@@ -45,8 +46,9 @@ class TCompOrbitCamera : public TCompBase {
   void attachPlayer(const TMsgAttachTo& msg);
   void detachPlayer(const TMsgDetachOf& msg);
 
-  bool inOrbitPlatform;
-	bool jumpinOrbitPlatform;
+  bool inPlatform;
+	bool jumpinPlatform;
+  bool exitPlatform;
 
 public:
   static void registerMsgs();
