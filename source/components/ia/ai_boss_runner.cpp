@@ -103,6 +103,7 @@ void CAIBossRunner::chase_state(float dt) {
 	if (!jump_positions.empty() && VEC3::Distance(myPos, jump_positions.front()) < 1.f) {
 		jump_end = c_my_transform->getPosition().y + jump_altitude;
 		jump_positions.pop();
+		change_mesh(3);
 		ChangeState("jump");
 	}
 
@@ -215,11 +216,13 @@ void CAIBossRunner::jumping_state(float dt) {
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 			}
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
+				change_mesh(2);
 				ChangeState("chase");
 			}
 		}
 	}
 	else {
+		change_mesh(2);
 		ChangeState("chase");
 	}
 }
