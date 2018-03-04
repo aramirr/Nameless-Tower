@@ -142,13 +142,16 @@ void TCompPlayerController::init() {
 }
 
 void TCompPlayerController::initial_state(float dt) {
+	TCompTransform *my_pos = getMyTransform();
 	TCompCollider* comp_collider = get<TCompCollider>();
 	if (comp_collider && comp_collider->controller) {
 		if (checkpoint.x)
 			comp_collider->controller->setPosition(physx::PxExtendedVec3(checkpoint.x, checkpoint.y, checkpoint.z));
+		else
+			checkpoint = my_pos->getPosition();
 	}
 
-	TCompTransform *my_pos = getMyTransform();
+	
 	my_pos->lookAt(my_pos->getPosition(), center);
 	float y, p, r;
 	my_pos->getYawPitchRoll(&y, &p, &r);
