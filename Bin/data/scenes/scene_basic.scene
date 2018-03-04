@@ -7,23 +7,41 @@
 			},
 			"render" : [
 				{
-					"mesh": "data/meshes/cuerpoatra.mesh",
-					"materials" : [
-						"data/materials/MaterialNaja.material"
-					]
-				},
+				  "mesh": "data/meshes/cuerpoatra.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/MateriCabRun.material"
+		            ,
+		            "data/materials/MaterialRum.material"
+		            ,
+		            "data/materials/MaterialCabRun.material"
+		          ]
+		        },
 				{
-					"mesh": "data/meshes/cuerponormal.mesh",
-					"materials" : [
-						"data/materials/MaterialNaja.material"
-					]
-				},
+		          "mesh": "data/meshes/cuerponormal.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/MateriCabRun.material"
+		            ,
+		            "data/materials/MaterialRum.material"
+		            ,
+		            "data/materials/MaterialCabRun.material"
+		          ]
+		        },
 				{
-					"mesh": "data/meshes/cuerporun.mesh",
-					"materials" : [
-						"data/materials/MaterialNaja.material"
-					]
-				}
+		          "mesh": "data/meshes/cuerporunfin.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/MateriCabRun.material"
+		            ,
+		            "data/materials/MaterialRum.material"
+		            ,
+		            "data/materials/MaterialCabRun.material"
+		          ]
+		        }
 			]
 			,
 			"ai_boss_runner": {
