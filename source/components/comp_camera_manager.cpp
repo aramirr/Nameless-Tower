@@ -97,7 +97,7 @@ void TCompCameraManager::update(float dt) {
   VEC3 cdp = cd->getPosition();
   float distanceCamDer = VEC3::Distance(pPos, cdp);
 
-  if ((playerForward && distanceCamDer > 9.f) /*|| inPlatform*/) {
+  if ((playerForward && distanceCamDer > 9.f) && !inPlatform) {
     //if (!pForwarding) {
     if (inPlatform) {
       /*CHandle h_camera = getEntityByName("camera_orbit_DER");
@@ -112,7 +112,7 @@ void TCompCameraManager::update(float dt) {
     blending = true;
     //}
   }
-  else if (/*(*/distanceCamIzq > 9.f /*|| inPlatform) && !blending*/) {
+  else if (/*(*/distanceCamIzq > 9.f && !inPlatform){//) && !blending*/) {
     //if (pForwarding) {
     if (inPlatform) {
       /*CHandle h_camera = getEntityByName("camera_orbit_IZQ");
