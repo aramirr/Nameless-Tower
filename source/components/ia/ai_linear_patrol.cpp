@@ -91,7 +91,7 @@ void CAILinearPatrol::MoveToWaypointState(float dt)
 	VEC3 my_pos = mypos->getPosition();
 	VEC3 dir = wppos - mypos->getPosition();
 	dir.Normalize();
-	VEC3 new_pos = mypos->getPosition() + speed * dir;
+	VEC3 new_pos = mypos->getPosition() + (speed * 100) * dir * dt;
 	mypos->setPosition(new_pos);
 
 	
