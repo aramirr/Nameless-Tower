@@ -39,7 +39,7 @@
   {
     "entity":
     {
-      "name": "TorreCentro"
+      "name": "Nivel1"
       ,
       "transform":
       {
@@ -51,11 +51,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/TorreCentro.mesh"
+          "mesh": "data/meshes/Nivel1.mesh"
           ,
           "materials":
           [
-            "data/materials/CheckerMat.material"
+            "data/materials/TorreMat.material"
           ]
         }
       ]
@@ -4637,7 +4637,9 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destoy_time": 1.0
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
       }
       ,
       "collider":
@@ -4755,7 +4757,9 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destoy_time": 1.0
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
       }
       ,
       "collider":
@@ -4953,6 +4957,8 @@
         "trigger_type": "spikes"
         ,
         "collider_entity": "none"
+        ,
+        "render": true
       }
       ,
       "collider":
@@ -5002,6 +5008,8 @@
         "trigger_type": "plattform"
         ,
         "collider_entity": "PisoOriginal043"
+        ,
+        "render": false
       }
       ,
       "ai_linear_patrol":
@@ -5060,6 +5068,8 @@
         "trigger_type": "plattform"
         ,
         "collider_entity": "PisoOriginal044"
+        ,
+        "render": false
       }
       ,
       "ai_linear_patrol":
@@ -5084,7 +5094,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": true
+        "is_trigger": false
       }
     }
   }
@@ -5302,7 +5312,9 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destoy_time": 1.0
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
       }
       ,
       "collider":
@@ -5337,7 +5349,7 @@
           ,
           "materials":
           [
-            "data/materials/PinchosMat.material"
+            "data/materials/CheckerMat.material"
           ]
         }
       ]
@@ -5347,6 +5359,8 @@
         "trigger_type": "spikes"
         ,
         "collider_entity": "none"
+        ,
+        "render": true
       }
       ,
       "collider":
@@ -5396,6 +5410,8 @@
         "trigger_type": "spikes"
         ,
         "collider_entity": "none"
+        ,
+        "render": true
       }
       ,
       "collider":
@@ -5445,6 +5461,8 @@
         "trigger_type": "spikes"
         ,
         "collider_entity": "none"
+        ,
+        "render": true
       }
       ,
       "collider":
@@ -5494,6 +5512,8 @@
         "trigger_type": "spikes"
         ,
         "collider_entity": "none"
+        ,
+        "render": true
       }
       ,
       "collider":
@@ -5746,6 +5766,8 @@
         "trigger_type": "plattform"
         ,
         "collider_entity": "PisoOriginal033"
+        ,
+        "render": false
       }
       ,
       "ai_orbit_patrol":
@@ -5774,7 +5796,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": true
+        "is_trigger": false
       }
     }
   }
@@ -5808,6 +5830,8 @@
         "trigger_type": "plattform"
         ,
         "collider_entity": "PisoOriginal039"
+        ,
+        "render": false
       }
       ,
       "ai_orbit_patrol":
@@ -5836,7 +5860,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": true
+        "is_trigger": false
       }
     }
   }
@@ -5980,6 +6004,8 @@
         "trigger_type": "plattform"
         ,
         "collider_entity": "PisoOriginal062"
+        ,
+        "render": false
       }
       ,
       "ai_orbit_patrol":
@@ -6008,7 +6034,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": true
+        "is_trigger": false
       }
     }
   }
@@ -8668,7 +8694,9 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destoy_time": 1.0
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
       }
       ,
       "collider":
@@ -8712,7 +8740,9 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destoy_time": 1.0
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
       }
       ,
       "collider":
@@ -8756,7 +8786,9 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destoy_time": 1.0
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
       }
       ,
       "collider":
@@ -8800,7 +8832,9 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destoy_time": 1.0
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
       }
       ,
       "collider":
@@ -8844,7 +8878,9 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destoy_time": 1.0
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
       }
       ,
       "collider":
@@ -8888,7 +8924,9 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destoy_time": 1.0
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
       }
       ,
       "collider":
@@ -8932,7 +8970,9 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destoy_time": 1.0
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
       }
       ,
       "collider":
@@ -8976,7 +9016,9 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destoy_time": 1.0
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
       }
       ,
       "collider":
@@ -9020,7 +9062,9 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destoy_time": 1.0
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
       }
       ,
       "collider":
@@ -10121,9 +10165,9 @@
       ,
       "transform":
       {
-        "pos": "2.91721 67.419 0.922268"
+        "pos": "2.03104 67.419 0.493423"
         ,
-        "rotation": "0.0 -0.688651 0.0 -0.725093"
+        "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
       "render":
@@ -13499,6 +13543,8 @@
         "trigger_type": "spikes"
         ,
         "collider_entity": "none"
+        ,
+        "render": true
       }
       ,
       "collider":
@@ -13522,7 +13568,7 @@
   {
     "entity":
     {
-      "name": "Object005"
+      "name": "Nivel2"
       ,
       "transform":
       {
@@ -13534,11 +13580,37 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Object005.mesh"
+          "mesh": "data/meshes/Nivel2.mesh"
           ,
           "materials":
           [
-            "data/materials/CheckerMat.material"
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Nivel3"
+      ,
+      "transform":
+      {
+        "pos": "0.0 101.75 -4.44763e-06"
+        ,
+        "rotation": "0.0 0.000654459 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Nivel3.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
           ]
         }
       ]
