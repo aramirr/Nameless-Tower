@@ -212,18 +212,18 @@ void TCompOrbitCamera::update(float dt) {
 
     c->setPosition(center);
 
-    y = _y + xOffset;
-    //if (!inPlatform)y = _y + xOffset;
-    //else if (((izq && !isForward()) || (!izq && isForward())))y = _y + xOffset;
+    //y = _y + xOffset;
+    if (!inPlatform)y = _y + xOffset;
+    else if (((izq && !isForward()) || (!izq && isForward())))y = _y + xOffset * -1;
     //else y = _y - xOffset;
 
     c->setYawPitchRoll(y, p2);
     newPos = c->getPosition() - (c->getFront() * (_distance - distance));
     newPos.y = currentPlayerY + height;
 
-    if ((exitPlatform /*&& isGrounded()*/) || inPlatform) {
-      newPos = actualPos;
-      newPos.y = currentPlayerY + height;
+    //if ((exitPlatform /*&& isGrounded()*/) || inPlatform) {
+    //  newPos = actualPos;
+    //  newPos.y = currentPlayerY + height;
       //  // dbg("Saaaaaaaaaaaaaaalgoooooooooooooooooo\n");
       //   //newPos = actualPos;
       //  VEC2 newPos2D = VEC2(newPos.x, newPos.z);
@@ -257,7 +257,7 @@ void TCompOrbitCamera::update(float dt) {
       //    if (VEC3::Distance(newPos, actualPos) > 1.f)newPos = actualPos + dir * 100 * dt;
       //    //c->setPosition(newPos);
       //  }
-    }
+    //}
   }
 
   //float distanceBC = VEC3::Distance(newPos, actualPos);
@@ -277,7 +277,8 @@ void TCompOrbitCamera::update(float dt) {
     //dbg("(%f, %f, %f) - (%f, %f, %f) = %f\n", newPos.x, newPos.y, newPos.z, actualPos.x, actualPos.y, actualPos.z, VEC3::Distance(newPos, actualPos));
     VEC3 dir = newPos - actualPos;
     dir.Normalize();
-    if (VEC3::Distance(newPos, actualPos) > distance)newPos = actualPos + dir * 100 * dt;
+    if(inPlatform && (((izq && !isForward()) || (!izq && isForward()))))newPos = actualPos + dir * 2 * dt;
+    else if (VEC3::Distance(newPos, actualPos) > distance)newPos = actualPos + dir * 100 * dt;
     /* else {
        newPos = actualPos;
        newPos.y = currentPlayerY + height;
