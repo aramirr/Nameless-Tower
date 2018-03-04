@@ -4,6 +4,7 @@
 #include "geometry/transform.h"
 #include "ia/ai_controller.h"
 
+
 class TCompPlayerController : public IAIController {
 	float   current_x_speed_factor = 2.0f;
 	float   x_speed_factor = 2.0f;
