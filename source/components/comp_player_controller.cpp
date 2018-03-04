@@ -95,7 +95,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 }
 
 void TCompPlayerController::debugInMenu() {
-	ImGui::Text("State: %s", state.c_str());
+	//ImGui::Text("State: %s", state.c_str());
 	//ImGui::Text("Can dash: %s", can_dash ? "Si" : "No");
 	//ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
 	ImGui::DragFloat("X speed: %f", &x_speed_factor, 0.01f, 0.f, 5.f);

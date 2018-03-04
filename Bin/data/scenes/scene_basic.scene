@@ -140,7 +140,7 @@
 		"entity": {
 			"name": "Checkpoint Trigger",
 			"transform": {
-				"pos": "-27.628 27.000 16.146",
+				"pos": "-16.477 0 -27.432",
 				"lookat": "-1 0 15"
 			},
 			"render" : [
@@ -157,7 +157,8 @@
 				"halfExtent": "1 1 1"
 			},
 			"trigger": {
-				"trigger_type": "runner_stop"
+				"trigger_type": "checkpoint",
+				"appearing_position": "-27.628 27.000 16.146"
 			}
 		}
 	},
