@@ -31,7 +31,7 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		TMsgCheckpoint msg2;
 		msg2.appearing_position = appearing_position;
 		e_other_entity->sendMsg(msg2);
-		CHandle(this).getOwner().destroy(); //En lugares con 2 caminos no puedes poner checkpoint a mitad del camino, solo en la interseccion entre los dos caminos (culpas a manu y leo)
+		//CHandle(this).getOwner().destroy(); //En lugares con 2 caminos no puedes poner checkpoint a mitad del camino, solo en la interseccion entre los dos caminos (culpas a manu y leo)
 	}
 	else if (trigger_type == "plattform" && other_entity_name == "The Player"){
 		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
@@ -83,11 +83,7 @@ void TCompTrigger::load(const json& j, TEntityParseContext& ctx) {
 	render = j.value("render", true);
 	if (trigger_type == "runner_appear" || trigger_type == "checkpoint")
 	{
-		//TCompTransform *c_my_transform = getMyTransform();
-		//if (j.count("appearing_position"))
 		appearing_position = loadVEC3(j["appearing_position"]);
-		//else
-		//	appearing_position = c_my_transform->getPosition();
 	}
 	collider_entity = j.value("collider_entity", "none");
 	if (collider_entity == "none") {
