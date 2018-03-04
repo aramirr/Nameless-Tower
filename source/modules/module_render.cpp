@@ -129,11 +129,13 @@ void CModuleRender::setBackgroundColor(float r, float g, float b, float a)
 void CModuleRender::generateFrame() {
   {
     PROFILE_FUNCTION("CModuleRender::generateFrame");
+    CTraceScoped gpu_scope("Frame");
     CEngine::get().getModules().render();
   }
 
   {
     PROFILE_FUNCTION("ImGui::Render");
+    CTraceScoped gpu_scope("ImGui");
     ImGui::Render();
   }
 

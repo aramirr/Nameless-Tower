@@ -73,6 +73,23 @@ void CModuleTestAxis::update(float delta)
     ImGui::Text("Mouse at %1.2f, %1.2f", mouse.x, mouse.y);
   }
 
+  static int nitems = 10;
+  ImGui::DragInt("NumItems", &nitems, 0.2f, 1, 100);
+  static float items_scale = 20.0f;
+  ImGui::DragFloat("Scale", &items_scale, 0.1f, 1, 50);
+  if (ImGui::SmallButton("Create Grid Of Load")) {
+    for (int nz = -nitems; nz <= nitems; ++nz) {
+      for (int nx = -nitems; nx <= nitems; ++nx) {
+        TEntityParseContext ctx;
+        float ux = (float)nx / (float)nitems;   // -1 ... 1
+        float uz = (float)nz / (float)nitems;
+        ctx.root_transform.setPosition(VEC3(ux, 0.f, uz) *items_scale);
+        parseScene("data/prefabs/test_load.prefab", ctx);
+      }
+    }
+  }
+
+
 
 }
 

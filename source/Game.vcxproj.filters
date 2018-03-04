@@ -676,6 +676,9 @@
     <ClInclude Include="components\ia\ai_spikes.h">
       <Filter>components\ia</Filter>
     </ClInclude>
+    <ClInclude Include="render\gpu_trace.h">
+      <Filter>render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">

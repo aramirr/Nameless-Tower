@@ -7,7 +7,7 @@ class CCteBuffer {
 protected:
   ID3D11Buffer*      cb = nullptr;
   int                slot = -1;
-  bool createData(UINT num_bytes);
+  bool createData(UINT num_bytes, const char* new_name);
 
 public:
 
@@ -22,10 +22,15 @@ public:
 // -----------------------------------------
 template< typename TPOD >
 class CRenderCte : public TPOD, public CCteBuffer {
+  const char* name = nullptr;
 public:
+
+  CRenderCte(const char* new_name) : name( new_name ) {
+  }
+
   bool create(int new_slot) {
     slot = new_slot;
-    return createData(sizeof(TPOD));
+    return createData(sizeof(TPOD), name );
   }
 
   void updateGPU() {
@@ -33,14 +38,6 @@ public:
     Render.ctx->UpdateSubresource(cb, 0, NULL, pod, 0, 0);
   }
 };
-
-/*
-CRenderCte<CCteCamera>  cb_camera;
-cb_camera.create( SLOT_CAMERA );
-cb_camera.world = ...
-cb_camera.updateGPU();
-cb_camera.activate();
-*/
 
 #endif
 
