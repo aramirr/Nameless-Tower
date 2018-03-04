@@ -95,7 +95,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 }
 
 void TCompPlayerController::debugInMenu() {
-	//ImGui::Text("State: %s", state.c_str());
+	ImGui::Text("State: %s", state.c_str());
 	//ImGui::Text("Can dash: %s", can_dash ? "Si" : "No");
 	//ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
 	ImGui::DragFloat("X speed: %f", &x_speed_factor, 0.01f, 0.f, 5.f);
@@ -136,19 +136,24 @@ void TCompPlayerController::init() {
 	AddState("dash", (statehandler)&TCompPlayerController::dashing_state);
 	AddState("dead", (statehandler)&TCompPlayerController::dead_state);
 	AddState("omni_jump", (statehandler)&TCompPlayerController::omnidashing_jump_state);
-
+	checkpoint = VEC3(-7.154, 0.5, -31.192);
 	// reset the state
 	ChangeState("initial");
 
 }
 
 void TCompPlayerController::initial_state(float dt) {
+	TCompCollider* comp_collider = get<TCompCollider>();
+	if (comp_collider && comp_collider->controller) {
+		comp_collider->controller->setPosition(physx::PxExtendedVec3(checkpoint.x, checkpoint.y, checkpoint.z));
+	}
+
 	TCompTransform *my_pos = getMyTransform();
 	my_pos->lookAt(my_pos->getPosition(), center);
 	float y, p, r;
 	my_pos->getYawPitchRoll(&y, &p, &r);
 	y -= deg2rad(90);
-	my_pos->setYawPitchRoll(y, p, r);
+	my_pos->setYawPitchRoll(y, 0, 0);
 
 	looking_left = my_pos->isInLeft(center) ? false : true;
 	change_mesh(1);
@@ -474,31 +479,33 @@ void TCompPlayerController::dead_state(float dt) {
 	TCompCollider* comp_collider = get<TCompCollider>();
 	if (isPressed('P')) {		
 		if (comp_collider && comp_collider->controller) {
-			comp_collider->controller->setPosition(physx::PxExtendedVec3(-7.154, 0.5, -31.192));
+			comp_collider->controller->setPosition(physx::PxExtendedVec3(checkpoint.x, checkpoint.y, checkpoint.z));
 		}
 		ChangeState("initial");	
 	}
-	float y_speed = (y_speed_factor * dt) - (gravity * dt * dt / 2);
-	if (!is_grounded)
-		y_speed_factor -= gravity * dt / 2;
-	if (comp_collider && comp_collider->controller)
-	{
-		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(0, y_speed, 0), 0.f, dt, physx::PxControllerFilters());
-		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
-			if (c_my_transform->getPosition().y - jumping_start_height > jumping_death_height) {
-				change_mesh(5);
-				ChangeState("dead");
+	else {
+		float y_speed = (y_speed_factor * dt) - (gravity * dt * dt / 2);
+		if (!is_grounded)
+			y_speed_factor -= gravity * dt / 2;
+		if (comp_collider && comp_collider->controller)
+		{
+			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(0, y_speed, 0), 0.f, dt, physx::PxControllerFilters());
+			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
+				if (c_my_transform->getPosition().y - jumping_start_height > jumping_death_height) {
+					change_mesh(5);
+					ChangeState("dead");
+				}
+				y_speed_factor = 0;
+				is_grounded = true;
+				can_omni = true;
+				can_dash = true;
+
 			}
-			y_speed_factor = 0;
-			is_grounded = true;
-			can_omni = true;
-			can_dash = true;
-			
+			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && is_grounded) {
+				is_grounded = false;
+			}
 		}
-		else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && is_grounded) {
-			is_grounded = false;
-		}
-	}
+	}	
 }
 
 void TCompPlayerController::registerMsgs() {

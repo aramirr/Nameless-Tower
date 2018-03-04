@@ -83,7 +83,11 @@ void TCompTrigger::load(const json& j, TEntityParseContext& ctx) {
 	render = j.value("render", true);
 	if (trigger_type == "runner_appear" || trigger_type == "checkpoint")
 	{
+		//TCompTransform *c_my_transform = getMyTransform();
+		//if (j.count("appearing_position"))
 		appearing_position = loadVEC3(j["appearing_position"]);
+		//else
+		//	appearing_position = c_my_transform->getPosition();
 	}
 	collider_entity = j.value("collider_entity", "none");
 	if (collider_entity == "none") {
