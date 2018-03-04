@@ -31,7 +31,7 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		TMsgCheckpoint msg2;
 		msg2.appearing_position = appearing_position;
 		e_other_entity->sendMsg(msg2);
-		CHandle(this).getOwner().destroy(); //En lugares con 2 caminos no puedes poner checkpoint a mitad del camino, solo en la interseccion entre los dos caminos (culpas a manu y leo)
+		//CHandle(this).getOwner().destroy(); //En lugares con 2 caminos no puedes poner checkpoint a mitad del camino, solo en la interseccion entre los dos caminos (culpas a manu y leo)
 	}
 	else if (trigger_type == "plattform" && other_entity_name == "The Player"){
 		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
