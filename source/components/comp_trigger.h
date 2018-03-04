@@ -9,9 +9,10 @@ class TCompTrigger : public IAIController {
 	std::string trigger_type;
 	std::string collider_entity;
 
+	CHandle         h_entity;
 	CHandle h_other_entity;
 	VEC3 appearing_position;
-	CHandle         h_entity;
+	bool b_appear;
 	bool render = true;
 
 	void onTriggerEnter(const TMsgTriggerEnter& msg);

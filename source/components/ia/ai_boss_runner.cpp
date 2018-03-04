@@ -22,10 +22,14 @@ void CAIBossRunner::Init()
 	ChangeState("disappear");
 }
 void CAIBossRunner::appear(const TMsgRunnerAppear& msg) {
-	if (actual_state == "disappear" || actual_state == "idle") {
+	if (msg.b_appear && (actual_state == "disappear" || actual_state == "idle")) {
 		appearing_position = msg.appearing_position;
 		actual_state = "appear";
 		ChangeState("appear");
+	}
+	else {
+		actual_state = "disappear";
+		ChangeState("disappear");
 	}
 }
 

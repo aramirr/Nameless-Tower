@@ -18,7 +18,9 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 	if (trigger_type == "runner_appear" && other_entity_name == "The Player") {
 		CEntity* runner_entity = (CEntity*)getEntityByName("Boss Runner");
 		TMsgRunnerAppear msg2;
-		msg2.appearing_position = appearing_position;
+		msg2.b_appear = b_appear;
+		if (b_appear)
+			msg2.appearing_position = appearing_position;
 		runner_entity->sendMsg(msg2);
 	}
 
@@ -77,13 +79,19 @@ void TCompTrigger::registerMsgs() {
 }
 
 void TCompTrigger::load(const json& j, TEntityParseContext& ctx) {
+
 	h_entity = ctx.current_entity;
 	trigger_type = j.value("trigger_type", "none");
 
 	render = j.value("render", true);
-	if (trigger_type == "runner_appear" || trigger_type == "checkpoint")
+	if (trigger_type == "checkpoint")
 	{
 		appearing_position = loadVEC3(j["appearing_position"]);
+	}
+	else if (trigger_type == "runner_appear") {
+		b_appear = j.value("b_appear", false);
+		if (b_appear)
+			appearing_position = loadVEC3(j["appearing_position"]);
 	}
 	collider_entity = j.value("collider_entity", "none");
 	if (collider_entity == "none") {
