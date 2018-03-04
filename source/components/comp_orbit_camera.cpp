@@ -52,9 +52,15 @@ void TCompOrbitCamera::detachPlayer(const TMsgDetachOf & msg) {
   }
 }
 
+void TCompOrbitCamera::exitFromPlatform(const TMsgExitPlatform & msg)
+{
+  exitPlatform = false;
+}
+
 void TCompOrbitCamera::registerMsgs() {
   DECL_MSG(TCompOrbitCamera, TMsgAttachTo, attachPlayer);
   DECL_MSG(TCompOrbitCamera, TMsgDetachOf, detachPlayer);
+  DECL_MSG(TCompOrbitCamera, TMsgExitPlatform, exitFromPlatform);
 }
 
 void TCompOrbitCamera::debugInMenu() {
@@ -132,14 +138,14 @@ void TCompOrbitCamera::update(float dt) {
   float dY = abs(currentPlayerY - pPos.y);
 
   if (currentPlayerY < pPos.y - 0.1f) {
-    if (dY > 10.f)currentPlayerY += 12.5f;
-    else if (dY > 7.f)currentPlayerY += 6.5f;
+    if (dY > 10.f)currentPlayerY += 2.05f;//12.5f;
+    else if (dY > 7.f)currentPlayerY += 1.05f;//6.5f;
     else if (dY > 4.f)currentPlayerY += 0.05f;
     else currentPlayerY += 0.025f;
   }
   if (currentPlayerY > pPos.y + 0.1f) {
-    if (dY > 10.f)currentPlayerY -= 12.5f;
-    else if (dY > 7.f)currentPlayerY -= 6.5f;
+    if (dY > 10.f)currentPlayerY -= 2.05f; //12.5f;
+    else if (dY > 7.f)currentPlayerY -= 1.05f; //6.5f;
     else if (dY > 4.f)currentPlayerY -= 0.05f;
     else currentPlayerY -= 0.025f;
   }
@@ -222,18 +228,29 @@ void TCompOrbitCamera::update(float dt) {
       VEC2 actualPos2D = VEC2(actualPos.x, actualPos.z);
       float dist = VEC2::Distance(newPos2D, actualPos2D);
       //dbg("%f\n", dist);
-      if(dist <= 0.25 && exitPlatform && isGrounded())exitPlatform = false;
+      if (dist <= 0.25 && exitPlatform && isGrounded()) {
+        exitPlatform = false;
+
+        TMsgExitPlatform msg;
+        if (izq) {
+          CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
+          camDER->sendMsg(msg);
+        }
+        else {
+          CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
+          camIZQ->sendMsg(msg);
+        }
+      }
       else {
         float div = 35.f;
         pPos = p->getPosition();
         VEC2 pPos2D = VEC2(pPos.x, pPos.z);
         if (VEC2::Distance(newPos2D, pPos2D) > 1.5f)div = 25.f;
+        dbg("%f\n", (newPos - pPos));
         VEC3 newPos2 = ((newPos - actualPos) / div);
         newPos.x = actualPos.x + newPos2.x;
         newPos.z = actualPos.z + newPos2.z;
       }
-      
- 
     }
   }
 

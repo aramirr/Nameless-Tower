@@ -136,19 +136,22 @@ void TCompPlayerController::init() {
 	AddState("dash", (statehandler)&TCompPlayerController::dashing_state);
 	AddState("dead", (statehandler)&TCompPlayerController::dead_state);
 	AddState("omni_jump", (statehandler)&TCompPlayerController::omnidashing_jump_state);
-	checkpoint = VEC3(-7.154, 0.5, -31.192);
 	// reset the state
 	ChangeState("initial");
 
 }
 
 void TCompPlayerController::initial_state(float dt) {
+	TCompTransform *my_pos = getMyTransform();
 	TCompCollider* comp_collider = get<TCompCollider>();
 	if (comp_collider && comp_collider->controller) {
-		comp_collider->controller->setPosition(physx::PxExtendedVec3(checkpoint.x, checkpoint.y, checkpoint.z));
+		if (checkpoint.x)
+			comp_collider->controller->setPosition(physx::PxExtendedVec3(checkpoint.x, checkpoint.y, checkpoint.z));
+		else
+			checkpoint = my_pos->getPosition();
 	}
 
-	TCompTransform *my_pos = getMyTransform();
+	
 	my_pos->lookAt(my_pos->getPosition(), center);
 	float y, p, r;
 	my_pos->getYawPitchRoll(&y, &p, &r);
