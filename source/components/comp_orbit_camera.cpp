@@ -178,7 +178,7 @@ void TCompOrbitCamera::update(float dt) {
       // dY = abs(currentPlayerY - pPos.y);
        //if (/*inPlatform || (dY > 4.f && */isGrounded()/*)*/) {
       jumpinPlatform = false;
-      //exitPlatform = true;
+      exitPlatform = true;
       //}
       //else if(inOrbitPlatform || isGrounded()) jumpinOrbitPlatform = false;
       /*if (isGrounded()) {
@@ -195,32 +195,47 @@ void TCompOrbitCamera::update(float dt) {
     /*else {*/
     if (izq)xOffset *= -1;
 
-    float d = VEC3::Distance(center, pPos);
-    float _d = d / d;
-    float x = pPos.x - _d * (center.x - pPos.x);
-    float z = pPos.z - _d * (center.z - pPos.z);
+    if (inPlatform || exitPlatform) {
+      float d = VEC3::Distance(center, pPos);
+      float _d = (d - distance) / d;
+      float x = pPos.x - _d * (center.x - pPos.x);
+      float z = pPos.z - _d * (center.z - pPos.z);
 
-    pos.x = x;
-    pos.y = currentPlayerY + height;
-    pos.z = z;
+      pos.x = x;
+      pos.y = currentPlayerY + height;
+      pos.z = z;
 
-    float _distance = VEC3::Distance(center, pos);
+      newPos = pos;
+    }
+    else {
+      float d = VEC3::Distance(center, pPos);
+      float _d = d / d;
+      float x = pPos.x - _d * (center.x - pPos.x);
+      float z = pPos.z - _d * (center.z - pPos.z);
 
-    float y, p2, _y, _p2;
-    c->getYawPitchRoll(&y, &p2);
-    p->getYawPitchRoll(&_y, &_p2);
+      pos.x = x;
+      pos.y = currentPlayerY + height;
+      pos.z = z;
 
-    c->setPosition(center);
+      float _distance = VEC3::Distance(center, pos);
 
-    //y = _y + xOffset;
-    if (!inPlatform)y = _y + xOffset;
-    else if (((izq && !isForward()) || (!izq && isForward())))y = _y + xOffset * -1;
-    //else y = _y - xOffset;
+      float y, p2, _y, _p2;
+      c->getYawPitchRoll(&y, &p2);
+      p->getYawPitchRoll(&_y, &_p2);
 
-    c->setYawPitchRoll(y, p2);
-    newPos = c->getPosition() - (c->getFront() * (_distance - distance));
-    newPos.y = currentPlayerY + height;
+      c->setPosition(center);
 
+      y = _y + xOffset;
+      //if (!inPlatform)y = _y + xOffset;
+      //else if (((izq && !isForward()) || (!izq && isForward())))y = _y + xOffset * -1;
+      //else y = _y - xOffset;
+
+      c->setYawPitchRoll(y, p2);
+      newPos = c->getPosition() - (c->getFront() * (_distance - distance));
+      newPos.y = currentPlayerY + height;
+    }
+    
+    if(exitPlatform && isGrounded())exitPlatform = false;
     //if ((exitPlatform /*&& isGrounded()*/) || inPlatform) {
     //  newPos = actualPos;
     //  newPos.y = currentPlayerY + height;
@@ -277,8 +292,9 @@ void TCompOrbitCamera::update(float dt) {
     //dbg("(%f, %f, %f) - (%f, %f, %f) = %f\n", newPos.x, newPos.y, newPos.z, actualPos.x, actualPos.y, actualPos.z, VEC3::Distance(newPos, actualPos));
     VEC3 dir = newPos - actualPos;
     dir.Normalize();
-    if(inPlatform && (((izq && !isForward()) || (!izq && isForward()))))newPos = actualPos + dir * 2 * dt;
-    else if (VEC3::Distance(newPos, actualPos) > distance)newPos = actualPos + dir * 100 * dt;
+    float mul = 100.f;
+    if (inPlatform)mul = 50.f;
+    if (VEC3::Distance(newPos, actualPos) > distance)newPos = actualPos + dir * mul * dt;
     /* else {
        newPos = actualPos;
        newPos.y = currentPlayerY + height;
