@@ -45,6 +45,7 @@ class TCompOrbitCamera : public TCompBase {
 
   void attachPlayer(const TMsgAttachTo& msg);
   void detachPlayer(const TMsgDetachOf& msg);
+  void exitFromPlatform(const TMsgExitPlatform& msg);
 
   bool inPlatform;
 	bool jumpinPlatform;
