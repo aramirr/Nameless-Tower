@@ -212,9 +212,9 @@ void TCompOrbitCamera::update(float dt) {
 
     c->setPosition(center);
 
-
-    if (!inPlatform)y = _y + xOffset;
-    else if (((izq && !isForward()) || (!izq && isForward())))y = _y + xOffset;
+    y = _y + xOffset;
+    //if (!inPlatform)y = _y + xOffset;
+    //else if (((izq && !isForward()) || (!izq && isForward())))y = _y + xOffset;
     //else y = _y - xOffset;
 
     c->setYawPitchRoll(y, p2);
