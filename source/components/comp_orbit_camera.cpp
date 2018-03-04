@@ -224,39 +224,39 @@ void TCompOrbitCamera::update(float dt) {
     if ((exitPlatform /*&& isGrounded()*/) || inPlatform) {
       newPos = actualPos;
       newPos.y = currentPlayerY + height;
-    //  // dbg("Saaaaaaaaaaaaaaalgoooooooooooooooooo\n");
-    //   //newPos = actualPos;
-    //  VEC2 newPos2D = VEC2(newPos.x, newPos.z);
-    //  VEC2 actualPos2D = VEC2(actualPos.x, actualPos.z);
-    //  float dist = VEC2::Distance(newPos2D, actualPos2D);
-    //  //dbg("%f\n", dist);
-    //  if (dist <= 0.25 && exitPlatform && isGrounded()) {
-    //    exitPlatform = false;
+      //  // dbg("Saaaaaaaaaaaaaaalgoooooooooooooooooo\n");
+      //   //newPos = actualPos;
+      //  VEC2 newPos2D = VEC2(newPos.x, newPos.z);
+      //  VEC2 actualPos2D = VEC2(actualPos.x, actualPos.z);
+      //  float dist = VEC2::Distance(newPos2D, actualPos2D);
+      //  //dbg("%f\n", dist);
+      //  if (dist <= 0.25 && exitPlatform && isGrounded()) {
+      //    exitPlatform = false;
 
-    //    TMsgExitPlatform msg;
-    //    if (izq) {
-    //      CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
-    //      camDER->sendMsg(msg);
-    //    }
-    //    else {
-    //      CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
-    //      camIZQ->sendMsg(msg);
-    //    }
-    //  }
-    //  else {
-    //    /*float div = 35.f;
-    //    pPos = p->getPosition();
-    //    VEC2 pPos2D = VEC2(pPos.x, pPos.z);
-    //    if (VEC2::Distance(newPos2D, pPos2D) > 1.5f)div = 25.f;
-    //    dbg("%f\n", (newPos - pPos));
-    //    VEC3 newPos2 = ((newPos - actualPos) / div);
-    //    newPos.x = actualPos.x + newPos2.x;
-    //    newPos.z = actualPos.z + newPos2.z;*/
-    //    VEC3 dir = newPos - actualPos;
-    //    dir.Normalize();
-    //    if (VEC3::Distance(newPos, actualPos) > 1.f)newPos = actualPos + dir * 100 * dt;
-    //    //c->setPosition(newPos);
-    //  }
+      //    TMsgExitPlatform msg;
+      //    if (izq) {
+      //      CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
+      //      camDER->sendMsg(msg);
+      //    }
+      //    else {
+      //      CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
+      //      camIZQ->sendMsg(msg);
+      //    }
+      //  }
+      //  else {
+      //    /*float div = 35.f;
+      //    pPos = p->getPosition();
+      //    VEC2 pPos2D = VEC2(pPos.x, pPos.z);
+      //    if (VEC2::Distance(newPos2D, pPos2D) > 1.5f)div = 25.f;
+      //    dbg("%f\n", (newPos - pPos));
+      //    VEC3 newPos2 = ((newPos - actualPos) / div);
+      //    newPos.x = actualPos.x + newPos2.x;
+      //    newPos.z = actualPos.z + newPos2.z;*/
+      //    VEC3 dir = newPos - actualPos;
+      //    dir.Normalize();
+      //    if (VEC3::Distance(newPos, actualPos) > 1.f)newPos = actualPos + dir * 100 * dt;
+      //    //c->setPosition(newPos);
+      //  }
     }
   }
 
@@ -274,18 +274,18 @@ void TCompOrbitCamera::update(float dt) {
     c->setPosition(newPos);
   }
   else {
-    dbg("(%f, %f, %f) - (%f, %f, %f) = %f\n", newPos.x, newPos.y, newPos.z, actualPos.x, actualPos.y, actualPos.z, VEC3::Distance(newPos, actualPos));
+    //dbg("(%f, %f, %f) - (%f, %f, %f) = %f\n", newPos.x, newPos.y, newPos.z, actualPos.x, actualPos.y, actualPos.z, VEC3::Distance(newPos, actualPos));
     VEC3 dir = newPos - actualPos;
     dir.Normalize();
-    if(VEC3::Distance(newPos, actualPos) > distance)newPos = actualPos + dir * 100 * dt;
-   /* else {
-      newPos = actualPos;
-      newPos.y = currentPlayerY + height;
-    }*/
+    if (VEC3::Distance(newPos, actualPos) > distance)newPos = actualPos + dir * 100 * dt;
+    /* else {
+       newPos = actualPos;
+       newPos.y = currentPlayerY + height;
+     }*/
     c->setPosition(newPos);
     actualPos = newPos;
   }
-  
+
   /*}*/
 
   //c->setPerspective(deg2rad(fov_deg), z_near, z_far);
