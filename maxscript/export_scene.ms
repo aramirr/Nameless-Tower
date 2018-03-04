@@ -66,7 +66,7 @@ struct TJsonFormatter (
 		indent()
 		if classof val == string then (
 			format "\"%\": \"%\"\n" key_str val to:fs
-		) else if classof val == Point3 then (
+		)else if classof val == Point3 then (
 			format "\"%\": \"% % %\"\n" key_str val.x val.y val.z to:fs
 		) else if classof val == quat then (
 			-- Quats rotate in the opposite direction
@@ -106,6 +106,10 @@ struct TMaterialExporter (
 	
 	fn exportMap map alias = (
 		-- "C:\mcv\code\bin\data\textures\bricks.DDS"
+		if map == undefined then
+		(
+			return()
+		)
 		
 		-- "C:\users\pep\desktop\download\bricks.dds"
 		local map_filename = map.filename
@@ -126,6 +130,7 @@ struct TMaterialExporter (
 		)
 		
 		fs.writeKeyValue alias json_filename
+		
 	),
 	
 	-- Exports a single std material to a json format
@@ -141,9 +146,7 @@ struct TMaterialExporter (
 			fs.beginObj()
 				
 			if classof mat == Standardmaterial then (
-				exportMap mat.diffusemap "albedo"
-				fs.writeComma()
-				exportMap mat.selfIllumMap "lightmap"
+					exportMap mat.diffusemap "albedo"
 				-- ... other maps..
 			)
 		
@@ -198,7 +201,7 @@ fn isCollider obj = (
 struct TSceneExporter (
 
 	fs = TJsonFormatter(), 
-	project_path = "C:/Users/mcv16_alumne/torre/engine/bin/",
+	project_path = (getDir #userStartupScripts) + "/../" ,
 	base_path = "data/",
 	scenes_path = base_path + "scenes/",
 	mesh_path = base_path + "meshes/",
@@ -259,7 +262,7 @@ struct TSceneExporter (
 			--fs.writeKeyValue "material" mat_name
 			local me = TMaterialExporter project_path:project_path base_path:base_path
 			local exported_materials = me.exportMaterial mat mats_path obj
-		
+			
 			fs.writeKey "materials"
 			fs.arrayOfStrings exported_materials
 		
@@ -268,6 +271,7 @@ struct TSceneExporter (
 	
 	-- ----------------------------------------------------------
 	fn exportCompCollider obj = (
+
 		fs.writeKey "physics" 
 		fs.beginObj()
 		
@@ -296,6 +300,12 @@ struct TSceneExporter (
 	
 		fs.endObj()
 	),
+	
+	fn exportCustomAttributes obj = (
+		info = AttributeExporter()
+		info.initialize_files()
+		info.export_object_process obj fs
+	),
 
 	-- ----------------------------------------------------------
 	fn exportEditableMesh obj = (
@@ -309,14 +319,15 @@ struct TSceneExporter (
 			exportRenderMesh obj
 		fs.endArray()
 		
-		for child in obj.children do (
+		/*for child in obj.children do (
 			
 			if isCollider child then (
 				fs.writeComma()
 				exportCompCollider child
 			)
 			
-		)
+		)*/
+		exportCustomAttributes obj
 	),
 	
 	-- ----------------------------------------------------------
@@ -365,13 +376,34 @@ struct TSceneExporter (
 		fs.endArray()
 		fs.end()
 		
+	),
+	
+	fn exportSelection = (
+		
+		-- Decide output filename based on .max filename
+		local ofilename = getFilenameFile maxFileName
+		local full_path = project_path + scenes_path + "aux_sel" + ".scene"
+		format "Exporting to %\n" full_path
+		fs.begin full_path
+		fs.beginArray()
+		
+		local nitems = 0
+		for obj in selection do (
+			if nitems > 0 then  fs.writeComma()
+			exportEntity obj
+			nitems = nitems + 1
+		)
+		
+		fs.endArray()
+		fs.end()
+		
 	)
 	
 	
 )
 
 exporter = TSceneExporter()
-exporter.exportAll()
+--exporter.exportAll()
 
 
 
