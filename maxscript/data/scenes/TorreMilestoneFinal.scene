@@ -5796,7 +5796,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
+        "is_trigger": true
       }
     }
   }
@@ -5860,7 +5860,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
+        "is_trigger": true
       }
     }
   }
@@ -6034,7 +6034,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
+        "is_trigger": true
       }
     }
   }
@@ -8513,7 +8513,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
+        "is_trigger": true
       }
     }
   }
@@ -8550,7 +8550,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
+        "is_trigger": true
       }
     }
   }
@@ -13614,6 +13614,424 @@
           ]
         }
       ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerStop1"
+      ,
+      "transform":
+      {
+        "pos": "31.6544 60.75 3.29051"
+        ,
+        "rotation": "0.0 0.742738 0.0 -0.669582"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TriggerStop1.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "runner_stop"
+        ,
+        "appearing_position": "31.6544 60.75 3.29051"
+        ,
+        "collider_entity": "TriggerStop1"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.45 4.5 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerAppear3"
+      ,
+      "transform":
+      {
+        "pos": "27.5803 78.75 15.8812"
+        ,
+        "rotation": "0.0 0.865721 0.0 -0.500526"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TriggerAppear3.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "runner_appear"
+        ,
+        "b_appear": false
+        ,
+        "appearing_position": "30.279 76.75 9.8"
+        ,
+        "collider_entity": "TriggerAppear3"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.45 6.75 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerStop3"
+      ,
+      "transform":
+      {
+        "pos": "-30.2551 83.25 9.87355"
+        ,
+        "rotation": "0.0 -0.809374 0.0 -0.587294"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TriggerStop3.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "runner_stop"
+        ,
+        "appearing_position": "-30.2551 83.25 9.87355"
+        ,
+        "collider_entity": "TriggerStop3"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.45 4.5 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerAppear2"
+      ,
+      "transform":
+      {
+        "pos": "-23.6245 69.75 21.326"
+        ,
+        "rotation": "0.0 -0.913792 0.0 -0.406181"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TriggerAppear2.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "runner_appear"
+        ,
+        "b_appear": true
+        ,
+        "appearing_position": "-18.675 67.75 25.772"
+        ,
+        "collider_entity": "TriggerAppear2"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.45 4.5 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerStop2"
+      ,
+      "transform":
+      {
+        "pos": "-18.7374 74.25 -25.7216"
+        ,
+        "rotation": "0.0 -0.309595 0.0 -0.950869"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TriggerStop2.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "runner_stop"
+        ,
+        "appearing_position": "-18.7374 74.25 -25.7216"
+        ,
+        "collider_entity": "TriggerStop2"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.45 4.5 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerAppear1"
+      ,
+      "transform":
+      {
+        "pos": "-30.2791 56.25 -9.79517"
+        ,
+        "rotation": "0.0 -0.588277 0.0 -0.80866"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TriggerAppear1.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "runner_appear"
+        ,
+        "b_appear": true
+        ,
+        "appearing_position": "-31.654 54.0 -3.286"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.45 4.5 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerDisappear"
+      ,
+      "transform":
+      {
+        "pos": "-12.9089 51.75 29.0914"
+        ,
+        "rotation": "0.0 -0.978274 0.0 -0.207317"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TriggerDisappear.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "runner_appear"
+        ,
+        "b_appear": false
+        ,
+        "appearing_position": "-12.9089 51.75 29.0914"
+        ,
+        "collider_entity": "TriggerDisappear"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.45 4.5 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerAppear0"
+      ,
+      "transform":
+      {
+        "pos": "30.3637 47.2595 9.76812"
+        ,
+        "rotation": "0.0 0.8083 0.0 -0.588771"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TriggerAppear0.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CheckerMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "runner_appear"
+        ,
+        "b_appear": true
+        ,
+        "appearing_position": "-23.624 49.75 21.326"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.45 4.5 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
     }
   }
 ]
