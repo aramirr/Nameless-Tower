@@ -131,17 +131,17 @@ void TCompOrbitCamera::update(float dt) {
 
   float dY = abs(currentPlayerY - pPos.y);
 
-  if (currentPlayerY < pPos.y) {
-    if (dY > 10.f)currentPlayerY += 5.f;
-    else if (dY > 7.f)currentPlayerY += 0.5f;
+  if (currentPlayerY < pPos.y - 0.1f) {
+    if (dY > 10.f)currentPlayerY += 12.5f;
+    else if (dY > 7.f)currentPlayerY += 6.5f;
     else if (dY > 4.f)currentPlayerY += 0.05f;
-    else currentPlayerY += 0.01f;
+    else currentPlayerY += 0.025f;
   }
-  if (currentPlayerY > pPos.y) {
-    if (dY > 10.f)currentPlayerY -= 5.f;
-    else if (dY > 7.f)currentPlayerY -= 0.5f;
+  if (currentPlayerY > pPos.y + 0.1f) {
+    if (dY > 10.f)currentPlayerY -= 12.5f;
+    else if (dY > 7.f)currentPlayerY -= 6.5f;
     else if (dY > 4.f)currentPlayerY -= 0.05f;
-    else currentPlayerY -= 0.01f;
+    else currentPlayerY -= 0.025f;
   }
 
   VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
@@ -215,16 +215,19 @@ void TCompOrbitCamera::update(float dt) {
     newPos = c->getPosition() - (c->getFront() * (_distance - distance));
     newPos.y = currentPlayerY + height;
 
-    if ((exitPlatform && isGrounded()) || inPlatform) {
+    if ((exitPlatform /*&& isGrounded()*/) || inPlatform) {
      // dbg("Saaaaaaaaaaaaaaalgoooooooooooooooooo\n");
       //newPos = actualPos;
-      float dist = VEC3::Distance(newPos, actualPos);
+      VEC2 newPos2D = VEC2(newPos.x, newPos.z);
+      VEC2 actualPos2D = VEC2(actualPos.x, actualPos.z);
+      float dist = VEC2::Distance(newPos2D, actualPos2D);
+      //dbg("%f\n", dist);
       if(dist <= 0.25 && exitPlatform && isGrounded())exitPlatform = false;
       else {
-        float div = 100.f;
-        if (dist > 10.f)div = 20.f;
-        else if (dist > 7.f)div = 50.f;
-        else if (dist > 4.f)div = 90.f;
+        float div = 35.f;
+        pPos = p->getPosition();
+        VEC2 pPos2D = VEC2(pPos.x, pPos.z);
+        if (VEC2::Distance(newPos2D, pPos2D) > 1.5f)div = 25.f;
         VEC3 newPos2 = ((newPos - actualPos) / div);
         newPos.x = actualPos.x + newPos2.x;
         newPos.z = actualPos.z + newPos2.z;

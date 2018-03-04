@@ -15,6 +15,7 @@ class TCompCameraManager : public TCompBase {
   //void changeCamerainPlatform(const TMsgchangeCamerainPlatform& msg);
 
   bool inPlatform;
+  bool blending;
 
 public:
   //static void registerMsgs();

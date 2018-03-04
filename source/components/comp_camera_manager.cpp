@@ -61,6 +61,8 @@ void TCompCameraManager::load(const json& j, TEntityParseContext& ctx) {
   carga = true;
 
   inPlatform = false;
+
+  blending = false;
 }
 
 void TCompCameraManager::update(float dt) {
@@ -106,9 +108,11 @@ void TCompCameraManager::update(float dt) {
     Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 
     pForwarding = true;
+
+    blending = true;
     //}
   }
-  else if (distanceCamIzq > 9.f || inPlatform) {
+  else if ((distanceCamIzq > 9.f || inPlatform) && !blending) {
     //if (pForwarding) {
     if (inPlatform) {
       /*CHandle h_camera = getEntityByName("camera_orbit_IZQ");
@@ -121,6 +125,8 @@ void TCompCameraManager::update(float dt) {
     pForwarding = false;
     //}
   }
+
+  blending = false;
 
 }
 
