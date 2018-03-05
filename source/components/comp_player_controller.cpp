@@ -117,7 +117,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	dashing_speed = j.value("dashing_speed", 3);
 	omnidash_max_time = j.value("omnidash_max_time", 0.3f);
 	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 1.3f);
-	jumping_death_height = j.value("jumping_death_height", 10.f);
+	jumping_death_height = j.value("jumping_death_height", 9.f);
 	current_x_speed_factor = x_speed_factor; 
 	is_grounded = true;
 	can_omni = true;
