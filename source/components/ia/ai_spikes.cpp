@@ -54,7 +54,7 @@ void CAISpikes::TriggerSpikeState(float dt)
 	TCompRender *my_render = getMyRender();
 	my_render->is_active = true;
 	change_color(VEC4 (1, 0, 0, 1));
-	acum_time += dt;
+	acum_time += DT;
 	if (acum_time >= time_to_trigger)
 	{
 		ChangeState("on");
@@ -67,7 +67,7 @@ void CAISpikes::SpikesOnState(float dt)
 	TCompRender *my_render = getMyRender();
 	my_render->is_active = true;
 	change_color(VEC4(0, 0, 1, 1));
-	acum_time += dt;
+	acum_time += DT;
 	CEntity *player = (CEntity *)getEntityByName("The Player");
 	assert(player);
 	TCompTransform *p_trans = player->get<TCompTransform>();

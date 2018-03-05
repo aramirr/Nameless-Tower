@@ -34,6 +34,8 @@ class TCompPlayerController : public IAIController {
 
   DECL_SIBLING_ACCESS();
 
+  //float DT;
+
 public:
 	VEC3	  center;
 	float	  tower_radius;
@@ -57,6 +59,10 @@ public:
 	static void registerMsgs();
 	void killPlayer(const TMsgKillPlayer& msg);
 	void setCheckpoint(const TMsgCheckpoint& msg);
+
+  //void setdt(float dt) { DT = dt; };
+
+  //void update(float dt);
 
   void init();
 };

@@ -72,7 +72,7 @@ void CAIDestroyable::IdleState()
 void CAIDestroyable::TriggerDestroyState(float dt)
 {
 	change_color(VEC4(1, 0, 0, 1));
-	acum_time += dt;
+	acum_time += DT;
 	if (acum_time >= destroy_time)
 	{
 		acum_time = 0;
@@ -103,7 +103,7 @@ void CAIDestroyable::TransitionDestroyState(float dt)
 void CAIDestroyable::DestoyState(float dt)
 {
 	change_color(VEC4(1, 0, 1, 1));
-	acum_time += dt;
+	acum_time += DT;
 	if (acum_time >= recover_time)
 	{
 		acum_time = 0;

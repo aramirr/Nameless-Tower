@@ -79,7 +79,7 @@ void CAIBossRunner::appear_state(float dt) {
 	TCompTransform* my_transform = getMyTransform();
 	VEC3 delta_move = appearing_position - my_transform->getPosition();
 	TCompCollider* my_collider = getMyCollider();
-	my_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+	my_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, physx::PxControllerFilters());
 	my_transform->lookAt(appearing_position, tower_center);
 	float y, p, r;
 	my_transform->getYawPitchRoll(&y, &p, &r);
@@ -109,7 +109,7 @@ void CAIBossRunner::chase_state(float dt) {
 
 	float current_yaw;
 	float current_pitch;
-	float amount_moved = speed_factor * dt;
+	float amount_moved = speed_factor * DT;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	tower_center.y = myPos.y;
@@ -131,8 +131,8 @@ void CAIBossRunner::chase_state(float dt) {
 		{
 			VEC3 delta_move = newPos - myPos;
 			distance_to_player = VEC3::Distance(myPos, ppos);
-			delta_move.y += -10 * dt;
-			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+			delta_move.y += -10 * DT;
+			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, physx::PxControllerFilters());
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
 				current_yaw = going_right ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
@@ -178,7 +178,7 @@ void CAIBossRunner::disapear_state(float dt) {
 	TCompTransform *my_transform = getMyTransform();
 	VEC3 delta_move = tower_center - my_transform->getPosition();
 	TCompCollider *comp_collider = getMyCollider();
-	physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+	physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, physx::PxControllerFilters());
 
 }
 
@@ -188,10 +188,10 @@ void CAIBossRunner::jumping_state(float dt) {
 	VEC3 new_pos = my_pos;
 	float y_speed;
 	if (y_speed_factor > 0)
-		y_speed = (y_speed_factor * dt) - (gravity * dt * dt / 2);
+		y_speed = (y_speed_factor * DT) - (gravity * DT * DT / 2);
 	else
-		y_speed = (y_speed_factor * dt) - (gravity * dt * dt * 3);
-	y_speed_factor -= gravity * dt / 2;
+		y_speed = (y_speed_factor * DT) - (gravity * DT * DT * 3);
+	y_speed_factor -= gravity * DT / 2;
 	new_pos.y += y_speed;
 
 	tower_center.y = my_pos.y;
@@ -199,7 +199,7 @@ void CAIBossRunner::jumping_state(float dt) {
 	if (new_pos.y < jump_end) {
 		float current_yaw, current_pitch;
 		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-		float amount_moved = speed_factor * dt;
+		float amount_moved = speed_factor * DT;
 		current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		VEC3 aux_vector = going_right ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
@@ -209,8 +209,8 @@ void CAIBossRunner::jumping_state(float dt) {
 		if (comp_collider && comp_collider->controller)
 		{
 			VEC3 delta_move = new_pos - my_pos;
-			delta_move.y += -(-(jump_speed - gravity * dt)) * dt;
-			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+			delta_move.y += -(-(jump_speed - gravity * DT)) * DT;
+			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, physx::PxControllerFilters());
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
 				current_yaw = going_right ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
