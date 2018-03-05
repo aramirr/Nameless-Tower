@@ -14,6 +14,7 @@ class TCompTrigger : public IAIController {
 	VEC3 appearing_position;
 	bool b_appear;
 	bool render = true;
+	std::string next_state;
 
 	void onTriggerEnter(const TMsgTriggerEnter& msg);
 	void onTriggerExit(const TMsgTriggerExit& msg);
