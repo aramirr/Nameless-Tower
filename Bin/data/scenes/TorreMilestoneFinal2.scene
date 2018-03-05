@@ -5076,7 +5076,7 @@
       {
         "speed": 0.05
         ,
-        "delay": 1.0
+        "delay": 1.5
         ,
         "waypoints":
         [
@@ -13720,12 +13720,6 @@
   {
     "entity":
     {
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "TriggerStop3"
       ,
       "transform":
@@ -13821,13 +13815,7 @@
         "is_trigger": true
       }
     }
-  }
-  ,
-  {
-    "entity":
-    {
-    }
-  }
+  }  
   ,
   {
     "entity":
@@ -13926,12 +13914,6 @@
         ,
         "is_trigger": true
       }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
     }
   }
   ,
