@@ -14,6 +14,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{BC06472A-AE43-4007-AE25-59879F8D23F2}</ProjectGuid>
     <RootNamespace>Game</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -43,11 +44,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)..\Bin\</OutDir>
-    <IntDir>$(SolutionDir)..\Build\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)..\Build\$(Platform)\$(ProjectName)\$(Configuration)\</IntDir>
     <IncludePath>$(SolutionDir)..\tools\PhysX\PhysX_3.4\Include;$(SolutionDir)..\tools\PhysX\PxShared\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IntDir>$(SolutionDir)..\Build\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)..\Build\$(Platform)\$(ProjectName)\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)..\Bin\</OutDir>
     <IncludePath>$(SolutionDir)..\tools\PhysX\PhysX_3.4\Include;$(SolutionDir)..\tools\PhysX\PxShared\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
@@ -161,6 +162,8 @@
     <ClCompile Include="render\texture\texture.cpp" />
     <ClCompile Include="resources\json_resource.cpp" />
     <ClCompile Include="resources\resources_manager.cpp" />
+    <ClCompile Include="skeleton\comp_skeleton.cpp" />
+    <ClCompile Include="skeleton\game_core_skeleton.cpp" />
     <ClCompile Include="utils\murmur3\murmur3.cpp" />
     <ClCompile Include="utils\utils.cpp" />
     <ClCompile Include="windows\app.cpp" />
@@ -259,6 +262,8 @@
     <ClInclude Include="resources\json_resource.h" />
     <ClInclude Include="resources\resource.h" />
     <ClInclude Include="resources\resources_manager.h" />
+    <ClInclude Include="skeleton\comp_skeleton.h" />
+    <ClInclude Include="skeleton\game_core_skeleton.h" />
     <ClInclude Include="utils\data_provider.h" />
     <ClInclude Include="utils\directory_watcher.h" />
     <ClInclude Include="utils\json.hpp" />
@@ -269,6 +274,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Cal3D\Cal3D.vcxproj">
+      <Project>{f13518a5-98d4-48a8-98ed-81b5e9d70bce}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

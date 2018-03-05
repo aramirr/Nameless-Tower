@@ -226,6 +226,12 @@
     <ClCompile Include="profiling\profiling.cpp">
       <Filter>profiling</Filter>
     </ClCompile>
+    <ClCompile Include="skeleton\game_core_skeleton.cpp">
+      <Filter>skeleton</Filter>
+    </ClCompile>
+    <ClCompile Include="skeleton\comp_skeleton.cpp">
+      <Filter>skeleton</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -299,6 +305,9 @@
     </Filter>
     <Filter Include="profiling">
       <UniqueIdentifier>{f8293cf5-bd8e-4fed-a082-e83abcb71aa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="skeleton">
+      <UniqueIdentifier>{323ce2c4-3af1-40f3-981f-32b2114687b0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -627,6 +636,12 @@
     </ClInclude>
     <ClInclude Include="render\gpu_trace.h">
       <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="skeleton\game_core_skeleton.h">
+      <Filter>skeleton</Filter>
+    </ClInclude>
+    <ClInclude Include="skeleton\comp_skeleton.h">
+      <Filter>skeleton</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
