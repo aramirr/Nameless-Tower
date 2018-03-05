@@ -19,6 +19,7 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		CEntity* runner_entity = (CEntity*)getEntityByName("Boss Runner");
 		TMsgRunnerAppear msg2;
 		msg2.b_appear = b_appear;
+		msg2.next_state = next_state;
 		if (b_appear)
 			msg2.appearing_position = appearing_position;
 		runner_entity->sendMsg(msg2);
@@ -90,6 +91,7 @@ void TCompTrigger::load(const json& j, TEntityParseContext& ctx) {
 	}
 	else if (trigger_type == "runner_appear") {
 		b_appear = j.value("b_appear", false);
+		next_state = j.value("next_state", "chase");
 		if (b_appear)
 			appearing_position = loadVEC3(j["appearing_position"]);
 	}

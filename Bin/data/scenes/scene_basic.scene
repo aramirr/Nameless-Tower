@@ -63,7 +63,7 @@
 				"tower_radius": 32,
 				"gravity": 16.5,
 				"jump_speed": 15,
-				"jump_altitude": 5
+				"jump_altitude": 5.5
  			},
 			"collider": {
 				"shape": "capsule",
@@ -242,6 +242,32 @@
 			"trigger": {
 				"trigger_type": "checkpoint",
 				"appearing_position": "30.671 59.500 -9.127"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "Checkpoint Trigger 4",
+			"transform": {
+				"pos": "30.364 45.759 9.768",
+				"lookat": "-1 0 15"
+			},
+			"render" : [
+				{
+					"mesh": "data/meshes/Teapot001.mesh",
+					"materials" : [
+						"data/materials/madera.material"
+					]
+				}
+			],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "checkpoint",
+				"appearing_position": "6.655 51.936 -31.124"
 			}
 		}
 	},

@@ -22,10 +22,32 @@ void CAIBossRunner::Init()
 	ChangeState("disappear");
 }
 void CAIBossRunner::appear(const TMsgRunnerAppear& msg) {
-	if (msg.b_appear && (actual_state == "disappear" || actual_state == "idle")) {
+	if (msg.b_appear && actual_state != "chase") {
 		appearing_position = msg.appearing_position;
-		actual_state = "appear";
-		ChangeState("appear");
+
+		/*actual_state = "appear";
+		ChangeState("appear");*/
+		//Este codigo existe para simular scripting. Luego del Milestone 1 ira fuera
+
+		//Appear
+		TCompTransform* my_transform = getMyTransform();
+		TCompCollider* my_collider = getMyCollider();
+		my_collider->controller->setPosition(physx::PxExtendedVec3(appearing_position.x, appearing_position.y, appearing_position.z));
+		tower_center.y = appearing_position.y;
+		my_transform->lookAt(appearing_position, tower_center);
+		float y, p, r;
+		my_transform->getYawPitchRoll(&y, &p, &r);
+		y -= deg2rad(90);
+		my_transform->setYawPitchRoll(y, p, r);
+		going_right = my_transform->isInLeft(tower_center);
+		TCompRender *my_render = getMyRender();
+		my_render->is_active = true;
+		//next state
+		actual_state = msg.next_state;
+		if (msg.next_state == "chase")
+			change_mesh(2);
+		else change_mesh(1);
+		ChangeState(msg.next_state);
 	}
 	else {
 		actual_state = "disappear";
@@ -39,10 +61,9 @@ void CAIBossRunner::on_player_jump(const TMsgJump& msg) {
 }
 
 void CAIBossRunner::stop(const TMsgRunnerStop& msg) {
-	if (actual_state == "chase") {
-		change_mesh(1);
-		ChangeState("idle");
-	}
+	change_mesh(1);
+	actual_state = "idle";
+	ChangeState("idle");
 }
 
 void CAIBossRunner::registerMsgs() {
@@ -77,9 +98,11 @@ void CAIBossRunner::load(const json& j, TEntityParseContext& ctx) {
 
 void CAIBossRunner::appear_state(float dt) {
 	TCompTransform* my_transform = getMyTransform();
-	VEC3 delta_move = appearing_position - my_transform->getPosition();
+	//VEC3 delta_move = appearing_position - my_transform->getPosition();
 	TCompCollider* my_collider = getMyCollider();
-	my_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, physx::PxControllerFilters());
+	my_collider->controller->setPosition(physx::PxExtendedVec3(appearing_position.x, appearing_position.y, appearing_position.z));
+	//my_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, physx::PxControllerFilters());
+	tower_center.y = appearing_position.y;
 	my_transform->lookAt(appearing_position, tower_center);
 	float y, p, r;
 	my_transform->getYawPitchRoll(&y, &p, &r);
@@ -176,9 +199,13 @@ void CAIBossRunner::disapear_state(float dt) {
 	TCompRender *my_render = getMyRender();
 	my_render->is_active = false;
 	TCompTransform *my_transform = getMyTransform();
-	VEC3 delta_move = tower_center - my_transform->getPosition();
+	//VEC3 delta_move = tower_center - my_transform->getPosition();
 	TCompCollider *comp_collider = getMyCollider();
-	physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, physx::PxControllerFilters());
+//<<<<<<< HEAD
+//	physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, physx::PxControllerFilters());
+
+	comp_collider->controller->setPosition(physx::PxExtendedVec3(tower_center.x, tower_center.y, tower_center.z));
+	//comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, physx::PxControllerFilters());
 
 }
 
@@ -231,16 +258,18 @@ void CAIBossRunner::idle_state() {
 	TCompTransform* my_transform = getMyTransform();
 	CEntity *player = (CEntity *)getEntityByName("The Player");
 	TCompTransform *p_transform = player->get<TCompTransform>();
+	VEC3 auz = p_transform->getPosition();
+	tower_center.y;
 	distance_to_player = VEC3::Distance(my_transform->getPosition(), p_transform->getPosition());
 	if (distance_to_player < attack_distance) {
 		actual_state = "attack";
 		change_mesh(0);
 		ChangeState("attack");
 	}
-	if (distance_to_player > chase_distance + 10.f) {
+	/*if (distance_to_player > chase_distance + 10.f) {
 		jump_positions = std::queue<VEC3>();
 		actual_state = "disappear";
 		ChangeState("disappear");
-	}
+	}*/
 	
 }
