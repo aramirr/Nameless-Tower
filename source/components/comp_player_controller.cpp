@@ -166,7 +166,6 @@ void TCompPlayerController::initial_state(float dt) {
 }
 
 void TCompPlayerController::idle_state(float dt) {
-  dbg("%f\n", DT);
 	TCompCollider* comp_collider = get<TCompCollider>();
 
 	//---------- CHEAT de EDU ----------
