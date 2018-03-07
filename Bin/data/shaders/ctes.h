@@ -39,6 +39,7 @@ CB_DEF(CCteObject, CB_OBJECT)   // Generates the b1
 };
 
 CB_DEF(CCteSkinBones, CB_SKIN_BONES) 
+
 {
   MAT44 Bones[MAX_SUPPORTED_BONES];
 };

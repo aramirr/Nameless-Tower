@@ -65,10 +65,10 @@ void TCompSkeleton::load(const json& j, TEntityParseContext& ctx) {
 void TCompSkeleton::update(float dt) {
   PROFILE_FUNCTION("updateSkel");
   assert(model);
-  TCompTransform* tmx = get<TCompTransform>();
-  VEC3 pos = tmx->getPosition();
-  QUAT rot = tmx->getRotation();
-  model->getMixer()->setWorldTransform(DX2Cal(pos), DX2Cal(rot));
+  //TCompTransform* tmx = get<TCompTransform>();
+  //VEC3 pos = tmx->getPosition();
+  //QUAT rot = tmx->getRotation();
+  //model->getMixer()->setWorldTransform(DX2Cal(pos), DX2Cal(rot));
   model->update(dt);
 }
 
@@ -108,7 +108,7 @@ void TCompSkeleton::debugInMenu() {
     if (ImGui::SmallButton("X")) {
       auto core = (CGameCoreSkeleton*)model->getCoreModel();
       int id = core->getCoreAnimationId(a->getCoreAnimation()->getName());
-      a->remove(out_delay);
+      //mixer->removeAction(id, out_delay);
     }
   }
 
@@ -124,7 +124,6 @@ void TCompSkeleton::debugInMenu() {
     if (ImGui::SmallButton("X")) {
       auto core = (CGameCoreSkeleton*)model->getCoreModel();
       int id = core->getCoreAnimationId(a->getCoreAnimation()->getName());
-
       mixer->clearCycle(id, out_delay);
     }
     ImGui::PopID();

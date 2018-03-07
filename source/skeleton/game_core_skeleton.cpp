@@ -3,6 +3,7 @@
 #include "render/mesh/mesh_loader.h"
 #include "utils/data_saver.h"
 #include "cal3d2engine.h"
+#include "ctes.h"
 
 #include "ctes.h"
 
@@ -148,7 +149,6 @@ bool CGameCoreSkeleton::convertCalCoreMesh2RenderMesh(CalCoreMesh* cal_mesh, con
       int total_weight = 0;
       for (size_t ninfluence = 0; ninfluence < cal_vtx.vectorInfluence.size() && ninfluence < 4; ++ninfluence) {
         auto cal_influence = cal_vtx.vectorInfluence[ninfluence];
-
         assert(cal_influence.boneId < MAX_SUPPORTED_BONES);
         skin_vtx.bone_ids[ninfluence] = (uint8_t)(cal_influence.boneId);
         assert(skin_vtx.bone_ids[ninfluence] < nbones);
@@ -205,8 +205,12 @@ bool CGameCoreSkeleton::convertCalCoreMesh2RenderMesh(CalCoreMesh* cal_mesh, con
   header.num_indices = total_faces * 3;
   header.num_vertexs = total_vtxs;
   header.primitive_type = CRenderMesh::TRIANGLE_LIST;
+<<<<<<< HEAD
 
   strcpy(header.vertex_type_name, "PosNUvSkin");
+=======
+  strcpy(header.vertex_type_name, "PosNUvTanSkin");
+>>>>>>> f345206... Added shader ctes with bones
 
   mesh_io.vtxs = mds_vtxs.buffer;
   mesh_io.idxs = mds_idxs.buffer;
@@ -246,14 +250,34 @@ bool CGameCoreSkeleton::create(const std::string& res_name) {
       return false;
     std::string skin_mesh_file = root_path + name + ".mesh";
     convertCalCoreMesh2RenderMesh(getCoreMesh(mesh_id), skin_mesh_file);
+<<<<<<< HEAD
 
     // Delete the cmf file
     // std::remove(cmf.c_str());
+=======
+    // Delete the cmf file
+    std::remove(cmf.c_str());
+>>>>>>> f345206... Added shader ctes with bones
   }
 
   // Read all anims
   auto& anims = json["anims"];
   for (auto it = anims.begin(); it != anims.end(); ++it) {
+<<<<<<< HEAD
+=======
+    assert(it->is_object());
+
+    auto& anim = *it;
+    std::string anim_name = anim["name"];
+    std::string caf = root_path + anim_name + ".caf";
+    int anim_id = loadCoreAnimation(caf, anim_name);
+    if (anim_id < 0)
+      return false;
+
+    // read other metadata associated to the anim
+    // ...
+  }
+>>>>>>> f345206... Added shader ctes with bones
 
     assert(it->is_object());
 
