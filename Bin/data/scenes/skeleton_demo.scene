@@ -7,10 +7,11 @@
       "transform":
       {
         "pos": "0 0 0",
-        "rotation": "0.0 0.0 0.0 -1.0"
+        "rotation": "0.0 0.0 0.0 -1.0",
+        "scale" : 0.025
       },
       "skeleton": {
-        "skeleton": "cally.skeleton"
+        "skeleton": "data/skeletons/cally/cally.skeleton"
       },
       "abs_aabb":true,
       "local_aabb":true

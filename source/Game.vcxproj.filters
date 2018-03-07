@@ -46,26 +46,11 @@
     <ClCompile Include="render\mesh\mesh_loader.cpp">
       <Filter>render\mesh</Filter>
     </ClCompile>
-    <ClCompile Include="modules\module_manager.cpp">
-      <Filter>modules</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\module_render.cpp">
-      <Filter>modules</Filter>
-    </ClCompile>
     <ClCompile Include="render\render_objects.cpp">
       <Filter>render</Filter>
     </ClCompile>
     <ClCompile Include="geometry\transform.cpp">
       <Filter>geometry</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\game\module_gameover.cpp">
-      <Filter>modules\game</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\game\module_main_menu.cpp">
-      <Filter>modules\game</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\game\module_splash.cpp">
-      <Filter>modules\game</Filter>
     </ClCompile>
     <ClCompile Include="entity\entity.cpp">
       <Filter>entity</Filter>
@@ -232,6 +217,21 @@
     <ClCompile Include="skeleton\comp_skeleton.cpp">
       <Filter>skeleton</Filter>
     </ClCompile>
+    <ClCompile Include="modules\module_manager.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\module_render.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\game\module_main_menu.cpp">
+      <Filter>modules\game</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\game\module_gameover.cpp">
+      <Filter>modules\game</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\game\module_splash.cpp">
+      <Filter>modules\game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -358,23 +358,11 @@
     <ClInclude Include="imgui\imgui_internal.h">
       <Filter>imgui</Filter>
     </ClInclude>
-    <ClInclude Include="utils\json.hpp">
-      <Filter>utils</Filter>
-    </ClInclude>
     <ClInclude Include="render\mesh\mesh.h">
       <Filter>render\mesh</Filter>
     </ClInclude>
     <ClInclude Include="render\mesh\mesh_loader.h">
       <Filter>render\mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\module.h">
-      <Filter>modules</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\module_manager.h">
-      <Filter>modules</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\module_render.h">
-      <Filter>modules</Filter>
     </ClInclude>
     <ClInclude Include="render\render_objects.h">
       <Filter>render</Filter>
@@ -390,15 +378,6 @@
     </ClInclude>
     <ClInclude Include="geometry\transform.h">
       <Filter>geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\game\module_gameover.h">
-      <Filter>modules\game</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\game\module_main_menu.h">
-      <Filter>modules\game</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\game\module_splash.h">
-      <Filter>modules\game</Filter>
     </ClInclude>
     <ClInclude Include="entity\entity.h">
       <Filter>entity</Filter>
@@ -642,6 +621,30 @@
     </ClInclude>
     <ClInclude Include="skeleton\comp_skeleton.h">
       <Filter>skeleton</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\data_saver.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\json.hpp">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\module.h">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\module_manager.h">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\module_render.h">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\game\module_main_menu.h">
+      <Filter>modules\game</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\game\module_gameover.h">
+      <Filter>modules\game</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\game\module_splash.h">
+      <Filter>modules\game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

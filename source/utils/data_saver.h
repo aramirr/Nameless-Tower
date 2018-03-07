@@ -20,7 +20,7 @@ public:
 };
 
 class CFileDataSaver : public CDataSaver {
-  FILE* f;
+  FILE* f = nullptr;
   std::string my_filename;
 public:
   CFileDataSaver(const char* filename) {

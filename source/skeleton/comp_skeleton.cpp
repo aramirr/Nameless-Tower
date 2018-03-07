@@ -65,10 +65,10 @@ void TCompSkeleton::load(const json& j, TEntityParseContext& ctx) {
 void TCompSkeleton::update(float dt) {
   PROFILE_FUNCTION("updateSkel");
   assert(model);
-  TCompTransform* tmx = get<TCompTransform>();
-  VEC3 pos = tmx->getPosition();
-  QUAT rot = tmx->getRotation();
-  model->getMixer()->setWorldTransform(DX2Cal(pos), DX2Cal(rot));
+  //TCompTransform* tmx = get<TCompTransform>();
+  //VEC3 pos = tmx->getPosition();
+  //QUAT rot = tmx->getRotation();
+  //model->getMixer()->setWorldTransform(DX2Cal(pos), DX2Cal(rot));
   model->update(dt);
 }
 
@@ -103,6 +103,12 @@ void TCompSkeleton::debugInMenu() {
       , a->getTime()
       , a->getCoreAnimation()->getDuration()
     );
+    ImGui::SameLine();
+    if (ImGui::SmallButton("X")) {
+      auto core = (CGameCoreSkeleton*)model->getCoreModel();
+      int id = core->getCoreAnimationId(a->getCoreAnimation()->getName());
+      //mixer->removeAction(id, out_delay);
+    }
   }
 
   for (auto a : mixer->getAnimationCycle()) {
@@ -117,7 +123,7 @@ void TCompSkeleton::debugInMenu() {
     if (ImGui::SmallButton("X")) {
       auto core = (CGameCoreSkeleton*)model->getCoreModel();
       int id = core->getCoreAnimationId(a->getCoreAnimation()->getName());
-      mixer->clearCycle(id, 0.25f);
+      mixer->clearCycle(id, out_delay);
     }
     ImGui::PopID();
   }
@@ -169,8 +175,10 @@ void TCompSkeleton::updateCtesBones() {
 }
 
 void TCompSkeleton::renderDebug() {
-  VEC3 lines[1024][2];
+  VEC3 lines[MAX_SUPPORTED_BONES][2];
   int nrLines = model->getSkeleton()->getBoneLines(&lines[0][0].x);
+  TCompTransform* transform = get<TCompTransform>();
+  float scale = transform->getScale();
   for (int currLine = 0; currLine < nrLines; currLine++)
-    renderLine(lines[currLine][0], lines[currLine][1], VEC4(1, 1, 1, 1));
+    renderLine(lines[currLine][0] * scale, lines[currLine][1] * scale, VEC4(1, 1, 1, 1));
 }
