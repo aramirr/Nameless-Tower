@@ -13,7 +13,8 @@ class CModuleEntities : public IModule
 
 public:
   CModuleEntities(const std::string& aname) : IModule(aname) { }
-  bool start();
+  bool start() override;
+  bool stop() override;
   void update(float delta) override;
   void render() override;
 };
