@@ -19,29 +19,14 @@ CCamera        camera;
 bool CModuleTestAxis::start()
 {
 
-  {
+  json jboot = loadJson("data/boot.json");
+
+  // Auto load some scenes
+  std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];
+  for (auto& scene_name : scenes_to_auto_load) {
+    dbg("Autoloading scene %s\n", scene_name.c_str());
     TEntityParseContext ctx;
-    parseScene("data/scenes/scene_basic.scene", ctx);
-  }
-  {
-    TEntityParseContext ctx;
-    parseScene("data/scenes/multimaterial.scene", ctx);
-  }
-  {
-    TEntityParseContext ctx;
-    parseScene("data/scenes/player.scene", ctx);
-  }
-  {
-    TEntityParseContext ctx;
-    parseScene("data/scenes/camera.scene", ctx);
-  }
-  {
-    TEntityParseContext ctx;
-    parseScene("data/scenes/game_camera.scene", ctx);
-  }
-  {
-    TEntityParseContext ctx;
-    parseScene("data/scenes/skeleton_demo.scene", ctx);
+    parseScene(scene_name, ctx);
   }
 
   camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
