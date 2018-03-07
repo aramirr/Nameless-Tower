@@ -175,6 +175,7 @@ public:
   std::list<CalAnimationCycle *> &getAnimationCycle();  
 
 
+  // MCV
   void setWorldTransform(CalVector new_world_pos, CalQuaternion new_world_rot) {
     world_pos = new_world_pos;
     world_rot = new_world_rot;
@@ -190,6 +191,7 @@ protected:
   float m_timeFactor;
 
 
+  // MCV
   // Come from the engine entity transform
   CalVector     world_pos;
   CalQuaternion world_rot;
