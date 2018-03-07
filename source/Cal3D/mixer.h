@@ -17,6 +17,8 @@
 //****************************************************************************//
 
 #include "cal3d/global.h"
+#include "cal3d/vector.h"
+#include "cal3d/quaternion.h"
 
 //****************************************************************************//
 // Forward declarations                                                       //
@@ -171,7 +173,12 @@ public:
   std::vector<CalAnimation *> &getAnimationVector();
   std::list<CalAnimationAction *> &getAnimationActionList();
   std::list<CalAnimationCycle *> &getAnimationCycle();  
-  
+
+  void setWorldTransform(CalVector new_world_pos, CalQuaternion new_world_rot) {
+    world_pos = new_world_pos;
+    world_rot = new_world_rot;
+  }
+
 protected:
   CalModel *m_pModel;
   std::vector<CalAnimation *> m_vectorAnimation;
@@ -180,6 +187,11 @@ protected:
   float m_animationTime;
   float m_animationDuration;
   float m_timeFactor;
+
+  // Come from the engine entity transform
+  CalVector     world_pos;
+  CalQuaternion world_rot;
+
 };
 
 #endif

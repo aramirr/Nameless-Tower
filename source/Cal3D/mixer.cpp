@@ -536,6 +536,18 @@ void CalMixer::updateSkeleton()
   // lock the skeleton state
   pSkeleton->lockState();
 
+  // MCV ---------------
+  // Rotate & Translate the root bone to the entity position
+  auto root_bone = vectorBone[0];
+  auto root_pos = root_bone->getTranslation();
+  auto root_rot = root_bone->getRotation();
+  root_pos *= world_rot;
+  root_pos += world_pos;
+  root_rot *= world_rot;
+  root_bone->setTranslation(root_pos);
+  root_bone->setRotation(root_rot);
+  // MCV ---------------
+
   // let the skeleton calculate its final state
   pSkeleton->calculateState();
 }
