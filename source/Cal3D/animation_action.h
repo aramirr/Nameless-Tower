@@ -28,12 +28,18 @@ public:
   bool execute(float delayIn, float delayOut, float weightTarget = 1.0f,bool autoLock=false);
   bool update(float deltaTime);
 
+  // Added by MCV
+  bool remove(float timeout);
+
 private:
   float m_delayIn;
   float m_delayOut;
   float m_delayTarget;
   float m_weightTarget;
   bool  m_autoLock; 
+  
+  // Added by MCV
+  float m_total_duration;
 };
 
 #endif
