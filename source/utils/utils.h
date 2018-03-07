@@ -18,6 +18,7 @@ bool fatal(const char* fmt, ...);
 bool isPressed(int key);
 
 json loadJson(const std::string& filename);
+bool fileExists(const std::string& afilename);
 
 #endif
 
