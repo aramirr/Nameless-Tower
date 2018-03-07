@@ -1,18 +1,18 @@
 #include "mcv_platform.h"
 #include "render_manager.h"
-#include "render/render.h"
 #include "render/texture/material.h"
 #include "components/comp_transform.h"
 #include "components/comp_render.h"
-#include "render_objects.h"
+#include "skeleton/comp_skeleton.h"
 #include "components/comp_culling.h"
 #include "components/comp_aabb.h"
+#include "render_objects.h"
+#include "render/render.h"
+#include "ctes.h"
 
 /*
 #include "render/shader_cte_buffer.h"
-#include "shader_ctes.h"
 #include "components/comp_camera.h"
-#include "skeleton/comp_skeleton.h"
 #include "resources/resources_manager.h"
 */
 
@@ -162,7 +162,7 @@ void CRenderManager::renderCategory(const char* category_name) {
   //cte_object.activate();
   //cte_material.activate();
 
-  //bool using_skin = false;
+  bool using_skin = false;
 
   // Convert iterators to raw pointers, using distance from start of the container
   // to avoid accessing the *range.second when range.second == render_keys.end()
@@ -201,18 +201,18 @@ void CRenderManager::renderCategory(const char* category_name) {
     // Do we have to change the material wrt the prev draw call?
     if (prev_it->material != it->material) {
       it->material->activate();
-      //using_skin = it->material->usesSkin();
+      using_skin = it->material->tech->usesSkin();
     }
 
     // Is our material using skinning data?
-    //if (using_skin) {
-    //  CEntity* e = it->h_render_owner.getOwner();
-    //  assert(e);
-    //  TCompSkeleton* cs = e->get<TCompSkeleton>();
-    //  assert(cs);
-    //  cs->updateCtesBones();
-    //  cs->cte_bones.activate();
-    //}
+    if (using_skin) {
+      CEntity* e = it->h_render_owner.getOwner();
+      assert(e);
+      TCompSkeleton* cs = e->get<TCompSkeleton>();
+      assert(cs);
+      cs->updateCtesBones();
+      cs->cb_bones.activate();
+    }
 
     //if (uses_capa) {
     //  CCapaShader* cp = (CCapaShader*) it->tech;

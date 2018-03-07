@@ -2,7 +2,7 @@
   {
     "entity":
     {
-      "name": "Cally"
+      "name": "lowly"
       ,
       "transform":
       {
@@ -10,8 +10,19 @@
         "rotation": "0.0 0.0 0.0 -1.0"
       },
       "skeleton": {
-        "skeleton": "cally.skeleton"
+        "skeleton": "data/skeletons/skeleton/skeleton.skeleton"
       },
+      "mesh" : 
+      [
+        {
+          "mesh": "data/skeletons/skeleton/skeleton.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/piedras.material"
+          ]
+        }
+      ],
       "abs_aabb":true,
       "local_aabb":true
     }
