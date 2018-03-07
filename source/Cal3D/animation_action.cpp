@@ -142,7 +142,6 @@ bool CalAnimationAction::update(float deltaTime)
 }
 
 // ----------------------------------------------------
-
 // MCV
 bool CalAnimationAction::remove(float timeout) {
   if (getState() == STATE_STOPPED || timeout == 0.f)

@@ -108,7 +108,7 @@ void TCompSkeleton::debugInMenu() {
     if (ImGui::SmallButton("X")) {
       auto core = (CGameCoreSkeleton*)model->getCoreModel();
       int id = core->getCoreAnimationId(a->getCoreAnimation()->getName());
-      //mixer->removeAction(id, out_delay);
+      a->remove(out_delay);
     }
   }
 
