@@ -61,6 +61,8 @@ bool CalAnimationAction::execute(float delayIn, float delayOut, float weightTarg
   m_weightTarget = weightTarget;
   m_autoLock = autoLock;
 
+  m_total_duration = getCoreAnimation()->getDuration();
+
   return true;
 }
 
@@ -107,15 +109,15 @@ bool CalAnimationAction::update(float deltaTime)
   if(getState() == STATE_STEADY)
   {
     // check if we reached OUT phase
-    if(!m_autoLock && getTime() >= getCoreAnimation()->getDuration() - m_delayOut)
+    if (!m_autoLock && getTime() >= m_total_duration - m_delayOut)
     {
       setState(STATE_OUT);
     }
     // if the anim is supposed to stay locked on last keyframe, reset the time here.
-    else if (m_autoLock && getTime() > getCoreAnimation()->getDuration())
+    else if (m_autoLock && getTime() > m_total_duration)
     {
       setState(STATE_STOPPED);
-      setTime(getCoreAnimation()->getDuration());
+      setTime(m_total_duration);
     }      
   }
 
@@ -123,9 +125,9 @@ bool CalAnimationAction::update(float deltaTime)
   if(getState() == STATE_OUT)
   {
     // check if we are still in the OUT phase
-    if(getTime() < getCoreAnimation()->getDuration())
+    if (getTime() < m_total_duration)
     {
-      setWeight((getCoreAnimation()->getDuration() - getTime()) / m_delayOut * m_weightTarget);
+      setWeight((m_total_duration - getTime()) / m_delayOut * m_weightTarget);
     }
     else
     {
@@ -138,5 +140,32 @@ bool CalAnimationAction::update(float deltaTime)
   return true;
 
 }
+
+// ----------------------------------------------------
+// MCV
+bool CalAnimationAction::remove(float timeout) {
+  if (getState() == STATE_STOPPED || timeout == 0.f)
+    return true;
+
+  setState(STATE_OUT);
+
+  // Do we have enough timeout time?
+  if (getTime() + timeout > m_total_duration)
+    timeout = m_total_duration - getTime();
+
+  // Modify official duration
+  m_total_duration = getTime() + timeout;
+
+  // Update timeout
+  m_delayOut = timeout;
+
+  // To avoid discontinuities if cancelled during IN/OUT stages
+  m_weightTarget = getWeight();
+
+  // Returns false to indicate the animation should NOT be removed
+  // from the list of active animations.
+  return false;
+}
+
 
 //****************************************************************************//
