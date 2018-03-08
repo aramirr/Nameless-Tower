@@ -250,6 +250,9 @@
     <ClCompile Include="components\ia\ai_spikes.cpp">
       <Filter>components\ia</Filter>
     </ClCompile>
+    <ClCompile Include="components\comp_platform_camera.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -675,6 +678,9 @@
     </ClInclude>
     <ClInclude Include="components\ia\ai_spikes.h">
       <Filter>components\ia</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_platform_camera.h">
+      <Filter>components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

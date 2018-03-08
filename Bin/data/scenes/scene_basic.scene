@@ -258,17 +258,6 @@
 	},
 	{
 		"entity": {
-			"name": "the_camera",
-			"transform": {
-				"pos": "15 0 0"
-			},
-			"camera" : {
-				"fov" : 80 
-			}
-		}
-	},
-	{
-		"entity": {
 			"name": "camera_orbit_IZQ",
 			"transform": {
 				"pos": "-14 16 12",
@@ -279,6 +268,19 @@
 			},
 			"camera" : {
 				"fov" : 80 
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_platform",
+			"transform": {
+				"pos": "-14 16 12",
+				"lookat": "-1 0 -1"
+			},
+			"platformCamera" : {},
+			"camera" : {
+				"fov" : 80
 			}
 		}
 	},

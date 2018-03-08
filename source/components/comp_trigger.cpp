@@ -42,10 +42,10 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		attach_msg.h_attacher = h_other_entity;
 		attach_msg.h_attached = e_collider_entity;
 		e_collider_entity->sendMsg(attach_msg);
-		CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
-		CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
+		CEntity* camDER = (CEntity *)getEntityByName("camera_manager");
+		//CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
 		camDER->sendMsg(attach_msg);
-		camIZQ->sendMsg(attach_msg);
+		//camIZQ->sendMsg(attach_msg);
 	}
 	else if (trigger_type == "spikes" && other_entity_name == "The Player") {
 		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
@@ -66,10 +66,10 @@ void TCompTrigger::onTriggerExit(const TMsgTriggerExit& msg) {
 		detach_msg.h_attached = e_collider_entity;
 		e_collider_entity->sendMsg(detach_msg);
 
-		CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
-		CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
+		CEntity* camDER = (CEntity *)getEntityByName("camera_manager");
+		//CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
 		camDER->sendMsg(detach_msg);
-		camIZQ->sendMsg(detach_msg);
+		//camIZQ->sendMsg(detach_msg);
 	}
 
 }
