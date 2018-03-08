@@ -22,7 +22,15 @@ namespace FSM
 
   void CContext::stop()
   {
-
+    if (_state == EState::RUNNING)
+    {
+      if (_currentState)
+      {
+        _currentState->onFinish(*this);
+        _currentState = nullptr;
+      }
+      _state = EState::IDLE;
+    }
   }
 
   void CContext::update(float delta)
@@ -68,16 +76,9 @@ namespace FSM
     }
   }
 
-  const CVariable* CContext::getVariable(const std::string& name) const
+  const CVariant* CContext::getVariable(const std::string& name) const
   {
-    for (auto& var : _variables)
-    {
-      if (var.getName() == name)
-      {
-        return &var;
-      }
-    }
-    return nullptr;
+    return _variables.getVariant(name);
   }
 
   void CContext::getStateTransitions(const IState* state, VTransitions& output) const

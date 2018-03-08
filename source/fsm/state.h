@@ -12,7 +12,9 @@ namespace FSM
     virtual void onStart(CContext& ctx) const {}
     virtual void onFinish(CContext& ctx) const {}
     virtual bool update(float dt, CContext& ctx) const { return _isFinal; }
+    virtual bool load(const json& jData) { (void)jData; return false; }
 
+    void setName(const std::string& name) { _name = name; }
     const std::string& getName() const { return _name; }
     bool isFinal() const { return _isFinal; }
 

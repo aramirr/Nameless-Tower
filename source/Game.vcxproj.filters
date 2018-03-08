@@ -220,6 +220,21 @@
     <ClCompile Include="fsm\context.cpp">
       <Filter>fsm</Filter>
     </ClCompile>
+    <ClCompile Include="utils\variant.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\system\module_fsm.cpp">
+      <Filter>modules\system</Filter>
+    </ClCompile>
+    <ClCompile Include="fsm\custom_states.cpp">
+      <Filter>fsm</Filter>
+    </ClCompile>
+    <ClCompile Include="fsm\factory.cpp">
+      <Filter>fsm</Filter>
+    </ClCompile>
+    <ClCompile Include="fsm\custom_transitions.cpp">
+      <Filter>modules\system</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -619,11 +634,20 @@
     <ClInclude Include="fsm\context.h">
       <Filter>fsm</Filter>
     </ClInclude>
-    <ClInclude Include="fsm\variable.h">
-      <Filter>fsm</Filter>
-    </ClInclude>
     <ClInclude Include="fsm\custom_states.h">
       <Filter>fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\variant.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\system\module_fsm.h">
+      <Filter>modules\system</Filter>
+    </ClInclude>
+    <ClInclude Include="fsm\factory.h">
+      <Filter>fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="fsm\custom_transitions.h">
+      <Filter>modules\system</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

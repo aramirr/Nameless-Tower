@@ -7,6 +7,7 @@
 #include "modules/module_ia.h"
 #include "modules/system/module_input.h"
 #include "modules/system/module_cameras.h"
+#include "modules/system/module_fsm.h"
 
 class CEngine
 {
@@ -25,15 +26,17 @@ public:
   CModuleInput& getInput() { return _module_input; }
   CModulePhysics& getPhysics() { return _module_physics; }
   CModuleCameras& getCameras() { return _module_cameras; }
+  CModuleFSM& getFSM() { return _module_fsm; }
 
 private:
   CModuleManager  _modules;
   CModuleRender   _module_render;
   CModuleEntities _module_entities;
-  CModulePhysics _module_physics;
+  CModulePhysics  _module_physics;
 	CModuleIA       _module_ia;
 	CModuleInput    _module_input;
   CModuleCameras  _module_cameras;
+  CModuleFSM      _module_fsm;
 };
 
 #define Engine CEngine::get()

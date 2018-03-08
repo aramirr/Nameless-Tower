@@ -4,7 +4,13 @@
 
 namespace FSM
 {
-  class ChangeMeshState : public IState
+  class AnimationState : public IState
+  {
+    virtual void onStart(CContext& ctx) const override;
+    virtual bool load(const json& jData);
+  };
+
+  /*class ChangeMeshState : public IState
   {
     virtual void onStart(CContext& ctx) const override 
     {
@@ -18,10 +24,10 @@ namespace FSM
 
   private:
     std::string& meshName;
-  };
+  };*/
 
 
-  class JumpState : public IState
+  /*class JumpState : public IState
   {
     virtual void onStart(CContext& ctx) const override
     {
@@ -31,5 +37,5 @@ namespace FSM
 
   private:
     float _jumpForce;
-  };
+  };*/
 }
