@@ -155,6 +155,19 @@ CRenderMesh* createWiredUnitCube() {
   return mesh;
 }
 
+CRenderMesh* createArrow() {
+	CRenderMesh* mesh = new CRenderMesh;
+	// Axis aligned X,Y,Z of sizes 1,2,3
+	float vertices[] =
+	{
+		0.0f, 0.0f, 0.0f,  1, 0, 0, 1,
+		0.0f, 0.0f, 1.0f,  0, 0, 1, 1,
+	};
+	if (!mesh->create(vertices, sizeof(vertices), "PosClr", CRenderMesh::LINE_LIST))
+		return nullptr;
+	return mesh;
+}
+
 
 // --------------------------
 void registerMesh( CRenderMesh* new_mesh, const char* name ) {
@@ -170,6 +183,7 @@ bool createRenderObjects() {
   registerMesh(createUnitCircleXZ(32), "circle_xz.mesh");
   registerMesh(createCameraFrustum(), "unit_frustum.mesh");
   registerMesh(createWiredUnitCube(), "wired_unit_cube.mesh");
+  registerMesh(createArrow(), "arrow.mesh");
   
   return true;
 }

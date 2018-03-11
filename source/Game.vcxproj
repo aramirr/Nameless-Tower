@@ -108,6 +108,7 @@
     <ClCompile Include="components\comp_trigger.cpp" />
     <ClCompile Include="components\controllers\comp_camera_flyover.cpp" />
     <ClCompile Include="components\controllers\comp_camera_orbit.cpp" />
+    <ClCompile Include="components\controllers\comp_spiral_controller.cpp" />
     <ClCompile Include="components\ia\ai_boss_runner.cpp" />
     <ClCompile Include="components\ia\ai_controller.cpp" />
     <ClCompile Include="components\ia\ai_destoyable.cpp" />
@@ -199,6 +200,7 @@
     <ClInclude Include="components\comp_trigger.h" />
     <ClInclude Include="components\controllers\comp_camera_flyover.h" />
     <ClInclude Include="components\controllers\comp_camera_orbit.h" />
+    <ClInclude Include="components\controllers\comp_spiral_controller.h" />
     <ClInclude Include="components\ia\ai_boss_runner.h" />
     <ClInclude Include="components\ia\ai_controller.h" />
     <ClInclude Include="components\ia\ai_destoyable.h" />

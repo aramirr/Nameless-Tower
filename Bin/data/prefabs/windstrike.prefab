@@ -1,0 +1,24 @@
+[{
+		"entity": {
+			"name": "windstrike",
+			"transform": {
+				"pos": "0 0 0"
+			},
+			"render" : {
+				
+			}
+			,
+			"spiral_controller":{
+				"speed": 3
+			}
+			,
+			"collider":{
+				"shape": "box"
+				,
+				"halfExtent": "1.0 1.0 1.0"
+				,
+				"is_trigger":true
+			}
+		}
+	}
+]

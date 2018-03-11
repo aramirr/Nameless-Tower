@@ -1,8 +1,6 @@
 {
 	"sizes" : {
-		"default" : 512,
-		"transform" : 512
-
+		"default" : 1024
 	},
   "init_order" : {
     "entity" : 100,
@@ -16,7 +14,8 @@
 	    "camera_flyover",
 	    "hierarchy",
 		"camera",
-		"bullet_controller",		
+		"bullet_controller",
+		"spiral_controller",		
 		"ai_boss_runner",
 		"ai_destroyable",
         "ai_linear_patrol",

@@ -250,6 +250,14 @@ void TCompPlayerController::idle_state(float dt) {
 			change_mesh(0);
 			ChangeState("run");
 		}
+		if (isPressed('E')) {
+			TEntityParseContext ctx;
+			ctx.entity_starting_the_parse = CHandle(this).getOwner();
+			ctx.root_transform = *(TCompTransform*)get<TCompTransform>();
+			if (parseScene("data/prefabs/windstrike.prefab", ctx)) {
+				assert(!ctx.entities_loaded.empty());
+			}
+		}
 
 		// Chequea el omnidash si es que esta en bajada
 		const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);

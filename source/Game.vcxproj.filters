@@ -253,6 +253,9 @@
     <ClCompile Include="components\comp_platform_camera.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="components\controllers\comp_spiral_controller.cpp">
+      <Filter>components\controllers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -681,6 +684,9 @@
     </ClInclude>
     <ClInclude Include="components\comp_platform_camera.h">
       <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\controllers\comp_spiral_controller.h">
+      <Filter>components\controllers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
