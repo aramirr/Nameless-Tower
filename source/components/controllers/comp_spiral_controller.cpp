@@ -8,6 +8,7 @@ using namespace physx;
 DECL_OBJ_MANAGER("spiral_controller", TCompSpiralController);
 
 void TCompSpiralController::debugInMenu() {
+	ImGui::Text("Life: %f",life);
 }
 
 
@@ -17,6 +18,7 @@ void TCompSpiralController::load(const json& j, TEntityParseContext& ctx) {
   //Cambiarlo para pillarlo de una entidad global
   radius = 31.999847;
   speed = j.value("speed", 1.0f);
+	life = j.value("life", 2);
 
 	h_parent = ctx.entity_starting_the_parse;
 	CEntity *e_creator = h_parent;
@@ -38,6 +40,7 @@ void TCompSpiralController::setEntity(CHandle new_entity) {
 
 void TCompSpiralController::update(float dt) {
 	CEntity *e = h_entity;
+	if (!h_entity.isValid()) return;
 	TCompTransform *my_transform = e->get<TCompTransform>();
 	VEC3 delta_pos = direction * dt * speed;
 	VEC3 new_pos = my_transform->getPosition() + delta_pos;
@@ -74,6 +77,9 @@ void TCompSpiralController::update(float dt) {
 		tr.p = PxVec3(new_pos.x, new_pos.y, new_pos.z);
 		rigidActor->setGlobalPose(tr);
 	}
+
+	life -= dt;
+	if (life <= 0) destroy();
 }
 
 void TCompSpiralController::registerMsgs()
@@ -89,4 +95,12 @@ void TCompSpiralController::setDirection(const TMsgChangeDirection& msg)
 	if (msg.reset_duration) {
 
 	}
+}
+
+void TCompSpiralController::destroy()
+{
+	if (!CHandle(this).getOwner().isValid()) {
+		return;
+	}
+	CHandle(this).getOwner().destroy();
 }

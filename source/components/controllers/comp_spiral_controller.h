@@ -15,6 +15,7 @@ class TCompSpiralController : public TCompBase {
   float		  offsetY;
 	bool			set_once = false;
 	bool			is_left;
+	float		  life;
 
   DECL_SIBLING_ACCESS();
 
@@ -23,6 +24,7 @@ public:
   void debugInMenu();
   void load(const json& j, TEntityParseContext& ctx);
   void update(float dt);
+	void destroy();
   void setEntity(CHandle new_entity);
 	void setDirection(const TMsgChangeDirection& msg);
 };

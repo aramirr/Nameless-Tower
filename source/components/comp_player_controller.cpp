@@ -176,6 +176,14 @@ void TCompPlayerController::idle_state(float dt) {
 		}
 		ChangeState("initial");
 	}
+	if (isPressed('E')) {
+		TEntityParseContext ctx;
+		ctx.entity_starting_the_parse = CHandle(this).getOwner();
+		ctx.root_transform = *(TCompTransform*)get<TCompTransform>();
+		if (parseScene("data/prefabs/windstrike.prefab", ctx)) {
+			assert(!ctx.entities_loaded.empty());
+		}
+	}
 	//----------------------------------
 
 
@@ -249,14 +257,6 @@ void TCompPlayerController::idle_state(float dt) {
 			}
 			change_mesh(0);
 			ChangeState("run");
-		}
-		if (isPressed('E')) {
-			TEntityParseContext ctx;
-			ctx.entity_starting_the_parse = CHandle(this).getOwner();
-			ctx.root_transform = *(TCompTransform*)get<TCompTransform>();
-			if (parseScene("data/prefabs/windstrike.prefab", ctx)) {
-				assert(!ctx.entities_loaded.empty());
-			}
 		}
 
 		// Chequea el omnidash si es que esta en bajada
@@ -438,18 +438,19 @@ void TCompPlayerController::omnidashing_state(float dt) {
 		ctx.root_transform = *(TCompTransform*)get<TCompTransform>();
 		if (parseScene("data/prefabs/windstrike.prefab", ctx)) {
 			assert(!ctx.entities_loaded.empty());
-		}
-		TMsgChangeDirection MsgChangeDirection;
-		VEC3 omni_vector = c_my_transform->getFront();
-		if (looking_left)
-			omni_vector *= omnidash_arrow.x;
-		else
-			omni_vector *= omnidash_arrow.x * -1;
+			TMsgChangeDirection MsgChangeDirection;
+			VEC3 omni_vector = c_my_transform->getFront();
+			if (looking_left)
+				omni_vector *= omnidash_arrow.x;
+			else
+				omni_vector *= omnidash_arrow.x * -1;
 
-		omni_vector.y += omnidash_arrow.y;
-		MsgChangeDirection.new_direction = -omni_vector;
-		CEntity *e = ctx.current_entity;
-		e->sendMsg(MsgChangeDirection);
+			omni_vector.y += omnidash_arrow.y;
+			MsgChangeDirection.new_direction = -omni_vector;
+			CEntity *e = ctx.current_entity;
+			e->sendMsg(MsgChangeDirection);
+		}
+		
 		ChangeState("omni_jump");
 	}
 }
