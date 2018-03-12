@@ -74,7 +74,7 @@ public:
     // Paso por void para 'borrar' el tipo unsigned char
     objs = static_cast< TObj *>((void*)allocated_memory.data());
 
-    TObj::registerMsgs();
+	TObj::registerMsgs();
   }
 
   // --------------------------------------------

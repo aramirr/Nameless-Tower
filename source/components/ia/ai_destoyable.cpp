@@ -62,7 +62,7 @@ void CAIDestroyable::IdleState()
 	TCompTransform *ppos = c_trigger->get<TCompTransform>();
 
 	float distance = VEC3::Distance(mypos->getPosition(), ppos->getPosition());
-	if (distance < 1.5f) {
+	if (distance < 2.5f) {
 		acum_time = 0.0f;
 		ChangeState("trigger_destroy");
 	}
@@ -72,7 +72,7 @@ void CAIDestroyable::IdleState()
 void CAIDestroyable::TriggerDestroyState(float dt)
 {
 	change_color(VEC4(1, 0, 0, 1));
-	acum_time += dt;
+	acum_time += DT;
 	if (acum_time >= destroy_time)
 	{
 		acum_time = 0;
@@ -103,7 +103,7 @@ void CAIDestroyable::TransitionDestroyState(float dt)
 void CAIDestroyable::DestoyState(float dt)
 {
 	change_color(VEC4(1, 0, 1, 1));
-	acum_time += dt;
+	acum_time += DT;
 	if (acum_time >= recover_time)
 	{
 		acum_time = 0;
@@ -122,7 +122,7 @@ void CAIDestroyable::DestoyState(float dt)
 		}
 
 		float distance = VEC3::Distance(current_pos, t_ppos->getPosition());
-		if (distance < 1.5f) {
+		if (distance < 2.5f) {
 			return;
 		}
 

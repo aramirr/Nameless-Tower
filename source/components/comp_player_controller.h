@@ -4,6 +4,7 @@
 #include "geometry/transform.h"
 #include "ia/ai_controller.h"
 
+
 class TCompPlayerController : public IAIController {
 	float   current_x_speed_factor = 2.0f;
 	float   x_speed_factor = 2.0f;
@@ -33,6 +34,8 @@ class TCompPlayerController : public IAIController {
 
   DECL_SIBLING_ACCESS();
 
+  //float DT;
+
 public:
 	VEC3	  center;
 	float	  tower_radius;
@@ -56,6 +59,10 @@ public:
 	static void registerMsgs();
 	void killPlayer(const TMsgKillPlayer& msg);
 	void setCheckpoint(const TMsgCheckpoint& msg);
+
+  //void setdt(float dt) { DT = dt; };
+
+  //void update(float dt);
 
   void init();
 };

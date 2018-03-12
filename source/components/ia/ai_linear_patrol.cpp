@@ -91,7 +91,7 @@ void CAILinearPatrol::MoveToWaypointState(float dt)
 	VEC3 my_pos = mypos->getPosition();
 	VEC3 dir = wppos - mypos->getPosition();
 	dir.Normalize();
-	VEC3 new_pos = mypos->getPosition() + (speed * 100) * dir * dt;
+	VEC3 new_pos = mypos->getPosition() + (speed * 100) * dir * DT;
 	mypos->setPosition(new_pos);
 
 	
@@ -110,7 +110,7 @@ void CAILinearPatrol::MoveToWaypointState(float dt)
 		TCompCollider *player_collider = e->get< TCompCollider >();
 		TCompTransform *player_transform = e->get< TCompTransform >();
 		VEC3 delta_pos = new_pos - my_pos;
-		player_collider->controller->move(physx::PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, dt, physx::PxControllerFilters());
+		player_collider->controller->move(physx::PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, DT, physx::PxControllerFilters());
 	}
 
 	if (VEC3::Distance(getWaypoint(), mypos->getPosition()) <= 0.25f)
@@ -123,7 +123,7 @@ void CAILinearPatrol::MoveToWaypointState(float dt)
 
 void CAILinearPatrol::WaitState(float dt)
 {
-	acum_delay += dt;
+	acum_delay += DT;
 	if (delay < acum_delay) {
 		ChangeState("next_waypoint");
 	}

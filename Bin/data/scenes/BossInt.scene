@@ -1,0 +1,27 @@
+[
+  {
+    "entity":
+    {
+      "name": "BossInt"
+      ,
+      "transform":
+      {
+        "pos": "0.0 92.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BossInt.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/BossIntMaterial.material"
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -2,6 +2,9 @@
 #include "components/comp_transform.h"
 #include "ai_controller.h"
 
+#include "components/comp_player_controller.h"
+#include "ai_boss_runner.h"
+
 void IAIController::change_color(VEC4 color) {
 	TCompRender *my_render = getMyRender();
 	my_render->color = color;
@@ -58,6 +61,16 @@ void IAIController::update(float dt)
   assert(!state.empty());
   assert(statemap.find(state) != statemap.end());
   // this is a trusted jump as we've tested for coherence in ChangeState
+  /*CEntity *player = (CEntity *)getEntityByName("The Player");
+  TCompPlayerController* pc = player->get<TCompPlayerController>();
+  pc->setdt(dt);
+
+  CEntity *boss = (CEntity *)getEntityByName("Boss Runner");
+  CAIBossRunner* bc = boss->get<CAIBossRunner>();
+  bc->setdt(dt);*/
+
+  DT = dt;
+
   (this->*statemap[state])();
 }
 

@@ -33,6 +33,8 @@ protected:
   // the states, as maps to functions
   std::map<std::string, statehandler> statemap;
 
+  float DT;
+
 public:
   void debugInMenu();
 	void change_mesh(int mesh_index);

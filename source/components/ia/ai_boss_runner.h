@@ -25,6 +25,8 @@ class CAIBossRunner : public IAIController
 
 	DECL_SIBLING_ACCESS();
 
+  //float DT;
+
 public:
 	void load(const json& j, TEntityParseContext& ctx);
 	void debugInMenu();
@@ -44,6 +46,8 @@ public:
 	void stop(const TMsgRunnerStop& msg);
 
 	static void registerMsgs();
+
+  //void setdt(float dt) { DT = dt; };
 };
 
 #endif

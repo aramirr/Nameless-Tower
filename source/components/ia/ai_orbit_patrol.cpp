@@ -114,11 +114,11 @@ void CAIOrbitPatrol::MoveToWaypointState(float dt)
 
 	if (move_left == true)
 	{
-		y -= dt * speed;
+		y -= DT * speed;
 	}
 	else
 	{
-		y += dt * speed;
+		y += DT * speed;
 	}
 	c_my_transform->setYawPitchRoll(y, p);
 	VEC3 newPos = c_my_transform->getPosition() - (c_my_transform->getFront() * distance);
@@ -144,14 +144,14 @@ void CAIOrbitPatrol::MoveToWaypointState(float dt)
 
 			if (move_left == true)
 			{
-				p_y -= dt * speed;
+				p_y -= DT * speed;
 			}
 			else
 			{
-				p_y += dt * speed;
+				p_y += DT * speed;
 			}
 			player_transform->setYawPitchRoll(p_y, p_p);
-			player_collider->controller->move(physx::PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, dt, physx::PxControllerFilters());
+			player_collider->controller->move(physx::PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, DT, physx::PxControllerFilters());
 			
 			TCompPlayerController *player_controller = e->get<TCompPlayerController>();
 			VEC3 tower_center = player_controller->center;
@@ -176,7 +176,7 @@ void CAIOrbitPatrol::MoveToWaypointState(float dt)
 
 void CAIOrbitPatrol::WaitState(float dt)
 {
-	acum_delay += dt;
+	acum_delay += DT;
 	if (delay < acum_delay) {
 		ChangeState("next_waypoint");
 	}

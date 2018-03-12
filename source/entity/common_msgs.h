@@ -27,6 +27,7 @@ struct TMsgJump {
 struct TMsgRunnerAppear {
 	VEC3 appearing_position;
 	bool b_appear;				//If True appears, else disappears
+	std::string next_state;
 	DECL_MSG_ID();
 };
 
