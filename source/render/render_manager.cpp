@@ -7,14 +7,10 @@
 #include "components/juan/comp_culling.h"
 #include "components/juan/comp_aabb.h"
 #include "render_objects.h"
-#include "render/render.h"
-#include "ctes.h"
 
-/*
-#include "render/shader_cte_buffer.h"
-#include "components/comp_camera.h"
-#include "resources/resources_manager.h"
-*/
+#include "components/juan/comp_culling.h"
+#include "components/juan/comp_aabb.h"
+#include "skeleton/comp_skeleton.h"
 
 static CRenderManager the_render_manager;
 CRenderManager& CRenderManager::get() {
@@ -35,9 +31,9 @@ bool CRenderManager::sortRenderKeys(const TRenderKey& k1, const TRenderKey& k2) 
   // Category
   if (k1.material->tech->getCategoryID() != k2.material->tech->getCategoryID())
     return k1.material->tech->getCategoryID() < k2.material->tech->getCategoryID();
-  //// NonSkin -> Skin  
-  //if (k1.material->tech->usesSkin() != k2.material->tech->usesSkin())
-  //  return k1.material->tech->usesSkin() < k2.material->tech->usesSkin();
+  // NonSkin -> Skin  
+  if (k1.material->tech->usesSkin() != k2.material->tech->usesSkin())
+    return k1.material->tech->usesSkin() < k2.material->tech->usesSkin();
   // Render tech
   if (k1.material->tech != k2.material->tech)
     return k1.material->tech < k2.material->tech;

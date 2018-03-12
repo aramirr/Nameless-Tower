@@ -176,6 +176,7 @@ void TCompSkeleton::updateCtesBones() {
 }
 
 void TCompSkeleton::renderDebug() {
+  assert(model);
   VEC3 lines[MAX_SUPPORTED_BONES][2];
   int nrLines = model->getSkeleton()->getBoneLines(&lines[0][0].x);
   TCompTransform* transform = get<TCompTransform>();
