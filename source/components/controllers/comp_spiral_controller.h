@@ -19,8 +19,10 @@ class TCompSpiralController : public TCompBase {
   DECL_SIBLING_ACCESS();
 
 public:
+	static void registerMsgs();
   void debugInMenu();
   void load(const json& j, TEntityParseContext& ctx);
   void update(float dt);
   void setEntity(CHandle new_entity);
+	void setDirection(const TMsgChangeDirection& msg);
 };

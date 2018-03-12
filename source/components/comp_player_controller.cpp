@@ -432,6 +432,24 @@ void TCompPlayerController::omnidashing_state(float dt) {
 		omnidash_arrow = mouse._position - VEC2(player_position.x, player_position.y);
 		omnidash_arrow.Normalize();
 		y_speed_factor = 0;
+		
+		TEntityParseContext ctx;
+		ctx.entity_starting_the_parse = CHandle(this).getOwner();
+		ctx.root_transform = *(TCompTransform*)get<TCompTransform>();
+		if (parseScene("data/prefabs/windstrike.prefab", ctx)) {
+			assert(!ctx.entities_loaded.empty());
+		}
+		TMsgChangeDirection MsgChangeDirection;
+		VEC3 omni_vector = c_my_transform->getFront();
+		if (looking_left)
+			omni_vector *= omnidash_arrow.x;
+		else
+			omni_vector *= omnidash_arrow.x * -1;
+
+		omni_vector.y += omnidash_arrow.y;
+		MsgChangeDirection.new_direction = -omni_vector;
+		CEntity *e = ctx.current_entity;
+		e->sendMsg(MsgChangeDirection);
 		ChangeState("omni_jump");
 	}
 }

@@ -75,3 +75,18 @@ void TCompSpiralController::update(float dt) {
 		rigidActor->setGlobalPose(tr);
 	}
 }
+
+void TCompSpiralController::registerMsgs()
+{
+	DECL_MSG(TCompSpiralController, TMsgChangeDirection, setDirection);
+}
+
+void TCompSpiralController::setDirection(const TMsgChangeDirection& msg)
+{
+	direction = msg.new_direction;
+	direction.Normalize();
+	set_once = false;
+	if (msg.reset_duration) {
+
+	}
+}
