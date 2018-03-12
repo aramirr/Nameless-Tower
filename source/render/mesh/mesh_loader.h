@@ -1,6 +1,7 @@
 #pragma once
 
 class CDataProvider;
+class CDataSaver;
 class CRenderMesh;
 
 #include "mesh_subgroup.h"
@@ -38,6 +39,7 @@ struct TMeshLoader {
   VMeshSubGroups         subgroups;
 
   bool load(CDataProvider& dp);
+  bool save(CDataSaver& ds);
 
 };
 

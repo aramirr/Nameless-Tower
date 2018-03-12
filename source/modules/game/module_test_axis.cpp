@@ -32,12 +32,23 @@ bool CModuleTestAxis::start()
 
 		parseScene("data/scenes/TorreMilestoneFinal2.scene", ctx);
 	}
-  {
+	{
+		TEntityParseContext ctx;
+
+		parseScene("data/scenes/BossInt.scene", ctx);
+	}
+	/*
+	json jboot = loadJson("data/boot.json");
+
+  // Auto load some scenes
+  std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];
+  for (auto& scene_name : scenes_to_auto_load) {
+    dbg("Autoloading scene %s\n", scene_name.c_str());
     TEntityParseContext ctx;
+    parseScene(scene_name, ctx);
 
-    parseScene("data/scenes/BossInt.scene", ctx);
   }
-
+	*/
   camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
   camera.setPerspective(60.0f * 180.f / (float)M_PI, 0.1f, 1000.f);
 
