@@ -282,6 +282,9 @@
     <ClCompile Include="fsm\factory.cpp" />
     <ClCompile Include="fsm\fsm.cpp" />
     <ClCompile Include="utils\variant.cpp" />
+    <ClCompile Include="components\comp_fsm.cpp" />
+    <ClCompile Include="components\controllers\comp_fake_animation_controller.cpp" />
+    <ClCompile Include="components\controllers\comp_player_input.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -754,6 +757,9 @@
     <ClInclude Include="fsm\state.h" />
     <ClInclude Include="fsm\transition.h" />
     <ClInclude Include="utils\variant.h" />
+    <ClInclude Include="components\comp_fsm.h" />
+    <ClInclude Include="components\controllers\comp_fake_animation_controller.h" />
+    <ClInclude Include="components\controllers\comp_player_input.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">

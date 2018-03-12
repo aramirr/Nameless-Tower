@@ -1,6 +1,6 @@
 #include "mcv_platform.h"
 #include "comp_fake_animation_controller.h"
-#include "components/comp_transform.h"
+#include "components/juan/comp_transform.h"
 #include "components/comp_fsm.h"
 
 DECL_OBJ_MANAGER("fake_animation", TCompFakeAnimation);
