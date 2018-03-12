@@ -87,6 +87,44 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cal3D\animation.cpp" />
+    <ClCompile Include="Cal3D\animation_action.cpp" />
+    <ClCompile Include="Cal3D\animation_cycle.cpp" />
+    <ClCompile Include="Cal3D\bone.cpp" />
+    <ClCompile Include="Cal3D\buffersource.cpp" />
+    <ClCompile Include="Cal3D\coreanimation.cpp" />
+    <ClCompile Include="Cal3D\corebone.cpp" />
+    <ClCompile Include="Cal3D\corekeyframe.cpp" />
+    <ClCompile Include="Cal3D\corematerial.cpp" />
+    <ClCompile Include="Cal3D\coremesh.cpp" />
+    <ClCompile Include="Cal3D\coremodel.cpp" />
+    <ClCompile Include="Cal3D\coremorphanimation.cpp" />
+    <ClCompile Include="Cal3D\coreskeleton.cpp" />
+    <ClCompile Include="Cal3D\coresubmesh.cpp" />
+    <ClCompile Include="Cal3D\coresubmorphtarget.cpp" />
+    <ClCompile Include="Cal3D\coretrack.cpp" />
+    <ClCompile Include="Cal3D\error.cpp" />
+    <ClCompile Include="Cal3D\global.cpp" />
+    <ClCompile Include="Cal3D\hardwaremodel.cpp" />
+    <ClCompile Include="Cal3D\loader.cpp" />
+    <ClCompile Include="Cal3D\matrix.cpp" />
+    <ClCompile Include="Cal3D\mesh.cpp" />
+    <ClCompile Include="Cal3D\mixer.cpp" />
+    <ClCompile Include="Cal3D\model.cpp" />
+    <ClCompile Include="Cal3D\morphtargetmixer.cpp" />
+    <ClCompile Include="Cal3D\physique.cpp" />
+    <ClCompile Include="Cal3D\platform.cpp" />
+    <ClCompile Include="Cal3D\quaternion.cpp" />
+    <ClCompile Include="Cal3D\renderer.cpp" />
+    <ClCompile Include="Cal3D\saver.cpp" />
+    <ClCompile Include="Cal3D\skeleton.cpp" />
+    <ClCompile Include="Cal3D\springsystem.cpp" />
+    <ClCompile Include="Cal3D\streamsource.cpp" />
+    <ClCompile Include="Cal3D\submesh.cpp" />
+    <ClCompile Include="Cal3D\tinyxml.cpp" />
+    <ClCompile Include="Cal3D\tinyxmlerror.cpp" />
+    <ClCompile Include="Cal3D\tinyxmlparser.cpp" />
+    <ClCompile Include="Cal3D\vector.cpp" />
     <ClCompile Include="camera\camera.cpp" />
     <ClCompile Include="components\comp_aabb.cpp" />
     <ClCompile Include="components\comp_bullet_controller.cpp" />
@@ -171,12 +209,58 @@
     <ClCompile Include="render\texture\texture.cpp" />
     <ClCompile Include="resources\json_resource.cpp" />
     <ClCompile Include="resources\resources_manager.cpp" />
+    <ClCompile Include="skeleton\comp_bone_tracker.cpp" />
+    <ClCompile Include="skeleton\comp_skeleton.cpp" />
+    <ClCompile Include="skeleton\game_core_skeleton.cpp" />
     <ClCompile Include="utils\murmur3\murmur3.cpp" />
     <ClCompile Include="utils\utils.cpp" />
     <ClCompile Include="windows\app.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
+    <ClInclude Include="Cal3D\animation.h" />
+    <ClInclude Include="Cal3D\animation_action.h" />
+    <ClInclude Include="Cal3D\animation_cycle.h" />
+    <ClInclude Include="Cal3D\animcallback.h" />
+    <ClInclude Include="Cal3D\bone.h" />
+    <ClInclude Include="Cal3D\buffersource.h" />
+    <ClInclude Include="Cal3D\cal3d.h" />
+    <ClInclude Include="Cal3D\coreanimation.h" />
+    <ClInclude Include="Cal3D\corebone.h" />
+    <ClInclude Include="Cal3D\corekeyframe.h" />
+    <ClInclude Include="Cal3D\corematerial.h" />
+    <ClInclude Include="Cal3D\coremesh.h" />
+    <ClInclude Include="Cal3D\coremodel.h" />
+    <ClInclude Include="Cal3D\coremorphanimation.h" />
+    <ClInclude Include="Cal3D\coreskeleton.h" />
+    <ClInclude Include="Cal3D\coresubmesh.h" />
+    <ClInclude Include="Cal3D\coresubmorphtarget.h" />
+    <ClInclude Include="Cal3D\coretrack.h" />
+    <ClInclude Include="Cal3D\datasource.h" />
+    <ClInclude Include="Cal3D\error.h" />
+    <ClInclude Include="Cal3D\global.h" />
+    <ClInclude Include="Cal3D\hardwaremodel.h" />
+    <ClInclude Include="Cal3D\loader.h" />
+    <ClInclude Include="Cal3D\matrix.h" />
+    <ClInclude Include="Cal3D\mesh.h" />
+    <ClInclude Include="Cal3D\mixer.h" />
+    <ClInclude Include="Cal3D\model.h" />
+    <ClInclude Include="Cal3D\morphtargetmixer.h" />
+    <ClInclude Include="Cal3D\physique.h" />
+    <ClInclude Include="Cal3D\platform.h" />
+    <ClInclude Include="Cal3D\quaternion.h" />
+    <ClInclude Include="Cal3D\refcounted.h" />
+    <ClInclude Include="Cal3D\refptr.h" />
+    <ClInclude Include="Cal3D\renderer.h" />
+    <ClInclude Include="Cal3D\resource.h" />
+    <ClInclude Include="Cal3D\saver.h" />
+    <ClInclude Include="Cal3D\skeleton.h" />
+    <ClInclude Include="Cal3D\springsystem.h" />
+    <ClInclude Include="Cal3D\streamsource.h" />
+    <ClInclude Include="Cal3D\submesh.h" />
+    <ClInclude Include="Cal3D\tinyxml.h" />
+    <ClInclude Include="Cal3D\transform.h" />
+    <ClInclude Include="Cal3D\vector.h" />
     <ClInclude Include="camera\camera.h" />
     <ClInclude Include="components\comp_aabb.h" />
     <ClInclude Include="components\comp_base.h" />
@@ -278,6 +362,10 @@
     <ClInclude Include="resources\json_resource.h" />
     <ClInclude Include="resources\resource.h" />
     <ClInclude Include="resources\resources_manager.h" />
+    <ClInclude Include="skeleton\cal3d2engine.h" />
+    <ClInclude Include="skeleton\comp_bone_tracker.h" />
+    <ClInclude Include="skeleton\comp_skeleton.h" />
+    <ClInclude Include="skeleton\game_core_skeleton.h" />
     <ClInclude Include="utils\data_provider.h" />
     <ClInclude Include="utils\directory_watcher.h" />
     <ClInclude Include="utils\json.hpp" />
@@ -287,10 +375,11 @@
     <ClInclude Include="windows\app.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Cal3D\Cal3D.vcxproj" />
+    <None Include="Cal3D\Cal3D.vcxproj.filters" />
     <None Include="geometry\SimpleMath.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-
 </Project>
