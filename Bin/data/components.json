@@ -15,7 +15,10 @@
 	    "flyover_controller",
 	    "camera_flyover",
 	    "hierarchy",
-		"camera"
+		"camera",
+		"fsm",
+		"fake_animation",
+		"player_input"
 	],
 	"render_debug" : 
 	[

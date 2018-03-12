@@ -233,7 +233,16 @@
       <Filter>fsm</Filter>
     </ClCompile>
     <ClCompile Include="fsm\custom_transitions.cpp">
-      <Filter>modules\system</Filter>
+      <Filter>fsm</Filter>
+    </ClCompile>
+    <ClCompile Include="components\comp_fsm.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\controllers\comp_fake_animation_controller.cpp">
+      <Filter>components\controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="components\controllers\comp_player_input.cpp">
+      <Filter>components\controllers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -647,7 +656,16 @@
       <Filter>fsm</Filter>
     </ClInclude>
     <ClInclude Include="fsm\custom_transitions.h">
-      <Filter>modules\system</Filter>
+      <Filter>fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_fsm.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\controllers\comp_fake_animation_controller.h">
+      <Filter>components\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="components\controllers\comp_player_input.h">
+      <Filter>components\controllers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -7,42 +7,33 @@
 			"animation" : "idle"
 		},
 		{
+			"name" : "idleAction",
+			"type" : "AnimationState",
+			"animation" : "idleAction"
+		},
+		{
 			"name" : "walk",
 			"type" : "AnimationState",
 			"animation" : "walk"
 		},
 		{
 			"name" : "jump",
-			"type" : "JumpState",
-			"force" : 10.0
-		},
-		{
-			"name" : "hit",
-			"type" : "HitState"
+			"type" : "AnimationState",
+			"animation" : "jump"
 		}
 	],
 	"transitions" : [
 		{
-			"type" : "VariableTransition",
+			"type" : "TimeTransition",
 			"source" : "idle",
-			"target" : "jump",
-			"variable" : {
-				"name" : "jump",
-				"type" : "bool",
-				"value" : true
-			},
-			"operation" : "equal"
+			"target" : "idleAction",
+			"time" : 3.0
 		},
 		{
-			"type" : "VariableTransition",
-			"source" : "walk",
-			"target" : "jump",
-			"variable" : {
-				"name" : "jump",
-				"type" : "bool",
-				"value" : true
-			},
-			"operation" : "equal"
+			"type" : "TimeTransition",
+			"source" : "idleAction",
+			"target" : "idle",
+			"time" : 1.0
 		},
 		{
 			"type" : "VariableTransition",
@@ -51,9 +42,8 @@
 			"variable" : {
 				"name" : "speed",
 				"type" : "float",
-				"value" : 0.0
-			},
-			"operation" : "greater"
+				"value" : 1.0
+			}
 		},
 		{
 			"type" : "VariableTransition",
@@ -62,9 +52,19 @@
 			"variable" : {
 				"name" : "speed",
 				"type" : "float",
-				"value" : 0.0
+				"value" : 1.0
 			},
-			"operation" : "equal"
+			"negated" : true
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "jump",
+			"variable" : {
+				"name" : "jump",
+				"type" : "bool",
+				"value" : true
+			}
 		},
 		{
 			"type" : "VariableTransition",
@@ -74,25 +74,7 @@
 				"name" : "onGround",
 				"type" : "bool",
 				"value" : true
-			},
-			"operation" : "equal"
-		},
-		{
-			"type" : "VariableTransition",
-			"source" : "idle",
-			"target" : "hit",
-			"variable" : {
-				"name" : "hit",
-				"type" : "bool",
-				"value" : true
-			},
-			"operation" : "equal"
-		},
-		{
-			"type" : "TimeTransition",
-			"source" : "hit",
-			"target" : "idle",
-			"time" : 2.0
+			}
 		}
 	],
 	"variables" : [
@@ -103,11 +85,6 @@
 		},
 		{
 			"name" : "jump",
-			"type" : "bool",
-			"value" : false
-		},
-		{
-			"name" : "hit",
 			"type" : "bool",
 			"value" : false
 		},
