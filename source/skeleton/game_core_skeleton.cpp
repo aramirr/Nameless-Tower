@@ -32,6 +32,15 @@ const CResourceClass* getResourceClassOf<CGameCoreSkeleton>() {
   return &the_resource_class;
 }
 
+struct TSkinVertex {
+  VEC3 pos;
+  VEC3 normal;
+  VEC2 uv;
+  //VEC4 tangent;
+  uint8_t bone_ids[4];
+  uint8_t bone_weights[4];    // 0.255   -> 0..1
+};
+
 // ------------------------------------------------------------
 void showCoreBoneRecursive(CalCoreSkeleton* core_skel, int bone_id ) {
   assert(core_skel);
@@ -197,7 +206,7 @@ bool CGameCoreSkeleton::convertCalCoreMesh2RenderMesh(CalCoreMesh* cal_mesh, con
   header.num_vertexs = total_vtxs;
   header.primitive_type = CRenderMesh::TRIANGLE_LIST;
 
-  strcpy(header.vertex_type_name, "PosNUvTanSkin");
+  strcpy(header.vertex_type_name, "PosNUvSkin");
 
   mesh_io.vtxs = mds_vtxs.buffer;
   mesh_io.idxs = mds_idxs.buffer;
@@ -239,7 +248,7 @@ bool CGameCoreSkeleton::create(const std::string& res_name) {
     convertCalCoreMesh2RenderMesh(getCoreMesh(mesh_id), skin_mesh_file);
 
     // Delete the cmf file
-    std::remove(cmf.c_str());
+    // std::remove(cmf.c_str());
   }
 
   // Read all anims
@@ -258,7 +267,6 @@ bool CGameCoreSkeleton::create(const std::string& res_name) {
     // read other metadata associated to the anim
     // ...
   }
-
 
   // Array of bone ids to debug (auto conversion from array of json to array of ints)
   if(json["bone_ids_to_debug"].is_array())

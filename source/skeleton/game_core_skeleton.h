@@ -4,15 +4,6 @@
 #include "resources/resource.h"
 #include "cal3d/cal3d.h"
 
-struct TSkinVertex {
-  VEC3 pos;
-  VEC3 normal;
-  VEC2 uv;
-  VEC4 tangent;
-  uint8_t bone_ids[4];
-  uint8_t bone_weights[4];    // 0.255   -> 0..1
-};
-
 // This is the CalCoreModel + IResource interface + other metadata
 // we might need in the future and is shared between all instances
 // of this model
