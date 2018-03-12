@@ -13,9 +13,9 @@ struct VS_OUTPUT
 // Vertex Shader
 //--------------------------------------------------------------------------------------
 VS_OUTPUT VS(
-   float4 Pos : POSITION
-  , float3 N : NORMAL
-  , float2 UV : TEXCOORD0
+  float4 Pos : POSITION
+, float3 N   : NORMAL
+, float2 UV  : TEXCOORD0
 )
 
 {
@@ -26,6 +26,32 @@ VS_OUTPUT VS(
   // Rotate the normal
   output.N = mul(N, (float3x3)obj_world);
   output.UV = UV;
+  return output;
+}
+
+VS_OUTPUT VS_Skin(
+  float4 iPos : POSITION
+, float3 iN   : NORMAL
+, float2 iUV  : TEXCOORD0
+, int4   iBones   : BONES
+, float4 iWeights : WEIGHTS
+)
+{
+
+  // This matrix will be reused for the position, Normal, Tangent, etc
+  float4x4 skin_mtx = Bones[iBones.x] * iWeights.x
+                    + Bones[iBones.y] * iWeights.y
+                    + Bones[iBones.z] * iWeights.z
+                    + Bones[iBones.w] * iWeights.w;
+  float4 skinned_Pos = mul(iPos, skin_mtx);
+
+  VS_OUTPUT output = (VS_OUTPUT)0;
+  // The world matrix is inside the bones matrixs
+  output.Pos = mul(skinned_Pos, camera_view);
+  output.Pos = mul(output.Pos, camera_proj);
+  // Rotate the normal
+  output.N = mul(iN, (float3x3)obj_world);
+  output.UV = iUV;
   return output;
 }
 
