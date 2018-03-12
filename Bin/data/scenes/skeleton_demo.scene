@@ -2,18 +2,28 @@
   {
     "entity":
     {
-      "name": "Cally"
+      "name": "Paladin"
       ,
       "transform":
       {
         "pos": "0 0 0",
-        "rotation": "0.0 0.0 0.0 -1.0"
+        "rotation": "0.0 0.0 0.0 1.0"
       },
       "skeleton": {
-        "skeleton": "data/skeletons/cally/cally.skeleton"
+        "skeleton": "data/skeletons/paladin/paladin.skeleton"
       },
       "abs_aabb":true,
-      "local_aabb":true
+      "local_aabb":true,
+      "render" : [
+        {
+          "mesh": "data/skeletons/paladin/paladin.mesh"
+          ,
+          "materials":
+          [
+            "data/skeletons/paladin/paladin.material"
+          ]
+        }
+      ]
     }
   }
 ]
