@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "comp_render.h"
 #include "comp_transform.h"
+#include "skeleton/comp_skeleton.h"
 
 DECL_OBJ_MANAGER("render", TCompRender);
 
@@ -50,12 +51,20 @@ void TCompRender::debugInMenu() {
 
 void TCompRender::renderDebug() {
   activateRSConfig(RSCFG_WIREFRAME);
-  TCompTransform *transform = get<TCompTransform>();
+  TCompTransform* transform = get<TCompTransform>();
   assert(transform);
+
+  // Ifwe have an skeleton, make sure the required bones are active and updated
+  TCompSkeleton* skel = get<TCompSkeleton>();
+  if (skel) {
+    skel->updateCtesBones();
+    skel->cb_bones.activate();
+  }
 
   for (auto& mwm : meshes) {
     if (!mwm.enabled)
       continue;
+
     renderMesh(mwm.mesh, transform->asMatrix(), color);
   }
   activateRSConfig(RSCFG_DEFAULT);
