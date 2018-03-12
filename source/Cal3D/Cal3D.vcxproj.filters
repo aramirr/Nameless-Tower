@@ -34,9 +34,6 @@
     <ClCompile Include="springsystem.cpp" />
     <ClCompile Include="streamsource.cpp" />
     <ClCompile Include="submesh.cpp" />
-    <ClCompile Include="tinyxml.cpp" />
-    <ClCompile Include="tinyxmlerror.cpp" />
-    <ClCompile Include="tinyxmlparser.cpp" />
     <ClCompile Include="vector.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -79,7 +76,6 @@
     <ClInclude Include="springsystem.h" />
     <ClInclude Include="streamsource.h" />
     <ClInclude Include="submesh.h" />
-    <ClInclude Include="tinyxml.h" />
     <ClInclude Include="transform.h" />
     <ClInclude Include="vector.h" />
   </ItemGroup>
