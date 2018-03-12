@@ -8,10 +8,13 @@ class TCompSpiralController : public TCompBase {
 
   float       radius;
   CHandle     h_entity;
+	CHandle			h_parent;
   float       speed;
   VEC3		  center;
   VEC3		  direction;
   float		  offsetY;
+	bool			set_once = false;
+	bool			is_left;
 
   DECL_SIBLING_ACCESS();
 

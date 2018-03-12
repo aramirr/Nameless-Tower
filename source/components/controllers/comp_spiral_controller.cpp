@@ -18,11 +18,13 @@ void TCompSpiralController::load(const json& j, TEntityParseContext& ctx) {
   radius = 31.999847;
   speed = j.value("speed", 1.0f);
 
-
-  CEntity *e_creator = ctx.entity_starting_the_parse;
+	h_parent = ctx.entity_starting_the_parse;
+	CEntity *e_creator = h_parent;
   if (!e_creator) { return; }
   TCompTransform *t_creator = e_creator->get<TCompTransform>();
   VEC3 current_position = t_creator->getPosition();
+	//Cambiarlo para pillarlo de una entidad global
+	radius = 31.999847;
   center = VEC3(0, current_position.y, 0);
   offsetY = current_position.y;
   direction = t_creator->getFront();
@@ -51,6 +53,18 @@ void TCompSpiralController::update(float dt) {
 		new_pos.y = offsetY;
 	}
 	my_transform->lookAt(new_pos, center);
+
+	if (set_once == false) 
+	{ 
+		CEntity *e_creator = h_parent;
+		TCompTransform *t_creator = e_creator->get<TCompTransform>();
+		is_left = t_creator->isInLeft(center);
+		set_once = true;
+	}
+
+	float y, p, r;
+	my_transform->getYawPitchRoll(&y, &p, &r);
+	is_left ? my_transform->setYawPitchRoll(deg2rad(-90) + y, p, r) : my_transform->setYawPitchRoll(deg2rad(90)+ y, p, r);
 
 	TCompCollider *my_collider = e->get<TCompCollider>();
 	if (my_collider)
