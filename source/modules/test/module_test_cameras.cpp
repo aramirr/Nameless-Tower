@@ -36,6 +36,10 @@ bool CModuleTestCameras::start()
     TEntityParseContext ctx;
     //parseScene("data/scenes/test_cameras.scene", ctx);
   }
+  {
+    TEntityParseContext ctx;
+    parseScene("data/scenes/test_fsm.scene", ctx);
+  }
 
   CHandle h_camera = getEntityByName("test_camera_flyover");
   Engine.getCameras().setDefaultCamera(h_camera);
