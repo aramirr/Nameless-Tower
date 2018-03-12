@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------------------------
-#include "ctes.h"
+#include "common.fx"
 
 //--------------------------------------------------------------------------------------
 struct VS_OUTPUT
@@ -41,11 +41,7 @@ VS_OUTPUT VS_Skin(
 )
 {
 
-  // This matrix will be reused for the position, Normal, Tangent, etc
-  float4x4 skin_mtx = Bones[iBones.x] * iWeights.x
-                    + Bones[iBones.y] * iWeights.y
-                    + Bones[iBones.z] * iWeights.z
-                    + Bones[iBones.w] * iWeights.w;
+  float4x4 skin_mtx = getSkinMtx( iBones, iWeights );
   float4 skinned_Pos = mul(iPos, skin_mtx);
 
   VS_OUTPUT output = (VS_OUTPUT)0;
