@@ -150,6 +150,7 @@
     <ClCompile Include="modules\module_render.cpp" />
     <ClCompile Include="modules\module_timer.cpp" />
     <ClCompile Include="modules\system\module_cameras.cpp" />
+    <ClCompile Include="modules\system\module_cinematics.cpp" />
     <ClCompile Include="modules\system\module_input.cpp" />
     <ClCompile Include="modules\system\module_physics.cpp" />
     <ClCompile Include="modules\test\module_test_input.cpp" />
@@ -254,6 +255,7 @@
     <ClInclude Include="modules\module_render.h" />
     <ClInclude Include="modules\module_timer.h" />
     <ClInclude Include="modules\system\module_cameras.h" />
+    <ClInclude Include="modules\system\module_cinematics.h" />
     <ClInclude Include="modules\system\module_input.h" />
     <ClInclude Include="modules\system\module_physics.h" />
     <ClInclude Include="modules\test\module_test_input.h" />

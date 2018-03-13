@@ -253,6 +253,9 @@
     <ClCompile Include="components\comp_platform_camera.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="modules\system\module_cinematics.cpp">
+      <Filter>modules\system</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -681,6 +684,9 @@
     </ClInclude>
     <ClInclude Include="components\comp_platform_camera.h">
       <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\system\module_cinematics.h">
+      <Filter>modules\system</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
