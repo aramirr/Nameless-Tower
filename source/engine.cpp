@@ -65,6 +65,7 @@ bool CEngine::stop() {
 void CEngine::update(float delta)
 {
   PROFILE_FUNCTION("CEngine::update");
+  current_unscaled_delta_time = delta;
   _modules.update(delta);
 }
 

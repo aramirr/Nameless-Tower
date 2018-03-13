@@ -35,6 +35,8 @@ public:
 	CModuleEntities& getEntities() { return _module_entities; }
 	CModuleFSM& getFSM() { return _module_fsm; }
 
+	float getUnscaledDeltaTime() const { return current_unscaled_delta_time; }
+
 private:
 	CModuleManager  _modules;
 	CModuleRender   _module_render;
@@ -46,6 +48,8 @@ private:
 	CModuleTower    _module_tower;
 	CModuleCameras  _module_cameras;
 	CModuleFSM      _module_fsm;
+
+	float           current_unscaled_delta_time = 0.f;
 };
 
 #define Engine CEngine::get()
