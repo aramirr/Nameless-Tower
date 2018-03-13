@@ -145,9 +145,6 @@
     <ClCompile Include="render\texture\material.cpp">
       <Filter>render\texture</Filter>
     </ClCompile>
-    <ClCompile Include="components\comp_flyover_controller.cpp">
-      <Filter>components</Filter>
-    </ClCompile>
     <ClCompile Include="components\comp_collider.cpp">
       <Filter>components</Filter>
     </ClCompile>
@@ -231,6 +228,9 @@
     </ClCompile>
     <ClCompile Include="modules\game\module_splash.cpp">
       <Filter>modules\game</Filter>
+    </ClCompile>
+    <ClCompile Include="skeleton\comp_bone_tracker.cpp">
+      <Filter>skeleton</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -538,9 +538,6 @@
     <ClInclude Include="render\texture\material.h">
       <Filter>render\texture</Filter>
     </ClInclude>
-    <ClInclude Include="components\comp_flyover_controller.h">
-      <Filter>components</Filter>
-    </ClInclude>
     <ClInclude Include="components\comp_collider.h">
       <Filter>components</Filter>
     </ClInclude>
@@ -645,6 +642,12 @@
     </ClInclude>
     <ClInclude Include="modules\game\module_splash.h">
       <Filter>modules\game</Filter>
+    </ClInclude>
+    <ClInclude Include="skeleton\comp_bone_tracker.h">
+      <Filter>skeleton</Filter>
+    </ClInclude>
+    <ClInclude Include="skeleton\cal3d2engine.h">
+      <Filter>skeleton</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
