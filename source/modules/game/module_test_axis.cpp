@@ -48,6 +48,8 @@ bool CModuleTestAxis::start()
     parseScene(scene_name, ctx);
 
   }
+
+  }
 	*/
   camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
   camera.setPerspective(60.0f * 180.f / (float)M_PI, 0.1f, 1000.f);

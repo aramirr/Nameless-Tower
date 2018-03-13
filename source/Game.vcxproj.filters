@@ -709,6 +709,9 @@
     <ClInclude Include="modules\module_render.h">
       <Filter>modules\system</Filter>
     </ClInclude>
+    <ClInclude Include="utils\data_saver.h">
+      <Filter>utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">
