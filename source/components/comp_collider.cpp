@@ -1,5 +1,6 @@
 #include "mcv_platform.h"
 #include "comp_collider.h"
+#include "comp_transform.h"
 
 DECL_OBJ_MANAGER("collider", TCompCollider);
 
@@ -30,6 +31,10 @@ void TCompCollider::load(const json& j, TEntityParseContext& ctx) {
   config.is_trigger = j.value("is_trigger", false);
   config.radius = j.value("radius", 0.f);
   config.height = j.value("height", 0.f);
+	if (j.count("offset"))
+		config.offset = loadVEC3(j["offset"]);
+	else config.offset = VEC3(0, 0, 0);
+	
 
   // todo: extend this be able to parse more than group and mask
   config.group = CEngine::get().getPhysics().getFilterByName(j.value("group", "all"));

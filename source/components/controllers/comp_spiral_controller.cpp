@@ -72,9 +72,12 @@ void TCompSpiralController::update(float dt) {
 	TCompCollider *my_collider = e->get<TCompCollider>();
 	if (my_collider)
 	{
+		QUAT newRot = my_transform->getRotation();
 		PxRigidActor* rigidActor = ((PxRigidActor*)my_collider->actor);
 		PxTransform tr = rigidActor->getGlobalPose();
 		tr.p = PxVec3(new_pos.x, new_pos.y, new_pos.z);
+		tr.q = PxQuat(newRot.x, newRot.y, newRot.z, newRot.w);
+
 		rigidActor->setGlobalPose(tr);
 	}
 

@@ -80,7 +80,7 @@ void CModulePhysics::createActor(TCompCollider& comp_collider)
   else
   {
     PxShape* shape = nullptr;
-    PxTransform offset(PxVec3(0.f, 0.f, 0.f));
+    PxTransform offset(PxVec3(config.offset.x, config.offset.y, config.offset.z));
     if (config.shapeType == physx::PxGeometryType::eBOX)
     {
       shape = gPhysics->createShape(PxBoxGeometry(config.halfExtent.x, config.halfExtent.y, config.halfExtent.z), *gMaterial);
