@@ -25,5 +25,16 @@
         }
       ]
     }
+  },
+  {
+    "entity": 
+    {
+      "name": "Shield",
+      "transform": {},
+      "bone_tracker" : {
+        "parent" : "Paladin",
+        "bone":"Bip01 L Forearm"
+      }
+    }
   }
 ]
