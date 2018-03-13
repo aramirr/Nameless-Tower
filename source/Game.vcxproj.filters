@@ -46,26 +46,11 @@
     <ClCompile Include="render\mesh\mesh_loader.cpp">
       <Filter>render\mesh</Filter>
     </ClCompile>
-    <ClCompile Include="modules\module_manager.cpp">
-      <Filter>modules</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\module_render.cpp">
-      <Filter>modules</Filter>
-    </ClCompile>
     <ClCompile Include="render\render_objects.cpp">
       <Filter>render</Filter>
     </ClCompile>
     <ClCompile Include="geometry\transform.cpp">
       <Filter>geometry</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\game\module_gameover.cpp">
-      <Filter>modules\game</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\game\module_main_menu.cpp">
-      <Filter>modules\game</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\game\module_splash.cpp">
-      <Filter>modules\game</Filter>
     </ClCompile>
     <ClCompile Include="entity\entity.cpp">
       <Filter>entity</Filter>
@@ -262,119 +247,20 @@
     <ClCompile Include="skeleton\game_core_skeleton.cpp">
       <Filter>skeleton</Filter>
     </ClCompile>
-    <ClCompile Include="Cal3D\quaternion.cpp">
-      <Filter>Cal3D</Filter>
+    <ClCompile Include="modules\game\module_gameover.cpp">
+      <Filter>modules</Filter>
     </ClCompile>
-    <ClCompile Include="Cal3D\renderer.cpp">
-      <Filter>Cal3D</Filter>
+    <ClCompile Include="modules\game\module_main_menu.cpp">
+      <Filter>modules</Filter>
     </ClCompile>
-    <ClCompile Include="Cal3D\saver.cpp">
-      <Filter>Cal3D</Filter>
+    <ClCompile Include="modules\module_manager.cpp">
+      <Filter>modules</Filter>
     </ClCompile>
-    <ClCompile Include="Cal3D\skeleton.cpp">
-      <Filter>Cal3D</Filter>
+    <ClCompile Include="modules\game\module_splash.cpp">
+      <Filter>modules</Filter>
     </ClCompile>
-    <ClCompile Include="Cal3D\springsystem.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\streamsource.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\submesh.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\tinyxml.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\tinyxmlerror.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\tinyxmlparser.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\vector.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\animation.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\animation_action.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\animation_cycle.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\bone.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\buffersource.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\coreanimation.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\corebone.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\corekeyframe.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\corematerial.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\coremesh.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\coremodel.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\coremorphanimation.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\coreskeleton.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\coresubmesh.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\coresubmorphtarget.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\coretrack.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\error.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\global.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\hardwaremodel.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\loader.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\matrix.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\mesh.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\mixer.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\model.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\morphtargetmixer.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\physique.cpp">
-      <Filter>Cal3D</Filter>
-    </ClCompile>
-    <ClCompile Include="Cal3D\platform.cpp">
-      <Filter>Cal3D</Filter>
+    <ClCompile Include="modules\module_render.cpp">
+      <Filter>modules\system</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -456,9 +342,6 @@
     <Filter Include="skeleton">
       <UniqueIdentifier>{61ab4b4d-094d-4916-8f9c-73303c4a2653}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Cal3D">
-      <UniqueIdentifier>{624131e6-6e23-45e1-beec-ce1be53ba7f8}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="windows\app.h">
@@ -517,15 +400,6 @@
     <ClInclude Include="render\mesh\mesh_loader.h">
       <Filter>render\mesh</Filter>
     </ClInclude>
-    <ClInclude Include="modules\module.h">
-      <Filter>modules</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\module_manager.h">
-      <Filter>modules</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\module_render.h">
-      <Filter>modules</Filter>
-    </ClInclude>
     <ClInclude Include="render\render_objects.h">
       <Filter>render</Filter>
     </ClInclude>
@@ -540,15 +414,6 @@
     </ClInclude>
     <ClInclude Include="geometry\transform.h">
       <Filter>geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\game\module_gameover.h">
-      <Filter>modules\game</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\game\module_main_menu.h">
-      <Filter>modules\game</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\game\module_splash.h">
-      <Filter>modules\game</Filter>
     </ClInclude>
     <ClInclude Include="entity\entity.h">
       <Filter>entity</Filter>
@@ -826,145 +691,28 @@
     <ClInclude Include="skeleton\game_core_skeleton.h">
       <Filter>skeleton</Filter>
     </ClInclude>
-    <ClInclude Include="Cal3D\platform.h">
-      <Filter>Cal3D</Filter>
+    <ClInclude Include="modules\module.h">
+      <Filter>modules</Filter>
     </ClInclude>
-    <ClInclude Include="Cal3D\quaternion.h">
-      <Filter>Cal3D</Filter>
+    <ClInclude Include="modules\game\module_gameover.h">
+      <Filter>modules</Filter>
     </ClInclude>
-    <ClInclude Include="Cal3D\refcounted.h">
-      <Filter>Cal3D</Filter>
+    <ClInclude Include="modules\game\module_main_menu.h">
+      <Filter>modules</Filter>
     </ClInclude>
-    <ClInclude Include="Cal3D\refptr.h">
-      <Filter>Cal3D</Filter>
+    <ClInclude Include="modules\module_manager.h">
+      <Filter>modules</Filter>
     </ClInclude>
-    <ClInclude Include="Cal3D\renderer.h">
-      <Filter>Cal3D</Filter>
+    <ClInclude Include="modules\game\module_splash.h">
+      <Filter>modules</Filter>
     </ClInclude>
-    <ClInclude Include="Cal3D\resource.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\saver.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\skeleton.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\springsystem.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\streamsource.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\submesh.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\tinyxml.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\transform.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\vector.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\animation.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\animation_action.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\animation_cycle.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\animcallback.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\bone.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\buffersource.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\cal3d.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\coreanimation.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\corebone.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\corekeyframe.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\corematerial.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\coremesh.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\coremodel.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\coremorphanimation.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\coreskeleton.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\coresubmesh.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\coresubmorphtarget.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\coretrack.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\datasource.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\error.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\global.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\hardwaremodel.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\loader.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\matrix.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\mesh.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\mixer.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\model.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\morphtargetmixer.h">
-      <Filter>Cal3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Cal3D\physique.h">
-      <Filter>Cal3D</Filter>
+    <ClInclude Include="modules\module_render.h">
+      <Filter>modules\system</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">
       <Filter>geometry</Filter>
-    </None>
-    <None Include="Cal3D\Cal3D.vcxproj">
-      <Filter>Cal3D</Filter>
-    </None>
-    <None Include="Cal3D\Cal3D.vcxproj.filters">
-      <Filter>Cal3D</Filter>
     </None>
   </ItemGroup>
 </Project>

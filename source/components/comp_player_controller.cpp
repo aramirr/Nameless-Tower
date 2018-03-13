@@ -498,7 +498,7 @@ void TCompPlayerController::dead_state(float dt) {
 		if (comp_collider && comp_collider->controller) {
 			comp_collider->controller->setPosition(physx::PxExtendedVec3(checkpoint.x, checkpoint.y, checkpoint.z));
 		}
-		ChangeState("initial");	
+		Engine.getModules().changeGameState("game_over");
 	}
 	else {
 		float y_speed = (y_speed_factor * DT) - (gravity * DT * DT / 2);
