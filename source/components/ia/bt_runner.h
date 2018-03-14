@@ -6,7 +6,7 @@
 
 
 
-class bt_runner:public bt, public TCompBase
+class bt_runner:public bt
 	{
 	VEC3 appearing_position;
 	std::queue<VEC3> jump_positions;

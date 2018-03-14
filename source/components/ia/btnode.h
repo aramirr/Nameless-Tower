@@ -18,7 +18,7 @@ class btnode;
 #define STAY 0
 #define LEAVE 1
 
-class btnode
+class btnode : public TCompBase
 	{
 	string name;
 	int type;
@@ -33,7 +33,7 @@ class btnode
 		void setRight(btnode *);
 		void addChild(btnode *);
 		void setType(int );
-		void recalc(bt *);
+		void update(bt *);
 		string getName();
 };
 

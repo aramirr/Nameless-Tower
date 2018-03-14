@@ -55,11 +55,11 @@ btnode *bt::addChild(string parent,string son,int type,btcondition btc,btaction 
 }
 
 
-void bt::recalc(float dt)
+void bt::update(float dt)
 {
 	DT = dt;
-	if (current==NULL) root->recalc(this);	// I'm not in a sequence, start from the root
-	else current->recalc(this);				// I'm in a sequence. Continue where I left
+	if (current==NULL) root->update(this);	// I'm not in a sequence, start from the root
+	else current->update(this);				// I'm in a sequence. Continue where I left
 }
 
 void bt::setCurrent(btnode *nc)

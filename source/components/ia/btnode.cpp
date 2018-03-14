@@ -55,10 +55,9 @@ c->right=NULL; // as we're adding from the right make sure right points to NULL
 }
 
 
-void btnode::recalc(bt *tree)
+void btnode::update(bt *tree)
 {
 // activate the next line to debug
-printf("recalcing node %s\n",name.c_str());
 switch (type)
 	{
 	case ACTION:	
@@ -93,7 +92,7 @@ switch (type)
 	case RANDOM:
 		{
 		int r=rand()%children.size();
-		children[r]->recalc(tree);
+		children[r]->update(tree);
 		break;
 		}
 	case PRIORITY:
@@ -102,7 +101,7 @@ switch (type)
 			{
 			if (tree->testCondition(children[i]->getName())) 
 				{
-				children[i]->recalc(tree);
+				children[i]->update(tree);
 				break;
 				}
 			}
@@ -112,7 +111,7 @@ switch (type)
 		{
 		// begin the sequence...the inner node (action) will take care of the sequence
 		// via the "setCurrent" mechanism
-		children[0]->recalc(tree);	
+		children[0]->update(tree);
 		break;
 		}
 	}

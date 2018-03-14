@@ -26,7 +26,7 @@ typedef bool (bt::*btcondition)();
 // instances or modifications to bt / btnode are needed...
 
 
-class bt
+class bt : public TCompBase
 	{
 	// the nodes
 	map<string,btnode *>tree;
@@ -74,7 +74,7 @@ class bt
 
 		// call this once per frame to compute the AI. No need to derive this one, 
 		// as the behaviours are derived via btactions and the tree is declared on create
-		void recalc(float dt);
+		void update(float dt);
 		void debugInMenu();
 	};
 
