@@ -35,8 +35,7 @@ void bt_runner::load(const json& j, TEntityParseContext& ctx) {
 	jump_speed = j.value("jump_speed", 25.8f);
 	jump_altitude = j.value("jump_altitude", 5.0f);
 
-	bt_runner btr;
-	btr.create("runner");
+  create("runner");
 }
 
 void bt_runner::debugInMenu() {
@@ -54,8 +53,8 @@ void bt_runner::debugInMenu() {
 void bt_runner::create(string s)
 {
 name=s;
-createRoot("runner", PRIORITY, NULL, NULL);
-/*addChild("runner", "idle_p", PRIORITY, (btcondition)&bt_runner::conditionIdle, NULL);
+btnode* r = createRoot("runner", PRIORITY, NULL, NULL);
+addChild("runner", "idle_p", PRIORITY, (btcondition)&bt_runner::conditionIdle, NULL);
 addChild("idle_p", "attack", ACTION, (btcondition)&bt_runner::conditionAttack, (btaction)&bt_runner::actionAttack);
 addChild("idle_p", "disappear", ACTION, (btcondition)&bt_runner::conditionDisappear, (btaction)&bt_runner::actionDisappear);
 addChild("idle_p", "idle_a", ACTION, NULL, (btaction)&bt_runner::actionIdle);
@@ -66,7 +65,7 @@ addChild("chase_s", "chase", ACTION, NULL, (btaction)&bt_runner::actionChase);
 addChild("chase_s", "chase_other", PRIORITY, NULL, NULL);
 addChild("chase_other", "attack_2", ACTION, (btcondition)&bt_runner::conditionAttack, (btaction)&bt_runner::actionAttack);
 addChild("chase_other", "disappear_2", ACTION, (btcondition)&bt_runner::conditionDisappear, (btaction)&bt_runner::actionDisappear);
-addChild("runner", "hide", ACTION, NULL, (btaction)&bt_runner::actionHide);*/
+addChild("runner", "hide", ACTION, NULL, (btaction)&bt_runner::actionHide);
 
 }
 
