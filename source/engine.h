@@ -29,6 +29,7 @@ public:
 	CModuleTimer& getTimer() { return _module_timer; }
 	CModulePhysics& getPhysics() { return _module_physics; }
 	CModuleCameras& getCameras() { return _module_cameras; }
+	CModuleCinematics& getCinematics() { return _module_cinematics; }
 
 private:
 	CModuleManager  _modules;
@@ -45,3 +46,4 @@ private:
 #define Engine CEngine::get()
 #define EngineInput CEngine::get().getInput()
 #define EngineTimer CEngine::get().getTimer()
+#define EngineCinematics CEngine::get().getCinematics()

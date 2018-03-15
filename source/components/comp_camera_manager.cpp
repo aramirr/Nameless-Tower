@@ -7,173 +7,189 @@ DECL_OBJ_MANAGER("cameraManager", TCompCameraManager);
 
 bool TCompCameraManager::isGrounded()
 {
-  TCompPlayerController* pc = player->get<TCompPlayerController>();
-  return pc->isGrounded();
+	TCompPlayerController* pc = player->get<TCompPlayerController>();
+	return pc->isGrounded();
 }
 
 bool TCompCameraManager::isForward()
 {
 
-  TCompPlayerController* pc = player->get<TCompPlayerController>();
-  return !pc->isForward();
-  //if (player.x > 0 && player.z < 0) {								// CUADRANTE 1 (+-)
-  //	if (frontPlayer.x < 0 && frontPlayer.z < 0) return true;
-  //	return false;
-  //}
-  //else if (player.x < 0 && player.z < 0) {						// CUADRANTE 2 (--)
-  //	if (frontPlayer.x < 0 && frontPlayer.z > 0) return true;
-  //	return false;
-  //}
-  //else if (player.x < 0 && player.z > 0) {						// CUADRANTE 3 (-+)
-  //	if (frontPlayer.x > 0 && frontPlayer.z > 0) return true;
-  //	return false;
-  //}
-  //else if (player.x > 0 && player.z > 0) {						// CUADRANTE 4 (++)
-  //	if (frontPlayer.x > 0 && frontPlayer.z < 0) return true;
-  //	return false;
-  //}
-  //else return false;
+	TCompPlayerController* pc = player->get<TCompPlayerController>();
+	return !pc->isForward();
+	//if (player.x > 0 && player.z < 0) {								// CUADRANTE 1 (+-)
+	//	if (frontPlayer.x < 0 && frontPlayer.z < 0) return true;
+	//	return false;
+	//}
+	//else if (player.x < 0 && player.z < 0) {						// CUADRANTE 2 (--)
+	//	if (frontPlayer.x < 0 && frontPlayer.z > 0) return true;
+	//	return false;
+	//}
+	//else if (player.x < 0 && player.z > 0) {						// CUADRANTE 3 (-+)
+	//	if (frontPlayer.x > 0 && frontPlayer.z > 0) return true;
+	//	return false;
+	//}
+	//else if (player.x > 0 && player.z > 0) {						// CUADRANTE 4 (++)
+	//	if (frontPlayer.x > 0 && frontPlayer.z < 0) return true;
+	//	return false;
+	//}
+	//else return false;
 }
 
 //void TCompCameraManager::changeCamerainPlatform(const TMsgchangeCamerainPlatform & msg) {
 //  inPlatform = true;
 //}
 
-void TCompCameraManager::attachPlayer(const TMsgAttachTo & msg){
-  platform = (CEntity *)msg.h_attached;
-  TCompTransform* pl = platform->get<TCompTransform>();
-  assert(pl);
-  VEC3 plPos = pl->getPosition();
+void TCompCameraManager::attachPlayer(const TMsgAttachTo & msg) {
+	platform = (CEntity *)msg.h_attached;
+	TCompTransform* pl = platform->get<TCompTransform>();
+	assert(pl);
+	VEC3 plPos = pl->getPosition();
 
-  TCompTransform* p = player->get<TCompTransform>();
-  assert(p);
-  VEC3 pPos = p->getPosition();
+	TCompTransform* p = player->get<TCompTransform>();
+	assert(p);
+	VEC3 pPos = p->getPosition();
 
-  if (pPos.y > plPos.y)inPlatform = true;
+	if (pPos.y > plPos.y)inPlatform = true;
 }
 
-void TCompCameraManager::detachPlayer(const TMsgDetachOf & msg){
-  if (inPlatform) {
-    inPlatform = false;
-    jumpinPlatform = true;
-  }
+void TCompCameraManager::detachPlayer(const TMsgDetachOf & msg) {
+	if (inPlatform) {
+		inPlatform = false;
+		jumpinPlatform = true;
+	}
+}
+
+void TCompCameraManager::apagarManager(const TMsgCinematicON & msg) {
+	on = false;
+}
+
+void TCompCameraManager::encenderManager(const TMsgCinematicOFF & msg) {
+	on = true;
 }
 
 
 void TCompCameraManager::registerMsgs() {
-  DECL_MSG(TCompCameraManager, TMsgAttachTo, attachPlayer);
-  DECL_MSG(TCompCameraManager, TMsgDetachOf, detachPlayer);
+	DECL_MSG(TCompCameraManager, TMsgAttachTo, attachPlayer);
+	DECL_MSG(TCompCameraManager, TMsgDetachOf, detachPlayer);
+	DECL_MSG(TCompCameraManager, TMsgCinematicON, apagarManager);
+	DECL_MSG(TCompCameraManager, TMsgCinematicOFF, encenderManager);
 }
 
 void TCompCameraManager::debugInMenu() {
 
-  /*float fov_deg = rad2deg(getFov());
-  float new_znear = getZNear();
-  float new_zfar = getZFar();*/
-  float fov_deg = 0.f;
-  ImGui::DragFloat("Fov", &fov_deg, 0.1f, 30.f, 175.f);
+	/*float fov_deg = rad2deg(getFov());
+	float new_znear = getZNear();
+	float new_zfar = getZFar();*/
+	float fov_deg = 0.f;
+	ImGui::DragFloat("Fov", &fov_deg, 0.1f, 30.f, 175.f);
 }
 
 void TCompCameraManager::load(const json& j, TEntityParseContext& ctx) {
 
-  // ..
-  player = (CEntity *)getEntityByName("The Player");
+	// ..
+	player = (CEntity *)getEntityByName("The Player");
 
-  //float fov_deg = j.value("fov", rad2deg(getFov()));
-  //float z_near = j.value("z_near", getZNear());
-  //float z_far = j.value("z_far", getZFar());
-  //setPerspective(deg2rad(fov_deg), z_near, z_far);
+	//float fov_deg = j.value("fov", rad2deg(getFov()));
+	//float z_near = j.value("z_near", getZNear());
+	//float z_far = j.value("z_far", getZFar());
+	//setPerspective(deg2rad(fov_deg), z_near, z_far);
 
-  pForwarding = true;
+	pForwarding = true;
 
-  carga = true;
+	carga = true;
 
-  inPlatform = false;
-  jumpinPlatform = false;
-  exitPlatform = false;
+	inPlatform = false;
+	jumpinPlatform = false;
+	exitPlatform = false;
 
-  lateral = false;
+	lateral = false;
+
+	on = true;
 }
 
 void TCompCameraManager::update(float dt) {
 
-  if (carga) {
-    CHandle h_camera = getEntityByName("camera_orbit_IZQ");
-    Engine.getCameras().setDefaultCamera(h_camera);
+	if (carga) {
+		CHandle h_camera = getEntityByName("camera_orbit_IZQ");
+		Engine.getCameras().setDefaultCamera(h_camera);
 
-    h_camera = getEntityByName("the_camera");
-    Engine.getCameras().setOutputCamera(h_camera);
+		h_camera = getEntityByName("the_camera");
+		Engine.getCameras().setOutputCamera(h_camera);
 
-    lateral = true;
+		lateral = true;
 
-    carga = false;
-  }
+		carga = false;
 
-  TCompTransform* p = player->get<TCompTransform>();
-  assert(p);
-  VEC3 pPos = p->getPosition();
+		EngineCinematics.loadCinematics();
+	}
 
-  static Interpolator::TSineInOutInterpolator interpolator;
+	if (on) {
+		TCompTransform* p = player->get<TCompTransform>();
+		assert(p);
+		VEC3 pPos = p->getPosition();
 
-  if (exitPlatform && isGrounded())exitPlatform = false;
+		static Interpolator::TSineInOutInterpolator interpolator;
 
-  if (jumpinPlatform) {
-    jumpinPlatform = false;
-    exitPlatform = true;
-  }
+		if (exitPlatform && isGrounded())exitPlatform = false;
 
-  if ((inPlatform || exitPlatform) && lateral) {
-    CHandle h_camera = getEntityByName("camera_platform");
-    Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
+		if (jumpinPlatform) {
+			jumpinPlatform = false;
+			exitPlatform = true;
+		}
 
-    lateral = false;
-  }
-  else if(!inPlatform && !exitPlatform) {
-    bool playerForward = isForward();  //Vemos si el player se esta moviendo hacia delante o hacia atras
+		if ((inPlatform || exitPlatform) && lateral) {
+			CHandle h_camera = getEntityByName("camera_platform");
+			Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 
-    CEntity* camIzq = (CEntity *)getEntityByName("camera_orbit_IZQ");
-    TCompTransform* ci = camIzq->get<TCompTransform>();
-    assert(ci);
-    VEC3 cip = ci->getPosition();
-    float distanceCamIzq = VEC3::Distance(pPos, cip);
+			lateral = false;
+		}
+		else if (!inPlatform && !exitPlatform) {
+			bool playerForward = isForward();  //Vemos si el player se esta moviendo hacia delante o hacia atras
 
-    CEntity* camDer = (CEntity *)getEntityByName("camera_orbit_DER");
-    TCompTransform* cd = camDer->get<TCompTransform>();
-    assert(cd);
-    VEC3 cdp = cd->getPosition();
-    float distanceCamDer = VEC3::Distance(pPos, cdp);
+			CEntity* camIzq = (CEntity *)getEntityByName("camera_orbit_IZQ");
+			TCompTransform* ci = camIzq->get<TCompTransform>();
+			assert(ci);
+			VEC3 cip = ci->getPosition();
+			float distanceCamIzq = VEC3::Distance(pPos, cip);
 
-    if ((playerForward && distanceCamDer > 9.f)) {
-      //if (!pForwarding) {
-      //if (inPlatform) {
-      //  /*CHandle h_camera = getEntityByName("camera_orbit_DER");
-      //  Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);*/
-      //  inPlatform = false;
-      //}
-      CHandle h_camera = getEntityByName("camera_orbit_IZQ");
-      Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
+			CEntity* camDer = (CEntity *)getEntityByName("camera_orbit_DER");
+			TCompTransform* cd = camDer->get<TCompTransform>();
+			assert(cd);
+			VEC3 cdp = cd->getPosition();
+			float distanceCamDer = VEC3::Distance(pPos, cdp);
 
-      pForwarding = true;
+			if ((playerForward && distanceCamDer > 9.f)) {
+				//if (!pForwarding) {
+				//if (inPlatform) {
+				//  /*CHandle h_camera = getEntityByName("camera_orbit_DER");
+				//  Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);*/
+				//  inPlatform = false;
+				//}
+				CHandle h_camera = getEntityByName("camera_orbit_IZQ");
+				Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 
-      lateral = true;
-      //}
-    }
-    else if (/*(*/distanceCamIzq > 9.f) {//) && !blending*/) {
-                                         //if (pForwarding) {
-      //if (inPlatform) {
-      //  /*CHandle h_camera = getEntityByName("camera_orbit_IZQ");
-      //  Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);*/
-      //  inPlatform = false;
-      //}
-      CHandle h_camera = getEntityByName("camera_orbit_DER");
-      Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
+				pForwarding = true;
 
-      pForwarding = false;
+				lateral = true;
+				//}
+			}
+			else if (/*(*/distanceCamIzq > 9.f) {//) && !blending*/) {
+				//if (pForwarding) {
+				//if (inPlatform) {
+				//  /*CHandle h_camera = getEntityByName("camera_orbit_IZQ");
+				//  Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);*/
+				//  inPlatform = false;
+				//}
+				CHandle h_camera = getEntityByName("camera_orbit_DER");
+				Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 
-      lateral = true;
-      //}
-    }
-  }
+				pForwarding = false;
+
+				lateral = true;
+				//}
+			}
+		}
+	}
 
 }
 

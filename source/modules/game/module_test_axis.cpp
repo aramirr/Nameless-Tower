@@ -51,6 +51,8 @@ bool CModuleTestAxis::start()
   cb_object.activate();
   cb_camera.activate();
 
+  carga = true;
+
   return true;
 }
 
@@ -63,7 +65,12 @@ bool CModuleTestAxis::stop()
 
 void CModuleTestAxis::update(float delta)
 {
+	if (carga) {
+		EngineCinematics.activate("prueba");
+		carga = false;
+	}
 
+  
   static VEC3 world_pos;
   ImGui::DragFloat3("Pos", &world_pos.x, 0.025f, -50.f, 50.f);
 

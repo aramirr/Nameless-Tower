@@ -6,27 +6,32 @@
 class TCompCameraManager : public TCompBase {
 
 	CEntity *player;
-  CEntity *platform;
+	CEntity *platform;
 
-  bool isGrounded();
-  bool isForward();
-  bool pForwarding;
+	bool isGrounded();
+	bool isForward();
+	bool pForwarding;
 
 	bool carga;
 
-  //void changeCamerainPlatform(const TMsgchangeCamerainPlatform& msg);
+	bool on;
 
-  bool lateral;
+	//void changeCamerainPlatform(const TMsgchangeCamerainPlatform& msg);
 
-  void attachPlayer(const TMsgAttachTo& msg);
-  void detachPlayer(const TMsgDetachOf& msg);
+	bool lateral;
 
-  bool inPlatform;
-  bool jumpinPlatform;
-  bool exitPlatform;
+	void attachPlayer(const TMsgAttachTo& msg);
+	void detachPlayer(const TMsgDetachOf& msg);
+
+	void apagarManager(const TMsgCinematicON& msg);
+	void encenderManager(const TMsgCinematicOFF& msg);
+
+	bool inPlatform;
+	bool jumpinPlatform;
+	bool exitPlatform;
 
 public:
-  static void registerMsgs();
+	static void registerMsgs();
 
 	void debugInMenu();
 	void load(const json& j, TEntityParseContext& ctx);
