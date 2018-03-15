@@ -6,6 +6,9 @@ utility MyMCVExporter "MCV Exporter"
 		
 		button btn_scene "Export Scene"
 		button btn_mesh "Export Mesh"
+		button btn_skeleton "Export Skeleton & Meshes"
+		button btn_skel_anims "Export Animation" tooltip:"Uses max animation range and frame rate to specify the range to export"
+		
 		on btn_scene pressed do
 		(
 			try (
@@ -31,6 +34,34 @@ utility MyMCVExporter "MCV Exporter"
 				MessageBox ("Error Exporting Single Mesh:\n" + getCurrentException())
 			)
 		)
+
+		-- Exports the current selection mesh to file
+		on btn_skeleton pressed do
+		(
+			
+			try (
+				gc()
+				local se = TSkeletonsExporter()
+				se.exportSkelAndMeshes()
+				MessageBox "Skeleton And Meshes exported OK"
+			) catch (
+				MessageBox ("Error Exporting Skeleton:\n" + getCurrentException())
+			)
+		)
+		
+		-- Exports the current selection mesh to file
+		on btn_skel_anims pressed do
+		(
+			
+			try (
+				gc()
+				local se = TSkeletonsExporter()
+				se.exportAnim()
+				MessageBox "Skeleton Animation exported OK"
+			) catch (
+				MessageBox ("Error Exporting Skeleton Animation:\n" + getCurrentException())
+			)
+		)		
 		
 	) -- end rollout creator
 		
