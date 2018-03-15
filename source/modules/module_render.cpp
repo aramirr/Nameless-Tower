@@ -7,6 +7,7 @@
 #include "render/texture/material.h"
 #include "render/texture/texture.h"
 #include "resources/json_resource.h"
+#include "components/comp_light_dir.h"
 #include "skeleton/game_core_skeleton.h"
 #include "camera/camera.h"
 
@@ -62,9 +63,6 @@ bool CModuleRender::start()
 	if (!cb_object.create(CB_OBJECT))
 		return false;
 
-	cb_object.activate();
-	cb_camera.activate();
-
   // --------------------------------------------
   // ImGui
   auto& app = CApp::get();
@@ -93,10 +91,7 @@ bool CModuleRender::stop()
 
   Resources.destroyAll();
 
-  Render.destroyDevice();
-
-	cb_camera.destroy();
-	cb_object.destroy();
+  Render.destroyDevice();	
   return true;
 }
 
@@ -159,5 +154,9 @@ void CModuleRender::generateFrame() {
     PROFILE_FUNCTION("Render.swapChain");
     Render.swapChain->Present(0, 0);
   }
+
+	getObjectManager<TCompLightDir>()->forEach([](TCompLightDir* c) {
+		c->activate();
+	});
 }
 

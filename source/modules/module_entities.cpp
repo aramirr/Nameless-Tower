@@ -9,6 +9,7 @@
 #include "components/juan/comp_name.h"
 #include "components/juan/comp_tags.h"
 #include "render/render_manager.h"
+#include "components/comp_light_dir.h"
 
 void CModuleEntities::loadListOfManagers( const json& j, std::vector< CHandleManager* > &managers) {
   managers.clear();

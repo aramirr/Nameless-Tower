@@ -66,6 +66,7 @@ bool CModuleTestCameras::start()
 
 void CModuleTestCameras::update(float delta)
 {
+  /*
   if (EngineInput['1'].getsPressed())
   {
     CHandle h_camera = getEntityByName("test_camera_orbit");
@@ -92,6 +93,7 @@ void CModuleTestCameras::update(float delta)
     CHandle h_camera = getEntityByName("test_camera_fixed_C");
     Engine.getCameras().blendOutCamera(h_camera, 0.f);
   }
+  */
 }
 
 void CModuleTestCameras::render()

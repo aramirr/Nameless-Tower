@@ -37,6 +37,12 @@ bool CModuleTestAxis::start()
 
 		parseScene("data/scenes/BossInt.scene", ctx);
 	}
+	{
+		TEntityParseContext ctx;
+
+		parseScene("data/scenes/lights.scene", ctx);
+	}
+
 	/*
 	json jboot = loadJson("data/boot.json");
 
@@ -46,11 +52,26 @@ bool CModuleTestAxis::start()
     dbg("Autoloading scene %s\n", scene_name.c_str());
     TEntityParseContext ctx;
     parseScene(scene_name, ctx);
-
   }
 
-  }
+  camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
+  camera.setPerspective(60.0f * 180.f / (float)M_PI, 0.1f, 1000.f);
 	*/
+
+  // -------------------------------------------
+  if (!cb_camera.create(CB_CAMERA))
+    return false;
+  // -------------------------------------------
+  if (!cb_object.create(CB_OBJECT))
+    return false;
+  // -------------------------------------------
+  if (!cb_light.create(CB_LIGHT))
+    return false;
+
+  cb_light.activate();
+  cb_object.activate();
+  cb_camera.activate();
+
   camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
   camera.setPerspective(60.0f * 180.f / (float)M_PI, 0.1f, 1000.f);
 
@@ -61,6 +82,9 @@ bool CModuleTestAxis::stop()
 {
 	Engine.getEntities().destroyAllEntities();
 	Engine.getCameras().destroyAllCameras();
+	cb_light.destroy();
+	cb_object.destroy();
+	cb_camera.destroy();
   return true;
 }
 
@@ -97,38 +121,36 @@ void CModuleTestAxis::update(float delta)
     }
   }
 
-
-
 }
 
 
 void CModuleTestAxis::render()
 {
 
-  // Find the entity with name 'the_camera'
-  h_e_camera = getEntityByName("the_camera");
-  if (h_e_camera.isValid()) {
-    CEntity* e_camera = h_e_camera;
-    TCompCamera* c_camera = e_camera->get< TCompCamera >();
-    assert(c_camera);
-    activateCamera(*c_camera);
-    CRenderManager::get().setEntityCamera(h_e_camera);
-  }
-  else {
-    activateCamera(camera);
-  }
+	// Find the entity with name 'the_camera'
+	h_e_camera = getEntityByName("the_camera");
+	if (h_e_camera.isValid()) {
+		CEntity* e_camera = h_e_camera;
+		TCompCamera* c_camera = e_camera->get< TCompCamera >();
+		assert(c_camera);
+		activateCamera(*c_camera);
+		CRenderManager::get().setEntityCamera(h_e_camera);
+	}
+	else {
+		activateCamera(camera);
+	}
 
-  // Render the grid
-  cb_object.obj_world = MAT44::Identity;
-  cb_object.obj_color = VEC4(1,1,1,1);
-  cb_object.updateGPU();
+	// Render the grid
+	cb_object.obj_world = MAT44::Identity;
+	cb_object.obj_color = VEC4(1, 1, 1, 1);
+	cb_object.updateGPU();
 
-  auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
-  solid->activate();
+	auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
+	solid->activate();
 
-  auto grid = Resources.get("grid.mesh")->as<CRenderMesh>();
-  grid->activateAndRender();
-  auto axis = Resources.get("axis.mesh")->as<CRenderMesh>();
-  axis->activateAndRender();
+	auto grid = Resources.get("grid.mesh")->as<CRenderMesh>();
+	grid->activateAndRender();
+	auto axis = Resources.get("axis.mesh")->as<CRenderMesh>();
+	axis->activateAndRender();
 
 }

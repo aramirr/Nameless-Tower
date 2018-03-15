@@ -89,6 +89,7 @@
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
     <ClCompile Include="components\comp_fsm.cpp" />
+    <ClCompile Include="components\comp_light_dir.cpp" />
     <ClCompile Include="components\controllers\comp_fake_animation_controller.cpp" />
     <ClCompile Include="components\controllers\comp_player_input.cpp" />
     <ClCompile Include="components\juan\comp_aabb.cpp" />
@@ -197,6 +198,7 @@
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
     <ClInclude Include="camera\camera.h" />
     <ClInclude Include="components\comp_fsm.h" />
+    <ClInclude Include="components\comp_light_dir.h" />
     <ClInclude Include="components\controllers\comp_fake_animation_controller.h" />
     <ClInclude Include="components\controllers\comp_player_input.h" />
     <ClInclude Include="components\juan\comp_aabb.h" />
@@ -309,6 +311,7 @@
     <ClInclude Include="render\texture\DDSTextureLoader.h" />
     <ClInclude Include="render\texture\material.h" />
     <ClInclude Include="render\texture\texture.h" />
+    <ClInclude Include="render\texture\texture_slots.h" />
     <ClInclude Include="resources\json_resource.h" />
     <ClInclude Include="resources\resource.h" />
     <ClInclude Include="resources\resources_manager.h" />
