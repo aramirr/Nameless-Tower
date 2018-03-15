@@ -232,6 +232,9 @@
     <ClCompile Include="skeleton\comp_bone_tracker.cpp">
       <Filter>skeleton</Filter>
     </ClCompile>
+    <ClCompile Include="components\comp_light_dir.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -648,6 +651,12 @@
     </ClInclude>
     <ClInclude Include="skeleton\cal3d2engine.h">
       <Filter>skeleton</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_light_dir.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="render\texture\texture_slots.h">
+      <Filter>render\texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -7,19 +7,20 @@
     "entity" : 100,
     "transform" : 90
   },
-	"update" : [
-		"circular_controller",
-		"player_controller",
-		"bullet_controller",
-		"skeleton",
-		"bone_tracker",
-		"ai_patrol",
-	    "camera_flyover",
-	    "hierarchy",
-	    "local_aabb",
-		"camera",
-		"culling"
-	],
+  "update": [
+    "circular_controller",
+    "player_controller",
+    "bullet_controller",
+    "skeleton",
+    "bone_tracker",
+    "ai_patrol",
+    "camera_flyover",
+    "hierarchy",
+    "local_aabb",
+    "camera",
+    "light_dir",
+    "culling"
+  ],
 	"render_debug" : 
 	[
 		"transform"

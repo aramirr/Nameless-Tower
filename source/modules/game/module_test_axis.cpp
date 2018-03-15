@@ -38,7 +38,11 @@ bool CModuleTestAxis::start()
   // -------------------------------------------
   if (!cb_object.create(CB_OBJECT))
     return false;
+  // -------------------------------------------
+  if (!cb_light.create(CB_LIGHT))
+    return false;
 
+  cb_light.activate();
   cb_object.activate();
   cb_camera.activate();
 
@@ -47,6 +51,7 @@ bool CModuleTestAxis::start()
 
 bool CModuleTestAxis::stop()
 {
+  cb_light.destroy();
   cb_camera.destroy();
   cb_object.destroy();
   return true;

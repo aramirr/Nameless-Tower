@@ -1,13 +1,15 @@
 {
-	"boot_scenes" : [
-		"data/scenes/player.scene",
-		"data/scenes/camera.scene",
-		"data/scenes/game_camera.scene",
-		"data/scenes/skeleton_demo.scene"
-	],
-  "unused_scenes" : [
+  "boot_scenes": [
+    "data/scenes/player.scene",
+    "data/scenes/camera.scene",
+    "data/scenes/game_camera.scene",
+    "data/scenes/level1.scene",
+    "data/scenes/lights.scene"
+  ],
+  "unused_scenes": [
     "data/scenes/scene_basic.scene",
     "data/scenes/multimaterial.scene",
+    "data/scenes/skeleton_bear.scene",
     "dummy"
   ]
 }
