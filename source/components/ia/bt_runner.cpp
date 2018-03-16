@@ -5,8 +5,7 @@
 DECL_OBJ_MANAGER("bt_runner", bt_runner);
 
 void bt_runner::on_player_jump(const TMsgJump& msg) {
-	if (actual_state == "chase")
-		jump_positions.push(msg.jump_position);
+	if (run) jump_positions.push(msg.jump_position);
 }
 
 void bt_runner::stop(const TMsgRunnerStop& msg) {
@@ -17,6 +16,7 @@ void bt_runner::stop(const TMsgRunnerStop& msg) {
 void bt_runner::appear(const TMsgRunnerAppear& msg) {
 	freeze = false;
 	run = true;
+	appearing_position = msg.appearing_position;
 }
 
 void bt_runner::registerMsgs() {
@@ -40,6 +40,11 @@ void bt_runner::load(const json& j, TEntityParseContext& ctx) {
 
 void bt_runner::debugInMenu() {
 	bt::debugInMenu();
+	string state;
+	if (current == NULL)
+		state = "null";
+	else state = current->getName();
+	ImGui::Text("State %s", state);
 	ImGui::Text("Distance player %f", distance_to_player);
 	ImGui::DragFloat("Chase Distance: %f", &chase_distance, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Attack Distance: %f", &attack_distance, 0.01f, 0.f, 100.f);
@@ -82,6 +87,7 @@ int bt_runner::actionDisappear() {
 };
 
 int bt_runner::actionIdle() {
+	change_mesh(1);
 	return LEAVE;
 };
 
@@ -105,6 +111,7 @@ int bt_runner::actionAttack() {
 	CEntity *player = (CEntity *)getEntityByName("The Player");
 	TMsgKillPlayer kill;
 	player->sendMsg(kill);
+	change_mesh(0);
 	return LEAVE;
 };
 
@@ -154,7 +161,7 @@ int bt_runner::actionChase() {
 			}
 		}
 	}
-
+	change_mesh(2);
 	distance_to_player = VEC3::Distance(myPos, ppos);
 	if ((distance_to_player < attack_distance) or (distance_to_player > chase_distance + 5.f)) {
 		return LEAVE;
@@ -243,5 +250,6 @@ int bt_runner::jumping_state() {
 	else {
 		jumping = false;
 	}
+	change_mesh(3);
 	return STAY;
 }

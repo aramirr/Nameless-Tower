@@ -36,7 +36,6 @@ class bt : public TCompBase
 	map<string,btcondition> conditions;
 
 	btnode *root;
-	btnode *current;
 
 	// moved to private as really the derived classes do not need to see this
 	btnode *createNode(string);
@@ -51,12 +50,14 @@ class bt : public TCompBase
 		TCompTransform* getMyTransform();
 		TCompRender* getMyRender();
 		TCompCollider* getMyCollider();
+		void change_mesh(int mesh_index);
 		void setEntity(CHandle new_entity);
 
 		float DT;
 
 		
 	public:
+		btnode * current;
 		string name;
 		// use a derived create to declare BT nodes for your specific BTs
 		virtual void create(string);
