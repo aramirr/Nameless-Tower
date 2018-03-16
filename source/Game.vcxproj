@@ -114,6 +114,9 @@
     <ClCompile Include="components\ia\ai_linear_patrol.cpp" />
     <ClCompile Include="components\ia\ai_orbit_patrol.cpp" />
     <ClCompile Include="components\ia\ai_spikes.cpp" />
+    <ClCompile Include="components\ia\bt.cpp" />
+    <ClCompile Include="components\ia\btnode.cpp" />
+    <ClCompile Include="components\ia\bt_runner.cpp" />
     <ClCompile Include="components\ui\ui_mouse_pos.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity\entity.cpp" />
@@ -208,6 +211,9 @@
     <ClInclude Include="components\ia\ai_linear_patrol.h" />
     <ClInclude Include="components\ia\ai_orbit_patrol.h" />
     <ClInclude Include="components\ia\ai_spikes.h" />
+    <ClInclude Include="components\ia\bt.h" />
+    <ClInclude Include="components\ia\btnode.h" />
+    <ClInclude Include="components\ia\bt_runner.h" />
     <ClInclude Include="components\ui\ui_mouse_pos.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="entity\common_msgs.h" />
