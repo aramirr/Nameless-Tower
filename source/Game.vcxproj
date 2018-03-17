@@ -115,6 +115,9 @@
     <ClCompile Include="components\ia\ai_linear_patrol.cpp" />
     <ClCompile Include="components\ia\ai_orbit_patrol.cpp" />
     <ClCompile Include="components\ia\ai_spikes.cpp" />
+    <ClCompile Include="components\ia\bt.cpp" />
+    <ClCompile Include="components\ia\btnode.cpp" />
+    <ClCompile Include="components\ia\bt_runner.cpp" />
     <ClCompile Include="components\ui\ui_mouse_pos.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity\entity.cpp" />
@@ -172,6 +175,9 @@
     <ClCompile Include="render\texture\texture.cpp" />
     <ClCompile Include="resources\json_resource.cpp" />
     <ClCompile Include="resources\resources_manager.cpp" />
+    <ClCompile Include="skeleton\comp_bone_tracker.cpp" />
+    <ClCompile Include="skeleton\comp_skeleton.cpp" />
+    <ClCompile Include="skeleton\game_core_skeleton.cpp" />
     <ClCompile Include="utils\murmur3\murmur3.cpp" />
     <ClCompile Include="utils\utils.cpp" />
     <ClCompile Include="windows\app.cpp" />
@@ -207,6 +213,9 @@
     <ClInclude Include="components\ia\ai_linear_patrol.h" />
     <ClInclude Include="components\ia\ai_orbit_patrol.h" />
     <ClInclude Include="components\ia\ai_spikes.h" />
+    <ClInclude Include="components\ia\bt.h" />
+    <ClInclude Include="components\ia\btnode.h" />
+    <ClInclude Include="components\ia\bt_runner.h" />
     <ClInclude Include="components\ui\ui_mouse_pos.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="entity\common_msgs.h" />
@@ -261,6 +270,7 @@
     <ClInclude Include="modules\test\module_test_input.h" />
     <ClInclude Include="profiling\profiling.h" />
     <ClInclude Include="render\cte_buffer.h" />
+    <ClInclude Include="render\gpu_trace.h" />
     <ClInclude Include="render\mesh\mesh.h" />
     <ClInclude Include="render\mesh\mesh_loader.h" />
     <ClInclude Include="render\mesh\mesh_subgroup.h" />
@@ -279,7 +289,12 @@
     <ClInclude Include="resources\json_resource.h" />
     <ClInclude Include="resources\resource.h" />
     <ClInclude Include="resources\resources_manager.h" />
+    <ClInclude Include="skeleton\cal3d2engine.h" />
+    <ClInclude Include="skeleton\comp_bone_tracker.h" />
+    <ClInclude Include="skeleton\comp_skeleton.h" />
+    <ClInclude Include="skeleton\game_core_skeleton.h" />
     <ClInclude Include="utils\data_provider.h" />
+    <ClInclude Include="utils\data_saver.h" />
     <ClInclude Include="utils\directory_watcher.h" />
     <ClInclude Include="utils\json.hpp" />
     <ClInclude Include="utils\murmur3\murmur3.h" />
@@ -289,6 +304,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Cal3D\Cal3D.vcxproj">
+      <Project>{f13518a5-98d4-48a8-98ed-81b5e9d70bce}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

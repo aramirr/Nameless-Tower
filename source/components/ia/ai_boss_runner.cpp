@@ -98,10 +98,8 @@ void CAIBossRunner::load(const json& j, TEntityParseContext& ctx) {
 
 void CAIBossRunner::appear_state(float dt) {
 	TCompTransform* my_transform = getMyTransform();
-	//VEC3 delta_move = appearing_position - my_transform->getPosition();
 	TCompCollider* my_collider = getMyCollider();
 	my_collider->controller->setPosition(physx::PxExtendedVec3(appearing_position.x, appearing_position.y, appearing_position.z));
-	//my_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, physx::PxControllerFilters());
 	tower_center.y = appearing_position.y;
 	my_transform->lookAt(appearing_position, tower_center);
 	float y, p, r;
@@ -199,13 +197,8 @@ void CAIBossRunner::disapear_state(float dt) {
 	TCompRender *my_render = getMyRender();
 	my_render->is_active = false;
 	TCompTransform *my_transform = getMyTransform();
-	//VEC3 delta_move = tower_center - my_transform->getPosition();
 	TCompCollider *comp_collider = getMyCollider();
-//<<<<<<< HEAD
-//	physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, physx::PxControllerFilters());
-
 	comp_collider->controller->setPosition(physx::PxExtendedVec3(tower_center.x, tower_center.y, tower_center.z));
-	//comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, physx::PxControllerFilters());
 
 }
 
@@ -266,10 +259,10 @@ void CAIBossRunner::idle_state() {
 		change_mesh(0);
 		ChangeState("attack");
 	}
-	/*if (distance_to_player > chase_distance + 10.f) {
+	if (distance_to_player > chase_distance + 10.f) {
 		jump_positions = std::queue<VEC3>();
 		actual_state = "disappear";
 		ChangeState("disappear");
-	}*/
+	}
 	
 }

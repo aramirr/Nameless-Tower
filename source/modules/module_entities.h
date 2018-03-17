@@ -5,7 +5,7 @@
 
 class CModuleEntities : public IModule
 {
-
+  float time_scale_factor = 1.f;
   std::vector< CHandleManager* > om_to_update;
   std::vector< CHandleManager* > om_to_render_debug;
   void loadListOfManagers(const json& j, std::vector< CHandleManager* > &managers);
@@ -13,7 +13,8 @@ class CModuleEntities : public IModule
 
 public:
   CModuleEntities(const std::string& aname) : IModule(aname) { }
-  bool start();
+  bool start() override;
+  bool stop() override;
   void update(float delta) override;
   void render() override;
 };

@@ -1,0 +1,10 @@
+{
+  "name":"skeleton",
+  "anims" : [
+    { "file" : "skeleton_walk" },
+    { "file" : "skeleton_hiphop", "blendout":0.2 },
+    { "file" : "skeleton_jog" },
+    { "file" : "skeleton_shoot_arrow" }
+  ],
+  "bone_ids_to_debug" : [2,20]
+}

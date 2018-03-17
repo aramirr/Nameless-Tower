@@ -70,9 +70,23 @@ void CModuleEntities::update(float delta)
   CHandleManager::destroyAllPendingObjects();
 }
 
+
+bool CModuleEntities::stop() {
+  // Destroy all entities, should destroy all components in chain
+  auto hm = getObjectManager<CEntity>();
+  hm->forEach([](CEntity* e) {
+    CHandle h(e);
+    h.destroy();
+  });
+  CHandleManager::destroyAllPendingObjects();
+  return true;
+}
+
 void CModuleEntities::render()
 {
   Resources.debugInMenu();
+
+  ImGui::DragFloat("Time Factor", &time_scale_factor, 0.01f, 0.f, 1.0f);
 
   if (ImGui::TreeNode("All Entities...")) {
 
@@ -142,6 +156,7 @@ void CModuleEntities::render()
 }
 
 void CModuleEntities::renderDebugOfComponents() {
+  CTraceScoped gpu_scope("renderDebugOfComponents");
   PROFILE_FUNCTION("renderDebugOfComponents");
   // Change the technique to some debug solid
   auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();

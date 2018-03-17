@@ -32,12 +32,25 @@ bool CModuleTestAxis::start()
 
 		parseScene("data/scenes/TorreMilestoneFinal2.scene", ctx);
 	}
-  {
-    TEntityParseContext ctx;
+	{
+		TEntityParseContext ctx;
 
-    parseScene("data/scenes/BossInt.scene", ctx);
+		parseScene("data/scenes/BossInt.scene", ctx);
+	}
+	/*
+	json jboot = loadJson("data/boot.json");
+
+  // Auto load some scenes
+  std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];
+  for (auto& scene_name : scenes_to_auto_load) {
+    dbg("Autoloading scene %s\n", scene_name.c_str());
+    TEntityParseContext ctx;
+    parseScene(scene_name, ctx);
+
   }
 
+  }
+	*/
   camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
   camera.setPerspective(60.0f * 180.f / (float)M_PI, 0.1f, 1000.f);
 
@@ -77,6 +90,23 @@ void CModuleTestAxis::update(float delta)
     ImGui::Text("Inside: %s  Coords: %1.2f, %1.2f  Z:%f", inside ? "YES" : "NO ", screen_coords.x, screen_coords.y, screen_coords.z);
     ImGui::Text("Mouse at %1.2f, %1.2f", mouse.x, mouse.y);
   }
+
+  static int nitems = 10;
+  ImGui::DragInt("NumItems", &nitems, 0.2f, 1, 100);
+  static float items_scale = 20.0f;
+  ImGui::DragFloat("Scale", &items_scale, 0.1f, 1, 50);
+  if (ImGui::SmallButton("Create Grid Of Load")) {
+    for (int nz = -nitems; nz <= nitems; ++nz) {
+      for (int nx = -nitems; nx <= nitems; ++nx) {
+        TEntityParseContext ctx;
+        float ux = (float)nx / (float)nitems;   // -1 ... 1
+        float uz = (float)nz / (float)nitems;
+        ctx.root_transform.setPosition(VEC3(ux, 0.f, uz) *items_scale);
+        parseScene("data/prefabs/test_load.prefab", ctx);
+      }
+    }
+  }
+
 
 
 }

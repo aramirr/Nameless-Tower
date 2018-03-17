@@ -1,18 +1,18 @@
 #include "mcv_platform.h"
 #include "render_manager.h"
-#include "render/render.h"
 #include "render/texture/material.h"
 #include "components/comp_transform.h"
 #include "components/comp_render.h"
-#include "render_objects.h"
+#include "skeleton/comp_skeleton.h"
 #include "components/comp_culling.h"
 #include "components/comp_aabb.h"
+#include "render_objects.h"
+#include "render/render.h"
+#include "ctes.h"
 
 /*
 #include "render/shader_cte_buffer.h"
-#include "shader_ctes.h"
 #include "components/comp_camera.h"
-#include "skeleton/comp_skeleton.h"
 #include "resources/resources_manager.h"
 */
 
@@ -139,7 +139,7 @@ void CRenderManager::setEntityCamera(CHandle h_new_entity_camera) {
 
 void CRenderManager::renderCategory(const char* category_name) {
   PROFILE_FUNCTION(category_name);
-  //CTraceScoped gpu_scope(category_name);
+  CTraceScoped gpu_scope(category_name);
 
   uint32_t category_id = getID(category_name);
 
@@ -162,7 +162,7 @@ void CRenderManager::renderCategory(const char* category_name) {
   //cte_object.activate();
   //cte_material.activate();
 
-  //bool using_skin = false;
+  bool using_skin = false;
 
   // Convert iterators to raw pointers, using distance from start of the container
   // to avoid accessing the *range.second when range.second == render_keys.end()
@@ -195,42 +195,40 @@ void CRenderManager::renderCategory(const char* category_name) {
     const TCompTransform* c_transform = it->h_transform;
     cb_object.obj_world = c_transform->asMatrix();
     const TCompRender* c_render = it->h_render_owner;
-		
-		cb_object.obj_color = c_render->color;
-		cb_object.updateGPU();
 
-		// Do we have to change the material wrt the prev draw call?
-		if (prev_it->material != it->material) {
-			it->material->activate();
-			//using_skin = it->material->usesSkin();
-		}
+    cb_object.obj_color = c_render->color;
+    cb_object.updateGPU();
 
-		// Is our material using skinning data?
-		//if (using_skin) {
-		//  CEntity* e = it->h_render_owner.getOwner();
-		//  assert(e);
-		//  TCompSkeleton* cs = e->get<TCompSkeleton>();
-		//  assert(cs);
-		//  cs->updateCtesBones();
-		//  cs->cte_bones.activate();
-		//}
+    // Do we have to change the material wrt the prev draw call?
+    if (prev_it->material != it->material) {
+      it->material->activate();
+      using_skin = it->material->tech->usesSkin();
+    }
 
-		//if (uses_capa) {
-		//  CCapaShader* cp = (CCapaShader*) it->tech;
-		//  cp->setValues(it->h_render_owner.getOwner());
-		//}
+    // Is our material using skinning data?
+    if (using_skin) {
+      CEntity* e = it->h_render_owner.getOwner();
+      assert(e);
+      TCompSkeleton* cs = e->get<TCompSkeleton>();
+      assert(cs);
+      cs->updateCtesBones();
+      cs->cb_bones.activate();
+    }
 
-		//if (it->usesCustomCtes) 
-			// it->material->tech->updateCustomCtes(h_render_owner.getOwner());
+    //if (uses_capa) {
+    //  CCapaShader* cp = (CCapaShader*) it->tech;
+    //  cp->setValues(it->h_render_owner.getOwner());
+    //}
 
-		// Has the mesh changed?
-		if (prev_it->mesh != it->mesh)
-			it->mesh->activate();
+    //if (it->usesCustomCtes) 
+     // it->material->tech->updateCustomCtes(h_render_owner.getOwner());
 
-			// Do the render
-		if (c_render->is_active) {
-			it->mesh->renderSubMesh(it->subgroup_idx);
-		}
+    // Has the mesh changed?
+    if (prev_it->mesh != it->mesh)
+      it->mesh->activate();
+
+    // Do the render
+    it->mesh->renderSubMesh(it->subgroup_idx);
 
     prev_it = it;
     ++it;
