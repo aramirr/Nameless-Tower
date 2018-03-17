@@ -1,6 +1,6 @@
 #include "mcv_platform.h"
 #include "module_cameras.h"
-#include "components/comp_camera.h"
+#include "components/camera/comp_camera.h"
 
 void CModuleCameras::TMixedCamera::blendIn(float duration)
 {

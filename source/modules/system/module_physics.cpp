@@ -1,7 +1,7 @@
 #include "mcv_platform.h"
 #include "module_physics.h"
 #include "entity/entity.h"
-#include "components/comp_transform.h"
+#include "components/juan/comp_transform.h"
 
 
 #pragma comment(lib,"PhysX3_x64.lib")

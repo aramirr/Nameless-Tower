@@ -1,6 +1,6 @@
 #pragma once
 
-#include "comp_base.h"
+#include "components/comp_base.h"
 #include "camera/camera.h"
 
 class TCompCamera : public CCamera, public TCompBase {

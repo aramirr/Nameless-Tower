@@ -1,8 +1,8 @@
 #include "mcv_platform.h"
 #include "entity/entity_parser.h"
 #include "comp_trigger.h"
-#include "comp_transform.h"
-#include "ui/ui_mouse_pos.h"
+#include "components/juan/comp_transform.h"
+#include "components/ui/ui_mouse_pos.h"
 #include "entity/common_msgs.h"
 
 DECL_OBJ_MANAGER("trigger", TCompTrigger);

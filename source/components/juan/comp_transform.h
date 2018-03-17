@@ -1,6 +1,6 @@
 #pragma once
 
-#include "comp_base.h"
+#include "components/comp_base.h"
 #include "geometry/transform.h"
 
 class TCompTransform : public CTransform, public TCompBase {

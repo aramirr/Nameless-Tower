@@ -3,7 +3,7 @@
 #include "entity.h"
 #include "common_msgs.h"
 #include "resources/json_resource.h"
-#include "components/comp_group.h"
+#include "components/juan/comp_group.h"
 
 // Find in the current list of entities created, the first entity matching
 // the given name

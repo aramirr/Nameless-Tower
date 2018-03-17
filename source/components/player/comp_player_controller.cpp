@@ -1,9 +1,9 @@
 #include "mcv_platform.h"
 #include "entity/entity_parser.h"
 #include "comp_player_controller.h"
-#include "comp_transform.h"
-#include "comp_camera.h"
-#include "ui/ui_mouse_pos.h"
+#include "components/juan/comp_transform.h"
+#include "components/camera/comp_camera.h"
+#include "components/ui/ui_mouse_pos.h"
 #include "entity/common_msgs.h"
 
 DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
@@ -525,7 +525,8 @@ void TCompPlayerController::dead_state(float dt) {
 		if (comp_collider && comp_collider->controller) {
 			comp_collider->controller->setPosition(physx::PxExtendedVec3(checkpoint.x, checkpoint.y, checkpoint.z));
 		}
-		Engine.getModules().changeGameState("test_axis");
+		//Engine.getModules().changeGameState("test_axis");
+		ChangeState("initial");
 		return;
 	}
 	else {

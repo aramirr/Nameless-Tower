@@ -2,7 +2,7 @@
 
 #include "components\comp_base.h"
 #include "entity/common_msgs.h"
-#include "components\comp_transform.h"
+#include "components/juan/comp_transform.h"
 
 
 class TCompArrowUI : public TCompBase {

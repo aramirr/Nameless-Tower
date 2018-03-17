@@ -1,6 +1,6 @@
 #include "mcv_platform.h"
 #include "comp_camera.h"
-#include "comp_transform.h"
+#include "components/juan/comp_transform.h"
 #include "render/render_objects.h"
 
 DECL_OBJ_MANAGER("camera", TCompCamera);

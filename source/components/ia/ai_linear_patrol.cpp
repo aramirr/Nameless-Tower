@@ -2,7 +2,7 @@
 #include "handle/handle.h"
 #include "ai_linear_patrol.h"
 #include "entity/entity_parser.h"
-#include "components/comp_transform.h"
+#include "components/juan/comp_transform.h"
 #include "render/render_utils.h"
 #include "modules/system/module_physics.h"
 

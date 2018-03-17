@@ -8,9 +8,9 @@
 #include "render/texture/texture.h"
 #include "render/texture/material.h"
 #include "handle/handle.h"
-#include "components/comp_name.h"
-#include "components/comp_transform.h"
-#include "components/comp_camera.h"
+#include "components/juan/comp_name.h"
+#include "components/juan/comp_transform.h"
+#include "components/camera/comp_camera.h"
 #include "entity/entity_parser.h"
 #include "render/render_manager.h"
 

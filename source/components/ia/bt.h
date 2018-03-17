@@ -7,9 +7,9 @@
 #include "btnode.h"
 #include "entity/entity.h"
 #include "components/comp_base.h"
-#include "components/comp_transform.h"
-#include "components/comp_render.h"
-#include "components/comp_collider.h"
+#include "components/juan/comp_transform.h"
+#include "components/juan/comp_render.h"
+#include "components/physics/comp_collider.h"
 
 
 using namespace std;

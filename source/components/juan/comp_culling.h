@@ -2,7 +2,7 @@
 #define INC_COMPONENT_CULLING_H_
 
 #include "geometry/geometry.h"
-#include "comp_base.h"
+#include "components/comp_base.h"
 #include "entity/entity.h"
 #include <bitset>
 

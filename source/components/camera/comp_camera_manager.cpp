@@ -1,7 +1,7 @@
 #include "mcv_platform.h"
 #include "comp_camera_manager.h"
-#include "comp_transform.h"
-#include "comp_player_controller.h"
+#include "components/juan/comp_transform.h"
+#include "components/player/comp_player_controller.h"
 
 DECL_OBJ_MANAGER("cameraManager", TCompCameraManager);
 

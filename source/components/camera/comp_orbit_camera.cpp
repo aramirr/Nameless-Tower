@@ -1,18 +1,18 @@
 #include "mcv_platform.h"
-#include "comp_platform_camera.h"
-#include "comp_transform.h"
-#include "comp_player_controller.h"
+#include "comp_orbit_camera.h"
+#include "components/juan/comp_transform.h"
+#include "components/player/comp_player_controller.h"
 #include <iostream>
 
-DECL_OBJ_MANAGER("platformCamera", TCompPlatformCamera);
+DECL_OBJ_MANAGER("orbitCamera", TCompOrbitCamera);
 
-bool TCompPlatformCamera::isForward()
+bool TCompOrbitCamera::isForward()
 {
   TCompPlayerController* pc = player->get<TCompPlayerController>();
   return !pc->isForward();
 }
 
-bool TCompPlatformCamera::isGrounded()
+bool TCompOrbitCamera::isGrounded()
 {
   TCompPlayerController* pc = player->get<TCompPlayerController>();
   return pc->isGrounded();
@@ -32,7 +32,7 @@ bool TCompPlatformCamera::isGrounded()
 //	DECL_MSG(TCompOrbitCamera, TMsgisGrounded, changeHeight);
 //}
 
-void TCompPlatformCamera::attachPlayer(const TMsgAttachTo & msg) {
+void TCompOrbitCamera::attachPlayer(const TMsgAttachTo & msg) {
   platform = (CEntity *)msg.h_attached;
   TCompTransform* pl = platform->get<TCompTransform>();
   assert(pl);
@@ -45,25 +45,25 @@ void TCompPlatformCamera::attachPlayer(const TMsgAttachTo & msg) {
   if (pPos.y > plPos.y)inPlatform = true;
 }
 
-void TCompPlatformCamera::detachPlayer(const TMsgDetachOf & msg) {
+void TCompOrbitCamera::detachPlayer(const TMsgDetachOf & msg) {
   if (inPlatform) {
     inPlatform = false;
     jumpinPlatform = true;
   }
 }
 
-void TCompPlatformCamera::exitFromPlatform(const TMsgExitPlatform & msg)
+void TCompOrbitCamera::exitFromPlatform(const TMsgExitPlatform & msg)
 {
   exitPlatform = false;
 }
 
-void TCompPlatformCamera::registerMsgs() {
-  DECL_MSG(TCompPlatformCamera, TMsgAttachTo, attachPlayer);
-  DECL_MSG(TCompPlatformCamera, TMsgDetachOf, detachPlayer);
-  DECL_MSG(TCompPlatformCamera, TMsgExitPlatform, exitFromPlatform);
+void TCompOrbitCamera::registerMsgs() {
+  DECL_MSG(TCompOrbitCamera, TMsgAttachTo, attachPlayer);
+  DECL_MSG(TCompOrbitCamera, TMsgDetachOf, detachPlayer);
+  DECL_MSG(TCompOrbitCamera, TMsgExitPlatform, exitFromPlatform);
 }
 
-void TCompPlatformCamera::debugInMenu() {
+void TCompOrbitCamera::debugInMenu() {
   ImGui::Text("inPlatform: %s", inPlatform ? "Si" : "No");
   ImGui::Text("jumpinPlatform: %s", jumpinPlatform ? "Si" : "No");
   ImGui::Text("exitPlatform: %s", exitPlatform ? "Si" : "No");
@@ -80,7 +80,7 @@ void TCompPlatformCamera::debugInMenu() {
   ImGui::DragFloat("DISTCAM", &distanceCam, 0.1f, -100.f, 100.f);
 }
 
-void TCompPlatformCamera::load(const json& j, TEntityParseContext& ctx) {
+void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
 
   // ..
   player = (CEntity *)getEntityByName("The Player");
@@ -115,7 +115,7 @@ void TCompPlatformCamera::load(const json& j, TEntityParseContext& ctx) {
   exitPlatform = false;
 }
 
-void TCompPlatformCamera::update(float dt) {
+void TCompOrbitCamera::update(float dt) {
   xOffset = deg2rad(((2 * 3.14159f * radio) / 360) * apertura);
   TCompTransform* c = get<TCompTransform>();
   assert(c);
@@ -162,40 +162,40 @@ void TCompPlatformCamera::update(float dt) {
 //    dbg("AAAAAAAAAA\n");
 //  }
 
-  //if (jumpinPlatform || /*(exitPlatform && !isGrounded()) ||*/ (izq && !isForward() && !inPlatform || ((izq && isForward()) && (distanceCam > (abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && izquierda && !inPlatform))
-  //  || (!izq && isForward() && !inPlatform || ((!izq && !isForward()) && (distanceCam > (abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && !izquierda && !inPlatform))) {
-  //  newPos = pos;
-  //  newPos.y = currentPlayerY + height;
-  //  //if (exitPlatform && isGrounded()) {
-  //  //  // dbg("Saaaaaaaaaaaaaaalgoooooooooooooooooo\n");
-  //  //  //newPos = actualPos;
-  //  //  //VEC3 newPos2 = ((newPos - actualPos) / 200.f);
-  //  //  //newPos.x = actualPos.x + newPos2.x;
-  //  //  //newPos.z = actualPos.z + newPos2.z;
-  //  //  exitPlatform = false;
-  //  //}
-  //  if (jumpinPlatform) {
-  //    // dY = abs(currentPlayerY - pPos.y);
-  //     //if (/*inPlatform || (dY > 4.f && */isGrounded()/*)*/) {
-  //    jumpinPlatform = false;
-  //    exitPlatform = true;
-  //    //}
-  //    //else if(inOrbitPlatform || isGrounded()) jumpinOrbitPlatform = false;
-  //    /*if (isGrounded()) {
-  //      jumpinOrbitPlatform = false;
-  //    }*/
-  //  }
-  //}
-  /*else {*/
+  if (/*jumpinPlatform ||*/ /*(exitPlatform && !isGrounded()) ||*/ (izq && !isForward() /*&& !inPlatform*/ || ((izq && isForward()) && (distanceCam > (abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && izquierda /*&& !inPlatform*/))
+    || (!izq && isForward() /*&& !inPlatform*/ || ((!izq && !isForward()) && (distanceCam > (abs(distance - distanceT) + 0.25f)) && (distanceCam < 9.f) && !izquierda /*&& !inPlatform*/))) {
+    newPos = pos;
+    newPos.y = currentPlayerY + height;
+    //if (exitPlatform && isGrounded()) {
+    //  // dbg("Saaaaaaaaaaaaaaalgoooooooooooooooooo\n");
+    //  //newPos = actualPos;
+    //  //VEC3 newPos2 = ((newPos - actualPos) / 200.f);
+    //  //newPos.x = actualPos.x + newPos2.x;
+    //  //newPos.z = actualPos.z + newPos2.z;
+    //  exitPlatform = false;
+    //}
+    //if (jumpinPlatform) {
+    //  // dY = abs(currentPlayerY - pPos.y);
+    //   //if (/*inPlatform || (dY > 4.f && */isGrounded()/*)*/) {
+    //  jumpinPlatform = false;
+    //  exitPlatform = true;
+    //  //}
+    //  //else if(inOrbitPlatform || isGrounded()) jumpinOrbitPlatform = false;
+    //  /*if (isGrounded()) {
+    //    jumpinOrbitPlatform = false;
+    //  }*/
+    //}
+  }
+  else {
     /*if (inOrbitPlatform && ((izq && isForward()) || (!izq && !isForward()))) {
       TMsgchangeCamerainPlatform msg;
       CEntity* camManager = (CEntity *)getEntityByName("camera_manager");
       camManager->sendMsg(msg);
     }*/
     /*else {*/
-    /*if (izq)xOffset *= -1;
+    if (izq)xOffset *= -1;
 
-    if (inPlatform || exitPlatform) {*/
+    /*if (inPlatform || exitPlatform) {
       float d = VEC3::Distance(center, pPos);
       float _d = (d - distance) / d;
       float x = pPos.x - _d * (center.x - pPos.x);
@@ -206,34 +206,34 @@ void TCompPlatformCamera::update(float dt) {
       pos.z = z;
 
       newPos = pos;
-    //}
-    //else {
-    //  float d = VEC3::Distance(center, pPos);
-    //  float _d = d / d;
-    //  float x = pPos.x - _d * (center.x - pPos.x);
-    //  float z = pPos.z - _d * (center.z - pPos.z);
+    }
+    else {*/
+      float d = VEC3::Distance(center, pPos);
+      float _d = d / d;
+      float x = pPos.x - _d * (center.x - pPos.x);
+      float z = pPos.z - _d * (center.z - pPos.z);
 
-    //  pos.x = x;
-    //  pos.y = currentPlayerY + height;
-    //  pos.z = z;
+      pos.x = x;
+      pos.y = currentPlayerY + height;
+      pos.z = z;
 
-    //  float _distance = VEC3::Distance(center, pos);
+      float _distance = VEC3::Distance(center, pos);
 
-    //  float y, p2, _y, _p2;
-    //  c->getYawPitchRoll(&y, &p2);
-    //  p->getYawPitchRoll(&_y, &_p2);
+      float y, p2, _y, _p2;
+      c->getYawPitchRoll(&y, &p2);
+      p->getYawPitchRoll(&_y, &_p2);
 
-    //  c->setPosition(center);
+      c->setPosition(center);
 
-    //  y = _y + xOffset;
-    //  //if (!inPlatform)y = _y + xOffset;
-    //  //else if (((izq && !isForward()) || (!izq && isForward())))y = _y + xOffset * -1;
-    //  //else y = _y - xOffset;
+      y = _y + xOffset;
+      //if (!inPlatform)y = _y + xOffset;
+      //else if (((izq && !isForward()) || (!izq && isForward())))y = _y + xOffset * -1;
+      //else y = _y - xOffset;
 
-    //  c->setYawPitchRoll(y, p2);
-    //  newPos = c->getPosition() - (c->getFront() * (_distance - distance));
-    //  newPos.y = currentPlayerY + height;
-    //}
+      c->setYawPitchRoll(y, p2);
+      newPos = c->getPosition() - (c->getFront() * (_distance - distance));
+      newPos.y = currentPlayerY + height;
+    /*}*/
     
     //if(exitPlatform && isGrounded())exitPlatform = false;
     //if ((exitPlatform /*&& isGrounded()*/) || inPlatform) {
@@ -273,7 +273,7 @@ void TCompPlatformCamera::update(float dt) {
       //    //c->setPosition(newPos);
       //  }
     //}
-  /*}*/
+  }
 
   //float distanceBC = VEC3::Distance(newPos, actualPos);
   //if (inPlatform /*&& distanceBC > 3.f*/) {
@@ -287,8 +287,8 @@ void TCompPlatformCamera::update(float dt) {
     actualPos = newPos;
     carga = false;
     c->setPosition(newPos);
-  }*/
- /* else {*/
+  }
+  else {*/
     //dbg("(%f, %f, %f) - (%f, %f, %f) = %f\n", newPos.x, newPos.y, newPos.z, actualPos.x, actualPos.y, actualPos.z, VEC3::Distance(newPos, actualPos));
    /* VEC3 dir = newPos - actualPos;
     dir.Normalize();
@@ -301,7 +301,7 @@ void TCompPlatformCamera::update(float dt) {
      }*/
     c->setPosition(newPos);
     actualPos = newPos;
- /* }*/
+  /*}*/
 
   /*}*/
 

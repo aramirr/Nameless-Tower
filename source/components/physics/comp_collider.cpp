@@ -1,6 +1,6 @@
 #include "mcv_platform.h"
 #include "comp_collider.h"
-#include "comp_transform.h"
+#include "components/juan/comp_transform.h"
 
 DECL_OBJ_MANAGER("collider", TCompCollider);
 

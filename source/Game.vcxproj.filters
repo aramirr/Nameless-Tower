@@ -109,29 +109,8 @@
     <ClCompile Include="handle\handle_def.cpp">
       <Filter>handle</Filter>
     </ClCompile>
-    <ClCompile Include="components\comp_name.cpp">
-      <Filter>components</Filter>
-    </ClCompile>
-    <ClCompile Include="components\comp_transform.cpp">
-      <Filter>components</Filter>
-    </ClCompile>
     <ClCompile Include="entity\entity_parser.cpp">
       <Filter>entity</Filter>
-    </ClCompile>
-    <ClCompile Include="components\comp_render.cpp">
-      <Filter>components</Filter>
-    </ClCompile>
-    <ClCompile Include="components\comp_circular_controller.cpp">
-      <Filter>components</Filter>
-    </ClCompile>
-    <ClCompile Include="components\comp_camera.cpp">
-      <Filter>components</Filter>
-    </ClCompile>
-    <ClCompile Include="components\comp_player_controller.cpp">
-      <Filter>components</Filter>
-    </ClCompile>
-    <ClCompile Include="components\comp_bullet_controller.cpp">
-      <Filter>components</Filter>
     </ClCompile>
     <ClCompile Include="components\ia\ai_controller.cpp">
       <Filter>components\ia</Filter>
@@ -142,26 +121,11 @@
     <ClCompile Include="render\texture\material.cpp">
       <Filter>render\texture</Filter>
     </ClCompile>
-    <ClCompile Include="components\comp_flyover_controller.cpp">
-      <Filter>components</Filter>
-    </ClCompile>
-    <ClCompile Include="components\comp_collider.cpp">
-      <Filter>components</Filter>
-    </ClCompile>
     <ClCompile Include="resources\json_resource.cpp">
       <Filter>resources</Filter>
     </ClCompile>
     <ClCompile Include="utils\murmur3\murmur3.cpp">
       <Filter>utils\Murmur3</Filter>
-    </ClCompile>
-    <ClCompile Include="components\comp_tags.cpp">
-      <Filter>components</Filter>
-    </ClCompile>
-    <ClCompile Include="components\comp_hierarchy.cpp">
-      <Filter>components</Filter>
-    </ClCompile>
-    <ClCompile Include="components\comp_group.cpp">
-      <Filter>components</Filter>
     </ClCompile>
     <ClCompile Include="render\shaders\shader_compile.cpp">
       <Filter>render\shaders</Filter>
@@ -211,32 +175,14 @@
     <ClCompile Include="components\ui\ui_mouse_pos.cpp">
       <Filter>components\ui</Filter>
     </ClCompile>
-    <ClCompile Include="components\comp_trigger.cpp">
-      <Filter>components</Filter>
-    </ClCompile>
-    <ClCompile Include="components\comp_orbit_camera.cpp">
-      <Filter>components</Filter>
-    </ClCompile>
-    <ClCompile Include="components\comp_camera_manager.cpp">
-      <Filter>components</Filter>
-    </ClCompile>
     <ClCompile Include="render\render_manager.cpp">
       <Filter>render</Filter>
-    </ClCompile>
-    <ClCompile Include="components\comp_culling.cpp">
-      <Filter>components</Filter>
-    </ClCompile>
-    <ClCompile Include="components\comp_aabb.cpp">
-      <Filter>components</Filter>
     </ClCompile>
     <ClCompile Include="profiling\profiling.cpp">
       <Filter>profiling</Filter>
     </ClCompile>
     <ClCompile Include="components\ia\ai_spikes.cpp">
       <Filter>components\ia</Filter>
-    </ClCompile>
-    <ClCompile Include="components\comp_platform_camera.cpp">
-      <Filter>components</Filter>
     </ClCompile>
     <ClCompile Include="components\controllers\comp_spiral_controller.cpp">
       <Filter>components\controllers</Filter>
@@ -264,6 +210,69 @@
     </ClCompile>
     <ClCompile Include="modules\module_render.cpp">
       <Filter>modules\system</Filter>
+    </ClCompile>
+    <ClCompile Include="components\ia\bt.cpp">
+      <Filter>components\ia</Filter>
+    </ClCompile>
+    <ClCompile Include="components\ia\bt_runner.cpp">
+      <Filter>components\ia</Filter>
+    </ClCompile>
+    <ClCompile Include="components\ia\btnode.cpp">
+      <Filter>components\ia</Filter>
+    </ClCompile>
+    <ClCompile Include="components\old\comp_bullet_controller.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\old\comp_circular_controller.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\old\comp_flyover_controller.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\juan\comp_aabb.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\juan\comp_culling.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\juan\comp_group.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\juan\comp_hierarchy.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\juan\comp_name.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\juan\comp_render.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\juan\comp_tags.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\juan\comp_transform.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\physics\comp_collider.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\physics\comp_trigger.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\camera\comp_camera.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\camera\comp_camera_manager.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\camera\comp_orbit_camera.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\camera\comp_platform_camera.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\player\comp_player_controller.cpp">
+      <Filter>components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -532,38 +541,17 @@
     <ClInclude Include="components\comp_base.h">
       <Filter>components</Filter>
     </ClInclude>
-    <ClInclude Include="components\comp_name.h">
-      <Filter>components</Filter>
-    </ClInclude>
     <ClInclude Include="utils\timer.h">
       <Filter>utils</Filter>
     </ClInclude>
-    <ClInclude Include="components\comp_transform.h">
-      <Filter>components</Filter>
-    </ClInclude>
     <ClInclude Include="entity\entity_parser.h">
       <Filter>entity</Filter>
-    </ClInclude>
-    <ClInclude Include="components\comp_render.h">
-      <Filter>components</Filter>
-    </ClInclude>
-    <ClInclude Include="components\comp_circular_controller.h">
-      <Filter>components</Filter>
-    </ClInclude>
-    <ClInclude Include="components\comp_camera.h">
-      <Filter>components</Filter>
-    </ClInclude>
-    <ClInclude Include="components\comp_player_controller.h">
-      <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="entity\msgs.h">
       <Filter>entity</Filter>
     </ClInclude>
     <ClInclude Include="entity\common_msgs.h">
       <Filter>entity</Filter>
-    </ClInclude>
-    <ClInclude Include="components\comp_bullet_controller.h">
-      <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="components\ia\ai_controller.h">
       <Filter>components\ia</Filter>
@@ -574,12 +562,6 @@
     <ClInclude Include="render\texture\material.h">
       <Filter>render\texture</Filter>
     </ClInclude>
-    <ClInclude Include="components\comp_flyover_controller.h">
-      <Filter>components</Filter>
-    </ClInclude>
-    <ClInclude Include="components\comp_collider.h">
-      <Filter>components</Filter>
-    </ClInclude>
     <ClInclude Include="resources\json_resource.h">
       <Filter>resources</Filter>
     </ClInclude>
@@ -588,15 +570,6 @@
     </ClInclude>
     <ClInclude Include="utils\murmur3\murmur3.h">
       <Filter>utils\Murmur3</Filter>
-    </ClInclude>
-    <ClInclude Include="components\comp_tags.h">
-      <Filter>components</Filter>
-    </ClInclude>
-    <ClInclude Include="components\comp_hierarchy.h">
-      <Filter>components</Filter>
-    </ClInclude>
-    <ClInclude Include="components\comp_group.h">
-      <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="render\shaders\render_technique.h">
       <Filter>render\shaders</Filter>
@@ -652,23 +625,8 @@
     <ClInclude Include="components\ui\ui_mouse_pos.h">
       <Filter>components\ui</Filter>
     </ClInclude>
-    <ClInclude Include="components\comp_trigger.h">
-      <Filter>components</Filter>
-    </ClInclude>
-    <ClInclude Include="components\comp_orbit_camera.h">
-      <Filter>components</Filter>
-    </ClInclude>
-    <ClInclude Include="components\comp_camera_manager.h">
-      <Filter>components</Filter>
-    </ClInclude>
     <ClInclude Include="render\render_manager.h">
       <Filter>render</Filter>
-    </ClInclude>
-    <ClInclude Include="components\comp_culling.h">
-      <Filter>components</Filter>
-    </ClInclude>
-    <ClInclude Include="components\comp_aabb.h">
-      <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="profiling\profiling.h">
       <Filter>profiling</Filter>
@@ -679,12 +637,9 @@
     <ClInclude Include="render\gpu_trace.h">
       <Filter>render</Filter>
     </ClInclude>
-    <ClInclude Include="components\comp_platform_camera.h">
-      <Filter>components</Filter>
-    </ClInclude>
     <ClInclude Include="components\controllers\comp_spiral_controller.h">
       <Filter>components\controllers</Filter>
-	</ClInclude>
+    </ClInclude>
     <ClInclude Include="skeleton\cal3d2engine.h">
       <Filter>skeleton</Filter>
     </ClInclude>
@@ -717,6 +672,69 @@
     </ClInclude>
     <ClInclude Include="utils\data_saver.h">
       <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="components\ia\btnode.h">
+      <Filter>components\ia</Filter>
+    </ClInclude>
+    <ClInclude Include="components\ia\bt.h">
+      <Filter>components\ia</Filter>
+    </ClInclude>
+    <ClInclude Include="components\ia\bt_runner.h">
+      <Filter>components\ia</Filter>
+    </ClInclude>
+    <ClInclude Include="components\old\comp_bullet_controller.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\old\comp_circular_controller.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\old\comp_flyover_controller.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\juan\comp_aabb.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\juan\comp_culling.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\juan\comp_group.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\juan\comp_hierarchy.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\juan\comp_name.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\juan\comp_render.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\juan\comp_tags.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\juan\comp_transform.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\physics\comp_collider.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\physics\comp_trigger.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\camera\comp_camera.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\camera\comp_camera_manager.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\camera\comp_orbit_camera.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\camera\comp_platform_camera.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\player\comp_player_controller.h">
+      <Filter>components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,8 +1,8 @@
 #include "mcv_platform.h"
-#include "components/comp_transform.h"
+#include "components/juan/comp_transform.h"
 #include "ai_controller.h"
 
-#include "components/comp_player_controller.h"
+#include "components/player/comp_player_controller.h"
 #include "ai_boss_runner.h"
 
 void IAIController::change_color(VEC4 color) {

@@ -1,7 +1,7 @@
 #include "mcv_platform.h"
 #include "comp_culling.h"
 #include "comp_aabb.h"
-#include "comp_camera.h"
+#include "components/camera/comp_camera.h"
 //#include "comp_msgs.h"
 
 DECL_OBJ_MANAGER("culling", TCompCulling);

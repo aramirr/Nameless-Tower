@@ -1,6 +1,6 @@
 #include "mcv_platform.h"
 #include "comp_bone_tracker.h"
-#include "components/comp_transform.h"
+#include "components/juan/comp_transform.h"
 #include "skeleton/comp_skeleton.h"
 #include "cal3d/cal3d.h"
 #include "cal3d2engine.h"

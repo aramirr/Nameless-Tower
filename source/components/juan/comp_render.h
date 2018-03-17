@@ -1,6 +1,6 @@
 #pragma once
 
-#include "comp_base.h"
+#include "components/comp_base.h"
 
 class CRenderMesh;
 class CTexture;

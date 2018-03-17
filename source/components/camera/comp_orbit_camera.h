@@ -1,9 +1,9 @@
 #pragma once
 
-#include "comp_base.h"
+#include "components/comp_base.h"
 #include "camera/camera.h"
 
-class TCompPlatformCamera : public TCompBase {
+class TCompOrbitCamera : public TCompBase {
 
 	CEntity *player;
   CEntity *platform;
