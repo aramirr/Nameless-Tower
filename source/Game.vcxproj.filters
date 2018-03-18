@@ -235,6 +235,36 @@
     <ClCompile Include="components\comp_light_dir.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="fsm\fsm.cpp">
+      <Filter>fsm</Filter>
+    </ClCompile>
+    <ClCompile Include="fsm\context.cpp">
+      <Filter>fsm</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\variant.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\system\module_fsm.cpp">
+      <Filter>modules\system</Filter>
+    </ClCompile>
+    <ClCompile Include="fsm\custom_states.cpp">
+      <Filter>fsm</Filter>
+    </ClCompile>
+    <ClCompile Include="fsm\factory.cpp">
+      <Filter>fsm</Filter>
+    </ClCompile>
+    <ClCompile Include="fsm\custom_transitions.cpp">
+      <Filter>fsm</Filter>
+    </ClCompile>
+    <ClCompile Include="components\comp_fsm.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
+    <ClCompile Include="components\controllers\comp_fake_animation_controller.cpp">
+      <Filter>components\controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="components\controllers\comp_player_input.cpp">
+      <Filter>components\controllers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -306,6 +336,9 @@
     <Filter Include="components\controllers">
       <UniqueIdentifier>{35593611-dc98-40a8-8b74-e77b7bfe7abc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="fsm">
+      <UniqueIdentifier>{eee02197-0066-464f-a05d-c5c0dae4e09d}</UniqueIdentifier>
+    </Filter>
     <Filter Include="profiling">
       <UniqueIdentifier>{f8293cf5-bd8e-4fed-a082-e83abcb71aa2}</UniqueIdentifier>
     </Filter>
@@ -345,9 +378,6 @@
     </ClInclude>
     <ClInclude Include="utils\data_provider.h">
       <Filter>utils</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\gamestate.h">
-      <Filter>modules</Filter>
     </ClInclude>
     <ClInclude Include="imgui\imconfig.h">
       <Filter>imgui</Filter>
@@ -657,6 +687,45 @@
     </ClInclude>
     <ClInclude Include="render\texture\texture_slots.h">
       <Filter>render\texture</Filter>
+    </ClInclude>
+    <ClInclude Include="fsm\fsm.h">
+      <Filter>fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="fsm\state.h">
+      <Filter>fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="fsm\transition.h">
+      <Filter>fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="fsm\context.h">
+      <Filter>fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="fsm\custom_states.h">
+      <Filter>fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\variant.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\system\module_fsm.h">
+      <Filter>modules\system</Filter>
+    </ClInclude>
+    <ClInclude Include="fsm\factory.h">
+      <Filter>fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="fsm\custom_transitions.h">
+      <Filter>fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_fsm.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\controllers\comp_fake_animation_controller.h">
+      <Filter>components\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="components\controllers\comp_player_input.h">
+      <Filter>components\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\gamestate.h">
+      <Filter>modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
