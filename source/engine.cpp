@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "engine.h"
 
+#include "modules/system/module_fsm.h"
 #include "modules/game/module_splash.h"
 #include "modules/game/module_main_menu.h"
 #include "modules/game/module_gameover.h"
@@ -22,6 +23,7 @@ CEngine::CEngine()
 	, _module_input("input")
 	, _module_timer("timer")
 	, _module_cameras("cameras")
+  , _module_fsm("fsm")
 {}
 
 bool CEngine::start() {
@@ -41,6 +43,7 @@ bool CEngine::start() {
 	_modules.registerSystemModule(&_module_input);
 	_modules.registerSystemModule(&_module_timer);
 	_modules.registerSystemModule(&_module_cameras);
+  _modules.registerSystemModule(&_module_fsm);
 
 	_modules.registerGameModule(&module_splash);
 	_modules.registerGameModule(&module_main_menu);

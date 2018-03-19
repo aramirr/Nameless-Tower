@@ -1,0 +1,236 @@
+{
+	"initial_state" : "idle",
+	"states" : [
+		{
+			"name" : "idle",
+			"type" : "AnimationState",
+			"animation" : "idle"
+		},
+		{
+			"name" : "run",
+			"type" : "AnimationState",
+			"animation" : "walk",
+			"x_speed" : 2
+		},
+		{
+			"name" : "jump",
+			"type" : "JumpState",
+			"y_speed" : 12.6
+		},
+		{
+			"name" : "dash",
+			"type" : "DashState"
+		},
+		{
+			"name" : "omnidash",
+			"type" : "OmnidashState"
+		},
+		{
+			"name" : "omnijump",
+			"type" : "OmnijumpState"
+		},
+		{
+			"name" : "dead",
+			"type" : "DeadState"
+		}
+	],
+	"transitions" : [
+		{
+			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "jump",
+			"variable" : {
+				"name" : "jump",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "run",
+			"target" : "jump",
+			"variable" : {
+				"name" : "jump",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "run",
+			"variable" : {
+				"name" : "run",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "run",
+			"target" : "idle",
+			"variable" : {
+				"name" : "idle",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "jump",
+			"target" : "idle",
+			"variable" : {
+				"name" : "is_grounded",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "dead",
+			"variable" : {
+				"name" : "hit",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "dash",
+			"variable" : {
+				"name" : "dash",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "jump",
+			"target" : "dash",
+			"variable" : {
+				"name" : "dash",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "run",
+			"target" : "dash",
+			"variable" : {
+				"name" : "dash",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "jump",
+			"target" : "omnidash",
+			"variable" : {
+				"name" : "omnidash",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "omnidash",
+			"target" : "omnijump",
+			"variable" : {
+				"name" : "omnijump",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "run",
+			"target" : "dead",
+			"variable" : {
+				"name" : "hit",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "jump",
+			"target" : "dead",
+			"variable" : {
+				"name" : "hit",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dash",
+			"target" : "dead",
+			"variable" : {
+				"name" : "hit",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		
+	],
+	"variables" : [
+		{
+			"name" : "run",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "idle",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "jump",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "dash",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "omnidash",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "omnijump",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "is_grounded",
+			"type" : "bool",
+			"value" : true
+		},
+		{
+			"name" : "dead",
+			"type" : "bool",
+			"value" : false
+		}
+	]
+}
