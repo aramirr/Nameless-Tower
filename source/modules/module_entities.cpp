@@ -65,8 +65,6 @@ void CModuleEntities::update(float delta)
 		PROFILE_FUNCTION(om->getName());
 		om->updateAll(delta * timeSlower);
 	}
-
-
   CHandleManager::destroyAllPendingObjects();
 }
 

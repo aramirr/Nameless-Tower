@@ -54,23 +54,17 @@ bool CModuleTestAxis::start()
   camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
   camera.setPerspective(60.0f * 180.f / (float)M_PI, 0.1f, 1000.f);
 
-  // -------------------------------------------
-  if (!cb_camera.create(CB_CAMERA))
-    return false;
-  // -------------------------------------------
-  if (!cb_object.create(CB_OBJECT))
-    return false;
-
-  cb_object.activate();
-  cb_camera.activate();
-
   return true;
 }
 
 bool CModuleTestAxis::stop()
 {
-  cb_camera.destroy();
-  cb_object.destroy();
+	auto hm = getObjectManager<CEntity>();
+	hm->forEach([](CEntity* e) {
+			CHandle h(e);
+			h.destroy();
+	});
+	CHandleManager::destroyAllPendingObjects();
   return true;
 }
 

@@ -55,11 +55,6 @@ void TCompCamera::update(float dt) {
 	pos.y = pPos.y + height;
 	pos.z = z;
 
-	//c->setPosition(pos);
-
-	//this->setPerspective(deg2rad(fov_deg), z_near, z_far);
-	//this->lookAt(pos, center, c->getUp());
 	this->lookAt(c->getPosition(), c->getPosition() + c->getFront(), c->getUp());
-
 }
 
