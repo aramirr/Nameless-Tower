@@ -2,8 +2,12 @@
 #include "comp_camera_manager.h"
 #include "comp_transform.h"
 #include "comp_player_controller.h"
+#include "resources/json_resource.h"
+#include "comp_name.h"
 
 DECL_OBJ_MANAGER("cameraManager", TCompCameraManager);
+
+static Interpolator::TSineInOutInterpolator interpolator;
 
 bool TCompCameraManager::isGrounded()
 {
@@ -13,31 +17,9 @@ bool TCompCameraManager::isGrounded()
 
 bool TCompCameraManager::isForward()
 {
-
 	TCompPlayerController* pc = player->get<TCompPlayerController>();
 	return !pc->isForward();
-	//if (player.x > 0 && player.z < 0) {								// CUADRANTE 1 (+-)
-	//	if (frontPlayer.x < 0 && frontPlayer.z < 0) return true;
-	//	return false;
-	//}
-	//else if (player.x < 0 && player.z < 0) {						// CUADRANTE 2 (--)
-	//	if (frontPlayer.x < 0 && frontPlayer.z > 0) return true;
-	//	return false;
-	//}
-	//else if (player.x < 0 && player.z > 0) {						// CUADRANTE 3 (-+)
-	//	if (frontPlayer.x > 0 && frontPlayer.z > 0) return true;
-	//	return false;
-	//}
-	//else if (player.x > 0 && player.z > 0) {						// CUADRANTE 4 (++)
-	//	if (frontPlayer.x > 0 && frontPlayer.z < 0) return true;
-	//	return false;
-	//}
-	//else return false;
 }
-
-//void TCompCameraManager::changeCamerainPlatform(const TMsgchangeCamerainPlatform & msg) {
-//  inPlatform = true;
-//}
 
 void TCompCameraManager::attachPlayer(const TMsgAttachTo & msg) {
 	platform = (CEntity *)msg.h_attached;
@@ -59,20 +41,70 @@ void TCompCameraManager::detachPlayer(const TMsgDetachOf & msg) {
 	}
 }
 
-void TCompCameraManager::apagarManager(const TMsgCinematicON & msg) {
-	on = false;
-}
+void TCompCameraManager::loadCinematics()
+{
+	//Cargamos el Json con todas las cinematicas en la estructura
+	const json& j = Resources.get("data/cinematics.json")->as<CJsonResource>()->getJson(); //loadJson("data/cinematics.json");
+	assert(j.is_array());
 
-void TCompCameraManager::encenderManager(const TMsgCinematicOFF & msg) {
-	on = true;
-}
+	for (int i = 0; i < j.size(); ++i) {
 
+		auto& j_item = j[i];
+		assert(j_item.is_object());
+
+		if (j_item.count("cinematic")) {
+			auto& j_cinematic = j_item["cinematic"];
+
+			std::string cinematic_name = j_cinematic["name"];
+			dbg(cinematic_name.c_str());
+
+			std::vector<std::pair<Camera, float>> cameras;
+
+			auto& j_cameras = j_cinematic["cameras"];
+			for (auto it = j_cameras.begin(); it != j_cameras.end(); ++it) {
+				VEC3 pos;
+				VEC3 lookAt;
+				float time;
+
+				std::string str = (it.value()).get<std::string>();
+
+				//dbg("------------------------------------------------------------------------------\n");
+				//dbg(str.c_str());
+				//dbg("\n");
+
+				int n = sscanf(str.c_str(), "%f %f %f %f %f %f %f", &pos.x, &pos.y, &pos.z, &lookAt.x, &lookAt.y, &lookAt.z, &time);
+				assert(n == 7);
+
+				if (time <= 0.f)time = 0.1f;
+
+				Camera cam;
+				cam.camPos = pos;
+				cam.camLookAt = lookAt;
+
+				std::pair<Camera, float> p;
+				p.first = cam;
+				p.second = time;
+
+				cameras.push_back(p);
+			}
+
+			cinematics.insert(std::make_pair(cinematic_name, cameras));
+		}
+
+	}
+}
 
 void TCompCameraManager::registerMsgs() {
 	DECL_MSG(TCompCameraManager, TMsgAttachTo, attachPlayer);
 	DECL_MSG(TCompCameraManager, TMsgDetachOf, detachPlayer);
-	DECL_MSG(TCompCameraManager, TMsgCinematicON, apagarManager);
-	DECL_MSG(TCompCameraManager, TMsgCinematicOFF, encenderManager);
+}
+
+void TCompCameraManager::activateCinematic(std::string name)
+{
+	if (cinematics.find(name) != cinematics.end()) {
+		cinematicName = name;
+		onCinematics = true;
+	}
 }
 
 void TCompCameraManager::debugInMenu() {
@@ -80,8 +112,8 @@ void TCompCameraManager::debugInMenu() {
 	/*float fov_deg = rad2deg(getFov());
 	float new_znear = getZNear();
 	float new_zfar = getZFar();*/
-	float fov_deg = 0.f;
-	ImGui::DragFloat("Fov", &fov_deg, 0.1f, 30.f, 175.f);
+	//float fov_deg = 0.f;
+	//ImGui::DragFloat("Fov", &fov_deg, 0.1f, 30.f, 175.f);
 }
 
 void TCompCameraManager::load(const json& j, TEntityParseContext& ctx) {
@@ -104,14 +136,20 @@ void TCompCameraManager::load(const json& j, TEntityParseContext& ctx) {
 
 	lateral = false;
 
-	on = true;
+	onCinematics = false;
+	cinemating = false;
+
+	cinematics.clear();
+
+	cameraActive = 0;
+	currentTime = 0.f;
 }
 
 void TCompCameraManager::update(float dt) {
 
-	if (carga) {
-		CHandle h_camera = getEntityByName("camera_orbit_IZQ");
-		Engine.getCameras().setDefaultCamera(h_camera);
+	if (carga) {																				// CONFIGURACION INICIAL DEL MANAGER DE CAMARAS
+		CHandle h_camera = getEntityByName("camera_orbit_IZQ");		
+		Engine.getCameras().setDefaultCamera(h_camera);				
 
 		h_camera = getEntityByName("the_camera");
 		Engine.getCameras().setOutputCamera(h_camera);
@@ -120,10 +158,39 @@ void TCompCameraManager::update(float dt) {
 
 		carga = false;
 
-		EngineCinematics.loadCinematics();
+		loadCinematics();
 	}
 
-	if (on) {
+	if (onCinematics) {																			// REALIZAMOS UNA CINEMATICA
+
+		CEntity* cam = (CEntity*)getEntityByName("the_camera");
+
+		TCompTransform* ct = cam->get<TCompTransform>();
+		assert(ct);
+
+		if (!cinemating) {
+			cameras.clear();
+			cameras = cinematics[cinematicName];
+
+			ct->setPosition(cameras[0].first.camPos);
+			ct->lookAt(cameras[0].first.camPos, cameras[0].first.camPos + cameras[0].first.camLookAt);
+
+			Engine.getCameras().blendInCamera(cam, 0.1f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
+
+			cameraActive = 1;
+
+			cinemating = true;
+		}
+		else {
+			currentTime += dt;
+
+			//TO DO
+			//Ir interpolando manualmente entre las camaras que componen la cinematica en cuestion
+
+		}
+                         
+	}
+	else {																						// MANAGER DE CAMARAS POR DEFECTO
 		TCompTransform* p = player->get<TCompTransform>();
 		assert(p);
 		VEC3 pPos = p->getPosition();
@@ -159,37 +226,25 @@ void TCompCameraManager::update(float dt) {
 			float distanceCamDer = VEC3::Distance(pPos, cdp);
 
 			if ((playerForward && distanceCamDer > 9.f)) {
-				//if (!pForwarding) {
-				//if (inPlatform) {
-				//  /*CHandle h_camera = getEntityByName("camera_orbit_DER");
-				//  Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);*/
-				//  inPlatform = false;
-				//}
+
 				CHandle h_camera = getEntityByName("camera_orbit_IZQ");
 				Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 
 				pForwarding = true;
 
 				lateral = true;
-				//}
+
 			}
-			else if (/*(*/distanceCamIzq > 9.f) {//) && !blending*/) {
-				//if (pForwarding) {
-				//if (inPlatform) {
-				//  /*CHandle h_camera = getEntityByName("camera_orbit_IZQ");
-				//  Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);*/
-				//  inPlatform = false;
-				//}
+			else if (distanceCamIzq > 9.f) {
 				CHandle h_camera = getEntityByName("camera_orbit_DER");
 				Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 
 				pForwarding = false;
 
 				lateral = true;
-				//}
+
 			}
 		}
-	}
-
+	}   
 }
 

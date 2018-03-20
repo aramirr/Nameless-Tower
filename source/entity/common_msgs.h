@@ -52,14 +52,6 @@ struct TMsgDetachOf {
 	DECL_MSG_ID();
 };
 
-struct TMsgCinematicON {	//
-	DECL_MSG_ID();			//
-};							//
-							// MENSAJES DEL MODULO CINEMATICAS
-struct TMsgCinematicOFF {   //
-	DECL_MSG_ID();			//
-};							//
-
 struct TMsgTriggerSpike{
 	CHandle h_player;
 	DECL_MSG_ID();

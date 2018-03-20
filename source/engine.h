@@ -8,7 +8,6 @@
 #include "modules/system/module_input.h"
 #include "modules/module_timer.h"
 #include "modules/system/module_cameras.h"
-#include "modules/system/module_cinematics.h"
 
 class CEngine
 {
@@ -29,7 +28,6 @@ public:
 	CModuleTimer& getTimer() { return _module_timer; }
 	CModulePhysics& getPhysics() { return _module_physics; }
 	CModuleCameras& getCameras() { return _module_cameras; }
-	CModuleCinematics& getCinematics() { return _module_cinematics; }
 
 private:
 	CModuleManager  _modules;
@@ -40,10 +38,8 @@ private:
 	CModuleInput    _module_input;
 	CModuleTimer    _module_timer;
 	CModuleCameras  _module_cameras;
-	CModuleCinematics  _module_cinematics;
 };
 
 #define Engine CEngine::get()
 #define EngineInput CEngine::get().getInput()
 #define EngineTimer CEngine::get().getTimer()
-#define EngineCinematics CEngine::get().getCinematics()
