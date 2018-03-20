@@ -265,6 +265,9 @@
     <ClCompile Include="components\controllers\comp_player_input.cpp">
       <Filter>components\controllers</Filter>
     </ClCompile>
+    <ClCompile Include="render\texture\render_to_texture.cpp">
+      <Filter>render\texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -726,6 +729,9 @@
     </ClInclude>
     <ClInclude Include="modules\gamestate.h">
       <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="render\texture\render_to_texture.h">
+      <Filter>render\texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

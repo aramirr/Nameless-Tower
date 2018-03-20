@@ -12,7 +12,7 @@ void TCompCamera::debugInMenu() {
   float new_znear = getZNear();
   float new_zfar = getZFar();
   bool changed = ImGui::DragFloat("Fov", &fov_deg, 0.1f, 30.f, 175.f);
-  changed |= ImGui::DragFloat("Z Near", &new_znear, 0.001f, 0.01f, 1.0f);
+  changed |= ImGui::DragFloat("Z Near", &new_znear, 0.001f, 0.01f, 5.0f);
   changed |= ImGui::DragFloat("Z Far", &new_zfar, 1.0f, 2.0f, 3000.0f);
   if (changed)
     setPerspective(deg2rad(fov_deg), new_znear, new_zfar);
