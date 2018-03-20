@@ -8,6 +8,7 @@ enum eTextureSlot {
   TS_NUM_MATERIALS_SLOTS,
   // Here goes the slots not associated to a material
   TS_LIGHT_PROJECTOR = TS_NUM_MATERIALS_SLOTS,
+  TS_LIGHT_SHADOW_MAP, 
   // other textures not from the material...
   TS_COUNT
 };
