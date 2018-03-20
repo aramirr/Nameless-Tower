@@ -113,7 +113,6 @@ void CModuleEntities::render()
     ImGui::TreePop();
   }
 
-
   if (ImGui::TreeNode("All Components...")) {
     for (uint32_t i = 1; i < CHandleManager::getNumDefinedTypes(); ++i)
       CHandleManager::getByType(i)->debugInMenuAll();
@@ -122,43 +121,6 @@ void CModuleEntities::render()
 
   CTagsManager::get().debugInMenu();
 
-  // I just need to activate one light... but at this moment...
-  getObjectManager<TCompLightDir>()->forEach([](TCompLightDir* c) {
-    c->activate();
-  });
-
-
-  //static bool is_open = false;
-  //ImGui::Checkbox("ImGui Demo", &is_open);
-  //ImGui::ShowDemoWindow(&is_open);
-
-  /*
-  // ------------------------------------------
-  // Do the basic render
-  auto om_render = getObjectManager<TCompRender>();
-  om_render->forEach([](TCompRender* c) {
-
-    TCompTransform* c_transform = c->get<TCompTransform>();
-    if (!c_transform)
-      return;
-
-    cb_object.obj_world = c_transform->asMatrix();
-    cb_object.obj_color = c->color;
-    cb_object.updateGPU();
-
-    int idx = 0;
-    c->mesh->activate();
-    for (auto& m : c->materials) {
-      if (m) {
-        m->activate();
-        c->mesh->renderSubMesh(idx);
-      }
-      ++idx;
-    }
-  });
-  */
-
-  CRenderManager::get().renderCategory("default");
   CRenderManager::get().debugInMenu();
 }
 
