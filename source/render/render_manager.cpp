@@ -69,24 +69,26 @@ void CRenderManager::addRenderKey(
   key.subgroup_idx = subgroup_idx;
   render_keys.addKey(key);
 
-  //if (material->castsShadows()) {
-  //  const CRenderMaterial* shadow_mat = nullptr;
-  //  if (material->usesSkin())
-  //    shadow_mat = Resources.get("data/materials/shadows_skin.material")->as<CRenderMaterial>();
-  //  else {
-  //    if(mesh->getVertexDecl()->vertex_type == CVertexDeclaration::VTX_TYPE_POS_NORMAL_UV_CV_TAN )
-  //      shadow_mat = Resources.get("data/materials/shadows_mix.material")->as<CRenderMaterial>();
-  //    else
-  //      shadow_mat = Resources.get("data/materials/shadows.material")->as<CRenderMaterial>();
-  //  }
+  if (material->castsShadows()) {
 
-  //  TRenderKey key;
-  //  key.h_render_owner = h_comp_render_owner;
-  //  key.mesh = mesh;
-  //  key.material = shadow_mat;
-  //  key.subgroup_idx = subgroup_idx;
-  //  render_keys.addKey(key);
-  //}
+    const CMaterial* shadow_mat = nullptr;
+    if (material->tech->usesSkin())
+      shadow_mat = Resources.get("data/materials/shadows_skin.material")->as<CMaterial>();
+    else {
+      //if(mesh->getVertexDecl()->name == "PosNUvCvTan" )
+      //  shadow_mat = Resources.get("data/materials/shadows_mix.material")->as<CMaterial>();
+      //else
+      //shadow_mat = Resources.get("data/materials/shadows.material")->as<CMaterial>();
+    }
+
+    TRenderKey key;
+    key.h_render_owner = h_comp_render_owner;
+    key.h_aabb = e_owner->get<TCompAbsAABB>();
+    key.mesh = mesh;
+    key.material = shadow_mat;
+    key.subgroup_idx = subgroup_idx;
+    render_keys.addKey(key);
+  }
 
 }
 
