@@ -15,6 +15,17 @@ void setWorldTransform(MAT44 new_matrix, VEC4 color = VEC4(1,1,1,1));
 void renderMesh(const CRenderMesh* mesh, MAT44 new_matrix, VEC4 color = VEC4(1, 1, 1, 1));
 void renderWiredAABB(const AABB& aabb, MAT44 world, VEC4 color);
 
+class CTexture;
+
+// Helper to create a depth stencil, returning all the dx objects
+bool createDepthStencil(
+  const std::string& aname,
+  int xres, int yres,
+  DXGI_FORMAT format,
+  ID3D11Texture2D** depth_stencil_resource,      // resulting resource
+  ID3D11DepthStencilView** depth_stencil_view,    // RSV for this resource
+  CTexture** ztexture
+);
 
 #endif
 
