@@ -32,7 +32,7 @@ void TCompFakeAnimation::update(float dt)
   }
   else if (_animationName == "idleAction")
   {
-    yaw = M_2_PI * _time;
+    yaw = (float) (M_2_PI) * _time;
   }
   else if (_animationName == "jump")
   {
