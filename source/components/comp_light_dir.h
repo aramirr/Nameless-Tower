@@ -18,7 +18,7 @@ class TCompLightDir : public TCompCamera {
   bool              casts_shadows = false;      // Static
   int               shadows_resolution = 256;
   float             shadows_step = 1.f;
-  CRenderToTexture* shadows_rt = nullptr;
+	CRenderToTexture* shadows_rt = nullptr;
 
 public:
   void debugInMenu();
