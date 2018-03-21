@@ -169,17 +169,19 @@ void TCompCameraManager::update(float dt) {
 		assert(ct);
 
 		if (!cinemating) {
+			currentTime += dt;
+
 			cameras.clear();
 			cameras = cinematics[cinematicName];
 
 			ct->setPosition(cameras[0].first.camPos);
-			ct->lookAt(cameras[0].first.camPos, cameras[0].first.camPos + cameras[0].first.camLookAt);
+			ct->lookAt(cameras[0].first.camPos, cameras[0].first.camLookAt);
 
 			Engine.getCameras().blendInCamera(cam, 0.1f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 
 			cameraActive = 1;
 
-			cinemating = true;
+			if(currentTime >= 0.1f)cinemating = true;
 		}
 		else {
 			currentTime += dt;
@@ -187,6 +189,49 @@ void TCompCameraManager::update(float dt) {
 			//TO DO
 			//Ir interpolando manualmente entre las camaras que componen la cinematica en cuestion
 
+			float ratio = (currentTime / cameras[cameraActive].second);
+
+			VEC3 startP = cameras[cameraActive - 1].first.camPos;
+			VEC3 startL = cameras[cameraActive - 1].first.camLookAt;
+			VEC3 endP = cameras[cameraActive].first.camPos;
+			VEC3 endL = cameras[cameraActive].first.camLookAt;
+			VEC3 camP;
+			VEC3 camL;
+
+			if (ratio <= 0.0f){
+				camP = startP;
+				camL = startL;
+			}
+			else if (ratio >= 1.0f) {
+				camP = endP;
+				camL = endL;
+
+				cameraActive++;
+			}
+			else {
+				camP = -(endP - startP) * 0.5f * (cosf((float)(M_PI * ratio)) - 1.f) + startP;
+				camL = -(endL - startL) * 0.5f * (cosf((float)(M_PI * ratio)) - 1.f) + startL;
+			}
+
+			ct->setPosition(camP);
+			ct->lookAt(camP, camL);
+
+			std::string str = std::to_string(currentTime);
+			std::string str2 = std::to_string(ratio);
+
+			/*dbg("------------------------------------------------------------------------------\n");
+			dbg(str.c_str());
+			dbg("\n");
+			dbg(str2.c_str());
+			dbg("\n");*/
+			
+			if (cameraActive == cameras.size()) {
+				cinemating = false;
+				onCinematics = false;
+				currentTime = 0.f;
+			}
+
+			//...
 		}
                          
 	}
