@@ -10,7 +10,7 @@ extern CRenderCte<CCteCamera> cb_camera;
 extern CRenderCte<CCteObject> cb_object;
 extern CRenderCte<CCteLight>  cb_light;
 
-void activateCamera(const CCamera& cam);
+void activateCamera(CCamera& cam, int width, int height );
 void setWorldTransform(MAT44 new_matrix, VEC4 color = VEC4(1,1,1,1));
 void renderMesh(const CRenderMesh* mesh, MAT44 new_matrix, VEC4 color = VEC4(1, 1, 1, 1));
 void renderWiredAABB(const AABB& aabb, MAT44 world, VEC4 color);

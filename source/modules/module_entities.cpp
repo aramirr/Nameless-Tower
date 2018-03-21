@@ -175,4 +175,5 @@ void CModuleEntities::destroyAllEntities() {
 	});
 	CHandleManager::destroyAllPendingObjects();
 
+
 }
