@@ -48,6 +48,7 @@
 		"vs_entry_point" : "VS",
 		"vertex_type" : "PosNUv",
 		"ps_entry_point" : "",
+		"rs_config" : "shadows",
 		"category" : "shadows"
 	},
 	"shadows_skin" : {
@@ -55,6 +56,7 @@
 		"vs_entry_point" : "VS_Skin",
 		"vertex_type" : "PosNUvSkin",
 		"ps_entry_point" : "",
+		"rs_config" : "shadows",
 		"category" : "shadows"
 	},
 

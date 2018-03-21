@@ -61,6 +61,27 @@ VS_OUTPUT VS_Skin(
   return output;
 }
 
+// ----------------------------------------
+float shadowsTap( float2 homo_coord, float coord_z ) {
+  return txLightShadowMap.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
+}
+
+//--------------------------------------------------------------------------------------
+float computeShadowFactor( float3 wPos ) {
+
+  // Convert pixel position in world space to light space
+  float4 pos_in_light_proj_space = mul( float4(wPos,1), light_view_proj_offset );
+  float3 homo_space = pos_in_light_proj_space.xyz / pos_in_light_proj_space.w; // -1..1
+
+  float  depth_in_lightmap = shadowsTap(homo_space.xy, homo_space.z );
+
+  // Avoid the white band in the back side of the light
+  if( pos_in_light_proj_space.z < 0. )
+    return 0.f;
+
+  return depth_in_lightmap;
+}
+
 //--------------------------------------------------------------------------------------
 // Pixel Shader
 //--------------------------------------------------------------------------------------
@@ -76,6 +97,8 @@ float4 PS(VS_OUTPUT input) : SV_Target
 	//float4 lightmap_color = txLightMap.Sample(samLinear, input.UVB);
 	//return lightmap_color;
 
+  float shadow_factor = computeShadowFactor( input.wPos );
+
   // Convert pixel position in world space to light space
   float4 pos_in_light_proj_space = mul( float4(input.wPos,1), light_view_proj_offset );
   float3 pos_in_light_homo_space = pos_in_light_proj_space.xyz / pos_in_light_proj_space.w; // -1..1
@@ -88,6 +111,12 @@ float4 PS(VS_OUTPUT input) : SV_Target
   // Fade to zero in the last 1% of the zbuffer of the light
   light_projector_color *= smoothstep( 1.0f, 0.99f, pos_in_light_homo_space.z );
 
+  if( pos_in_light_homo_space.x > 0 && pos_in_light_homo_space.x < 1
+    && pos_in_light_homo_space.y > 0 && pos_in_light_homo_space.y < 1
+   )
+    light_projector_color = float4(1,1,1,1);
+
+
   float3 Light = light_pos - input.wPos;
   Light = normalize( Light );
   float diffuseAmount = dot( input.N, Light );
@@ -97,4 +126,8 @@ float4 PS(VS_OUTPUT input) : SV_Target
   float4 texture_color = txDiffuse.Sample(samLinear, input.UV);
   return texture_color * obj_color * diffuseAmount * light_color * light_intensity;
 
+
+  //return texture_color * obj_color * diffuseAmount 
+  //      * light_color * light_projector_color * light_intensity 
+  //      * shadow_factor;
 }
