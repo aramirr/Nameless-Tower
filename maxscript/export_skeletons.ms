@@ -1,7 +1,7 @@
 clearListener()
 
 struct  TSkeletonsExporter (
-	project_path = "C:/mcv/Code/bin/data/",
+	project_path = "C:/Code/engine/bin/data/",
 	skel_name = "unknown",			-- smurf
 	skel_root_path,					-- "C:/../bin/data/skeletons/smurf/,
 	skel_file, 						-- "C:/../bin/data/skeletons/smurf/smurf.csf"
@@ -81,9 +81,9 @@ struct  TSkeletonsExporter (
 			format "Bone Skel is %\n" b.name
 		)
 		
-		
+		format "Exporting cal csf to %\n" skel_file
 		local rc = ExportCalSkel skel_file bones_to_export off
-		
+	
 		-- Export la mesh...
 		local obj_meshes = findMeshCandidates()
 		for obj in obj_meshes do (
