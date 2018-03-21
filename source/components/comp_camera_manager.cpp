@@ -169,7 +169,6 @@ void TCompCameraManager::update(float dt) {
 		assert(ct);
 
 		if (!cinemating) {
-			currentTime += dt;
 
 			cameras.clear();
 			cameras = cinematics[cinematicName];
@@ -181,13 +180,14 @@ void TCompCameraManager::update(float dt) {
 
 			cameraActive = 1;
 
-			if(currentTime >= 0.1f)cinemating = true;
+			cinemating = true;
 		}
 		else {
 			currentTime += dt;
 
 			//TO DO
 			//Ir interpolando manualmente entre las camaras que componen la cinematica en cuestion
+			//...
 
 			float ratio = (currentTime / cameras[cameraActive].second);
 
@@ -230,10 +230,7 @@ void TCompCameraManager::update(float dt) {
 				onCinematics = false;
 				currentTime = 0.f;
 			}
-
-			//...
-		}
-                         
+		}                
 	}
 	else {																						// MANAGER DE CAMARAS POR DEFECTO
 		TCompTransform* p = player->get<TCompTransform>();
