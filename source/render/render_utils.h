@@ -34,5 +34,7 @@ bool createRenderUtils();
 void destroyRenderUtils();
 void activateDefaultRenderState();
 
+RSConfig RSConfigFromString(const std::string& aname);
+
 #endif
 

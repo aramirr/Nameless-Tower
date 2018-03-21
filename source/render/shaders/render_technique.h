@@ -1,5 +1,7 @@
 #pragma once
 
+#include "render/render_utils.h"
+
 class CVertexShader;
 class CPixelShader;
 
@@ -15,6 +17,9 @@ class CRenderTechnique : public IResource {
   std::string category = "default";
   // To compare categories string faster than comparing strings
   uint32_t category_id = 0;
+
+  // Raster configuration for this tech is the default
+  RSConfig rs_config = RSCFG_DEFAULT;
 
   bool reloadVS();
   bool reloadPS();

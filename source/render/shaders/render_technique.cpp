@@ -80,6 +80,8 @@ bool CRenderTechnique::create(const std::string& name, json& j) {
   category_id = getID(category.c_str());
   uses_skin = j.value("uses_skin", false);
 
+  rs_config = RSConfigFromString(j.value("rs_config", "default"));
+  
   setNameAndClass(name, getResourceClassOf<CRenderTechnique>());
 
   return true;
@@ -105,6 +107,9 @@ void CRenderTechnique::activate() const {
     ps->activate();
   else
     Render.ctx->PSSetShader(nullptr, nullptr, 0);
+
+  // Activate my defined rs (rasterization state) config
+  activateRSConfig(rs_config);
 
   // Save me as the current active technique
   current = this;
