@@ -7,7 +7,9 @@
 				"lookat" : "0 0 0"
 			},
 			"render" : {},
-			"camera_flyover" : {},
+			"camera_flyover" : {
+        "key" : "Z"
+      },
 			"camera" : {
 				"fov" : 80 
 			},
