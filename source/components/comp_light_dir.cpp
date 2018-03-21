@@ -3,7 +3,7 @@
 #include "components/juan/comp_transform.h"
 #include "render/render_objects.h"    // cb_light
 #include "render/texture/texture.h" 
-#include "render/texture/texture_slots.h" 
+#include "ctes.h"                     // texture slots
 #include "render/texture/render_to_texture.h" 
 #include "render/render_manager.h" 
 

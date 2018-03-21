@@ -66,10 +66,10 @@ VS_OUTPUT VS_Skin(
 //--------------------------------------------------------------------------------------
 Texture2D    txDiffuse      : register(t0);
 Texture2D    txLightMap			: register(t1);
-Texture2D    txLightProjector : register(t2);  // TS_LIGHT_PROJECTOR
+//Texture2D    txLightProjector : register(t2);  // TS_LIGHT_PROJECTOR
 
-SamplerState samLinear       : register(s0);
-SamplerState samBorderLinear : register(s1);
+//SamplerState samLinear       : register(s0);
+//SamplerState samBorderLinear : register(s1);
 
 float4 PS(VS_OUTPUT input) : SV_Target
 {
@@ -96,4 +96,5 @@ float4 PS(VS_OUTPUT input) : SV_Target
 
   float4 texture_color = txDiffuse.Sample(samLinear, input.UV);
   return texture_color * obj_color * diffuseAmount * light_color * light_intensity;
+
 }

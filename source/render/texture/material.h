@@ -1,17 +1,20 @@
 #pragma once
 
 #include "resources/resource.h"
-#include "texture_slots.h"
+#include "ctes.h"                     // texture slots
 
 class CTexture;
 
 // ----------------------------------------------
 class CMaterial : public IResource {
+
   bool  cast_shadows = true;
+
+  static const int max_textures = TS_NUM_MATERIALS_SLOTS;
 
 public:
 
-  const CTexture* textures[TS_NUM_MATERIALS_SLOTS];
+  const CTexture* textures[max_textures];
 
   const CRenderTechnique* tech = nullptr;
 
@@ -21,10 +24,9 @@ public:
   void onFileChanged(const std::string& filename) override;
   bool castsShadows() const { return cast_shadows; }
 
-
 protected:
 
-  const ID3D11ShaderResourceView* srvs[TS_COUNT];
+  const ID3D11ShaderResourceView* srvs[max_textures];
 
 };
 
