@@ -68,7 +68,14 @@ CB_DEF(CCteLight, CB_LIGHT)
   VEC4  light_color;
   VEC3  light_pos;
   float light_intensity;
+  // Align x4
+  float light_shadows_step;
+  float light_shadows_inverse_resolution;     // 1.0f / 256.0
+  float light_shadows_step_with_inv_res;      // light_shadows_step * light_shadows_inverse_resolution
+  float light_dummy2;                           // To keep aligment at 4 floats
+  // Align x4
   MAT44 light_view_proj_offset;
+
 };
 
 #endif

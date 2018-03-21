@@ -9,12 +9,13 @@
       },
       "light_dir": {
         "intensity": 1,
-        "color" :  "1 0.5 1.0 1",
+        "color" :  "0.8 0.8 1.0 1",
         "projector" : "data/textures/batman.dds",
         "z_near" : 2,
-        "z_far" : 100,
+        "z_far" : 300,
         "fov" : 90,
         "casts_shadows" : true,
+        "shadows_step" : 3.0,
         "shadows_resolution" : 256,
         "shadows_fmt" : "R32_TYPELESS"
       },

@@ -16,6 +16,7 @@ void TCompLightDir::debugInMenu() {
   TCompCamera::debugInMenu();
   ImGui::DragFloat("Intensity", &intensity, 0.01f, 0.f, 10.f);
   ImGui::ColorEdit3("Color", &color.x);
+  ImGui::DragFloat("Step Size", &shadows_step, 0.01f, 0.f, 5.f);
 }
 
 // -------------------------------------------------
@@ -38,6 +39,7 @@ void TCompLightDir::load(const json& j, TEntityParseContext& ctx) {
   // Check if we need to allocate a shadow map
   casts_shadows = j.value("casts_shadows", false);
   if (casts_shadows) {
+    shadows_step = j.value("shadows_step", shadows_step);
     shadows_resolution = j.value("shadows_resolution", shadows_resolution);
     auto shadowmap_fmt = readFormat(j, "shadows_fmt");
     assert(shadows_resolution > 0);
@@ -86,8 +88,10 @@ void TCompLightDir::activate() {
   // If we have a ZTexture, it's the time to activate it
   if (shadows_rt) {
 
-    //cb_light.LightResolutionInv = 1.0f / (float)shadows_rt->getWidth();
-    //cb_light.LightShadowsStep = shadows_step;
+    cb_light.light_shadows_inverse_resolution = 1.0f / (float)shadows_rt->getWidth();
+    cb_light.light_shadows_step = shadows_step;
+    cb_light.light_shadows_step_with_inv_res = shadows_step / (float)shadows_rt->getWidth();
+    cb_light.light_dummy2 = 0.f;
 
     assert(shadows_rt->getZTexture());
     shadows_rt->getZTexture()->activate(TS_LIGHT_SHADOW_MAP);
