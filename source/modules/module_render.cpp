@@ -130,18 +130,19 @@ void CModuleRender::setBackgroundColor(float r, float g, float b, float a)
 // -------------------------------------------------
 void CModuleRender::activateMainCamera() {
 
+  CCamera* cam = &camera;
+
   // Find the entity with name 'the_camera'
   h_e_camera = getEntityByName("the_camera");
   if (h_e_camera.isValid()) {
     CEntity* e_camera = h_e_camera;
     TCompCamera* c_camera = e_camera->get< TCompCamera >();
-    assert(c_camera);
-    activateCamera(*c_camera);
+    cam = c_camera;
+    assert(cam);
     CRenderManager::get().setEntityCamera(h_e_camera);
   }
-  else {
-    activateCamera(camera);
-  }
+
+  activateCamera(*cam, Render.width, Render.height);
 }
 
 
@@ -149,6 +150,7 @@ void CModuleRender::generateFrame() {
   
   {
     PROFILE_FUNCTION("CModuleRender::shadowsMapsGeneration");
+    CTraceScoped gpu_scope("shadowsMapsGeneration");
     // Generate the shadow map for each active light
     getObjectManager<TCompLightDir>()->forEach([](TCompLightDir* c) {
       c->generateShadowMap();
@@ -174,7 +176,11 @@ void CModuleRender::generateFrame() {
     CRenderManager::get().renderCategory("default");
 
     // Debug render
-    CEngine::get().getModules().render();
+    {
+      PROFILE_FUNCTION("Modules");
+      CTraceScoped gpu_scope("Modules");
+      CEngine::get().getModules().render();
+    }
   }
 
   {

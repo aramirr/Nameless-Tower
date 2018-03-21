@@ -179,7 +179,10 @@ bool createRenderObjects() {
 void destroyRenderObjects() {
 }
 
-void activateCamera(const CCamera& camera) {
+void activateCamera(CCamera& camera, int width, int height) {
+  assert(width > 0);
+  assert(height > 0);
+  camera.setViewport(0, 0, width, height);
   cb_camera.camera_view = camera.getView();
   cb_camera.camera_proj = camera.getProjection();
   cb_camera.camera_pos = camera.getPosition();

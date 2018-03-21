@@ -122,6 +122,8 @@ void CModuleEntities::render()
   CTagsManager::get().debugInMenu();
 
   CRenderManager::get().debugInMenu();
+
+  renderDebugOfComponents();
 }
 
 void CModuleEntities::renderDebugOfComponents() {
