@@ -57,12 +57,6 @@ VS_OUTPUT VS_Skin(
 //--------------------------------------------------------------------------------------
 // Pixel Shader
 //--------------------------------------------------------------------------------------
-Texture2D    txDiffuse        : register(t0);
-Texture2D    txLightProjector : register(t2);  // TS_LIGHT_PROJECTOR
-
-SamplerState samLinear       : register(s0);
-SamplerState samBorderLinear : register(s1);
-
 float4 PS(VS_OUTPUT input) : SV_Target
 {
 
@@ -84,6 +78,6 @@ float4 PS(VS_OUTPUT input) : SV_Target
   diffuseAmount = saturate( 0.2 + diffuseAmount );
   diffuseAmount = 0.2 + diffuseAmount;
 
-  float4 texture_color = txDiffuse.Sample(samLinear, input.UV);
+  float4 texture_color = txAlbedo.Sample(samLinear, input.UV);
   return texture_color * obj_color * diffuseAmount * light_color * light_projector_color * light_intensity;
 }

@@ -1,11 +1,26 @@
 #ifndef INC_RENDER_CTES_H_
 #define INC_RENDER_CTES_H_
 
+// -------------------------------------------------
+// Constant Buffers
 #define CB_CAMERA       0
 #define CB_OBJECT       1
 #define CB_SKIN_BONES   2
 #define CB_LIGHT        3
 
+// -------------------------------------------------
+// Texture Slots
+// Materials
+#define TS_ALBEDO              0
+#define TS_NORMAL              1
+// .. Other slots of the material
+#define TS_NUM_MATERIALS_SLOTS 2
+
+// Here goes the slots not associated to a material
+#define TS_LIGHT_PROJECTOR     5
+#define TS_LIGHT_SHADOW_MAP    6 
+
+// -------------------------------------------------
 #define MAX_SUPPORTED_BONES        128
 
 #ifdef WIN32
@@ -22,8 +37,11 @@
 #define MAT44                     matrix
 #define VEC4                      float4
 #define VEC3                      float3
+#define SLOT(slot_number)                 : register(t##slot_number)
 
 #endif
+
+// -------------------------------------------------
 
 CB_DEF(CCteCamera, CB_CAMERA)   // Generates the b0
 {
