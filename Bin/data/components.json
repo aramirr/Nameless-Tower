@@ -32,9 +32,13 @@
 		"trigger",
 	    "local_aabb",
 		"culling",
-		"light_dir"
+		"light_dir",
+		"fsm",
+		"fake_animation",
+		"player_input"
 	],
 	"render_debug" : 
 	[
 	]
+
 }

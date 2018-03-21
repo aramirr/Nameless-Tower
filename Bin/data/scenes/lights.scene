@@ -12,10 +12,15 @@
         "color" :  "1 0.5 1.0 1",
         "projector" : "data/textures/batman.dds",
         "z_near" : 2,
-        "z_far" : 50,
+        "z_far" : 100,
+        "fov" : 90,
         "casts_shadows" : true,
         "shadows_resolution" : 256,
         "shadows_fmt" : "R32_TYPELESS"
+      },
+      "camera_flyover" : {
+        "key" : "Z",
+        "enabled" : false
       }
     }
   }
