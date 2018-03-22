@@ -106,9 +106,9 @@ void TCompSpiralController::destroy()
 		return;
 	}
 	CEntity * e = h_entity;
-	TCompCollider *my_col = e->get<TCompCollider>();
+	/*TCompCollider *my_col = e->get<TCompCollider>();
 	if (my_col) {
 		my_col->actor->release();
-	}
+	}*/
 	CHandle(this).getOwner().destroy();
 }

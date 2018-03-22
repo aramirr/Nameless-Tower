@@ -29,9 +29,6 @@ class TCompPlayerController : public IAIController {
 	bool	can_omni;
 	bool	can_dash;
 
-	VEC3 checkpoint;
-	float checkpoint_yaw;
-
   DECL_SIBLING_ACCESS();
 
   //float DT;

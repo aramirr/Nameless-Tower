@@ -15,7 +15,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 	// Current orientation
 	float current_yaw;
 	float current_pitch;
-	float amount_moved = current_x_speed_factor * dt;
+ 	float amount_moved = current_x_speed_factor * dt;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	VEC3 myPos = c_my_transform->getPosition();
@@ -147,20 +147,24 @@ void TCompPlayerController::initial_state(float dt) {
 	TCompTransform *my_pos = getMyTransform();
 	TCompCollider* comp_collider = get<TCompCollider>();
 	if (comp_collider && comp_collider->controller) {
-		if (checkpoint.x)
+		VEC3 checkpoint = Engine.getTower().getLastCheckpoint();
+		if (checkpoint.x) {
 			comp_collider->controller->setPosition(physx::PxExtendedVec3(checkpoint.x, checkpoint.y, checkpoint.z));
-		else
+			my_pos->setYawPitchRoll(Engine.getTower().getLastCheckpointYaw(), 0, 0);
+			looking_left = Engine.getTower().getLastCheckpointLeft();
+		}
+		else {
 			checkpoint = my_pos->getPosition();
-	}
-
+			my_pos->lookAt(my_pos->getPosition(), center);
+			float y, p, r;
+			my_pos->getYawPitchRoll(&y, &p, &r);
+			y -= deg2rad(90);
+			my_pos->setYawPitchRoll(y, 0, 0);
+			looking_left = my_pos->isInLeft(center) ? false : true;
+		}
+	}	
 	
-	my_pos->lookAt(my_pos->getPosition(), center);
-	float y, p, r;
-	my_pos->getYawPitchRoll(&y, &p, &r);
-	y -= deg2rad(90);
-	my_pos->setYawPitchRoll(y, 0, 0);
-
-	looking_left = my_pos->isInLeft(center) ? false : true;
+	
 	change_mesh(1);
 	ChangeState("idle");
 }
@@ -523,6 +527,7 @@ void TCompPlayerController::dead_state(float dt) {
 	TCompCollider* comp_collider = get<TCompCollider>();
 	if (isPressed('P')) {		
 		if (comp_collider && comp_collider->controller) {
+			VEC3 checkpoint = Engine.getTower().getLastCheckpoint();
 			comp_collider->controller->setPosition(physx::PxExtendedVec3(checkpoint.x, checkpoint.y, checkpoint.z));
 		}
 		Engine.getModules().changeGameState("test_axis");
@@ -566,5 +571,10 @@ void TCompPlayerController::killPlayer(const TMsgKillPlayer& msg)
 
 void TCompPlayerController::setCheckpoint(const TMsgCheckpoint& msg)
 {
-   	checkpoint = msg.appearing_position;
+	Engine.getTower().setLastCheckpoint(msg.appearing_position);
+	TCompTransform *my_pos = getMyTransform();	
+	float y, p, r;
+	my_pos->getYawPitchRoll(&y, &p, &r);
+	Engine.getTower().setLastCheckpointYaw(y);
+	Engine.getTower().setLastCheckpointLeft(looking_left);
 }
