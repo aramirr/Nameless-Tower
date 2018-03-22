@@ -65,7 +65,10 @@
 	"textured" : {
 		"vs_file": "data/shaders/textured.fx",
 		"vs_entry_point" : "VS",
-		"vertex_type" : "PosNUvUv"
+		"vertex_type" : "PosNUvUv",
+		"textures" : { 
+			"environment" : "data/textures/cubemaps/beach.dds" 
+		}
 	}
 	,
 	"textured_skin" : {
