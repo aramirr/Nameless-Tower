@@ -11,7 +11,6 @@ void TCompSpiralController::debugInMenu() {
 	ImGui::Text("Life: %f",life);
 }
 
-
 void TCompSpiralController::load(const json& j, TEntityParseContext& ctx) {
   setEntity(ctx.current_entity);
   radius = j.value("radius", 1.0f);
@@ -110,5 +109,8 @@ void TCompSpiralController::destroy()
 	if (my_col) {
 		my_col->actor->release();
 	}*/
+	CEntity *e_creator = h_parent;
+	TMsgWindstrike msg;
+	e_creator->sendMsg(msg);
 	CHandle(this).getOwner().destroy();
 }

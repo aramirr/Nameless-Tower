@@ -28,6 +28,7 @@ class TCompPlayerController : public IAIController {
 	bool    is_grounded;
 	bool	can_omni;
 	bool	can_dash;
+	int   availables_windstrikes;
 
   DECL_SIBLING_ACCESS();
 
@@ -56,6 +57,7 @@ public:
 	static void registerMsgs();
 	void killPlayer(const TMsgKillPlayer& msg);
 	void setCheckpoint(const TMsgCheckpoint& msg);
+	void updateWindstrikes(const TMsgWindstrike& msg);
 
   //void setdt(float dt) { DT = dt; };
 

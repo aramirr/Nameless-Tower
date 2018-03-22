@@ -41,6 +41,10 @@ struct TMsgCheckpoint {
 	DECL_MSG_ID();
 };
 
+struct TMsgWindstrike {
+	DECL_MSG_ID();
+}; 
+
 struct TMsgAttachTo {
 	CHandle h_attached;
 	CHandle h_attacher;

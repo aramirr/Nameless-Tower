@@ -118,6 +118,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	omnidash_max_time = j.value("omnidash_max_time", 0.3f);
 	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 1.3f);
 	jumping_death_height = j.value("jumping_death_height", 9.f);
+	availables_windstrikes = j.value("availables_windstrikes", 1);
 	current_x_speed_factor = x_speed_factor; 
 	is_grounded = true;
 	can_omni = true;
@@ -180,7 +181,8 @@ void TCompPlayerController::idle_state(float dt) {
 		}
 		ChangeState("initial");
 	}
-	if (isPressed('E')) {
+	if (isPressed('E') && (availables_windstrikes > 0)) {
+		availables_windstrikes--;
 		TEntityParseContext ctx;
 		ctx.entity_starting_the_parse = CHandle(this).getOwner();
 		ctx.root_transform = *(TCompTransform*)get<TCompTransform>();
@@ -561,6 +563,7 @@ void TCompPlayerController::dead_state(float dt) {
 void TCompPlayerController::registerMsgs() {
 	DECL_MSG(TCompPlayerController, TMsgKillPlayer, killPlayer);
 	DECL_MSG(TCompPlayerController, TMsgCheckpoint, setCheckpoint);
+	DECL_MSG(TCompPlayerController, TMsgWindstrike, updateWindstrikes);
 }
 
 void TCompPlayerController::killPlayer(const TMsgKillPlayer& msg)
@@ -577,4 +580,8 @@ void TCompPlayerController::setCheckpoint(const TMsgCheckpoint& msg)
 	my_pos->getYawPitchRoll(&y, &p, &r);
 	Engine.getTower().setLastCheckpointYaw(y);
 	Engine.getTower().setLastCheckpointLeft(looking_left);
+}
+
+void TCompPlayerController::updateWindstrikes(const TMsgWindstrike& msg) {
+	availables_windstrikes++;
 }
