@@ -202,7 +202,7 @@ void renderMesh(const CRenderMesh* mesh, MAT44 new_matrix, VEC4 color) {
   const char* tech_name = "solid.tech";
   if (vdecl->name == "PosNUv")
     tech_name = "solid_objs.tech";
-  else if (vdecl->name == "PosNUvUv")
+  else if (vdecl->name == "PosNUvUvT")
     tech_name = "solid_objs_uv2.tech";
   else if (vdecl->name == "PosNUvSkin")
     tech_name = "solid_objs_skin.tech";
