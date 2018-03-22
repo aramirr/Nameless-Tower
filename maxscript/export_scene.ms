@@ -104,7 +104,14 @@ struct TMaterialExporter (
 	base_path,                 -- Asigned in the ctor 	
 	
 	
-	fn exportMap map alias = (
+	fn exportMap map alias default_value = (
+		
+		if map == undefined then (
+			local json_filename = base_path + "textures/" + default_value + ".dds"
+			fs.writeKeyValue alias json_filename
+			return false
+		)
+		
 		-- "C:\mcv\code\bin\data\textures\bricks.DDS"
 		
 		-- "C:\users\pep\desktop\download\bricks.dds"
@@ -141,7 +148,9 @@ struct TMaterialExporter (
 			fs.beginObj()
 				
 			if classof mat == Standardmaterial then (
-				exportMap mat.diffusemap "albedo"
+				exportMap mat.diffusemap "albedo" "null_albedo"
+			    fs.writeComma()
+				exportMap mat.bumpMap "normal" "null_normal"
 				-- ... other maps..
 			)
 		
