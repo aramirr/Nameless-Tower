@@ -16,7 +16,8 @@ public:
   bool start() override;
   bool stop() override;
   void update(float delta) override;
-  void render() override;
+	void render() override;
+	void destroyAllEntities();
 };
 
 CHandle getEntityByName(const std::string& name);

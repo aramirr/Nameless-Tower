@@ -198,6 +198,10 @@ void renderInterpolator(const char* name, Interpolator::IInterpolator& interpola
     ImVec2(150, 80));
 }
 
+void CModuleCameras::destroyAllCameras() {
+	_mixedCameras.clear();
+}
+
 void CModuleCameras::renderInMenu()
 {
   if (ImGui::TreeNode("Cameras"))

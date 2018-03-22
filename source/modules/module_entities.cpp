@@ -165,3 +165,12 @@ void CModuleEntities::renderDebugOfComponents() {
   }
 
 }
+
+void CModuleEntities::destroyAllEntities() {
+	auto hm = getObjectManager<CEntity>();
+	hm->forEach([](CEntity* e) {
+		CHandle h(e);
+		h.destroy();
+	});
+	CHandleManager::destroyAllPendingObjects();
+}

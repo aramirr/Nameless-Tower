@@ -42,4 +42,5 @@ public:
   static void registerMsgs();
   void load(const json& j, TEntityParseContext& ctx);
   void onCreate(const TMsgEntityCreated& msg);
+	~TCompCollider();
 };

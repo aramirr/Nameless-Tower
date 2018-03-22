@@ -59,12 +59,8 @@ bool CModuleTestAxis::start()
 
 bool CModuleTestAxis::stop()
 {
-	auto hm = getObjectManager<CEntity>();
-	hm->forEach([](CEntity* e) {
-			CHandle h(e);
-			h.destroy();
-	});
-	CHandleManager::destroyAllPendingObjects();
+	Engine.getEntities().destroyAllEntities();
+	Engine.getCameras().destroyAllCameras();
   return true;
 }
 

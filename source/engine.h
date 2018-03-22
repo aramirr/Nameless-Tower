@@ -28,6 +28,7 @@ public:
 	CModuleTimer& getTimer() { return _module_timer; }
 	CModulePhysics& getPhysics() { return _module_physics; }
 	CModuleCameras& getCameras() { return _module_cameras; }
+	CModuleEntities& getEntities() { return _module_entities; }
 
 private:
 	CModuleManager  _modules;

@@ -526,8 +526,6 @@ void TCompPlayerController::dead_state(float dt) {
 			comp_collider->controller->setPosition(physx::PxExtendedVec3(checkpoint.x, checkpoint.y, checkpoint.z));
 		}
 		Engine.getModules().changeGameState("test_axis");
-
-		//ChangeState("initial");
 		return;
 	}
 	else {
