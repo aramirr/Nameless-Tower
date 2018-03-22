@@ -83,12 +83,21 @@ float4 PS(VS_OUTPUT input) : SV_Target
   float diffuseAmount = dot( input.N, Light );
   diffuseAmount = saturate( 0.2 + diffuseAmount );
 
+  // Sample in the direction of the N with a bias
+  float4 env_color = txEnvironmentMap.SampleBias(samLinear, input.N, 5 );
+
+  // Sample in the reflected direction of the eye
+  float3 eye = camera_pos - input.wPos;
+  float3 eye_refl = reflect( -eye, input.N );
+  float4 env_color_refl = txEnvironmentMap.Sample(samLinear, eye_refl );
+
   float light_amount = diffuseAmount * shadow_factor;
 
   // Add a minimum of 0.25 of light
   light_amount = 0.25 + light_amount * 0.75;
 
   float4 texture_color = txAlbedo.Sample(samLinear, input.UV);
+  
   return texture_color * obj_color * light_amount
         * light_color * light_projector_color * light_intensity 
         ;
