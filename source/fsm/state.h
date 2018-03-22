@@ -1,6 +1,9 @@
 #pragma once
 
 #include <vector>
+#include "components/juan/comp_transform.h"
+#include "components/camera/comp_camera.h"
+#include "components/ui/ui_mouse_pos.h"
 
 namespace FSM
 {
