@@ -1,0 +1,27 @@
+[
+  {
+    "entity":
+    {
+      "name": "Torus001"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Torus001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/piedras2.material"
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -37,9 +37,10 @@ VS_OUTPUT VS_Objs(
 
 VS_OUTPUT VS_Objs_uv2(
 	 float4 Pos : POSITION
- , float3 N : NORMAL
+ , float3 N : NORMAL0
  , float2 UV : TEXCOORD0
  , float2 UV2 : TEXCOORD1
+ , float4 T : NORMAL1
  )
 {
   VS_OUTPUT output = (VS_OUTPUT)0;
