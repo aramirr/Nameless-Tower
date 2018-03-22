@@ -42,6 +42,8 @@ class TCompCameraManager : public TCompBase {
 
 	void loadCinematics();
 
+	float totalTime;
+
 	//Cinematicas guardadas por el propio nombre de la cinematica y el conjunto de camaras que las componen en orden de aparicion
 	std::map<std::string, std::vector<std::pair<Camera, float>>> cinematics;
 

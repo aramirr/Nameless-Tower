@@ -143,6 +143,7 @@ void TCompCameraManager::load(const json& j, TEntityParseContext& ctx) {
 
 	cameraActive = 0;
 	currentTime = 0.f;
+	totalTime = 0.f;
 }
 
 void TCompCameraManager::update(float dt) {
@@ -189,7 +190,7 @@ void TCompCameraManager::update(float dt) {
 			//Ir interpolando manualmente entre las camaras que componen la cinematica en cuestion
 			//...
 
-			float ratio = (currentTime / cameras[cameraActive].second);
+			float ratio = ((currentTime - totalTime) / cameras[cameraActive].second);
 
 			VEC3 startP = cameras[cameraActive - 1].first.camPos;
 			VEC3 startL = cameras[cameraActive - 1].first.camLookAt;
@@ -206,6 +207,8 @@ void TCompCameraManager::update(float dt) {
 				camP = endP;
 				camL = endL;
 
+				totalTime += cameras[cameraActive].second;
+
 				cameraActive++;
 			}
 			else {
@@ -218,17 +221,24 @@ void TCompCameraManager::update(float dt) {
 
 			std::string str = std::to_string(currentTime);
 			std::string str2 = std::to_string(ratio);
+			std::string str3 = std::to_string(cameraActive);
+			std::string str4 = std::to_string(cameras.size());
 
-			/*dbg("------------------------------------------------------------------------------\n");
+			dbg("------------------------------------------------------------------------------\n");
 			dbg(str.c_str());
 			dbg("\n");
 			dbg(str2.c_str());
-			dbg("\n");*/
+			dbg("\n");
+			dbg(str3.c_str());
+			dbg("\n");
+			dbg(str4.c_str());
+			dbg("\n");
 			
 			if (cameraActive == cameras.size()) {
 				cinemating = false;
 				onCinematics = false;
 				currentTime = 0.f;
+				totalTime = 0.f;
 			}
 		}                
 	}
