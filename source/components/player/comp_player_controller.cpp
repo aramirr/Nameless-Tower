@@ -95,9 +95,9 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 }
 
 void TCompPlayerController::debugInMenu() {
-	//ImGui::Text("State: %s", state.c_str());
+	ImGui::Text("State: %s", state.c_str());
 	//ImGui::Text("Can dash: %s", can_dash ? "Si" : "No");
-	//ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
+	ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
 	ImGui::DragFloat("X speed: %f", &x_speed_factor, 0.01f, 0.f, 5.f);
 	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
@@ -194,6 +194,8 @@ void TCompPlayerController::idle_state(float dt) {
 	float y_speed = (y_speed_factor * DT) - (gravity * DT * DT / 2);
 	if (!is_grounded)
 		y_speed_factor -= gravity * DT / 2;
+		if (!gravity_enabled)
+			y_speed_factor = 0;
 
 	// Chequea el salto
 	if (space.getsPressed() && is_grounded) {
@@ -301,6 +303,8 @@ void TCompPlayerController::running_state(float dt) {
 		float y_speed = (y_speed_factor * DT) - (gravity * DT * DT / 2);
 		if (!is_grounded)
 			y_speed_factor -= gravity * DT / 2;
+			if (!gravity_enabled)
+				y_speed_factor = 0;
 		if (isPressed('A')) {
 			if (!looking_left) {
 				looking_left = true;
@@ -349,6 +353,8 @@ void TCompPlayerController::jumping_state(float dt) {
 	else
 		y_speed = (y_speed_factor * DT) - (gravity * DT * DT * 3);
 	y_speed_factor -= gravity * DT / 2;
+	if (!gravity_enabled)
+		y_speed_factor = 0;
 	new_pos.y += y_speed;
 
 	// Chequea el dash		
@@ -557,6 +563,8 @@ void TCompPlayerController::dead_state(float dt) {
 void TCompPlayerController::registerMsgs() {
 	DECL_MSG(TCompPlayerController, TMsgKillPlayer, killPlayer);
 	DECL_MSG(TCompPlayerController, TMsgCheckpoint, setCheckpoint);
+	DECL_MSG(TCompPlayerController, TMsgGravityToggle, toggle_gravity);
+
 }
 
 void TCompPlayerController::killPlayer(const TMsgKillPlayer& msg)
@@ -570,7 +578,7 @@ void TCompPlayerController::setCheckpoint(const TMsgCheckpoint& msg)
    	checkpoint = msg.appearing_position;
 }
 
-//void TCompPlayerController::update(float dt)
-//{
-//  DT = dt;
-//}
+void TCompPlayerController::toggle_gravity(const TMsgGravityToggle& msg)
+{
+	gravity_enabled = msg.is_active;
+}

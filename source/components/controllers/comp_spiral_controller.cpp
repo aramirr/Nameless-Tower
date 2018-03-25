@@ -31,6 +31,7 @@ void TCompSpiralController::load(const json& j, TEntityParseContext& ctx) {
   offsetY = current_position.y;
   direction = t_creator->getFront();
   direction.Normalize();
+
 }
 
 void TCompSpiralController::setEntity(CHandle new_entity) {
@@ -38,12 +39,14 @@ void TCompSpiralController::setEntity(CHandle new_entity) {
 	assert(h_entity.isValid());
 }
 
-void TCompSpiralController::update(float dt) {
+void TCompSpiralController::update(float DT) {
 	CEntity *e = h_entity;
 	if (!h_entity.isValid()) return;
 	TCompTransform *my_transform = e->get<TCompTransform>();
-	VEC3 delta_pos = direction * dt * speed;
+	VEC3 start_pos = my_transform->getPosition();
+	VEC3 delta_pos = direction * DT * speed;
 	VEC3 new_pos = my_transform->getPosition() + delta_pos;
+	
 	center.y = new_pos.y;
 	offsetY = new_pos.y;
 	float distance = VEC3::Distance(my_transform->getPosition(), center);
@@ -55,6 +58,7 @@ void TCompSpiralController::update(float dt) {
 		new_pos = vec_from_center * radius;
 		new_pos.y = offsetY;
 	}
+	VEC3 move_vector = new_pos - start_pos;
 	my_transform->lookAt(new_pos, center);
 
 	if (set_once == false) 
@@ -72,6 +76,12 @@ void TCompSpiralController::update(float dt) {
 	TCompCollider *my_collider = e->get<TCompCollider>();
 	if (my_collider)
 	{
+		physx::PxControllerCollisionFlags flags = my_collider->controller->move(physx::PxVec3(move_vector.x, move_vector.y, move_vector.z), 0.f, DT, physx::PxControllerFilters());
+		if (flags.isSet(PxControllerCollisionFlag::eCOLLISION_DOWN) or flags.isSet(PxControllerCollisionFlag::eCOLLISION_UP) or flags.isSet(PxControllerCollisionFlag::eCOLLISION_SIDES))
+		{
+			this->destroy();
+			return;
+		}
 		QUAT newRot = my_transform->getRotation();
 		PxRigidActor* rigidActor = ((PxRigidActor*)my_collider->actor);
 		PxTransform tr = rigidActor->getGlobalPose();
@@ -81,7 +91,7 @@ void TCompSpiralController::update(float dt) {
 		rigidActor->setGlobalPose(tr);
 	}
 
-	life -= dt;
+	life -= DT;
 	if (life <= 0) destroy();
 }
 
@@ -108,7 +118,11 @@ void TCompSpiralController::destroy()
 	CEntity * e = h_entity;
 	TCompCollider *my_col = e->get<TCompCollider>();
 	if (my_col) {
-		my_col->actor->release();
+		my_col->actor->getScene()->removeActor(*my_col->actor);
+		my_col->actor = nullptr;
+		
+		my_col->controller->release();
+		my_col->controller = nullptr;
 	}
 	CHandle(this).getOwner().destroy();
 }

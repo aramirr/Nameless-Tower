@@ -28,6 +28,7 @@ class TCompPlayerController : public IAIController {
 	bool    is_grounded;
 	bool	can_omni;
 	bool	can_dash;
+	bool	gravity_enabled = true;
 
 	VEC3 checkpoint;
 	float checkpoint_yaw;
@@ -39,6 +40,7 @@ class TCompPlayerController : public IAIController {
 public:
 	VEC3	  center;
 	float	  tower_radius;
+
   void debugInMenu();
   void load(const json& j, TEntityParseContext& ctx);
 
@@ -59,6 +61,7 @@ public:
 	static void registerMsgs();
 	void killPlayer(const TMsgKillPlayer& msg);
 	void setCheckpoint(const TMsgCheckpoint& msg);
+	void toggle_gravity(const TMsgGravityToggle& msg);
 
   //void setdt(float dt) { DT = dt; };
 

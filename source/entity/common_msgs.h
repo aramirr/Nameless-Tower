@@ -71,6 +71,11 @@ struct TMsgChangeDirection {
 	DECL_MSG_ID();
 };
 
+struct TMsgGravityToggle {
+	bool is_active;
+	DECL_MSG_ID();
+};
+
 
 // Sent to all entities from a parsed file once all the entities
 // in that file has been created. Used to link entities between them
