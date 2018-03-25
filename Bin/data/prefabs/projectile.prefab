@@ -1,0 +1,26 @@
+[{
+		"entity": {
+			"name": "projectile",
+			"transform": {
+				"pos": "0 0 0"
+			},
+			"render" : {
+				
+			}
+			,
+			"spiral_controller":{
+				"speed": 10
+			}
+			,
+			"collider":{
+				"shape": "box"
+				,
+				"halfExtent": "0.5 0.5 0.5"
+				,
+				"is_trigger":true
+				,
+				"offset": "0.0 0.0 0.0"
+			}
+		}
+	}
+]

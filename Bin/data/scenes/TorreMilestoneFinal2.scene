@@ -2907,6 +2907,10 @@
         "is_dynamic": false
         ,
         "is_trigger": false
+      },
+      "projectile_controller":
+      {
+        "time_interval": 2
       }
     }
   }
@@ -5132,6 +5136,10 @@
         "is_dynamic": false
         ,
         "is_trigger": false
+      },
+      "projectile_controller":
+      {
+        "time_interval": 1
       }
     }
   }
