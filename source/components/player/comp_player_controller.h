@@ -29,6 +29,7 @@ class TCompPlayerController : public IAIController {
 	bool	can_omni;
 	bool	can_dash;
 	int   availables_windstrikes;
+	int   max_windstrikes;
 
   DECL_SIBLING_ACCESS();
 

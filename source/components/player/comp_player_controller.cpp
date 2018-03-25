@@ -98,6 +98,7 @@ void TCompPlayerController::debugInMenu() {
 	//ImGui::Text("State: %s", state.c_str());
 	//ImGui::Text("Can dash: %s", can_dash ? "Si" : "No");
 	//ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
+	ImGui::DragInt("Windstrikes: %f", &availables_windstrikes, 1, -1, 5);
 	ImGui::DragFloat("X speed: %f", &x_speed_factor, 0.01f, 0.f, 5.f);
 	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
@@ -118,7 +119,8 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	omnidash_max_time = j.value("omnidash_max_time", 0.3f);
 	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 1.3f);
 	jumping_death_height = j.value("jumping_death_height", 9.f);
-	availables_windstrikes = j.value("availables_windstrikes", 1);
+	max_windstrikes = j.value("max_windstrikes", 1);
+	availables_windstrikes = max_windstrikes;
 	current_x_speed_factor = x_speed_factor; 
 	is_grounded = true;
 	can_omni = true;
@@ -181,6 +183,8 @@ void TCompPlayerController::idle_state(float dt) {
 		}
 		ChangeState("initial");
 	}
+	//----------------------------------
+
 	if (isPressed('E') && (availables_windstrikes > 0)) {
 		availables_windstrikes--;
 		TEntityParseContext ctx;
@@ -190,7 +194,7 @@ void TCompPlayerController::idle_state(float dt) {
 			assert(!ctx.entities_loaded.empty());
 		}
 	}
-	//----------------------------------
+
 
 
 	TCompTransform *c_my_transform = getMyTransform();
@@ -583,5 +587,6 @@ void TCompPlayerController::setCheckpoint(const TMsgCheckpoint& msg)
 }
 
 void TCompPlayerController::updateWindstrikes(const TMsgWindstrike& msg) {
-	availables_windstrikes++;
+	if (max_windstrikes > availables_windstrikes)
+		availables_windstrikes++;
 }
