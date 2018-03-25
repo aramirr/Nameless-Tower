@@ -49,7 +49,7 @@ bool CEngine::start() {
 	_modules.registerGameModule(&module_main_menu);
 	_modules.registerGameModule(&module_game_over);
 	_modules.registerGameModule(&module_test_axis);
-  _modules.registerGameModule(&module_test_input);
+	_modules.registerGameModule(&module_test_input);
 	_modules.loadModules("data/modules.json");
 	_modules.loadGamestates("data/gamestates.json");
 
@@ -72,6 +72,6 @@ void CEngine::update(float delta)
 void CEngine::render()
 {
 
-  PROFILE_FUNCTION("CEngine::render");
-  _module_render.generateFrame();
+	PROFILE_FUNCTION("CEngine::render");
+	_module_render.generateFrame();
 }

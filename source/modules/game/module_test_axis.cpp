@@ -11,6 +11,7 @@
 #include "components/juan/comp_name.h"
 #include "components/juan/comp_transform.h"
 #include "components/camera/comp_camera.h"
+#include "components/camera/comp_camera_manager.h"
 #include "entity/entity_parser.h"
 #include "render/render_manager.h"
 
@@ -54,6 +55,8 @@ bool CModuleTestAxis::start()
   camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
   camera.setPerspective(60.0f * 180.f / (float)M_PI, 0.1f, 1000.f);
 
+  carga = true;
+
   return true;
 }
 
@@ -66,6 +69,18 @@ bool CModuleTestAxis::stop()
 
 void CModuleTestAxis::update(float delta)
 {
+
+	if (carga) {
+		CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+
+		TCompCameraManager* cm = cam->get<TCompCameraManager>();
+		assert(cm);
+
+		cm->activateCinematic("prueba");
+
+		carga = false;
+	}
+
 
   static VEC3 world_pos;
   ImGui::DragFloat3("Pos", &world_pos.x, 0.025f, -50.f, 50.f);

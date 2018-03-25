@@ -40,7 +40,7 @@ void TCompCamera::update(float dt) {
 	assert(c);
 	pos = c->getPosition();
 
-	TCompTransform* p = player->get<TCompTransform>();
+	/*TCompTransform* p = player->get<TCompTransform>();
 	assert(p);
 	VEC3 pPos = p->getPosition();
 
@@ -53,8 +53,12 @@ void TCompCamera::update(float dt) {
 
 	pos.x = x;
 	pos.y = pPos.y + height;
-	pos.z = z;
+	pos.z = z;*/
 
+	//c->setPosition(pos);
+
+	//this->setPerspective(deg2rad(fov_deg), z_near, z_far);
+	//this->lookAt(pos, center, c->getUp());
 	this->lookAt(c->getPosition(), c->getPosition() + c->getFront(), c->getUp());
-}
 
+}
