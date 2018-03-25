@@ -1,6 +1,6 @@
 #include "mcv_platform.h"
 #include "module_cameras.h"
-#include "components/comp_camera.h"
+#include "components/camera/comp_camera.h"
 
 void CModuleCameras::TMixedCamera::blendIn(float duration)
 {
@@ -196,6 +196,10 @@ void renderInterpolator(const char* name, Interpolator::IInterpolator& interpola
   ImGui::PlotLines(name, values, nsamples, 0, 0,
     std::numeric_limits<float>::min(), std::numeric_limits<float>::max(),
     ImVec2(150, 80));
+}
+
+void CModuleCameras::destroyAllCameras() {
+	_mixedCameras.clear();
 }
 
 void CModuleCameras::renderInMenu()

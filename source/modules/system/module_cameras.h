@@ -18,6 +18,7 @@ public:
   void setOutputCamera(CHandle camera);
   void blendInCamera(CHandle camera, float blendTime = 0.f, EPriority priority = EPriority::DEFAULT, Interpolator::IInterpolator* interpolator = nullptr);
   void blendOutCamera(CHandle camera, float blendTime = 0.f);
+	void destroyAllCameras();
 
 private:
 	void renderInMenu();

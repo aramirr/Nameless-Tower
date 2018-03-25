@@ -2,7 +2,7 @@
 #include "handle/handle.h"
 #include "ai_destoyable.h"
 #include "entity/entity_parser.h"
-#include "components/comp_transform.h"
+#include "components/juan/comp_transform.h"
 #include "render/render_utils.h"
 
 DECL_OBJ_MANAGER("ai_destroyable", CAIDestroyable);

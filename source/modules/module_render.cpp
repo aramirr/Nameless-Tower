@@ -7,6 +7,7 @@
 #include "render/texture/material.h"
 #include "render/texture/texture.h"
 #include "resources/json_resource.h"
+#include "skeleton/game_core_skeleton.h"
 #include "camera/camera.h"
 
 //--------------------------------------------------------------------------------------
@@ -46,12 +47,23 @@ bool CModuleRender::start()
   Resources.registerResourceClass(getResourceClassOf<CRenderMesh>());
   Resources.registerResourceClass(getResourceClassOf<CRenderTechnique>());
   Resources.registerResourceClass(getResourceClassOf<CMaterial>());
+  Resources.registerResourceClass(getResourceClassOf<CGameCoreSkeleton>());
 
   if (!createRenderObjects())
     return false;
 
   if (!createRenderUtils())
     return false;
+
+	// -------------------------------------------
+	if (!cb_camera.create(CB_CAMERA))
+		return false;
+	// -------------------------------------------
+	if (!cb_object.create(CB_OBJECT))
+		return false;
+
+	cb_object.activate();
+	cb_camera.activate();
 
   // --------------------------------------------
   // ImGui
@@ -82,6 +94,9 @@ bool CModuleRender::stop()
   Resources.destroyAll();
 
   Render.destroyDevice();
+
+	cb_camera.destroy();
+	cb_object.destroy();
   return true;
 }
 
@@ -129,11 +144,13 @@ void CModuleRender::setBackgroundColor(float r, float g, float b, float a)
 void CModuleRender::generateFrame() {
   {
     PROFILE_FUNCTION("CModuleRender::generateFrame");
+    CTraceScoped gpu_scope("Frame");
     CEngine::get().getModules().render();
   }
 
   {
     PROFILE_FUNCTION("ImGui::Render");
+    CTraceScoped gpu_scope("ImGui");
     ImGui::Render();
   }
 

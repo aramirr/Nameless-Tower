@@ -40,6 +40,11 @@ bool CTexture::create(const std::string& name) {
   );
   if( FAILED( hr ) )
     return false;
+
+  // Name both objects in DX
+  setDXName(texture, name.c_str());
+  setDXName(shader_resource_view, name.c_str());
+
   return true;
 }
 

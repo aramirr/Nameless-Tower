@@ -1,7 +1,7 @@
 #include "mcv_platform.h"
 #include "entity.h"
 #include "entity_parser.h"
-#include "components/comp_name.h"
+#include "components/juan/comp_name.h"
 #include "common_msgs.h"
 
 DECL_OBJ_MANAGER("entity", CEntity);

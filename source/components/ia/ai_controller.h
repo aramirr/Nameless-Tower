@@ -9,8 +9,8 @@
 #include <map>
 #include "entity/entity.h"
 #include "components/comp_base.h"
-#include "components/comp_transform.h"
-#include "components/comp_render.h"
+#include "components/juan/comp_transform.h"
+#include "components/juan/comp_render.h"
 
 // states are a map to member function pointers, to 
 // be defined on a derived class. 

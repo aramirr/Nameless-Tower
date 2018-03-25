@@ -1,7 +1,7 @@
 #pragma once
 
 #include "modules/module.h"
-#include "components/comp_collider.h"
+#include "components/physics/comp_collider.h"
 #include "PxPhysicsAPI.h"
 
 class CModulePhysics : public IModule

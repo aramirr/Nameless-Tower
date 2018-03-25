@@ -27,7 +27,7 @@ struct CRasterizers {
     if (FAILED(hr))
       return false;
     // Assing the name
-    // setDXName(rasterize_states[cfg], name);
+    setDXName(rasterize_states[cfg], name);
     // Save also the name for the ui
     names[cfg] = name;
     return true;
@@ -115,8 +115,8 @@ struct CSamplers {
     if (FAILED(hr))
       return false;
 
-    /*
     setDXName(all_samplers[SAMPLER_WRAP_LINEAR], "WRAP_LINEAR");
+    /*
 
     sampDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
     sampDesc.AddressU = D3D11_TEXTURE_ADDRESS_CLAMP;

@@ -37,8 +37,13 @@ struct TMsgRunnerStop {
 
 struct TMsgCheckpoint {
 	VEC3 appearing_position;
+	float appearing_position_yaw;
 	DECL_MSG_ID();
 };
+
+struct TMsgWindstrike {
+	DECL_MSG_ID();
+}; 
 
 struct TMsgAttachTo {
 	CHandle h_attached;
@@ -63,6 +68,12 @@ struct TMsgKillPlayer {
 
 struct TMsgExitPlatform {
   DECL_MSG_ID();
+};
+
+struct TMsgChangeDirection {
+	VEC3 new_direction;
+	bool reset_duration = false;
+	DECL_MSG_ID();
 };
 
 

@@ -4,10 +4,10 @@
 #include "render/texture/texture.h"
 #include "render/texture/material.h"
 #include "entity/entity.h"
-#include "components/comp_render.h"
-#include "components/comp_transform.h"
-#include "components/comp_name.h"
-#include "components/comp_tags.h"
+#include "components/juan/comp_render.h"
+#include "components/juan/comp_transform.h"
+#include "components/juan/comp_name.h"
+#include "components/juan/comp_tags.h"
 #include "render/render_manager.h"
 
 void CModuleEntities::loadListOfManagers( const json& j, std::vector< CHandleManager* > &managers) {
@@ -65,14 +65,26 @@ void CModuleEntities::update(float delta)
 		PROFILE_FUNCTION(om->getName());
 		om->updateAll(delta * timeSlower);
 	}
-
-
   CHandleManager::destroyAllPendingObjects();
+}
+
+
+bool CModuleEntities::stop() {
+  // Destroy all entities, should destroy all components in chain
+  auto hm = getObjectManager<CEntity>();
+  hm->forEach([](CEntity* e) {
+    CHandle h(e);
+    h.destroy();
+  });
+  CHandleManager::destroyAllPendingObjects();
+  return true;
 }
 
 void CModuleEntities::render()
 {
   Resources.debugInMenu();
+
+  ImGui::DragFloat("Time Factor", &time_scale_factor, 0.01f, 0.f, 1.0f);
 
   if (ImGui::TreeNode("All Entities...")) {
 
@@ -142,6 +154,7 @@ void CModuleEntities::render()
 }
 
 void CModuleEntities::renderDebugOfComponents() {
+  CTraceScoped gpu_scope("renderDebugOfComponents");
   PROFILE_FUNCTION("renderDebugOfComponents");
   // Change the technique to some debug solid
   auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
@@ -151,4 +164,13 @@ void CModuleEntities::renderDebugOfComponents() {
     om->renderDebugAll();
   }
 
+}
+
+void CModuleEntities::destroyAllEntities() {
+	auto hm = getObjectManager<CEntity>();
+	hm->forEach([](CEntity* e) {
+		CHandle h(e);
+		h.destroy();
+	});
+	CHandleManager::destroyAllPendingObjects();
 }

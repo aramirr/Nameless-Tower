@@ -88,32 +88,36 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
-    <ClCompile Include="components\comp_aabb.cpp" />
-    <ClCompile Include="components\comp_bullet_controller.cpp" />
-    <ClCompile Include="components\comp_camera.cpp" />
-    <ClCompile Include="components\comp_camera_manager.cpp" />
-    <ClCompile Include="components\comp_circular_controller.cpp" />
-    <ClCompile Include="components\comp_collider.cpp" />
-    <ClCompile Include="components\comp_culling.cpp" />
-    <ClCompile Include="components\comp_flyover_controller.cpp" />
-    <ClCompile Include="components\comp_group.cpp" />
-    <ClCompile Include="components\comp_hierarchy.cpp" />
-    <ClCompile Include="components\comp_name.cpp" />
-    <ClCompile Include="components\comp_orbit_camera.cpp" />
-    <ClCompile Include="components\comp_platform_camera.cpp" />
-    <ClCompile Include="components\comp_player_controller.cpp" />
-    <ClCompile Include="components\comp_render.cpp" />
-    <ClCompile Include="components\comp_tags.cpp" />
-    <ClCompile Include="components\comp_transform.cpp" />
-    <ClCompile Include="components\comp_trigger.cpp" />
+    <ClCompile Include="components\juan\comp_aabb.cpp" />
+    <ClCompile Include="components\old\comp_bullet_controller.cpp" />
+    <ClCompile Include="components\camera\comp_camera.cpp" />
+    <ClCompile Include="components\camera\comp_camera_manager.cpp" />
+    <ClCompile Include="components\old\comp_circular_controller.cpp" />
+    <ClCompile Include="components\physics\comp_collider.cpp" />
+    <ClCompile Include="components\juan\comp_culling.cpp" />
+    <ClCompile Include="components\old\comp_flyover_controller.cpp" />
+    <ClCompile Include="components\juan\comp_group.cpp" />
+    <ClCompile Include="components\juan\comp_hierarchy.cpp" />
+    <ClCompile Include="components\juan\comp_name.cpp" />
+    <ClCompile Include="components\camera\comp_orbit_camera.cpp" />
+    <ClCompile Include="components\camera\comp_platform_camera.cpp" />
+    <ClCompile Include="components\player\comp_player_controller.cpp" />
+    <ClCompile Include="components\juan\comp_render.cpp" />
+    <ClCompile Include="components\juan\comp_tags.cpp" />
+    <ClCompile Include="components\juan\comp_transform.cpp" />
+    <ClCompile Include="components\physics\comp_trigger.cpp" />
     <ClCompile Include="components\controllers\comp_camera_flyover.cpp" />
     <ClCompile Include="components\controllers\comp_camera_orbit.cpp" />
+    <ClCompile Include="components\controllers\comp_spiral_controller.cpp" />
     <ClCompile Include="components\ia\ai_boss_runner.cpp" />
     <ClCompile Include="components\ia\ai_controller.cpp" />
     <ClCompile Include="components\ia\ai_destoyable.cpp" />
     <ClCompile Include="components\ia\ai_linear_patrol.cpp" />
     <ClCompile Include="components\ia\ai_orbit_patrol.cpp" />
     <ClCompile Include="components\ia\ai_spikes.cpp" />
+    <ClCompile Include="components\ia\bt.cpp" />
+    <ClCompile Include="components\ia\btnode.cpp" />
+    <ClCompile Include="components\ia\bt_runner.cpp" />
     <ClCompile Include="components\ui\ui_mouse_pos.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity\entity.cpp" />
@@ -149,6 +153,7 @@
     <ClCompile Include="modules\module_manager.cpp" />
     <ClCompile Include="modules\module_render.cpp" />
     <ClCompile Include="modules\module_timer.cpp" />
+    <ClCompile Include="modules\module_tower.cpp" />
     <ClCompile Include="modules\system\module_cameras.cpp" />
     <ClCompile Include="modules\system\module_input.cpp" />
     <ClCompile Include="modules\system\module_physics.cpp" />
@@ -171,6 +176,9 @@
     <ClCompile Include="render\texture\texture.cpp" />
     <ClCompile Include="resources\json_resource.cpp" />
     <ClCompile Include="resources\resources_manager.cpp" />
+    <ClCompile Include="skeleton\comp_bone_tracker.cpp" />
+    <ClCompile Include="skeleton\comp_skeleton.cpp" />
+    <ClCompile Include="skeleton\game_core_skeleton.cpp" />
     <ClCompile Include="utils\murmur3\murmur3.cpp" />
     <ClCompile Include="utils\utils.cpp" />
     <ClCompile Include="windows\app.cpp" />
@@ -178,33 +186,37 @@
   <ItemGroup>
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
     <ClInclude Include="camera\camera.h" />
-    <ClInclude Include="components\comp_aabb.h" />
+    <ClInclude Include="components\juan\comp_aabb.h" />
     <ClInclude Include="components\comp_base.h" />
-    <ClInclude Include="components\comp_bullet_controller.h" />
-    <ClInclude Include="components\comp_camera.h" />
-    <ClInclude Include="components\comp_camera_manager.h" />
-    <ClInclude Include="components\comp_circular_controller.h" />
-    <ClInclude Include="components\comp_collider.h" />
-    <ClInclude Include="components\comp_culling.h" />
-    <ClInclude Include="components\comp_flyover_controller.h" />
-    <ClInclude Include="components\comp_group.h" />
-    <ClInclude Include="components\comp_hierarchy.h" />
-    <ClInclude Include="components\comp_name.h" />
-    <ClInclude Include="components\comp_orbit_camera.h" />
-    <ClInclude Include="components\comp_platform_camera.h" />
-    <ClInclude Include="components\comp_player_controller.h" />
-    <ClInclude Include="components\comp_render.h" />
-    <ClInclude Include="components\comp_tags.h" />
-    <ClInclude Include="components\comp_transform.h" />
-    <ClInclude Include="components\comp_trigger.h" />
+    <ClInclude Include="components\old\comp_bullet_controller.h" />
+    <ClInclude Include="components\camera\comp_camera.h" />
+    <ClInclude Include="components\camera\comp_camera_manager.h" />
+    <ClInclude Include="components\old\comp_circular_controller.h" />
+    <ClInclude Include="components\physics\comp_collider.h" />
+    <ClInclude Include="components\juan\comp_culling.h" />
+    <ClInclude Include="components\old\comp_flyover_controller.h" />
+    <ClInclude Include="components\juan\comp_group.h" />
+    <ClInclude Include="components\juan\comp_hierarchy.h" />
+    <ClInclude Include="components\juan\comp_name.h" />
+    <ClInclude Include="components\camera\comp_orbit_camera.h" />
+    <ClInclude Include="components\camera\comp_platform_camera.h" />
+    <ClInclude Include="components\player\comp_player_controller.h" />
+    <ClInclude Include="components\juan\comp_render.h" />
+    <ClInclude Include="components\juan\comp_tags.h" />
+    <ClInclude Include="components\juan\comp_transform.h" />
+    <ClInclude Include="components\physics\comp_trigger.h" />
     <ClInclude Include="components\controllers\comp_camera_flyover.h" />
     <ClInclude Include="components\controllers\comp_camera_orbit.h" />
+    <ClInclude Include="components\controllers\comp_spiral_controller.h" />
     <ClInclude Include="components\ia\ai_boss_runner.h" />
     <ClInclude Include="components\ia\ai_controller.h" />
     <ClInclude Include="components\ia\ai_destoyable.h" />
     <ClInclude Include="components\ia\ai_linear_patrol.h" />
     <ClInclude Include="components\ia\ai_orbit_patrol.h" />
     <ClInclude Include="components\ia\ai_spikes.h" />
+    <ClInclude Include="components\ia\bt.h" />
+    <ClInclude Include="components\ia\btnode.h" />
+    <ClInclude Include="components\ia\bt_runner.h" />
     <ClInclude Include="components\ui\ui_mouse_pos.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="entity\common_msgs.h" />
@@ -253,12 +265,14 @@
     <ClInclude Include="modules\module_manager.h" />
     <ClInclude Include="modules\module_render.h" />
     <ClInclude Include="modules\module_timer.h" />
+    <ClInclude Include="modules\module_tower.h" />
     <ClInclude Include="modules\system\module_cameras.h" />
     <ClInclude Include="modules\system\module_input.h" />
     <ClInclude Include="modules\system\module_physics.h" />
     <ClInclude Include="modules\test\module_test_input.h" />
     <ClInclude Include="profiling\profiling.h" />
     <ClInclude Include="render\cte_buffer.h" />
+    <ClInclude Include="render\gpu_trace.h" />
     <ClInclude Include="render\mesh\mesh.h" />
     <ClInclude Include="render\mesh\mesh_loader.h" />
     <ClInclude Include="render\mesh\mesh_subgroup.h" />
@@ -277,7 +291,12 @@
     <ClInclude Include="resources\json_resource.h" />
     <ClInclude Include="resources\resource.h" />
     <ClInclude Include="resources\resources_manager.h" />
+    <ClInclude Include="skeleton\cal3d2engine.h" />
+    <ClInclude Include="skeleton\comp_bone_tracker.h" />
+    <ClInclude Include="skeleton\comp_skeleton.h" />
+    <ClInclude Include="skeleton\game_core_skeleton.h" />
     <ClInclude Include="utils\data_provider.h" />
+    <ClInclude Include="utils\data_saver.h" />
     <ClInclude Include="utils\directory_watcher.h" />
     <ClInclude Include="utils\json.hpp" />
     <ClInclude Include="utils\murmur3\murmur3.h" />
@@ -287,6 +306,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Cal3D\Cal3D.vcxproj">
+      <Project>{f13518a5-98d4-48a8-98ed-81b5e9d70bce}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

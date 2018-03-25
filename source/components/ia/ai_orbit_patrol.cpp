@@ -2,10 +2,10 @@
 #include "handle/handle.h"
 #include "ai_orbit_patrol.h"
 #include "entity/entity_parser.h"
-#include "components/comp_transform.h"
+#include "components/juan/comp_transform.h"
 #include "render/render_utils.h"
 #include "modules/system/module_physics.h"
-#include "components/comp_player_controller.h"
+#include "components/player/comp_player_controller.h"
 
 using namespace physx;
 

@@ -1,7 +1,7 @@
 #include "mcv_platform.h"
 #include "cte_buffer.h"
 
-bool CCteBuffer::createData(UINT num_bytes) {
+bool CCteBuffer::createData(UINT num_bytes, const char* new_name) {
 
   D3D11_BUFFER_DESC bd;
   ZeroMemory(&bd, sizeof(bd));
@@ -13,6 +13,8 @@ bool CCteBuffer::createData(UINT num_bytes) {
   HRESULT hr = Render.device->CreateBuffer(&bd, NULL, &cb);
   if (FAILED(hr))
     return false;
+
+  setDXName(cb, new_name);
 
   return true;
 }

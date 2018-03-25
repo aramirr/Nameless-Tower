@@ -21,6 +21,7 @@ CEngine::CEngine()
 	, _module_ia("ia")
 	, _module_input("input")
 	, _module_timer("timer")
+	, _module_tower("tower")
 	, _module_cameras("cameras")
 {}
 
@@ -40,6 +41,7 @@ bool CEngine::start() {
 
 	_modules.registerSystemModule(&_module_input);
 	_modules.registerSystemModule(&_module_timer);
+	_modules.registerSystemModule(&_module_tower);
 	_modules.registerSystemModule(&_module_cameras);
 
 	_modules.registerGameModule(&module_splash);

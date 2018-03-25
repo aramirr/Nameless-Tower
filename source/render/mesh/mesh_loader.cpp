@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "mesh_loader.h"
 #include "utils/data_provider.h"
+#include "utils/data_saver.h"
 
 bool TMeshLoader::load(CDataProvider& dp) {
 
@@ -56,6 +57,25 @@ bool TMeshLoader::load(CDataProvider& dp) {
 
   return true;
 }
+
+void saveChunk(CDataSaver& ds, uint32_t magic, uint32_t num_bytes, const void* data) {
+  TMeshLoader::TChunk s;
+  s.magic_id = magic;
+  s.num_bytes = num_bytes;
+  ds.write(s);
+  if (data)
+    ds.writeBytes(data, num_bytes);
+}
+
+bool TMeshLoader::save(CDataSaver& ds) {
+  assert(ds.isValid());
+  saveChunk(ds, magicHeader, sizeof(THeader), &header);
+  saveChunk(ds, magicVtxs, (uint32_t)vtxs.size(), vtxs.data());
+  saveChunk(ds, magicIdxs, (uint32_t)idxs.size(), idxs.data());
+  saveChunk(ds, magicEoF, 0, nullptr);
+  return true;
+}
+
 
 CRenderMesh* loadMesh(const char* filename) {
   CFileDataProvider fdp(filename);
