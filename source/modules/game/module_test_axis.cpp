@@ -52,8 +52,6 @@ bool CModuleTestAxis::start()
 	cb_object.activate();
 	cb_camera.activate();
 
-	carga = true;
-
 	return true;
 }
 
