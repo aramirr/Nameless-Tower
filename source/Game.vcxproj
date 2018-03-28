@@ -100,6 +100,7 @@
     <ClCompile Include="components\comp_hierarchy.cpp" />
     <ClCompile Include="components\comp_name.cpp" />
     <ClCompile Include="components\comp_orbit_camera.cpp" />
+    <ClCompile Include="components\comp_orbit_controller.cpp" />
     <ClCompile Include="components\comp_platform_camera.cpp" />
     <ClCompile Include="components\comp_player_controller.cpp" />
     <ClCompile Include="components\comp_render.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="components\comp_hierarchy.h" />
     <ClInclude Include="components\comp_name.h" />
     <ClInclude Include="components\comp_orbit_camera.h" />
+    <ClInclude Include="components\comp_orbit_controller.h" />
     <ClInclude Include="components\comp_platform_camera.h" />
     <ClInclude Include="components\comp_player_controller.h" />
     <ClInclude Include="components\comp_render.h" />

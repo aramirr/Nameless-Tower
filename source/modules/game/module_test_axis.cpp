@@ -71,7 +71,7 @@ void CModuleTestAxis::update(float delta)
 		TCompCameraManager* cm = cam->get<TCompCameraManager>();
 		assert(cm);
 
-		cm->activateCinematic("prueba");
+		//cm->activateCinematic("prueba");
 
 		carga = false;
 	}
