@@ -27,6 +27,8 @@ CVertexDecl* CVertexDeclManager::createNew(
     case DXGI_FORMAT_R32G32B32A32_FLOAT: total_bytes += 4 * 4; break;
     case DXGI_FORMAT_R32G32B32_FLOAT: total_bytes += 3 * 4; break;
     case DXGI_FORMAT_R32G32_FLOAT: total_bytes += 2 * 4; break;
+    case DXGI_FORMAT_R8G8B8A8_UINT: total_bytes += 4; break;
+    case DXGI_FORMAT_R8G8B8A8_UNORM: total_bytes += 4; break;
     default:
       fatal("Unknown size of vertex element %08x while declaring vtx decl %s.%s\n", d->Format, name.c_str(), d->SemanticName);
     }
@@ -83,6 +85,20 @@ bool CVertexDeclManager::create() {
     };
     createNew("PosNUvUv", layout, ARRAYSIZE(layout));
   }
+
+  {
+    static D3D11_INPUT_ELEMENT_DESC layout[] = {
+      { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0,  0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+      { "NORMAL",   0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+      { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT,    0, 24, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+      { "BONES",    0, DXGI_FORMAT_R8G8B8A8_UINT,   0, 32, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+      { "WEIGHTS",  0, DXGI_FORMAT_R8G8B8A8_UNORM,  0, 36, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+    };
+    createNew("PosNUvSkin", layout, ARRAYSIZE(layout));
+  }
+
+
+  
 
   return true;
 }

@@ -15,7 +15,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 	// Current orientation
 	float current_yaw;
 	float current_pitch;
-	float amount_moved = current_x_speed_factor * dt;
+ 	float amount_moved = current_x_speed_factor * dt;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	VEC3 myPos = c_my_transform->getPosition();
@@ -95,9 +95,10 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 }
 
 void TCompPlayerController::debugInMenu() {
-	ImGui::Text("State: %s", state.c_str());
+	//ImGui::Text("State: %s", state.c_str());
 	//ImGui::Text("Can dash: %s", can_dash ? "Si" : "No");
-	ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
+	//ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
+	ImGui::DragInt("Windstrikes: %f", &availables_windstrikes, 1, -1, 5);
 	ImGui::DragFloat("X speed: %f", &x_speed_factor, 0.01f, 0.f, 5.f);
 	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
@@ -118,6 +119,8 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	omnidash_max_time = j.value("omnidash_max_time", 0.3f);
 	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 1.3f);
 	jumping_death_height = j.value("jumping_death_height", 9.f);
+	max_windstrikes = j.value("max_windstrikes", 1);
+	availables_windstrikes = max_windstrikes;
 	current_x_speed_factor = x_speed_factor; 
 	is_grounded = true;
 	can_omni = true;
@@ -147,20 +150,24 @@ void TCompPlayerController::initial_state(float dt) {
 	TCompTransform *my_pos = getMyTransform();
 	TCompCollider* comp_collider = get<TCompCollider>();
 	if (comp_collider && comp_collider->controller) {
-		if (checkpoint.x)
+		VEC3 checkpoint = Engine.getTower().getLastCheckpoint();
+		if (checkpoint.x) {
 			comp_collider->controller->setPosition(physx::PxExtendedVec3(checkpoint.x, checkpoint.y, checkpoint.z));
-		else
+			my_pos->setYawPitchRoll(Engine.getTower().getLastCheckpointYaw(), 0, 0);
+			looking_left = Engine.getTower().getLastCheckpointLeft();
+		}
+		else {
 			checkpoint = my_pos->getPosition();
-	}
-
+			my_pos->lookAt(my_pos->getPosition(), center);
+			float y, p, r;
+			my_pos->getYawPitchRoll(&y, &p, &r);
+			y -= deg2rad(90);
+			my_pos->setYawPitchRoll(y, 0, 0);
+			looking_left = my_pos->isInLeft(center) ? false : true;
+		}
+	}	
 	
-	my_pos->lookAt(my_pos->getPosition(), center);
-	float y, p, r;
-	my_pos->getYawPitchRoll(&y, &p, &r);
-	y -= deg2rad(90);
-	my_pos->setYawPitchRoll(y, 0, 0);
-
-	looking_left = my_pos->isInLeft(center) ? false : true;
+	
 	change_mesh(1);
 	ChangeState("idle");
 }
@@ -176,7 +183,10 @@ void TCompPlayerController::idle_state(float dt) {
 		}
 		ChangeState("initial");
 	}
-	if (isPressed('E')) {
+	//----------------------------------
+
+	if (isPressed('E') && (availables_windstrikes > 0)) {
+		availables_windstrikes--;
 		TEntityParseContext ctx;
 		ctx.entity_starting_the_parse = CHandle(this).getOwner();
 		ctx.root_transform = *(TCompTransform*)get<TCompTransform>();
@@ -184,7 +194,7 @@ void TCompPlayerController::idle_state(float dt) {
 			assert(!ctx.entities_loaded.empty());
 		}
 	}
-	//----------------------------------
+
 
 
 	TCompTransform *c_my_transform = getMyTransform();
@@ -194,8 +204,6 @@ void TCompPlayerController::idle_state(float dt) {
 	float y_speed = (y_speed_factor * DT) - (gravity * DT * DT / 2);
 	if (!is_grounded)
 		y_speed_factor -= gravity * DT / 2;
-		if (!gravity_enabled)
-			y_speed_factor = 0;
 
 	// Chequea el salto
 	if (space.getsPressed() && is_grounded) {
@@ -303,8 +311,6 @@ void TCompPlayerController::running_state(float dt) {
 		float y_speed = (y_speed_factor * DT) - (gravity * DT * DT / 2);
 		if (!is_grounded)
 			y_speed_factor -= gravity * DT / 2;
-			if (!gravity_enabled)
-				y_speed_factor = 0;
 		if (isPressed('A')) {
 			if (!looking_left) {
 				looking_left = true;
@@ -353,8 +359,6 @@ void TCompPlayerController::jumping_state(float dt) {
 	else
 		y_speed = (y_speed_factor * DT) - (gravity * DT * DT * 3);
 	y_speed_factor -= gravity * DT / 2;
-	if (!gravity_enabled)
-		y_speed_factor = 0;
 	new_pos.y += y_speed;
 
 	// Chequea el dash		
@@ -529,10 +533,10 @@ void TCompPlayerController::dead_state(float dt) {
 	TCompCollider* comp_collider = get<TCompCollider>();
 	if (isPressed('P')) {		
 		if (comp_collider && comp_collider->controller) {
+			VEC3 checkpoint = Engine.getTower().getLastCheckpoint();
 			comp_collider->controller->setPosition(physx::PxExtendedVec3(checkpoint.x, checkpoint.y, checkpoint.z));
 		}
-		//Engine.getModules().changeGameState("test_axis");
-		ChangeState("initial");
+		Engine.getModules().changeGameState("test_axis");
 		return;
 	}
 	else {
@@ -563,8 +567,7 @@ void TCompPlayerController::dead_state(float dt) {
 void TCompPlayerController::registerMsgs() {
 	DECL_MSG(TCompPlayerController, TMsgKillPlayer, killPlayer);
 	DECL_MSG(TCompPlayerController, TMsgCheckpoint, setCheckpoint);
-	DECL_MSG(TCompPlayerController, TMsgGravityToggle, toggle_gravity);
-
+	DECL_MSG(TCompPlayerController, TMsgWindstrike, updateWindstrikes);
 }
 
 void TCompPlayerController::killPlayer(const TMsgKillPlayer& msg)
@@ -575,7 +578,17 @@ void TCompPlayerController::killPlayer(const TMsgKillPlayer& msg)
 
 void TCompPlayerController::setCheckpoint(const TMsgCheckpoint& msg)
 {
-   	checkpoint = msg.appearing_position;
+	Engine.getTower().setLastCheckpoint(msg.appearing_position);
+	TCompTransform *my_pos = getMyTransform();	
+	float y, p, r;
+	my_pos->getYawPitchRoll(&y, &p, &r);
+	Engine.getTower().setLastCheckpointYaw(y);
+	Engine.getTower().setLastCheckpointLeft(looking_left);
+}
+
+void TCompPlayerController::updateWindstrikes(const TMsgWindstrike& msg) {
+	if (max_windstrikes > availables_windstrikes)
+		availables_windstrikes++;
 }
 
 void TCompPlayerController::toggle_gravity(const TMsgGravityToggle& msg)

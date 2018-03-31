@@ -55,6 +55,16 @@ bool CModuleRender::start()
   if (!createRenderUtils())
     return false;
 
+	// -------------------------------------------
+	if (!cb_camera.create(CB_CAMERA))
+		return false;
+	// -------------------------------------------
+	if (!cb_object.create(CB_OBJECT))
+		return false;
+
+	cb_object.activate();
+	cb_camera.activate();
+
   // --------------------------------------------
   // ImGui
   auto& app = CApp::get();
@@ -84,6 +94,9 @@ bool CModuleRender::stop()
   Resources.destroyAll();
 
   Render.destroyDevice();
+
+	cb_camera.destroy();
+	cb_object.destroy();
   return true;
 }
 

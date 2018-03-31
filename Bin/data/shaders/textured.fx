@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------------------------
-#include "ctes.h"
+#include "common.fx"
 
 //--------------------------------------------------------------------------------------
 struct VS_OUTPUT
@@ -29,6 +29,28 @@ VS_OUTPUT VS(
   output.N = mul(N, (float3x3)obj_world);
 	output.UV = UV;
 	output.UVB = UVB;
+  return output;
+}
+
+VS_OUTPUT VS_Skin(
+  float4 iPos : POSITION
+, float3 iN   : NORMAL
+, float2 iUV  : TEXCOORD0
+, int4   iBones   : BONES
+, float4 iWeights : WEIGHTS
+)
+{
+
+  float4x4 skin_mtx = getSkinMtx( iBones, iWeights );
+  float4 skinned_Pos = mul(iPos, skin_mtx);
+
+  VS_OUTPUT output = (VS_OUTPUT)0;
+  // The world matrix is inside the bones matrixs
+  output.Pos = mul(skinned_Pos, camera_view);
+  output.Pos = mul(output.Pos, camera_proj);
+  // Rotate the normal
+  output.N = mul(iN, (float3x3)obj_world);
+  output.UV = iUV;
   return output;
 }
 

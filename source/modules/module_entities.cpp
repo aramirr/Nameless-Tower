@@ -65,8 +65,6 @@ void CModuleEntities::update(float delta)
 		PROFILE_FUNCTION(om->getName());
 		om->updateAll(delta * timeSlower);
 	}
-
-
   CHandleManager::destroyAllPendingObjects();
 }
 
@@ -166,4 +164,13 @@ void CModuleEntities::renderDebugOfComponents() {
     om->renderDebugAll();
   }
 
+}
+
+void CModuleEntities::destroyAllEntities() {
+	auto hm = getObjectManager<CEntity>();
+	hm->forEach([](CEntity* e) {
+		CHandle h(e);
+		h.destroy();
+	});
+	CHandleManager::destroyAllPendingObjects();
 }

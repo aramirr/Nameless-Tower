@@ -55,7 +55,7 @@ bool CRenderTechnique::reloadPS() {
   // Delete the old one if it was valid
   if (ps)
     delete ps;
-  
+
   // Keep the new one
   ps = new_ps;
   return true;

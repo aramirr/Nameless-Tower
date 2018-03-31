@@ -11,7 +11,6 @@ void TCompSpiralController::debugInMenu() {
 	ImGui::Text("Life: %f",life);
 }
 
-
 void TCompSpiralController::load(const json& j, TEntityParseContext& ctx) {
   setEntity(ctx.current_entity);
   radius = j.value("radius", 1.0f);
@@ -92,7 +91,8 @@ void TCompSpiralController::update(float DT) {
 	}
 
 	life -= DT;
-	if (life <= 0) destroy();
+	if (life <= 0) 
+		destroy();
 }
 
 void TCompSpiralController::registerMsgs()
@@ -116,13 +116,15 @@ void TCompSpiralController::destroy()
 		return;
 	}
 	CEntity * e = h_entity;
-	TCompCollider *my_col = e->get<TCompCollider>();
+	/*TCompCollider *my_col = e->get<TCompCollider>();
 	if (my_col) {
 		my_col->actor->getScene()->removeActor(*my_col->actor);
 		my_col->actor = nullptr;
 		
-		my_col->controller->release();
-		my_col->controller = nullptr;
-	}
+		my_col->actor->release();
+	}*/
+	CEntity *e_creator = h_parent;
+	TMsgWindstrike msg;
+	e_creator->sendMsg(msg);
 	CHandle(this).getOwner().destroy();
 }

@@ -7,3 +7,7 @@ filein (mcv_scripts_path + "export_scene.ms")
 filein (mcv_scripts_path + "mcv_exporter_tool.ms")
 
 filein (mcv_scripts_path + "/Utils/util_loader.ms")
+filein (mcv_scripts_path + "export_skeletons.ms")
+filein (mcv_scripts_path + "export_ui.ms")
+--filein (mcv_scripts_path + "export_scene.ms")
+--filein (mcv_scripts_path + "export_ui.ms")

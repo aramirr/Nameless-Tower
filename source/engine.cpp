@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "engine.h"
 
+#include "modules/system/module_fsm.h"
 #include "modules/game/module_splash.h"
 #include "modules/game/module_main_menu.h"
 #include "modules/game/module_gameover.h"
@@ -21,7 +22,9 @@ CEngine::CEngine()
 	, _module_ia("ia")
 	, _module_input("input")
 	, _module_timer("timer")
+	, _module_tower("tower")
 	, _module_cameras("cameras")
+	, _module_fsm("fsm")
 {}
 
 bool CEngine::start() {
@@ -37,16 +40,16 @@ bool CEngine::start() {
 	_modules.registerSystemModule(&_module_entities);
 	_modules.registerSystemModule(&_module_physics);
 	_modules.registerSystemModule(&_module_ia);
-
 	_modules.registerSystemModule(&_module_input);
 	_modules.registerSystemModule(&_module_timer);
+	_modules.registerSystemModule(&_module_tower);
 	_modules.registerSystemModule(&_module_cameras);
-
+	//_modules.registerSystemModule(&_module_fsm);
 	_modules.registerGameModule(&module_splash);
 	_modules.registerGameModule(&module_main_menu);
 	_modules.registerGameModule(&module_game_over);
 	_modules.registerGameModule(&module_test_axis);
-  _modules.registerGameModule(&module_test_input);
+	_modules.registerGameModule(&module_test_input);
 	_modules.loadModules("data/modules.json");
 	_modules.loadGamestates("data/gamestates.json");
 
@@ -62,12 +65,13 @@ bool CEngine::stop() {
 void CEngine::update(float delta)
 {
   PROFILE_FUNCTION("CEngine::update");
+  current_unscaled_delta_time = delta;
   _modules.update(delta);
 }
 
 void CEngine::render()
 {
 
-  PROFILE_FUNCTION("CEngine::render");
-  _module_render.generateFrame();
+	PROFILE_FUNCTION("CEngine::render");
+	_module_render.generateFrame();
 }

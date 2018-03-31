@@ -52,3 +52,13 @@ void TCompCollider::registerMsgs() {
 void TCompCollider::onCreate(const TMsgEntityCreated& msg) {
   CEngine::get().getPhysics().createActor(*this);
 }
+
+TCompCollider::~TCompCollider() {
+	if (actor && actor->getScene())
+		actor->getScene()->removeActor(*actor);
+	actor = nullptr;
+	if (controller != NULL && controller) {
+		controller->release();
+		controller = nullptr;
+	}
+}

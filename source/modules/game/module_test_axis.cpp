@@ -11,6 +11,7 @@
 #include "components/juan/comp_name.h"
 #include "components/juan/comp_transform.h"
 #include "components/camera/comp_camera.h"
+#include "components/camera/comp_camera_manager.h"
 #include "entity/entity_parser.h"
 #include "render/render_manager.h"
 
@@ -54,28 +55,30 @@ bool CModuleTestAxis::start()
   camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
   camera.setPerspective(60.0f * 180.f / (float)M_PI, 0.1f, 1000.f);
 
-  // -------------------------------------------
-  if (!cb_camera.create(CB_CAMERA))
-    return false;
-  // -------------------------------------------
-  if (!cb_object.create(CB_OBJECT))
-    return false;
-
-  cb_object.activate();
-  cb_camera.activate();
-
   return true;
 }
 
 bool CModuleTestAxis::stop()
 {
-  cb_camera.destroy();
-  cb_object.destroy();
+	Engine.getEntities().destroyAllEntities();
+	Engine.getCameras().destroyAllCameras();
   return true;
 }
 
 void CModuleTestAxis::update(float delta)
 {
+
+	if (carga) {
+		CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+
+		TCompCameraManager* cm = cam->get<TCompCameraManager>();
+		assert(cm);
+
+		cm->activateCinematic("prueba");
+
+		carga = false;
+	}
+
 
   static VEC3 world_pos;
   ImGui::DragFloat3("Pos", &world_pos.x, 0.025f, -50.f, 50.f);

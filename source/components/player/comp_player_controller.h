@@ -32,6 +32,8 @@ class TCompPlayerController : public IAIController {
 
 	VEC3 checkpoint;
 	float checkpoint_yaw;
+	int   availables_windstrikes;
+	int   max_windstrikes;
 
   DECL_SIBLING_ACCESS();
 
@@ -62,6 +64,7 @@ public:
 	void killPlayer(const TMsgKillPlayer& msg);
 	void setCheckpoint(const TMsgCheckpoint& msg);
 	void toggle_gravity(const TMsgGravityToggle& msg);
+	void updateWindstrikes(const TMsgWindstrike& msg);
 
   //void setdt(float dt) { DT = dt; };
 

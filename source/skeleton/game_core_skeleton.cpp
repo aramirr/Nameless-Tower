@@ -3,6 +3,7 @@
 #include "render/mesh/mesh_loader.h"
 #include "utils/data_saver.h"
 #include "cal3d2engine.h"
+#include "ctes.h"
 
 #include "ctes.h"
 
@@ -31,6 +32,15 @@ const CResourceClass* getResourceClassOf<CGameCoreSkeleton>() {
   static CGameCoreSkeletonResourceClass the_resource_class;
   return &the_resource_class;
 }
+
+struct TSkinVertex {
+  VEC3 pos;
+  VEC3 normal;
+  VEC2 uv;
+  //VEC4 tangent;
+  uint8_t bone_ids[4];
+  uint8_t bone_weights[4];    // 0.255   -> 0..1
+};
 
 // ------------------------------------------------------------
 void showCoreBoneRecursive(CalCoreSkeleton* core_skel, int bone_id ) {
@@ -139,7 +149,6 @@ bool CGameCoreSkeleton::convertCalCoreMesh2RenderMesh(CalCoreMesh* cal_mesh, con
       int total_weight = 0;
       for (size_t ninfluence = 0; ninfluence < cal_vtx.vectorInfluence.size() && ninfluence < 4; ++ninfluence) {
         auto cal_influence = cal_vtx.vectorInfluence[ninfluence];
-
         assert(cal_influence.boneId < MAX_SUPPORTED_BONES);
         skin_vtx.bone_ids[ninfluence] = (uint8_t)(cal_influence.boneId);
         assert(skin_vtx.bone_ids[ninfluence] < nbones);
@@ -197,7 +206,7 @@ bool CGameCoreSkeleton::convertCalCoreMesh2RenderMesh(CalCoreMesh* cal_mesh, con
   header.num_vertexs = total_vtxs;
   header.primitive_type = CRenderMesh::TRIANGLE_LIST;
 
-  strcpy(header.vertex_type_name, "PosNUvTanSkin");
+  strcpy(header.vertex_type_name, "PosNUvSkin");
 
   mesh_io.vtxs = mds_vtxs.buffer;
   mesh_io.idxs = mds_idxs.buffer;
@@ -239,7 +248,7 @@ bool CGameCoreSkeleton::create(const std::string& res_name) {
     convertCalCoreMesh2RenderMesh(getCoreMesh(mesh_id), skin_mesh_file);
 
     // Delete the cmf file
-    std::remove(cmf.c_str());
+    // std::remove(cmf.c_str());
   }
 
   // Read all anims
@@ -258,7 +267,6 @@ bool CGameCoreSkeleton::create(const std::string& res_name) {
     // read other metadata associated to the anim
     // ...
   }
-
 
   // Array of bone ids to debug (auto conversion from array of json to array of ints)
   if(json["bone_ids_to_debug"].is_array())

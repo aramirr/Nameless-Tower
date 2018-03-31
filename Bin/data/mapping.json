@@ -43,5 +43,15 @@
 		"name" : "turbo",
 		"all" : false,
 		"buttons" : [ "shift"]
+	},
+	{
+		"name" : "jump",
+		"all" : false,
+		"buttons" : [ "space"]
+	},
+	{
+		"name" : "move",
+		"all" : false,
+		"buttons" : [ "right"]
 	}
 ]
