@@ -590,3 +590,8 @@ void TCompPlayerController::updateWindstrikes(const TMsgWindstrike& msg) {
 	if (max_windstrikes > availables_windstrikes)
 		availables_windstrikes++;
 }
+
+void TCompPlayerController::toggle_gravity(const TMsgGravityToggle& msg)
+{
+	gravity_enabled = msg.is_active;
+}

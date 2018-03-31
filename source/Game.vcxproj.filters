@@ -274,6 +274,7 @@
     <ClCompile Include="components\player\comp_player_controller.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="components\ia\ai_wind_current.cpp" />
     <ClCompile Include="modules\module_tower.cpp" />
     <ClCompile Include="modules\system\module_fsm.cpp" />
     <ClCompile Include="fsm\context.cpp" />
@@ -748,6 +749,7 @@
     <ClInclude Include="components\player\comp_player_controller.h">
       <Filter>components</Filter>
     </ClInclude>
+    <ClInclude Include="components\ia\ai_wind_current.h" />
     <ClInclude Include="modules\module_tower.h" />
     <ClInclude Include="modules\system\module_fsm.h" />
     <ClInclude Include="fsm\context.h" />
