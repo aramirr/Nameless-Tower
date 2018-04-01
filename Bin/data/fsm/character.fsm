@@ -8,8 +8,7 @@
 		},
 		{
 			"name" : "initial",
-			"type" : "InitialState",
-			"animation" : "idle"
+			"type" : "InitialState"
 		},
 		{
 			"name" : "run",
@@ -40,6 +39,17 @@
 		}
 	],
 	"transitions" : [
+		{
+			"type" : "VariableTransition",
+			"source" : "initial",
+			"target" : "idle",
+			"variable" : {
+				"name" : "initial",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
 		{
 			"type" : "VariableTransition",
 			"source" : "idle",
@@ -193,10 +203,14 @@
 				"value" : true
 			},
 			"operation" : "equal"
-		},
-		
+		}	
 	],
 	"variables" : [
+		{
+			"name" : "initial",
+			"type" : "bool",
+			"value" : true
+		},
 		{
 			"name" : "run",
 			"type" : "bool",

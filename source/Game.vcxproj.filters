@@ -284,6 +284,14 @@
     <ClCompile Include="components\controllers\comp_player_input.cpp" />
     <ClCompile Include="modules\system\module_fsm.cpp" />
     <ClCompile Include="utils\variant.cpp" />
+    <ClCompile Include="fsm\player_states\dash_state.cpp" />
+    <ClCompile Include="fsm\player_states\dead_state.cpp" />
+    <ClCompile Include="fsm\player_states\idle_state.cpp" />
+    <ClCompile Include="fsm\player_states\initial_state.cpp" />
+    <ClCompile Include="fsm\player_states\jump_state.cpp" />
+    <ClCompile Include="fsm\player_states\omnidash_state.cpp" />
+    <ClCompile Include="fsm\player_states\omnijump_state.cpp" />
+    <ClCompile Include="fsm\player_states\run_state.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -758,6 +766,14 @@
     <ClInclude Include="components\controllers\comp_fake_animation_controller.h" />
     <ClInclude Include="modules\system\module_fsm.h" />
     <ClInclude Include="utils\variant.h" />
+    <ClInclude Include="fsm\player_states\dash_state.h" />
+    <ClInclude Include="fsm\player_states\dead_state.h" />
+    <ClInclude Include="fsm\player_states\idle_state.h" />
+    <ClInclude Include="fsm\player_states\initial_state.h" />
+    <ClInclude Include="fsm\player_states\jump_state.h" />
+    <ClInclude Include="fsm\player_states\omnidash_state.h" />
+    <ClInclude Include="fsm\player_states\omnijump_state.h" />
+    <ClInclude Include="fsm\player_states\run_state.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">

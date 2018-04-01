@@ -6,9 +6,10 @@ namespace FSM
 {
 	class JumpState : public IState
 	{
-		virtual void onStart(CContext& ctx) const override;
-		virtual bool load(const json& jData);
-		virtual bool update(float dt, CContext& ctx);
+		void onStart(CContext& ctx) const override;
+		void onFinish(CContext& ctx);
+		bool load(const json& jData);
+		bool update(float dt, CContext& ctx);
 
 	private:
 		float _y_speed;

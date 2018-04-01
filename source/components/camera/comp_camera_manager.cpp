@@ -15,7 +15,7 @@ bool TCompCameraManager::isForward()
 {
 
   TCompPlayerController* pc = player->get<TCompPlayerController>();
-  return !pc->isForward();
+	return false;//!pc->isForward();
   //if (player.x > 0 && player.z < 0) {								// CUADRANTE 1 (+-)
   //	if (frontPlayer.x < 0 && frontPlayer.z < 0) return true;
   //	return false;

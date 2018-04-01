@@ -26,7 +26,8 @@ namespace FSM
     void setVariable(const std::string& name, float value);
     void setVariable(const std::string& name, CHandle value);
     void setVariable(const std::string& name, const std::string& value);
-    void setVariable(const std::string& name, const CVariant& var);
+		void setVariable(const std::string& name, const CVariant& var);
+		void setVariable(const std::string& name, VEC3 var);
 
     const CMachine* getFSM() const { return _fsm; }
     EState getInternalState() const { return _internalState; }

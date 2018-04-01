@@ -6,9 +6,12 @@ namespace FSM
 {
 	class InitialState : public IState
 	{
-		virtual void onStart(CContext& ctx) const override;
-		virtual bool load(const json& jData);
-		virtual bool update(float dt, CContext& ctx);
+		void onStart(CContext& ctx);
+		void onFinish(CContext& ctx);
+		bool load(const json& jData);
+		bool update(float dt, CContext& ctx);
+
+		DECL_SIBLING_ACCESS();
 
 	private:
 	};
