@@ -39,9 +39,10 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			delta_move.y += y_speed;
 			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
-				if (c_my_transform->getPosition().y - jumping_start_height > jumping_death_height) {
+				if (jumping_start_height - c_my_transform->getPosition().y > jumping_death_height) {
 					change_mesh(5);
 					ChangeState("dead");
+					return;
 				}
 				y_speed_factor = 0;
 				is_grounded = true;
@@ -55,11 +56,14 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				camIZQ->sendMsg(msg);*/
 				if (dashing_amount == 0) {
 					ChangeState("idle");
+					return;
 				}
-				if (state == "jump")
+				if (state == "jump") {
 					ChangeState("idle");
+					return;
+				}
 			}
-			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
+			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && is_grounded) {
 				is_grounded = false;
 				jumping_start_height = c_my_transform->getPosition().y;
 			}
@@ -99,6 +103,7 @@ void TCompPlayerController::debugInMenu() {
 	//ImGui::Text("Can dash: %s", can_dash ? "Si" : "No");
 	//ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
 	ImGui::DragInt("Windstrikes: %f", &availables_windstrikes, 1, -1, 5);
+	ImGui::DragFloat("Height death: %f", &jumping_start_height, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("X speed: %f", &x_speed_factor, 0.01f, 0.f, 5.f);
 	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
