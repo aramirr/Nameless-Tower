@@ -15,6 +15,7 @@ TextureCube  txEnvironmentMap SLOT( TS_ENVIRONMENT_MAP );
 Texture2D    txGBufferAlbedos     SLOT( TS_DEFERRED_ALBEDOS );
 Texture2D    txGBufferNormals     SLOT( TS_DEFERRED_NORMALS );
 Texture2D    txGBufferLinearDepth SLOT( TS_DEFERRED_LINEAR_DEPTH );
+Texture2D    txAccLights          SLOT( TS_DEFERRED_ACC_LIGHTS );
 
 //--------------------------------------------------------------------------------------
 SamplerState samLinear        : register(s0);
@@ -165,6 +166,6 @@ float4 encodeNormal( float3 n, float nw ) {
 }
 
 // Converts range 0..1 to -1..1
-float4 decodeNormal( float4 n ) {
-  return n * 2. - 1.;
+float3 decodeNormal( float3 n ) {
+  return ( n.xyz * 2. - 1. );
 }
