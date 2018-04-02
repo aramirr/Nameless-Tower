@@ -118,3 +118,53 @@ float3 computeNormalMap( float3 inputN, float4 inputT, float2 inUV ) {
   return wN;
 }
 
+
+// ------------------------------------------------------
+// screen_coords va entre 0..1024
+float3 getWorldCoords(float2 screen_coords, float zlinear_normalized) {
+
+/*
+  // ux = -1 .. 1
+  // Si screen_coords == 0 => ux = 1
+  // Si screen_coords == 512 => ux = 0
+  // Si screen_coords == 1024 => ux = -1
+  float ux = 1.0 - screen_coords.x * camera_inv_resolution.x * 2;
+  
+  // Si screen_coords =   0 => uy = 1;
+  // Si screen_coords = 400 => uy = 0;
+  // Si screen_coords = 800 => uy = -1;
+  float uy = 1.0 - screen_coords.y * camera_inv_resolution.y * 2;
+  
+
+  float3 view_dir2 = float3( ux * camera_tan_half_fov * camera_aspect_ratio
+                          , uy * camera_tan_half_fov
+                          , 1.) * ( zlinear_normalized * camera_zfar );
+
+  float3 view_dir = mul( float4( screen_coords, 1, 1 ), camera_screen_to_world ).xyz;
+  
+  view_dir *= ( zlinear_normalized );
+
+  float3 wPos =
+      CameraFront.xyz * view_dir.z
+    + CameraLeft.xyz  * view_dir.x
+    + CameraUp.xyz    * view_dir.y
+    + CameraWorldPos.xyz;
+  return wPos;
+
+  // camera_screen_to_world includes all the previous operations
+*/
+
+  float3 view_dir = mul( float4( screen_coords, 1, 1 ), camera_screen_to_world ).xyz;
+  return view_dir * zlinear_normalized + camera_pos;
+}
+
+// -----------------------------------------------------
+// Converts range -1..1 to 0..1
+float4 encodeNormal( float3 n, float nw ) {
+   return float4(( n + 1. ) * 0.5, nw );
+}
+
+// Converts range 0..1 to -1..1
+float4 decodeNormal( float4 n ) {
+  return n * 2. - 1.;
+}

@@ -44,6 +44,7 @@
 #define MAT44                     matrix
 #define VEC4                      float4
 #define VEC3                      float3
+#define VEC2                      float2
 #define SLOT(slot_number)                 : register(t##slot_number)
 
 #endif
@@ -55,6 +56,7 @@ CB_DEF(CCteCamera, CB_CAMERA)   // Generates the b0
   MAT44 camera_view;
   MAT44 camera_proj;
   MAT44 camera_view_proj;
+  MAT44 camera_screen_to_world;
   VEC3  camera_pos;
   float camera_dummy1;
   VEC3  camera_front;
@@ -64,6 +66,10 @@ CB_DEF(CCteCamera, CB_CAMERA)   // Generates the b0
   float camera_znear;
   float camera_tan_half_fov;
   float camera_aspect_ratio;
+
+  VEC2  camera_inv_resolution;
+  float camera_dummy3;
+  float camera_dummy4;
 };
 
 CB_DEF(CCteObject, CB_OBJECT)   // Generates the b1

@@ -2,6 +2,7 @@
 
 #define PI 3.14159265359f
 
+
 //--------------------------------------------------------------------------------------
 // Same as in deferred
 void VS_GBuffer(
@@ -46,13 +47,10 @@ void PS_GBuffer(
 , out float1 o_depth  : SV_Target2
 )
 {
-  // Store in the Alpha channel of the albedo texture, the 'metallic' amount of
-  // the material
   o_albedo = txAlbedo.Sample(samLinear, iTex0);
-  //o_albedo.a = txMetallic.Sample(samLinear, iTex0).r;
 
-  o_normal.xyz = computeNormalMap( iNormal, iTangent, iTex0 );
-  o_normal.w = 1;
+  float3 N = computeNormalMap( iNormal, iTangent, iTex0 );
+  o_normal = encodeNormal( N, 1 );
 
   // Compute the Z in linear space, and normalize it in the range 0...1
   // In the range z=0 to z=zFar of the camera (not zNear)
