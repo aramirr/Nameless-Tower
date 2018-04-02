@@ -2,12 +2,19 @@
 #include "ctes.h"
 
 //--------------------------------------------------------------------------------------
+// from the object material
 Texture2D    txAlbedo         SLOT( TS_ALBEDO );
 Texture2D    txNormal         SLOT( TS_NORMAL );
 
+// from the light and env
 Texture2D    txLightProjector SLOT( TS_LIGHT_PROJECTOR );
 Texture2D    txLightShadowMap SLOT( TS_LIGHT_SHADOW_MAP );
 TextureCube  txEnvironmentMap SLOT( TS_ENVIRONMENT_MAP );
+
+// output from deferred
+Texture2D    txGBufferAlbedos     SLOT( TS_DEFERRED_ALBEDOS );
+Texture2D    txGBufferNormals     SLOT( TS_DEFERRED_NORMALS );
+Texture2D    txGBufferLinearDepth SLOT( TS_DEFERRED_LINEAR_DEPTH );
 
 //--------------------------------------------------------------------------------------
 SamplerState samLinear        : register(s0);
@@ -110,3 +117,4 @@ float3 computeNormalMap( float3 inputN, float4 inputT, float2 inUV ) {
 
   return wN;
 }
+
