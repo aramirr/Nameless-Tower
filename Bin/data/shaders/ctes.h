@@ -16,10 +16,16 @@
 // .. Other slots of the material
 #define TS_NUM_MATERIALS_SLOTS 2
 
-// Here goes the slots not associated to a material
+
+// Here goes the slots NOT associated to a material
 #define TS_LIGHT_PROJECTOR     5
 #define TS_LIGHT_SHADOW_MAP    6 
 #define TS_ENVIRONMENT_MAP     7
+
+#define TS_DEFERRED_ALBEDOS           10
+#define TS_DEFERRED_NORMALS           11
+#define TS_DEFERRED_LINEAR_DEPTH      12
+#define TS_DEFERRED_ACC_LIGHTS        13
 
 // -------------------------------------------------
 #define MAX_SUPPORTED_BONES        128
@@ -48,8 +54,16 @@ CB_DEF(CCteCamera, CB_CAMERA)   // Generates the b0
 {
   MAT44 camera_view;
   MAT44 camera_proj;
+  MAT44 camera_view_proj;
   VEC3  camera_pos;
-  float camera_dummy;
+  float camera_dummy1;
+  VEC3  camera_front;
+  float camera_dummy2;
+
+  float camera_zfar;
+  float camera_znear;
+  float camera_tan_half_fov;
+  float camera_aspect_ratio;
 };
 
 CB_DEF(CCteObject, CB_OBJECT)   // Generates the b1
