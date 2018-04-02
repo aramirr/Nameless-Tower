@@ -3,9 +3,11 @@
 #include "module.h"
 #include "camera/camera.h"
 #include "handle/handle_def.h"
+#include "render/deferred_renderer.h"
 
 class CModuleRender : public IModule
 {
+  CDeferredRenderer deferred;
   CRenderToTexture* rt_main = nullptr;
 public:
   CModuleRender(const std::string& name);
