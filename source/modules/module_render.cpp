@@ -175,7 +175,7 @@ void CModuleRender::generateFrame() {
 
     Render.startRenderInBackbuffer();
     
-    renderFullScreenQuad("dumpTexture.tech", rt_main);
+    renderFullScreenQuad("dump_texture.tech", rt_main);
 
     // Debug render
     {
