@@ -3,7 +3,7 @@
 #include "ai_patrol.h"
 #include "entity/entity_parser.h"
 #include "components/comp_transform.h"
-#include "render/render_utils.h"
+#include "render/render_objects.h"
 
 DECL_OBJ_MANAGER("ai_patrol", CAIPatrol);
 
