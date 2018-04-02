@@ -170,6 +170,23 @@ CRenderMesh* createArrow() {
 	return mesh;
 }
 
+// ----------------------------------
+// Full screen quad to dump textures in screen
+CRenderMesh* createUnitQuadXY() {
+  const VEC4 white(1, 1, 1, 1);
+  const std::vector<TVtxPosClr> vtxs = {
+    { VEC3(0, 0, 0), white }
+  , { VEC3(1, 0, 0), white }
+  , { VEC3(0, 1, 0), white }
+  , { VEC3(1, 1, 0), white }
+  };
+  CRenderMesh* mesh = new CRenderMesh;
+  if (!mesh->create(vtxs.data(), vtxs.size() * sizeof(TVtxPosClr), "PosClr"
+    , CRenderMesh::TRIANGLE_STRIP
+  ))
+    return nullptr;
+  return mesh;
+}
 
 // --------------------------
 void registerMesh( CRenderMesh* new_mesh, const char* name ) {
@@ -186,6 +203,7 @@ bool createRenderObjects() {
   registerMesh(createCameraFrustum(), "unit_frustum.mesh");
   registerMesh(createWiredUnitCube(), "wired_unit_cube.mesh");
   registerMesh(createArrow(), "arrow.mesh");
+  registerMesh(createUnitQuadXY(), "unit_quad_xy.mesh");
   
   return true;
 }
@@ -241,6 +259,17 @@ void renderWiredAABB(const AABB& aabb, MAT44 world, VEC4 color) {
     * MAT44::CreateTranslation(aabb.Center)
     * world;
   renderMesh(mesh, unit_cube_to_aabb, color);
+}
+
+// ---------------------------------------------
+void renderFullScreenQuad(const std::string& tech_name, const CTexture* texture) {
+  auto* tech = Resources.get(tech_name)->as<CRenderTechnique>();
+  assert(tech);
+  tech->activate();
+  if (texture)
+    texture->activate(TS_ALBEDO);
+  auto* mesh = Resources.get("unit_quad_xy.mesh")->as<CRenderMesh>();
+  mesh->activateAndRender();
 }
 
 // ---------------------------------------------
