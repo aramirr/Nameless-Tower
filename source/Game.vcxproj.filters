@@ -268,6 +268,9 @@
     <ClCompile Include="render\texture\render_to_texture.cpp">
       <Filter>render\texture</Filter>
     </ClCompile>
+    <ClCompile Include="render\deferred_renderer.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -729,6 +732,9 @@
     </ClInclude>
     <ClInclude Include="render\texture\render_to_texture.h">
       <Filter>render\texture</Filter>
+    </ClInclude>
+    <ClInclude Include="render\deferred_renderer.h">
+      <Filter>render</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

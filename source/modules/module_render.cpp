@@ -66,8 +66,12 @@ bool CModuleRender::start()
   if (!parseTechniques())
     return false;
 
+  // Main render target before rendering in the backbuffer
   rt_main = new CRenderToTexture;
   if (!rt_main->createRT("rt_main.dds", Render.width, Render.height, DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_FORMAT_UNKNOWN, true))
+    return false;
+
+  if (!deferred.create(Render.width, Render.height))
     return false;
 
   setBackgroundColor(0.0f, 0.125f, 0.3f, 1.f);
@@ -87,7 +91,7 @@ LRESULT CModuleRender::OnOSMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 bool CModuleRender::stop()
 {
   ImGui_ImplDX11_Shutdown();
-
+  
   destroyRenderUtils();
   destroyRenderObjects();
 
@@ -165,19 +169,9 @@ void CModuleRender::generateFrame() {
     CTraceScoped gpu_scope("Frame");
     PROFILE_FUNCTION("CModuleRender::generateFrame");
     
-    rt_main->activateRT();
-    
-      // Clear the back buffer 
-      rt_main->clear(_backgroundColor);
-      rt_main->clearZ();
+    activateMainCamera();
 
-      activateMainCamera();
-    
-      getObjectManager<TCompLightDir>()->forEach([](TCompLightDir* c) {
-        c->activate();
-      });
-
-      CRenderManager::get().renderCategory("default");
+    deferred.render(rt_main);
 
     Render.startRenderInBackbuffer();
     
