@@ -5,7 +5,7 @@
 #include "render_objects.h"
 #include "resources/resources_manager.h"
 #include "components/comp_light_dir.h"
-#include "components/comp_transform.h"
+#include "components/juan/comp_transform.h"
 #include "ctes.h"
 
 void CDeferredRenderer::renderGBuffer() {
@@ -77,12 +77,7 @@ bool CDeferredRenderer::create(int xres, int yres) {
 // -----------------------------------------------------------------
 void CDeferredRenderer::renderAmbientPass() {
   CTraceScoped gpu_scope("renderAmbientPass");
-
-  auto tech = Resources.get("pbr_ambient.tech")->as<CRenderTechnique>();
-  tech->activate();
-
-  auto mesh = Resources.get("normalizedQuadXY.mesh")->as<CRenderMesh>();
-  mesh->activateAndRender();
+  renderFullScreenQuad("pbr_ambient.tech", nullptr);
 }
 
 // -------------------------------------------------------------------------
@@ -128,8 +123,8 @@ void CDeferredRenderer::render( CRenderToTexture* rt_destination ) {
   renderGBuffer();
 
   // Do the same with the acc light
-  //CTexture::setNullTexture(TS_DEFERRED_ACC_LIGHTS);
-  //renderAccLight();
+  CTexture::setNullTexture(TS_DEFERRED_ACC_LIGHTS);
+  renderAccLight();
 
   // Now dump contents to the destination buffer.
   rt_destination->activateRT();
