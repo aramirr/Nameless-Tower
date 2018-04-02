@@ -217,7 +217,17 @@ void activateCamera(CCamera& camera, int width, int height) {
   camera.setViewport(0, 0, width, height);
   cb_camera.camera_view = camera.getView();
   cb_camera.camera_proj = camera.getProjection();
+  cb_camera.camera_view_proj = camera.getViewProjection();
   cb_camera.camera_pos = camera.getPosition();
+  cb_camera.camera_dummy1 = 1.f;
+  cb_camera.camera_front = camera.getFront();
+  cb_camera.camera_dummy2 = 0.f;
+
+  cb_camera.camera_zfar = camera.getZFar();
+  cb_camera.camera_znear = camera.getZNear();
+  cb_camera.camera_tan_half_fov = tan( camera.getFov() * 0.5f );
+  cb_camera.camera_aspect_ratio = camera.getAspectRatio();
+
   cb_camera.updateGPU();
 }
 
@@ -269,6 +279,20 @@ void renderFullScreenQuad(const std::string& tech_name, const CTexture* texture)
   if (texture)
     texture->activate(TS_ALBEDO);
   auto* mesh = Resources.get("unit_quad_xy.mesh")->as<CRenderMesh>();
+  mesh->activateAndRender();
+}
+
+// ---------------------------------------------
+void renderLine(VEC3 src, VEC3 dst, VEC4 color) {
+  MAT44 world = MAT44::CreateLookAt(src, dst, VEC3(0, 1, 0)).Invert();
+  float distance = VEC3::Distance(src, dst);
+  world = MAT44::CreateScale(1, 1, -distance) * world;
+  cb_object.obj_world = world;
+  cb_object.obj_color = color;
+  cb_object.updateGPU();
+
+
+  auto mesh = Resources.get("line.mesh")->as<CRenderMesh>();
   mesh->activateAndRender();
 }
 
