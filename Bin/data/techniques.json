@@ -63,7 +63,11 @@
 		"category" : "shadows"
 	},
 
-
+	"dumpTexture" : {
+		"vs_file": "data/shaders/screen_quad.fx",
+		"vertex_type" : "PosClr",
+    "category" : "helper"
+	},
 
 	"textured" : {
 		"vs_file": "data/shaders/textured.fx",

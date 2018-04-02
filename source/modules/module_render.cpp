@@ -66,6 +66,10 @@ bool CModuleRender::start()
   if (!parseTechniques())
     return false;
 
+  rt_main = new CRenderToTexture;
+  if (!rt_main->createRT("rt_main.dds", Render.width, Render.height, DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_FORMAT_UNKNOWN, true))
+    return false;
+
   setBackgroundColor(0.0f, 0.125f, 0.3f, 1.f);
 
   // Some camera in case there is no camera in the scene
@@ -109,7 +113,7 @@ void CModuleRender::render()
   }
 
   // Edit the Background color
-  ImGui::ColorEdit4("Background Color", _backgroundColor);
+  ImGui::ColorEdit4("Background Color", &_backgroundColor.x);
 
 }
 
@@ -121,10 +125,10 @@ void CModuleRender::configure(int xres, int yres)
 
 void CModuleRender::setBackgroundColor(float r, float g, float b, float a)
 {
-  _backgroundColor[0] = r;
-  _backgroundColor[1] = g;
-  _backgroundColor[2] = b;
-  _backgroundColor[3] = a;
+  _backgroundColor.x = r;
+  _backgroundColor.y = g;
+  _backgroundColor.z = b;
+  _backgroundColor.w = a;
 }
 
 // -------------------------------------------------
@@ -160,20 +164,24 @@ void CModuleRender::generateFrame() {
   {
     CTraceScoped gpu_scope("Frame");
     PROFILE_FUNCTION("CModuleRender::generateFrame");
-    Render.startRenderInBackbuffer();
-
-    // Clear the back buffer 
-    float ClearColor[4] = { 0.0f, 0.125f, 0.3f, 1.0f }; // red,green,blue,alpha
-    Render.ctx->ClearRenderTargetView(Render.renderTargetView, _backgroundColor);
-    Render.ctx->ClearDepthStencilView(Render.depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
-
-    activateMainCamera();
     
-    getObjectManager<TCompLightDir>()->forEach([](TCompLightDir* c) {
-      c->activate();
-    });
+    rt_main->activateRT();
+    
+      // Clear the back buffer 
+      rt_main->clear(_backgroundColor);
+      rt_main->clearZ();
 
-    CRenderManager::get().renderCategory("default");
+      activateMainCamera();
+    
+      getObjectManager<TCompLightDir>()->forEach([](TCompLightDir* c) {
+        c->activate();
+      });
+
+      CRenderManager::get().renderCategory("default");
+
+    Render.startRenderInBackbuffer();
+    
+    renderFullScreenQuad("dumpTexture.tech", rt_main);
 
     // Debug render
     {
