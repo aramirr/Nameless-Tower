@@ -286,6 +286,7 @@
     <ClCompile Include="components\controllers\comp_fake_animation_controller.cpp" />
     <ClCompile Include="components\controllers\comp_player_input.cpp" />
     <ClCompile Include="components\comp_light_dir.cpp" />
+    <ClCompile Include="render\texture\render_to_texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -763,6 +764,7 @@
     <ClInclude Include="components\controllers\comp_player_input.h" />
     <ClInclude Include="components\comp_light_dir.h" />
     <ClInclude Include="render\texture\texture_slots.h" />
+    <ClInclude Include="render\texture\render_to_texture.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">

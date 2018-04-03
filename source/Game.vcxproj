@@ -183,6 +183,7 @@
     <ClCompile Include="render\shaders\vertex_shader.cpp" />
     <ClCompile Include="render\texture\DDSTextureLoader.cpp" />
     <ClCompile Include="render\texture\material.cpp" />
+    <ClCompile Include="render\texture\render_to_texture.cpp" />
     <ClCompile Include="render\texture\texture.cpp" />
     <ClCompile Include="resources\json_resource.cpp" />
     <ClCompile Include="resources\resources_manager.cpp" />
@@ -310,6 +311,7 @@
     <ClInclude Include="render\shaders\vertex_shader.h" />
     <ClInclude Include="render\texture\DDSTextureLoader.h" />
     <ClInclude Include="render\texture\material.h" />
+    <ClInclude Include="render\texture\render_to_texture.h" />
     <ClInclude Include="render\texture\texture.h" />
     <ClInclude Include="render\texture\texture_slots.h" />
     <ClInclude Include="resources\json_resource.h" />
