@@ -6,6 +6,7 @@
 #include "resources/resources_manager.h"
 #include "components/comp_light_dir.h"
 #include "components/juan/comp_transform.h"
+#include "components/comp_light_point.h"
 #include "ctes.h"
 
 void CDeferredRenderer::renderGBuffer() {
@@ -86,8 +87,38 @@ void CDeferredRenderer::renderAccLight() {
   rt_acc_light->activateRT( );
   rt_acc_light->clear(VEC4(0, 0, 0, 0));
   renderAmbientPass();
+  renderPointLights();
   renderDirectionalLights();
 }
+
+
+// -------------------------------------------------------------------------
+void CDeferredRenderer::renderPointLights() {
+  CTraceScoped gpu_scope("renderPointLights");
+
+  // Activate tech for the light dir 
+  auto* tech = Resources.get("pbr_point_lights.tech")->as<CRenderTechnique>();
+  tech->activate();
+
+  // All light directional use the same mesh
+  auto* mesh = Resources.get("data/meshes/UnitSphere.mesh")->as<CRenderMesh>();
+  mesh->activate();
+
+  // Para todas las luces... pintala
+  getObjectManager<TCompLightPoint>()->forEach([mesh](TCompLightPoint* c) {
+
+    // subir las contantes de la posicion/dir
+    // activar el shadow map...
+    c->activate();
+
+    setWorldTransform(c->getWorld());
+
+    // mandar a pintar una geometria que refleje los pixeles que potencialmente
+    // puede iluminar esta luz.... El Frustum solido
+    mesh->render();
+  });
+}
+
 
 // -------------------------------------------------------------------------
 void CDeferredRenderer::renderDirectionalLights() {

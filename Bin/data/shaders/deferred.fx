@@ -7,7 +7,6 @@ float4 PS(
 {
   int3 ss_load_coords = uint3(iPosition.xy, 0);
   float4 oAlbedo = txGBufferAlbedos.Load(ss_load_coords);
-
   float4 oNormal = float4(decodeNormal( txGBufferNormals.Load(ss_load_coords).xyz ), 1);
 
   float4 oAccLight = txAccLights.Load(ss_load_coords);
@@ -19,9 +18,9 @@ float4 PS(
 
   // Debug generated world coords
   // Recuperar la posicion de mundo para ese pixel
-  //float  zlinear = txGDepths.Load(ss_load_coords).x;
-  //float3 wPos = getWorldCoords(iPosition.xy, zlinear);
-  //return abs(wPos.x - (int)wPos.x) * abs(wPos.z - (int)wPos.z);
+  float  zlinear = txGBufferLinearDepth.Load(ss_load_coords).x;
+  float3 wPos = getWorldCoords(iPosition.xy, zlinear);
+  return abs(wPos.x - (int)wPos.x) * abs(wPos.z - (int)wPos.z);
 
   //float4 LightsAmount = txAccLights.Sample(samLinear, input.UV);
   return oAlbedo;

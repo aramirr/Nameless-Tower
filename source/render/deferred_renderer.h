@@ -16,6 +16,7 @@ public:
   void renderAccLight();
   void renderAmbientPass();
   void renderDirectionalLights();
+  void renderPointLights();
 
 public:
 

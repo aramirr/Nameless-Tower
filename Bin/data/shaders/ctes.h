@@ -87,7 +87,7 @@ CB_DEF(CCteLight, CB_LIGHT)
   float light_shadows_step;
   float light_shadows_inverse_resolution;     // 1.0f / 256.0
   float light_shadows_step_with_inv_res;      // light_shadows_step * light_shadows_inverse_resolution
-  float light_dummy2;                           // To keep aligment at 4 floats
+  float light_radius;                         // Used by point lights
   // Align x4
   MAT44 light_view_proj_offset;
 
