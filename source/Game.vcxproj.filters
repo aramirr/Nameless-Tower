@@ -285,6 +285,7 @@
     <ClCompile Include="components\comp_fsm.cpp" />
     <ClCompile Include="components\controllers\comp_fake_animation_controller.cpp" />
     <ClCompile Include="components\controllers\comp_player_input.cpp" />
+    <ClCompile Include="components\ia\ai_cinta_transportadora.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -760,6 +761,7 @@
     <ClInclude Include="components\comp_fsm.h" />
     <ClInclude Include="components\controllers\comp_fake_animation_controller.h" />
     <ClInclude Include="components\controllers\comp_player_input.h" />
+    <ClInclude Include="components\ia\ai_cinta_transportadora.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">

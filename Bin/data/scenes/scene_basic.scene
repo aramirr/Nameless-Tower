@@ -321,26 +321,57 @@
 			"tags" : ["enemy"]
 		}
 	},
- {
-    "entity": {
-      "name": "Plane001",
-      "transform": {
-        "pos": "5.0 2.18557e-07 5.0",
-        "rotation": "0.0 0.0 0.0 -1.0"
-      },
-      "render": [
-        {
-          "mesh": "data/meshes/Plane001.mesh",
-          "materials": [
-            "data/materials/piedras1.material"
-          ]
-        }
-      ],
-      "collider": {
-        "shape": "plane"
-      }
-    }
-  }
+	{
+		"entity": {
+			"name": "Cinta",
+			"render" : [
+				{
+					"mesh": "data/meshes/Teapot001.mesh",
+					"materials" : [
+						"data/materials/madera.material"
+					]
+				}
+			]
+			,
+			"transform": {
+				"pos": "-24.769 0 -21.426"
+			},
+			"ai_cinta_transportadora":
+		    {
+		    	"configs":
+		    	[
+		    		{"speed": 0.1, "left": true, "time": 3.0}, {"speed": 7.0, "left": false, "time": 2.0}
+		      	]
+		    },
+		    "collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "plattform"
+			}
+		}
+	},
+	{
+	   "entity": {
+	     "name": "Plane001",
+	     "transform": {
+	       "pos": "5.0 2.18557e-07 5.0",
+	       "rotation": "0.0 0.0 0.0 -1.0"
+	     },
+	     "render": [
+	       {
+	         "mesh": "data/meshes/Plane001.mesh",
+	         "materials": [
+	           "data/materials/piedras1.material"
+	         ]
+	       }
+	     ],
+	     "collider": {
+	       "shape": "plane"
+	      }
+	    }
+	}
 
-	
 ]

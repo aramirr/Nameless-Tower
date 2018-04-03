@@ -91,6 +91,7 @@
     <ClCompile Include="components\comp_fsm.cpp" />
     <ClCompile Include="components\controllers\comp_fake_animation_controller.cpp" />
     <ClCompile Include="components\controllers\comp_player_input.cpp" />
+    <ClCompile Include="components\ia\ai_cinta_transportadora.cpp" />
     <ClCompile Include="components\juan\comp_aabb.cpp" />
     <ClCompile Include="components\old\comp_bullet_controller.cpp" />
     <ClCompile Include="components\camera\comp_camera.cpp" />
@@ -199,6 +200,7 @@
     <ClInclude Include="components\comp_fsm.h" />
     <ClInclude Include="components\controllers\comp_fake_animation_controller.h" />
     <ClInclude Include="components\controllers\comp_player_input.h" />
+    <ClInclude Include="components\ia\ai_cinta_transportadora.h" />
     <ClInclude Include="components\juan\comp_aabb.h" />
     <ClInclude Include="components\comp_base.h" />
     <ClInclude Include="components\old\comp_bullet_controller.h" />
