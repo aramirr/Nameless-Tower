@@ -127,6 +127,32 @@ float4 PS_dir_lights( in float4 iPosition : SV_Position ) : SV_Target
   
   float4 light_amount = diffuseAmount * light_color * light_intensity * shadow_factor;
 
-  return light_amount;
+  return float4( light_amount.xyz, 1 );
 }
 
+
+//--------------------------------------------------------------------------------------
+// Simplified version of the textured.fx
+float4 PS_point_lights( in float4 iPosition : SV_Position ) : SV_Target
+{
+  float3 wPos, N, albedo;
+  decodeGBuffer( iPosition.xy, wPos, N, albedo );
+
+  // Diffuse
+  float3 Light = light_pos - wPos;
+  float  distance_to_light = length( Light );
+  Light = normalize( Light );
+  float diffuseAmount = dot( N, Light );
+  diffuseAmount = saturate( diffuseAmount );
+
+  return light_radius / 100;
+
+  return ( 1. - smoothstep( 0, 1, distance_to_light/light_radius ));
+
+  // Att per distance
+  float att_factor = 1.0 / ( distance_to_light  ) * ( 1. - smoothstep( light_radius * 0.98, light_radius, distance_to_light ));
+  
+  float4 light_amount = diffuseAmount * light_color * light_intensity * att_factor;
+
+  return float4( light_amount.xyz, 1 );
+}

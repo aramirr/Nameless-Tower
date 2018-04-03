@@ -91,7 +91,7 @@ void TCompLightDir::activate() {
     cb_light.light_shadows_inverse_resolution = 1.0f / (float)shadows_rt->getWidth();
     cb_light.light_shadows_step = shadows_step;
     cb_light.light_shadows_step_with_inv_res = shadows_step / (float)shadows_rt->getWidth();
-    cb_light.light_dummy2 = 0.f;
+    cb_light.light_radius = 1.f;
 
     assert(shadows_rt->getZTexture());
     shadows_rt->getZTexture()->activate(TS_LIGHT_SHADOW_MAP);

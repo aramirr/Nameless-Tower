@@ -271,6 +271,9 @@
     <ClCompile Include="render\deferred_renderer.cpp">
       <Filter>render</Filter>
     </ClCompile>
+    <ClCompile Include="components\comp_light_point.cpp">
+      <Filter>components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -735,6 +738,9 @@
     </ClInclude>
     <ClInclude Include="render\deferred_renderer.h">
       <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="components\comp_light_point.h">
+      <Filter>components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
