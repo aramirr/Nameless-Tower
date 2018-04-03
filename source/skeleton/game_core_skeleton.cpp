@@ -205,12 +205,9 @@ bool CGameCoreSkeleton::convertCalCoreMesh2RenderMesh(CalCoreMesh* cal_mesh, con
   header.num_indices = total_faces * 3;
   header.num_vertexs = total_vtxs;
   header.primitive_type = CRenderMesh::TRIANGLE_LIST;
-<<<<<<< HEAD
 
-  strcpy(header.vertex_type_name, "PosNUvSkin");
-=======
+  //strcpy(header.vertex_type_name, "PosNUvSkin");
   strcpy(header.vertex_type_name, "PosNUvTanSkin");
->>>>>>> f345206... Added shader ctes with bones
 
   mesh_io.vtxs = mds_vtxs.buffer;
   mesh_io.idxs = mds_idxs.buffer;
@@ -250,21 +247,16 @@ bool CGameCoreSkeleton::create(const std::string& res_name) {
       return false;
     std::string skin_mesh_file = root_path + name + ".mesh";
     convertCalCoreMesh2RenderMesh(getCoreMesh(mesh_id), skin_mesh_file);
-<<<<<<< HEAD
 
     // Delete the cmf file
     // std::remove(cmf.c_str());
-=======
     // Delete the cmf file
     std::remove(cmf.c_str());
->>>>>>> f345206... Added shader ctes with bones
   }
 
   // Read all anims
   auto& anims = json["anims"];
   for (auto it = anims.begin(); it != anims.end(); ++it) {
-<<<<<<< HEAD
-=======
     assert(it->is_object());
 
     auto& anim = *it;
@@ -277,20 +269,7 @@ bool CGameCoreSkeleton::create(const std::string& res_name) {
     // read other metadata associated to the anim
     // ...
   }
->>>>>>> f345206... Added shader ctes with bones
 
-    assert(it->is_object());
-
-    auto& anim = *it;
-    std::string anim_name = anim["name"];
-    std::string caf = root_path + anim_name + ".caf";
-    int anim_id = loadCoreAnimation(caf, anim_name);
-    if (anim_id < 0)
-      return false;
-
-    // read other metadata associated to the anim
-    // ...
-  }
 
   // Array of bone ids to debug (auto conversion from array of json to array of ints)
   if(json["bone_ids_to_debug"].is_array())
