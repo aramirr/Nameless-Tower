@@ -9,6 +9,10 @@ class TCompCircularController : public TCompBase {
   float       speed = 1.0f;
   float       curr_yaw = 0.f;
 
+  VEC3		  u;
+
+  bool carga;
+
   DECL_SIBLING_ACCESS();
 
 public:
