@@ -340,13 +340,13 @@
 		    {
 		    	"configs":
 		    	[
-		    		{"speed": 0.1, "left": true, "time": 3.0}, {"speed": 7.0, "left": false, "time": 2.0}
+		    		{"speed": 0.1, "left": true, "time": 3.0}, {"speed": 0.1, "left": false, "time": 2.0}
 		      	]
 		    },
 		    "collider": {
 				"shape": "box",
 				"is_trigger": true,
-				"halfExtent": "1 1 1"
+				"halfExtent": "10 1 10"
 			},
 			"trigger": {
 				"trigger_type": "plattform"

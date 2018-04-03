@@ -64,6 +64,7 @@ void CAICintaTransportadora::load_config() {
 void CAICintaTransportadora::NextConfigState() {
 	++it_config;
 	if (it_config >= config_states.size()) it_config = 0;
+	current_time = 0.f;
 	ChangeState("moving_state");
 };
 
@@ -89,24 +90,16 @@ void CAICintaTransportadora::MovingState(float dt) {
 			p_y += dt * config_states[it_config].state_speed;
 		}
 		player_transform->setYawPitchRoll(p_y, p_p);
+		VEC3 center = player_controller->center;
+		center.y = p_position.y;
 		VEC3 aux_vector = move_right ? -1 * player_transform->getLeft() : player_transform->getLeft();
-		VEC3 newPos = player_controller->center + (aux_vector * player_controller->tower_radius);
+		VEC3 newPos = center + (aux_vector * player_controller->tower_radius);
 		VEC3 delta_pos = newPos - p_position;
 		player_collider->controller->move(physx::PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, DT, physx::PxControllerFilters());
-
-		
-		/*VEC3 tower_center = player_controller->center;
-		VEC3 player_pos = player_transform->getPosition();
-		float d = VEC3::Distance({ tower_center.x, 0, tower_center.z }, { player_pos.x, 0, player_pos.z });
-		if (d != player_controller->tower_radius)
-		{
-			VEC3 d_vector = player_pos - tower_center;
-			d_vector.Normalize();
-			VEC3 new_pos = d_vector * player_controller->tower_radius;
-
-		}*/
 	}
-	
+	current_time += dt;
+	if (current_time > config_states[it_config].state_time)
+		ChangeState("next_config_state");
 };
 
 

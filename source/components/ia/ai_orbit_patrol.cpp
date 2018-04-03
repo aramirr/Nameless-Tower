@@ -152,18 +152,6 @@ void CAIOrbitPatrol::MoveToWaypointState(float dt)
 			}
 			player_transform->setYawPitchRoll(p_y, p_p);
 			player_collider->controller->move(physx::PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, DT, physx::PxControllerFilters());
-			
-			TCompPlayerController *player_controller = e->get<TCompPlayerController>();
-			VEC3 tower_center = player_controller->center;
-			VEC3 player_pos = player_transform->getPosition();
-			float d = VEC3::Distance({ tower_center.x, 0, tower_center.z }, { player_pos.x, 0, player_pos.z });
-			if (d != player_controller->tower_radius)
-			{
-				VEC3 d_vector = player_pos - tower_center;
-				d_vector.Normalize();
-				VEC3 new_pos = d_vector * player_controller->tower_radius;
-
-			}
 		}
 	}
 	

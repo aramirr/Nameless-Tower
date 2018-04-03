@@ -13,6 +13,7 @@ class CAICintaTransportadora : public IAIController
 {
  
   CHandle attached;
+	float current_time = 0.f;
   float it_config = 0;
   std::vector<TConfig> config_states;
 
