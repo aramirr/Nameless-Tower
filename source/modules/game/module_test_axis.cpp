@@ -62,7 +62,7 @@ bool CModuleTestAxis::start()
 
 	cb_light.activate();
 	cb_object.activate();
-
+	cb_globals.activate();
 	cb_camera.activate();
 
 	return true;
@@ -73,6 +73,7 @@ bool CModuleTestAxis::stop()
 	cb_light.destroy();
 	cb_camera.destroy();
 	cb_object.destroy();
+	cb_globals.destroy();
 	Engine.getEntities().destroyAllEntities();
 	Engine.getCameras().destroyAllCameras();
 	return true;
@@ -80,23 +81,23 @@ bool CModuleTestAxis::stop()
 
 void CModuleTestAxis::update(float delta)
 {
-
-	static int nitems = 10;
-	ImGui::DragInt("NumItems", &nitems, 0.2f, 1, 100);
-	static float items_scale = 20.0f;
-	ImGui::DragFloat("Scale", &items_scale, 0.1f, 1, 50);
-	if (ImGui::SmallButton("Create Grid Of Load")) {
-		for (int nz = -nitems; nz <= nitems; ++nz) {
-			for (int nx = -nitems; nx <= nitems; ++nx) {
-				TEntityParseContext ctx;
-				float ux = (float)nx / (float)nitems;   // -1 ... 1
-				float uz = (float)nz / (float)nitems;
-				ctx.root_transform.setPosition(VEC3(ux, 0.f, uz) *items_scale);
-				parseScene("data/prefabs/test_load.prefab", ctx);
-			}
-		}
-	}
-
+  /*
+  static int nitems = 10;
+  ImGui::DragInt("NumItems", &nitems, 0.2f, 1, 100);
+  static float items_scale = 20.0f;
+  ImGui::DragFloat("Scale", &items_scale, 0.1f, 1, 50);
+  if (ImGui::SmallButton("Create Grid Of Load")) {
+    for (int nz = -nitems; nz <= nitems; ++nz) {
+      for (int nx = -nitems; nx <= nitems; ++nx) {
+        TEntityParseContext ctx;
+        float ux = (float)nx / (float)nitems;   // -1 ... 1
+        float uz = (float)nz / (float)nitems;
+        ctx.root_transform.setPosition(VEC3(ux, 0.f, uz) *items_scale);
+        parseScene("data/prefabs/test_load.prefab", ctx);
+      }
+    }
+  }
+  */
 
 
 }
@@ -105,17 +106,17 @@ void CModuleTestAxis::update(float delta)
 void CModuleTestAxis::render()
 {
 
-	// Render the grid
-	cb_object.obj_world = MAT44::Identity;
-	cb_object.obj_color = VEC4(1, 1, 1, 1);
-	cb_object.updateGPU();
+  // Render the grid
+  cb_object.obj_world = MAT44::Identity;
+  cb_object.obj_color = VEC4(1,1,1,1);
+  cb_object.updateGPU();
 
-	auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
-	solid->activate();
+  auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
+  solid->activate();
 
-	auto grid = Resources.get("grid.mesh")->as<CRenderMesh>();
-	grid->activateAndRender();
-	auto axis = Resources.get("axis.mesh")->as<CRenderMesh>();
-	axis->activateAndRender();
+  auto grid = Resources.get("grid.mesh")->as<CRenderMesh>();
+  grid->activateAndRender();
+  auto axis = Resources.get("axis.mesh")->as<CRenderMesh>();
+  axis->activateAndRender();
 
 }

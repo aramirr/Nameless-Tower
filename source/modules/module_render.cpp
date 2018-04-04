@@ -106,6 +106,8 @@ void CModuleRender::update(float delta)
 	(void)delta;
   // Notify ImGUI that we are starting a new frame
   ImGui_ImplDX11_NewFrame();
+
+  cb_globals.global_world_time += delta;
 }
 
 void CModuleRender::render()
@@ -118,6 +120,8 @@ void CModuleRender::render()
 
   // Edit the Background color
   ImGui::ColorEdit4("Background Color", &_backgroundColor.x);
+
+  ImGui::DragFloat("Exposure Adjustment", &cb_globals.global_exposure_adjustment, 0.01f, 0.1f, 32.f);
 
 }
 
@@ -164,12 +168,14 @@ void CModuleRender::generateFrame() {
       c->generateShadowMap();
     });
   }
-  
+
+
   {
     CTraceScoped gpu_scope("Frame");
     PROFILE_FUNCTION("CModuleRender::generateFrame");
     
     activateMainCamera();
+    cb_globals.updateGPU();
 
     deferred.render(rt_main);
 
