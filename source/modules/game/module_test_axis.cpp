@@ -37,10 +37,16 @@ bool CModuleTestAxis::start()
   // -------------------------------------------
   if (!cb_light.create(CB_LIGHT))
     return false;
+  // -------------------------------------------
+  if (!cb_globals.create(CB_GLOBALS))
+    return false;
+  cb_globals.global_exposure_adjustment = 1.f;
+  cb_globals.global_world_time = 0.f;
 
   cb_light.activate();
   cb_object.activate();
   cb_camera.activate();
+  cb_globals.activate();
 
   return true;
 }
@@ -50,12 +56,13 @@ bool CModuleTestAxis::stop()
   cb_light.destroy();
   cb_camera.destroy();
   cb_object.destroy();
+  cb_globals.destroy();
   return true;
 }
 
 void CModuleTestAxis::update(float delta)
 {
-
+  /*
   static int nitems = 10;
   ImGui::DragInt("NumItems", &nitems, 0.2f, 1, 100);
   static float items_scale = 20.0f;
@@ -71,7 +78,7 @@ void CModuleTestAxis::update(float delta)
       }
     }
   }
-
+  */
 
 
 }

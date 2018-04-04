@@ -7,6 +7,7 @@
 #define CB_OBJECT       1
 #define CB_SKIN_BONES   2
 #define CB_LIGHT        3
+#define CB_GLOBALS      4
 
 // -------------------------------------------------
 // Texture Slots
@@ -99,6 +100,14 @@ CB_DEF(CCteLight, CB_LIGHT)
   // Align x4
   MAT44 light_view_proj_offset;
 
+};
+
+CB_DEF(CCteGlobals, CB_GLOBALS)   // Generates the b1
+{
+  float global_exposure_adjustment;
+  float global_world_time;
+  float global_dummy1;
+  float global_dummy2;
 };
 
 #endif

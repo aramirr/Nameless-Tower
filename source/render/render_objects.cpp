@@ -2,9 +2,10 @@
 #include "render_objects.h"
 #include "texture/texture.h"
 
-CRenderCte<CCteCamera> cb_camera("Camera");
-CRenderCte<CCteObject> cb_object("Object");
-CRenderCte<CCteLight>  cb_light("Light");
+CRenderCte<CCteCamera>  cb_camera("Camera");
+CRenderCte<CCteObject>  cb_object("Object");
+CRenderCte<CCteLight>   cb_light("Light");
+CRenderCte<CCteGlobals> cb_globals("Globals");
 
 struct TVtxPosClr {
   VEC3 pos;
