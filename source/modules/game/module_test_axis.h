@@ -5,6 +5,8 @@
 class CModuleTestAxis : public IModule
 {
 
+  bool carga = true;
+
 public:
   CModuleTestAxis(const std::string& aname) : IModule(aname) { }
   bool start() override;

@@ -5,8 +5,6 @@
 
 class CModuleEntities : public IModule
 {
-public :
-	void destroyAllEntities();
 
   float time_scale_factor = 1.f;
   std::vector< CHandleManager* > om_to_update;
@@ -20,6 +18,7 @@ public:
   bool stop() override;
   void update(float delta) override;
   void render() override;
+	void destroyAllEntities();
 };
 
 CHandle getEntityByName(const std::string& name);

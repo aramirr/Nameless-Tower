@@ -206,8 +206,10 @@ bool CGameCoreSkeleton::convertCalCoreMesh2RenderMesh(CalCoreMesh* cal_mesh, con
   header.num_vertexs = total_vtxs;
   header.primitive_type = CRenderMesh::TRIANGLE_LIST;
 
+
   //strcpy(header.vertex_type_name, "PosNUvSkin");
   strcpy(header.vertex_type_name, "PosNUvTanSkin");
+
 
   mesh_io.vtxs = mds_vtxs.buffer;
   mesh_io.idxs = mds_idxs.buffer;
@@ -250,8 +252,7 @@ bool CGameCoreSkeleton::create(const std::string& res_name) {
 
     // Delete the cmf file
     // std::remove(cmf.c_str());
-    // Delete the cmf file
-    std::remove(cmf.c_str());
+
   }
 
   // Read all anims
@@ -269,7 +270,6 @@ bool CGameCoreSkeleton::create(const std::string& res_name) {
     // read other metadata associated to the anim
     // ...
   }
-
 
   // Array of bone ids to debug (auto conversion from array of json to array of ints)
   if(json["bone_ids_to_debug"].is_array())
