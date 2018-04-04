@@ -82,6 +82,7 @@ void TCompLightDir::activate() {
   cb_light.light_color = color;
   cb_light.light_intensity = intensity;
   cb_light.light_pos = c->getPosition();
+  cb_light.light_radius = getZFar();
   cb_light.light_view_proj_offset = getViewProjection() * mtx_offset;
   cb_light.updateGPU();
 
