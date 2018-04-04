@@ -7,10 +7,16 @@ float4 PS(
 {
   int3 ss_load_coords = uint3(iPosition.xy, 0);
   float4 oAlbedo = txGBufferAlbedos.Load(ss_load_coords);
-  float4 oNormal = float4(decodeNormal( txGBufferNormals.Load(ss_load_coords).xyz ), 1);
+
+  float4 N_rt = txGBufferNormals.Load(ss_load_coords);
+  float4 oNormal = float4(decodeNormal( N_rt ), 1);
 
   float4 oAccLight = txAccLights.Load(ss_load_coords);
-  return oAccLight; 
+  return float4( oAccLight.xyz, 1 ); 
+  return float4( N_rt.aaa, 1 ); 
+  return float4( oAlbedo.aaa, 1 ); 
+  return oNormal; 
+  return float4( oAlbedo.xyz, 1 ); 
 
   //float energy = oAccLight.x + oAccLight.y + oAccLight.z;
   //if( oAccLight.x > 0.5 || oAccLight.y > 1 || oAccLight.z > 1)
