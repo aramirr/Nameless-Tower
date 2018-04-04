@@ -104,9 +104,9 @@ CB_DEF(CCteLight, CB_LIGHT)
 
 CB_DEF(CCteGlobals, CB_GLOBALS)   // Generates the b1
 {
-  float global_exposure_adjustment;
   float global_world_time;
-  float global_dummy1;
+  float global_exposure_adjustment;
+  float global_ambient_adjustment;
   float global_dummy2;
 };
 
