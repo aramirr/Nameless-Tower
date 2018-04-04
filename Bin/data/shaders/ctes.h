@@ -23,6 +23,7 @@
 #define TS_LIGHT_PROJECTOR     5
 #define TS_LIGHT_SHADOW_MAP    6 
 #define TS_ENVIRONMENT_MAP     7
+#define TS_IRRADIANCE_MAP      8
 
 #define TS_DEFERRED_ALBEDOS           10
 #define TS_DEFERRED_NORMALS           11
