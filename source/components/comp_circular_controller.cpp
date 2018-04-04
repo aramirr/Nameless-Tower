@@ -25,8 +25,7 @@ void TCompCircularController::update(float dt) {
 
 	if (carga) {
 
-		VEC3 pos = c_my_transform->getPosition();
-		u = c_my_transform->getPosition() - VEC3(0, 0, pos.z);
+		u = c_my_transform->getFront();
 		u.Normalize();
 
 		carga = false;
@@ -51,7 +50,7 @@ void TCompCircularController::update(float dt) {
 
 	//posM *= MAT44(1, 0, 0, -pos.x, 0, 1, 0, -pos.y, 0, 0, 1, -pos.z, 0, 0, 0, 1);
 
-	c_my_transform->combineWith(posM.Transform);
+	c_my_transform->setRotation(QUAT::CreateFromRotationMatrix(posM));
 
 	//c_my_transform->setPosition(pos);
 
