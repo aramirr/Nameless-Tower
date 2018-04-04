@@ -5,7 +5,6 @@
 struct VS_OUTPUT
 {
   float4 Pos : SV_POSITION;
-
   float3 N    : NORMAL0;
   float2 UV   : TEXCOORD0;
   float3 wPos : TEXCOORD1;
@@ -16,7 +15,6 @@ struct VS_OUTPUT
 // Vertex Shader
 //--------------------------------------------------------------------------------------
 VS_OUTPUT VS(
-
   float4 iPos : POSITION
 , float3 iN   : NORMAL0
 , float2 iUV : TEXCOORD0
@@ -31,7 +29,6 @@ VS_OUTPUT VS(
   output.Pos = mul(world_pos, camera_view);
   output.Pos = mul(output.Pos, camera_proj);
   // Rotate the normal
-
   output.N = mul(iN, (float3x3)obj_world);
   output.T.xyz = mul(iTan.xyz, (float3x3)obj_world);
   output.T.w = iTan.w;      // Keep the w as is
@@ -59,7 +56,6 @@ VS_OUTPUT VS_Skin(
   // Rotate the normal
   output.N = mul(iN, (float3x3)obj_world);
   output.UV = iUV;
-
   // ------------------------------
   // This needs fixing!!!
   output.T = float4(output.N,1);
@@ -69,16 +65,8 @@ VS_OUTPUT VS_Skin(
 //--------------------------------------------------------------------------------------
 // Pixel Shader
 //--------------------------------------------------------------------------------------
-Texture2D    txDiffuse      : register(t0);
-Texture2D    txLightMap			: register(t1);
-//Texture2D    txLightProjector : register(t2);  // TS_LIGHT_PROJECTOR
-
-//SamplerState samLinear       : register(s0);
-//SamplerState samBorderLinear : register(s1);
-
 float4 PS(VS_OUTPUT input) : SV_Target
 {
-	//return lightmap_color;
 
   //input.UV *= 4;
 
@@ -104,7 +92,6 @@ float4 PS(VS_OUTPUT input) : SV_Target
   // Diffuse amount N.L
   float3 Light = light_pos - input.wPos;
   Light = normalize( Light );
-
   float diffuseAmount = dot( wN, Light );
   diffuseAmount = saturate( 0.2+ diffuseAmount );
 
