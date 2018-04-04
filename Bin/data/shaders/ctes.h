@@ -13,9 +13,11 @@
 // Materials
 #define TS_ALBEDO              0
 #define TS_NORMAL              1
-// .. Other slots of the material
-#define TS_NUM_MATERIALS_SLOTS 2
+#define TS_METALLIC            2
+#define TS_ROUGHNESS           3
 
+// .. Other slots of the material
+#define TS_NUM_MATERIALS_SLOTS 4
 
 // Here goes the slots NOT associated to a material
 #define TS_LIGHT_PROJECTOR     5
