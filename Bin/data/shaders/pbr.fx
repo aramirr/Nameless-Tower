@@ -245,55 +245,54 @@ void VS_pass(
   oPos = mul(world_pos, camera_view_proj);
 }
 
-//--------------------------------------------------------------------------------------
-// Simplified version of the textured.fx
-float4 PS_dir_lights( in float4 iPosition : SV_Position ) : SV_Target
-{
-  return float4(0,0,0,0);
-  /*
-  float3 wPos, N, albedo;
-  decodeGBuffer( iPosition.xy, wPos, N, albedo );
-
-  float shadow_factor = computeShadowFactor( wPos );
-
-  // Diffuse
-  float3 Light = light_pos - wPos;
-  Light = normalize( Light );
-  float diffuseAmount = dot( N, Light );
-  diffuseAmount = saturate( diffuseAmount );
-  
-  float4 light_amount = diffuseAmount * light_color * light_intensity * shadow_factor;
-
-  return float4( light_amount.xyz, 1 );
-  */
+// --------------------------------------------------------
+float3 Diffuse(float3 pAlbedo) {
+    return pAlbedo/PI;
 }
 
+// --------------------------------------------------------
+float4 shade(
+  float4 iPosition
+, bool   use_shadows
+)
+{
+  // Decode GBuffer information
+  float3 wPos, N, albedo, specular_color, reflected_dir, view_dir;
+  float  roughness;
+  decodeGBuffer( iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir );
 
-//--------------------------------------------------------------------------------------
-// Simplified version of the textured.fx
+  // Shadow factor entre 0 (totalmente en sombra) y 1 (no ocluido)
+  float shadow_factor = use_shadows ? computeShadowFactor( wPos ) : 1.; 
+
+  // From wPos to Light
+  float3 light_dir_full = light_pos.xyz - wPos;
+  float  distance_to_light = length( light_dir_full );
+  float3 light_dir = light_dir_full / distance_to_light;
+
+  float  NdL = saturate(dot(N, light_dir));
+  float  NdV = saturate(dot(N, view_dir));
+  float3 h   = normalize(light_dir + view_dir); // half vector
+
+  float  NdH = saturate(dot(N, h));
+  float  VdH = saturate(dot(view_dir, h));
+  float  LdV = saturate(dot(light_dir, view_dir));
+  float  a   = max(0.001f, roughness * roughness);
+  float3 cDiff = Diffuse(albedo);
+  float3 cSpec = Specular(specular_color, h, view_dir, light_dir, a, NdL, NdV, NdH, VdH, LdV);
+
+  float  att = ( 1. - smoothstep( 0.90, 0.98, distance_to_light / light_radius ));
+
+  float3 final_color = light_color.xyz * NdL * (cDiff * (1.0f - cSpec) + cSpec) * att * light_intensity * shadow_factor;
+  return float4( final_color, 1 );
+}
+
 float4 PS_point_lights( in float4 iPosition : SV_Position ) : SV_Target
 {
-  /*
-  float3 wPos, N, albedo;
-  decodeGBuffer( iPosition.xy, wPos, N, albedo );
-
-  // Diffuse
-  float3 Light = light_pos - wPos;
-  float  distance_to_light = length( Light );
-  Light = normalize( Light );
-  float diffuseAmount = dot( N, Light );
-  diffuseAmount = saturate( diffuseAmount );
-
-  float att_ratio = ( 1. - smoothstep( 0.90, 0.98, distance_to_light / light_radius ));
-
-  // Att per distance
-  float att_factor = att_ratio / ( distance_to_light );
-
-  float4 light_amount = diffuseAmount * light_color * light_intensity * att_factor;
-
-  light_amount.xyz *= albedo.xyz;
-
-  return float4( light_amount.xyz, 1 );
-  */
-  return float4(0,0,0,0);
+  return shade( iPosition, false );
 }
+
+float4 PS_dir_lights( in float4 iPosition : SV_Position ) : SV_Target
+{
+  return shade( iPosition, true );
+}
+
