@@ -78,7 +78,7 @@ void CRenderManager::addRenderKey(
       //if(mesh->getVertexDecl()->name == "PosNUvCvTan" )
       //  shadow_mat = Resources.get("data/materials/shadows_mix.material")->as<CMaterial>();
       //else
-      //shadow_mat = Resources.get("data/materials/shadows.material")->as<CMaterial>();
+      shadow_mat = Resources.get("data/materials/shadows.material")->as<CMaterial>();
     }
 
     TRenderKey key;
