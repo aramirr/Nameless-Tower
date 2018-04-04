@@ -312,13 +312,13 @@
 			]
 			,
 			"transform": {
-				"pos": "-4 0 0"
+				"pos": "-24.769 0 -21.426"
 			},
-			"ai_destroyable": {
-				"trigger_actor" : "The Player",
-				"destoy_time" : 5
-			},
-			"tags" : ["enemy"]
+			"collider": {
+				"shape": "box",
+				"halfExtent": "1 1 1",
+				"is_dynamic": true
+			}
 		}
 	},
  {
