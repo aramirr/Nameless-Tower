@@ -45,53 +45,42 @@
 		"rs_config" : "shadows",
 		"category" : "shadows"
 	},
+  "solid_objs_skin" : {
+    "vs_file": "data/shaders/solid.fx",
+    "vs_entry_point" : "VS_Objs_Skin",
+    "vertex_type" : "PosNUvSkin",
+    "rs_config" : "wireframe"
+  },
 
-	"shadows" : {
-		"vs_file": "data/shaders/shadows.fx",
-		"vs_entry_point" : "VS",
-		"vertex_type" : "PosNUv",
-		"ps_entry_point" : "",
-		"rs_config" : "shadows",
-		"category" : "shadows"
-	},
-	"shadows_skin" : {
-		"vs_file": "data/shaders/shadows.fx",
-		"vs_entry_point" : "VS_Skin",
-		"vertex_type" : "PosNUvSkin",
-		"ps_entry_point" : "",
-		"rs_config" : "shadows",
-		"category" : "shadows"
-	},
-
-
-	"dump_texture" : {
-		"vs_file": "data/shaders/screen_quad.fx",
-		"vertex_type" : "PosClr",
+ 
+  "dump_texture" : {
+    "vs_file": "data/shaders/screen_quad.fx",
+    "vertex_type" : "PosClr",
     "z" : "disable_all",
     "category" : "helper"
-	},
+  },
 
 
-	"textured" : {
-		"vs_file": "data/shaders/textured.fx",
-		"vs_entry_point" : "VS",
-		"vertex_type" : "PosNUvUvT",
-		"textures" : { 
-			"environment" : "data/textures/cubemaps/beach.dds" 
-		}
-	},
-	"textured_skin" : {
-		"vs_file": "data/shaders/textured.fx",
-		"vs_entry_point" : "VS_Skin",
-		"vertex_type" : "PosNUvSkin",
-		"uses_skin" : true
-	},
+  "textured" : {
+    "vs_file": "data/shaders/textured.fx",
+    "vs_entry_point" : "VS",
+    "vertex_type" : "PosNUvUvT",
+    "textures" : { 
+      "environment" : "data/textures/cubemaps/beach.dds" 
+    }
+  },
+  "textured_skin" : {
+    "vs_file": "data/shaders/textured.fx",
+    "vs_entry_point" : "VS_Skin",
+    "vertex_type" : "PosNUvSkin",
+    "uses_skin" : true
+  },
 
 
   "gbuffer_resolve" : {
-		"vs_file": "data/shaders/screen_quad.fx",
-		"vertex_type" : "PosClr",
-		"ps_file": "data/shaders/deferred.fx",
+    "vs_file": "data/shaders/screen_quad.fx",
+    "vertex_type" : "PosClr",
+    "ps_file": "data/shaders/deferred.fx",
     "z" : "disable_all",
     "category" : "helper"
   },
@@ -106,10 +95,10 @@
     "category" : "gbuffer"
   },
   "pbr_ambient": {
-		"vs_file": "data/shaders/screen_quad.fx",
+    "vs_file": "data/shaders/screen_quad.fx",
     "ps_file": "data/shaders/pbr.fx",
     "ps_entry_point": "PS_ambient",
-		"vertex_type" : "PosClr",
+    "vertex_type" : "PosClr",
     "category" : "pbr_proc",
     "z" : "disable_all"
   },
@@ -118,7 +107,7 @@
     "ps_file": "data/shaders/pbr.fx",
     "vs_entry_point": "VS_pass",
     "ps_entry_point": "PS_dir_lights",
-	"vertex_type" : "PosNUvUvT",
+    "vertex_type" : "PosNUvUvT",
     "category" : "pbr_proc",
     "z" : "inverse_test_no_write",
     "blend" : "additive"
@@ -128,7 +117,7 @@
     "ps_file": "data/shaders/pbr.fx",
     "vs_entry_point": "VS_pass",
     "ps_entry_point": "PS_point_lights",
-	"vertex_type" : "PosNUvUvT",
+    "vertex_type" : "PosNUvUvT",
     "category" : "pbr_proc",
     "z" : "inverse_test_no_write",
     "rs_config" : "reverse_culling",
