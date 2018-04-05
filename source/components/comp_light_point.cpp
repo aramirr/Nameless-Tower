@@ -18,6 +18,8 @@ void TCompLightPoint::debugInMenu() {
 
 MAT44 TCompLightPoint::getWorld() {
   TCompTransform* c = get<TCompTransform>();
+  if (!c)
+    return MAT44::Identity;
   return MAT44::CreateScale(radius) * c->asMatrix();
 }
 
