@@ -39,15 +39,24 @@ float4 PS(
   float4 oAlbedo = txGBufferAlbedos.Load(ss_load_coords);
 
   float4 N_rt = txGBufferNormals.Load(ss_load_coords);
-  float4 oNormal = float4(decodeNormal( N_rt ), 1);
+  float4 oNormal = float4(decodeNormal( N_rt.xyz ), 1);
 
-  float4 hdrColor = txAccLights.Load(ss_load_coords);
+  float3 hdrColor = txAccLights.Load(ss_load_coords).xyz;
 
   hdrColor *= global_exposure_adjustment;
 
-  float3 tmColor = toneMappingUncharted2( hdrColor.xyz );
+  // In Low Dynamic Range we could not go beyond the value 1
+  float3 ldrColor = min(hdrColor,float3(1,1,1));
+  hdrColor = lerp( ldrColor, hdrColor, global_hdr_enabled  );
 
-  return float4( gammaCorrect( tmColor ), 1);
+  float3 tmColorUC2 = toneMappingUncharted2( hdrColor );
+  float3 tmColorReinhard = toneMappingReinhard( hdrColor );
+  float3 tmColor = lerp( tmColorReinhard, tmColorUC2, global_tone_mapping_mode );
+
+  float3 gammaCorrectedColor = gammaCorrect( tmColor );
+  gammaCorrectedColor = lerp( tmColor, gammaCorrectedColor.xyz, global_gamma_correction_enabled );
+
+  return float4( gammaCorrectedColor, 1);
 
   return float4( hdrColor.xyz, 1 ); 
   return float4( N_rt.aaa, 1 ); 

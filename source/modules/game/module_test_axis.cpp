@@ -59,9 +59,15 @@ bool CModuleTestAxis::start()
 	// -------------------------------------------
 	if (!cb_light.create(CB_LIGHT))
 		return false;
+	// -------------------------------------------
+	if (!cb_globals.create(CB_GLOBALS))
+		return false;
 	cb_globals.global_exposure_adjustment = 1.f;
 	cb_globals.global_ambient_adjustment = 1.f;
 	cb_globals.global_world_time = 0.f;
+	cb_globals.global_hdr_enabled = 1.f;
+	cb_globals.global_gamma_correction_enabled = 1.f;
+	cb_globals.global_tone_mapping_mode = 1.f;
 
 	cb_light.activate();
 	cb_object.activate();
