@@ -93,7 +93,7 @@ float4 PS_ambient(
 ) : SV_Target
 {
   // Will do something interesting here...
-  return float4( 0.2, 0.2, 0.2, 0.f );
+  return 0; // float4( 0.2, 0.2, 0.2, 0.f );
 }
 
 //--------------------------------------------------------------------------------------
@@ -145,13 +145,11 @@ float4 PS_point_lights( in float4 iPosition : SV_Position ) : SV_Target
   float diffuseAmount = dot( N, Light );
   diffuseAmount = saturate( diffuseAmount );
 
-  return light_radius / 100;
-
-  return ( 1. - smoothstep( 0, 1, distance_to_light/light_radius ));
+  float att_ratio = ( 1. - smoothstep( 0.90, 0.98, distance_to_light / light_radius ));
 
   // Att per distance
-  float att_factor = 1.0 / ( distance_to_light  ) * ( 1. - smoothstep( light_radius * 0.98, light_radius, distance_to_light ));
-  
+  float att_factor = att_ratio / ( distance_to_light );
+
   float4 light_amount = diffuseAmount * light_color * light_intensity * att_factor;
 
   return float4( light_amount.xyz, 1 );
