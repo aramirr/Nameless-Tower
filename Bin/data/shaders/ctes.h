@@ -8,6 +8,7 @@
 #define CB_SKIN_BONES   2
 #define CB_LIGHT        3
 #define CB_GLOBALS      4
+#define CB_MATERIAL     5
 
 // -------------------------------------------------
 // Texture Slots
@@ -102,12 +103,21 @@ CB_DEF(CCteLight, CB_LIGHT)
 
 };
 
-CB_DEF(CCteGlobals, CB_GLOBALS)   // Generates the b1
+CB_DEF(CCteGlobals, CB_GLOBALS)
 {
   float global_world_time;
   float global_exposure_adjustment;
   float global_ambient_adjustment;
   float global_dummy2;
 };
+
+CB_DEF(CCteMaterial, CB_MATERIAL) 
+{
+  float  scalar_roughness;
+  float  scalar_metallic;
+  float  scalar_irradiance_vs_mipmaps;
+  float  material_dummy;
+};
+
 
 #endif
