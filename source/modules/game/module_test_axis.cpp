@@ -73,6 +73,8 @@ bool CModuleTestAxis::stop()
 	cb_light.destroy();
 	cb_camera.destroy();
 	cb_object.destroy();
+	Engine.getEntities().destroyAllEntities();
+	Engine.getCameras().destroyAllCameras();
 	return true;
 }
 
