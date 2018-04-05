@@ -108,6 +108,10 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
   float global_world_time;
   float global_exposure_adjustment;
   float global_ambient_adjustment;
+  float global_hdr_enabled;
+  float global_gamma_correction_enabled;
+  float global_tone_mapping_mode;
+  float global_dummy1;
   float global_dummy2;
 };
 
