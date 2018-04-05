@@ -106,6 +106,9 @@ void decodeGBuffer(
          roughness = N_rt.a;
  
   // Apply gamma correction to albedo to bring it back to linear.
+  // If we have the albedo textures in BC7_SRGB or any format with _SRBG
+  // it means it's already in linear space, so we don't need this line.
+  // DO NOT APPLY TO NORMAL MAP textures!
   albedo.rgb = pow(albedo.rgb, 2.2f);
 
   // Lerp with metallic value to find the good diffuse and specular.
@@ -197,6 +200,8 @@ float4 PS_ambient(
   // Convert the color to linear also.
   env = pow(env, 2.2f);
 
+  //return float4(env,1);
+
 float scalar_irradiance_vs_mipmaps = 1;
   // The irrandiance, is read using the N direction.
   // Here we are sampling using the cubemap-miplevel 4, and the already blurred txIrradiance texture
@@ -205,10 +210,10 @@ float scalar_irradiance_vs_mipmaps = 1;
   float3 irradiance_mipmaps = txEnvironmentMap.SampleLevel(samLinear, N, 4).xyz;
   float3 irradiance_texture = txIrradianceMap.Sample(samLinear, N).xyz;
   float3 irradiance = irradiance_texture * scalar_irradiance_vs_mipmaps + irradiance_mipmaps * ( 1. - scalar_irradiance_vs_mipmaps );
+  //return float4(irradiance,1);
 
   // How much the environment we see
   float3 env_fresnel = Specular_F_Roughness(specular_color, 1. - roughness * roughness, N, view_dir);
-  //return float4(env_fresnel, 1 );
 
   float g_ReflectionIntensity = 1.0;
   float g_AmbientLightIntensity = 1.0;
