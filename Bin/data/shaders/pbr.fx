@@ -63,10 +63,10 @@ void PS_GBuffer(
 
   // Si el material lo pide, sobreescribir los valores de la textura
   // por unos escalares uniformes. Only to playtesting...
-  //if (scalar_metallic >= 0.f)
-  //  o_albedo.a = scalar_metallic;
-  //if (scalar_roughness >= 0.f)
-  //  o_normal.a = scalar_roughness;
+  if (scalar_metallic >= 0.f)
+    o_albedo.a = scalar_metallic;
+  if (scalar_roughness >= 0.f)
+    o_normal.a = scalar_roughness;
 
   // Compute the Z in linear space, and normalize it in the range 0...1
   // In the range z=0 to z=zFar of the camera (not zNear)
@@ -197,7 +197,6 @@ float4 PS_ambient(
   // Convert the color to linear also.
   env = pow(env, 2.2f);
 
-float scalar_irradiance_vs_mipmaps = 0;
   // The irrandiance, is read using the N direction.
   // Here we are sampling using the cubemap-miplevel 4, and the already blurred txIrradiance texture
   // and mixing it in base to the scalar_irradiance_vs_mipmaps which comes from the ImGui.
