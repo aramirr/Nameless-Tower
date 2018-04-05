@@ -302,22 +302,10 @@
 	{
 		"entity": {
 			"name": "Teapot1",
-			"render" : [
-				{
-					"mesh": "data/meshes/Teapot001.mesh",
-					"materials" : [
-						"data/materials/madera.material"
-					]
-				}
-			]
+			"render" : {}
 			,
 			"transform": {
-				"pos": "-24.769 0 -21.426"
-			},
-			"collider": {
-				"shape": "box",
-				"halfExtent": "1 1 1",
-				"is_dynamic": false
+				"pos": "-24.769 2 -21.426"
 			}
 		}
 	},
@@ -345,7 +333,10 @@
 				"parent": "Teapot1"
 			},
 			"ai_cut_door":{
-		        "distance": 2
+		        "distance": 3,
+		        "opening_speed": 1,
+				"closing_speed": 8,
+				"up": true
 		    }
 		}
 	},
@@ -373,7 +364,10 @@
 				"parent": "Teapot1"
 			},
 			"ai_cut_door":{
-		        "distance": 4
+		        "distance": 3,
+		        "opening_speed": 1,
+				"closing_speed": 8,
+				"up": false
 		    }
 		}
 	},

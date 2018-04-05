@@ -5,9 +5,10 @@
 
 class CAICutDoor : public IAIController
 {
-  VEC3 open_position;
-  VEC3 closed_position;
-  float distance;
+	bool up;
+	float distance;
+	float opening_speed;
+	float closing_speed;
 
   DECL_SIBLING_ACCESS();
 

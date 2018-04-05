@@ -21,36 +21,90 @@ void CAICutDoor::Init()
 	AddState("config_state", (statehandler)&CAICutDoor::ConfigState);
 
 	// reset the state
-	ChangeState("config_state");
+	ChangeState("closed_state");
 }
 
 void CAICutDoor::debugInMenu() {
 	IAIController::debugInMenu();
+	ImGui::DragFloat("Opening speed: %f", &opening_speed, 0.01f, 0.f, 15.f);
+	ImGui::DragFloat("Closing speed: %f", &closing_speed, 0.01f, 0.f, 15.f);
 }
 
 void CAICutDoor::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
 	distance = j.value("distance", 2.0f);
+	opening_speed = j.value("opening_speed", 0.5f);
+	closing_speed = j.value("closing_speed", 0.5f);
+	up = j.value("up", 2.0f);
 	Init();
 }
 
 void CAICutDoor::ConfigState() {
-	CEntity* e = h_entity;
-	TCompHierarchy *c_my_hierarchy = e->get< TCompHierarchy >();
-	TCompTransform *c_my_transform = c_my_hierarchy->h_my_transform;
-	TCompTransform *c_my_transform2 = c_my_hierarchy->h_parent_transform;
-	open_position = c_my_transform->getPosition();
-	open_position.y += distance;
-	c_my_transform->setPosition(open_position);
-	closed_position = c_my_transform2->getPosition();
-	closed_position.y += 2.f;
-	TCompTransform *my_t = getMyTransform();
-	VEC3 p = my_t->getPosition();
-	p.y += distance + 1.f;
-	my_t->setPosition(p);
 };
 
-void CAICutDoor::ClosingState(float dt) {};
-void CAICutDoor::OpeningState(float dt) {};
-void CAICutDoor::OpenState(float dt) {};
-void CAICutDoor::ClosedState(float dt) {};
+void CAICutDoor::ClosingState(float dt) {
+	CEntity* e = h_entity;
+	TCompHierarchy *my_hierarchy = e->get<TCompHierarchy>();
+	VEC3 my_pos = my_hierarchy->getPosition();
+	if (up) {
+		my_pos.y -= closing_speed * dt;
+		if (my_pos.y < 0.f)
+			my_pos.y = 0.f;
+	}
+	else {
+		my_pos.y += closing_speed * dt;
+		if (my_pos.y > 0.f)
+			my_pos.y = 0.f;
+	}
+
+	TCompTransform *parent_transform = my_hierarchy->h_parent_transform;
+	VEC3 new_world_pos = parent_transform->getPosition() + my_pos;
+	TCompCollider *my_collider = getMyCollider();
+
+	PxRigidActor* rigidActor = ((PxRigidActor*)my_collider->actor);
+	PxTransform tr = rigidActor->getGlobalPose();
+	tr.p = PxVec3(new_world_pos.x, new_world_pos.y, new_world_pos.z);
+	rigidActor->setGlobalPose(tr);
+
+	my_hierarchy->setPosition(my_pos);
+	if (my_pos == VEC3(0, 0, 0)) 
+		ChangeState("closed_state");
+};
+
+void CAICutDoor::OpeningState(float dt) {
+	CEntity* e = h_entity;
+	TCompHierarchy *my_hierarchy = e->get<TCompHierarchy>();
+	VEC3 my_pos = my_hierarchy->getPosition();
+	if (up) {
+		my_pos.y += opening_speed * dt;
+		if (my_pos.y > distance)
+			my_pos.y = distance;
+	}
+	else { 
+		my_pos.y -= opening_speed * dt; 
+		if (my_pos.y < -distance)
+			my_pos.y = -distance;
+	}
+	
+	TCompTransform *parent_transform = my_hierarchy->h_parent_transform;
+	VEC3 new_world_pos = parent_transform->getPosition() + my_pos;
+	TCompCollider *my_collider = getMyCollider();
+
+	PxRigidActor* rigidActor = ((PxRigidActor*)my_collider->actor);
+	PxTransform tr = rigidActor->getGlobalPose();
+	tr.p = PxVec3(new_world_pos.x, new_world_pos.y, new_world_pos.z);
+	rigidActor->setGlobalPose(tr);
+
+	my_hierarchy->setPosition(my_pos);
+	if ((my_pos == VEC3(0, distance, 0)) || (my_pos == VEC3(0, -distance, 0)))
+		ChangeState("open_state");
+
+};
+void CAICutDoor::OpenState(float dt) {
+	ChangeState("closing_state");
+
+};
+
+void CAICutDoor::ClosedState(float dt) {
+	ChangeState("opening_state");
+};
