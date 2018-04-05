@@ -301,7 +301,7 @@
 	},
 	{
 		"entity": {
-			"name": "Teapot Destroyable",
+			"name": "Teapot1",
 			"render" : [
 				{
 					"mesh": "data/meshes/Teapot001.mesh",
@@ -317,8 +317,64 @@
 			"collider": {
 				"shape": "box",
 				"halfExtent": "1 1 1",
-				"is_dynamic": true
+				"is_dynamic": false
 			}
+		}
+	},
+	{
+		"entity": {
+			"name": "Teapot2",
+			"render" : [
+				{
+					"mesh": "data/meshes/Teapot001.mesh",
+					"materials" : [
+						"data/materials/madera.material"
+					]
+				}
+			]
+			,
+			"transform": {
+				"pos": "-24.769 2 -21.426"
+			},
+			"collider": {
+				"shape": "box",
+				"halfExtent": "1 1 1",
+				"is_dynamic": false
+			},
+			"hierarchy": {
+				"parent": "Teapot1"
+			},
+			"ai_cut_door":{
+		        "distance": 2
+		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "Teapot3",
+			"render" : [
+				{
+					"mesh": "data/meshes/Teapot001.mesh",
+					"materials" : [
+						"data/materials/madera.material"
+					]
+				}
+			]
+			,
+			"transform": {
+				"pos": "-24.769 3 -21.426"
+			},
+			"collider": {
+				"shape": "box",
+				"halfExtent": "1 1 1",
+				"is_dynamic": false
+			},
+			"hierarchy": {
+				"parent": "Teapot1"
+			},
+			"ai_cut_door":{
+		        "distance": 4
+		    }
 		}
 	},
  {

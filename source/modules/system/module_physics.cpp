@@ -285,7 +285,7 @@ void CModulePhysics::CustomSimulationEventCallback::onTrigger(PxTriggerPair* pai
   }
 }
 
-void CModulePhysics::CustomSimulationEventCallback::onContact(const physx::PxContactPairHeader& pairHeader, const physx::PxContactPair* pairs, physx::PxU32 nbPairs) {
+/*void CModulePhysics::CustomSimulationEventCallback::onContact(const physx::PxContactPairHeader& pairHeader, const physx::PxContactPair* pairs, physx::PxU32 nbPairs) {
 	for (PxU32 i = 0; i < nbPairs; ++i)
 	{
 		if (pairs[i].flags & (PxContactPairFlag::eREMOVED_SHAPE_0 | PxContactPairFlag::eREMOVED_SHAPE_1))
@@ -303,4 +303,4 @@ void CModulePhysics::CustomSimulationEventCallback::onContact(const physx::PxCon
 		//e_collider->sendMsg(TMsgColliderEnter{ "Hello" });
 
 	}
-}
+}*/
