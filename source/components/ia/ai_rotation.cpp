@@ -20,12 +20,19 @@ void CAIRotator::Init()
 
 	// reset the state
 	it_config = 0;
+	current_radiants = 0.f;
+	current_time = 0.f;
 	ChangeState("rotate_state");
 }
 
 void CAIRotator::debugInMenu() {
 
 	IAIController::debugInMenu();
+	ImGui::DragFloat("IT %f", &it_config);
+	ImGui::DragFloat("Rad %f", &current_radiants);
+	float deg = rad2deg(current_radiants);
+	ImGui::DragFloat("Deg %f", &deg);
+	ImGui::DragFloat("Time %f", &current_time);
 }
 
 void CAIRotator::load(const json& j, TEntityParseContext& ctx) {
@@ -35,7 +42,7 @@ void CAIRotator::load(const json& j, TEntityParseContext& ctx) {
 	for (auto it = j_configs.begin(); it != j_configs.end(); ++it) {
 		TConfig conf;
 		if (it.value()["axis"] == "X") conf.axis = X;
-		else if (it.value()["axis"] == "X") conf.axis = Y;
+		else if (it.value()["axis"] == "Y") conf.axis = Y;
 		else conf.axis = Z;
 
 		conf.increase = it.value()["increase"];
@@ -67,68 +74,72 @@ void CAIRotator::RotateState(float dt) {
 
 	float rotation = config_states[it_config].speed * dt;
 	if (config_states[it_config].axis == X) {
+		change_color(VEC4(1, 0, 0, 0));
 		if (config_states[it_config].increase) {
 			if (current_radiants + rotation > config_states[it_config].radiants) {
 				r += config_states[it_config].radiants - current_radiants;
-				current_radiants += config_states[it_config].radiants - current_radiants;
+				current_radiants = config_states[it_config].radiants;
 			}
 			else {
 				r += rotation;
-				current_radiants = rotation;
+				current_radiants += rotation;
 			}
 		}
 		else {
 			if (current_radiants + rotation > config_states[it_config].radiants) {
 				r -= config_states[it_config].radiants - current_radiants;
-				current_radiants += config_states[it_config].radiants - current_radiants;
+				current_radiants = config_states[it_config].radiants;
 			}
 			else {
 				r -= rotation;
-				current_radiants = rotation;
+				current_radiants += rotation;
 			}
 		}
 	}
 	else if (config_states[it_config].axis == Y) {
+		change_color(VEC4(0, 1, 0, 0));
+
 		if (config_states[it_config].increase) {
 			if (current_radiants + rotation > config_states[it_config].radiants) {
 				y += config_states[it_config].radiants - current_radiants;
-				current_radiants += config_states[it_config].radiants - current_radiants;
+				current_radiants = config_states[it_config].radiants;
 			}
 			else {
 				y += rotation;
-				current_radiants = rotation;
+				current_radiants += rotation;
 			}
 		}
 		else {
 			if (current_radiants + rotation > config_states[it_config].radiants) {
 				y -= config_states[it_config].radiants - current_radiants;
-				current_radiants += config_states[it_config].radiants - current_radiants;
+				current_radiants = config_states[it_config].radiants;
 			}
 			else {
 				y -= rotation;
-				current_radiants = rotation;
+				current_radiants += rotation;
 			}
 		}
 	}
 	else {
+		change_color(VEC4(0, 0, 1, 0));
 		if (config_states[it_config].increase) {
 			if (current_radiants + rotation > config_states[it_config].radiants) {
 				p += config_states[it_config].radiants - current_radiants;
-				current_radiants += config_states[it_config].radiants - current_radiants;
+				current_radiants = config_states[it_config].radiants;
 			}
 			else {
 				p += rotation;
-				current_radiants = rotation;
+				current_radiants += rotation;
 			}
 		}
 		else {
 			if (current_radiants + rotation > config_states[it_config].radiants) {
 				p -= config_states[it_config].radiants - current_radiants;
-				current_radiants += config_states[it_config].radiants - current_radiants;
+				current_radiants = config_states[it_config].radiants;
 			}
 			else {
 				p -= rotation;
-				current_radiants = rotation;
+				current_radiants += rotation;
 			}
 		}
 	}
@@ -143,12 +154,18 @@ void CAIRotator::RotateState(float dt) {
 	tr.q = PxQuat(newRot.x, newRot.y, newRot.z, newRot.w);
 	rigidActor->setGlobalPose(tr);
 
-	if (current_radiants >= config_states[it_config].radiants)
+	if (current_radiants >= config_states[it_config].radiants) {
+		current_time = 0.f;
 		ChangeState("stop_state");
+	}
 
 };
 
-void CAIRotator::StopState(float dt) {};
+void CAIRotator::StopState(float dt) {
+	current_time += dt;
+	if (current_time >= config_states[it_config].wait_time)
+		ChangeState("next_config_state");
+};
 
 
 void CAIRotator::registerMsgs() {

@@ -312,24 +312,33 @@
 			]
 			,
 			"transform": {
-				"pos": "-24.769 0 -21.426"
+				"pos": "-24.769 2 -21.426"
 			},
-			"ai_rotator": [
-				{
-					"axis": "X",
-					"increase": true,
-					"speed": 1.0,
-					"wait_time": 1.0,
-					"radiants": 90.0
-				},
-				{
-					"axis": "X",
-					"increase": true,
-					"speed": 1.0,
-					"wait_time": 1.0,
-					"radiants": 90.0
-				}
-			],
+			"ai_rotator": {
+				"configs":[
+					{
+						"axis": "X",
+						"increase": true,
+						"speed": 1.0,
+						"wait_time": 1.0,
+						"degrees": 90.0
+					},
+					{
+						"axis": "Y",
+						"increase": false,
+						"speed": 1.0,
+						"wait_time": 1.0,
+						"degrees": 180.0
+					},
+					{
+						"axis": "X",
+						"increase": true,
+						"speed": 1.0,
+						"wait_time": 1.0,
+						"degrees": 90.0
+					}
+				]
+			},	
 			"collider": {
 				"shape": "box",
 				"is_trigger": true,
