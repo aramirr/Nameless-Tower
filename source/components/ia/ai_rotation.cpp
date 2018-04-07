@@ -14,173 +14,141 @@ DECL_OBJ_MANAGER("ai_rotator", CAIRotator);
 void CAIRotator::Init()
 {
 	// insert all states in the map
-	AddState("initialize_waypoint", (statehandler)&CAIRotator::InitializeWaypointState);
-	AddState("next_waypoint", (statehandler)&CAIRotator::NextWaypointState);
-	AddState("move_to_waypoint", (statehandler)&CAIRotator::MoveToWaypointState);
-	AddState("wait_state", (statehandler)&CAIRotator::WaitState);
+	AddState("next_config_state", (statehandler)&CAIRotator::NextConfigState);
+	AddState("rotate_state", (statehandler)&CAIRotator::RotateState);
+	AddState("stop_state", (statehandler)&CAIRotator::StopState);
 
 	// reset the state
-	ChangeState("initialize_waypoint");
+	it_config = 0;
+	ChangeState("rotate_state");
 }
 
 void CAIRotator::debugInMenu() {
 
 	IAIController::debugInMenu();
-	TCompTransform *mypos = getMyTransform();
-	VEC3 vp = mypos->getPosition();
-	ImGui::Text("Curr Waypoint %d", currentWaypoint);
-	ImGui::DragFloat("Speed %f", &speed);
-	ImGui::DragFloat("Delay %f", &delay);
-	ImGui::Text("Acum Delay %f", acum_delay);
-	ImGui::Text("Distance %f", VEC3::Distance(getWaypoint(), vp));
-	ImGui::DragFloat3("Center", &center.x, 0.1f, -20.f, 20.f);
-	ImGui::DragFloat("Radius %f", &radius);
-}
-
-VEC3 CAIRotator::processWaypoint(const VEC3 center, const VEC3 waypoint, const float distance) {
-	//VEC3 vector = waypoint - center;
-	VEC2 vector2D = VEC2{ waypoint.x, waypoint.z } -VEC2{ center.x, center.z };
-	vector2D.Normalize();
-	VEC3 result = VEC3{ (vector2D.x * distance), (waypoint.y), (vector2D.y * distance) };
-	return result;
 }
 
 void CAIRotator::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
 
-	speed = j.value("speed", 2.0f);
-	delay = j.value("delay", 2.0f);
-	center = loadVEC3(j["center"]);
-	radius = j["radius"];
+	auto& j_configs = j["configs"];
+	for (auto it = j_configs.begin(); it != j_configs.end(); ++it) {
+		TConfig conf;
+		if (it.value()["axis"] == "X") conf.axis = X;
+		else if (it.value()["axis"] == "X") conf.axis = Y;
+		else conf.axis = Z;
 
-	auto& j_waypoints = j["waypoints"];
-	for (auto it = j_waypoints.begin(); it != j_waypoints.end(); ++it) {
-		VEC3 p = loadVEC3(it.value());
-		VEC3 processed_waypoint = processWaypoint(center, p, radius);
-		addWaypoint(processed_waypoint);
+		conf.increase = it.value()["increase"];
+		conf.speed = it.value()["speed"];
+		conf.wait_time = it.value()["wait_time"];
+		conf.radiants = it.value()["degrees"];
+		conf.radiants = deg2rad(conf.radiants);
+		config_states.push_back(conf);
 	}
 
 	Init();
 }
 
+void CAIRotator::NextConfigState() {
+	++it_config;
+	if (it_config >= config_states.size()) it_config = 0;
+	current_time = 0.f;
+	current_radiants = 0.f;
+	ChangeState("rotate_state");
+};
 
-void CAIRotator::InitializeWaypointState()
-{
-	TCompTransform *mypos = getMyTransform();
-	float current_distance;
-	int current_index;
-	for (int i = 0; i < _waypoints.size(); i++)
-	{
-		if (i == 0)
-		{
-			current_distance = VEC3::Distance(mypos->getPosition(), _waypoints[i]);
-			current_index = 0;
-		}
-		else
-		{
-			float calculated_distance = VEC3::Distance(mypos->getPosition(), _waypoints[i]);
-			if (calculated_distance < current_distance)
-			{
-				current_distance = calculated_distance;
-				current_index = i;
+void CAIRotator::RotateState(float dt) {
+	TCompCollider *my_collider = getMyCollider();
+	TCompTransform *my_transform = getMyTransform();
+	VEC3 my_pos = my_transform->getPosition();
+
+	float y, p, r;
+	my_transform->getYawPitchRoll(&y, &p, &r);
+
+	float rotation = config_states[it_config].speed * dt;
+	if (config_states[it_config].axis == X) {
+		if (config_states[it_config].increase) {
+			if (current_radiants + rotation > config_states[it_config].radiants) {
+				r += config_states[it_config].radiants - current_radiants;
+				current_radiants += config_states[it_config].radiants - current_radiants;
+			}
+			else {
+				r += rotation;
+				current_radiants = rotation;
 			}
 		}
-	}
-	currentWaypoint = current_index;
-	TCompTransform *c_my_transform = get<TCompTransform>();
-	move_left = c_my_transform->isInLeft(getWaypoint());
-	ChangeState("move_to_waypoint");
-}
-
-void CAIRotator::NextWaypointState()
-{
-	currentWaypoint = (currentWaypoint + 1) % _waypoints.size();
-	TCompTransform *c_my_transform = get<TCompTransform>();
-	move_left = c_my_transform->isInLeft(getWaypoint());
-	ChangeState("move_to_waypoint");
-}
-
-void CAIRotator::MoveToWaypointState(float dt)
-{
-	
-	TCompTransform *c_my_transform = get<TCompTransform>();
-	VEC3 myPos = c_my_transform->getPosition();
-	QUAT myRot = c_my_transform->getRotation();
-
-	float y, p;
-	c_my_transform->getYawPitchRoll(&y, &p);
-	float distance = VEC3::Distance(center, myPos);
-	c_my_transform->setPosition(center);
-
-	if (move_left == true)
-	{
-		y -= DT * speed;
-	}
-	else
-	{
-		y += DT * speed;
-	}
-	c_my_transform->setYawPitchRoll(y, p);
-	VEC3 newPos = c_my_transform->getPosition() - (c_my_transform->getFront() * distance);
-	c_my_transform->setPosition(newPos);
-	QUAT newRot = c_my_transform->getRotation();
-
-	TCompCollider* comp_collider = get<TCompCollider>();
-	if (comp_collider)
-	{
-		PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
-		PxTransform tr = rigidActor->getGlobalPose();
-		tr.p = PxVec3(newPos.x, newPos.y, newPos.z); 
-		tr.q = PxQuat(newRot.x, newRot.y, newRot.z, newRot.w);
-		rigidActor->setGlobalPose(tr);
-		if (attached.isValid()) {
-			CEntity* e = attached;
-			assert(e);
-			TCompCollider *player_collider = e->get< TCompCollider >();
-			TCompTransform *player_transform = e->get< TCompTransform >();
-			VEC3 delta_pos = newPos - myPos;
-			float p_y, p_p;
-			player_transform->getYawPitchRoll(&p_y, &p_p);
-
-			if (move_left == true)
-			{
-				p_y -= DT * speed;
+		else {
+			if (current_radiants + rotation > config_states[it_config].radiants) {
+				r -= config_states[it_config].radiants - current_radiants;
+				current_radiants += config_states[it_config].radiants - current_radiants;
 			}
-			else
-			{
-				p_y += DT * speed;
-			}
-			player_transform->setYawPitchRoll(p_y, p_p);
-			player_collider->controller->move(physx::PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, DT, physx::PxControllerFilters());
-			
-			TCompPlayerController *player_controller = e->get<TCompPlayerController>();
-			VEC3 tower_center = player_controller->center;
-			VEC3 player_pos = player_transform->getPosition();
-			float d = VEC3::Distance({ tower_center.x, 0, tower_center.z }, { player_pos.x, 0, player_pos.z });
-			if (d != player_controller->tower_radius)
-			{
-				VEC3 d_vector = player_pos - tower_center;
-				d_vector.Normalize();
-				VEC3 new_pos = d_vector * player_controller->tower_radius;
-
+			else {
+				r -= rotation;
+				current_radiants = rotation;
 			}
 		}
 	}
-	
-	if (VEC3::Distance(getWaypoint(), myPos) < 2.5)
-	{
-		acum_delay = 0;
-		ChangeState("wait_state");
+	else if (config_states[it_config].axis == Y) {
+		if (config_states[it_config].increase) {
+			if (current_radiants + rotation > config_states[it_config].radiants) {
+				y += config_states[it_config].radiants - current_radiants;
+				current_radiants += config_states[it_config].radiants - current_radiants;
+			}
+			else {
+				y += rotation;
+				current_radiants = rotation;
+			}
+		}
+		else {
+			if (current_radiants + rotation > config_states[it_config].radiants) {
+				y -= config_states[it_config].radiants - current_radiants;
+				current_radiants += config_states[it_config].radiants - current_radiants;
+			}
+			else {
+				y -= rotation;
+				current_radiants = rotation;
+			}
+		}
 	}
-}
+	else {
+		if (config_states[it_config].increase) {
+			if (current_radiants + rotation > config_states[it_config].radiants) {
+				p += config_states[it_config].radiants - current_radiants;
+				current_radiants += config_states[it_config].radiants - current_radiants;
+			}
+			else {
+				p += rotation;
+				current_radiants = rotation;
+			}
+		}
+		else {
+			if (current_radiants + rotation > config_states[it_config].radiants) {
+				p -= config_states[it_config].radiants - current_radiants;
+				current_radiants += config_states[it_config].radiants - current_radiants;
+			}
+			else {
+				p -= rotation;
+				current_radiants = rotation;
+			}
+		}
+	}
 
-void CAIRotator::WaitState(float dt)
-{
-	acum_delay += DT;
-	if (delay < acum_delay) {
-		ChangeState("next_waypoint");
-	}
-}
+
+	my_transform->setYawPitchRoll(y, p, r);
+	QUAT newRot = my_transform->getRotation();
+
+	PxRigidActor* rigidActor = ((PxRigidActor*)my_collider->actor);
+	PxTransform tr = rigidActor->getGlobalPose();
+	tr.p = PxVec3(my_pos.x, my_pos.y, my_pos.z);
+	tr.q = PxQuat(newRot.x, newRot.y, newRot.z, newRot.w);
+	rigidActor->setGlobalPose(tr);
+
+	if (current_radiants >= config_states[it_config].radiants)
+		ChangeState("stop_state");
+
+};
+
+void CAIRotator::StopState(float dt) {};
 
 
 void CAIRotator::registerMsgs() {

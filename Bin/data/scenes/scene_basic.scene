@@ -312,13 +312,29 @@
 			]
 			,
 			"transform": {
-				"pos": "-4 0 0"
+				"pos": "-24.769 0 -21.426"
 			},
-			"ai_destroyable": {
-				"trigger_actor" : "The Player",
-				"destoy_time" : 5
-			},
-			"tags" : ["enemy"]
+			"ai_rotator": [
+				{
+					"axis": "X",
+					"increase": true,
+					"speed": 1.0,
+					"wait_time": 1.0,
+					"radiants": 90.0
+				},
+				{
+					"axis": "X",
+					"increase": true,
+					"speed": 1.0,
+					"wait_time": 1.0,
+					"radiants": 90.0
+				}
+			],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			}
 		}
 	},
  {
