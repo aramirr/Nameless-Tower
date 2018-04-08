@@ -38,7 +38,8 @@ bool CModuleTestAxis::start()
 	{
 		TEntityParseContext ctx;
 
-		parseScene("data/scenes/TorreMilestoneFinal2.scene", ctx);
+		//parseScene("data/scenes/TorreMilestoneFinal2.scene", ctx);
+		parseScene("data/scenes/Torre2Milestone.scene", ctx);
 	}
 	{
 		TEntityParseContext ctx;
