@@ -13966,15 +13966,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "runner_appear"
-        ,
-        "b_appear": true
-        ,
-        "appearing_position": "25.2777 29.25 16.6291"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": true
+      "trigger_type": "plattform"
       }
       ,
       "collider":
@@ -13986,6 +13978,11 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+      }
+      ,
+      "ai_fan":
+      {
+
       }
     }
   }
@@ -14016,15 +14013,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "runner_appear"
-        ,
-        "b_appear": true
-        ,
-        "appearing_position": "25.2777 29.25 16.6291"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": true
+      "trigger_type": "plattform"
       }
       ,
       "collider":
@@ -14036,6 +14025,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+      },
+      "ai_fan": {      
       }
     }
   }
@@ -14065,16 +14056,8 @@
       ]
       ,
       "trigger":
-      {
-        "trigger_type": "runner_appear"
-        ,
-        "b_appear": true
-        ,
-        "appearing_position": "25.2777 29.25 16.6291"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": true
+     {
+     "trigger_type": "plattform"
       }
       ,
       "collider":
@@ -14086,7 +14069,9 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-      }
+      },
+      "ai_fan": {      
+      }      
     }
   }
   ,
@@ -14115,16 +14100,8 @@
       ]
       ,
       "trigger":
-      {
-        "trigger_type": "runner_appear"
-        ,
-        "b_appear": true
-        ,
-        "appearing_position": "25.2777 29.25 16.6291"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": true
+      {        
+      "trigger_type": "plattform"
       }
       ,
       "collider":
@@ -14136,6 +14113,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+      },
+      "ai_fan": {      
       }
     }
   }

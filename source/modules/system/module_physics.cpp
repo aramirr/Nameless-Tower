@@ -72,7 +72,7 @@ void CModulePhysics::createActor(TCompCollider& comp_collider)
 
     PxCapsuleController* ctrl = static_cast<PxCapsuleController*>(mControllerManager->createController(*cDesc));
     PX_ASSERT(ctrl);
-    ctrl->setFootPosition(PxExtendedVec3(pos.x, pos.y, pos.z));
+    ctrl->setFootPosition(PxExtendedVec3(pos.x + config.offset.x, pos.y + config.offset.y, pos.z + config.offset.z));
     actor = ctrl->getActor();
     comp_collider.controller = ctrl;
     setupFiltering(actor, config.group, config.mask);
@@ -275,7 +275,7 @@ void CModulePhysics::CustomSimulationEventCallback::onTrigger(PxTriggerPair* pai
 
     if (pairs[i].status == PxPairFlag::eNOTIFY_TOUCH_FOUND)
     {
-			e_trigger->sendMsg(TMsgTriggerEnter{ h_other_comp_collider.getOwner() });
+	  e_trigger->sendMsg(TMsgTriggerEnter{ h_other_comp_collider.getOwner() });
     }
     else if (pairs[i].status == PxPairFlag::eNOTIFY_TOUCH_LOST)
     {

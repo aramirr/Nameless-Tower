@@ -204,6 +204,8 @@ void TCompPlayerController::idle_state(float dt) {
 	float y_speed = (y_speed_factor * DT) - (gravity * DT * DT / 2);
 	if (!is_grounded)
 		y_speed_factor -= gravity * DT / 2;
+	if (!gravity_enabled)
+		y_speed_factor = 0;
 
 	// Chequea el salto
 	if (space.getsPressed() && is_grounded) {
@@ -311,6 +313,8 @@ void TCompPlayerController::running_state(float dt) {
 		float y_speed = (y_speed_factor * DT) - (gravity * DT * DT / 2);
 		if (!is_grounded)
 			y_speed_factor -= gravity * DT / 2;
+		if (!gravity_enabled)
+			y_speed_factor = 0;
 		if (isPressed('A')) {
 			if (!looking_left) {
 				looking_left = true;
@@ -359,6 +363,8 @@ void TCompPlayerController::jumping_state(float dt) {
 	else
 		y_speed = (y_speed_factor * DT) - (gravity * DT * DT * 3);
 	y_speed_factor -= gravity * DT / 2;
+	if (!gravity_enabled)
+		y_speed_factor = 0;
 	new_pos.y += y_speed;
 
 	// Chequea el dash		
@@ -568,6 +574,7 @@ void TCompPlayerController::registerMsgs() {
 	DECL_MSG(TCompPlayerController, TMsgKillPlayer, killPlayer);
 	DECL_MSG(TCompPlayerController, TMsgCheckpoint, setCheckpoint);
 	DECL_MSG(TCompPlayerController, TMsgWindstrike, updateWindstrikes);
+	DECL_MSG(TCompPlayerController, TMsgGravityToggle, toggle_gravity);
 }
 
 void TCompPlayerController::killPlayer(const TMsgKillPlayer& msg)
@@ -589,4 +596,9 @@ void TCompPlayerController::setCheckpoint(const TMsgCheckpoint& msg)
 void TCompPlayerController::updateWindstrikes(const TMsgWindstrike& msg) {
 	if (max_windstrikes > availables_windstrikes)
 		availables_windstrikes++;
+}
+
+void TCompPlayerController::toggle_gravity(const TMsgGravityToggle& msg)
+{
+	gravity_enabled = msg.is_active;
 }
