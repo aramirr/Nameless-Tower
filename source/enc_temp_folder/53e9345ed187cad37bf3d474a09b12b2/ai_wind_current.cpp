@@ -74,14 +74,14 @@ void CAIFan::attachPlayer(const TMsgAttachTo& msg) {
 }
 
 void CAIFan::detachPlayer(const TMsgDetachOf& msg) {
-	//CHandle inc_attached = msg.h_attacher;
-	//CEntity *e_inc_attached = inc_attached;
-	//if (inc_attached == attached)
-	//{
-	CEntity *e_attached = attached;
-	TMsgGravityToggle enable_player_gravity_message;
-	enable_player_gravity_message.is_active = true;
-	e_attached->sendMsg(enable_player_gravity_message);
-	attached = CHandle();
-	//}
+	CHandle inc_attached = msg.h_attacher;
+	CEntity *e_inc_attached = inc_attached;
+	if (inc_attached == attached)
+	{
+		CEntity *e_attached = attached;
+		TMsgGravityToggle enable_player_gravity_message;
+		enable_player_gravity_message.is_active = true;
+		e_attached->sendMsg(enable_player_gravity_message);
+		attached = CHandle();
+	}
 }
