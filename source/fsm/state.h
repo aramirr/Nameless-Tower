@@ -10,8 +10,9 @@ namespace FSM
   class CContext;
 
   class IState
-  {
+  {		
   public:
+		DECL_SIBLING_ACCESS();
     virtual void onStart(CContext& ctx) const {}
     virtual void onFinish(CContext& ctx) const {}
     virtual bool update(float dt, CContext& ctx) const { return _isFinal; }
@@ -21,7 +22,6 @@ namespace FSM
     const std::string& getName() const { return _name; }
     void setFinal(bool how) { _isFinal = how; }
     bool isFinal() const { return _isFinal; }
-
   private:
     std::string _name;
     bool _isFinal = false;

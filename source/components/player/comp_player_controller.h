@@ -5,7 +5,12 @@
 #include "components/ia/ai_controller.h"
 
 
-class TCompPlayerController : public IAIController {
+class TCompPlayerController : public TCompBase {	
+  DECL_SIBLING_ACCESS();
+
+  //float DT;
+
+public:
 	float   current_x_speed_factor = 2.0f;
 	float   x_speed_factor = 2.0f;
 	float   y_speed_factor = 0.f;
@@ -24,27 +29,28 @@ class TCompPlayerController : public IAIController {
 	float	jumping_start_height;
 	float	jumping_death_height;
 	int     dashing_speed;
-	bool    looking_left;
-	bool    is_grounded;
 	bool	can_omni;
 	bool	can_dash;
-
-	VEC3 checkpoint;
 	float checkpoint_yaw;
 
-  DECL_SIBLING_ACCESS();
-
-  //float DT;
-
-public:
+	VEC3 checkpoint;
+	bool    looking_left;
+	bool    is_grounded;
 	VEC3	  center;
 	float	  tower_radius;
+	CHandle         h_entity;
+	CHandle         h_transform;        // Cached
+	CHandle         h_render;        // Cached
+	CHandle         h_collider;        // Cached
+	
+	float DT;
+
   void debugInMenu();
   void load(const json& j, TEntityParseContext& ctx);
+	void change_mesh(int mesh_index);
 
   // IA
-	void initial_state(float dt);
-	void idle_state(float dt);
+	/*void idle_state(float dt);
   void running_state(float dt);
   void jumping_state(float dt);
 	void omnidashing_state(float dt);
@@ -52,17 +58,23 @@ public:
 	void dashing_state(float dt);
 	void dead_state(float dt);
 	void move_player(bool left, bool change_orientation, float dt, float y_speed);
+	*/
 
 	bool isForward() { return looking_left; };
 	bool isGrounded() { return is_grounded; }
 
+	/*
 	static void registerMsgs();
-	void killPlayer(const TMsgKillPlayer& msg);
+	void killPlayer(const TM sgKillPlayer& msg);
+	*/
 	void setCheckpoint(const TMsgCheckpoint& msg);
-
-  //void setdt(float dt) { DT = dt; };
-
-  //void update(float dt);
-
+	
   void init();
+
+	TCompTransform * getMyTransform();
+	TCompRender* getMyRender();
+	TCompCollider* getMyCollider();
+
+private:
+	void setEntity(CHandle new_entity);
 };

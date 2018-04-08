@@ -112,6 +112,10 @@
 			"fsm" : {
 				"file" : "data/fsm/character.fsm"
 			},
+			"player_controller" : {				
+			},
+			"player_input": {
+			},
 		  "collider": {
 			"shape": "capsule",
 			"is_character_controller": true

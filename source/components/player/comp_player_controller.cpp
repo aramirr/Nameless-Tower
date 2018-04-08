@@ -8,9 +8,98 @@
 
 DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
+void TCompPlayerController::debugInMenu() {
+	//ImGui::Text("State: %s", state.c_str());
+	//ImGui::Text("Can dash: %s", can_dash ? "Si" : "No");
+	//ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
+	ImGui::DragFloat("X speed: %f", &x_speed_factor, 0.01f, 0.f, 5.f);
+	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
+	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
+	ImGui::DragFloat("Jump speed: %f", &jump_speed, 0.01f, 0.f, 100.f);
+	ImGui::DragFloat("Omnidash max: %f", &omnidashing_max_ammount, 0.1f, 0.f, 10.f);
+	ImGui::DragFloat("Dash max: %f", &dashing_max, 0.05f, 0.f, 1.f);
+}
+
+void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
+	setEntity(ctx.current_entity);
+	x_speed_factor = j.value("speed", 1.0f);
+	dashing_max = j.value("dashing_max", 0.35f);
+	gravity = j.value("gravity", 75.f);
+	jump_speed = j.value("jump_speed", 12.6f);
+	center = VEC3(0.f, 0.f, 0.f);
+	tower_radius = j.value("tower_radius", 32.f);
+	dashing_speed = j.value("dashing_speed", 3);
+	omnidash_max_time = j.value("omnidash_max_time", 0.3f);
+	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 1.3f);
+	jumping_death_height = j.value("jumping_death_height", 9.f);
+	current_x_speed_factor = x_speed_factor; 
+	is_grounded = true;
+	looking_left = true;
+	can_omni = true;
+	can_dash = true;
+
+  DT = 0.f;
+
+	init();
+}
+
+void TCompPlayerController::init() {}
+
+TCompTransform* TCompPlayerController::getMyTransform() {
+	TCompTransform* c = h_transform;
+	if (!c) {
+		CEntity* e = h_entity;
+		assert(e);
+		h_transform = e->get< TCompTransform >();
+		assert(h_transform.isValid());
+		c = h_transform;
+	}
+	return c;
+}
+
+TCompRender* TCompPlayerController::getMyRender() {
+	TCompRender* r = h_render;
+	if (!r) {
+		CEntity* e = h_entity;
+		assert(e);
+		h_render = e->get< TCompRender >();
+		assert(h_render.isValid());
+		r = h_render;
+	}
+	return r;
+}
+
+TCompCollider* TCompPlayerController::getMyCollider() {
+	TCompCollider* c = h_collider;
+	if (!c) {
+		CEntity* e = h_entity;
+		assert(e);
+		h_collider = e->get< TCompCollider >();
+		assert(h_collider.isValid());
+		c = h_collider;
+	}
+	return c;
+}
+
+void TCompPlayerController::setEntity(CHandle new_entity) {
+	h_entity = new_entity;
+	assert(h_entity.isValid());
+}
+
+void TCompPlayerController::change_mesh(int mesh_index) {
+	TCompRender *my_render = getMyRender();
+	//my_render->mesh = my_render->meshes_leo[mesh_index];
+	for (int i = 0; i < my_render->meshes.size(); ++i) {
+		my_render->meshes[i].enabled = false;
+	}
+	my_render->meshes[mesh_index].enabled = true;
+	my_render->refreshMeshesInRenderManager();
+}
+
+/*
 void TCompPlayerController::move_player(bool left, bool change_orientation, float dt, float y_speed) {
 	TCompTransform *c_my_transform = get<TCompTransform>();
-	
+
 	assert(c_my_transform);
 	// Current orientation
 	float current_yaw;
@@ -47,12 +136,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				is_grounded = true;
 				can_omni = true;
 				can_dash = true;
-				//MENSAJE
-				/*TMsgisGrounded msg;
-				CEntity* camDER = (CEntity *)getEntityByName("camera_orbit_DER");
-				CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
-				camDER->sendMsg(msg);
-				camIZQ->sendMsg(msg);*/
+				//MENSAJE				
 				if (dashing_amount == 0) {
 					ChangeState("idle");
 				}
@@ -66,9 +150,10 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
 				current_yaw = left ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
-				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);				
-			} else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
-				change_mesh(1);			
+				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+			}
+			else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
+				change_mesh(1);
 				if (!isPressed('A') && !isPressed('D')) {
 					change_mesh(1);
 					can_dash = true;
@@ -92,55 +177,6 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			c_my_transform->setPosition(newPos);
 		}
 	}
-}
-
-void TCompPlayerController::debugInMenu() {
-	//ImGui::Text("State: %s", state.c_str());
-	//ImGui::Text("Can dash: %s", can_dash ? "Si" : "No");
-	//ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
-	ImGui::DragFloat("X speed: %f", &x_speed_factor, 0.01f, 0.f, 5.f);
-	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
-	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
-	ImGui::DragFloat("Jump speed: %f", &jump_speed, 0.01f, 0.f, 100.f);
-	ImGui::DragFloat("Omnidash max: %f", &omnidashing_max_ammount, 0.1f, 0.f, 10.f);
-	ImGui::DragFloat("Dash max: %f", &dashing_max, 0.05f, 0.f, 1.f);
-}
-
-void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
-	setEntity(ctx.current_entity);
-	x_speed_factor = j.value("speed", 1.0f);
-	dashing_max = j.value("dashing_max", 0.35f);
-	gravity = j.value("gravity", 75.f);
-	jump_speed = j.value("jump_speed", 12.6f);
-	center = VEC3(0.f, 0.f, 0.f);
-	tower_radius = j.value("tower_radius", 32.f);
-	dashing_speed = j.value("dashing_speed", 3);
-	omnidash_max_time = j.value("omnidash_max_time", 0.3f);
-	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 1.3f);
-	jumping_death_height = j.value("jumping_death_height", 9.f);
-	current_x_speed_factor = x_speed_factor; 
-	is_grounded = true;
-	can_omni = true;
-	can_dash = true;
-
-  DT = 0.f;
-
-	init();
-}
-
-void TCompPlayerController::init() {
-	// insert all states in the map
-	AddState("idle", (statehandler)&TCompPlayerController::idle_state);
-	AddState("initial", (statehandler)&TCompPlayerController::initial_state);
-	AddState("run", (statehandler)&TCompPlayerController::running_state);
-	AddState("jump", (statehandler)&TCompPlayerController::jumping_state);
-	AddState("omni", (statehandler)&TCompPlayerController::omnidashing_state);
-	AddState("dash", (statehandler)&TCompPlayerController::dashing_state);
-	AddState("dead", (statehandler)&TCompPlayerController::dead_state);
-	AddState("omni_jump", (statehandler)&TCompPlayerController::omnidashing_jump_state);
-	// reset the state
-	ChangeState("initial");
-
 }
 
 void TCompPlayerController::initial_state(float dt) {
@@ -564,13 +600,9 @@ void TCompPlayerController::killPlayer(const TMsgKillPlayer& msg)
 	change_mesh(5);
 	ChangeState("dead");
 }
+*/
 
 void TCompPlayerController::setCheckpoint(const TMsgCheckpoint& msg)
 {
    	checkpoint = msg.appearing_position;
 }
-
-//void TCompPlayerController::update(float dt)
-//{
-//  DT = dt;
-//}

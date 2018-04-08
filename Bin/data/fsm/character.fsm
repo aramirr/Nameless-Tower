@@ -3,7 +3,7 @@
 	"states" : [
 		{
 			"name" : "idle",
-			"type" : "AnimationState",
+			"type" : "IdleState",
 			"animation" : "idle"
 		},
 		{
@@ -44,7 +44,7 @@
 			"source" : "initial",
 			"target" : "idle",
 			"variable" : {
-				"name" : "initial",
+				"name" : "idle",
 				"type" : "bool",
 				"value" : true
 			},

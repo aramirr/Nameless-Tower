@@ -106,11 +106,11 @@ namespace FSM
     _variables.setVariant(name, value);
   }
 
-	void CContext::setVariable(const std::string& name, VEC3 value)
+	/*void CContext::setVariable(const std::string& name, VEC3 value)
 	{
 		_variables.setVariant(name, value);
 	}
-
+	*/
   void CContext::setVariable(const std::string& name, const std::string& value)
   {
     _variables.setVariant(name, value);

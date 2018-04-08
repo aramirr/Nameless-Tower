@@ -16,7 +16,7 @@ public:
   bool getBool() const { return _bValue; }
   int getInt() const { return _iValue; }
 	float getFloat() const { return _fValue; }
-	VEC3 getVec() const { return _vValue; }
+	//VEC3 getVec() const { return _vValue; }
   CHandle getHandle() const;
   const std::string& getString() const {return _sValue; }
 
@@ -24,7 +24,7 @@ public:
   void setBool(bool value);
   void setInt(int value);
 	void setFloat(float value);
-	void setVec(VEC3 value);
+	//void setVec(VEC3 value);
   void setHandle(CHandle value);
   void setString(const std::string& value);
   
@@ -39,7 +39,7 @@ private:
     bool _bValue;
     int _iValue;
 		float _fValue;
-		VEC3 _vValue;
+		//VEC3 _vValue;
     CHandle _hValue;
   };
   std::string _sValue;
@@ -54,7 +54,7 @@ public:
   void setVariant(const std::string& name, bool value);
   void setVariant(const std::string& name, int value);
 	void setVariant(const std::string& name, float value);
-	void setVariant(const std::string& name, VEC3 value);
+	//void setVariant(const std::string& name, VEC3 value);
   void setVariant(const std::string& name, CHandle value);
   void setVariant(const std::string& name, const std::string& value);
   void setVariant(const std::string& name, const CVariant& value);
@@ -67,7 +67,7 @@ public:
   bool getBool(const std::string& name, bool defaultValue = false) const;
   int getInt(const std::string& name, int defaultValue = 0) const;
 	float getFloat(const std::string& name, float defaultValue = 0.f) const;
-	VEC3 getVec(const std::string& name, VEC3 defaultValue = VEC3(0,0,0)) const;
+	//VEC3 getVec(const std::string& name, VEC3 defaultValue = VEC3(0,0,0)) const;
   CHandle getHandle(const std::string& name, CHandle defaultValue = CHandle()) const;
 
 private:
