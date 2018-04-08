@@ -31,9 +31,14 @@
     	"cameraManager",
 		"trigger",
 	    "local_aabb",
-		"culling"
+		"culling",
+		"light_dir",
+		"fsm",
+		"fake_animation",
+		"player_input"
 	],
 	"render_debug" : 
 	[
 	]
+
 }

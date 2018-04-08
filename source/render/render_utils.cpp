@@ -15,6 +15,23 @@ void renderLine(VEC3 src, VEC3 dst, VEC4 color) {
   mesh->activateAndRender();
 }
 
+// ---------------------------------------------------------------
+// Reads a DX11 format from a string
+DXGI_FORMAT readFormat(const json& j, const std::string& label) {
+  std::string format = j.value(label, "");
+  assert(!format.empty());
+
+  if (format == "none")
+    return DXGI_FORMAT_UNKNOWN;
+  if (format == "R8G8B8A8_UNORM")
+    return DXGI_FORMAT_R8G8B8A8_UNORM;
+  if (format == "R32_TYPELESS")
+    return DXGI_FORMAT_R32_TYPELESS;
+
+  return DXGI_FORMAT_UNKNOWN;
+}
+
+
 // -----------------------------------------------
 struct CRasterizers {
 
@@ -45,7 +62,7 @@ struct CRasterizers {
       FALSE,            // BOOL FrontCounterClockwise;
       13,               // INT DepthBias;
       0.0f,             // FLOAT DepthBiasClamp;
-      2.0f,             // FLOAT SlopeScaledDepthBias;
+      4.0f,             // FLOAT SlopeScaledDepthBias;
       TRUE,             // BOOL DepthClipEnable;
       FALSE,            // BOOL ScissorEnable;
       FALSE,            // BOOL MultisampleEnable;
@@ -138,6 +155,7 @@ struct CSamplers {
     if (FAILED(hr))
       return false;
     setDXName(all_samplers[SAMPLER_CLAMP_BILINEAR], "CLAMP_BILINEAR");
+    */
 
     ZeroMemory(&sampDesc, sizeof(sampDesc));
     sampDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
@@ -172,6 +190,8 @@ struct CSamplers {
     if (FAILED(hr))
       return false;
     setDXName(all_samplers[SAMPLER_PCF_SHADOWS], "PCF_SHADOWS");
+
+    /*
 
     ZeroMemory(&sampDesc, sizeof(sampDesc));
     sampDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_POINT;

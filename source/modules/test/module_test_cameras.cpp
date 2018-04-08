@@ -5,7 +5,6 @@
 #include "entity/entity_parser.h"
 #include "components/comp_camera.h"
 
-extern CCamera camera;
 extern void registerMesh(CRenderMesh* new_mesh, const char* name);
 
 struct TVtxPosClr {
@@ -66,6 +65,7 @@ bool CModuleTestCameras::start()
 
 void CModuleTestCameras::update(float delta)
 {
+  /*
   if (EngineInput['1'].getsPressed())
   {
     CHandle h_camera = getEntityByName("test_camera_orbit");
@@ -92,23 +92,11 @@ void CModuleTestCameras::update(float delta)
     CHandle h_camera = getEntityByName("test_camera_fixed_C");
     Engine.getCameras().blendOutCamera(h_camera, 0.f);
   }
+  */
 }
 
 void CModuleTestCameras::render()
 {
-
-  // Find the entity with name 'the_camera'
-  CHandle h_e_camera = getEntityByName("the_camera");
-  if (h_e_camera.isValid()) {
-    CEntity* e_camera = h_e_camera;
-    TCompCamera* c_camera = e_camera->get<TCompCamera>();
-    assert(c_camera);
-    activateCamera(*c_camera);
-  }
-  else {
-    activateCamera(camera);
-  }
-
   // Render the grid
   cb_object.obj_world = MAT44::Identity;
   cb_object.obj_color = VEC4(1, 1, 1, 1);
