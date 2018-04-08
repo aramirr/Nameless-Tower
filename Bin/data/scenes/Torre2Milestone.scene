@@ -13947,9 +13947,9 @@
       ,
       "transform":
       {
-        "pos": "-3.8147e-06 -9.53674e-07 -3.8147e-06"
+        "pos": "23.401 29.25 19.1803"
         ,
-        "rotation": "0.0 0.0 0.0 -1.0"
+        "rotation": "0.0 0.309017 0.0 -0.951056"
       }
       ,
       "render":
@@ -13970,11 +13970,22 @@
         ,
         "b_appear": true
         ,
-        "appearing_position": "-3.8147e-06 -9.53674e-07 -3.8147e-06"
+        "appearing_position": "25.2777 29.25 16.6291"
         ,
         "collider_entity": "none"
         ,
         "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.2 20.25 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
       }
     }
   }
@@ -13986,9 +13997,9 @@
       ,
       "transform":
       {
-        "pos": "-3.8147e-06 -9.53674e-07 -3.8147e-06"
+        "pos": "25.2777 29.25 16.6291"
         ,
-        "rotation": "0.0 -0.052336 0.0 -0.99863"
+        "rotation": "0.0 0.309017 0.0 -0.951056"
       }
       ,
       "render":
@@ -14009,11 +14020,22 @@
         ,
         "b_appear": true
         ,
-        "appearing_position": "-3.8147e-06 -9.53674e-07 -3.8147e-06"
+        "appearing_position": "25.2777 29.25 16.6291"
         ,
         "collider_entity": "none"
         ,
         "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.2 20.25 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
       }
     }
   }
@@ -14025,9 +14047,9 @@
       ,
       "transform":
       {
-        "pos": "-3.8147e-06 -9.53674e-07 -3.8147e-06"
+        "pos": "26.8774 29.25 13.8958"
         ,
-        "rotation": "0.0 -0.104528 0.0 -0.994522"
+        "rotation": "0.0 0.258819 0.0 -0.965926"
       }
       ,
       "render":
@@ -14048,11 +14070,22 @@
         ,
         "b_appear": true
         ,
-        "appearing_position": "-3.8147e-06 -9.53674e-07 -3.8147e-06"
+        "appearing_position": "25.2777 29.25 16.6291"
         ,
         "collider_entity": "none"
         ,
         "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.2 20.25 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
       }
     }
   }
@@ -14064,9 +14097,9 @@
       ,
       "transform":
       {
-        "pos": "-3.8147e-06 -9.53674e-07 -3.8147e-06"
+        "pos": "28.1827 29.25 11.0102"
         ,
-        "rotation": "0.0 -0.156434 0.0 -0.987688"
+        "rotation": "0.0 0.207912 0.0 -0.978148"
       }
       ,
       "render":
@@ -14087,11 +14120,22 @@
         ,
         "b_appear": true
         ,
-        "appearing_position": "-3.8147e-06 -9.53674e-07 -3.8147e-06"
+        "appearing_position": "25.2777 29.25 16.6291"
         ,
         "collider_entity": "none"
         ,
         "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.2 20.25 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
       }
     }
   }
