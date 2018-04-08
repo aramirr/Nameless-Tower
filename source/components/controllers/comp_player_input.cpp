@@ -29,4 +29,20 @@ void TCompPlayerInput::update(float dt)
     CEntity* e = CHandle(this).getOwner();
     e->sendMsg(speedMsg);
   }
+
+	TMsgSetFSMVariable runMsg;
+	jumpMsg.variant.setName("run");
+	jumpMsg.variant.setBool(EngineInput["a"].isPressed());
+	if (EngineInput["a"].hasChanged())
+	{
+		CEntity* e = CHandle(this).getOwner();
+		e->sendMsg(jumpMsg);
+	}
+	jumpMsg.variant.setBool(EngineInput["d"].isPressed());
+	if (EngineInput["d"].hasChanged())
+	{
+		CEntity* e = CHandle(this).getOwner();
+		e->sendMsg(jumpMsg);
+	}
+
 }

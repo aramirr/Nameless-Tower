@@ -57,9 +57,8 @@ public:
 	void omnidashing_jump_state(float dt);
 	void dashing_state(float dt);
 	void dead_state(float dt);
-	void move_player(bool left, bool change_orientation, float dt, float y_speed);
 	*/
-
+	void move_player(bool left, bool change_orientation, float dt, float y_speed);
 	bool isForward() { return looking_left; };
 	bool isGrounded() { return is_grounded; }
 

@@ -5,6 +5,7 @@
 #include "components/camera/comp_camera.h"
 #include "components/ui/ui_mouse_pos.h"
 #include "entity/common_msgs.h"
+#include "components/fsm/comp_fsm.h"
 
 DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
@@ -96,7 +97,7 @@ void TCompPlayerController::change_mesh(int mesh_index) {
 	my_render->refreshMeshesInRenderManager();
 }
 
-/*
+
 void TCompPlayerController::move_player(bool left, bool change_orientation, float dt, float y_speed) {
 	TCompTransform *c_my_transform = get<TCompTransform>();
 
@@ -129,19 +130,23 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
 				if (c_my_transform->getPosition().y - jumping_start_height > jumping_death_height) {
-					change_mesh(5);
-					ChangeState("dead");
+					TMsgSetFSMVariable deadMsg;
+					deadMsg.variant.setName("dead");
+					deadMsg.variant.setBool(true);
+					CEntity* e = CHandle(this).getOwner();
+					e->sendMsg(deadMsg);
 				}
 				y_speed_factor = 0;
 				is_grounded = true;
 				can_omni = true;
 				can_dash = true;
 				//MENSAJE				
-				if (dashing_amount == 0) {
+				/*if (dashing_amount == 0) {
 					ChangeState("idle");
 				}
-				if (state == "jump")
+				if (state == "jump"){}
 					ChangeState("idle");
+					*/
 			}
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 				is_grounded = false;
@@ -152,7 +157,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				current_yaw = left ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 			}
-			else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
+			/*else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
 				change_mesh(1);
 				if (!isPressed('A') && !isPressed('D')) {
 					change_mesh(1);
@@ -169,7 +174,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				current_x_speed_factor = x_speed_factor;
 				change_mesh(1);
 				ChangeState("idle");
-			}
+			}*/
 		}
 		else
 		{
@@ -179,6 +184,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 	}
 }
 
+/*
 void TCompPlayerController::initial_state(float dt) {
 	TCompTransform *my_pos = getMyTransform();
 	TCompCollider* comp_collider = get<TCompCollider>();

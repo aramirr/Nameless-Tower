@@ -1,23 +1,57 @@
 #include "mcv_platform.h"
 #include "run_state.h"
 #include "fsm/context.h"
+#include "components/player/comp_player_controller.h"
 
 namespace FSM
 {
 	void RunState::onStart(CContext& ctx) const
-	{
-		// ..
+	{		
 	}
 
 	bool RunState::load(const json& jData)
 	{
 		_x_speed = jData.value("x_speed", 2.f);
-
 		return true;
 	}
 
-	bool RunState::update(float dt, CContext& ctx)
+	bool RunState::update(float dt, CContext& ctx) const
 	{
-		return true;
+		CEntity* e = ctx.getOwner();
+		TCompPlayerController* player = e->get<TCompPlayerController>();
+		TCompTransform *c_my_transform = e->get<TCompTransform>();
+		float y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt / 2);
+		if (!player->is_grounded)
+			player->y_speed_factor -= player->gravity * dt / 2;
+		if (isPressed('A')) {
+			if (!player->looking_left) {
+				player->looking_left = true;
+				player->move_player(false, true, dt, y_speed);
+			}
+			else {
+				player->move_player(false, false, dt, y_speed);
+			}
+		}
+		else if (isPressed('D')) {
+			if (!player->looking_left) {
+				player->move_player(true, false, dt, y_speed);
+			}
+			else {
+				player->looking_left = false;
+				player->move_player(true, true, dt, y_speed);
+			}
+		}
+		// Si no sigue corriendo pasa a estado idle
+		if (!isPressed('A') && !isPressed('D')) {
+			ctx.setVariable("idle", true);
+		}
+		return false;
+	}
+
+	void RunState::onFinish(CContext& ctx) const {
+		CEntity* e = ctx.getOwner();
+		TCompPlayerController* player = e->get<TCompPlayerController>();
+		player->change_mesh(1);
+		player->y_speed_factor = 0;
 	}
 }
