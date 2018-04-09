@@ -106,7 +106,7 @@ float4 PS(VS_OUTPUT input) : SV_Target
   float light_amount = diffuseAmount * shadow_factor;
 
   // Add a minimum of 0.25 of light
-  light_amount = 0.25 + light_amount * 0.75;
+  light_amount = 0.7 + light_amount * 0.75;
 
   float4 texture_color = txAlbedo.Sample(samLinear, input.UV);
   
