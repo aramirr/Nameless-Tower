@@ -18,14 +18,15 @@ void VS(
 {
   float4 world_pos = mul(iPos, obj_world);
 
-  //world_pos.y += 3 * sin( global_world_time + world_pos.x + world_pos.z * 0.2);
-
-  oPos = mul(world_pos, camera_view_proj);
-
   // Rotar la normal segun la transform del objeto
   oNormal = mul(iNormal, (float3x3)obj_world);
   oTangent.xyz = mul(iTangent.xyz, (float3x3)obj_world);
   oTangent.w = iTangent.w;
+
+  // Simulate a normal perturbation
+  world_pos.xyz += oNormal * 0.2 * sin( 5 * global_world_time + world_pos.x + world_pos.z * 0.2);
+
+  oPos = mul(world_pos, camera_view_proj);
 
   // Las uv's se pasan directamente al ps
   oTex0 = iTex0;
