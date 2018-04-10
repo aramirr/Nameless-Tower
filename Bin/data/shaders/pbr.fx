@@ -97,6 +97,7 @@ void decodeGBuffer(
   // en el rango -1..1
   float4 N_rt = txGBufferNormals.Load(ss_load_coords);
   N = decodeNormal( N_rt.xyz );
+  N = normalize( N );
 
   // Get other inputs from the GBuffer
   float4 albedo = txGBufferAlbedos.Load(ss_load_coords);
