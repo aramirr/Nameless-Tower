@@ -43,16 +43,16 @@ float4 PS(
 
   int3 ss_load_coords = uint3(iPosition.xy, 0);
 
+  // Obtain a random value associated to each pos in the surface
   float4 noise0 = txNoiseMap.Sample( samLinear, iTex0 * 12 + global_world_time * float2(1,0) ) * 2 - 1;  // Noise in the -1..1 range
 
+  // Modify the position where we take the sample
   float3 surface_pos = iWorldPos + noise0.xyz * .5;
 
+  // Convert world coords to camera space in the range 0..1 to access the rt_main texture
   float4 pos_proj_space = mul( float4(surface_pos,1), camera_view_proj );
   float3 pos_homo_space = pos_proj_space.xyz / pos_proj_space.w;    // -1..1
   float2 pos_camera_unit_space = float2( ( 1 + pos_homo_space.x ) * 0.5, ( 1 - pos_homo_space.y ) * 0.5 );
-  float4 albedo = txAlbedo.Sample(samClampLinear, pos_camera_unit_space);
-  return albedo * 0.5;
-
-
-  return float4(1,1,0,1);
+  float4 color_base = txAlbedo.Sample(samClampLinear, pos_camera_unit_space);
+  return color_base * 0.5;
 }
