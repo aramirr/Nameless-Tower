@@ -4,7 +4,7 @@
     {
       "name": "LightDir00",
       "transform": {
-        "pos": "-6.800 1 -31.269",
+        "pos": "-25.175 12.600 -18.194",
         "lookat": "0.0 0.0 0.0"
       },
       "light_dir": {
@@ -18,39 +18,8 @@
         "shadows_step" : 3.0,
         "shadows_resolution" : 256,
         "shadows_fmt" : "R32_TYPELESS"
-      },
-      "camera_flyover" : {
-        "key" : "Z",
-        "enabled" : false
-      }
+      }      
     }
-  },
-  {
-    "entity":
-    {
-      "name": "LightPoint00",
-      "transform": {
-        "pos": "0 15 0"
-      },
-      "light_point": {
-        "intensity": 10,
-        "color" :  "0.2 0.2 1.0 1",
-        "radius" : 50
-      }
-    }
-  },
-  {
-    "entity":
-    {
-      "name": "LightPoint01",
-      "transform": {
-        "pos": "30 15 0"
-      },
-      "light_point": {
-        "intensity": 10,
-        "color" :  "1.0 0.2 0.2 1",
-        "radius" : 50
-      }
-    }
-  }
+  } 
+  
 ]
