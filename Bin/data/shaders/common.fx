@@ -25,6 +25,7 @@ Texture2D    txAccLights          SLOT( TS_DEFERRED_ACC_LIGHTS );
 SamplerState samLinear        : register(s0);
 SamplerState samBorderLinear  : register(s1);
 SamplerComparisonState samPCF : register(s2);
+SamplerState samClampLinear   : register(s3);
 
 //--------------------------------------------------------------------------------------
 float4x4 getSkinMtx( int4 iBones, float4 iWeights ) {
