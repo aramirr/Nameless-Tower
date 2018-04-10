@@ -189,6 +189,8 @@ void CModuleRender::generateFrame() {
     
     renderFullScreenQuad("dump_texture.tech", rt_main);
 
+    CRenderManager::get().renderCategory("distorsions");
+
     // Debug render
     {
       PROFILE_FUNCTION("Modules");
