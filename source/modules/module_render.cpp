@@ -11,6 +11,7 @@
 #include "resources/json_resource.h"
 #include "skeleton/game_core_skeleton.h"
 #include "camera/camera.h"
+#include "components/postfx/comp_render_blur.h"
 
 //--------------------------------------------------------------------------------------
 CModuleRender::CModuleRender(const std::string& name)
@@ -27,8 +28,10 @@ bool parseTechniques() {
     json& tech_j = it.value();
 
     CRenderTechnique* tech = new CRenderTechnique();
-    if (!tech->create(tech_name, tech_j))
+    if (!tech->create(tech_name, tech_j)) {
+      fatal("Failed to create tech '%s'\n", tech_name.c_str());
       return false;
+    }
     Resources.registerResource(tech);
   }
 
@@ -185,11 +188,22 @@ void CModuleRender::generateFrame() {
 
     deferred.render(rt_main);
 
+    CRenderManager::get().renderCategory("distorsions");
+
+    // Apply postFX
+    CTexture* curr_rt = rt_main;
+    if (h_e_camera.isValid()) {
+      CEntity* e_cam = h_e_camera;
+
+      // Check if we have a render_fx component
+      TCompRenderBlur* c_render_blur = e_cam->get< TCompRenderBlur >();
+      if (c_render_blur)
+        curr_rt = c_render_blur->apply(curr_rt);
+    }
+
     Render.startRenderInBackbuffer();
     
-    renderFullScreenQuad("dump_texture.tech", rt_main);
-
-    CRenderManager::get().renderCategory("distorsions");
+    renderFullScreenQuad("dump_texture.tech", curr_rt);
 
     // Debug render
     {

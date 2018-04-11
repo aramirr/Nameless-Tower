@@ -274,6 +274,12 @@
     <ClCompile Include="components\comp_light_point.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="render\blur_step.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="components\postfx\comp_render_blur.cpp">
+      <Filter>components\postfx</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -353,6 +359,9 @@
     </Filter>
     <Filter Include="skeleton">
       <UniqueIdentifier>{323ce2c4-3af1-40f3-981f-32b2114687b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\postfx">
+      <UniqueIdentifier>{99ae85db-a49f-4549-8e05-0275b6578de3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -741,6 +750,12 @@
     </ClInclude>
     <ClInclude Include="components\comp_light_point.h">
       <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="render\blur_step.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="components\postfx\comp_render_blur.h">
+      <Filter>components\postfx</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

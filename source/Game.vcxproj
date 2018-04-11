@@ -110,6 +110,7 @@
     <ClCompile Include="components\controllers\comp_player_input.cpp" />
     <ClCompile Include="components\ia\ai_controller.cpp" />
     <ClCompile Include="components\ia\ai_patrol.cpp" />
+    <ClCompile Include="components\postfx\comp_render_blur.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity\entity.cpp" />
     <ClCompile Include="entity\entity_parser.cpp" />
@@ -155,6 +156,7 @@
     <ClCompile Include="modules\test\module_test_cameras.cpp" />
     <ClCompile Include="modules\test\module_test_input.cpp" />
     <ClCompile Include="profiling\profiling.cpp" />
+    <ClCompile Include="render\blur_step.cpp" />
     <ClCompile Include="render\cte_buffer.cpp" />
     <ClCompile Include="render\deferred_renderer.cpp" />
     <ClCompile Include="render\mesh\mesh.cpp" />
@@ -208,6 +210,7 @@
     <ClInclude Include="components\controllers\comp_player_input.h" />
     <ClInclude Include="components\ia\ai_controller.h" />
     <ClInclude Include="components\ia\ai_patrol.h" />
+    <ClInclude Include="components\postfx\comp_render_blur.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="entity\common_msgs.h" />
     <ClInclude Include="entity\entity.h" />
@@ -268,6 +271,7 @@
     <ClInclude Include="modules\test\module_test_cameras.h" />
     <ClInclude Include="modules\test\module_test_input.h" />
     <ClInclude Include="profiling\profiling.h" />
+    <ClInclude Include="render\blur_step.h" />
     <ClInclude Include="render\cte_buffer.h" />
     <ClInclude Include="render\deferred_renderer.h" />
     <ClInclude Include="render\gpu_trace.h" />
