@@ -301,7 +301,7 @@
 	},
 	{
 		"entity": {
-			"name": "Teapot1",
+			"name": "Cut_door_father",
 			"render" : {}
 			,
 			"transform": {
@@ -311,7 +311,7 @@
 	},
 	{
 		"entity": {
-			"name": "Teapot2",
+			"name": "Cut_door_up",
 			"render" : [
 				{
 					"mesh": "data/meshes/Teapot001.mesh",
@@ -330,7 +330,7 @@
 				"is_dynamic": false
 			},
 			"hierarchy": {
-				"parent": "Teapot1"
+				"parent": "Cut_door_father"
 			},
 			"ai_cut_door":{
 		        "distance": 3,
@@ -342,7 +342,7 @@
 	},
 	{
 		"entity": {
-			"name": "Teapot3",
+			"name": "Cut_door_down",
 			"render" : [
 				{
 					"mesh": "data/meshes/Teapot001.mesh",
@@ -361,7 +361,7 @@
 				"is_dynamic": false
 			},
 			"hierarchy": {
-				"parent": "Teapot1"
+				"parent": "Cut_door_father"
 			},
 			"ai_cut_door":{
 		        "distance": 3,
@@ -369,6 +369,63 @@
 				"closing_speed": 8,
 				"up": false
 		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "Cut_door_trigger_up",
+			"render" : []
+			,
+			"transform": {
+				"pos": "-24.769 3 -21.426"
+			},
+			"collider": {
+				"shape": "box",
+				"halfExtent": "1 0.1 1",
+				"is_trigger": true
+			},
+			"hierarchy": {
+				"parent": "Cut_door_up",
+				"pos": "0 -0.1 0"
+			},
+			"trigger":
+		    {
+		    	"trigger_type": "spikes",
+		        "render": false
+		    },
+		    "ai_spikes":
+		    {
+		    	"fixed_spikes": true
+		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "Cut_door_trigger_down",
+			"render" : []
+			,
+			"transform": {
+				"pos": "-24.769 3 -21.426"
+			},
+			"collider": {
+				"shape": "box",
+				"halfExtent": "1 0.1 1",
+				"is_trigger": true
+			},
+			"hierarchy": {
+				"parent": "Cut_door_down",
+				"pos": "0 1.8 0"
+			},
+			"trigger":
+		    {
+		    	"trigger_type": "spikes",
+		        "render": false
+		    },
+		    "ai_spikes":
+		    {
+		    	"fixed_spikes": true
+		    }
+
 		}
 	},
  {
