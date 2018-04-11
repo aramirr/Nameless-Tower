@@ -82,6 +82,12 @@ void CDeferredRenderer::renderAmbientPass() {
 }
 
 // -------------------------------------------------------------------------
+void CDeferredRenderer::renderSkyBox() const {
+  CTraceScoped gpu_scope("renderSkyBox");
+  renderFullScreenQuad("pbr_skybox.tech", nullptr);
+}
+
+// -------------------------------------------------------------------------
 void CDeferredRenderer::renderAccLight() {
   CTraceScoped gpu_scope("Deferred.AccLight");
   rt_acc_light->activateRT( );
@@ -89,8 +95,8 @@ void CDeferredRenderer::renderAccLight() {
   renderAmbientPass();
   renderPointLights();
   renderDirectionalLights();
+  renderSkyBox();
 }
-
 
 // -------------------------------------------------------------------------
 void CDeferredRenderer::renderPointLights() {

@@ -123,7 +123,6 @@
     "rs_config" : "reverse_culling",
     "blend" : "additive"
   },
-
   "water": {
     "vs_file": "data/shaders/water.fx",
     "ps_file": "data/shaders/water.fx",
@@ -134,6 +133,15 @@
     "textures" : { 
       "noise" : "data/textures/noise_cloud3.dds" 
     }
+  },
+  "pbr_skybox": {
+    "vs_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_skybox",
+    "vertex_type" : "PosClr",
+    "ps_file": "data/shaders/pbr.fx",
+    "ps_entry_point": "PS_skybox",
+    "z" : "test_equal",
+    "category" : "pbr_skybox"
   }
 
 }
