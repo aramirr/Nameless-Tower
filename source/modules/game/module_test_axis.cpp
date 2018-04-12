@@ -100,7 +100,7 @@ void CModuleTestAxis::render()
   cb_object.obj_world = MAT44::Identity;
   cb_object.obj_color = VEC4(1,1,1,1);
   cb_object.updateGPU();
-
+  /*
   auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
   solid->activate();
 
@@ -108,5 +108,5 @@ void CModuleTestAxis::render()
   grid->activateAndRender();
   auto axis = Resources.get("axis.mesh")->as<CRenderMesh>();
   axis->activateAndRender();
-
+  */
 }
