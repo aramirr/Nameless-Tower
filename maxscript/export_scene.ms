@@ -11,12 +11,13 @@ struct TJsonFormatter (
 	-- --------------------
 	fn begin new_ofilename = (
 		ofilename = new_ofilename
+		--fs = listener
 		fs = createFile  ofilename
 	),
 	
 	-- --------------------
 	fn end = (
-		if fs != undefined then close fs
+		if fs != undefined and fs != listener then close fs
 		fs = undefined
 	),
 	
@@ -377,8 +378,10 @@ struct TSceneExporter (
 	
 )
 
-exporter = TSceneExporter()
-exporter.exportAll()
+--exporter = TSceneExporter()
+--exporter.exportAll()
+--mexporter = TMaterialExporter project_path:"pep/" base_path:"path/"
+--mexporter.exportStdMaterial $.mat "pep" 
 
 
 
