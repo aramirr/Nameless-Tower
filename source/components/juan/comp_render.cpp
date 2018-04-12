@@ -138,6 +138,7 @@ void TCompRender::load(const json& j, TEntityParseContext& ctx) {
   else {
     // We accept not receiving an array of mesh inside the comp_render, for handle files
     loadMesh(j, ctx);
+		is_active = j.value("is_active", true);
   }
 
   refreshMeshesInRenderManager();
@@ -152,7 +153,7 @@ void TCompRender::refreshMeshesInRenderManager() {
   for (auto& mwm : meshes) {
 
     // Do not register disabled meshes
-    if (!mwm.enabled)
+    if (!mwm.enabled || !is_active)
       continue;
 
     // All materials of the house...

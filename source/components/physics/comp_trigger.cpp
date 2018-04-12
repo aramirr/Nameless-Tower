@@ -100,7 +100,7 @@ void TCompTrigger::load(const json& j, TEntityParseContext& ctx) {
 		CEntity* e = h_entity;
 		collider_entity = e->getName();
 	}
-	if (!render) {
+	/*if (!render) {
 		CEntity* e = h_entity;
 		assert(e);
 		h_render = e->get< TCompRender >();
@@ -109,7 +109,7 @@ void TCompTrigger::load(const json& j, TEntityParseContext& ctx) {
 		r = h_render;
 		TCompRender *my_render = getMyRender();
 		my_render->is_active = false;
-	}
+	}*/
 }
 
 void TCompTrigger::update(float dt) {};
