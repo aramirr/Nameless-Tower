@@ -43,7 +43,12 @@ void CBlurStep::applyBlur(float dx, float dy) {
 }
 
 // ---------------------
-CTexture* CBlurStep::apply(CTexture* input, float global_distance, VEC4 distances, VEC4 weights) {
+CTexture* CBlurStep::apply(
+  CTexture* input, 
+  float global_distance, 
+  VEC4 distances, 
+  VEC4 weights
+) {
 
   // Sum( Weights ) = 1 to not loose energy. +2 is to account for left and right taps
   float normalization_factor =

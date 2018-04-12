@@ -1,7 +1,8 @@
 #include "common.fx"
 
 //--------------------------------------------------------------------------------------
-// This shader is expected to be used only with the mesh normalizedQuadXY.mesh
+// This shader is expected to be used only with the mesh unitQuadXY.mesh
+// Where the iPos goes from 0,0..1,1
 void VS(
     in float4 iPos : POSITION
   , in float2 iColor : COLOR0
