@@ -148,13 +148,9 @@
   "blur": {
     "vs_file": "data/shaders/blur.fx",
     "ps_file": "data/shaders/blur.fx",
-    "vs_entry_point": "VS",
-    "ps_entry_point": "PS",
     "vertex_type": "PosClr",
     "category" : "fx",
-    "z" : "disable_all",
-    "rs" : "default",
-    "blend" : "default"
+    "z" : "disable_all"
   }
 
 
