@@ -32,17 +32,22 @@ float4 PS(
 ) : SV_Target
 {
 
+  float2 center = float2(0.5, 0.5);
+  float2 v2c = iTex0 - center;
+  float2 distance2center = length( v2c );
+  v2c = normalize( v2c );
+
+  float amount = smoothstep( 0, 1, distance2center );
+
+  v2c *= amount * camera_inv_resolution.xx * distance2center * 10 * blur_distance.x;
+  
   // 7 tap blur controlled by the vs
-  float4 cfinal  = txAlbedo.Sample(samClampLinear, iTex0.xy) * 1.2;
+  float4 cfinal = float4(0,0,0,0);
 
-/*
-  float4 cfinal =
-      (c0       ) * blur_w.x
+  for( int i=0; i<16; ++i ) {
+    float4 ctap  = txAlbedo.Sample(samClampLinear, iTex0 - v2c * i);
+    cfinal += ctap;
+  }
 
-    + (cp1 + cn1) * blur_w.y
-    + (cp2 + cn2) * blur_w.z
-    + (cp3 + cn3) * blur_w.w
-    ;
-*/
-  return cfinal;
+  return cfinal / 16;
 }

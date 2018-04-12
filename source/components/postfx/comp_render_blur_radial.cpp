@@ -114,6 +114,7 @@ CTexture* TCompRenderBlurRadial::apply( CTexture* in_texture) {
   cb_blur.blur_d.y = distance_factors.y;
   cb_blur.blur_d.z = distance_factors.z;
   cb_blur.blur_d.w = distance_factors.w;  // Not used
+  cb_blur.blur_distance.x = global_distance;
 
   cb_blur.activate();
   cb_blur.updateGPU();
