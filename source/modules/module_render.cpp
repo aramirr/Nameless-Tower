@@ -12,6 +12,7 @@
 #include "skeleton/game_core_skeleton.h"
 #include "camera/camera.h"
 #include "components/postfx/comp_render_blur.h"
+#include "components/postfx/comp_render_blur_radial.h"
 
 //--------------------------------------------------------------------------------------
 CModuleRender::CModuleRender(const std::string& name)
@@ -199,6 +200,11 @@ void CModuleRender::generateFrame() {
       TCompRenderBlur* c_render_blur = e_cam->get< TCompRenderBlur >();
       if (c_render_blur)
         curr_rt = c_render_blur->apply(curr_rt);
+
+      // Check if we have a render_fx component
+      TCompRenderBlurRadial* c_render_blur_radial = e_cam->get< TCompRenderBlurRadial >();
+      if (c_render_blur_radial)
+        curr_rt = c_render_blur_radial->apply(curr_rt);
     }
 
     Render.startRenderInBackbuffer();

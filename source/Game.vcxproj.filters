@@ -280,6 +280,9 @@
     <ClCompile Include="components\postfx\comp_render_blur.cpp">
       <Filter>components\postfx</Filter>
     </ClCompile>
+    <ClCompile Include="components\postfx\comp_render_blur_radial.cpp">
+      <Filter>components\postfx</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -755,6 +758,9 @@
       <Filter>render</Filter>
     </ClInclude>
     <ClInclude Include="components\postfx\comp_render_blur.h">
+      <Filter>components\postfx</Filter>
+    </ClInclude>
+    <ClInclude Include="components\postfx\comp_render_blur_radial.h">
       <Filter>components\postfx</Filter>
     </ClInclude>
   </ItemGroup>
