@@ -44,16 +44,14 @@ float shadowsTap( float2 homo_coord, float coord_z ) {
 
 //--------------------------------------------------------------------------------------
 float computeShadowFactor( float3 wPos ) {
-return 1;
+
   // Convert pixel position in world space to light space
   float4 pos_in_light_proj_space = mul( float4(wPos,1), light_view_proj_offset );
   float3 homo_space = pos_in_light_proj_space.xyz / pos_in_light_proj_space.w; // -1..1
 
-  return shadowsTap( homo_space.xy, homo_space.z - 0.001);
-
   // Avoid the white band in the back side of the light
-  //if( pos_in_light_proj_space.z < 0. )
-  //  return 0.f;
+  if( pos_in_light_proj_space.z < 0. )
+    return 0.f;
 
   // Poisson distribution random points around a circle
   const float2 offsets[] = {

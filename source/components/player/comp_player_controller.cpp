@@ -176,6 +176,7 @@ void TCompPlayerController::idle_state(float dt) {
 	TCompCollider* comp_collider = get<TCompCollider>();
 
 	//---------- CHEAT de EDU el manco ----------
+	
 	if (isPressed('O')) {
 		if (comp_collider && comp_collider->controller) {
 			VEC3 cheat_position = VEC3(30.364f, 45.759f, 9.768f);
