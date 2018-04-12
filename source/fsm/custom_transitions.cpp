@@ -52,7 +52,59 @@ namespace FSM
     return true;
   }
 
+	bool LogicTransition::load(const json& jData)
+	{
+		for (auto variable : jData["variables"]) {
+			CVariant v;
+			v.load(variable);
+			_variables.push_back(v);
+		};
 
+		std::string& opType = jData.value("logic_operation", std::string("and"));
+		if (opType == "and")
+		{
+			_logic_operation = ELogicOperation::AND;
+		}
+		else if (opType == "greater_equal")
+		{
+			_logic_operation = ELogicOperation::OR;
+		}
+		opType = jData.value("operation", std::string("equal"));
+		if (opType == "greater")
+		{
+			_operation = EOperation2::GREATER;
+		}
+		else if (opType == "greater_equal")
+		{
+			_operation = EOperation2::GREATER_EQUAL;
+		}
+		else
+		{
+			_operation = EOperation2::EQUAL;
+		}
+		
+		return true;
+	}
+
+	bool LogicTransition::checkCondition(CContext& ctx) const
+	{
+		bool result = true;
+		for (CVariant _var : _variables) {
+			const CVariant* var = ctx.getVariable(_var.getName());
+			if (var && var->getType() == _var.getType())
+			{
+				if (var->getType() == CVariant::EType::BOOL)
+				{
+					result &= var->getBool() == _var.getBool();
+				}
+			}
+			else {
+				return false;
+			}
+		}		
+		return result;
+	}
+	
   bool TimeTransition::checkCondition(CContext& ctx) const
   {
     return ctx.getTimeInState() >= _time;

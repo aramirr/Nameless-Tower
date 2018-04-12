@@ -36,7 +36,8 @@ bool CModuleFSM::start()
 	_factory.registerInstancer("OmnijumpState", new FSM::StateInstancer<FSM::OmnijumpState>());
 	_factory.registerInstancer("DeadState", new FSM::StateInstancer<FSM::DeadState>());
   
-  _factory.registerInstancer("VariableTransition", new FSM::TransitionInstancer<FSM::VariableTransition>());
+	_factory.registerInstancer("VariableTransition", new FSM::TransitionInstancer<FSM::VariableTransition>());
+	_factory.registerInstancer("LogicTransition", new FSM::TransitionInstancer<FSM::LogicTransition>());
   _factory.registerInstancer("TimeTransition", new FSM::TransitionInstancer<FSM::TimeTransition>());
 
   return true;
