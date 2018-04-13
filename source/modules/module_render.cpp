@@ -13,6 +13,7 @@
 #include "camera/camera.h"
 #include "components/postfx/comp_render_blur.h"
 #include "components/postfx/comp_render_blur_radial.h"
+#include "render/mesh/collision_mesh.h"
 
 //--------------------------------------------------------------------------------------
 CModuleRender::CModuleRender(const std::string& name)
@@ -54,6 +55,7 @@ bool CModuleRender::start()
   Resources.registerResourceClass(getResourceClassOf<CRenderTechnique>());
   Resources.registerResourceClass(getResourceClassOf<CMaterial>());
   Resources.registerResourceClass(getResourceClassOf<CGameCoreSkeleton>());
+  Resources.registerResourceClass(getResourceClassOf<CCollisionMesh>());
 
   if (!createRenderObjects())
     return false;

@@ -14,6 +14,8 @@ struct TMsgTriggerExit {
   DECL_MSG_ID();
 };
 
+class CCollisionMesh;
+
 class TCompCollider: public TCompBase {
 public:
 
@@ -32,7 +34,7 @@ public:
     bool is_dynamic;
     bool is_trigger;
     bool is_character_controller;
-
+    const CCollisionMesh* col_mesh = nullptr;
   };
 
   TConfig config;

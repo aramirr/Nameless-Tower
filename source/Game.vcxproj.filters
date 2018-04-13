@@ -283,6 +283,9 @@
     <ClCompile Include="components\postfx\comp_render_blur_radial.cpp">
       <Filter>components\postfx</Filter>
     </ClCompile>
+    <ClCompile Include="render\mesh\collision_mesh.cpp">
+      <Filter>render\mesh</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -762,6 +765,9 @@
     </ClInclude>
     <ClInclude Include="components\postfx\comp_render_blur_radial.h">
       <Filter>components\postfx</Filter>
+    </ClInclude>
+    <ClInclude Include="render\mesh\collision_mesh.h">
+      <Filter>render\mesh</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
