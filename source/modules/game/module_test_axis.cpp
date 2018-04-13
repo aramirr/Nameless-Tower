@@ -50,6 +50,11 @@ bool CModuleTestAxis::start()
 
 		parseScene("data/scenes/lights.scene", ctx);
 	}
+  {
+    TEntityParseContext ctx;
+
+    parseScene("data/scenes/skeleton_demo.scene", ctx);
+  }
 	// -------------------------------------------
 	if (!cb_camera.create(CB_CAMERA))
 		return false;
