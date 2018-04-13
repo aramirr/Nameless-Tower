@@ -39,7 +39,9 @@ void TCompRenderBloom::load(const json& j, TEntityParseContext& ctx) {
   multiplier = j.value("multiplier", multiplier);
 
   rt_highlights = new CRenderToTexture();
-  bool is_ok = rt_highlights->createRT("BloomFiltered", Render.width, Render.height, DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_FORMAT_UNKNOWN);
+  char rt_name[64];
+  sprintf(rt_name, "BloomFiltered_%08x", CHandle(this).asUnsigned());
+  bool is_ok = rt_highlights->createRT(rt_name, Render.width, Render.height, DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_FORMAT_UNKNOWN);
   assert(is_ok);
 
   tech_filter = Resources.get("bloom_filter.tech")->as<CRenderTechnique>();
