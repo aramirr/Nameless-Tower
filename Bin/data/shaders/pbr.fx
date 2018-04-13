@@ -97,6 +97,7 @@ void decodeGBuffer(
   // en el rango -1..1
   float4 N_rt = txGBufferNormals.Load(ss_load_coords);
   N = decodeNormal( N_rt.xyz );
+  N = normalize( N );
 
   // Get other inputs from the GBuffer
   float4 albedo = txGBufferAlbedos.Load(ss_load_coords);
@@ -294,6 +295,7 @@ void VS_skybox(
 , in float4 iColor     : COLOR0 
 , out float4 oPosition : SV_Position 
 ) {
+  // Convert the range 0..1 from iPosition to -1..1 to match the homo space
   oPosition = float4(iPosition.x * 2 - 1., 1 - iPosition.y * 2, 1, 1);
 }
 

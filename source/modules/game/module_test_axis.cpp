@@ -46,11 +46,15 @@ bool CModuleTestAxis::start()
   cb_globals.global_hdr_enabled = 1.f;
   cb_globals.global_gamma_correction_enabled = 1.f;
   cb_globals.global_tone_mapping_mode = 1.f;
+  // -------------------------------------------
+  if (!cb_blur.create(CB_BLUR))
+    return false;
 
   cb_light.activate();
   cb_object.activate();
   cb_camera.activate();
   cb_globals.activate();
+  cb_blur.activate();
 
   return true;
 }
@@ -61,6 +65,7 @@ bool CModuleTestAxis::stop()
   cb_camera.destroy();
   cb_object.destroy();
   cb_globals.destroy();
+  cb_blur.destroy();
   return true;
 }
 
@@ -95,7 +100,7 @@ void CModuleTestAxis::render()
   cb_object.obj_world = MAT44::Identity;
   cb_object.obj_color = VEC4(1,1,1,1);
   cb_object.updateGPU();
-
+  /*
   auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
   solid->activate();
 
@@ -103,5 +108,5 @@ void CModuleTestAxis::render()
   grid->activateAndRender();
   auto axis = Resources.get("axis.mesh")->as<CRenderMesh>();
   axis->activateAndRender();
-
+  */
 }
