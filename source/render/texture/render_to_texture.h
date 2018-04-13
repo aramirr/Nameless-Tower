@@ -14,6 +14,8 @@ class CRenderToTexture : public CTexture {
   ID3D11Texture2D*        depth_resource = nullptr;
   CTexture*               ztexture = nullptr;
 
+  static CRenderToTexture* current_rt;
+
 public:
 
   ~CRenderToTexture();
@@ -25,7 +27,7 @@ public:
   );
   void destroy() override;
 
-  void activateRT();
+  CRenderToTexture* activateRT();
   void activateViewport();
 
   void clear(VEC4 clear_color);
