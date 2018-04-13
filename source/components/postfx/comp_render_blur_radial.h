@@ -9,16 +9,19 @@ class  CTexture;
 class CRenderToTexture;
 
 // ------------------------------------
-struct TCompRenderBlurRadial : public TCompBase {
-  CRenderToTexture*   rt_output = nullptr;
+class TCompRenderBlurRadial : public TCompBase {
+  CRenderToTexture*       rt_output = nullptr;
   const CRenderTechnique* tech = nullptr;
   const CRenderMesh*      mesh = nullptr;
+  bool                    enabled = true;
+  float                   amount = 1.f;
+  float                   radius = 1.f;
+  int                     xres = 0;
+  int                     yres = 0;
+  VEC2                    normalized_center = VEC2(0.5f, 0.5f);   // The range (0,0)<->(1,1) maps to screen
 
-  VEC4  weights;
-  VEC4  distance_factors;     // 1 2 3 4
-  int   xres, yres;
-  float global_distance;
-  bool  enabled;
+public:
+
   void  load(const json& j, TEntityParseContext& ctx);
   void  debugInMenu();
   CTexture* apply(CTexture* in_texture);

@@ -13,16 +13,6 @@ void VS(
   // Passthrough of coords and UV's
   oPos = float4(iPos.x * 2 - 1., 1 - iPos.y * 2, 0, 1);
   oTex0 = iPos.xy;
-  /*
-  // Save in the xy the positive offset 
-  // Save in the zw the negative offset 
-  oTex1.xy = oTex0 + blur_step * blur_d.x;
-  oTex1.zw = oTex0 - blur_step * blur_d.x;
-  oTex2.xy = oTex0 + blur_step * blur_d.y;
-  oTex2.zw = oTex0 - blur_step * blur_d.y;
-  oTex3.xy = oTex0 + blur_step * blur_d.z;
-  oTex3.zw = oTex0 - blur_step * blur_d.z;
-  */
 }
 
 //--------------------------------------------------------------------------------------
@@ -32,16 +22,17 @@ float4 PS(
 ) : SV_Target
 {
 
-  float2 center = float2(0.5, 0.5);
-  float2 v2c = iTex0 - center;
+  float2 v2c = iTex0 - blur_center;
   float2 distance2center = length( v2c );
   v2c = normalize( v2c );
 
-  float amount = smoothstep( 0, 1, distance2center );
+  float amount = smoothstep( 0, blur_d.y, distance2center );      // 0.. comp.radius
+  amount *= blur_d.x;                                             // comp.amount 
+  //return amount;
 
-  v2c *= amount * camera_inv_resolution.xx * distance2center * 10 * blur_distance.x;
+  v2c *= amount * camera_inv_resolution.xx * distance2center * 10;  // x10 to amplify effect
   
-  // 7 tap blur controlled by the vs
+  // N taps moving to the center
   float4 cfinal = float4(0,0,0,0);
 
   for( int i=0; i<16; ++i ) {

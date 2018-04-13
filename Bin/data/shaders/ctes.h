@@ -130,7 +130,7 @@ CB_DEF(CCteBlur, CB_BLUR)
   VEC4 blur_w;        // weights
   VEC4 blur_d;        // distances for the 1st, 2nd and 3rd tap
   VEC2 blur_step;     // Extra modifier
-  VEC2 blur_distance; // To keep aligned x4
+  VEC2 blur_center; // To keep aligned x4
 };
 
 #endif
