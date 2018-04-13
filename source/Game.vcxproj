@@ -110,6 +110,7 @@
     <ClCompile Include="components\controllers\comp_player_input.cpp" />
     <ClCompile Include="components\ia\ai_controller.cpp" />
     <ClCompile Include="components\ia\ai_patrol.cpp" />
+    <ClCompile Include="components\postfx\comp_render_bloom.cpp" />
     <ClCompile Include="components\postfx\comp_render_blur.cpp" />
     <ClCompile Include="components\postfx\comp_render_blur_radial.cpp" />
     <ClCompile Include="engine.cpp" />
@@ -211,6 +212,7 @@
     <ClInclude Include="components\controllers\comp_player_input.h" />
     <ClInclude Include="components\ia\ai_controller.h" />
     <ClInclude Include="components\ia\ai_patrol.h" />
+    <ClInclude Include="components\postfx\comp_render_bloom.h" />
     <ClInclude Include="components\postfx\comp_render_blur.h" />
     <ClInclude Include="components\postfx\comp_render_blur_radial.h" />
     <ClInclude Include="engine.h" />

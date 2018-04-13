@@ -14,7 +14,12 @@
         "enabled" :  false
       },
       "render_blur_radial" : {
-        "enabled" :  true
+        "enabled" :  false
+      },
+      "render_bloom" : {
+        "enabled" :  true,
+        "max_steps" : 4,
+        "rt_name" : "Bloom"
       }
     }
   }
