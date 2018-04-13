@@ -292,6 +292,7 @@
     <ClCompile Include="components\ia\ai_wind_current.cpp" />
     <ClCompile Include="components\comp_orbit_controller.cpp" />
     <ClCompile Include="components\ia\ai_cut_door.cpp" />
+    <ClCompile Include="components\ia\ai_rotation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -775,6 +776,7 @@
     <ClInclude Include="components\ia\ai_wind_current.h" />
     <ClInclude Include="components\comp_orbit_controller.h" />
     <ClInclude Include="components\ia\ai_cut_door.h" />
+    <ClInclude Include="components\ia\ai_rotation.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">
