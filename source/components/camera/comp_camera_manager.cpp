@@ -225,7 +225,7 @@ void TCompCameraManager::update(float dt) {
 			ct->setPosition(camP);
 			ct->lookAt(camP, camL);
 
-			std::string str = std::to_string(currentTime);
+		/*	std::string str = std::to_string(currentTime);
 			std::string str2 = std::to_string(ratio);
 			std::string str3 = std::to_string(cameraActive);
 			std::string str4 = std::to_string(cameras.size());
@@ -238,7 +238,7 @@ void TCompCameraManager::update(float dt) {
 			dbg(str3.c_str());
 			dbg("\n");
 			dbg(str4.c_str());
-			dbg("\n");
+			dbg("\n");*/
 			
 			if (cameraActive == cameras.size()) {
 				cinemating = false;

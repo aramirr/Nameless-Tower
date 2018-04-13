@@ -4985,7 +4985,7 @@
       {
         "pos": "6.72062 0.690852 31.1481"
         ,
-        "rotation": "0.0 -0.994522 0.0 0.104529"
+        "rotation": "0.0 -0.994522 0.0 0.0"
       }
       ,
       "render":
@@ -5425,6 +5425,11 @@
       "ai_spikes":
       {
         "fixed_spikes": true
+      }
+      ,
+       "circular_controller":
+      {
+      	"eje": "X"
       }
     }
   }

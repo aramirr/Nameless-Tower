@@ -6,56 +6,52 @@
 DECL_OBJ_MANAGER("circular_controller", TCompCircularController);
 
 void TCompCircularController::debugInMenu() {
-  ImGui::DragFloat("Radius", &radius, 0.1f, 0.f, 20.f);
-  ImGui::DragFloat("Speed", &speed, 0.1f, 0.f, 20.f);
-  ImGui::Text("Yaw %f", rad2deg(curr_yaw));
-  if (h_target.isValid()) {
-    if (ImGui::TreeNode("Target")) {
-      h_target.debugInMenu();
-      ImGui::TreePop();
-    }
-  }
-}
-
-void TCompCircularController::onCreate(const TMsgEntityCreated& msg) {
-  dbg("Hi, I'm TCompCircularController at onCreate\n");
-}
-
-void TCompCircularController::registerMsgs() {
-  DECL_MSG(TCompCircularController, TMsgEntityCreated, onCreate);
+	ImGui::DragFloat("Speed", &speed, 0.1f, 0.f, 20.f);
 }
 
 
 void TCompCircularController::load(const json& j, TEntityParseContext& ctx) {
-  radius = j.value("radius", 1.0f);
-  speed = j.value("speed", 1.0f);
-  target_name = j.value("target", "");
+	speed = j.value("speed", 1.0f) * 0.0001f;
+	eje = *((j.value("eje", "X")).c_str());
 
-  h_target = ctx.findEntityByName(target_name);
-
+	carga = true;
 }
 
 void TCompCircularController::update(float dt) {
-  
-  if (!h_target.isValid())
-    return;
 
-  curr_yaw += speed * dt;
+	//curr_rad += speed * dt;
 
-  CEntity* e_target = h_target;
-  assert(e_target);
+	float DEG = rad2deg(speed);
+	float COS = cos(DEG);
+	float SIN = sin(DEG);
 
-  TCompTransform *c_target = e_target->get<TCompTransform>();
-  assert(c_target);
+	TCompTransform *c_my_transform = get<TCompTransform>();
 
-  TCompTransform *c_my_transform = get<TCompTransform>();
+	if (carga) {    //CARGA INICIAL
 
-  float my_y = c_my_transform->getPosition().y;
-  VEC3 my_new_pos = c_target->getPosition() + getVectorFromYaw(curr_yaw) * radius;
-  my_new_pos.y = my_y;
+		if (eje == 'X')u = c_my_transform->getFront();
+		else if (eje == 'Y')u = c_my_transform->getUp();
+		else if (eje == 'Z')u = c_my_transform->getLeft();
+		u.Normalize();
 
-  assert(c_my_transform);
-  c_my_transform->lookAt( my_new_pos, c_target->getPosition() );
+		carga = false;
+	}
 
+	MAT44 posM = c_my_transform->asMatrix();
+
+	posM *= MAT44(COS + pow(u.x, 2) * (1 - COS), u.x * u.y * (1 - COS) - u.z * SIN, u.x * u.z * (1 - COS) + u.y * SIN, 0,
+		u.y * u.x * (1 - COS) + u.z * SIN, COS + pow(u.y, 2) * (1 - COS), u.y * u.z * (1 - COS) - u.x * SIN, 0,
+		u.z * u.x * (1 - COS) - u.y * SIN, u.z * u.y * (1 - COS) + u.x * SIN, COS + pow(u.z, 2) * (1 - COS), 0,
+		0, 0, 0, 1);
+
+	c_my_transform->setRotation(QUAT::CreateFromRotationMatrix(posM));
+
+	assert(c_my_transform);
+
+	//std::string str = std::to_string(DEG);
+
+	//dbg("------------------------------------------------------------------------------\n");
+	//dbg(str.c_str());
+	//dbg("\n");
 }
 

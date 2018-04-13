@@ -11,12 +11,14 @@
 #include "components/juan/comp_name.h"
 #include "components/juan/comp_transform.h"
 #include "components/camera/comp_camera.h"
+#include "components/camera/comp_camera_manager.h"
 #include "entity/entity_parser.h"
 #include "render/render_manager.h"
 
 
 bool CModuleTestAxis::start()
 {
+	CCamera        camera;
 
 	json jboot = loadJson("data/boot.json");
 
@@ -91,24 +93,31 @@ bool CModuleTestAxis::stop()
 
 void CModuleTestAxis::update(float delta)
 {
-  /*
-  static int nitems = 10;
-  ImGui::DragInt("NumItems", &nitems, 0.2f, 1, 100);
-  static float items_scale = 20.0f;
-  ImGui::DragFloat("Scale", &items_scale, 0.1f, 1, 50);
-  if (ImGui::SmallButton("Create Grid Of Load")) {
-    for (int nz = -nitems; nz <= nitems; ++nz) {
-      for (int nx = -nitems; nx <= nitems; ++nx) {
-        TEntityParseContext ctx;
-        float ux = (float)nx / (float)nitems;   // -1 ... 1
-        float uz = (float)nz / (float)nitems;
-        ctx.root_transform.setPosition(VEC3(ux, 0.f, uz) *items_scale);
-        parseScene("data/prefabs/test_load.prefab", ctx);
-      }
-    }
-  }
-  */
 
+	if (carga) {
+		CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+
+		TCompCameraManager* cm = cam->get<TCompCameraManager>();
+		assert(cm);
+
+		//cm->activateCinematic("prueba");
+
+		carga = false;
+	}
+
+	static VEC3 world_pos;
+	ImGui::DragFloat3("Pos", &world_pos.x, 0.025f, -50.f, 50.f);
+
+	VEC2 mouse = EngineInput.mouse()._position;
+	if (h_e_camera.isValid()) {
+		CEntity* e_camera = h_e_camera;
+		TCompCamera* c_camera = e_camera->get< TCompCamera >();
+
+		VEC3 screen_coords;
+		bool inside = c_camera->getScreenCoordsOfWorldCoord(world_pos, &screen_coords);
+		ImGui::Text("Inside: %s  Coords: %1.2f, %1.2f  Z:%f", inside ? "YES" : "NO ", screen_coords.x, screen_coords.y, screen_coords.z);
+		ImGui::Text("Mouse at %1.2f, %1.2f", mouse.x, mouse.y);
+	}
 
 }
 
