@@ -21,6 +21,12 @@ Texture2D    txGBufferNormals     SLOT( TS_DEFERRED_NORMALS );
 Texture2D    txGBufferLinearDepth SLOT( TS_DEFERRED_LINEAR_DEPTH );
 Texture2D    txAccLights          SLOT( TS_DEFERRED_ACC_LIGHTS );
 
+// Bloom
+Texture2D    txBloom0         SLOT(0);
+Texture2D    txBloom1         SLOT(1);
+Texture2D    txBloom2         SLOT(2);
+Texture2D    txBloom3         SLOT(3);
+
 //--------------------------------------------------------------------------------------
 SamplerState samLinear        : register(s0);
 SamplerState samBorderLinear  : register(s1);

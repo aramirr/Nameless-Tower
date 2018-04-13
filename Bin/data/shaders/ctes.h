@@ -10,6 +10,7 @@
 #define CB_GLOBALS      4
 #define CB_MATERIAL     5
 #define CB_BLUR         6
+#define CB_BLOOM        7
 
 // -------------------------------------------------
 // Texture Slots
@@ -131,6 +132,15 @@ CB_DEF(CCteBlur, CB_BLUR)
   VEC4 blur_d;        // distances for the 1st, 2nd and 3rd tap
   VEC2 blur_step;     // Extra modifier
   VEC2 blur_center; // To keep aligned x4
+};
+
+CB_DEF(CCteBloom, CB_BLOOM)
+{
+  VEC4  bloom_weights;
+  float bloom_threshold_min;
+  float bloom_threshold_max;
+  float bloom_pad1;
+  float bloom_pad2;
 };
 
 #endif
