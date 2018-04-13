@@ -301,7 +301,17 @@
 	},
 	{
 		"entity": {
-			"name": "Teapot Destroyable",
+			"name": "Cut_door_father",
+			"render" : {}
+			,
+			"transform": {
+				"pos": "-24.769 2 -21.426"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "Cut_door_up",
 			"render" : [
 				{
 					"mesh": "data/meshes/Teapot001.mesh",
@@ -312,13 +322,110 @@
 			]
 			,
 			"transform": {
-				"pos": "-4 0 0"
+				"pos": "-24.769 2 -21.426"
 			},
-			"ai_destroyable": {
-				"trigger_actor" : "The Player",
-				"destoy_time" : 5
+			"collider": {
+				"shape": "box",
+				"halfExtent": "1 1 1",
+				"is_dynamic": false
 			},
-			"tags" : ["enemy"]
+			"hierarchy": {
+				"parent": "Cut_door_father"
+			},
+			"ai_cut_door":{
+		        "distance": 3,
+		        "opening_speed": 1,
+				"closing_speed": 8,
+				"up": true
+		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "Cut_door_down",
+			"render" : [
+				{
+					"mesh": "data/meshes/Teapot001.mesh",
+					"materials" : [
+						"data/materials/madera.material"
+					]
+				}
+			]
+			,
+			"transform": {
+				"pos": "-24.769 3 -21.426"
+			},
+			"collider": {
+				"shape": "box",
+				"halfExtent": "1 1 1",
+				"is_dynamic": false
+			},
+			"hierarchy": {
+				"parent": "Cut_door_father"
+			},
+			"ai_cut_door":{
+		        "distance": 3,
+		        "opening_speed": 1,
+				"closing_speed": 8,
+				"up": false
+		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "Cut_door_trigger_up",
+			"render" : []
+			,
+			"transform": {
+				"pos": "-24.769 3 -21.426"
+			},
+			"collider": {
+				"shape": "box",
+				"halfExtent": "1 0.1 1",
+				"is_trigger": true
+			},
+			"hierarchy": {
+				"parent": "Cut_door_up",
+				"pos": "0 -0.1 0"
+			},
+			"trigger":
+		    {
+		    	"trigger_type": "spikes",
+		        "render": false
+		    },
+		    "ai_spikes":
+		    {
+		    	"fixed_spikes": true
+		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "Cut_door_trigger_down",
+			"render" : []
+			,
+			"transform": {
+				"pos": "-24.769 3 -21.426"
+			},
+			"collider": {
+				"shape": "box",
+				"halfExtent": "1 0.1 1",
+				"is_trigger": true
+			},
+			"hierarchy": {
+				"parent": "Cut_door_down",
+				"pos": "0 1.8 0"
+			},
+			"trigger":
+		    {
+		    	"trigger_type": "spikes",
+		        "render": false
+		    },
+		    "ai_spikes":
+		    {
+		    	"fixed_spikes": true
+		    }
+
 		}
 	},
  {

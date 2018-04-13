@@ -4,9 +4,14 @@
 #include "PxPhysicsAPI.h"
 #include "entity/common_msgs.h"
 
-struct TMsgTriggerEnter{
-  CHandle h_other_entity;
-  DECL_MSG_ID();
+struct TMsgTriggerEnter {
+	CHandle h_other_entity;
+	DECL_MSG_ID();
+};
+
+struct TMsgColliderEnter {
+	std::string h_other_entity;
+	DECL_MSG_ID();
 };
 
 struct TMsgTriggerExit {
@@ -42,5 +47,6 @@ public:
   static void registerMsgs();
   void load(const json& j, TEntityParseContext& ctx);
   void onCreate(const TMsgEntityCreated& msg);
+  void OnColliderEnter(const TMsgColliderEnter& msg);
 	~TCompCollider();
 };
