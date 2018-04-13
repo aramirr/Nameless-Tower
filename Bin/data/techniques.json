@@ -143,6 +143,11 @@
     "z": "test_equal",
     "category": "pbr_skybox"
   },
+  "pbr_decals": {
+    "vs_file": "data/shaders/decals.fx",
+    "vertex_type": "PosNUvUvT_DecalInstance",
+    "category": "pbr_decals"
+  },
 
 
   "blur": {

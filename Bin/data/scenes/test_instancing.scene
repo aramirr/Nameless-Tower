@@ -1,0 +1,18 @@
+[
+	{
+		"entity": {
+			"name": "decals",
+			"transform": {
+				"pos": "0 0 0"
+			},
+			"render" : [
+				{
+					"mesh": "sphere_decals.mesh",
+					"materials" : [
+						"data/materials/decals_00.material"
+					]
+				}
+			]
+		}
+	}
+]

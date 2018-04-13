@@ -283,6 +283,12 @@
     <ClCompile Include="components\postfx\comp_render_blur_radial.cpp">
       <Filter>components\postfx</Filter>
     </ClCompile>
+    <ClCompile Include="render\mesh\mesh_instanced.cpp">
+      <Filter>render\mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\test\module_test_instancing.cpp">
+      <Filter>modules\test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -762,6 +768,12 @@
     </ClInclude>
     <ClInclude Include="components\postfx\comp_render_blur_radial.h">
       <Filter>components\postfx</Filter>
+    </ClInclude>
+    <ClInclude Include="render\mesh\mesh_instanced.h">
+      <Filter>render\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\test\module_test_instancing.h">
+      <Filter>modules\test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

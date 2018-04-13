@@ -42,16 +42,18 @@ bool CRenderMesh::create(
   const void* index_data,
   size_t      num_index_bytes,
   size_t      bytes_per_index,
-  VMeshSubGroups* new_subgroups
+  VMeshSubGroups* new_subgroups,
+  bool            new_is_dynamic
 ) {
   HRESULT hr;
 
   assert(vertex_data != nullptr);
   assert(num_bytes > 0);
   assert(new_topology != eTopology::UNDEFINED);
-
+  
   // Save the parameter
   topology = new_topology;
+  is_dynamic = new_is_dynamic;
 
   // Prepare a struct to create the buffer in gpu memory
   D3D11_BUFFER_DESC bd;
@@ -60,6 +62,12 @@ bool CRenderMesh::create(
   bd.ByteWidth = (UINT)num_bytes;
   bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
   bd.CPUAccessFlags = 0;
+
+  // Because we want to write from the CPU and to modify it (write, not read)
+  if (is_dynamic) {
+    bd.CPUAccessFlags |= D3D11_CPU_ACCESS_WRITE;
+    bd.Usage = D3D11_USAGE_DYNAMIC;
+  }
 
   // This is the initial data for the vertexs
   D3D11_SUBRESOURCE_DATA InitData;
@@ -112,9 +120,14 @@ bool CRenderMesh::create(
   }
 
   // Recompute aabb
-  AABB::CreateFromPoints(aabb, num_vertexs, (const VEC3*)vertex_data, vtx_decl->bytes_per_vertex);
+  if(!is_dynamic)
+    AABB::CreateFromPoints(aabb, num_vertexs, (const VEC3*)vertex_data, vtx_decl->bytes_per_vertex);
 
   return true;
+}
+
+bool CRenderMesh::isValid() const {
+  return vb != nullptr && vtx_decl != nullptr;
 }
 
 void CRenderMesh::destroy() {
@@ -134,9 +147,7 @@ void CRenderMesh::activate() const {
   // Set primitive topology
   Render.ctx->IASetPrimitiveTopology( (D3D11_PRIMITIVE_TOPOLOGY)topology );
 
-  if (ib) 
-    Render.ctx->IASetIndexBuffer(ib, index_fmt, 0);
-
+  activateIndexBuffer();
 }
 
 void CRenderMesh::render() const {
@@ -171,8 +182,52 @@ void CRenderMesh::activateAndRender() const {
   render();
 }
 
-void CRenderMesh::debugInMenu() {
-  ImGui::Text("%d vertexs", num_vertexs);
-  // ...
+void CRenderMesh::activateIndexBuffer() const {
+  if (ib)
+    Render.ctx->IASetIndexBuffer(ib, index_fmt, 0);
 }
 
+void CRenderMesh::debugInMenu() {
+  ImGui::Text("%d vertexs", num_vertexs);
+  if( ib )
+    ImGui::Text("%d Indices", num_indices);
+  ImGui::Text("Vtx Size %d : %s", vtx_decl->bytes_per_vertex, vtx_decl->name);
+}
+
+// --------------------------------------
+void CRenderMesh::setSubGroupSize(uint32_t num_subgroup, uint32_t new_size_for_subgroup) {
+  assert(num_subgroup < (uint32_t)subgroups.size());
+  // Ensure we are not programmed to render more indices/vertexs than our size
+  assert(ib ? (new_size_for_subgroup <= num_indices) : (new_size_for_subgroup <= num_vertexs));
+  subgroups[num_subgroup].num_indices = new_size_for_subgroup;
+}
+
+// --------------------------------------
+void CRenderMesh::updateFromCPU(const void *new_cpu_data, size_t num_bytes_to_update) {
+  assert(is_dynamic);
+  assert(new_cpu_data != nullptr);
+
+  // If no bytes are given, update the whole buffer
+  if (num_bytes_to_update == 0)
+    num_bytes_to_update = num_vertexs * vtx_decl->bytes_per_vertex;
+
+  // Don't copy beyond the vb capacity
+  assert(num_bytes_to_update <= num_vertexs * vtx_decl->bytes_per_vertex);
+
+  D3D11_MAPPED_SUBRESOURCE mapped_resource;
+
+  // Get CPU access to the GPU buffer
+  HRESULT hr = Render.ctx->Map(
+    vb
+    , 0     // Vertex buffers only have one subresource. In case of texture, each mipmap is a subresource
+    , D3D11_MAP_WRITE_DISCARD     // 
+    , 0
+    , &mapped_resource);
+  assert(hr == D3D_OK);
+
+  // Copy from CPU to GPU
+  memcpy(mapped_resource.pData, new_cpu_data, num_bytes_to_update);
+
+  // Close the map
+  Render.ctx->Unmap(vb, 0);
+}

@@ -191,6 +191,8 @@ void CModuleRender::generateFrame() {
 
     CRenderManager::get().renderCategory("distorsions");
 
+    CRenderManager::get().renderCategory("pbr_decals");
+
     // Apply postFX
     CTexture* curr_rt = rt_main;
     if (h_e_camera.isValid()) {
