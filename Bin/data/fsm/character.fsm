@@ -51,15 +51,23 @@
 			"operation" : "equal"
 		},
 		{
-			"type" : "VariableTransition",
+			"type" : "LogicTransition",
 			"source" : "idle",
 			"target" : "jump",
-			"variable" : {
-				"name" : "jump",
-				"type" : "bool",
-				"value" : true
-			},
-			"operation" : "equal"
+			"variables" : [
+				{
+					"name" : "jump",
+					"type" : "bool",
+					"value" : true
+				},
+				{
+					"name" : "is_grounded",
+					"type" : "bool",
+					"value" : true
+				}
+			],
+			"operation" : "equal",
+			"logic_operation" : "and"
 		},
 		{
 			"type" : "VariableTransition",
@@ -225,6 +233,11 @@
 			"name" : "jump",
 			"type" : "bool",
 			"value" : false
+		},
+		{
+			"name" : "is_grounded",
+			"type" : "bool",
+			"value" : true
 		},
 		{
 			"name" : "dash",
