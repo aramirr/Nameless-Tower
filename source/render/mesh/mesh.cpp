@@ -47,7 +47,8 @@ bool CRenderMesh::create(
 ) {
   HRESULT hr;
 
-  assert(vertex_data != nullptr);
+  // Dynamic meshes are allowed to NOT provide initial vertex data
+  assert(vertex_data != nullptr || new_is_dynamic);
   assert(num_bytes > 0);
   assert(new_topology != eTopology::UNDEFINED);
   
@@ -69,11 +70,17 @@ bool CRenderMesh::create(
     bd.Usage = D3D11_USAGE_DYNAMIC;
   }
 
-  // This is the initial data for the vertexs
+  // Check if we have initial data for the vertexs
+  const D3D11_SUBRESOURCE_DATA* init_data_ptr = nullptr;
   D3D11_SUBRESOURCE_DATA InitData;
-  ZeroMemory(&InitData, sizeof(InitData));
-  InitData.pSysMem = vertex_data;
-  hr = Render.device->CreateBuffer(&bd, &InitData, &vb);
+  if (vertex_data) {
+    ZeroMemory(&InitData, sizeof(InitData));
+    InitData.pSysMem = vertex_data;
+    init_data_ptr = &InitData;
+  }
+
+  // Create the Vertex Buffer
+  hr = Render.device->CreateBuffer(&bd, init_data_ptr, &vb);
   if (FAILED(hr))
     return false;
 
@@ -156,7 +163,7 @@ void CRenderMesh::render() const {
   assert(CRenderTechnique::current->vs);
   assert(vtx_decl);
   assert((CRenderTechnique::current->vs->getVertexDecl() == vtx_decl) 
-    || fatal("Current tech %s expect vs %s, but this mesh uses %s\n"
+    || fatal("Current tech %s expect vertex decl %s, but this mesh uses %s\n"
       , CRenderTechnique::current->getName().c_str()
       , CRenderTechnique::current->vs->getVertexDecl()->name.c_str()
       , vtx_decl->name.c_str()
