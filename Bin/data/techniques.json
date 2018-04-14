@@ -23,6 +23,11 @@
 		"ps_entry_point" : "PS",
 		"rs_config" : "wireframe"
 	},
+  "solid_objs_tan_skin" : {
+    "vs_file": "data/shaders/solid.fx",
+    "vs_entry_point" : "VS_Objs_Skin",
+    "vertex_type" : "PosNUvTanSkin"
+  },
 	"solid_objs_skin" : {
 		"vs_file": "data/shaders/solid.fx",
 		"vs_entry_point" : "VS_Objs_Skin",

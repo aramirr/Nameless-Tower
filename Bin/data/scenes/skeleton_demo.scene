@@ -3,7 +3,7 @@
     "entity":
     {
 
-      "name": "Paladin"
+      "name": "cally"
       ,
       "transform":
       {
@@ -11,42 +11,18 @@
         "rotation": "0.0 0.0 0.0 1.0"
       },
       "skeleton": {
-        "skeleton": "data/skeletons/paladin/paladin.skeleton"
+        "skeleton": "data/skeletons/cally/cally.skeleton"
       },
-      "mesh" : 
-      [
-        {
-          "mesh": "data/skeletons/skeleton/skeleton.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/piedras.material"
-          ]
-        }
-      ],
-      "abs_aabb":true,
-      "local_aabb":true,
       "render" : [
         {
-          "mesh": "data/skeletons/paladin/paladin.mesh"
+          "mesh": "data/skeletons/cally/cally.mesh"
           ,
           "materials":
           [
-            "data/skeletons/paladin/paladin.material"
+            "data/skeletons/cally/cally.material"
           ]
         }
       ]
-    }
-  },
-  {
-    "entity": 
-    {
-      "name": "Shield",
-      "transform": {},
-      "bone_tracker" : {
-        "parent" : "Paladin",
-        "bone":"Bip01 L Forearm"
-      }
     }
   }
 ]

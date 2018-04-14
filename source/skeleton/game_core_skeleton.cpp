@@ -251,7 +251,7 @@ bool CGameCoreSkeleton::create(const std::string& res_name) {
     convertCalCoreMesh2RenderMesh(getCoreMesh(mesh_id), skin_mesh_file);
 
     // Delete the cmf file
-    // std::remove(cmf.c_str());
+    std::remove(cmf.c_str());
 
   }
 
