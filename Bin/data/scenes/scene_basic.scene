@@ -482,14 +482,15 @@
         "pos": "5.0 2.18557e-07 5.0",
         "rotation": "0.0 0.0 0.0 -1.0"
       },
-      "render": [
+      "render": 
         {
           "mesh": "data/meshes/Plane001.mesh",
           "materials": [
             "data/materials/piedras1.material"
-          ]
+          ],
+          "is_active": true
         }
-      ],
+      ,
       "collider": {
         "shape": "plane"
       }
