@@ -46,6 +46,9 @@ namespace FSM
 				player->jumping_start_height = c_my_transform->getPosition().y;
 				ctx.setVariable("is_falling", true);
 			}
+			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
+				ctx.setVariable("is_falling", true);
+			}
 		}
 		return false;
 	}
