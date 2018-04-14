@@ -2,33 +2,21 @@
   {
     "entity":
     {
-
-      "name": "Paladin"
+      "name": "naja"
       ,
       "transform":
       {
-        "pos": "0 0 0",
-        "rotation": "0.0 0.0 0.0 1.0"
+        "pos": "-6.800 1 -31.269",
+		"front": "1 0 0"
       },
       "skeleton": {
-        "skeleton": "data/skeletons/skeleton/skeleton.skeleton"
+        "skeleton": "data/skeletons/naja/naja.skeleton"
       },
-      "mesh" : 
-      [
-        {
-          "mesh": "data/skeletons/naja/NajaDefault.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaterialNaja.material"
-          ]
-        }
-      ],
       "abs_aabb":true,
       "local_aabb":true,
       "render" : [
         {
-          "mesh": "data/skeletons/naja/NajaDefault.mesh"
+          "mesh": "data/meshes/NajaDefault.mesh"
           ,
           "materials":
           [
