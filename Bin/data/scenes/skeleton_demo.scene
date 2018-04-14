@@ -10,13 +10,13 @@
 		"front": "1 0 0"
       },
       "skeleton": {
-        "skeleton": "data/skeletons/naja/naja.skeleton"
+        "skeleton": "data/skeletons/paladin/paladin.skeleton"
       },
       "abs_aabb":true,
       "local_aabb":true,
       "render" : [
         {
-          "mesh": "data/meshes/NajaDefault.mesh"
+          "mesh": "data/skeletons/paladin/paladin.mesh"
           ,
           "materials":
           [
