@@ -54,9 +54,24 @@
 		"all" : false,
 		"buttons" : [ "right"]
 	},
-		{
+	{
 		"name" : "windstrike",
 		"all" : false,
 		"buttons" : [ "e"]
+	},
+	{
+		"name" : "respawn_player",
+		"all" : false,
+		"buttons" : [ "r"]
+	},
+	{
+		"name" : "kill",
+		"all" : false,
+		"buttons" : [ "k"]
+	},
+	{
+		"name" : "pause",
+		"all" : false,
+		"buttons" : [ "p"]
 	}
 ]

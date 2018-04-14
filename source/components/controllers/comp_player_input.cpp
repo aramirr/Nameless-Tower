@@ -72,4 +72,33 @@ void TCompPlayerInput::update(float dt)
 		e->sendMsg(runMsg);
 	}
 
+	TMsgSetFSMVariable respawnMsg;
+	respawnMsg.variant.setName("initial");
+	respawnMsg.variant.setBool(true);
+	if (EngineInput["respawn_player"].hasChanged())
+	{
+		CEntity* e = CHandle(this).getOwner();
+		e->sendMsg(respawnMsg);
+	}
+
+
+	TMsgSetFSMVariable deadMsg;
+	deadMsg.variant.setName("hit");
+	deadMsg.variant.setBool(true);
+	if (EngineInput["kill"].hasChanged())
+	{
+		CEntity* e = CHandle(this).getOwner();
+		e->sendMsg(deadMsg);
+	}
+
+
+	TMsgSetFSMVariable pauseMsg;
+	pauseMsg.variant.setName("pause");
+	pauseMsg.variant.setBool(EngineInput["pause"].getsPressed());
+	if (EngineInput["pause"].hasChanged())
+	{
+		CEntity* e = CHandle(this).getOwner();
+		e->sendMsg(pauseMsg);
+	}
+
 }

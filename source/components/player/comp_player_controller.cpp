@@ -245,7 +245,7 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 
 		omnidash_vector.y += omnidash_arrow.y;
 		VEC3 new_pos;
-		new_pos = my_pos + (omnidash_vector * ((jump_speed * 6 - gravity * DT) * DT));
+		new_pos = my_pos + (omnidash_vector * ((jum * 6 - gravity * DT) * DT));
 
 		VEC3 centre = VEC3(0, new_pos.y, 0);
 		float d = VEC3::Distance(centre, new_pos);

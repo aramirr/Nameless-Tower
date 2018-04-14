@@ -26,36 +26,6 @@ namespace FSM
 
 		// Chequea si hay que realizar el salto
 		if (!EngineInput["omnidash"].isPressed()) {
-			CHandle h_e_camera = getEntityByName("the_camera");
-			CEntity* e_camera = h_e_camera;
-			TCompCamera* c_camera = e_camera->get< TCompCamera >();
-			TCompTransform *c_my_transform = e->get<TCompTransform>();
-			const Input::TInterface_Mouse& mouse = EngineInput.mouse();
-			VEC3 my_pos = c_my_transform->getPosition();
-			VEC3 player_position;
-			c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
-			player->omnidash_arrow = mouse._position - VEC2(player_position.x, player_position.y);
-			player->omnidash_arrow.Normalize();
-			player->y_speed_factor = 0;
-
-			TEntityParseContext ctx1;
-			ctx1.entity_starting_the_parse = e;
-			ctx1.root_transform = *(TCompTransform*) e->get<TCompTransform>();
-			/*if (parseScene("data/prefabs/windstrike.prefab", ctx1)) {
-				assert(!ctx1.entities_loaded.empty());
-				TMsgChangeDirection MsgChangeDirection;
-				VEC3 omni_vector = c_my_transform->getFront();
-				if (player->looking_left)
-					omni_vector *= player->omnidash_arrow.x;
-				else
-					omni_vector *= player->omnidash_arrow.x * -1;
-
-				omni_vector.y += player->omnidash_arrow.y;
-				MsgChangeDirection.new_direction = -omni_vector;
-				CEntity *e = ctx1.current_entity;
-				e->sendMsg(MsgChangeDirection);
-			}*/
-
 			ctx.setVariable("omnijump", true);
 		}
 		
@@ -68,5 +38,35 @@ namespace FSM
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->y_speed_factor = 0;
 		EngineTimer.setTimeSlower(1.f);
+
+		CHandle h_e_camera = getEntityByName("camera_platform");
+		CEntity* e_camera = h_e_camera;
+		TCompCamera* c_camera = e_camera->get< TCompCamera >();
+		TCompTransform *c_my_transform = e->get<TCompTransform>();
+		const Input::TInterface_Mouse& mouse = EngineInput.mouse();
+		VEC3 my_pos = c_my_transform->getPosition();
+		VEC3 player_position;
+		c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
+		player->omnidash_arrow = mouse._position - VEC2(player_position.x, player_position.y);
+		player->omnidash_arrow.Normalize();
+		player->y_speed_factor = 0;
+
+		TEntityParseContext ctx1;
+		ctx1.entity_starting_the_parse = e;
+		ctx1.root_transform = *(TCompTransform*)e->get<TCompTransform>();
+		/*if (parseScene("data/prefabs/windstrike.prefab", ctx1)) {
+		assert(!ctx1.entities_loaded.empty());
+		TMsgChangeDirection MsgChangeDirection;
+		VEC3 omni_vector = c_my_transform->getFront();
+		if (player->looking_left)
+		omni_vector *= player->omnidash_arrow.x;
+		else
+		omni_vector *= player->omnidash_arrow.x * -1;
+
+		omni_vector.y += player->omnidash_arrow.y;
+		MsgChangeDirection.new_direction = -omni_vector;
+		CEntity *e = ctx1.current_entity;
+		e->sendMsg(MsgChangeDirection);
+		}*/
 	}
 }
