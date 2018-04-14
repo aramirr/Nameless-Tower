@@ -99,16 +99,26 @@ bool CVertexDeclManager::create() {
   }
 
   {
+    // Instance of a solid mesh, just the world matrix
     static D3D11_INPUT_ELEMENT_DESC layout[] = {
-      // Info of the instance. Sync with TRenderParticleDecal
     { "TEXCOORD", 2, DXGI_FORMAT_R32G32B32A32_FLOAT, 1,  0, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world0
     { "TEXCOORD", 3, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 16, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world1
     { "TEXCOORD", 4, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 32, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world2
     { "TEXCOORD", 5, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 48, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world3
-    { "TEXCOORD", 6, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 64, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // life, time_blending_out
     };
-    createNew("DecalInstance", layout, ARRAYSIZE(layout));
+    createNew("Instance", layout, ARRAYSIZE(layout));
   }
+
+  //{
+  //  static D3D11_INPUT_ELEMENT_DESC layout[] = {
+  //  { "TEXCOORD", 2, DXGI_FORMAT_R32G32B32A32_FLOAT, 1,  0, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world0
+  //  { "TEXCOORD", 3, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 16, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world1
+  //  { "TEXCOORD", 4, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 32, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world2
+  //  { "TEXCOORD", 5, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 48, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world3
+  //  { "TEXCOORD", 6, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 64, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // life, time_blending_out
+  //  };
+  //  createNew("DecalInstance", layout, ARRAYSIZE(layout));
+  //}
 
   return true;
 }
@@ -138,7 +148,9 @@ const CVertexDecl* CVertexDeclManager::createInstancedVertexDecl(const std::stri
       layout_b[i].InstanceDataStepRate = 1;
     }
     
-    return createNew(name, layout, num_elems);
+    auto decl = createNew(name, layout, num_elems);
+    decl->instancing = true;
+    return decl;
   }
   return nullptr;
 }

@@ -18,7 +18,6 @@ void VS_GBufferInstanced(
 , in float4 InstanceWorld1  : TEXCOORD3     // Stream 1
 , in float4 InstanceWorld2  : TEXCOORD4     // Stream 1
 , in float4 InstanceWorld3  : TEXCOORD5     // Stream 1
-, in float4 InstanceXtras   : TEXCOORD6     // TimeToLife, TimeBlendingOut, ... 
 
 , out float4 oPos      : SV_POSITION
 , out float3 oNormal   : NORMAL0

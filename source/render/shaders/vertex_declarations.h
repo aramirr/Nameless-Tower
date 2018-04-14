@@ -10,6 +10,7 @@ public:
   UINT numElements = 0;
   UINT bytes_per_vertex = 0;
   std::string name;
+  bool instancing = false;
 
 };
 

@@ -9,20 +9,16 @@ class CModuleTestInstancing : public IModule
 {
 
   // -------------------------------------------------------------------
-  struct TRenderDecal3D {
+  struct TInstance {
     MAT44 world;
-    VEC4  color;
-    TRenderDecal3D()
-      : color(1, 1, 1, 1)
-    {}
     static const char* getDeclName() {
-      return "DecalInstance";
+      return "Instance";
     }
   };
 
-  typedef CRenderMeshInstanced< TRenderDecal3D > TInstancedDecals;
+  typedef CRenderMeshInstanced< TInstance > TInstancedMeshes;
 
-  TInstancedDecals* mesh = nullptr;
+  TInstancedMeshes* mesh = nullptr;
 
 public:
   CModuleTestInstancing(const std::string& name)
