@@ -13,11 +13,12 @@ float randomFloat( float vmin, float vmax) {
 
 bool CModuleTestInstancing::start()
 {
-  mesh = new TInstancedDecals();
   auto instanced_mesh = Resources.get("data/meshes/GeoSphere001.mesh")->as<CRenderMesh>();
+  
+  mesh = new TInstancedDecals();
   mesh->setInstancedMesh(instanced_mesh);
   mesh->cpu_instances.reserve(4);
-  mesh->uploadInstancesToGPU();
+  mesh->reserveGPUInstances(4);
   mesh->setNameAndClass("sphere_decals.mesh", getResourceClassOf<CRenderMesh>());
   Resources.registerResource(mesh);
 
@@ -26,20 +27,23 @@ bool CModuleTestInstancing::start()
 
 void CModuleTestInstancing::update(float delta)
 {
-  if( ImGui::TreeNode( "Decals") ) {
-    ImGui::Text("Num Instances: %ld", mesh->cpu_instances.size());
-    static float sz = 10.f;
-    ImGui::DragFloat("Size", &sz, 0.01f, -10.f, 10.f);
+  if( ImGui::TreeNode( "Instances") ) {
+    ImGui::Text("Num Instances: %ld / %ld. GPU:%d", mesh->cpu_instances.size(), mesh->cpu_instances.capacity(), mesh->getVertexsCount() );
+    static float sz = 50.f;
+    ImGui::DragFloat("Size", &sz, 0.01f, -50.f, 50.f);
     if (ImGui::Button("Add")) {
       TRenderDecal3D new_decal;
       new_decal.world = MAT44::CreateTranslation(VEC3(randomFloat(-sz, sz), 0, randomFloat(-sz, sz)));
       mesh->cpu_instances.push_back(new_decal);
-      mesh->setSubGroupSize(0, (uint32_t)mesh->cpu_instances.size());
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("Del") && !mesh->cpu_instances.empty()) {
+      mesh->cpu_instances.pop_back();
     }
     ImGui::TreePop();
   }
 
-
+  // Move the instances in the cpu
   static float t = 0;
   t += delta;
   for (auto& p : mesh->cpu_instances) 

@@ -12,63 +12,36 @@ class CRenderMeshInstancedBase : public CRenderMesh {
 protected:
   const CRenderMesh* instanced_mesh = nullptr;    // Each vertex represents an instance
   size_t             num_instances_allocated_in_gpu = 0;
+
 public:
   void setInstancedMesh(const CRenderMesh* new_instanced_mesh) {
     instanced_mesh = new_instanced_mesh;
   }
   void renderSubMesh(uint32_t sub_group_idx) const override;
+  void reserveGPUInstances(size_t new_max_instances);
   virtual void uploadInstancesToGPU() = 0;
-  virtual void clearInstances() = 0;
 };
 
 // -------------------------------------------------------------------
+// This is a version of the mesh associated to a specific instance type
+// TInstance could be sprites, meshes, decals
+// Instance defines the specific data associated to each instance
 template< typename TInstance >
 class CRenderMeshInstanced : public CRenderMeshInstancedBase {
-
-  void allocGPUIfRequired(size_t new_max_instances) {
-    
-    if (new_max_instances > num_instances_allocated_in_gpu) {
-
-      // Do we have an initial value?, start from 4
-      if (!num_instances_allocated_in_gpu)
-        num_instances_allocated_in_gpu = 4;
-
-      // Keep increasing in powers of 2
-      while (new_max_instances > num_instances_allocated_in_gpu)
-        num_instances_allocated_in_gpu *= 2;
-
-      if (isValid())
-        destroy();
-
-      std::string decl_name = TInstance::getDeclName();
-
-      // Create the VB as a dynamic buffer to hold a maximum of N instances
-      bool is_ok = CRenderMeshInstancedBase::create(
-        cpu_instances.data(),
-        num_instances_allocated_in_gpu * sizeof(TInstance),  // Bytes required
-        decl_name.c_str(),
-        CRenderMesh::POINT_LIST,
-        nullptr, 0, 0,            // No index data
-        nullptr,                  // No specify group
-        true                      // is dynamic
-      );
-
-    }
-
-  }
-
 public:
   std::vector< TInstance > cpu_instances;
 
-  // Updates gpu and configures the group 0 to render the current number of instances
-  void uploadInstancesToGPU() override {
-    allocGPUIfRequired(cpu_instances.capacity());
-    updateFromCPU(cpu_instances.data(), cpu_instances.size() * sizeof(TInstance));
-    setSubGroupSize(0, (uint32_t) cpu_instances.size());
+  CRenderMeshInstanced() {
+    // This provides access to the bytes_per_vertex and whole vertex declaration
+    // of the instance
+    vtx_decl = CVertexDeclManager::get().getByName(TInstance::getDeclName());
   }
 
-  void clearInstances() {
-    cpu_instances.clear();
+  // Updates gpu and configures the group 0 to render the current number of instances
+  void uploadInstancesToGPU() override {
+    reserveGPUInstances(cpu_instances.capacity());
+    updateFromCPU(cpu_instances.data(), cpu_instances.size() * sizeof(TInstance));
+    setSubGroupSize(0, (uint32_t) cpu_instances.size());
   }
 
 };

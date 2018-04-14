@@ -1,6 +1,43 @@
 #include "mcv_platform.h"
 #include "mesh_instanced.h"
 
+void CRenderMeshInstancedBase::reserveGPUInstances(size_t new_max_instances) {
+
+  // Allocate only if we require more than what we actually have allocated
+  if (new_max_instances > num_instances_allocated_in_gpu) {
+
+    assert(vtx_decl);
+
+    // Do we have an initial value?, start from 4
+    if (!num_instances_allocated_in_gpu)
+      num_instances_allocated_in_gpu = 4;
+
+    // Keep increasing in powers of 2
+    while (new_max_instances > num_instances_allocated_in_gpu)
+      num_instances_allocated_in_gpu *= 2;
+
+    // We are about to change the ib/vb, so free the old version
+    if (isValid())
+      destroy();
+
+    // Create the VB as a dynamic buffer to hold a maximum of N instances
+    bool is_ok = CRenderMeshInstancedBase::create(
+      nullptr,                  // no vertex data provided, we might be just allocating
+      num_instances_allocated_in_gpu * vtx_decl->bytes_per_vertex,  // Total bytes required
+      vtx_decl->name,
+      CRenderMesh::POINT_LIST,
+      nullptr, 0, 0,            // No index data
+      nullptr,                  // No specify group
+      true                      // is dynamic
+    );
+
+    assert(is_ok && isValid());
+  }
+
+}
+
+
+
 // Configure the two streams and send the mesh to render
 void CRenderMeshInstancedBase::renderSubMesh(uint32_t sub_group_idx) const {
 
