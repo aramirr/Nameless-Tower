@@ -13,11 +13,7 @@ void VS_GBufferInstanced(
 , in float2 iTex1    : TEXCOORD1
 , in float4 iTangent : NORMAL1
 
-  // From stream 1 we read the instance information 
-, in float4 InstanceWorld0  : TEXCOORD2     // Stream 1
-, in float4 InstanceWorld1  : TEXCOORD3     // Stream 1
-, in float4 InstanceWorld2  : TEXCOORD4     // Stream 1
-, in float4 InstanceWorld3  : TEXCOORD5     // Stream 1
+, in TInstanceWorldData instance_data     // Stream 1
 
 , out float4 oPos      : SV_POSITION
 , out float3 oNormal   : NORMAL0
@@ -28,8 +24,7 @@ void VS_GBufferInstanced(
 )
 {
 
-  // Build a World matrix from the instance information
-  float4x4 instance_world = float4x4(InstanceWorld0, InstanceWorld1, InstanceWorld2, InstanceWorld3 );  
+  float4x4 instance_world = getWorldOfInstance(instance_data);
 
   float4 world_pos = mul(iPos, instance_world);
   oPos = mul(world_pos, camera_view_proj);

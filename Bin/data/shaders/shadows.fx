@@ -21,16 +21,10 @@ VS_OUTPUT VS(
 // ----------------------------------------------
 VS_OUTPUT VS_Instanced(
     in float4 iPos : POSITION
-
-  // From stream 1 we read the instance information 
-  , in float4 InstanceWorld0 : TEXCOORD2     // Stream 1
-  , in float4 InstanceWorld1 : TEXCOORD3     // Stream 1
-  , in float4 InstanceWorld2 : TEXCOORD4     // Stream 1
-  , in float4 InstanceWorld3 : TEXCOORD5     // Stream 1
+  , in TInstanceWorldData instance_data     // Stream 1
 )
 {
-  // Build a World matrix from the instance information
-  float4x4 instance_world = float4x4(InstanceWorld0, InstanceWorld1, InstanceWorld2, InstanceWorld3);
+  float4x4 instance_world = getWorldOfInstance(instance_data);
 
   VS_OUTPUT output = (VS_OUTPUT)0;
   float4 world_pos = mul(iPos, instance_world);
