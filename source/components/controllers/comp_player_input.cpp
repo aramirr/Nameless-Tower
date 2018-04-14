@@ -39,6 +39,15 @@ void TCompPlayerInput::update(float dt)
 		e->sendMsg(windstrikeMsg);
 	}
 
+	TMsgSetFSMVariable omnidashMsg;
+	omnidashMsg.variant.setName("omnidash");
+	omnidashMsg.variant.setBool(EngineInput["omnidash"].isPressed());
+	if (EngineInput["omnidash"].hasChanged())
+	{
+		CEntity* e = CHandle(this).getOwner();
+		e->sendMsg(omnidashMsg);
+	}
+
   TMsgSetFSMVariable speedMsg;
   speedMsg.variant.setName("speed");
   speedMsg.variant.setFloat(EngineInput["move"].value);

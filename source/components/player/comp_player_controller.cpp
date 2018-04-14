@@ -10,9 +10,6 @@
 DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
 void TCompPlayerController::debugInMenu() {
-	//ImGui::Text("State: %s", state.c_str());
-	//ImGui::Text("Can dash: %s", can_dash ? "Si" : "No");
-	//ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
 	ImGui::DragFloat("X speed: %f", &x_speed_factor, 0.01f, 0.f, 5.f);
 	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
@@ -139,13 +136,6 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				is_grounded = true;
 				can_omni = true;
 				can_dash = true;
-				//MENSAJE				
-				/*if (dashing_amount == 0) {
-					ChangeState("idle");
-				}
-				if (state == "jump"){}
-					ChangeState("idle");
-					*/
 			}
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 				is_grounded = false;
@@ -164,21 +154,20 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
 				current_yaw = left ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+				TMsgSetFSMVariable idleMsg;
+				idleMsg.variant.setName("idle");
+				idleMsg.variant.setBool(true);
+				CEntity* e = CHandle(this).getOwner();
+				e->sendMsg(idleMsg);
 			}
-			/*else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
-				change_mesh(1);
-				if (!isPressed('A') && !isPressed('D')) {
-					change_mesh(1);
-					can_dash = true;
-					ChangeState("idle");
-				}
-				else {
-					change_mesh(0);
-					can_dash = true;
-					ChangeState("run");
-				}
+			else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
+				TMsgSetFSMVariable idleMsg;
+				idleMsg.variant.setName("idle");
+				idleMsg.variant.setBool(true);
+				CEntity* e = CHandle(this).getOwner();
+				e->sendMsg(idleMsg);
 			}
-			if (state != "dash" && current_x_speed_factor != x_speed_factor) {
+			/*if (state != "dash" && current_x_speed_factor != x_speed_factor) {
 				current_x_speed_factor = x_speed_factor;
 				change_mesh(1);
 				ChangeState("idle");
@@ -193,268 +182,6 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 }
 
 /*
-void TCompPlayerController::initial_state(float dt) {
-	TCompTransform *my_pos = getMyTransform();
-	TCompCollider* comp_collider = get<TCompCollider>();
-	if (comp_collider && comp_collider->controller) {
-		if (checkpoint.x)
-			comp_collider->controller->setPosition(physx::PxExtendedVec3(checkpoint.x, checkpoint.y, checkpoint.z));
-		else
-			checkpoint = my_pos->getPosition();
-	}
-
-	
-	my_pos->lookAt(my_pos->getPosition(), center);
-	float y, p, r;
-	my_pos->getYawPitchRoll(&y, &p, &r);
-	y -= deg2rad(90);
-	my_pos->setYawPitchRoll(y, 0, 0);
-
-	looking_left = my_pos->isInLeft(center) ? false : true;
-	change_mesh(1);
-	ChangeState("idle");
-}
-
-void TCompPlayerController::idle_state(float dt) {
-	TCompCollider* comp_collider = get<TCompCollider>();
-
-	//---------- CHEAT de EDU el manco ----------
-	if (isPressed('O')) {
-		if (comp_collider && comp_collider->controller) {
-			VEC3 cheat_position = VEC3(30.364f, 45.759f, 9.768f);
-			comp_collider->controller->setPosition(physx::PxExtendedVec3(cheat_position.x, cheat_position.y, cheat_position.z));
-		}
-		ChangeState("initial");
-	}
-	if (isPressed('E')) {
-		TEntityParseContext ctx;
-		ctx.entity_starting_the_parse = CHandle(this).getOwner();
-		ctx.root_transform = *(TCompTransform*)get<TCompTransform>();
-		if (parseScene("data/prefabs/windstrike.prefab", ctx)) {
-			assert(!ctx.entities_loaded.empty());
-		}
-	}
-	//----------------------------------
-
-
-	TCompTransform *c_my_transform = getMyTransform();
-	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
-	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
-
-	float y_speed = (y_speed_factor * DT) - (gravity * DT * DT / 2);
-	if (!is_grounded)
-		y_speed_factor -= gravity * DT / 2;
-
-	// Chequea el salto
-	if (space.getsPressed() && is_grounded) {
-		is_grounded = false;
-		jumping_start_height = c_my_transform->getPosition().y;
-		change_mesh(2);
-		TMsgJump msg_jump;
-		msg_jump.jump_position = c_my_transform->getPosition();
-		CEntity* e_runner = (CEntity*)getEntityByName("Boss Runner");
-		e_runner->sendMsg(msg_jump);
-		y_speed_factor = jump_speed;
-		ChangeState("jump");
-	} 
-	// Chequea el dash
-	else if (dash.getsPressed() && can_dash) {
-		dashing_amount = 0;
-		current_x_speed_factor = x_speed_factor * dashing_speed;
-		change_mesh(4);
-		can_dash = false;
-		ChangeState("dash");
-	}
-
-	else {
-		if (comp_collider && comp_collider->controller)
-		{
-			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(0, y_speed, 0), 0.f, DT, physx::PxControllerFilters());
-			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
-				if (jumping_start_height - c_my_transform->getPosition().y > jumping_death_height) {
-					change_mesh(5);
-					ChangeState("dead");
-				}
-				y_speed_factor = 0;
-				is_grounded = true;
-				can_omni = true;
-				can_dash = true;
-			}
-			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && is_grounded) {
-				is_grounded = false;
-				jumping_start_height = c_my_transform->getPosition().y;
-			}
-		}
-
-		if (isPressed('A')) {
-			if (!looking_left) {
-				looking_left = true;
-				move_player(false, true, DT, y_speed);
-			}
-			else {
-				move_player(false, false, DT, y_speed);
-			}
-			change_mesh(0);
-			ChangeState("run");
-		}
-		if (isPressed('D')) {
-			if (!looking_left) {
-				move_player(true, false, DT, y_speed);
-			}
-			else {
-				looking_left = false;
-				move_player(true, true, DT, y_speed);
-			}
-			change_mesh(0);
-			ChangeState("run");
-		}
-
-		// Chequea el omnidash si es que esta en bajada
-		const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);
-		if (omni.getsPressed() && !is_grounded && can_omni) {
-			EngineTimer.setTimeSlower(0.25f);
-			can_omni = false;
-			change_mesh(3);
-			ChangeState("omni");
-		}
-	}
-}
-
-void TCompPlayerController::running_state(float dt) {
-	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
-	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
-
-	// Chequea el salto	
-	if (space.getsPressed() && is_grounded) {
-		TCompTransform *c_my_transform = get<TCompTransform>();
-		is_grounded = false;
-		jumping_start_height = c_my_transform->getPosition().y;
-		change_mesh(2);
-		TMsgJump msg_jump;
-		msg_jump.jump_position = c_my_transform->getPosition();
-		CEntity* e_runner = (CEntity*)getEntityByName("Boss Runner");
-		e_runner->sendMsg(msg_jump);
-		y_speed_factor = jump_speed;
-		ChangeState("jump");
-	}
-
-	// Chequea el dash	
-	else if (dash.getsPressed() && can_dash) {
-		dashing_amount = 0;
-		current_x_speed_factor = x_speed_factor * dashing_speed;
-		change_mesh(4);
-		can_dash = false;
-		ChangeState("dash");
-	}
-	else {
-		// Compruebo si sigue corriendo
-		float y_speed = (y_speed_factor * DT) - (gravity * DT * DT / 2);
-		if (!is_grounded)
-			y_speed_factor -= gravity * DT / 2;
-		if (isPressed('A')) {
-			if (!looking_left) {
-				looking_left = true;
-				move_player(false, true, DT, y_speed);
-			}
-			else {
-				move_player(false, false, DT, y_speed);
-			}
-		}
-		else if (isPressed('D')) {
-			if (!looking_left) {
-				move_player(true, false, DT, y_speed);
-			}
-			else {
-				looking_left = false;
-				move_player(true, true, DT, y_speed);
-			}
-		}
-		// Si no sigue corriendo pasa a estado idle
-		if (!isPressed('A') && !isPressed('D')) {
-			change_mesh(1);
-			ChangeState("idle");
-		}
-
-		// Chequea el omnidash si es que esta en bajada
-		const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);
-		if (omni.getsPressed() && !is_grounded && can_omni) {
-			EngineTimer.setTimeSlower(0.25f);
-			can_omni = false;
-			change_mesh(3);
-			ChangeState("omni");
-		}
-	}	
-}
-
-void TCompPlayerController::jumping_state(float dt) {
-
-	TCompCollider* comp_collider = get<TCompCollider>();
-	TCompTransform *c_my_transform = get<TCompTransform>();
-	assert(c_my_transform);
-	VEC3 my_pos = c_my_transform->getPosition();
-	VEC3 new_pos = my_pos;
-	float y_speed;
-	if (y_speed_factor > 0)
-		y_speed = (y_speed_factor * DT) - (gravity * DT * DT / 2);
-	else
-		y_speed = (y_speed_factor * DT) - (gravity * DT * DT * 3);
-	y_speed_factor -= gravity * DT / 2;
-	new_pos.y += y_speed;
-
-	// Chequea el dash		
-	const Input::TButton& dash = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_LSHIFT);
-	if (dash.getsPressed() && can_dash) {
-		dashing_amount = 0;
-		current_x_speed_factor = x_speed_factor * dashing_speed;
-		change_mesh(4);
-		can_dash = false;
-		ChangeState("dash");
-	}
-
-	// Chequea movimiento
-	if (isPressed('A')) {
-		if (!looking_left) {
-			looking_left = true;
-			move_player(false, true, DT, y_speed);
-		}
-		else {
-			move_player(false, false, DT, y_speed);
-		}
-	}
-	else if (isPressed('D')) {
-		if (!looking_left) {
-			move_player(true, false, DT, y_speed);
-		}
-		else {
-			looking_left = false;
-			move_player(true, true, DT, y_speed);
-		}
-	}
-	else {
-		VEC3 delta_move = new_pos - my_pos;
-		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, physx::PxControllerFilters());
-		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
-			change_mesh(1);
-			y_speed_factor = 0;
-			ChangeState("idle");
-		}
-		else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
-			change_mesh(1);
-			y_speed_factor = 0;
-			ChangeState("idle");
-		}
-	}
-
-	// Chequea si se presiona el omnidash
-	const Input::TButton& omni = CEngine::get().getInput().host(Input::PLAYER_1).mouse().button(Input::MOUSE_LEFT);
-	if (omni.getsPressed() && can_omni) {
-		EngineTimer.setTimeSlower(0.25f);
-		can_omni = false;
-		change_mesh(3);
-		ChangeState("omni");
-	}
-}
-
 void TCompPlayerController::omnidashing_state(float dt) {
 	omnidash_timer += DT;
 	bool change_state = false;

@@ -14,23 +14,23 @@
 			"name" : "run",
 			"type" : "RunState",
 			"animation" : "walk",
-			"x_speed" : 3
+			"x_speed" : 2.5
 		},
 		{
 			"name" : "jump",
 			"type" : "JumpState",
 			"y_speed" : 12.6,
-			"x_speed" : 3
+			"x_speed" : 2.5
 		},
 		{
 			"name" : "falling",
 			"type" : "FallingState",
-			"x_speed" : 3
+			"x_speed" : 2.5
 		},
 		{
 			"name" : "dash",
 			"type" : "DashState",
-			"x_speed": 10
+			"x_speed": 8
 		},
 		{
 			"name" : "windstrike",
@@ -42,7 +42,9 @@
 		},
 		{
 			"name" : "omnijump",
-			"type" : "OmnijumpState"
+			"type" : "OmnijumpState",
+			"y_speed" : 2,
+			"x_speed" : 2
 		},
 		{
 			"name" : "dead",
@@ -202,16 +204,50 @@
 			"operation" : "equal"
 		},
 		{
+			"type" : "VariableTransition",
+			"source" : "omnijump",
+			"target" : "idle",
+			"variable" : {
+				"name" : "idle",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
 			"type" : "TimeTransition",
 			"source" : "dash",
 			"target" : "idle",			
-			"time" : 0.2
+			"time" : 0.3
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dash",
+			"target" : "idle",			
+			"variable" : {
+				"name" : "idle",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
 		},
 		{
 			"type" : "TimeTransition",
 			"source" : "windstrike",
 			"target" : "idle",			
 			"time" : 0.1
+		},
+		{
+			"type" : "TimeTransition",
+			"source" : "omnidash",
+			"target" : "omnijump",			
+			"time" : 0.3
+		},
+		{
+			"type" : "TimeTransition",
+			"source" : "omnijump",
+			"target" : "idle",			
+			"time" : 0.2
 		},
 		{
 			"type" : "VariableTransition",
