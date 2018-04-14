@@ -38,6 +38,9 @@ VS_TEXTURED_OUTPUT VS(
 
   // Transform local vertex of the box to the world coordinates
   float4 world_pos = mul(float4(iPos,1), World);
+ 
+  // Concatenate with the instance world transform  
+  // world_pos = mul(world_pos, obj_world);
 
   // Transform it to projective space
 	output.Pos = mul( world_pos, camera_view_proj );
