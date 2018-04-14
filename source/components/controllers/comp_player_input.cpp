@@ -31,18 +31,18 @@ void TCompPlayerInput::update(float dt)
   }
 
 	TMsgSetFSMVariable runMsg;
-	jumpMsg.variant.setName("run");
-	jumpMsg.variant.setBool(EngineInput["a"].isPressed());
-	if (EngineInput["a"].hasChanged())
+	runMsg.variant.setName("run");
+	runMsg.variant.setBool(EngineInput["left"].isPressed());
+	if (EngineInput["left"].hasChanged())
 	{
 		CEntity* e = CHandle(this).getOwner();
-		e->sendMsg(jumpMsg);
+		e->sendMsg(runMsg);
 	}
-	jumpMsg.variant.setBool(EngineInput["d"].isPressed());
-	if (EngineInput["d"].hasChanged())
+	runMsg.variant.setBool(EngineInput["right"].isPressed());
+	if (EngineInput["right"].hasChanged())
 	{
 		CEntity* e = CHandle(this).getOwner();
-		e->sendMsg(jumpMsg);
+		e->sendMsg(runMsg);
 	}
 
 }

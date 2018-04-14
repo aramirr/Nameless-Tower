@@ -22,6 +22,11 @@
 			"y_speed" : 12.6
 		},
 		{
+			"name" : "falling",
+			"type" : "FallingState",
+			"y_speed": 12.6
+		},
+		{
 			"name" : "dash",
 			"type" : "DashState"
 		},
@@ -44,7 +49,7 @@
 			"source" : "initial",
 			"target" : "idle",
 			"variable" : {
-				"name" : "idle",
+				"name" : "is_grounded",
 				"type" : "bool",
 				"value" : true
 			},
@@ -105,6 +110,28 @@
 		{
 			"type" : "VariableTransition",
 			"source" : "jump",
+			"target" : "falling",
+			"variable" : {
+				"name" : "is_falling",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "jump",
+			"target" : "idle",
+			"variable" : {
+				"name" : "is_grounded",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "falling",
 			"target" : "idle",
 			"variable" : {
 				"name" : "is_grounded",
@@ -238,6 +265,11 @@
 			"name" : "is_grounded",
 			"type" : "bool",
 			"value" : true
+		},
+		{
+			"name" : "falling",
+			"type" : "bool",
+			"value" : false
 		},
 		{
 			"name" : "dash",

@@ -7,6 +7,9 @@ namespace FSM
 {
 	void RunState::onStart(CContext& ctx) const
 	{		
+		CEntity* e = ctx.getOwner();
+		TCompPlayerController* player = e->get<TCompPlayerController>();
+		player->change_mesh(0);
 	}
 
 	bool RunState::load(const json& jData)
@@ -23,7 +26,7 @@ namespace FSM
 		float y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt / 2);
 		if (!player->is_grounded)
 			player->y_speed_factor -= player->gravity * dt / 2;
-		if (isPressed('A')) {
+		if (EngineInput["left"].isPressed()) {
 			if (!player->looking_left) {
 				player->looking_left = true;
 				player->move_player(false, true, dt, y_speed);
@@ -32,7 +35,7 @@ namespace FSM
 				player->move_player(false, false, dt, y_speed);
 			}
 		}
-		else if (isPressed('D')) {
+		else if (EngineInput["right"].isPressed()) {
 			if (!player->looking_left) {
 				player->move_player(true, false, dt, y_speed);
 			}
@@ -42,7 +45,7 @@ namespace FSM
 			}
 		}
 		// Si no sigue corriendo pasa a estado idle
-		if (!isPressed('A') && !isPressed('D')) {
+		if (!EngineInput["left"].isPressed() && !EngineInput["right"].isPressed()) {
 			ctx.setVariable("idle", true);
 		}
 		return false;

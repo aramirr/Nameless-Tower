@@ -292,6 +292,7 @@
     <ClCompile Include="fsm\player_states\omnidash_state.cpp" />
     <ClCompile Include="fsm\player_states\omnijump_state.cpp" />
     <ClCompile Include="fsm\player_states\run_state.cpp" />
+    <ClCompile Include="fsm\player_states\falling_state.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -774,6 +775,7 @@
     <ClInclude Include="fsm\player_states\omnidash_state.h" />
     <ClInclude Include="fsm\player_states\omnijump_state.h" />
     <ClInclude Include="fsm\player_states\run_state.h" />
+    <ClInclude Include="fsm\player_states\falling_state.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">

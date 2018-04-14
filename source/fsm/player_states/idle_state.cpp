@@ -10,7 +10,6 @@ namespace FSM
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->change_mesh(1);
-		int a = 1;
 	}
 
 	bool IdleState::load(const json& jData)

@@ -34,8 +34,12 @@ namespace FSM
 
 	bool InitialState::update(float dt, CContext& ctx) const
 	{
-		ctx.setVariable("idle", true);
+		ctx.setVariable("is_grounded", true);
 		return false;
+	}
+
+	void InitialState::onFinish(CContext& ctx) const {
+		ctx.setVariable("initial", false);
 	}
 }
 
