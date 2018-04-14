@@ -12,23 +12,29 @@
 		},
 		{
 			"name" : "run",
-			"type" : "AnimationState",
+			"type" : "RunState",
 			"animation" : "walk",
-			"x_speed" : 2
+			"x_speed" : 3
 		},
 		{
 			"name" : "jump",
 			"type" : "JumpState",
-			"y_speed" : 12.6
+			"y_speed" : 12.6,
+			"x_speed" : 3
 		},
 		{
 			"name" : "falling",
 			"type" : "FallingState",
-			"y_speed": 12.6
+			"x_speed" : 3
 		},
 		{
 			"name" : "dash",
-			"type" : "DashState"
+			"type" : "DashState",
+			"x_speed": 10
+		},
+		{
+			"name" : "windstrike",
+			"type" : "WindstrikeState"
 		},
 		{
 			"name" : "omnidash",
@@ -186,6 +192,29 @@
 		},
 		{
 			"type" : "VariableTransition",
+			"source" : "falling",
+			"target" : "dash",
+			"variable" : {
+				"name" : "dash",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "TimeTransition",
+			"source" : "dash",
+			"target" : "idle",			
+			"time" : 0.2
+		},
+		{
+			"type" : "TimeTransition",
+			"source" : "windstrike",
+			"target" : "idle",			
+			"time" : 0.1
+		},
+		{
+			"type" : "VariableTransition",
 			"source" : "jump",
 			"target" : "omnidash",
 			"variable" : {
@@ -197,10 +226,76 @@
 		},
 		{
 			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "windstrike",
+			"variable" : {
+				"name" : "windstrike",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "run",
+			"target" : "windstrike",
+			"variable" : {
+				"name" : "windstrike",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "jump",
+			"target" : "windstrike",
+			"variable" : {
+				"name" : "windstrike",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "falling",
+			"target" : "windstrike",
+			"variable" : {
+				"name" : "windstrike",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
 			"source" : "omnidash",
 			"target" : "omnijump",
 			"variable" : {
 				"name" : "omnijump",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "run",
+			"target" : "falling",
+			"variable" : {
+				"name" : "is_falling",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "falling",
+			"variable" : {
+				"name" : "is_falling",
 				"type" : "bool",
 				"value" : true
 			},
@@ -267,7 +362,12 @@
 			"value" : true
 		},
 		{
-			"name" : "falling",
+			"name" : "is_falling",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "windstrike",
 			"type" : "bool",
 			"value" : false
 		},

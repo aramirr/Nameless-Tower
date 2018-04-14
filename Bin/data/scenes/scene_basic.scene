@@ -1,5 +1,65 @@
 [	{
 		"entity": {
+			"name": "The Player",
+			"render":
+		      [
+			  {"mesh": "data/meshes/NajaRun.mesh",
+		          "materials":["data/materials/MaterialNaja.material"]
+		      }
+			,
+			{"mesh": "data/meshes/NajaIdle.mesh",
+		          "materials":["data/materials/MaterialNaja.material"]
+
+		      }
+			,
+			{"mesh": "data/meshes/NajaJump.mesh",
+		          "materials":["data/materials/MaterialNaja.material"]
+		      }
+			,
+			{"mesh": "data/meshes/NajaOmnidash.mesh",
+		          "materials":["data/materials/MaterialNaja.material"]
+		      }
+			,
+			{"mesh": "data/meshes/NajaDash.mesh",
+		          "materials":["data/materials/MaterialNaja.material"]
+		      },
+			{"mesh": "data/meshes/NajaDeath.mesh",
+		          "materials":["data/materials/MaterialNaja.material"]
+		      }
+
+			  ]			
+			,
+			"transform": {
+				"pos": "-6.800 1 -31.269",
+				"front": "1 0 0"
+			}
+			, 
+			"fsm" : {
+				"file" : "data/fsm/character.fsm"
+			},
+			"player_controller" : {				
+			},
+			"player_input": {
+			},
+		  "collider": {
+			"shape": "capsule",
+			"is_character_controller": true
+			,
+			"radius": 0.22
+			,
+			"height": 0.7
+			,
+			"is_dynamic": false
+			,
+			"is_trigger": false
+		  },
+		  "arrow_ui":{
+		  
+		  }
+		}
+	},
+	{
+		"entity": {
 			"name": "Boss Runner",
 			"transform": {
 				"pos": "-23.624 -21.326 51.75",
@@ -71,66 +131,6 @@
 				"radius": 0.5,
 				"height": 1.0
 			}
-		}
-	},
-	{
-		"entity": {
-			"name": "The Player",
-			"render":
-		      [
-			  {"mesh": "data/meshes/NajaRun.mesh",
-		          "materials":["data/materials/MaterialNaja.material"]
-		      }
-			,
-			{"mesh": "data/meshes/NajaIdle.mesh",
-		          "materials":["data/materials/MaterialNaja.material"]
-
-		      }
-			,
-			{"mesh": "data/meshes/NajaJump.mesh",
-		          "materials":["data/materials/MaterialNaja.material"]
-		      }
-			,
-			{"mesh": "data/meshes/NajaOmnidash.mesh",
-		          "materials":["data/materials/MaterialNaja.material"]
-		      }
-			,
-			{"mesh": "data/meshes/NajaDash.mesh",
-		          "materials":["data/materials/MaterialNaja.material"]
-		      },
-			{"mesh": "data/meshes/NajaDeath.mesh",
-		          "materials":["data/materials/MaterialNaja.material"]
-		      }
-
-			  ]			
-			,
-			"transform": {
-				"pos": "-6.800 1 -31.269",
-				"front": "1 0 0"
-			}
-			, 
-			"fsm" : {
-				"file" : "data/fsm/character.fsm"
-			},
-			"player_controller" : {				
-			},
-			"player_input": {
-			},
-		  "collider": {
-			"shape": "capsule",
-			"is_character_controller": true
-			,
-			"radius": 0.22
-			,
-			"height": 0.7
-			,
-			"is_dynamic": false
-			,
-			"is_trigger": false
-		  },
-		  "arrow_ui":{
-		  
-		  }
 		}
 	},
 	{

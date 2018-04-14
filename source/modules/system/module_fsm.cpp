@@ -14,6 +14,7 @@
 #include "fsm/player_states/idle_state.h"
 #include "fsm/player_states/run_state.h"
 #include "fsm/player_states/falling_state.h"
+#include "fsm/player_states/windstrike_state.h"
 #include "fsm/custom_transitions.h"
 
 // for convenience
@@ -37,6 +38,7 @@ bool CModuleFSM::start()
 	_factory.registerInstancer("OmnijumpState", new FSM::StateInstancer<FSM::OmnijumpState>());
 	_factory.registerInstancer("DeadState", new FSM::StateInstancer<FSM::DeadState>());
 	_factory.registerInstancer("FallingState", new FSM::StateInstancer<FSM::FallingState>());
+	_factory.registerInstancer("WindstrikeState", new FSM::StateInstancer<FSM::WindstrikeState>());
   
 	_factory.registerInstancer("VariableTransition", new FSM::TransitionInstancer<FSM::VariableTransition>());
 	_factory.registerInstancer("LogicTransition", new FSM::TransitionInstancer<FSM::LogicTransition>());

@@ -40,7 +40,7 @@
 		"buttons" : [ "q"]
 	},
 	{
-		"name" : "turbo",
+		"name" : "dash",
 		"all" : false,
 		"buttons" : [ "shift"]
 	},
@@ -53,5 +53,10 @@
 		"name" : "move",
 		"all" : false,
 		"buttons" : [ "right"]
+	},
+		{
+		"name" : "windstrike",
+		"all" : false,
+		"buttons" : [ "e"]
 	}
 ]

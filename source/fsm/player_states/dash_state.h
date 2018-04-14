@@ -6,13 +6,13 @@ namespace FSM
 {
 	class DashState : public IState
 	{
-		virtual void onStart(CContext& ctx) const override;
-		virtual bool load(const json& jData);
-		virtual bool update(float dt, CContext& ctx);
+		void onStart(CContext& ctx) const override;
+		bool load(const json& jData) override;
+		bool update(float dt, CContext& ctx) const override;
+		void onFinish(CContext& ctx) const override;
 
 	private:
-		float _dashing_max;
-		float _dashing_speed;
+		float _x_speed;
 	};
 
 }

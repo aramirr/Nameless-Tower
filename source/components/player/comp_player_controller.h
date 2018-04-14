@@ -45,27 +45,25 @@ public:
 	
 	float DT;
 
+	enum EAnimations {
+		ERun = 0
+		, EIdle
+		, EJump
+		, EOmni
+		, EDash
+		, EDead
+		, EAnimations
+	};
+
   void debugInMenu();
   void load(const json& j, TEntityParseContext& ctx);
 	void change_mesh(int mesh_index);
 
-  // IA
-	/*void idle_state(float dt);
-  void running_state(float dt);
-  void jumping_state(float dt);
-	void omnidashing_state(float dt);
-	void omnidashing_jump_state(float dt);
-	void dashing_state(float dt);
-	void dead_state(float dt);
-	*/
-	void move_player(bool left, bool change_orientation, float dt, float y_speed);
+
+	void move_player(bool left, bool change_orientation, float dt, float y_speed, float x_speed);
 	bool isForward() { return looking_left; };
 	bool isGrounded() { return is_grounded; }
 
-	/*
-	static void registerMsgs();
-	void killPlayer(const TM sgKillPlayer& msg);
-	*/
 	void setCheckpoint(const TMsgCheckpoint& msg);
 	
   void init();

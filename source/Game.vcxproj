@@ -139,6 +139,7 @@
     <ClCompile Include="fsm\player_states\omnidash_state.cpp" />
     <ClCompile Include="fsm\player_states\omnijump_state.cpp" />
     <ClCompile Include="fsm\player_states\run_state.cpp" />
+    <ClCompile Include="fsm\player_states\windstrike_state.cpp" />
     <ClCompile Include="geometry\angular.cpp" />
     <ClCompile Include="geometry\curve.cpp" />
     <ClCompile Include="geometry\geometry.cpp" />
@@ -258,6 +259,7 @@
     <ClInclude Include="fsm\player_states\omnidash_state.h" />
     <ClInclude Include="fsm\player_states\omnijump_state.h" />
     <ClInclude Include="fsm\player_states\run_state.h" />
+    <ClInclude Include="fsm\player_states\windstrike_state.h" />
     <ClInclude Include="fsm\state.h" />
     <ClInclude Include="fsm\transition.h" />
     <ClInclude Include="geometry\angular.h" />

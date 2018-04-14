@@ -21,6 +21,24 @@ void TCompPlayerInput::update(float dt)
     e->sendMsg(jumpMsg);
   }
 
+	TMsgSetFSMVariable dashMsg;
+	dashMsg.variant.setName("dash");
+	dashMsg.variant.setBool(EngineInput["dash"].isPressed());
+	if (EngineInput["dash"].hasChanged())
+	{
+		CEntity* e = CHandle(this).getOwner();
+		e->sendMsg(dashMsg);
+	}
+
+	TMsgSetFSMVariable windstrikeMsg;
+	windstrikeMsg.variant.setName("windstrike");
+	windstrikeMsg.variant.setBool(EngineInput["windstrike"].isPressed());
+	if (EngineInput["windstrike"].hasChanged())
+	{
+		CEntity* e = CHandle(this).getOwner();
+		e->sendMsg(windstrikeMsg);
+	}
+
   TMsgSetFSMVariable speedMsg;
   speedMsg.variant.setName("speed");
   speedMsg.variant.setFloat(EngineInput["move"].value);

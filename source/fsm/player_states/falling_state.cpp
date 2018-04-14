@@ -7,11 +7,14 @@ namespace FSM
 {
 	void FallingState::onStart(CContext& ctx) const
 	{		
+		CEntity* e = ctx.getOwner();
+		TCompPlayerController* player = e->get<TCompPlayerController>();
+		player->change_mesh(2);
 	}
 
 	bool FallingState::load(const json& jData)
 	{
-		_y_speed = jData.value("y_speed", 12.f);
+		_x_speed = jData.value("x_speed", 2.f);
 		return true;
 	}
 
@@ -32,19 +35,19 @@ namespace FSM
 		if (EngineInput["left"].isPressed()) {
 			if (!player->looking_left) {
 				player->looking_left = true;
-				player->move_player(false, true, dt, y_speed);
+				player->move_player(false, true, dt, y_speed, _x_speed);
 			}
 			else {
-				player->move_player(false, false, dt, y_speed);
+				player->move_player(false, false, dt, y_speed, _x_speed);
 			}
 		}
 		else if (EngineInput["right"].isPressed()) {
 			if (!player->looking_left) {
-				player->move_player(true, false, dt, y_speed);
+				player->move_player(true, false, dt, y_speed, _x_speed);
 			}
 			else {
 				player->looking_left = false;
-				player->move_player(true, true, dt, y_speed);
+				player->move_player(true, true, dt, y_speed, _x_speed);
 			}
 		}
 

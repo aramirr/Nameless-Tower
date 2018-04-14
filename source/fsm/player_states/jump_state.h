@@ -13,5 +13,6 @@ namespace FSM
 
 	private:
 		float _y_speed;
+		float _x_speed;
 	};
 }

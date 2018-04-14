@@ -12,6 +12,6 @@ namespace FSM
 		void onFinish(CContext& ctx) const override;
 
 	private:
-		float _y_speed;
+		float _x_speed;
 	};
 }

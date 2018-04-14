@@ -97,14 +97,14 @@ void TCompPlayerController::change_mesh(int mesh_index) {
 }
 
 
-void TCompPlayerController::move_player(bool left, bool change_orientation, float dt, float y_speed) {
+void TCompPlayerController::move_player(bool left, bool change_orientation, float dt, float y_speed, float x_speed) {
 	TCompTransform *c_my_transform = get<TCompTransform>();
 
 	assert(c_my_transform);
 	// Current orientation
 	float current_yaw;
 	float current_pitch;
-	float amount_moved = current_x_speed_factor * dt;
+	float amount_moved = x_speed * dt;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	VEC3 myPos = c_my_transform->getPosition();
@@ -135,7 +135,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 					CEntity* e = CHandle(this).getOwner();
 					e->sendMsg(deadMsg);
 				}
-				y_speed_factor = 0;
+ 				y_speed_factor = 0;
 				is_grounded = true;
 				can_omni = true;
 				can_dash = true;
@@ -150,6 +150,15 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 				is_grounded = false;
 				jumping_start_height = c_my_transform->getPosition().y;
+				TMsgSetFSMVariable groundMsg;
+				groundMsg.variant.setName("is_grounded");
+				groundMsg.variant.setBool(false);
+				CEntity* e = CHandle(this).getOwner();
+				e->sendMsg(groundMsg);
+				TMsgSetFSMVariable fallingMsg;
+				fallingMsg.variant.setName("is_falling");
+				fallingMsg.variant.setBool(true);
+				e->sendMsg(fallingMsg);
 			}
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {

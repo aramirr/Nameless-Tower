@@ -9,7 +9,7 @@ namespace FSM
 	{
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_mesh(1);
+		player->change_mesh(player->EAnimations::EIdle);
 	}
 
 	bool IdleState::load(const json& jData)
@@ -44,8 +44,13 @@ namespace FSM
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && player->is_grounded) {
 				player->is_grounded = false;
 				player->jumping_start_height = c_my_transform->getPosition().y;
+				ctx.setVariable("is_falling", true);
 			}
 		}
 		return false;
+	}
+
+	void IdleState::onFinish(CContext& ctx) const {
+		ctx.setVariable("idle", false);
 	}
 }

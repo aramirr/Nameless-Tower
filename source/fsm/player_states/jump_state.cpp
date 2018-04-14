@@ -14,16 +14,13 @@ namespace FSM
 		player->is_grounded = false;
 		player->jumping_start_height = c_my_transform->getPosition().y;
 		player->change_mesh(2);
-		//TMsgJump msg_jump;
-		//msg_jump.jump_position = c_my_transform->getPosition();
-		//CEntity* e_runner = (CEntity*)getEntityByName("Boss Runner");
-		//e_runner->sendMsg(msg_jump);
 		player->y_speed_factor = _y_speed;
 	}
 
 	bool JumpState::load(const json& jData)
 	{
 		_y_speed = jData.value("y_speed", 12.f);
+		_x_speed = jData.value("x_speed", 2.f);
 		return true;
 	}
 
@@ -46,19 +43,19 @@ namespace FSM
 			if (EngineInput["left"].isPressed()) {
 				if (!player->looking_left) {
 					player->looking_left = true;
-					player->move_player(false, true, dt, y_speed);
+					player->move_player(false, true, dt, y_speed, _x_speed);
 				}
 				else {
-					player->move_player(false, false, dt, y_speed);
+					player->move_player(false, false, dt, y_speed, _x_speed);
 				}
 			}
 			else if (EngineInput["right"].isPressed()) {
 				if (!player->looking_left) {
-					player->move_player(true, false, dt, y_speed);
+					player->move_player(true, false, dt, y_speed, _x_speed);
 				}
 				else {
 					player->looking_left = false;
-					player->move_player(true, true, dt, y_speed);
+					player->move_player(true, true, dt, y_speed, _x_speed);
 				}
 			}
 			else {
@@ -82,6 +79,7 @@ namespace FSM
 	}
 
 	void JumpState::onFinish(CContext& ctx) const {	
+		ctx.setVariable("jump", false);
 	}
 
 }
