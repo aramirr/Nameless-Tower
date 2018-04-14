@@ -1,18 +1,18 @@
 [
-	{
-		"entity": {
-			"name": "decals",
-			"transform": {
-				"pos": "0 0 0"
-			},
-			"render" : [
-				{
-					"mesh": "sphere_decals.mesh",
-					"materials" : [
-						"data/materials/decals_00.material"
-					]
-				}
-			]
-		}
-	}
+  {
+    "entity": {
+      "name": "Instanced Spheres",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "sphere_instanced.mesh",
+          "materials": [
+            "data/textures/rustediron2/rustediron2_instanced.material"
+          ]
+        }
+      ]
+    }
+  }
 ]

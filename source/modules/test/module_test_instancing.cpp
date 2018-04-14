@@ -19,7 +19,7 @@ bool CModuleTestInstancing::start()
   mesh->setInstancedMesh(instanced_mesh);
   mesh->cpu_instances.reserve(4);
   mesh->reserveGPUInstances(4);
-  mesh->setNameAndClass("sphere_decals.mesh", getResourceClassOf<CRenderMesh>());
+  mesh->setNameAndClass("sphere_instanced.mesh", getResourceClassOf<CRenderMesh>());
   Resources.registerResource(mesh);
 
   return true;
