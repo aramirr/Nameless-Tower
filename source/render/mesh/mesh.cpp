@@ -4,17 +4,20 @@
 #include "render/shaders/render_technique.h"
 #include "render/shaders/vertex_shader.h"
 
+CRenderMesh* loadMeshInstanced(const std::string& name);
+
 // ----------------------------------------------
 class CRenderMeshResourceClass : public CResourceClass {
 public:
   CRenderMeshResourceClass() {
     class_name = "Meshes";
-    extensions = { ".mesh" };
+    extensions = { ".mesh", ".instanced_mesh" };
   }
   IResource* create(const std::string& name) const override {
+    if (name.find(".instanced_mesh") != std::string::npos )
+      return loadMeshInstanced(name);
     dbg("Creating mesh %s\n", name.c_str());
-    CRenderMesh* res = loadMesh(name.c_str());
-    return res;
+    return loadMesh(name.c_str());
   }
 };
 

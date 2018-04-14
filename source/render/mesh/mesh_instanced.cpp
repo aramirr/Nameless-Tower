@@ -1,7 +1,23 @@
 #include "mcv_platform.h"
 #include "mesh_instanced.h"
 
-void CRenderMeshInstancedBase::reserveGPUInstances(size_t new_max_instances) {
+CRenderMesh* loadMeshInstanced(const std::string& name) {
+  dbg("Creating instanced mesh %s\n", name.c_str());
+  auto mesh = new CRenderMeshInstanced();
+  json j = loadJson(name);
+  mesh->configure(j);
+  return mesh;
+}
+
+// -----------------------------------------------------------------
+void CRenderMeshInstanced::configure(const json& j) {
+  instanced_mesh = Resources.get(j["instanced_mesh"])->as<CRenderMesh>();
+  vtx_decl = CVertexDeclManager::get().getByName(j["instances_type"]);
+  reserveGPUInstances(j.value("num_instances_reserved", 4));
+}
+
+// -----------------------------------------------------------------
+void CRenderMeshInstanced::reserveGPUInstances(size_t new_max_instances) {
 
   // Allocate only if we require more than what we actually have allocated
   if (new_max_instances > num_instances_allocated_in_gpu) {
@@ -20,8 +36,10 @@ void CRenderMeshInstancedBase::reserveGPUInstances(size_t new_max_instances) {
     if (isValid())
       destroy();
 
+    dbg("Reallocating %ld GPU instances for mesh %s\n", num_instances_allocated_in_gpu, getName().c_str());
+
     // Create the VB as a dynamic buffer to hold a maximum of N instances
-    bool is_ok = CRenderMeshInstancedBase::create(
+    bool is_ok = create(
       nullptr,                  // no vertex data provided, we might be just allocating
       num_instances_allocated_in_gpu * vtx_decl->bytes_per_vertex,  // Total bytes required
       vtx_decl->name,
@@ -33,13 +51,26 @@ void CRenderMeshInstancedBase::reserveGPUInstances(size_t new_max_instances) {
 
     assert(is_ok && isValid());
   }
-
 }
 
+// -----------------------------------------------------------------
+// Update the GPU with the new data
+void CRenderMeshInstanced::setInstancesData(
+  const void* data
+, size_t total_instances
+, size_t bytes_per_instance
+) {
+  assert(bytes_per_instance > 0);
+  assert(bytes_per_instance == getVertexDecl()->bytes_per_vertex);
+  reserveGPUInstances( total_instances );
+  if( data )
+    updateFromCPU(data, total_instances * bytes_per_instance);
+  setSubGroupSize(0, (uint32_t)total_instances);
+}
 
-
+// -----------------------------------------------------------------
 // Configure the two streams and send the mesh to render
-void CRenderMeshInstancedBase::renderSubMesh(uint32_t sub_group_idx) const {
+void CRenderMeshInstanced::renderSubMesh(uint32_t sub_group_idx) const {
 
   assert(isValid());
   assert(instanced_mesh);

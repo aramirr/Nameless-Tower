@@ -10,25 +10,18 @@ float randomFloat( float vmin, float vmax) {
   return vmin + (vmax - vmin) * unitRandom();
 }
 
-
 bool CModuleTestInstancing::start()
 {
-  auto instanced_mesh = Resources.get("data/meshes/GeoSphere001.mesh")->as<CRenderMesh>();
-  
-  mesh = new TInstancedMeshes();
-  mesh->setInstancedMesh(instanced_mesh);
-  mesh->cpu_instances.reserve(4);
-  mesh->reserveGPUInstances(4);
-  mesh->setNameAndClass("sphere_instanced.mesh", getResourceClassOf<CRenderMesh>());
-  Resources.registerResource(mesh);
-
+  auto rmesh = Resources.get("data/meshes/GeoSphere001.instanced_mesh")->as<CRenderMesh>();
+  // Remove cast and upcast to CRenderMeshInstanced
+  instances_mesh = (CRenderMeshInstanced*)rmesh;
   return true;
 }
 
 void CModuleTestInstancing::update(float delta)
 {
   if( ImGui::TreeNode( "Instances") ) {
-    ImGui::Text("Num Instances: %ld / %ld. GPU:%d", mesh->cpu_instances.size(), mesh->cpu_instances.capacity(), mesh->getVertexsCount() );
+    ImGui::Text("Num Instances: %ld / %ld. GPU:%d", instances.size(), instances.capacity(), instances_mesh->getVertexsCount() );
     static float sz = 50.f;
     static int num = 3;
     ImGui::DragFloat("Size", &sz, 0.01f, -50.f, 50.f);
@@ -37,12 +30,12 @@ void CModuleTestInstancing::update(float delta)
       for (int i = 0; i < num; ++i) {
         TInstance new_instance;
         new_instance.world = MAT44::CreateTranslation(VEC3(randomFloat(-sz, sz), 0, randomFloat(-sz, sz)));
-        mesh->cpu_instances.push_back(new_instance);
+        instances.push_back(new_instance);
       }
     }
     ImGui::SameLine();
-    if (ImGui::Button("Del") && !mesh->cpu_instances.empty()) {
-      mesh->cpu_instances.pop_back();
+    if (ImGui::Button("Del") && !instances.empty()) {
+      instances.pop_back();
     }
     ImGui::TreePop();
   }
@@ -50,8 +43,8 @@ void CModuleTestInstancing::update(float delta)
   // Move the instances in the cpu
   static float t = 0;
   t += delta;
-  for (auto& p : mesh->cpu_instances) 
+  for (auto& p : instances) 
     p.world = p.world * MAT44::CreateTranslation(VEC3(0, 0.1f * sin(t), 0));
-  mesh->uploadInstancesToGPU();
+  instances_mesh->setInstancesData(instances.data(), instances.size(), sizeof(TInstance));
 
 }
