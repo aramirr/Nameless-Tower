@@ -15,7 +15,7 @@ bool CModuleTestInstancing::start()
 {
   auto instanced_mesh = Resources.get("data/meshes/GeoSphere001.mesh")->as<CRenderMesh>();
   
-  mesh = new TInstancedDecals();
+  mesh = new TInstancedMeshes();
   mesh->setInstancedMesh(instanced_mesh);
   mesh->cpu_instances.reserve(4);
   mesh->reserveGPUInstances(4);
@@ -30,11 +30,15 @@ void CModuleTestInstancing::update(float delta)
   if( ImGui::TreeNode( "Instances") ) {
     ImGui::Text("Num Instances: %ld / %ld. GPU:%d", mesh->cpu_instances.size(), mesh->cpu_instances.capacity(), mesh->getVertexsCount() );
     static float sz = 50.f;
+    static int num = 3;
     ImGui::DragFloat("Size", &sz, 0.01f, -50.f, 50.f);
+    ImGui::DragInt("Num", &num, 0.1f, 1, 10);
     if (ImGui::Button("Add")) {
-      TRenderDecal3D new_decal;
-      new_decal.world = MAT44::CreateTranslation(VEC3(randomFloat(-sz, sz), 0, randomFloat(-sz, sz)));
-      mesh->cpu_instances.push_back(new_decal);
+      for (int i = 0; i < num; ++i) {
+        TInstance new_instance;
+        new_instance.world = MAT44::CreateTranslation(VEC3(randomFloat(-sz, sz), 0, randomFloat(-sz, sz)));
+        mesh->cpu_instances.push_back(new_instance);
+      }
     }
     ImGui::SameLine();
     if (ImGui::Button("Del") && !mesh->cpu_instances.empty()) {
