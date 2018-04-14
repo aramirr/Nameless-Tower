@@ -145,7 +145,7 @@
   },
   "pbr_decals": {
     "vs_file": "data/shaders/decals.fx",
-    "vertex_type": "PosNUvUvT_DecalInstance",
+    "vertex_type": "PosNUvUvT_x_DecalInstance",
     "category": "pbr_decals"
   },
 
