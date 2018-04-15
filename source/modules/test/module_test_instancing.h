@@ -11,8 +11,13 @@ class CModuleTestInstancing : public IModule
     MAT44 world;
   };
 
+  struct TInstanceBlood {
+    MAT44 world;
+    VEC4  color;
+  };
+
   CRenderMeshInstanced* instances_mesh = nullptr;
-  std::vector< TInstance > instances;
+  std::vector< TInstanceBlood > instances;
 
 public:
   CModuleTestInstancing(const std::string& name)
