@@ -102,6 +102,7 @@ float computeShadowFactor( float3 wPos ) {
 
   // Accumulate shadow taps
   float shadow_factor = 0;
+  [unroll]
   for( int i=0; i<12; ++i ) {
 
   	// Get the random offset
