@@ -201,7 +201,7 @@ void CRenderMesh::debugInMenu() {
   ImGui::Text("%d vertexs", num_vertexs);
   if( ib )
     ImGui::Text("%d Indices", num_indices);
-  ImGui::Text("Vtx Size %d : %s", vtx_decl->bytes_per_vertex, vtx_decl->name);
+  ImGui::Text("Vtx Size %d : %s", vtx_decl->bytes_per_vertex, vtx_decl->name.c_str());
 }
 
 // --------------------------------------
