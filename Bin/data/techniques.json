@@ -159,6 +159,15 @@
     "category": "gbuffer"
   },
 
+  "pbr_decals": {
+    "vs_file": "data/shaders/pbr_decals.fx",
+    "vertex_type": "PosNUvUvT_x_InstanceColored",
+    "category": "gbuffer_decals",
+    "z" : "inverse_test_no_write",
+    "rs_config": "reverse_culling",
+    "blend" : "combinative_gbuffer"
+  },
+
 
   "blur": {
     "vs_file": "data/shaders/blur.fx",

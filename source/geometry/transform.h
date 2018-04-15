@@ -19,6 +19,7 @@ public:
   void setRotation(QUAT new_rot) { rot = new_rot; }
 
   float getScale() const { return scale; }
+  void  setScale(float new_scale) { scale = new_scale; }
 
   // -------------------------------------------
   MAT44 asMatrix() const {

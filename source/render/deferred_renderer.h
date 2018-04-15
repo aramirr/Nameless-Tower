@@ -13,6 +13,7 @@ public:
   CRenderToTexture* rt_acc_light = nullptr;;
 
   void renderGBuffer();
+  void renderGBufferDecals();
   void renderAccLight();
   void renderAmbientPass();
   void renderDirectionalLights();
