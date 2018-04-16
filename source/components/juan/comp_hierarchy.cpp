@@ -7,6 +7,8 @@
 
 DECL_OBJ_MANAGER("hierarchy", TCompHierarchy);
 
+using namespace physx;
+
 void TCompHierarchy::load(const json& j, TEntityParseContext& ctx) {
   assert(j.count("parent") );
   parent_name = j.value("parent", "");
@@ -58,5 +60,15 @@ void TCompHierarchy::update(float dt) {
   assert(c_my_transform);
 
   // Combine the current world transform with my 
-  c_my_transform->set(c_parent_transform->combineWith(*this) );
+	CTransform t = c_parent_transform->combineWith(*this);
+  c_my_transform->set(t);
+	CEntity* e = h_my_transform.getOwner();
+	TCompCollider *my_collider = e->get<TCompCollider>();
+	if (my_collider) {
+		PxRigidActor* rigidActor = ((PxRigidActor*)my_collider->actor);
+		PxTransform tr = rigidActor->getGlobalPose();
+		tr.p = PxVec3(t.getPosition().x, t.getPosition().y, t.getPosition().z);
+		tr.q = PxQuat(t.getRotation().x, t.getRotation().y, t.getRotation().z, t.getRotation().w);
+		rigidActor->setGlobalPose(tr);
+	}
 }

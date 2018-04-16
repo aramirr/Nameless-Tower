@@ -29,6 +29,11 @@ class TCompPlayerController : public IAIController {
 	bool	can_omni;
 	bool	can_dash;
 	int   availables_windstrikes;
+	int   max_windstrikes;
+	bool	gravity_enabled = true;
+
+	VEC3 checkpoint;
+	float checkpoint_yaw;
 
   DECL_SIBLING_ACCESS();
 
@@ -37,6 +42,7 @@ class TCompPlayerController : public IAIController {
 public:
 	VEC3	  center;
 	float	  tower_radius;
+
   void debugInMenu();
   void load(const json& j, TEntityParseContext& ctx);
 
@@ -58,6 +64,7 @@ public:
 	void killPlayer(const TMsgKillPlayer& msg);
 	void setCheckpoint(const TMsgCheckpoint& msg);
 	void updateWindstrikes(const TMsgWindstrike& msg);
+	void toggle_gravity(const TMsgGravityToggle& msg);
 
   //void setdt(float dt) { DT = dt; };
 

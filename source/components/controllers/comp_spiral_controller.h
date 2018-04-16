@@ -8,7 +8,7 @@ class TCompSpiralController : public TCompBase {
 
   float       radius;
   CHandle     h_entity;
-	CHandle			h_parent;
+  CHandle			h_parent;
   float       speed;
   VEC3		  center;
   VEC3		  direction;
@@ -23,7 +23,7 @@ public:
 	static void registerMsgs();
   void debugInMenu();
   void load(const json& j, TEntityParseContext& ctx);
-  void update(float dt);
+  void update(float DT);
 	void destroy();
   void setEntity(CHandle new_entity);
 	void setDirection(const TMsgChangeDirection& msg);

@@ -11,12 +11,14 @@
 #include "components/juan/comp_name.h"
 #include "components/juan/comp_transform.h"
 #include "components/camera/comp_camera.h"
+#include "components/camera/comp_camera_manager.h"
 #include "entity/entity_parser.h"
 #include "render/render_manager.h"
 
 
 bool CModuleTestAxis::start()
 {
+	CCamera        camera;
 
 	json jboot = loadJson("data/boot.json");
 
@@ -38,7 +40,8 @@ bool CModuleTestAxis::start()
 	{
 		TEntityParseContext ctx;
 
-		parseScene("data/scenes/TorreMilestoneFinal2.scene", ctx);
+		//parseScene("data/scenes/TorreMilestoneFinal2.scene", ctx);
+		parseScene("data/scenes/Torre2Milestone.scene", ctx);
 	}
 	{
 		TEntityParseContext ctx;
@@ -64,10 +67,19 @@ bool CModuleTestAxis::start()
 	// -------------------------------------------
 	if (!cb_light.create(CB_LIGHT))
 		return false;
+	// -------------------------------------------
+	if (!cb_globals.create(CB_GLOBALS))
+		return false;
+	cb_globals.global_exposure_adjustment = 1.f;
+	cb_globals.global_ambient_adjustment = 1.f;
+	cb_globals.global_world_time = 0.f;
+	cb_globals.global_hdr_enabled = 1.f;
+	cb_globals.global_gamma_correction_enabled = 1.f;
+	cb_globals.global_tone_mapping_mode = 1.f;
 
 	cb_light.activate();
 	cb_object.activate();
-
+	cb_globals.activate();
 	cb_camera.activate();
 
 	return true;
@@ -78,6 +90,7 @@ bool CModuleTestAxis::stop()
 	cb_light.destroy();
 	cb_camera.destroy();
 	cb_object.destroy();
+	cb_globals.destroy();
 	Engine.getEntities().destroyAllEntities();
 	Engine.getCameras().destroyAllCameras();
 	return true;
@@ -86,23 +99,30 @@ bool CModuleTestAxis::stop()
 void CModuleTestAxis::update(float delta)
 {
 
-	static int nitems = 10;
-	ImGui::DragInt("NumItems", &nitems, 0.2f, 1, 100);
-	static float items_scale = 20.0f;
-	ImGui::DragFloat("Scale", &items_scale, 0.1f, 1, 50);
-	if (ImGui::SmallButton("Create Grid Of Load")) {
-		for (int nz = -nitems; nz <= nitems; ++nz) {
-			for (int nx = -nitems; nx <= nitems; ++nx) {
-				TEntityParseContext ctx;
-				float ux = (float)nx / (float)nitems;   // -1 ... 1
-				float uz = (float)nz / (float)nitems;
-				ctx.root_transform.setPosition(VEC3(ux, 0.f, uz) *items_scale);
-				parseScene("data/prefabs/test_load.prefab", ctx);
-			}
-		}
+	if (carga) {
+		CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+
+		TCompCameraManager* cm = cam->get<TCompCameraManager>();
+		assert(cm);
+
+		//cm->activateCinematic("prueba");
+
+		carga = false;
 	}
 
+	static VEC3 world_pos;
+	ImGui::DragFloat3("Pos", &world_pos.x, 0.025f, -50.f, 50.f);
 
+	VEC2 mouse = EngineInput.mouse()._position;
+	if (h_e_camera.isValid()) {
+		CEntity* e_camera = h_e_camera;
+		TCompCamera* c_camera = e_camera->get< TCompCamera >();
+
+		VEC3 screen_coords;
+		bool inside = c_camera->getScreenCoordsOfWorldCoord(world_pos, &screen_coords);
+		ImGui::Text("Inside: %s  Coords: %1.2f, %1.2f  Z:%f", inside ? "YES" : "NO ", screen_coords.x, screen_coords.y, screen_coords.z);
+		ImGui::Text("Mouse at %1.2f, %1.2f", mouse.x, mouse.y);
+	}
 
 }
 
@@ -110,17 +130,17 @@ void CModuleTestAxis::update(float delta)
 void CModuleTestAxis::render()
 {
 
-	// Render the grid
-	cb_object.obj_world = MAT44::Identity;
-	cb_object.obj_color = VEC4(1, 1, 1, 1);
-	cb_object.updateGPU();
+  // Render the grid
+  cb_object.obj_world = MAT44::Identity;
+  cb_object.obj_color = VEC4(1,1,1,1);
+  cb_object.updateGPU();
 
-	auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
-	solid->activate();
+  auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
+  solid->activate();
 
-	auto grid = Resources.get("grid.mesh")->as<CRenderMesh>();
-	grid->activateAndRender();
-	auto axis = Resources.get("axis.mesh")->as<CRenderMesh>();
-	axis->activateAndRender();
+  auto grid = Resources.get("grid.mesh")->as<CRenderMesh>();
+  grid->activateAndRender();
+  auto axis = Resources.get("axis.mesh")->as<CRenderMesh>();
+  axis->activateAndRender();
 
 }

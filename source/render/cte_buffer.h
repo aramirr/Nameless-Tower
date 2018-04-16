@@ -12,7 +12,7 @@ protected:
 public:
 
   void destroy();
-  void activate();
+  void activate() const;
 };
 
 // -----------------------------------------

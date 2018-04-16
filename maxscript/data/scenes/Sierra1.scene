@@ -1,0 +1,44 @@
+[
+  {
+    "entity":
+    {
+      "name": "Sierra"
+      ,
+      "transform":
+      {
+        "pos": "-0.00706172 0.00459421 0.0534372"
+        ,
+        "rotation": "-0.707107 0.0 0.0 -0.707107"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sierra.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/AManuNoLeQuierenEnSuCasa.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "0.980154 0.164185 0.982231"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+    }
+  }
+]

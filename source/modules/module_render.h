@@ -3,11 +3,14 @@
 #include "module.h"
 #include "camera/camera.h"
 #include "handle/handle_def.h"
+#include "render/deferred_renderer.h"
 
 class CModuleRender : public IModule
 {
+  CDeferredRenderer deferred;
+  CRenderToTexture* rt_main = nullptr;
 public:
-	CModuleRender(const std::string& name);
+  CModuleRender(const std::string& name);
   bool start() override;
   bool stop() override;
   void update(float delta) override;
@@ -27,5 +30,5 @@ private:
 
   int _xres;
   int _yres;
-  float _backgroundColor[4];
+  VEC4 _backgroundColor;
 };

@@ -22,7 +22,10 @@
 		"ai_destroyable",
         "ai_linear_patrol",
 		"ai_orbit_patrol",
+		"ai_rotator",
 		"ai_spikes",
+		"ai_fan",
+		"ai_cut_door",
 		"arrow_ui",
     	"flyover_controller",
     	"hierarchy",
@@ -39,6 +42,6 @@
 	],
 	"render_debug" : 
 	[
+		"light_dir"
 	]
-
 }

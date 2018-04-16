@@ -67,7 +67,8 @@ bool CRenderTechnique::reloadPS() {
 bool CRenderTechnique::create(const std::string& name, json& j) {
 
   // --------------------------------------------
-  vs_file = j.value("vs_file", "data/shaders/shaders.fx");
+  vs_file = j.value("vs_file", "");
+  if (vs_file.empty()) fatal("vs_file of technique %s must not be empty", name.c_str());
   vs_entry_point = j.value("vs_entry_point", "VS");
   vertex_type = j.value("vertex_type", "");
   ps_file = j.value("ps_file", vs_file);
@@ -83,15 +84,18 @@ bool CRenderTechnique::create(const std::string& name, json& j) {
   uses_skin = j.value("uses_skin", false);
 
   rs_config = RSConfigFromString(j.value("rs_config", "default"));
+  z_config = ZConfigFromString(j.value("z", "default"));
+  blend_config = BlendConfigFromString(j.value("blend", "default"));
 
   // Load textures associated to this technique
   if (j.count("textures")) {
     auto& j_textures = j["textures"];
     for (auto it = j_textures.begin(); it != j_textures.end(); ++it) {
       TSlot s;
-      if (it.key() == "environment") {
+      if (it.key() == "environment")
         s.slot = TS_ENVIRONMENT_MAP;
-      }
+      else if (it.key() == "irradiance")
+        s.slot = TS_IRRADIANCE_MAP;
       else {
         fatal("Invalid key '%s' in textures for technique %s\n", it.key().c_str(), name.c_str());
         continue;
@@ -130,6 +134,12 @@ void CRenderTechnique::activate() const {
   // Activate my defined rs (rasterization state) config
   activateRSConfig(rs_config);
 
+  // Activate my defined Z Config
+  activateZConfig(z_config);
+  
+  // Activate my blend config
+  activateBlendConfig(blend_config);
+
   // Activate the textures associated to this technique
   for (auto& t : textures) 
     t.texture->activate(t.slot);
@@ -143,6 +153,9 @@ void CRenderTechnique::debugInMenu() {
   ImGui::LabelText("VS", "%s", vs_entry_point.c_str());
   ImGui::LabelText("PS FX", "%s", ps_file.c_str());
   ImGui::LabelText("VS", "%s", ps_entry_point.c_str());
+  ::renderInMenu(z_config);
+  ::renderInMenu(rs_config);
+  ::renderInMenu(blend_config);
 }
 
 void CRenderTechnique::onFileChanged(const std::string& filename) {

@@ -2,7 +2,8 @@
   {
     "entity":
     {
-      "name": "naja"
+
+      "name": "cally"
       ,
       "transform":
       {
@@ -10,17 +11,15 @@
 		"front": "1 0 0"
       },
       "skeleton": {
-        "skeleton": "data/skeletons/paladin/paladin.skeleton"
+        "skeleton": "data/skeletons/cally/cally.skeleton"
       },
-      "abs_aabb":true,
-      "local_aabb":true,
       "render" : [
         {
-          "mesh": "data/skeletons/paladin/paladin.mesh"
+          "mesh": "data/skeletons/cally/cally.mesh"
           ,
           "materials":
           [
-            "data/materials/MaterialNaja.material"
+            "data/skeletons/cally/cally.material"
           ]
         }
       ]

@@ -5,6 +5,7 @@
 #include "resources/resources_manager.h"
 #include "render/render_utils.h"
 #include "components/juan/comp_transform.h"
+#include "render/render_objects.h"
 
 DECL_OBJ_MANAGER("skeleton", TCompSkeleton);
 
