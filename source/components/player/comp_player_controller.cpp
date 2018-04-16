@@ -10,32 +10,18 @@
 DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
 void TCompPlayerController::debugInMenu() {
-	ImGui::DragFloat("X speed: %f", &x_speed_factor, 0.01f, 0.f, 5.f);
 	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
-	ImGui::DragFloat("Jump speed: %f", &jump_speed, 0.01f, 0.f, 100.f);
-	ImGui::DragFloat("Omnidash max: %f", &omnidashing_max_ammount, 0.1f, 0.f, 10.f);
-	ImGui::DragFloat("Dash max: %f", &dashing_max, 0.05f, 0.f, 1.f);
 }
 
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
-	x_speed_factor = j.value("speed", 1.0f);
-	dashing_max = j.value("dashing_max", 0.35f);
 	gravity = j.value("gravity", 75.f);	
 	center = VEC3(0.f, 0.f, 0.f);
 	tower_radius = j.value("tower_radius", 32.f);
-	dashing_speed = j.value("dashing_speed", 3);
-	omnidash_max_time = j.value("omnidash_max_time", 0.3f);
-	omnidashing_max_ammount = j.value("omnidashing_max_ammount", 1.3f);
 	jumping_death_height = j.value("jumping_death_height", 9.f);
-	current_x_speed_factor = x_speed_factor; 
 	is_grounded = true;
 	looking_left = true;
-	can_omni = true;
-	can_dash = true;
-
-  DT = 0.f;
 
 	init();
 }
@@ -134,8 +120,6 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				}
  				y_speed_factor = 0;
 				is_grounded = true;
-				can_omni = true;
-				can_dash = true;
 			}
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 				is_grounded = false;

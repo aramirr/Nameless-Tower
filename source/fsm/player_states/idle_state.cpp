@@ -38,8 +38,6 @@ namespace FSM
 				}
 				player->y_speed_factor = 0;
 				player->is_grounded = true;
-				player->can_omni = true;
-				player->can_dash = true;
 			}
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && player->is_grounded) {
 				player->is_grounded = false;
