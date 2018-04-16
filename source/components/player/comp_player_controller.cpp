@@ -10,9 +10,6 @@
 DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
 void TCompPlayerController::debugInMenu() {
-	//ImGui::Text("State: %s", state.c_str());
-	//ImGui::Text("Can dash: %s", can_dash ? "Si" : "No");
-	//ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
 	ImGui::DragFloat("X speed: %f", &x_speed_factor, 0.01f, 0.f, 5.f);
 	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
 	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
@@ -139,13 +136,6 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				is_grounded = true;
 				can_omni = true;
 				can_dash = true;
-				//MENSAJE				
-				/*if (dashing_amount == 0) {
-					ChangeState("idle");
-				}
-				if (state == "jump"){}
-					ChangeState("idle");
-					*/
 			}
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 				is_grounded = false;
@@ -164,21 +154,20 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
 				current_yaw = left ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+				TMsgSetFSMVariable idleMsg;
+				idleMsg.variant.setName("idle");
+				idleMsg.variant.setBool(true);
+				CEntity* e = CHandle(this).getOwner();
+				e->sendMsg(idleMsg);
 			}
-			/*else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
-				change_mesh(1);
-				if (!isPressed('A') && !isPressed('D')) {
-					change_mesh(1);
-					can_dash = true;
-					ChangeState("idle");
-				}
-				else {
-					change_mesh(0);
-					can_dash = true;
-					ChangeState("run");
-				}
+			else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
+				TMsgSetFSMVariable idleMsg;
+				idleMsg.variant.setName("idle");
+				idleMsg.variant.setBool(true);
+				CEntity* e = CHandle(this).getOwner();
+				e->sendMsg(idleMsg);
 			}
-			if (state != "dash" && current_x_speed_factor != x_speed_factor) {
+			/*if (state != "dash" && current_x_speed_factor != x_speed_factor) {
 				current_x_speed_factor = x_speed_factor;
 				change_mesh(1);
 				ChangeState("idle");
@@ -525,7 +514,7 @@ void TCompPlayerController::omnidashing_jump_state(float dt) {
 
 		omnidash_vector.y += omnidash_arrow.y;
 		VEC3 new_pos;
-		new_pos = my_pos + (omnidash_vector * ((jump_speed * 6 - gravity * DT) * DT));
+		new_pos = my_pos + (omnidash_vector * ((jum * 6 - gravity * DT) * DT));
 
 		VEC3 centre = VEC3(0, new_pos.y, 0);
 		float d = VEC3::Distance(centre, new_pos);

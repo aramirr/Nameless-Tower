@@ -17,6 +17,9 @@ namespace FSM
 			else
 				player->checkpoint = my_pos->getPosition();
 		}
+		else {
+			player->checkpoint = my_pos->getPosition();
+		}
 
 		my_pos->lookAt(my_pos->getPosition(), player->center);
 		float y, p, r;

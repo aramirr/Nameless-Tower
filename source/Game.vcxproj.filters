@@ -296,6 +296,7 @@
     <ClCompile Include="fsm\player_states\run_state.cpp" />
     <ClCompile Include="fsm\player_states\falling_state.cpp" />
     <ClCompile Include="fsm\player_states\windstrike_state.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="utils\variant.cpp" />
     <ClCompile Include="components\controllers\comp_fake_animation_controller.cpp" />
     <ClCompile Include="components\controllers\comp_player_input.cpp" />
@@ -307,6 +308,9 @@
     <ClCompile Include="components\comp_orbit_controller.cpp" />
     <ClCompile Include="components\ia\ai_cut_door.cpp" />
     <ClCompile Include="components\ia\ai_rotation.cpp" />
+=======
+    <ClCompile Include="fsm\player_states\pause_state.cpp" />
+>>>>>>> 9b103e5a0e5b56342277c789bd723cfb1b4bdf69
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -805,6 +809,7 @@
     <ClInclude Include="components\comp_orbit_controller.h" />
     <ClInclude Include="components\ia\ai_cut_door.h" />
     <ClInclude Include="components\ia\ai_rotation.h" />
+    <ClInclude Include="fsm\player_states\pause_state.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">

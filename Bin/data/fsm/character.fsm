@@ -30,7 +30,7 @@
 		{
 			"name" : "dash",
 			"type" : "DashState",
-			"x_speed": 10
+			"x_speed": 8
 		},
 		{
 			"name" : "windstrike",
@@ -42,11 +42,17 @@
 		},
 		{
 			"name" : "omnijump",
-			"type" : "OmnijumpState"
+			"type" : "OmnijumpState",
+			"y_speed" : 4.5,
+			"x_speed" : 2
 		},
 		{
 			"name" : "dead",
 			"type" : "DeadState"
+		},
+		{
+			"name" : "pause",
+			"type" : "PauseState"
 		}
 	],
 	"transitions" : [
@@ -148,6 +154,17 @@
 		},
 		{
 			"type" : "VariableTransition",
+			"source" : "falling",
+			"target" : "dead",
+			"variable" : {
+				"name" : "hit",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
 			"source" : "idle",
 			"target" : "dead",
 			"variable" : {
@@ -202,10 +219,32 @@
 			"operation" : "equal"
 		},
 		{
+			"type" : "VariableTransition",
+			"source" : "omnijump",
+			"target" : "idle",
+			"variable" : {
+				"name" : "idle",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
 			"type" : "TimeTransition",
 			"source" : "dash",
 			"target" : "idle",			
-			"time" : 0.2
+			"time" : 0.3
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dash",
+			"target" : "idle",			
+			"variable" : {
+				"name" : "idle",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
 		},
 		{
 			"type" : "TimeTransition",
@@ -214,8 +253,31 @@
 			"time" : 0.1
 		},
 		{
+			"type" : "TimeTransition",
+			"source" : "omnidash",
+			"target" : "omnijump",			
+			"time" : 0.3
+		},
+		{
+			"type" : "TimeTransition",
+			"source" : "omnijump",
+			"target" : "idle",			
+			"time" : 0.25
+		},
+		{
 			"type" : "VariableTransition",
 			"source" : "jump",
+			"target" : "omnidash",
+			"variable" : {
+				"name" : "omnidash",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "falling",
 			"target" : "omnidash",
 			"variable" : {
 				"name" : "omnidash",
@@ -314,6 +376,28 @@
 		},
 		{
 			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "dead",
+			"variable" : {
+				"name" : "hit",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "omnijump",
+			"target" : "dead",
+			"variable" : {
+				"name" : "hit",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
 			"source" : "jump",
 			"target" : "dead",
 			"variable" : {
@@ -333,7 +417,150 @@
 				"value" : true
 			},
 			"operation" : "equal"
-		}	
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dead",
+			"target" : "initial",
+			"variable" : {
+				"name" : "initial",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dead",
+			"target" : "initial",
+			"variable" : {
+				"name" : "initial",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dead",
+			"target" : "initial",
+			"variable" : {
+				"name" : "initial",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dead",
+			"target" : "initial",
+			"variable" : {
+				"name" : "initial",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dead",
+			"target" : "initial",
+			"variable" : {
+				"name" : "initial",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "pause",
+			"variable" : {
+				"name" : "pause",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "run",
+			"target" : "pause",
+			"variable" : {
+				"name" : "pause",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "jump",
+			"target" : "pause",
+			"variable" : {
+				"name" : "pause",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "falling",
+			"target" : "pause",
+			"variable" : {
+				"name" : "pause",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "omnijump",
+			"target" : "pause",
+			"variable" : {
+				"name" : "pause",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "omnidash",
+			"target" : "pause",
+			"variable" : {
+				"name" : "pause",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dash",
+			"target" : "pause",
+			"variable" : {
+				"name" : "pause",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "pause",
+			"target" : "idle",
+			"variable" : {
+				"name" : "idle",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		}
 	],
 	"variables" : [
 		{
@@ -393,6 +620,16 @@
 		},
 		{
 			"name" : "dead",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "hit",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "pause",
 			"type" : "bool",
 			"value" : false
 		}
