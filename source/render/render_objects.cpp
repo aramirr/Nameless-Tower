@@ -304,6 +304,10 @@ void renderLine(VEC3 src, VEC3 dst, VEC4 color) {
 	mesh->activateAndRender();
 }
 
+void setAmbientAdjustment(float r) {
+	cb_globals.global_ambient_adjustment = r;
+}
+
 // ---------------------------------------------
 bool createDepthStencil(
 	const std::string& aname,

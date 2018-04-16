@@ -3,13 +3,14 @@
 #include "fsm/context.h"
 #include "components/player/comp_player_controller.h"
 
+
 namespace FSM
 {
 	void IdleState::onStart(CContext& ctx) const
 	{
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_mesh(player->EAnimations::EIdle);
+		player->change_mesh(player->EAnimations::EIdle);		
 	}
 
 	bool IdleState::load(const json& jData)
