@@ -92,7 +92,7 @@ void TCompPlayerInput::update(float dt)
 		e->sendMsg(deadMsg);
 	}
 
-
+	/*
 	TMsgSetFSMVariable pauseMsg;
 	pauseMsg.variant.setName("pause");
 	pauseMsg.variant.setBool(EngineInput["pause"].getsPressed());
@@ -101,5 +101,5 @@ void TCompPlayerInput::update(float dt)
 		CEntity* e = CHandle(this).getOwner();
 		e->sendMsg(pauseMsg);
 	}
-
+	*/
 }

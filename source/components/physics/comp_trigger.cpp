@@ -2,6 +2,7 @@
 #include "entity/entity_parser.h"
 #include "comp_trigger.h"
 #include "components/juan/comp_transform.h"
+#include "components/fsm/comp_fsm.h"
 #include "components/ui/ui_mouse_pos.h"
 #include "entity/common_msgs.h"
 
@@ -48,10 +49,15 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		//camIZQ->sendMsg(attach_msg);
 	}
 	else if (trigger_type == "spikes" && other_entity_name == "The Player") {
-		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
-		TMsgTriggerSpike triggerSpikeMsg;
-		triggerSpikeMsg.h_player = e_other_entity;
-		e_collider_entity->sendMsg(triggerSpikeMsg);
+		//CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
+		//TMsgTriggerSpike triggerSpikeMsg;
+		//triggerSpikeMsg.h_player = e_other_entity;
+		//e_collider_entity->sendMsg(triggerSpikeMsg);
+		CEntity* player = (CEntity *)getEntityByName("The Player");
+		TMsgSetFSMVariable deadMsg;
+		deadMsg.variant.setName("hit");
+		deadMsg.variant.setBool(true);		
+		player->sendMsg(deadMsg);
 	}
 }
 

@@ -16,10 +16,7 @@ namespace FSM
 	}
 
 	bool PauseState::update(float dt, CContext& ctx) const
-	{		
-		if (EngineInput["pause"].getsPressed()) {
-			ctx.setVariable("idle", true);
-		}
+	{				
 		return false;
 	}
 
