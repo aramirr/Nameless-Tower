@@ -7,14 +7,10 @@
 #include "components/juan/comp_culling.h"
 #include "components/juan/comp_aabb.h"
 #include "render_objects.h"
-#include "render/render.h"
-#include "ctes.h"
 
-/*
-#include "render/shader_cte_buffer.h"
-#include "components/comp_camera.h"
-#include "resources/resources_manager.h"
-*/
+#include "components/juan/comp_culling.h"
+#include "components/juan/comp_aabb.h"
+#include "skeleton/comp_skeleton.h"
 
 static CRenderManager the_render_manager;
 CRenderManager& CRenderManager::get() {
@@ -35,9 +31,9 @@ bool CRenderManager::sortRenderKeys(const TRenderKey& k1, const TRenderKey& k2) 
   // Category
   if (k1.material->tech->getCategoryID() != k2.material->tech->getCategoryID())
     return k1.material->tech->getCategoryID() < k2.material->tech->getCategoryID();
-  //// NonSkin -> Skin  
-  //if (k1.material->tech->usesSkin() != k2.material->tech->usesSkin())
-  //  return k1.material->tech->usesSkin() < k2.material->tech->usesSkin();
+  // NonSkin -> Skin  
+  if (k1.material->tech->usesSkin() != k2.material->tech->usesSkin())
+    return k1.material->tech->usesSkin() < k2.material->tech->usesSkin();
   // Render tech
   if (k1.material->tech != k2.material->tech)
     return k1.material->tech < k2.material->tech;
@@ -73,24 +69,26 @@ void CRenderManager::addRenderKey(
   key.subgroup_idx = subgroup_idx;
   render_keys.addKey(key);
 
-  //if (material->castsShadows()) {
-  //  const CRenderMaterial* shadow_mat = nullptr;
-  //  if (material->usesSkin())
-  //    shadow_mat = Resources.get("data/materials/shadows_skin.material")->as<CRenderMaterial>();
-  //  else {
-  //    if(mesh->getVertexDecl()->vertex_type == CVertexDeclaration::VTX_TYPE_POS_NORMAL_UV_CV_TAN )
-  //      shadow_mat = Resources.get("data/materials/shadows_mix.material")->as<CRenderMaterial>();
-  //    else
-  //      shadow_mat = Resources.get("data/materials/shadows.material")->as<CRenderMaterial>();
-  //  }
+  if (material->castsShadows()) {
 
-  //  TRenderKey key;
-  //  key.h_render_owner = h_comp_render_owner;
-  //  key.mesh = mesh;
-  //  key.material = shadow_mat;
-  //  key.subgroup_idx = subgroup_idx;
-  //  render_keys.addKey(key);
-  //}
+    const CMaterial* shadow_mat = nullptr;
+    if (material->tech->usesSkin())
+      shadow_mat = Resources.get("data/materials/shadows_skin.material")->as<CMaterial>();
+    else {
+      //if(mesh->getVertexDecl()->name == "PosNUvCvTan" )
+      //  shadow_mat = Resources.get("data/materials/shadows_mix.material")->as<CMaterial>();
+      //else
+      shadow_mat = Resources.get("data/materials/shadows.material")->as<CMaterial>();
+    }
+
+    TRenderKey key;
+    key.h_render_owner = h_comp_render_owner;
+    key.h_aabb = e_owner->get<TCompAbsAABB>();
+    key.mesh = mesh;
+    key.material = shadow_mat;
+    key.subgroup_idx = subgroup_idx;
+    render_keys.addKey(key);
+  }
 
 }
 

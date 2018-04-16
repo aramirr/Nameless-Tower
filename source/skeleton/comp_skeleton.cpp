@@ -5,6 +5,7 @@
 #include "resources/resources_manager.h"
 #include "render/render_utils.h"
 #include "components/juan/comp_transform.h"
+#include "render/render_objects.h"
 
 DECL_OBJ_MANAGER("skeleton", TCompSkeleton);
 
@@ -124,7 +125,6 @@ void TCompSkeleton::debugInMenu() {
     if (ImGui::SmallButton("X")) {
       auto core = (CGameCoreSkeleton*)model->getCoreModel();
       int id = core->getCoreAnimationId(a->getCoreAnimation()->getName());
-
       mixer->clearCycle(id, out_delay);
     }
     ImGui::PopID();
@@ -177,6 +177,7 @@ void TCompSkeleton::updateCtesBones() {
 }
 
 void TCompSkeleton::renderDebug() {
+  assert(model);
   VEC3 lines[MAX_SUPPORTED_BONES][2];
   int nrLines = model->getSkeleton()->getBoneLines(&lines[0][0].x);
   TCompTransform* transform = get<TCompTransform>();

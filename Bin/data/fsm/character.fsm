@@ -14,18 +14,18 @@
 			"name" : "run",
 			"type" : "RunState",
 			"animation" : "walk",
-			"x_speed" : 3
+			"x_speed" : 2.5
 		},
 		{
 			"name" : "jump",
 			"type" : "JumpState",
 			"y_speed" : 12.6,
-			"x_speed" : 3
+			"x_speed" : 2.5
 		},
 		{
 			"name" : "falling",
 			"type" : "FallingState",
-			"x_speed" : 3
+			"x_speed" : 2.5
 		},
 		{
 			"name" : "dash",

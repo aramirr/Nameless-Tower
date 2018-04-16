@@ -162,7 +162,7 @@
       ,
       "transform":
       {
-        "pos": "20.0 50.0 -20.0"
+        "pos": "20.0 5.0 -20.0"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -182,23 +182,80 @@
   }
   ,
   {
-    "entity": {
-      "name": "Plane001",
-      "transform": {
-        "pos": "5.0 2.18557e-07 5.0",
+    "entity":
+    {
+      "name": "Plane001"
+      ,
+      "transform":
+      {
+        "pos": "0.0 2.78158e-06 20.0"
+        ,
         "rotation": "0.0 0.0 0.0 -1.0"
-      },
-      "render": [
+      }
+      ,
+      "render":
+      [
         {
-          "mesh": "data/meshes/Plane001.mesh",
-          "materials": [
+          "mesh": "data/meshes/Plane001.mesh"
+          ,
+          "materials":
+          [
             "data/materials/piedras1.material"
           ]
         }
-      ],
-      "collider": {
-        "shape": "plane"
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "GeoSphere002"
+      ,
+      "transform":
+      {
+        "pos": "-1.03267 5.0 16.2406"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
       }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/GeoSphere002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/piedras1.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Box007"
+      ,
+      "transform":
+      {
+        "pos": "-15.365 -5.23586e-07 -11.9782"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Box007.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/madera.material"
+          ]
+        }
+      ]
     }
   }
 ]

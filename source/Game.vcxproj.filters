@@ -274,6 +274,8 @@
     <ClCompile Include="components\player\comp_player_controller.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="modules\module_tower.cpp" />
+    <ClCompile Include="modules\system\module_fsm.cpp" />
     <ClCompile Include="fsm\context.cpp" />
     <ClCompile Include="fsm\custom_states.cpp" />
     <ClCompile Include="fsm\custom_transitions.cpp" />
@@ -294,6 +296,17 @@
     <ClCompile Include="fsm\player_states\run_state.cpp" />
     <ClCompile Include="fsm\player_states\falling_state.cpp" />
     <ClCompile Include="fsm\player_states\windstrike_state.cpp" />
+    <ClCompile Include="utils\variant.cpp" />
+    <ClCompile Include="components\controllers\comp_fake_animation_controller.cpp" />
+    <ClCompile Include="components\controllers\comp_player_input.cpp" />
+    <ClCompile Include="components\comp_light_dir.cpp" />
+    <ClCompile Include="render\texture\render_to_texture.cpp" />
+    <ClCompile Include="components\comp_light_point.cpp" />
+    <ClCompile Include="render\deferred_renderer.cpp" />
+    <ClCompile Include="components\ia\ai_wind_current.cpp" />
+    <ClCompile Include="components\comp_orbit_controller.cpp" />
+    <ClCompile Include="components\ia\ai_cut_door.cpp" />
+    <ClCompile Include="components\ia\ai_rotation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -756,6 +769,8 @@
     <ClInclude Include="components\player\comp_player_controller.h">
       <Filter>components</Filter>
     </ClInclude>
+    <ClInclude Include="modules\module_tower.h" />
+    <ClInclude Include="modules\system\module_fsm.h" />
     <ClInclude Include="fsm\context.h" />
     <ClInclude Include="fsm\custom_states.h" />
     <ClInclude Include="fsm\custom_transitions.h" />
@@ -778,6 +793,18 @@
     <ClInclude Include="fsm\player_states\run_state.h" />
     <ClInclude Include="fsm\player_states\falling_state.h" />
     <ClInclude Include="fsm\player_states\windstrike_state.h" />
+    <ClInclude Include="utils\variant.h" />
+    <ClInclude Include="components\controllers\comp_fake_animation_controller.h" />
+    <ClInclude Include="components\controllers\comp_player_input.h" />
+    <ClInclude Include="components\comp_light_dir.h" />
+    <ClInclude Include="render\texture\texture_slots.h" />
+    <ClInclude Include="render\texture\render_to_texture.h" />
+    <ClInclude Include="components\comp_light_point.h" />
+    <ClInclude Include="render\deferred_renderer.h" />
+    <ClInclude Include="components\ia\ai_wind_current.h" />
+    <ClInclude Include="components\comp_orbit_controller.h" />
+    <ClInclude Include="components\ia\ai_cut_door.h" />
+    <ClInclude Include="components\ia\ai_rotation.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">

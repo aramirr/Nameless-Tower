@@ -47,8 +47,26 @@ void TCompCollider::load(const json& j, TEntityParseContext& ctx) {
 
 void TCompCollider::registerMsgs() {
   DECL_MSG(TCompCollider, TMsgEntityCreated, onCreate);
+  DECL_MSG(TCompCollider, TMsgColliderEnter, OnColliderEnter);
+}
+
+void TCompCollider::OnColliderEnter(const TMsgColliderEnter& msg) {
+	int aux = 1;
+	/*CHandle h_other_entity = msg.h_other_entity;
+	CEntity* e_other_entity = h_other_entity;
+	std::string other_entity_name = e_other_entity->getName();*/
 }
 
 void TCompCollider::onCreate(const TMsgEntityCreated& msg) {
   CEngine::get().getPhysics().createActor(*this);
+}
+
+TCompCollider::~TCompCollider() {
+	if (actor && actor->getScene())
+		actor->getScene()->removeActor(*actor);
+	actor = nullptr;
+	if (controller != NULL && controller) {
+		controller->release();
+		controller = nullptr;
+	}
 }

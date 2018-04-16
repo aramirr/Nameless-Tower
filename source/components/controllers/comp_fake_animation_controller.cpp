@@ -3,6 +3,7 @@
 #include "components/juan/comp_transform.h"
 #include "components/fsm/comp_fsm.h"
 
+
 DECL_OBJ_MANAGER("fake_animation", TCompFakeAnimation);
 
 void TCompFakeAnimation::debugInMenu() {

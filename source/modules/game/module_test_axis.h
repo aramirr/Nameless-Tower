@@ -4,7 +4,9 @@
 
 class CModuleTestAxis : public IModule
 {
-  CHandle h_e_camera;
+
+  bool carga = true;
+	CHandle h_e_camera;
 
 public:
   CModuleTestAxis(const std::string& aname) : IModule(aname) { }

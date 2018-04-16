@@ -9,6 +9,7 @@
 #include "components/juan/comp_name.h"
 #include "components/juan/comp_tags.h"
 #include "render/render_manager.h"
+#include "components/comp_light_dir.h"
 
 void CModuleEntities::loadListOfManagers( const json& j, std::vector< CHandleManager* > &managers) {
   managers.clear();
@@ -65,8 +66,6 @@ void CModuleEntities::update(float delta)
 		PROFILE_FUNCTION(om->getName());
 		om->updateAll(delta * timeSlower);
 	}
-
-
   CHandleManager::destroyAllPendingObjects();
 }
 
@@ -165,5 +164,16 @@ void CModuleEntities::renderDebugOfComponents() {
     PROFILE_FUNCTION(om->getName());
     om->renderDebugAll();
   }
+
+}
+
+void CModuleEntities::destroyAllEntities() {
+	auto hm = getObjectManager<CEntity>();
+	hm->forEach([](CEntity* e) {
+		CHandle h(e);
+		h.destroy();
+	});
+	CHandleManager::destroyAllPendingObjects();
+
 
 }

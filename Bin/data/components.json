@@ -1,6 +1,6 @@
 {
 	"sizes" : {
-		"default" : 1024
+		"default" : 2056
 	},
   "init_order" : {
     "entity" : 100,
@@ -22,7 +22,10 @@
 		"ai_destroyable",
         "ai_linear_patrol",
 		"ai_orbit_patrol",
+		"ai_rotator",
 		"ai_spikes",
+		"ai_fan",
+		"ai_cut_door",
 		"arrow_ui",
     	"flyover_controller",
     	"hierarchy",
@@ -32,11 +35,13 @@
 		"trigger",
 	    "local_aabb",
 		"culling",
+		"light_dir",
 		"fsm",
 		"fake_animation",
 		"player_input"
 	],
 	"render_debug" : 
 	[
+		"light_dir"
 	]
 }

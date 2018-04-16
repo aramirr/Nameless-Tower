@@ -2,6 +2,7 @@
 #include "comp_player_input.h"
 #include "components/fsm/comp_fsm.h"
 
+
 DECL_OBJ_MANAGER("player_input", TCompPlayerInput);
 
 void TCompPlayerInput::debugInMenu() {

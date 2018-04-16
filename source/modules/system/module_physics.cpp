@@ -72,7 +72,7 @@ void CModulePhysics::createActor(TCompCollider& comp_collider)
 
     PxCapsuleController* ctrl = static_cast<PxCapsuleController*>(mControllerManager->createController(*cDesc));
     PX_ASSERT(ctrl);
-    ctrl->setFootPosition(PxExtendedVec3(pos.x, pos.y, pos.z));
+    ctrl->setFootPosition(PxExtendedVec3(pos.x + config.offset.x, pos.y + config.offset.y, pos.z + config.offset.z));
     actor = ctrl->getActor();
     comp_collider.controller = ctrl;
     setupFiltering(actor, config.group, config.mask);
@@ -160,10 +160,10 @@ PxFilterFlags CustomFilterShader(
 {
     if ( (filterData0.word0 & filterData1.word1) && (filterData1.word0 & filterData0.word1) )
     {
-        if ( PxFilterObjectIsTrigger(attributes0) || PxFilterObjectIsTrigger(attributes1) )
-        {
-            pairFlags = PxPairFlag::eTRIGGER_DEFAULT;
-        }
+		if (PxFilterObjectIsTrigger(attributes0) || PxFilterObjectIsTrigger(attributes1))
+		{
+			pairFlags = PxPairFlag::eTRIGGER_DEFAULT;
+		}
         else {
             pairFlags = PxPairFlag::eCONTACT_DEFAULT | PxPairFlag::eNOTIFY_TOUCH_FOUND;
         }
@@ -261,7 +261,8 @@ void CModulePhysics::CustomSimulationEventCallback::onTrigger(PxTriggerPair* pai
 {
   for (PxU32 i = 0; i < count; ++i)
   {
-    if (pairs[i].flags & (PxTriggerPairFlag::eREMOVED_SHAPE_TRIGGER | PxTriggerPairFlag::eREMOVED_SHAPE_OTHER ))
+    if (pairs[i].flags & (PxTriggerPairFlag::eREMOVED_SHAPE_TRIGGER | PxTriggerPairFlag::eREMOVED_SHAPE_OTHER
+ ))
     {
       continue;
     }
@@ -275,7 +276,7 @@ void CModulePhysics::CustomSimulationEventCallback::onTrigger(PxTriggerPair* pai
 
     if (pairs[i].status == PxPairFlag::eNOTIFY_TOUCH_FOUND)
     {
-			e_trigger->sendMsg(TMsgTriggerEnter{ h_other_comp_collider.getOwner() });
+	  e_trigger->sendMsg(TMsgTriggerEnter{ h_other_comp_collider.getOwner() });
     }
     else if (pairs[i].status == PxPairFlag::eNOTIFY_TOUCH_LOST)
     {
@@ -283,3 +284,23 @@ void CModulePhysics::CustomSimulationEventCallback::onTrigger(PxTriggerPair* pai
     }
   }
 }
+
+/*void CModulePhysics::CustomSimulationEventCallback::onContact(const physx::PxContactPairHeader& pairHeader, const physx::PxContactPair* pairs, physx::PxU32 nbPairs) {
+	for (PxU32 i = 0; i < nbPairs; ++i)
+	{
+		if (pairs[i].flags & (PxContactPairFlag::eREMOVED_SHAPE_0 | PxContactPairFlag::eREMOVED_SHAPE_1))
+		{
+			continue;
+		}
+		CHandle h_collider_comp_collider;
+		h_collider_comp_collider.fromVoidPtr(pairs[i].shapes[0]->userData);
+
+		CHandle h_other_comp_collider;
+		h_other_comp_collider.fromVoidPtr(pairs[i].shapes[1]->userData);
+		CEntity* e_collider = h_collider_comp_collider.getOwner();
+		CEntity* e_other = h_other_comp_collider.getOwner();
+		
+		//e_collider->sendMsg(TMsgColliderEnter{ "Hello" });
+
+	}
+}*/

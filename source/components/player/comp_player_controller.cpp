@@ -242,8 +242,11 @@ void TCompPlayerController::idle_state(float dt) {
 	const Input::TButton& space = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(VK_SPACE);
 
 	float y_speed = (y_speed_factor * DT) - (gravity * DT * DT / 2);
+
 	if (!is_grounded)
 		y_speed_factor -= gravity * DT / 2;
+	if (!gravity_enabled)
+		y_speed_factor = 0;
 
 	// Chequea el salto
 	if (space.getsPressed() && is_grounded) {
@@ -351,6 +354,8 @@ void TCompPlayerController::running_state(float dt) {
 		float y_speed = (y_speed_factor * DT) - (gravity * DT * DT / 2);
 		if (!is_grounded)
 			y_speed_factor -= gravity * DT / 2;
+		if (!gravity_enabled)
+			y_speed_factor = 0;
 		if (isPressed('A')) {
 			if (!looking_left) {
 				looking_left = true;
@@ -399,6 +404,8 @@ void TCompPlayerController::jumping_state(float dt) {
 	else
 		y_speed = (y_speed_factor * DT) - (gravity * DT * DT * 3);
 	y_speed_factor -= gravity * DT / 2;
+	if (!gravity_enabled)
+		y_speed_factor = 0;
 	new_pos.y += y_speed;
 
 	// Chequea el dash		
@@ -573,10 +580,10 @@ void TCompPlayerController::dead_state(float dt) {
 	TCompCollider* comp_collider = get<TCompCollider>();
 	if (isPressed('P')) {		
 		if (comp_collider && comp_collider->controller) {
+			VEC3 checkpoint = Engine.getTower().getLastCheckpoint();
 			comp_collider->controller->setPosition(physx::PxExtendedVec3(checkpoint.x, checkpoint.y, checkpoint.z));
 		}
-		//Engine.getModules().changeGameState("test_axis");
-		ChangeState("initial");
+		Engine.getModules().changeGameState("test_axis");
 		return;
 	}
 	else {
@@ -607,9 +614,32 @@ void TCompPlayerController::dead_state(float dt) {
 void TCompPlayerController::registerMsgs() {
 	DECL_MSG(TCompPlayerController, TMsgKillPlayer, killPlayer);
 	DECL_MSG(TCompPlayerController, TMsgCheckpoint, setCheckpoint);
+	DECL_MSG(TCompPlayerController, TMsgWindstrike, updateWindstrikes);
+	DECL_MSG(TCompPlayerController, TMsgGravityToggle, toggle_gravity);
 }
 
 void TCompPlayerController::killPlayer(const TMsgKillPlayer& msg)
+{
+	change_mesh(5);
+	ChangeState("dead");
+}
+
+void TCompPlayerController::setCheckpoint(const TMsgCheckpoint& msg)
+{
+	Engine.getTower().setLastCheckpoint(msg.appearing_position);
+	TCompTransform *my_pos = getMyTransform();	
+	float y, p, r;
+	my_pos->getYawPitchRoll(&y, &p, &r);
+	Engine.getTower().setLastCheckpointYaw(y);
+	Engine.getTower().setLastCheckpointLeft(looking_left);
+}
+
+void TCompPlayerController::updateWindstrikes(const TMsgWindstrike& msg) {
+	if (max_windstrikes > availables_windstrikes)
+		availables_windstrikes++;
+}
+
+void TCompPlayerController::toggle_gravity(const TMsgGravityToggle& msg)
 {
 	change_mesh(5);
 	ChangeState("dead");

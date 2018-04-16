@@ -22,6 +22,7 @@ namespace FSM
     const std::string& getName() const { return _name; }
     void setFinal(bool how) { _isFinal = how; }
     bool isFinal() const { return _isFinal; }
+
   private:
     std::string _name;
     bool _isFinal = false;

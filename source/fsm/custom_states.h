@@ -2,7 +2,6 @@
 
 #include "state.h"
 
-
 namespace FSM
 {
   class AnimationState : public IState
@@ -13,5 +12,4 @@ namespace FSM
   private:
     std::string _animationName;
   };
-
 }

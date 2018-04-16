@@ -6,18 +6,17 @@
 
 class TCompCircularController : public TCompBase {
 
-  float       radius = 1.0f;
-  CHandle     h_target;
-  std::string target_name;
   float       speed = 1.0f;
-  float       curr_yaw = 0.f;
+  float       curr_rad = 0.f;
+  char        eje = 'X';
 
-  void onCreate(const TMsgEntityCreated& msg);
+  VEC3		    u;
+
+  bool carga;
 
   DECL_SIBLING_ACCESS();
 
 public:
-  static void registerMsgs();
   void debugInMenu();
   void load(const json& j, TEntityParseContext& ctx);
   void update(float dt);

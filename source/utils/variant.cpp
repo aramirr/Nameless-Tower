@@ -27,11 +27,6 @@ void CVariant::setFloat(float value) {
   _type = EType::FLOAT;
 }
 
-/*void CVariant::setVec(VEC3 value) {
-	_vValue = value;
-	_type = EType::VEC3;
-}
-*/
 void CVariant::setHandle(CHandle value) {
   _hValue = value;
   _type = EType::HANDLE;
@@ -121,11 +116,6 @@ void MVariants::setVariant(const std::string& name, float value)
   _variants[name].setFloat(value);
 }
 
-/*void MVariants::setVariant(const std::string& name, VEC3 value)
-{
-	_variants[name].setVec(value);
-}
-*/
 void MVariants::setVariant(const std::string& name, CHandle value)
 {
   _variants[name].setHandle(value);
@@ -195,17 +185,6 @@ float MVariants::getFloat(const std::string& name, float defaultValue) const
   return defaultValue;
 }
 
-
-/*VEC3 MVariants::getVec(const std::string& name, VEC3 defaultValue) const
-{
-	const CVariant* var = getVariant(name);
-	if (var)
-	{
-		return var->getVec();
-	}
-	return defaultValue;
-}
-*/
 CHandle MVariants::getHandle(const std::string& name, CHandle defaultValue) const
 {
   const CVariant* var = getVariant(name);
