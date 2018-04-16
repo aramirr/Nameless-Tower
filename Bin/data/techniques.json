@@ -142,6 +142,15 @@
     "ps_entry_point": "PS_skybox",
     "z" : "test_equal",
     "category" : "pbr_skybox"
+  },
+
+  "gui" : {
+    "vs_file": "data/shaders/gui.fx",
+    "vs_entry_point": "VS_GUI",
+    "ps_entry_point": "PS_GUI",
+    "vertex_type" : "PosClr",
+    "z" : "disable_all",
+    "category" : "helper"
   }
 
 }

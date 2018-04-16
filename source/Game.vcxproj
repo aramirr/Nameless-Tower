@@ -123,6 +123,9 @@
     <ClCompile Include="geometry\geometry.cpp" />
     <ClCompile Include="geometry\SimpleMath.cpp" />
     <ClCompile Include="geometry\transform.cpp" />
+    <ClCompile Include="gui\gui_parser.cpp" />
+    <ClCompile Include="gui\gui_widget.cpp" />
+    <ClCompile Include="gui\widgets\gui_image.cpp" />
     <ClCompile Include="handle\handle_def.cpp" />
     <ClCompile Include="handle\handle_manager.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
@@ -150,6 +153,7 @@
     <ClCompile Include="modules\module_render.cpp" />
     <ClCompile Include="modules\system\module_cameras.cpp" />
     <ClCompile Include="modules\system\module_fsm.cpp" />
+    <ClCompile Include="modules\system\module_gui.cpp" />
     <ClCompile Include="modules\system\module_input.cpp" />
     <ClCompile Include="modules\system\module_physics.cpp" />
     <ClCompile Include="modules\test\module_test_cameras.cpp" />
@@ -226,6 +230,10 @@
     <ClInclude Include="geometry\interpolators.h" />
     <ClInclude Include="geometry\SimpleMath.h" />
     <ClInclude Include="geometry\transform.h" />
+    <ClInclude Include="gui\gui_params.h" />
+    <ClInclude Include="gui\gui_parser.h" />
+    <ClInclude Include="gui\gui_widget.h" />
+    <ClInclude Include="gui\widgets\gui_image.h" />
     <ClInclude Include="handle\handle.h" />
     <ClInclude Include="handle\handle_def.h" />
     <ClInclude Include="handle\handle_manager.h" />
@@ -263,6 +271,7 @@
     <ClInclude Include="modules\module_render.h" />
     <ClInclude Include="modules\system\module_cameras.h" />
     <ClInclude Include="modules\system\module_fsm.h" />
+    <ClInclude Include="modules\system\module_gui.h" />
     <ClInclude Include="modules\system\module_input.h" />
     <ClInclude Include="modules\system\module_physics.h" />
     <ClInclude Include="modules\test\module_test_cameras.h" />

@@ -274,6 +274,18 @@
     <ClCompile Include="components\comp_light_point.cpp">
       <Filter>components</Filter>
     </ClCompile>
+    <ClCompile Include="modules\system\module_gui.cpp">
+      <Filter>modules\system</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\gui_widget.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\widgets\gui_image.cpp">
+      <Filter>gui\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\gui_parser.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -353,6 +365,12 @@
     </Filter>
     <Filter Include="skeleton">
       <UniqueIdentifier>{323ce2c4-3af1-40f3-981f-32b2114687b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gui">
+      <UniqueIdentifier>{da544793-0bd2-4ccc-8368-1e307e288b63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gui\widgets">
+      <UniqueIdentifier>{9c020120-211f-48f2-966a-0d782852d91f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -741,6 +759,21 @@
     </ClInclude>
     <ClInclude Include="components\comp_light_point.h">
       <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\system\module_gui.h">
+      <Filter>modules\system</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\gui_widget.h">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\gui_params.h">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\widgets\gui_image.h">
+      <Filter>gui\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\gui_parser.h">
+      <Filter>gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -200,6 +200,20 @@ void CModuleRender::generateFrame() {
   }
 
   {
+    PROFILE_FUNCTION("GUI");
+    CTraceScoped gpu_scope("GUI");
+
+    activateRSConfig(RSCFG_CULL_NONE);
+    activateZConfig(ZCFG_DISABLE_ALL);
+
+    activateCamera(CEngine::get().getGUI().getCamera(), Render.width, Render.height);
+    CEngine::get().getModules().renderGUI();
+
+    activateRSConfig(RSCFG_DEFAULT);
+    activateZConfig(ZCFG_DEFAULT);
+  }
+
+  {
     PROFILE_FUNCTION("ImGui::Render");
     CTraceScoped gpu_scope("ImGui");
     ImGui::Render();

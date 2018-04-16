@@ -3,8 +3,6 @@
     "data/scenes/player.scene",
     "data/scenes/camera.scene",
     "data/scenes/game_camera.scene",
-    "data/scenes/level_pbr.scene",
-    "data/scenes/water_plane.scene",
     "data/scenes/lights.scene"
   ],
   "unused_scenes": [
@@ -12,6 +10,8 @@
     "data/scenes/scene_basic.scene",
     "data/scenes/multimaterial.scene",
     "data/scenes/skeleton_bear.scene",
+    "data/scenes/water_plane.scene",
+    "data/scenes/level_pbr.scene",
     "dummy"
   ]
 }

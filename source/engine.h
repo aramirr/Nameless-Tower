@@ -8,6 +8,7 @@
 #include "modules/system/module_input.h"
 #include "modules/system/module_cameras.h"
 #include "modules/system/module_fsm.h"
+#include "modules/system/module_gui.h"
 
 class CEngine
 {
@@ -27,6 +28,7 @@ public:
   CModulePhysics& getPhysics() { return _module_physics; }
   CModuleCameras& getCameras() { return _module_cameras; }
   CModuleFSM& getFSM() { return _module_fsm; }
+  CModuleGUI& getGUI() { return _module_gui; }
 
   float getUnscaledDeltaTime() const { return current_unscaled_delta_time; }
 
@@ -39,6 +41,7 @@ private:
 	CModuleInput    _module_input;
   CModuleCameras  _module_cameras;
   CModuleFSM      _module_fsm;
+  CModuleGUI      _module_gui;
   
   float           current_unscaled_delta_time = 0.f;
 };

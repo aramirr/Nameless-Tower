@@ -1,0 +1,17 @@
+[
+	{
+		"name" : "test_image",
+		"type" : "image",
+		"params" : {
+			"visible" : true,
+			"position" : "1000 50",
+			"rotation" : 90.0,
+			"size" : "480 320",
+			"scale" : "2 1"
+		},
+		"image_params" : {
+			"texture" : "data/textures/wood_d.dds",
+			"color" : "1 1 1 1"
+		}
+	}
+]
