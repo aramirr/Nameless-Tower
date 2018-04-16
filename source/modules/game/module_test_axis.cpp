@@ -20,7 +20,7 @@ bool CModuleTestAxis::start()
 {
 	CCamera        camera;
 
-	json jboot = loadJson("data/boot.json");
+	//json jboot = loadJson("data/boot.json");
 
 	// Auto load some scenes
 	/*std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];
@@ -37,12 +37,12 @@ bool CModuleTestAxis::start()
 		TEntityParseContext ctx;
 		parseScene("data/scenes/Skybox01.scene", ctx);
 	}
-	{
-		TEntityParseContext ctx;
+	//{
+	//	TEntityParseContext ctx;
 
-		//parseScene("data/scenes/TorreMilestoneFinal2.scene", ctx);
-		parseScene("data/scenes/Torre2Milestone.scene", ctx);
-	}
+	//	//parseScene("data/scenes/TorreMilestoneFinal2.scene", ctx);
+	//	parseScene("data/scenes/Torre2Milestone.scene", ctx);
+	//}
 	{
 		TEntityParseContext ctx;
 

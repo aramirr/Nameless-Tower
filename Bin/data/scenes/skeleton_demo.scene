@@ -2,24 +2,23 @@
   {
     "entity":
     {
-
       "name": "cally"
       ,
       "transform":
       {
-        "pos": "-6.800 1 -31.269",
+        "pos": "0 0 0",
 		"front": "1 0 0"
       },
       "skeleton": {
-        "skeleton": "data/skeletons/cally/cally.skeleton"
+        "skeleton": "data/skeletons/naja/naja.skeleton"
       },
       "render" : [
         {
-          "mesh": "data/skeletons/cally/cally.mesh"
+          "mesh": "data/skeletons/naja/naja.mesh"
           ,
           "materials":
           [
-            "data/skeletons/cally/cally.material"
+            "data/skeletons/naja/NajaMaterial.material"
           ]
         }
       ]

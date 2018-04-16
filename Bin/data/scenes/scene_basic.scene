@@ -114,9 +114,6 @@
 				"speed" : 2.0,
 				"dashing_speed": 3
 			},
-			 "skeleton": {
-        		"skeleton": "data/skeletons/naja/naja.skeleton"
-      		},
 		  "collider": {
 			"shape": "capsule",
 			"is_character_controller": true
@@ -257,6 +254,18 @@
 			"camera" : {
 				"fov" : 80 
 			}
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_god",
+			"transform": {
+				"pos": "15 0 0"
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"flyover_controller" : {}
 		}
 	},
 	{
