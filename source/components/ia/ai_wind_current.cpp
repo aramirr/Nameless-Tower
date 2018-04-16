@@ -3,6 +3,7 @@
 #include "ai_wind_current.h"
 #include "entity/entity_parser.h"
 #include "components/juan/comp_transform.h"
+#include "components/fsm/comp_fsm.h"
 #include "render/render_utils.h"
 #include "modules/system/module_physics.h"
 #include "components/player/comp_player_controller.h"
@@ -66,11 +67,17 @@ void CAIFan::registerMsgs() {
 }
 
 void CAIFan::attachPlayer(const TMsgAttachTo& msg) {
-	attached = msg.h_attacher;
+	/*attached = msg.h_attacher;
 	CEntity *e_attached = attached;
 	TMsgGravityToggle disable_player_gravity_message;
 	disable_player_gravity_message.is_active = false;
-	e_attached->sendMsg(disable_player_gravity_message);
+	e_attached->sendMsg(disable_player_gravity_message);*/
+	TMsgSetFSMVariable jumpMsg;
+	jumpMsg.variant.setName("in_current");
+	jumpMsg.variant.setBool(true);	
+	attached = msg.h_attacher;
+	CEntity *e_attached = attached;
+	e_attached->sendMsg(jumpMsg);
 }
 
 void CAIFan::detachPlayer(const TMsgDetachOf& msg) {
@@ -78,10 +85,18 @@ void CAIFan::detachPlayer(const TMsgDetachOf& msg) {
 	//CEntity *e_inc_attached = inc_attached;
 	//if (inc_attached == attached)
 	//{
+	/*
 	CEntity *e_attached = attached;
 	TMsgGravityToggle enable_player_gravity_message;
 	enable_player_gravity_message.is_active = true;
 	e_attached->sendMsg(enable_player_gravity_message);
 	attached = CHandle();
 	//}
+	*/
+	TMsgSetFSMVariable jumpMsg;
+	jumpMsg.variant.setName("in_current");
+	jumpMsg.variant.setBool(false);
+	attached = msg.h_attacher;
+	CEntity *e_attached = attached;
+	e_attached->sendMsg(jumpMsg);
 }

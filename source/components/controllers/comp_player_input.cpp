@@ -82,7 +82,6 @@ void TCompPlayerInput::update(float dt)
 		e->sendMsg(respawnMsg);
 	}
 
-
 	TMsgSetFSMVariable deadMsg;
 	deadMsg.variant.setName("hit");
 	deadMsg.variant.setBool(true);
@@ -92,6 +91,14 @@ void TCompPlayerInput::update(float dt)
 		e->sendMsg(deadMsg);
 	}
 
+	TMsgSetFSMVariable glideMsg;
+	glideMsg.variant.setName("glide");
+	glideMsg.variant.setBool(true);
+	if (EngineInput["glide"].hasChanged())
+	{
+		CEntity* e = CHandle(this).getOwner();
+		e->sendMsg(glideMsg);
+	}
 	/*
 	TMsgSetFSMVariable pauseMsg;
 	pauseMsg.variant.setName("pause");

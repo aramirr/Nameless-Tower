@@ -53,6 +53,10 @@
 		{
 			"name" : "pause",
 			"type" : "PauseState"
+		},
+		{
+			"name" : "glide",
+			"type" : "GlideState"
 		}
 	],
 	"transitions" : [
@@ -79,6 +83,82 @@
 				},
 				{
 					"name" : "is_grounded",
+					"type" : "bool",
+					"value" : true
+				}
+			],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "idle",
+			"target" : "glide",
+			"variables" : [
+				{
+					"name" : "glide",
+					"type" : "bool",
+					"value" : true
+				},
+				{
+					"name" : "in_current",
+					"type" : "bool",
+					"value" : true
+				}
+			],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "run",
+			"target" : "glide",
+			"variables" : [
+				{
+					"name" : "glide",
+					"type" : "bool",
+					"value" : true
+				},
+				{
+					"name" : "in_current",
+					"type" : "bool",
+					"value" : true
+				}
+			],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "jump",
+			"target" : "glide",
+			"variables" : [
+				{
+					"name" : "glide",
+					"type" : "bool",
+					"value" : true
+				},
+				{
+					"name" : "in_current",
+					"type" : "bool",
+					"value" : true
+				}
+			],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "falling",
+			"target" : "glide",
+			"variables" : [
+				{
+					"name" : "glide",
+					"type" : "bool",
+					"value" : true
+				},
+				{
+					"name" : "in_current",
 					"type" : "bool",
 					"value" : true
 				}
@@ -497,6 +577,17 @@
 		},
 		{
 			"type" : "VariableTransition",
+			"source" : "glide",
+			"target" : "falling",
+			"variable" : {
+				"name" : "in_current",
+				"type" : "bool",
+				"value" : false
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
 			"source" : "jump",
 			"target" : "pause",
 			"variable" : {
@@ -630,6 +721,16 @@
 		},
 		{
 			"name" : "pause",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "glide",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "in_current",
 			"type" : "bool",
 			"value" : false
 		}
