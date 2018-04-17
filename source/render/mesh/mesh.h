@@ -32,7 +32,7 @@ public:
   void destroy() override;
   void activate() const;
   void render() const;
-  void renderSubMesh( uint32_t subgroup_idx ) const;
+  virtual void renderSubMesh( uint32_t subgroup_idx ) const;
   void activateAndRender() const;
   void activateIndexBuffer() const;
 
@@ -54,7 +54,10 @@ public:
   int32_t getIndicesCount() const { return num_indices; }
   ID3D11Buffer* getVB() const { return vb; }
   ID3D11Buffer* getIB() const { return ib; }
-private:
+
+  virtual ~CRenderMesh() { }
+
+protected:
   
   ID3D11Buffer*      vb = nullptr;
   ID3D11Buffer*      ib = nullptr;      // index buffer
