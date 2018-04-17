@@ -1,17 +1,17 @@
 {
   "boot_scenes": [
     "data/scenes/player.scene",
-    "data/scenes/camera.scene",
-    "data/scenes/game_camera.scene",
-    "data/scenes/level_pbr.scene",
-    "data/scenes/water_plane.scene",
-    "data/scenes/lights.scene"
+    "data/scenes/scene_basic.scene",
+    "data/scenes/skybox.scene", 
+    "data/scenes/torre.scene",
+    "data/scenes/cameras.scene", 
+    "data/scenes/lights.scene",
+    "data/scenes/checkpoints.scene"
   ],
   "unused_scenes": [
-    "data/scenes/donut.scene",
-    "data/scenes/scene_basic.scene",
-    "data/scenes/multimaterial.scene",
-    "data/scenes/skeleton_bear.scene",
-    "dummy"
+    "data/scenes/unused_scenes/test_cameras.scene",
+    "data/scenes/unused_scenes/skeleton_demo.scene",
+    "data/scenes/unused_scenes/camera.scene",
+    "data/scenes/unused_scenes/water_plane.scene"
   ]
-}
+}  

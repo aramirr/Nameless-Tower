@@ -23,36 +23,13 @@ bool CModuleTestAxis::start()
 	json jboot = loadJson("data/boot.json");
 
 	// Auto load some scenes
-	/*std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];
+	std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];
 	for (auto& scene_name : scenes_to_auto_load) {
 	dbg("Autoloading scene %s\n", scene_name.c_str());
 	TEntityParseContext ctx;
 	parseScene(scene_name, ctx);
-	}*/
-	{
-		TEntityParseContext ctx;
-		parseScene("data/scenes/scene_basic.scene", ctx);
 	}
-	{
-		TEntityParseContext ctx;
-		parseScene("data/scenes/Skybox01.scene", ctx);
-	}
-	{
-		TEntityParseContext ctx;
 
-		//parseScene("data/scenes/TorreMilestoneFinal2.scene", ctx);
-		parseScene("data/scenes/Torre2Milestone.scene", ctx);
-	}
-	{
-		TEntityParseContext ctx;
-
-		parseScene("data/scenes/BossInt.scene", ctx);
-	}
-	{
-		TEntityParseContext ctx;
-
-		parseScene("data/scenes/lights.scene", ctx);
-	}
 	// -------------------------------------------
 	if (!cb_camera.create(CB_CAMERA))
 		return false;
