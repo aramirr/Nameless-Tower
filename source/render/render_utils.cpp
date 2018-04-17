@@ -263,9 +263,7 @@ struct CSamplers {
       &sampDesc, &all_samplers[SAMPLER_WRAP_LINEAR]);
     if (FAILED(hr))
       return false;
-
     setDXName(all_samplers[SAMPLER_WRAP_LINEAR], "WRAP_LINEAR");
-    /*
 
     sampDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
     sampDesc.AddressU = D3D11_TEXTURE_ADDRESS_CLAMP;
@@ -277,6 +275,7 @@ struct CSamplers {
     return false;
     setDXName(all_samplers[SAMPLER_CLAMP_LINEAR], "CLAMP_LINEAR");
 
+    /*
     // For FXAA Bilinear becasue in the mips we do point
     sampDesc.Filter = D3D11_FILTER_MIN_MAG_LINEAR_MIP_POINT;
     sampDesc.AddressU = D3D11_TEXTURE_ADDRESS_CLAMP;

@@ -153,7 +153,6 @@ struct TMaterialExporter (
 			fs.beginObj()
 				
 			if classof mat == Standardmaterial then (
-
 				exportMap mat.diffusemap "albedo" "null_albedo"
 			    fs.writeComma()
 				exportMap mat.bumpMap "normal" "null_normal"

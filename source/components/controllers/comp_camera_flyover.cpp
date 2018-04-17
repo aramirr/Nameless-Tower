@@ -1,7 +1,6 @@
 #include "mcv_platform.h"
 #include "comp_camera_flyover.h"
 #include "components/juan/comp_transform.h"
-
 #include "utils/utils.h"
 
 DECL_OBJ_MANAGER("camera_flyover", TCompCameraFlyover);
