@@ -65,6 +65,8 @@ bool CModuleTestAxis::start()
 	// -------------------------------------------
 	if (!cb_globals.create(CB_GLOBALS))
 		return false;
+	if (!cb_blur.create(CB_BLUR))
+		return false;
 	cb_globals.global_exposure_adjustment = 1.f;
 	cb_globals.global_ambient_adjustment = 1.f;
 	cb_globals.global_world_time = 0.f;
@@ -76,6 +78,7 @@ bool CModuleTestAxis::start()
 	cb_object.activate();
 	cb_globals.activate();
 	cb_camera.activate();
+	cb_blur.activate();
 
 	return true;
 }
@@ -86,6 +89,7 @@ bool CModuleTestAxis::stop()
 	cb_camera.destroy();
 	cb_object.destroy();
 	cb_globals.destroy();
+	cb_blur.destroy();
 	Engine.getEntities().destroyAllEntities();
 	Engine.getCameras().destroyAllCameras();
 	return true;
@@ -112,7 +116,6 @@ void CModuleTestAxis::update(float delta)
 	if (h_e_camera.isValid()) {
 		CEntity* e_camera = h_e_camera;
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
-
 		VEC3 screen_coords;
 		bool inside = c_camera->getScreenCoordsOfWorldCoord(world_pos, &screen_coords);
 		ImGui::Text("Inside: %s  Coords: %1.2f, %1.2f  Z:%f", inside ? "YES" : "NO ", screen_coords.x, screen_coords.y, screen_coords.z);
@@ -129,7 +132,7 @@ void CModuleTestAxis::render()
   cb_object.obj_world = MAT44::Identity;
   cb_object.obj_color = VEC4(1,1,1,1);
   cb_object.updateGPU();
-
+  /*
   auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
   solid->activate();
 
@@ -137,5 +140,5 @@ void CModuleTestAxis::render()
   grid->activateAndRender();
   auto axis = Resources.get("axis.mesh")->as<CRenderMesh>();
   axis->activateAndRender();
-
+  */
 }

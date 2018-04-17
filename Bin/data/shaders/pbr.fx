@@ -97,6 +97,7 @@ void decodeGBuffer(
   // en el rango -1..1
   float4 N_rt = txGBufferNormals.Load(ss_load_coords);
   N = decodeNormal( N_rt.xyz );
+  N = normalize( N );
 
   // Get other inputs from the GBuffer
   float4 albedo = txGBufferAlbedos.Load(ss_load_coords);
@@ -287,3 +288,21 @@ float4 PS_dir_lights( in float4 iPosition : SV_Position ) : SV_Target
   return shade( iPosition, true );
 }
 
+
+// ----------------------------------------
+void VS_skybox( 
+  in float4 iPosition  : POSITION 
+, in float4 iColor     : COLOR0 
+, out float4 oPosition : SV_Position 
+) {
+  // Convert the range 0..1 from iPosition to -1..1 to match the homo space
+  oPosition = float4(iPosition.x * 2 - 1., 1 - iPosition.y * 2, 1, 1);
+}
+
+// --------------------------------------------------------
+float4 PS_skybox( in float4 iPosition : SV_Position ) : SV_Target
+{
+  float3 view_dir = mul( float4( iPosition.xy, 1, 1 ), camera_screen_to_world ).xyz;
+  float4 skybox_color = txEnvironmentMap.Sample(samLinear, view_dir);
+  return float4(skybox_color.xyz,1) * global_ambient_adjustment;
+}

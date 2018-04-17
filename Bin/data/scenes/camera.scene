@@ -1,0 +1,21 @@
+[
+  {
+    "entity": {
+        "name": "the_camera",
+        "transform": {
+            "pos": "0 3 3"
+        },
+        "render" : {},
+        "camera_flyover" : {},
+      "camera": {
+        "fov": 80
+      },
+      "render_blur" : {
+        "enabled" :  false
+      },
+      "render_blur_radial" : {
+        "enabled" :  true
+      }
+    }
+  }
+]

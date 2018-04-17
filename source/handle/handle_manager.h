@@ -88,9 +88,11 @@ public:
     assert(max_objects > 0);
 
     // Register this as the manager that will handle
-    // the type 'type' and has name 'getName()'
-    type = next_type_of_handle_manager;
-    next_type_of_handle_manager++;
+    // the type 'type' and has name 'getName()' only the first time.
+    if (type == 0) {
+      type = next_type_of_handle_manager;
+      next_type_of_handle_manager++;
+    }
     all_managers[type] = this;
     // Registrarme por nombre
     all_manager_by_name[getName()] = this;

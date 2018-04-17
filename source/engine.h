@@ -37,6 +37,8 @@ public:
 
 	float getUnscaledDeltaTime() const { return current_unscaled_delta_time; }
 
+  float getUnscaledDeltaTime() const { return current_unscaled_delta_time; }
+
 private:
 	CModuleManager  _modules;
 	CModuleRender   _module_render;

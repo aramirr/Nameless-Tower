@@ -1,0 +1,47 @@
+[
+  {
+    "entity":
+    {
+      "name": "water",
+      "transform": {
+        "pos": "0 5 0",
+        "rotation": "0.0 0.0 0.0 1.0"
+      },
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plane001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/water.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "GeoSphere001",
+      "transform":
+      {
+        "pos": "-11.7394 6.49656 -3.98103",
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/GeoSphere001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/water.material"
+          ]
+        }
+      ]
+    }
+  }
+]
