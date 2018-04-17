@@ -202,6 +202,12 @@ void CModuleCameras::destroyAllCameras() {
 	_mixedCameras.clear();
 }
 
+CEntity * CModuleCameras::getActiveCamera()
+{
+  CEntity* camera = _mixedCameras[_mixedCameras.size() - 1].camera;
+  return camera;
+}
+
 void CModuleCameras::renderInMenu()
 {
   if (ImGui::TreeNode("Cameras"))

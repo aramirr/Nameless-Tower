@@ -260,6 +260,18 @@
 	},
 	{
 		"entity": {
+			"name": "camera_god",
+			"transform": {
+				"pos": "15 0 0"
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"flyover_controller" : {}
+		}
+	},
+	{
+		"entity": {
 			"name": "camera_orbit_IZQ",
 			"transform": {
 				"pos": "-14 16 12",
