@@ -175,8 +175,8 @@ void TCompCameraManager::update(float dt) {
     CEntity* player = (CEntity*)getEntityByName("The Player");
     
     TMsgSetFSMVariable pauseMsg;
-    pauseMsg.variant.setName("pause");
-    pauseMsg.variant.setBool(false);
+    pauseMsg.variant.setName("idle");
+    pauseMsg.variant.setBool(true);
 
     player->sendMsg(pauseMsg);
 
