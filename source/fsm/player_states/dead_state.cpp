@@ -34,14 +34,10 @@ namespace FSM
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !player->is_grounded) {				
 				player->y_speed_factor = 0;
 				player->is_grounded = true;
-				TMsgSetFSMVariable dashMsg;
-				dashMsg.variant.setName("can_dash");
-				dashMsg.variant.setBool(true);
-				e->sendMsg(dashMsg);
-				TMsgSetFSMVariable omniMsg;
-				omniMsg.variant.setName("can_omni");
-				omniMsg.variant.setBool(true);
-				e->sendMsg(omniMsg);
+				ctx.setVariable("dead", false);
+				ctx.setVariable("can_dash", true);
+				ctx.setVariable("can_omni", true);
+				ctx.setVariable("is_grounded", true);
 			}			
 		}
 		return false;
