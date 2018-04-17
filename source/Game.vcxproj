@@ -161,6 +161,7 @@
     <ClCompile Include="render\cte_buffer.cpp" />
     <ClCompile Include="render\deferred_renderer.cpp" />
     <ClCompile Include="render\mesh\mesh.cpp" />
+    <ClCompile Include="render\mesh\mesh_instanced.cpp" />
     <ClCompile Include="render\mesh\mesh_loader.cpp" />
     <ClCompile Include="render\render.cpp" />
     <ClCompile Include="render\render_manager.cpp" />
@@ -278,6 +279,7 @@
     <ClInclude Include="render\deferred_renderer.h" />
     <ClInclude Include="render\gpu_trace.h" />
     <ClInclude Include="render\mesh\mesh.h" />
+    <ClInclude Include="render\mesh\mesh_instanced.h" />
     <ClInclude Include="render\mesh\mesh_loader.h" />
     <ClInclude Include="render\mesh\mesh_subgroup.h" />
     <ClInclude Include="render\render.h" />
