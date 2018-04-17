@@ -10,15 +10,15 @@
 		"front": "1 0 0"
       },
       "skeleton": {
-        "skeleton": "data/skeletons/naja/naja.skeleton"
+        "skeleton": "data/skeletons/naja2/naja2.skeleton"
       },
       "render" : [
         {
-          "mesh": "data/skeletons/naja/naja.mesh"
+          "mesh": "data/skeletons/naja2/naja2.mesh"
           ,
           "materials":
           [
-            "data/skeletons/naja/NajaMaterial.material"
+            "data/skeletons/naja2/NajaMaterial.material"
           ]
         }
       ]

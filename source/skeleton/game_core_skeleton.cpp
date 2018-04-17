@@ -37,7 +37,7 @@ struct TSkinVertex {
   VEC3 pos;
   VEC3 normal;
   VEC2 uv;
-  //VEC4 tangent;
+  VEC4 tangent;
   uint8_t bone_ids[4];
   uint8_t bone_weights[4];    // 0.255   -> 0..1
 };
@@ -79,7 +79,12 @@ void CGameCoreSkeleton::debugInMenu() {
         ImGui::LabelText( "ID", "%d", bone_id );
         if (ImGui::SmallButton("Show Axis"))
           bone_ids_to_debug.push_back(bone_id);
-        ImGui::TreePop();
+		CalVector pos = cb->getTranslationAbsolute();
+		CalQuaternion rot = cb->getRotationAbsolute();
+		ImGui::LabelText("ID", "%d", bone_id);
+		ImGui::LabelText("Position", "%f %f %f", pos.x, pos.y, pos.z);
+		ImGui::LabelText("Rotation", "%f %f %f %f", rot.x, rot.y, rot.z, rot.w);
+		ImGui::TreePop();
       }
     }
     ImGui::TreePop();

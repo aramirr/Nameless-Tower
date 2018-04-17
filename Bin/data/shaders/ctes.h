@@ -33,7 +33,7 @@
 #define TS_DEFERRED_ACC_LIGHTS        13
 
 // -------------------------------------------------
-#define MAX_SUPPORTED_BONES        128
+#define MAX_SUPPORTED_BONES        200
 
 #ifdef WIN32
 
