@@ -98,15 +98,64 @@ bool CVertexDeclManager::create() {
     createNew("PosNUvSkin", layout, ARRAYSIZE(layout));
   }
 
+  {
+    // Instance of a solid mesh, just the world matrix
+    static D3D11_INPUT_ELEMENT_DESC layout[] = {
+      { "TEXCOORD", 2, DXGI_FORMAT_R32G32B32A32_FLOAT, 1,  0, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world0
+      { "TEXCOORD", 3, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 16, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world1
+      { "TEXCOORD", 4, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 32, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world2
+      { "TEXCOORD", 5, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 48, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world3
+    };
+    createNew("Instance", layout, ARRAYSIZE(layout));
+  }
 
   
 
   return true;
 }
 
+const CVertexDecl* CVertexDeclManager::createInstancedVertexDecl(const std::string& name) {
+  // Check if it's an instance vertex declaration
+  auto idx = name.find("_x_");
+  if (idx != std::string::npos) {
+    std::string first = name.substr(0, idx);
+    std::string second = name.substr(idx + 3);
+
+    const CVertexDecl* a = getByName(first);      // instanced_decl
+    const CVertexDecl* b = getByName(second);     // instances_decl
+    assert(a && b);
+    auto num_elems = a->numElements + b->numElements;
+    // Create a new layout concatenating both layouts and:
+    //  -- LAYOUT A AS NORMAL    --
+    //  -- LAYOUT B AS INSTANCED --
+    D3D11_INPUT_ELEMENT_DESC* layout = new D3D11_INPUT_ELEMENT_DESC[num_elems];
+    memcpy(layout, a->cpu_layout, a->numElements * sizeof(D3D11_INPUT_ELEMENT_DESC));
+    
+    auto layout_b = layout + a->numElements;
+    memcpy(layout_b, b->cpu_layout, b->numElements * sizeof(D3D11_INPUT_ELEMENT_DESC));
+    
+    // Change the layout B to be 'instanced data' with rate = 1
+    for (uint32_t i = 0; i < b->numElements; ++i) {
+      layout_b[i].InputSlotClass = D3D11_INPUT_CLASSIFICATION::D3D11_INPUT_PER_INSTANCE_DATA;
+      layout_b[i].InstanceDataStepRate = 1;
+    }
+    
+    auto decl = createNew(name, layout, num_elems);
+    decl->instancing = true;
+    return decl;
+  }
+  return nullptr;
+}
+
 const CVertexDecl* CVertexDeclManager::getByName(const std::string& name) {
   auto it = decls.find(name);
   if (it == decls.end()) {
+
+    // Automatically check if it's an instanced vertex declaration
+    auto decl = createInstancedVertexDecl(name);
+    if (decl)
+      return decl;
+
     fatal("Can't find vertex declaration named '%s'", name.c_str());
     return nullptr;
   }
