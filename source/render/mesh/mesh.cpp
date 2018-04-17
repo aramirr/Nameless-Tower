@@ -133,6 +133,10 @@ bool CRenderMesh::create(
   return true;
 }
 
+bool CRenderMesh::isValid() const {
+  return vb != nullptr && vtx_decl != nullptr;
+}
+
 void CRenderMesh::destroy() {
   SAFE_RELEASE(vb);
   SAFE_RELEASE(ib);
@@ -150,9 +154,7 @@ void CRenderMesh::activate() const {
   // Set primitive topology
   Render.ctx->IASetPrimitiveTopology( (D3D11_PRIMITIVE_TOPOLOGY)topology );
 
-  if (ib) 
-    Render.ctx->IASetIndexBuffer(ib, index_fmt, 0);
-
+  activateIndexBuffer();
 }
 
 void CRenderMesh::render() const {
@@ -187,9 +189,18 @@ void CRenderMesh::activateAndRender() const {
   render();
 }
 
+void CRenderMesh::activateIndexBuffer() const {
+  if (ib)
+    Render.ctx->IASetIndexBuffer(ib, index_fmt, 0);
+}
+
 void CRenderMesh::debugInMenu() {
   ImGui::Text("%d vertexs", num_vertexs);
-  // ...
+  if( ib )
+    ImGui::Text("%d Indices", num_indices);
+  if( is_dynamic )
+    ImGui::Text("Dynamic");
+  ImGui::Text("Vtx Size %d : %s", vtx_decl->bytes_per_vertex, vtx_decl->name.c_str());
 }
 
 // --------------------------------------
