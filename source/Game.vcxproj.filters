@@ -286,6 +286,9 @@
     <ClCompile Include="render\mesh\mesh_instanced.cpp">
       <Filter>render\mesh</Filter>
     </ClCompile>
+    <ClCompile Include="modules\test\module_test_instancing.cpp">
+      <Filter>modules\test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -768,6 +771,9 @@
     </ClInclude>
     <ClInclude Include="render\mesh\mesh_instanced.h">
       <Filter>render\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\test\module_test_instancing.h">
+      <Filter>modules\test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

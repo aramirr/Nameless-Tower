@@ -16,7 +16,7 @@
 		},
 		{
 			"name" : "test_axis",
-			"modules" : [ "test_axis", "test_cameras" ]
+			"modules" : [ "test_instancing", "test_axis", "test_cameras" ]
 		},
 		{
 			"name" : "test_input",
