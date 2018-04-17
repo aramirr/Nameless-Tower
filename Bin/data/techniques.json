@@ -34,7 +34,7 @@
   "shadows": {
     "vs_file": "data/shaders/shadows.fx",
     "vs_entry_point": "VS",
-    "vertex_type": "PosNUv",
+    "vertex_type": "Pos",
     "ps_entry_point": "",
     "rs_config": "shadows",
     "category": "shadows"
@@ -47,7 +47,14 @@
     "rs_config": "shadows",
     "category": "shadows"
   },
-
+  "shadows_instanced": {
+    "vs_file": "data/shaders/shadows.fx",
+    "vs_entry_point": "VS_Instanced",
+    "vertex_type": "Pos_x_Instance",
+    "ps_entry_point": "",
+    "rs_config": "shadows",
+    "category": "shadows"
+  },
 
   "dump_texture": {
     "vs_file": "data/shaders/screen_quad.fx",
@@ -137,7 +144,7 @@
   "pbr_skybox": {
     "vs_file": "data/shaders/pbr.fx",
     "vs_entry_point": "VS_skybox",
-    "vertex_type" : "PosClr",
+    "vertex_type": "PosClr",
     "ps_file": "data/shaders/pbr.fx",
     "ps_entry_point": "PS_skybox",
     "z": "test_equal",
