@@ -10,7 +10,7 @@
 // been moved to a .cpp file
 class CRenderMeshInstanced : public CRenderMesh {
 protected:
-  const CRenderMesh* instanced_mesh = nullptr;    // Each vertex represents an instance
+  const CRenderMesh* instanced_mesh = nullptr;    // This is the teapot, billboard, ..
   size_t             num_instances_allocated_in_gpu = 0;
 public:
   void configure(const json& j);
