@@ -101,21 +101,21 @@ bool CVertexDeclManager::create() {
   {
     // Instance of a solid mesh, just the world matrix
     static D3D11_INPUT_ELEMENT_DESC layout[] = {
-    { "TEXCOORD", 2, DXGI_FORMAT_R32G32B32A32_FLOAT, 1,  0, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world0
-    { "TEXCOORD", 3, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 16, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world1
-    { "TEXCOORD", 4, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 32, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world2
-    { "TEXCOORD", 5, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 48, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world3
+      { "TEXCOORD", 2, DXGI_FORMAT_R32G32B32A32_FLOAT, 0,  0, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world0
+      { "TEXCOORD", 3, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 16, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world1
+      { "TEXCOORD", 4, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 32, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world2
+      { "TEXCOORD", 5, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 48, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world3
     };
     createNew("Instance", layout, ARRAYSIZE(layout));
   }
 
   {
     static D3D11_INPUT_ELEMENT_DESC layout[] = {
-    { "TEXCOORD", 2, DXGI_FORMAT_R32G32B32A32_FLOAT, 1,  0, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world0
-    { "TEXCOORD", 3, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 16, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world1
-    { "TEXCOORD", 4, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 32, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world2
-    { "TEXCOORD", 5, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 48, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world3
-    { "TEXCOORD", 6, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 64, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // life, time_blending_out
+      { "TEXCOORD", 2, DXGI_FORMAT_R32G32B32A32_FLOAT, 0,  0, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world0
+      { "TEXCOORD", 3, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 16, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world1
+      { "TEXCOORD", 4, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 32, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world2
+      { "TEXCOORD", 5, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 48, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world3
+      { "TEXCOORD", 6, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 64, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // life, time_blending_out
     };
     createNew("InstanceColored", layout, ARRAYSIZE(layout));
   }
@@ -147,6 +147,7 @@ const CVertexDecl* CVertexDeclManager::createInstancedVertexDecl(const std::stri
     for (uint32_t i = 0; i < b->numElements; ++i) {
       layout_b[i].InputSlotClass = D3D11_INPUT_CLASSIFICATION::D3D11_INPUT_PER_INSTANCE_DATA;
       layout_b[i].InstanceDataStepRate = 1;
+      layout_b[i].InputSlot = 1;    // Comes from stream 1
     }
     
     auto decl = createNew(name, layout, num_elems);

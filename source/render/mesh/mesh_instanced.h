@@ -10,14 +10,14 @@
 // been moved to a .cpp file
 class CRenderMeshInstanced : public CRenderMesh {
 protected:
-  const CRenderMesh* instanced_mesh = nullptr;    // Each vertex represents an instance
+  const CRenderMesh* instanced_mesh = nullptr;    // This is the teapot, billboard, ..
   size_t             num_instances_allocated_in_gpu = 0;
 public:
   void configure(const json& j);
   void renderSubMesh(uint32_t sub_group_idx) const override;
   void reserveGPUInstances(size_t new_max_instances);
   void setInstancesData(const void* data, size_t total_instances, size_t bytes_per_instance );
-
+  void setSubGroupSize(uint32_t num_subgroup, uint32_t new_size_for_subgroup);
 };
 
 #endif

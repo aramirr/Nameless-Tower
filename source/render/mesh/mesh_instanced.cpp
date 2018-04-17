@@ -68,6 +68,14 @@ void CRenderMeshInstanced::setInstancesData(
   setSubGroupSize(0, (uint32_t)total_instances);
 }
 
+// --------------------------------------
+void CRenderMeshInstanced::setSubGroupSize(uint32_t num_subgroup, uint32_t new_size_for_subgroup) {
+  assert(num_subgroup < (uint32_t)subgroups.size());
+  // Ensure we are not programmed to render more indices/vertexs than our size
+  assert(ib ? (new_size_for_subgroup <= num_indices) : (new_size_for_subgroup <= num_vertexs));
+  subgroups[num_subgroup].num_indices = new_size_for_subgroup;
+}
+
 // -----------------------------------------------------------------
 // Configure the two streams and send the mesh to render
 void CRenderMeshInstanced::renderSubMesh(uint32_t sub_group_idx) const {

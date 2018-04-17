@@ -48,15 +48,12 @@ public:
   
   bool  isValid() const;
   void  updateFromCPU(const void *new_cpu_data, size_t num_bytes_to_update);
-  void  setSubGroupSize(uint32_t num_subgroup, uint32_t new_size_for_subgroup);
 
   eTopology getTopology() const { return topology; }
   int32_t getVertexsCount() const { return num_vertexs; }
   int32_t getIndicesCount() const { return num_indices; }
   ID3D11Buffer* getVB() const { return vb; }
   ID3D11Buffer* getIB() const { return ib; }
-
-  virtual ~CRenderMesh() { }
 
 protected:
   

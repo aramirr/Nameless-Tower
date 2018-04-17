@@ -13,8 +13,7 @@ VS_OUTPUT VS(
 {
     VS_OUTPUT output = (VS_OUTPUT)0;
     float4 world_pos = mul( iPos, obj_world );
-    output.Pos = mul(world_pos, camera_view );
-    output.Pos = mul(output.Pos, camera_proj );
+    output.Pos = mul(world_pos, camera_view_proj );
     return output;
 }
 
@@ -28,8 +27,7 @@ VS_OUTPUT VS_Instanced(
 
   VS_OUTPUT output = (VS_OUTPUT)0;
   float4 world_pos = mul(iPos, instance_world);
-  output.Pos = mul(world_pos, camera_view);
-  output.Pos = mul(output.Pos, camera_proj);
+  output.Pos = mul(world_pos, camera_view_proj);
   return output;
 }
 
@@ -48,7 +46,6 @@ VS_OUTPUT VS_Skin(
   // Skinned pos
   float4 world_pos = mul(iPos, skin_mtx);
   VS_OUTPUT output = (VS_OUTPUT)0;
-  output.Pos = mul(world_pos, camera_view );
-  output.Pos = mul(output.Pos, camera_proj );
+  output.Pos = mul(world_pos, camera_view_proj );
   return output;
 }

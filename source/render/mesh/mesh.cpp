@@ -201,15 +201,9 @@ void CRenderMesh::debugInMenu() {
   ImGui::Text("%d vertexs", num_vertexs);
   if( ib )
     ImGui::Text("%d Indices", num_indices);
+  if( is_dynamic )
+    ImGui::Text("Dynamic");
   ImGui::Text("Vtx Size %d : %s", vtx_decl->bytes_per_vertex, vtx_decl->name.c_str());
-}
-
-// --------------------------------------
-void CRenderMesh::setSubGroupSize(uint32_t num_subgroup, uint32_t new_size_for_subgroup) {
-  assert(num_subgroup < (uint32_t)subgroups.size());
-  // Ensure we are not programmed to render more indices/vertexs than our size
-  assert(ib ? (new_size_for_subgroup <= num_indices) : (new_size_for_subgroup <= num_vertexs));
-  subgroups[num_subgroup].num_indices = new_size_for_subgroup;
 }
 
 // --------------------------------------
