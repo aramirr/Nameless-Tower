@@ -4,6 +4,7 @@
 #include "components/player/comp_player_controller.h"
 #include "resources/json_resource.h"
 #include "components/juan/comp_name.h"
+#include "components/fsm/comp_fsm.h"
 
 DECL_OBJ_MANAGER("cameraManager", TCompCameraManager);
 
@@ -103,6 +104,15 @@ void TCompCameraManager::activateCinematic(std::string name)
 {
 	if (!godMode & cinematics.find(name) != cinematics.end()) {
 		cinematicName = name;
+
+    CEntity* player = (CEntity*)getEntityByName("The Player");
+
+    TMsgSetFSMVariable pauseMsg;
+    pauseMsg.variant.setName("pause");
+    pauseMsg.variant.setBool(true);
+
+    player->sendMsg(pauseMsg);
+
 		onCinematics = true;
 	}
 }
@@ -150,8 +160,28 @@ void TCompCameraManager::load(const json& j, TEntityParseContext& ctx) {
 
 void TCompCameraManager::update(float dt) {
 
-	if (isPressed(VK_F1)) godMode = true;
-	if (isPressed(VK_F2)) godMode = false;
+  if (isPressed(VK_F1)) {
+    CEntity* player = (CEntity*)getEntityByName("The Player");
+
+    TMsgSetFSMVariable pauseMsg;
+    pauseMsg.variant.setName("pause");
+    pauseMsg.variant.setBool(true);
+
+    player->sendMsg(pauseMsg);
+   
+    godMode = true;
+  }
+  if (isPressed(VK_F2)) {
+    CEntity* player = (CEntity*)getEntityByName("The Player");
+    
+    TMsgSetFSMVariable pauseMsg;
+    pauseMsg.variant.setName("pause");
+    pauseMsg.variant.setBool(false);
+
+    player->sendMsg(pauseMsg);
+
+    godMode = false;
+  }
 
 
 	if (carga) {																				// CONFIGURACION INICIAL DEL MANAGER DE CAMARAS
@@ -245,6 +275,15 @@ void TCompCameraManager::update(float dt) {
 				onCinematics = false;
 				currentTime = 0.f;
 				totalTime = 0.f;
+
+        CEntity* player = (CEntity*)getEntityByName("The Player");
+
+        TMsgSetFSMVariable pauseMsg;
+        pauseMsg.variant.setName("pause");
+        pauseMsg.variant.setBool(false);
+
+        player->sendMsg(pauseMsg);
+
 			}
 		}
 	}
