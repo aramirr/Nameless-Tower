@@ -27,8 +27,8 @@ void VS_GBufferInstanced(
   oPos = mul(world_pos, camera_view_proj);
 
   // Rotar la normal segun la transform del objeto
-  oNormal = mul(iNormal, (float3x3)obj_world);
-  oTangent.xyz = mul(iTangent.xyz, (float3x3)obj_world);
+  oNormal = mul(iNormal, (float3x3)instance_world);
+  oTangent.xyz = mul(iTangent.xyz, (float3x3)instance_world);
   oTangent.w = iTangent.w;
 
   // Las uv's se pasan directamente al ps

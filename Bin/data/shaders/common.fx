@@ -30,6 +30,7 @@ SamplerState samClampLinear   : register(s3);
 //--------------------------------------------------------------------------------------
 // 
 //--------------------------------------------------------------------------------------
+// Should match the vertex_declaration.cpp @ createNew("Instance", ...
 struct TInstanceWorldData {
   float4 InstanceWorld0 : TEXCOORD2;     // Stream 1
   float4 InstanceWorld1 : TEXCOORD3;    // Stream 1
