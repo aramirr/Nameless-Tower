@@ -8,6 +8,7 @@ namespace FSM
 {
 	void OmnidashState::onStart(CContext& ctx) const
 	{
+		ctx.setVariable("can_omni", false);
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->change_mesh(player->EAnimations::EOmni);

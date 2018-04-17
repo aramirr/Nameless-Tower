@@ -175,48 +175,72 @@
 			"operation" : "equal"
 		},
 		{
-			"type" : "VariableTransition",
+			"type" : "LogicTransition",
 			"source" : "idle",
 			"target" : "dash",
-			"variable" : {
+			"variables" : [{
 				"name" : "dash",
 				"type" : "bool",
 				"value" : true
 			},
-			"operation" : "equal"
+			{
+				"name" : "can_dash",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
 		},
 		{
-			"type" : "VariableTransition",
+			"type" : "LogicTransition",
 			"source" : "jump",
 			"target" : "dash",
-			"variable" : {
+			"variables" : [{
 				"name" : "dash",
 				"type" : "bool",
 				"value" : true
 			},
-			"operation" : "equal"
+			{
+				"name" : "can_dash",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
 		},
 		{
-			"type" : "VariableTransition",
+			"type" : "LogicTransition",
 			"source" : "run",
 			"target" : "dash",
-			"variable" : {
+			"variables" : [{
 				"name" : "dash",
 				"type" : "bool",
 				"value" : true
 			},
-			"operation" : "equal"
+			{
+				"name" : "can_dash",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
 		},
 		{
-			"type" : "VariableTransition",
+			"type" : "LogicTransition",
 			"source" : "falling",
 			"target" : "dash",
-			"variable" : {
+			"variables" : [{
 				"name" : "dash",
 				"type" : "bool",
 				"value" : true
 			},
-			"operation" : "equal"
+			{
+				"name" : "can_dash",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
 		},
 		{
 			"type" : "VariableTransition",
@@ -265,25 +289,35 @@
 			"time" : 0.25
 		},
 		{
-			"type" : "VariableTransition",
+			"type" : "LogicTransition",
 			"source" : "jump",
 			"target" : "omnidash",
-			"variable" : {
+			"variables" : [{
 				"name" : "omnidash",
 				"type" : "bool",
 				"value" : true
 			},
+			{
+				"name" : "can_omni",
+				"type" : "bool",
+				"value" : true
+			}],
 			"operation" : "equal"
 		},
 		{
-			"type" : "VariableTransition",
+			"type" : "LogicTransition",
 			"source" : "falling",
 			"target" : "omnidash",
-			"variable" : {
+			"variables" : [{
 				"name" : "omnidash",
 				"type" : "bool",
 				"value" : true
 			},
+			{
+				"name" : "can_omni",
+				"type" : "bool",
+				"value" : true
+			}],
 			"operation" : "equal"
 		},
 		{
@@ -632,6 +666,16 @@
 			"name" : "pause",
 			"type" : "bool",
 			"value" : false
+		},
+		{
+			"name" : "can_dash",
+			"type" : "bool",
+			"value" : true
+		},
+		{
+			"name" : "can_omni",
+			"type" : "bool",
+			"value" : true
 		}
 	]
 }

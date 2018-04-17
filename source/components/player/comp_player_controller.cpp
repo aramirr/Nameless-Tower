@@ -120,6 +120,15 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				}
  				y_speed_factor = 0;
 				is_grounded = true;
+				TMsgSetFSMVariable dashMsg;
+				dashMsg.variant.setName("can_dash");
+				dashMsg.variant.setBool(true);
+				CEntity* e = CHandle(this).getOwner();
+				e->sendMsg(dashMsg);
+				TMsgSetFSMVariable omniMsg;
+				omniMsg.variant.setName("can_omni");
+				omniMsg.variant.setBool(true);
+				e->sendMsg(omniMsg);
 			}
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 				is_grounded = false;

@@ -2,6 +2,7 @@
 #include "idle_state.h"
 #include "fsm/context.h"
 #include "components/player/comp_player_controller.h"
+#include "components/fsm/comp_fsm.h"
 
 
 namespace FSM
@@ -39,6 +40,14 @@ namespace FSM
 				}
 				player->y_speed_factor = 0;
 				player->is_grounded = true;
+				TMsgSetFSMVariable dashMsg;
+				dashMsg.variant.setName("can_dash");
+				dashMsg.variant.setBool(true);
+				e->sendMsg(dashMsg);
+				TMsgSetFSMVariable omniMsg;
+				omniMsg.variant.setName("can_omni");
+				omniMsg.variant.setBool(true);
+				e->sendMsg(omniMsg);
 			}
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && player->is_grounded) {
 				player->is_grounded = false;
