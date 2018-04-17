@@ -51,6 +51,7 @@ namespace FSM
 			}
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && player->is_grounded) {
 				player->is_grounded = false;
+				ctx.setVariable("is_grounded", false);
 				player->jumping_start_height = c_my_transform->getPosition().y;
 				ctx.setVariable("is_falling", true);
 			}
