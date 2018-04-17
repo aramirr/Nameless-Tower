@@ -55,8 +55,6 @@ public:
   ID3D11Buffer* getVB() const { return vb; }
   ID3D11Buffer* getIB() const { return ib; }
 
-  virtual ~CRenderMesh() { }
-
 protected:
   
   ID3D11Buffer*      vb = nullptr;
