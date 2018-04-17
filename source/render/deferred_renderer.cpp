@@ -60,13 +60,13 @@ void CDeferredRenderer::renderGBufferDecals() {
   // Disable the gbuffer textures as we are going to update them
   // Can't render to those textures and have them active in some slot...
   CTexture::setNullTexture(TS_DEFERRED_ALBEDOS);
-  CTexture::setNullTexture(TS_DEFERRED_NORMALS);
+  //CTexture::setNullTexture(TS_DEFERRED_NORMALS);
 
   // Activate el multi-render-target MRT
   const int nrender_targets = 2;
   ID3D11RenderTargetView* rts[nrender_targets] = {
     rt_albedos->getRenderTargetView(),
-    rt_normals->getRenderTargetView()
+    //rt_normals->getRenderTargetView()
     // No Z as we need to read to reconstruct the position
   };
 
@@ -83,8 +83,8 @@ void CDeferredRenderer::renderGBufferDecals() {
   Render.ctx->OMSetRenderTargets(nrender_targets, rt_nulls, nullptr);
 
   // Activate the gbuffer textures to other shaders
+  //rt_normals->activate(TS_DEFERRED_NORMALS);
   rt_albedos->activate(TS_DEFERRED_ALBEDOS);
-  rt_normals->activate(TS_DEFERRED_NORMALS);
 }
 
 // -----------------------------------------------------------------

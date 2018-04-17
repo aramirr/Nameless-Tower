@@ -28,7 +28,7 @@ VS_TEXTURED_OUTPUT VS(
 
   // From stream 1 we read the instance information 
 , in TInstanceWorldData instance_data     // Stream 1
-, in float4 InstanceXtras   : TEXCOORD6     // TimeToLife, TimeBlendingOut, ...  
+, in float4 InstanceColor   : TEXCOORD6   // TimeToLife, TimeBlendingOut, ...  
 )
 {
   VS_TEXTURED_OUTPUT output = (VS_TEXTURED_OUTPUT)0;
@@ -61,7 +61,7 @@ VS_TEXTURED_OUTPUT VS(
   //float TimeBlendingOut = InstanceXtras.y;
   //output.opacity = smoothstep( 0, TimeBlendingOut, TimeToLife );
   output.opacity = 1;
-  output.color = InstanceXtras;
+  output.color = InstanceColor;
 
   output.uv = iTex0;
 
@@ -71,14 +71,9 @@ VS_TEXTURED_OUTPUT VS(
 //--------------------------------------------------------------------------------------
 // Pixel Shader
 //--------------------------------------------------------------------------------------
-void PS(
-  //, in float4 iPosition : SV_Position
-    in VS_TEXTURED_OUTPUT input
-
-  , out float4 o_albedo : SV_Target0
-  //, out float4 o_normal : SV_Target1
-  //, out float4 o_self_illum : SV_Target2
-  )
+float4 PS(
+  in VS_TEXTURED_OUTPUT input
+  ) : SV_Target0
 {
 
   //o_albedo = txAlbedo.Sample(samLinear, input.uv);
@@ -109,6 +104,7 @@ void PS(
 
   //o_albedo = decal_color;
   //o_albedo.a *= input.opacity;
+  float4 o_albedo;
 
   o_albedo.xyz = input.color.xyz;
   o_albedo.a = decal_color.a;
@@ -127,5 +123,7 @@ void PS(
 
   //o_normal = float4(1,1,0,1);
   //o_self_illum = float4(1,1,0,1);
+
+  return o_albedo;
 }
 
