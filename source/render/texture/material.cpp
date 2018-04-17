@@ -70,7 +70,7 @@ bool CMaterial::create(const std::string& name) {
   if (!cb_material.create(CB_MATERIAL))
     return false;
   cb_material.scalar_metallic = -1.f;     // Initially disabled
-  cb_material.scalar_roughness = -1.f;
+  cb_material.scalar_roughness = 1.f;
   cb_material.scalar_irradiance_vs_mipmaps = 0.f;
   cb_material.updateGPU();
 

@@ -61,15 +61,12 @@ bool CModuleEntities::start()
 
 void CModuleEntities::update(float delta)
 {
-
-  float scaled_time = delta * time_scale_factor;
-
-  for (auto om : om_to_update) {
-    PROFILE_FUNCTION(om->getName());
-    om->updateAll(scaled_time);
-  }
-
-  CHandleManager::destroyAllPendingObjects();
+	float timeSlower = EngineTimer.getTimeSlower();
+	for (auto om : om_to_update) {
+		PROFILE_FUNCTION(om->getName());
+		om->updateAll(delta * timeSlower);
+	}
+	CHandleManager::destroyAllPendingObjects();
 }
 
 bool CModuleEntities::stop() {
@@ -136,5 +133,16 @@ void CModuleEntities::renderDebugOfComponents() {
     PROFILE_FUNCTION(om->getName());
     om->renderDebugAll();
   }
+
+}
+
+void CModuleEntities::destroyAllEntities() {
+	auto hm = getObjectManager<CEntity>();
+	hm->forEach([](CEntity* e) {
+		CHandle h(e);
+		h.destroy();
+	});
+	CHandleManager::destroyAllPendingObjects();
+
 
 }
