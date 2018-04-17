@@ -25,7 +25,8 @@ public:
     const void* index_data = nullptr,
     size_t      num_index_bytes = 0,
     size_t      bytes_per_index = 0,
-    VMeshSubGroups* subgroups = nullptr
+    VMeshSubGroups* subgroups = nullptr,
+    bool            new_is_dynamic = false
   );
   void destroy() override;
   void activate() const;
@@ -42,6 +43,7 @@ public:
   const CVertexDecl* getVertexDecl() const { return vtx_decl; }
 
   const AABB& getAABB() const { return aabb; }
+  void  updateFromCPU(const void *new_cpu_data, size_t num_bytes_to_update);
 
 private:
   
@@ -54,6 +56,8 @@ private:
   DXGI_FORMAT        index_fmt = DXGI_FORMAT_UNKNOWN;
   AABB               aabb;
   VMeshSubGroups     subgroups;
+  bool               is_dynamic = false;
+
 };
 
 
