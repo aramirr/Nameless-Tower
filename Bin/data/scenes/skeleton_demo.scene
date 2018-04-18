@@ -2,7 +2,7 @@
   {
     "entity":
     {
-      "name": "cally"
+      "name": "najatest"
       ,
       "transform":
       {
@@ -10,15 +10,15 @@
 		"front": "1 0 0"
       },
       "skeleton": {
-        "skeleton": "data/skeletons/naja2/naja2.skeleton"
+        "skeleton": "data/skeletons/najatest/najatest.skeleton"
       },
       "render" : [
         {
-          "mesh": "data/skeletons/naja2/naja2.mesh"
+          "mesh": "data/skeletons/najatest/najatest.mesh"
           ,
           "materials":
           [
-            "data/skeletons/naja2/NajaMaterial.material"
+            "data/skeletons/najatest/NajaMaterial.material"
           ]
         }
       ]
