@@ -36,6 +36,42 @@ void VS_GBuffer(
 }
 
 //--------------------------------------------------------------------------------------
+// GBufferSkin generation pass. Vertex
+//--------------------------------------------------------------------------------------
+void VS_GBufferSkin(
+  in float4 iPos     : POSITION
+, in float3 iNormal  : NORMAL0
+, in float2 iTex0    : TEXCOORD0
+, in float2 iTex1    : TEXCOORD1
+, in float4 iTangent : NORMAL1
+, in int4   iBones   : BONES
+, in float4 iWeights : WEIGHTS
+
+, out float4 oPos      : SV_POSITION
+, out float3 oNormal   : NORMAL0
+, out float4 oTangent  : NORMAL1
+, out float2 oTex0     : TEXCOORD0
+, out float2 oTex1     : TEXCOORD1
+, out float3 oWorldPos : TEXCOORD2
+)
+{
+  float4x4 skin_mtx = getSkinMtx( iBones, iWeights );
+  float4 skinned_Pos = mul(iPos, skin_mtx);
+
+  oWorldPos = skinned_Pos.xyz;
+  // The world matrix is inside the bones matrixs
+  oPos = mul(skinned_Pos, camera_view);
+  oPos = mul(oPos, camera_proj);
+  // Rotate the normal
+  oNormal = mul(iNormal, (float3x3)obj_world);
+  oTex0 = iTex0;
+  oTex1 = iTex1;
+  // ------------------------------
+  // This needs fixing!!!
+  oTangent  = float4(oNormal,1);
+}
+
+//--------------------------------------------------------------------------------------
 // GBuffer generation pass. Pixel shader
 //--------------------------------------------------------------------------------------
 void PS_GBuffer(

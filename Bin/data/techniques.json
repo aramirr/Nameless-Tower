@@ -26,7 +26,7 @@
   "solid_objs_tan_skin" : {
     "vs_file": "data/shaders/solid.fx",
     "vs_entry_point" : "VS_Objs_Skin",
-    "vertex_type" : "PosNUvTanSkin"
+    "vertex_type" : "PosNUvUvTanSkin"
   },
 	"solid_objs_skin" : {
 		"vs_file": "data/shaders/solid.fx",
@@ -103,6 +103,21 @@
       "irradiance" : "data/textures/cubemaps/irradiance.dds" 
     }
   },
+
+"pbr_skin": {
+    "vs_file": "data/shaders/pbr.fx",
+    "ps_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_GBufferSkin",
+    "ps_entry_point": "PS_GBuffer",
+    "vertex_type": "PosNUvUvTanSkin",
+    "category" : "gbuffer",
+    "textures" : { 
+      "environment" : "data/textures/cubemaps/env.dds", 
+      "irradiance" : "data/textures/cubemaps/irradiance.dds" 
+    },
+    "uses_skin" : true
+  },
+
   "pbr_ambient": {
     "vs_file": "data/shaders/screen_quad.fx",
     "ps_file": "data/shaders/pbr.fx",
