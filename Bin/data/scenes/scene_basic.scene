@@ -127,54 +127,7 @@
 		    }
 
 		}
-	},
-	{
-		"entity": {
-			"name": "Rotoras",
-			"render" : [
-				{
-					"mesh": "data/meshes/Teapot001.mesh",
-					"materials" : [
-						"data/materials/madera.material"
-					]
-				}
-			]
-			,
-			"transform": {
-				"pos": "-21.918 12 -23.315"
-			},
-			"ai_rotator": {
-				"configs":[
-					{
-						"axis": "X",
-						"increase": true,
-						"speed": 1.0,
-						"wait_time": 1.0,
-						"degrees": 90.0
-					},
-					{
-						"axis": "Y",
-						"increase": false,
-						"speed": 1.0,
-						"wait_time": 1.0,
-						"degrees": 180.0
-					},
-					{
-						"axis": "X",
-						"increase": true,
-						"speed": 1.0,
-						"wait_time": 1.0,
-						"degrees": 90.0
-					}
-				]
-			},	
-			"collider": {
-				"shape": "box",
-				"is_trigger": false,
-				"halfExtent": "1 1 1"
-			}
-		}
-	},
+	},	
  {
     "entity": {
       "name": "Plane001",

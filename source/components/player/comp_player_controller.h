@@ -8,33 +8,8 @@
 class TCompPlayerController : public TCompBase {	
   DECL_SIBLING_ACCESS();
 
-  //float DT;
-
 public:
-	/*float   current_x_speed_factor = 2.0f;
-	float   x_speed_factor = 2.0f;
-	
-	VEC3    speed;
-	
-	float   dashing_max;
-	float   dashing_amount;
-	float   jump_end;
-	
-	float   jump_speed;
-	float   omnidash_timer = 0;
-	float   omnidash_max_time;
-	float	omnidashing_ammount;
-	float	omnidashing_max_ammount;
-	
-	int     dashing_speed;
-	bool	can_omni;
-	bool	can_dash;
-	float checkpoint_yaw;
 
-	
-	
-	float DT;
-	*/
 	VEC3	omnidash_vector;
 	VEC2	omnidash_arrow;
 	float   gravity;

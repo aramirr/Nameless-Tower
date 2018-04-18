@@ -117,29 +117,34 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 					CEntity* e = CHandle(this).getOwner();
 					e->sendMsg(deadMsg);
 				}
-				is_grounded = true;
+				is_grounded = true;				
+				TMsgSetFSMVariable groundMsg;
+				groundMsg.variant.setName("is_grounded");
+				groundMsg.variant.setBool(true);
+				CEntity* e = CHandle(this).getOwner();
+				e->sendMsg(groundMsg);
 				TMsgSetFSMVariable dashMsg;
 				dashMsg.variant.setName("can_dash");
 				dashMsg.variant.setBool(true);
-				CEntity* e = CHandle(this).getOwner();
 				e->sendMsg(dashMsg);
 				TMsgSetFSMVariable omniMsg;
 				omniMsg.variant.setName("can_omni");
 				omniMsg.variant.setBool(true);
 				e->sendMsg(omniMsg);
 			}
-			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
+			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && is_grounded) {
 				is_grounded = false;
+				y_speed_factor = 0;
 				jumping_start_height = c_my_transform->getPosition().y;
 				TMsgSetFSMVariable groundMsg;
 				groundMsg.variant.setName("is_grounded");
 				groundMsg.variant.setBool(false);
 				CEntity* e = CHandle(this).getOwner();
 				e->sendMsg(groundMsg);
-				TMsgSetFSMVariable fallingMsg;
-				fallingMsg.variant.setName("is_falling");
-				fallingMsg.variant.setBool(true);
-				e->sendMsg(fallingMsg);
+				TMsgSetFSMVariable fallMsg;
+				fallMsg.variant.setName("is_falling");
+				fallMsg.variant.setBool(true);
+				e->sendMsg(fallMsg);
 			}
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {

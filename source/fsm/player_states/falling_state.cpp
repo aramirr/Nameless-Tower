@@ -2,6 +2,7 @@
 #include "falling_state.h"
 #include "fsm/context.h"
 #include "components/player/comp_player_controller.h"
+#include "components/fsm/comp_fsm.h"
 
 namespace FSM
 {
@@ -10,6 +11,10 @@ namespace FSM
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->change_mesh(2);
+		TMsgSetFSMVariable fallingMsg;
+		fallingMsg.variant.setName("is_falling");
+		fallingMsg.variant.setBool(true);
+		e->sendMsg(fallingMsg);
 	}
 
 	bool FallingState::load(const json& jData)
@@ -50,13 +55,13 @@ namespace FSM
 				player->move_player(true, true, dt, y_speed, _x_speed);
 			}
 		}
-
-
-		VEC3 delta_move = new_pos - my_pos;
-		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());	
-		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
-			ctx.setVariable("is_grounded", true);
-		}
+		else {
+			VEC3 delta_move = new_pos - my_pos;
+			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
+				ctx.setVariable("is_grounded", true);
+			}
+		}		
 		return false;
 	}
 

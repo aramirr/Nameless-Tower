@@ -24,6 +24,8 @@ namespace FSM
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		float y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt / 2);
+		if (!player->is_grounded)
+			player->y_speed_factor -= player->gravity * dt;
 		
 		if (EngineInput["left"].isPressed()) {
 			if (!player->looking_left) {
