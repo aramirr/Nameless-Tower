@@ -38,25 +38,7 @@ void CAIFan::load(const json& j, TEntityParseContext& ctx) {
 void CAIFan::IdleState(float)
 {
 	if (attached.isValid()) {
-		TCompTransform *my_transform = get<TCompTransform>();
-		if (!my_transform)
-		{
-			return;
-		}
-		CEntity *e_attached = attached;
-		TCompTransform *e_transform = e_attached->get<TCompTransform>();
-		TCompCollider *e_col = e_attached->get<TCompCollider>();
-		if (!e_col) {
-			return;
-		}
-		//Mitigate force by distance from Center of the fan
-		//float distance_from_transform = VEC3::Distance(e_transform->getPosition(), my_transform->getPosition());
-		VEC3 direction = my_transform->getUp() * force;
-		e_col->controller->move(physx::PxVec3(direction.x, direction.y, direction.z), 0.f, DT, physx::PxControllerFilters());
 
-		PxRigidActor* rigidActor = ((PxRigidActor*)e_col->actor);
-		PxTransform tr = rigidActor->getGlobalPose();
-		e_transform->setPosition(VEC3(tr.p.x, tr.p.y, tr.p.z));
 	}
 }
 

@@ -2,6 +2,9 @@
 #include "glide_state.h"
 #include "fsm/context.h"
 #include "components/player/comp_player_controller.h"
+#include "modules/system/module_physics.h"
+
+using namespace physx;
 
 namespace FSM
 {
@@ -21,6 +24,20 @@ namespace FSM
 
 	bool GlideState::update(float dt, CContext& ctx) const
 	{		
+		CEntity* e = ctx.getOwner();
+		TCompPlayerController* player = e->get<TCompPlayerController>();
+		TCompTransform *c_my_transform = e->get<TCompTransform>();
+		
+		TCompCollider *e_col = e->get<TCompCollider>();
+	
+		//Mitigate force by distance from Center of the fan
+		//float distance_from_transform = VEC3::Distance(e_transform->getPosition(), my_transform->getPosition());
+		VEC3 direction = VEC3(0,1,0) * 0.025;
+		e_col->controller->move(physx::PxVec3(direction.x, direction.y, direction.z), 0.f, dt, physx::PxControllerFilters());
+
+		PxRigidActor* rigidActor = ((PxRigidActor*)e_col->actor);
+		PxTransform tr = rigidActor->getGlobalPose();
+		c_my_transform->setPosition(VEC3(tr.p.x, tr.p.y, tr.p.z));
 		return false;
 	}
 
