@@ -7,6 +7,11 @@ namespace FSM
 {
 	void GlideState::onStart(CContext& ctx) const
 	{
+		CEntity* e = ctx.getOwner();
+		TCompPlayerController* player = e->get<TCompPlayerController>();
+		TCompTransform *c_my_transform = e->get<TCompTransform>();
+		ctx.setVariable("is_grounded", false);
+		player->is_grounded = false;
 	}
 
 	bool GlideState::load(const json& jData)
@@ -20,7 +25,10 @@ namespace FSM
 	}
 
 	void GlideState::onFinish(CContext& ctx) const {
-		//ctx.setVariable("glide", false);	
+		ctx.setVariable("glide", false);
+		CEntity* e = ctx.getOwner();
+		TCompPlayerController* player = e->get<TCompPlayerController>();
+		player->y_speed_factor = 0;
 	}
 
 }
