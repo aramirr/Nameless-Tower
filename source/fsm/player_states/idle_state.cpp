@@ -38,7 +38,6 @@ namespace FSM
 					player->change_mesh(5);
 					ctx.setVariable("dead", true);
 				}
-				player->y_speed_factor = 0;
 				player->is_grounded = true;
 				ctx.setVariable("is_grounded", true);
 				ctx.setVariable("can_omni", true);
@@ -51,7 +50,7 @@ namespace FSM
 				ctx.setVariable("is_falling", true);
 			}
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
-				ctx.setVariable("is_falling", true);
+ 				ctx.setVariable("is_falling", true);
 			}
 		}
 		return false;

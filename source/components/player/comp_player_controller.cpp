@@ -117,7 +117,6 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 					CEntity* e = CHandle(this).getOwner();
 					e->sendMsg(deadMsg);
 				}
- 				y_speed_factor = 0;
 				is_grounded = true;
 				TMsgSetFSMVariable dashMsg;
 				dashMsg.variant.setName("can_dash");

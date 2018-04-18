@@ -54,6 +54,5 @@ namespace FSM
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->change_mesh(1);
-		player->y_speed_factor = 0;
 	}
 }
