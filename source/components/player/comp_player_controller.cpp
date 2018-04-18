@@ -152,11 +152,11 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);				
 			}
 			else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
-				TMsgSetFSMVariable idleMsg;
+				/*TMsgSetFSMVariable idleMsg;
 				idleMsg.variant.setName("idle");
 				idleMsg.variant.setBool(true);
 				CEntity* e = CHandle(this).getOwner();
-				e->sendMsg(idleMsg);
+				e->sendMsg(idleMsg);*/
 			}
 		}
 		else

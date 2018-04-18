@@ -19,6 +19,7 @@ namespace FSM
 
 	bool GlideState::load(const json& jData)
 	{
+		_x_speed = jData.value("x_speed", 2.f);
 		return true;
 	}
 
@@ -33,11 +34,40 @@ namespace FSM
 		//Mitigate force by distance from Center of the fan
 		//float distance_from_transform = VEC3::Distance(e_transform->getPosition(), my_transform->getPosition());
 		VEC3 direction = VEC3(0,1,0) * 0.025;
-		e_col->controller->move(physx::PxVec3(direction.x, direction.y, direction.z), 0.f, dt, physx::PxControllerFilters());
+		
 
 		PxRigidActor* rigidActor = ((PxRigidActor*)e_col->actor);
 		PxTransform tr = rigidActor->getGlobalPose();
 		c_my_transform->setPosition(VEC3(tr.p.x, tr.p.y, tr.p.z));
+
+
+		VEC3 my_pos = c_my_transform->getPosition();
+		VEC3 new_pos = my_pos;
+		float y_speed;
+
+		// Chequea movimiento
+		if (EngineInput["left"].isPressed()) {
+			if (!player->looking_left) {
+				player->looking_left = true;
+				player->move_player(false, true, dt, 0, 2);
+			}
+			else {
+				player->move_player(false, false, dt, 0, 2);
+			}
+		}
+		else if (EngineInput["right"].isPressed()) {
+			if (!player->looking_left) {
+				player->move_player(true, false, dt, 0, 2);
+			}
+			else {
+				player->looking_left = false;
+				player->move_player(true, true, dt, 0, 2);
+			}
+		}
+
+		e_col->controller->move(physx::PxVec3(direction.x, direction.y, direction.z), 0.f, dt, physx::PxControllerFilters());
+		
+
 		return false;
 	}
 
