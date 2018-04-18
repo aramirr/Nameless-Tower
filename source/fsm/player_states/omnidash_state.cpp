@@ -8,6 +8,7 @@ namespace FSM
 {
 	void OmnidashState::onStart(CContext& ctx) const
 	{
+		ctx.setVariable("can_omni", false);
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->change_mesh(player->EAnimations::EOmni);
@@ -39,8 +40,7 @@ namespace FSM
 		player->y_speed_factor = 0;
 		EngineTimer.setTimeSlower(1.f);
 
-		CHandle h_e_camera = getEntityByName("camera_platform");
-		CEntity* e_camera = h_e_camera;
+		CEntity* e_camera = EngineCameras.getActiveCamera();
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		const Input::TInterface_Mouse& mouse = EngineInput.mouse();

@@ -6,6 +6,7 @@ CRenderCte<CCteCamera>  cb_camera("Camera");
 CRenderCte<CCteObject>  cb_object("Object");
 CRenderCte<CCteLight>   cb_light("Light");
 CRenderCte<CCteGlobals> cb_globals("Globals");
+CRenderCte<CCteBlur>    cb_blur("Blur");
 
 struct TVtxPosClr {
 	VEC3 pos;
@@ -302,10 +303,6 @@ void renderLine(VEC3 src, VEC3 dst, VEC4 color) {
 
 	auto mesh = Resources.get("line.mesh")->as<CRenderMesh>();
 	mesh->activateAndRender();
-}
-
-void setAmbientAdjustment(float r) {
-	cb_globals.global_ambient_adjustment = r;
 }
 
 // ---------------------------------------------

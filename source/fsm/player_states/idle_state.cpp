@@ -2,6 +2,7 @@
 #include "idle_state.h"
 #include "fsm/context.h"
 #include "components/player/comp_player_controller.h"
+#include "components/fsm/comp_fsm.h"
 
 
 namespace FSM
@@ -37,16 +38,19 @@ namespace FSM
 					player->change_mesh(5);
 					ctx.setVariable("dead", true);
 				}
-				player->y_speed_factor = 0;
 				player->is_grounded = true;
+				ctx.setVariable("is_grounded", true);
+				ctx.setVariable("can_omni", true);
+				ctx.setVariable("can_dash", true);
 			}
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && player->is_grounded) {
 				player->is_grounded = false;
+				ctx.setVariable("is_grounded", false);
 				player->jumping_start_height = c_my_transform->getPosition().y;
 				ctx.setVariable("is_falling", true);
 			}
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
-				ctx.setVariable("is_falling", true);
+ 				ctx.setVariable("is_falling", true);
 			}
 		}
 		return false;

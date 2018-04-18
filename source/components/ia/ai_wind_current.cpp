@@ -72,12 +72,12 @@ void CAIFan::attachPlayer(const TMsgAttachTo& msg) {
 	TMsgGravityToggle disable_player_gravity_message;
 	disable_player_gravity_message.is_active = false;
 	e_attached->sendMsg(disable_player_gravity_message);*/
-	TMsgSetFSMVariable jumpMsg;
-	jumpMsg.variant.setName("in_current");
-	jumpMsg.variant.setBool(true);	
+	TMsgSetFSMVariable windMsg;
+	windMsg.variant.setName("in_wind");
+	windMsg.variant.setBool(true);
 	attached = msg.h_attacher;
 	CEntity *e_attached = attached;
-	e_attached->sendMsg(jumpMsg);
+	e_attached->sendMsg(windMsg);
 }
 
 void CAIFan::detachPlayer(const TMsgDetachOf& msg) {
@@ -94,7 +94,7 @@ void CAIFan::detachPlayer(const TMsgDetachOf& msg) {
 	//}
 	*/
 	TMsgSetFSMVariable jumpMsg;
-	jumpMsg.variant.setName("in_current");
+	jumpMsg.variant.setName("in_wind");
 	jumpMsg.variant.setBool(false);
 	attached = msg.h_attacher;
 	CEntity *e_attached = attached;

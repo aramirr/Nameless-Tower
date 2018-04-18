@@ -20,6 +20,9 @@ public:
   void blendOutCamera(CHandle camera, float blendTime = 0.f);
 	void destroyAllCameras();
 
+  //Funcion aparte no perteneciente al modulo de Albert
+  CEntity* getActiveCamera();
+
 private:
 	void renderInMenu();
 

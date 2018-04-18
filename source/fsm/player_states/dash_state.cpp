@@ -7,6 +7,7 @@ namespace FSM
 {
 	void DashState::onStart(CContext& ctx) const
 	{
+		ctx.setVariable("can_dash", false);
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->change_mesh(4);

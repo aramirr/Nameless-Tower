@@ -30,7 +30,7 @@
 		{
 			"name" : "dash",
 			"type" : "DashState",
-			"x_speed": 8
+			"x_speed": 6
 		},
 		{
 			"name" : "windstrike",
@@ -43,7 +43,7 @@
 		{
 			"name" : "omnijump",
 			"type" : "OmnijumpState",
-			"y_speed" : 4.5,
+			"y_speed" : 3.5,
 			"x_speed" : 2
 		},
 		{
@@ -101,7 +101,7 @@
 					"value" : true
 				},
 				{
-					"name" : "in_current",
+					"name" : "in_wind",
 					"type" : "bool",
 					"value" : true
 				}
@@ -120,7 +120,7 @@
 					"value" : true
 				},
 				{
-					"name" : "in_current",
+					"name" : "in_wind",
 					"type" : "bool",
 					"value" : true
 				}
@@ -139,7 +139,7 @@
 					"value" : true
 				},
 				{
-					"name" : "in_current",
+					"name" : "in_wind",
 					"type" : "bool",
 					"value" : true
 				}
@@ -158,7 +158,7 @@
 					"value" : true
 				},
 				{
-					"name" : "in_current",
+					"name" : "in_wind",
 					"type" : "bool",
 					"value" : true
 				}
@@ -255,48 +255,72 @@
 			"operation" : "equal"
 		},
 		{
-			"type" : "VariableTransition",
+			"type" : "LogicTransition",
 			"source" : "idle",
 			"target" : "dash",
-			"variable" : {
+			"variables" : [{
 				"name" : "dash",
 				"type" : "bool",
 				"value" : true
 			},
-			"operation" : "equal"
+			{
+				"name" : "can_dash",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
 		},
 		{
-			"type" : "VariableTransition",
+			"type" : "LogicTransition",
 			"source" : "jump",
 			"target" : "dash",
-			"variable" : {
+			"variables" : [{
 				"name" : "dash",
 				"type" : "bool",
 				"value" : true
 			},
-			"operation" : "equal"
+			{
+				"name" : "can_dash",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
 		},
 		{
-			"type" : "VariableTransition",
+			"type" : "LogicTransition",
 			"source" : "run",
 			"target" : "dash",
-			"variable" : {
+			"variables" : [{
 				"name" : "dash",
 				"type" : "bool",
 				"value" : true
 			},
-			"operation" : "equal"
+			{
+				"name" : "can_dash",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
 		},
 		{
-			"type" : "VariableTransition",
+			"type" : "LogicTransition",
 			"source" : "falling",
 			"target" : "dash",
-			"variable" : {
+			"variables" : [{
 				"name" : "dash",
 				"type" : "bool",
 				"value" : true
 			},
-			"operation" : "equal"
+			{
+				"name" : "can_dash",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
 		},
 		{
 			"type" : "VariableTransition",
@@ -345,25 +369,35 @@
 			"time" : 0.25
 		},
 		{
-			"type" : "VariableTransition",
+			"type" : "LogicTransition",
 			"source" : "jump",
 			"target" : "omnidash",
-			"variable" : {
+			"variables" : [{
 				"name" : "omnidash",
 				"type" : "bool",
 				"value" : true
 			},
+			{
+				"name" : "can_omni",
+				"type" : "bool",
+				"value" : true
+			}],
 			"operation" : "equal"
 		},
 		{
-			"type" : "VariableTransition",
+			"type" : "LogicTransition",
 			"source" : "falling",
 			"target" : "omnidash",
-			"variable" : {
+			"variables" : [{
 				"name" : "omnidash",
 				"type" : "bool",
 				"value" : true
 			},
+			{
+				"name" : "can_omni",
+				"type" : "bool",
+				"value" : true
+			}],
 			"operation" : "equal"
 		},
 		{
@@ -576,15 +610,21 @@
 			"operation" : "equal"
 		},
 		{
-			"type" : "VariableTransition",
+			"type" : "LogicTransition",
 			"source" : "glide",
-			"target" : "falling",
-			"variable" : {
-				"name" : "in_current",
+			"target" : "idle",
+			"variables" : [{
+				"name" : "in_wind",
 				"type" : "bool",
 				"value" : false
 			},
-			"operation" : "equal"
+			{
+				"name" : "glide",
+				"type" : "bool",
+				"value" : false
+			}],
+			"operation" : "equal",
+			"logic_operation" : "or"
 		},
 		{
 			"type" : "VariableTransition",
@@ -730,9 +770,19 @@
 			"value" : false
 		},
 		{
-			"name" : "in_current",
+			"name" : "in_wind",
 			"type" : "bool",
 			"value" : false
+		},
+		{		
+			"name" : "can_dash",
+			"type" : "bool",
+			"value" : true
+		},
+		{
+			"name" : "can_omni",
+			"type" : "bool",
+			"value" : true
 		}
 	]
 }

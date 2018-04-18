@@ -127,6 +127,8 @@
     <ClCompile Include="components\ia\bt.cpp" />
     <ClCompile Include="components\ia\btnode.cpp" />
     <ClCompile Include="components\ia\bt_runner.cpp" />
+    <ClCompile Include="components\postfx\comp_render_blur.cpp" />
+    <ClCompile Include="components\postfx\comp_render_blur_radial.cpp" />
     <ClCompile Include="components\ui\ui_mouse_pos.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity\entity.cpp" />
@@ -186,6 +188,7 @@
     <ClCompile Include="modules\system\module_physics.cpp" />
     <ClCompile Include="modules\test\module_test_input.cpp" />
     <ClCompile Include="profiling\profiling.cpp" />
+    <ClCompile Include="render\blur_step.cpp" />
     <ClCompile Include="render\cte_buffer.cpp" />
     <ClCompile Include="render\deferred_renderer.cpp" />
     <ClCompile Include="render\mesh\mesh.cpp" />
@@ -257,6 +260,8 @@
     <ClInclude Include="components\ia\bt.h" />
     <ClInclude Include="components\ia\btnode.h" />
     <ClInclude Include="components\ia\bt_runner.h" />
+    <ClInclude Include="components\postfx\comp_render_blur.h" />
+    <ClInclude Include="components\postfx\comp_render_blur_radial.h" />
     <ClInclude Include="components\ui\ui_mouse_pos.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="entity\common_msgs.h" />
@@ -331,6 +336,7 @@
     <ClInclude Include="modules\system\module_physics.h" />
     <ClInclude Include="modules\test\module_test_input.h" />
     <ClInclude Include="profiling\profiling.h" />
+    <ClInclude Include="render\blur_step.h" />
     <ClInclude Include="render\cte_buffer.h" />
     <ClInclude Include="render\deferred_renderer.h" />
     <ClInclude Include="render\gpu_trace.h" />

@@ -93,7 +93,7 @@ void TCompPlayerInput::update(float dt)
 
 	TMsgSetFSMVariable glideMsg;
 	glideMsg.variant.setName("glide");
-	glideMsg.variant.setBool(true);
+	glideMsg.variant.setBool(EngineInput["glide"].isPressed());
 	if (EngineInput["glide"].hasChanged())
 	{
 		CEntity* e = CHandle(this).getOwner();

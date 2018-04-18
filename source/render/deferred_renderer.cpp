@@ -61,6 +61,8 @@ bool CDeferredRenderer::create(int xres, int yres) {
     return false;
 
   rt_normals = new CRenderToTexture;
+
+  //if (!rt_normals->createRT("g_normals.dds", xres, yres, DXGI_FORMAT_R16G16B16A16_UNORM))     // For improved normal quality storage.
   if (!rt_normals->createRT("g_normals.dds", xres, yres, DXGI_FORMAT_R8G8B8A8_UNORM))
     return false;
 
@@ -82,6 +84,13 @@ void CDeferredRenderer::renderAmbientPass() {
 }
 
 // -------------------------------------------------------------------------
+
+void CDeferredRenderer::renderSkyBox() const {
+  CTraceScoped gpu_scope("renderSkyBox");
+  renderFullScreenQuad("pbr_skybox.tech", nullptr);
+}
+
+// -------------------------------------------------------------------------
 void CDeferredRenderer::renderAccLight() {
   CTraceScoped gpu_scope("Deferred.AccLight");
   rt_acc_light->activateRT( );
@@ -89,8 +98,9 @@ void CDeferredRenderer::renderAccLight() {
   renderAmbientPass();
   renderPointLights();
   renderDirectionalLights();
-}
 
+  renderSkyBox();
+}
 
 // -------------------------------------------------------------------------
 void CDeferredRenderer::renderPointLights() {

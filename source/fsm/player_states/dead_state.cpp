@@ -2,6 +2,7 @@
 #include "dead_state.h"
 #include "fsm/context.h"
 #include "components/player/comp_player_controller.h"
+#include "components/fsm/comp_fsm.h"
 
 namespace FSM
 {
@@ -33,6 +34,10 @@ namespace FSM
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !player->is_grounded) {				
 				player->y_speed_factor = 0;
 				player->is_grounded = true;
+				ctx.setVariable("dead", false);
+				ctx.setVariable("can_dash", true);
+				ctx.setVariable("can_omni", true);
+				ctx.setVariable("is_grounded", true);
 			}			
 		}
 		return false;

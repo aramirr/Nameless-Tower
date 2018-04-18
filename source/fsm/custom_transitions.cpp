@@ -65,7 +65,7 @@ namespace FSM
 		{
 			_logic_operation = ELogicOperation::AND;
 		}
-		else if (opType == "greater_equal")
+		else if (opType == "or")
 		{
 			_logic_operation = ELogicOperation::OR;
 		}
@@ -88,14 +88,17 @@ namespace FSM
 
 	bool LogicTransition::checkCondition(CContext& ctx) const
 	{
-		bool result = true;
+		bool result = _logic_operation == ELogicOperation::AND ? true : false;
 		for (CVariant _var : _variables) {
 			const CVariant* var = ctx.getVariable(_var.getName());
 			if (var && var->getType() == _var.getType())
 			{
 				if (var->getType() == CVariant::EType::BOOL)
 				{
-					result &= var->getBool() == _var.getBool();
+					if (_logic_operation == ELogicOperation::AND)
+						result &= var->getBool() == _var.getBool();
+					else
+						result |= var->getBool() == _var.getBool();
 				}
 			}
 			else {

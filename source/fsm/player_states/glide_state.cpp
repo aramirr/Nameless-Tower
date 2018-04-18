@@ -25,7 +25,7 @@ namespace FSM
 	}
 
 	void GlideState::onFinish(CContext& ctx) const {
-		ctx.setVariable("glide", false);
+		//ctx.setVariable("glide", false);
 	}
 
 }
