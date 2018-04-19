@@ -1,6 +1,17 @@
 {
-
-  "solid": {
+	"solid" : {
+		"vs_file": "data/shaders/solid.fx",
+		"vs_entry_point" : "VS",
+		"vertex_type" : "PosClr",
+		"ps_file": "data/shaders/solid.fx",
+		"ps_entry_point" : "PS"
+	},
+  "solid_objs_tan_skin" : {
+    "vs_file": "data/shaders/solid.fx",
+    "vs_entry_point" : "VS_Objs_Skin",
+    "vertex_type" : "PosNUvUvTanSkin"
+  },
+  "solid_objs_skin" : {
     "vs_file": "data/shaders/solid.fx",
     "vs_entry_point": "VS",
     "vertex_type": "PosClr",
@@ -29,8 +40,6 @@
     "vertex_type": "PosNUvSkin",
     "rs_config": "wireframe"
   },
-
-
   "shadows": {
     "vs_file": "data/shaders/shadows.fx",
     "vs_entry_point": "VS",
@@ -55,8 +64,6 @@
     "z": "disable_all",
     "category": "helper"
   },
-
-
   "textured": {
     "vs_file": "data/shaders/textured.fx",
     "vs_entry_point": "VS",
@@ -71,8 +78,6 @@
     "vertex_type": "PosNUvSkin",
     "uses_skin": true
   },
-
-
   "gbuffer_resolve": {
     "vs_file": "data/shaders/screen_quad.fx",
     "vertex_type": "PosClr",
@@ -80,8 +85,6 @@
     "z": "disable_all",
     "category": "helper"
   },
-
-
   "pbr": {
     "vs_file": "data/shaders/pbr.fx",
     "ps_file": "data/shaders/pbr.fx",
@@ -93,6 +96,19 @@
       "environment": "data/textures/cubemaps/env.dds",
       "irradiance": "data/textures/cubemaps/irradiance.dds"
     }
+  },
+"pbr_skin": {
+    "vs_file": "data/shaders/pbr.fx",
+    "ps_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_GBufferSkin",
+    "ps_entry_point": "PS_GBuffer",
+    "vertex_type": "PosNUvUvTanSkin",
+    "category" : "gbuffer",
+    "textures" : { 
+      "environment" : "data/textures/cubemaps/env.dds", 
+      "irradiance" : "data/textures/cubemaps/irradiance.dds" 
+    },
+    "uses_skin" : true
   },
   "pbr_ambient": {
     "vs_file": "data/shaders/screen_quad.fx",
@@ -143,8 +159,6 @@
     "z": "test_equal",
     "category": "pbr_skybox"
   },
-
-
   "blur": {
     "vs_file": "data/shaders/blur.fx",
     "ps_file": "data/shaders/blur.fx",
@@ -159,5 +173,4 @@
     "category": "fx",
     "z": "disable_all"
   }
-
 }

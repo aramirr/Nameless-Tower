@@ -1,0 +1,27 @@
+[
+  {
+    "entity":
+    {
+      "name": "najatest"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0",
+		"front": "1 0 0"
+      },
+      "skeleton": {
+        "skeleton": "data/skeletons/najatest/najatest.skeleton"
+      },
+      "render" : [
+        {
+          "mesh": "data/skeletons/najatest/najatest.mesh"
+          ,
+          "materials":
+          [
+            "data/skeletons/najatest/NajaMaterial.material"
+          ]
+        }
+      ]
+    }
+  }
+]
