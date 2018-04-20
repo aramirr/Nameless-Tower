@@ -2,22 +2,27 @@
 	{
 		"entity": {
 			"name": "The Player",
-			"skeleton": {
-        		"skeleton": "data/skeletons/Naja/Naja.skeleton"
+      		"skeleton": {
+        		"skeleton": "data/skeletons/NajaTest/NajaTest.skeleton"
       		},
-			"xrender":
-		      [
-			    {
-			    	"mesh": "data/meshes/Naja.mesh"
-			    	,
-		        	"materials": 
-		        	[
-		           		"data/materials/NajaMaterial.material"
-		            	,
-		            	"data/materials/PaipaiMaterial.material"
-		        	]
-		        }
-			  ]			
+      		"render" : [
+        		{
+          			"mesh": "data/skeletons/NajaTest/NajaTest.mesh"
+          			,
+          			"materials":
+          				[
+           		 			"data/materials/NajaMaterial.material"
+          				]
+        		},
+        		{
+          			"mesh": "data/skeletons/NajaTest/PaiTest.mesh"
+          			,
+          			"materials":
+          				[
+           					"data/materials/PaipaiMaterial.material"
+          				]
+        		}
+      		]		
 			,
 			"transform": {
 				"pos": "16.684 9.000 27.306",
