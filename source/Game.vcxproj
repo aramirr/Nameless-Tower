@@ -110,6 +110,8 @@
     <ClCompile Include="components\juan\comp_name.cpp" />
     <ClCompile Include="components\camera\comp_orbit_camera.cpp" />
     <ClCompile Include="components\camera\comp_platform_camera.cpp" />
+    <ClCompile Include="components\physics\controller_filter.cpp" />
+    <ClCompile Include="components\physics\query_filter.cpp" />
     <ClCompile Include="components\player\comp_player_controller.cpp" />
     <ClCompile Include="components\juan\comp_render.cpp" />
     <ClCompile Include="components\juan\comp_tags.cpp" />
@@ -243,6 +245,8 @@
     <ClInclude Include="components\juan\comp_name.h" />
     <ClInclude Include="components\camera\comp_orbit_camera.h" />
     <ClInclude Include="components\camera\comp_platform_camera.h" />
+    <ClInclude Include="components\physics\controller_filter.h" />
+    <ClInclude Include="components\physics\query_filter.h" />
     <ClInclude Include="components\player\comp_player_controller.h" />
     <ClInclude Include="components\juan\comp_render.h" />
     <ClInclude Include="components\juan\comp_tags.h" />

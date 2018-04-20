@@ -40,6 +40,9 @@ void TCompCollider::load(const json& j, TEntityParseContext& ctx) {
   config.group = CEngine::get().getPhysics().getFilterByName(j.value("group", "all"));
   config.mask = CEngine::get().getPhysics().getFilterByName(j.value("mask", "all"));
 
+  // set up the group and mask to the SimulationFilterData and QueryFilterData
+  setupFiltering(config.group, config.mask);
+
   if (j.count("halfExtent"))
     config.halfExtent = loadVEC3(j["halfExtent"]);
 }
@@ -69,4 +72,10 @@ TCompCollider::~TCompCollider() {
 		controller->release();
 		controller = nullptr;
 	}
+}
+
+void TCompCollider::setupFiltering(PxU32 filterGroup, PxU32 filterMask) {
+	// llamada => my_collider->setupFIltering(my_collider->config.group, my_collider->config.mask);
+	CModulePhysics module_physics = CEngine::get().getPhysics();
+	module_physics.setupFiltering(static_cast<PxRigidActor*>(actor), filterGroup, filterMask);
 }
