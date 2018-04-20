@@ -2,6 +2,7 @@
 #include "entity/entity_parser.h"
 #include "comp_spiral_controller.h"
 #include "components/juan/comp_transform.h"
+#include "components/physics/controller_filter.h"
 
 using namespace physx;
 
@@ -75,7 +76,12 @@ void TCompSpiralController::update(float DT) {
 	TCompCollider *my_collider = e->get<TCompCollider>();
 	if (my_collider)
 	{
-		physx::PxControllerCollisionFlags flags = my_collider->controller->move(physx::PxVec3(move_vector.x, move_vector.y, move_vector.z), 0.f, DT, physx::PxControllerFilters());
+		PxShape* player_shape;
+		my_collider->controller->getActor()->getShapes(&player_shape, 1);
+		PxFilterData filter_data = player_shape->getSimulationFilterData();
+		ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
+		PxControllerCollisionFlags flags = my_collider->controller->move(PxVec3(move_vector.x, move_vector.y, move_vector.z), 0.f, DT, PxControllerFilters(&filter_data, filter_controller, filter_controller));
+		
 		if (flags.isSet(PxControllerCollisionFlag::eCOLLISION_DOWN) or flags.isSet(PxControllerCollisionFlag::eCOLLISION_UP) or flags.isSet(PxControllerCollisionFlag::eCOLLISION_SIDES))
 		{
 			this->destroy();
