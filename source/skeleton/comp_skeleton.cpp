@@ -52,9 +52,6 @@ void TCompSkeleton::load(const json& j, TEntityParseContext& ctx) {
 
   std::string skel_name= j.value("skeleton", "");
   assert(!skel_name.empty());
-  dbg("-------------------------- ANIMACION -------------------------------\n");
-  dbg(skel_name.c_str() + '\n');
-  dbg("--------------------------------------------------------------------------------------\n");
   auto res_skel = Resources.get(skel_name)->as< CGameCoreSkeleton >();
   CalCoreModel* core_model = const_cast<CGameCoreSkeleton*>(res_skel);
   model = new CalModel(core_model);

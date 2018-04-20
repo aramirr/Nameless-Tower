@@ -10,15 +10,23 @@
 		"front": "1 0 0"
       },
       "skeleton": {
-        "skeleton": "data/skeletons/najatest/najatest.skeleton"
+        "skeleton": "data/skeletons/NajaTest/NajaTest.skeleton"
       },
       "render" : [
         {
-          "mesh": "data/skeletons/najatest/najatest.mesh"
+          "mesh": "data/skeletons/NajaTest/NajaTest.mesh"
           ,
           "materials":
           [
-            "data/skeletons/najatest/NajaMaterial.material"
+            "data/materials/NajaMaterial.material"
+          ]
+        },
+        {
+          "mesh": "data/skeletons/NajaTest/PaiTest.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PaipaiMaterial.material"
           ]
         }
       ]

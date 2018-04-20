@@ -2,32 +2,21 @@
 	{
 		"entity": {
 			"name": "The Player",
-			"render":
+			"skeleton": {
+        		"skeleton": "data/skeletons/Naja/Naja.skeleton"
+      		},
+			"xrender":
 		      [
-			    {"mesh": "data/meshes/NajaRun.mesh",
-		            "materials":["data/materials/MaterialNaja.material"]
+			    {
+			    	"mesh": "data/meshes/Naja.mesh"
+			    	,
+		        	"materials": 
+		        	[
+		           		"data/materials/NajaMaterial.material"
+		            	,
+		            	"data/materials/PaipaiMaterial.material"
+		        	]
 		        }
-				,
-				{"mesh": "data/meshes/NajaIdle.mesh",
-			          "materials":["data/materials/MaterialNaja.material"]
-
-			      }
-				,
-				{"mesh": "data/meshes/NajaJump.mesh",
-			          "materials":["data/materials/MaterialNaja.material"]
-			      }
-				,
-				{"mesh": "data/meshes/NajaOmnidash.mesh",
-			          "materials":["data/materials/MaterialNaja.material"]
-			      }
-				,
-				{"mesh": "data/meshes/NajaDash.mesh",
-			          "materials":["data/materials/MaterialNaja.material"]
-			      }
-			    ,
-				{"mesh": "data/meshes/NajaDeath.mesh",
-			        "materials":["data/materials/MaterialNaja.material"]
-			    }
 			  ]			
 			,
 			"transform": {

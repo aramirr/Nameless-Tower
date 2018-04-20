@@ -70,13 +70,13 @@ void TCompPlayerController::setEntity(CHandle new_entity) {
 }
 
 void TCompPlayerController::change_mesh(int mesh_index) {
-	TCompRender *my_render = getMyRender();
+	//TCompRender *my_render = getMyRender();
 	//my_render->mesh = my_render->meshes_leo[mesh_index];
-	for (int i = 0; i < my_render->meshes.size(); ++i) {
-		my_render->meshes[i].enabled = false;
-	}
-	my_render->meshes[mesh_index].enabled = true;
-	my_render->refreshMeshesInRenderManager();
+	//for (int i = 0; i < my_render->meshes.size(); ++i) {
+	//	my_render->meshes[i].enabled = false;
+	//}
+	//my_render->meshes[mesh_index].enabled = true;
+	//my_render->refreshMeshesInRenderManager();
 }
 
 void TCompPlayerController::move_player(bool left, bool change_orientation, float dt, float y_speed, float x_speed) {
