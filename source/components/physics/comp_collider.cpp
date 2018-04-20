@@ -40,9 +40,6 @@ void TCompCollider::load(const json& j, TEntityParseContext& ctx) {
   config.group = CEngine::get().getPhysics().getFilterByName(j.value("group", "all"));
   config.mask = CEngine::get().getPhysics().getFilterByName(j.value("mask", "all"));
 
-  // set up the group and mask to the SimulationFilterData and QueryFilterData
-  setupFiltering(config.group, config.mask);
-
   if (j.count("halfExtent"))
     config.halfExtent = loadVEC3(j["halfExtent"]);
 }

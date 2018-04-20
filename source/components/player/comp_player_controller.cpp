@@ -112,7 +112,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			delta_move.y += y_speed;
 			PxShape* player_shape;
 			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
-			//comp_collider->setupFiltering(comp_collider->config.group, comp_collider->config.mask);
+			comp_collider->setupFiltering(comp_collider->config.group, comp_collider->config.mask);
 			PxFilterData filter_data = player_shape->getSimulationFilterData();
 			//BasicQueryFilterCallback *filter_callback = new BasicQueryFilterCallback();
 			ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
