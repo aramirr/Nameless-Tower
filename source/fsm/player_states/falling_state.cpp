@@ -59,7 +59,13 @@ namespace FSM
 			VEC3 delta_move = new_pos - my_pos;
 			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
+				if (player->jumping_start_height - c_my_transform->getPosition().y > player->jumping_death_height) {
+					ctx.setVariable("hit", true);
+				}
 				ctx.setVariable("is_grounded", true);
+				ctx.setVariable("is_grounded", true);
+				ctx.setVariable("can_omni", true);
+				ctx.setVariable("can_dash", true);
 			}
 		}		
 		return false;

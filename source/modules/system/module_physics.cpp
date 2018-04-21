@@ -101,7 +101,10 @@ void CModulePhysics::createActor(TCompCollider& comp_collider)
     {
       shape = gPhysics->createShape(PxSphereGeometry(config.radius), *gMaterial);
       offset.p.y = config.radius;
-    }
+		}
+		else if (config.shapeType == physx::PxGeometryType::eTRIANGLEMESH) {
+			//shape = gPhysics->createShape(PxTriangleMesh(), *gMaterial);
+		}
     //....todo: more shapes
 
 

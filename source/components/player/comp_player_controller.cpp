@@ -119,9 +119,9 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			
 			//physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
-				if (c_my_transform->getPosition().y - jumping_start_height > jumping_death_height) {
+				if (jumping_start_height - c_my_transform->getPosition().y  > jumping_death_height) {
 					TMsgSetFSMVariable deadMsg;
-					deadMsg.variant.setName("dead");
+					deadMsg.variant.setName("hit");
 					deadMsg.variant.setBool(true);
 					CEntity* e = CHandle(this).getOwner();
 					e->sendMsg(deadMsg);

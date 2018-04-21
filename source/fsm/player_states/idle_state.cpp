@@ -35,8 +35,7 @@ namespace FSM
 			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(0, y_speed, 0), 0.f, dt, physx::PxControllerFilters());
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !player->is_grounded) {
 				if (player->jumping_start_height - c_my_transform->getPosition().y > player->jumping_death_height) {
-					player->change_mesh(5);
-					ctx.setVariable("dead", true);
+					ctx.setVariable("hit", true);
 				}
 				player->is_grounded = true;
 				ctx.setVariable("is_grounded", true);
