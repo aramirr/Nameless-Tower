@@ -1,6 +1,10 @@
 {
-	"name":"naja",
+	"name":"Naja",
 	"anims" : [
-		{ "name" : "idle"}
+		{ "name" : "NajaRun"},
+		{ "name" : "NajaIdle"},
+		{ "name" : "NajaJumpUp"},
+		{ "name" : "NajaJumpLand"},
+		{ "name" : "NajaJumpFall"}
 	]
 }

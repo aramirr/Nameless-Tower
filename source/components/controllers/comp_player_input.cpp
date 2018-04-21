@@ -13,12 +13,14 @@ void TCompPlayerInput::load(const json& j, TEntityParseContext& ctx) {
 
 void TCompPlayerInput::update(float dt)
 {
+	CEntity* e = CHandle(this).getOwner();
+
   TMsgSetFSMVariable jumpMsg;
   jumpMsg.variant.setName("jump");
   jumpMsg.variant.setBool(EngineInput["jump"].isPressed());
   if (EngineInput["jump"].hasChanged())
   {
-    CEntity* e = CHandle(this).getOwner();
+    
     e->sendMsg(jumpMsg);
   }
 
@@ -27,7 +29,6 @@ void TCompPlayerInput::update(float dt)
 	dashMsg.variant.setBool(EngineInput["dash"].isPressed());
 	if (EngineInput["dash"].hasChanged())
 	{
-		CEntity* e = CHandle(this).getOwner();
 		e->sendMsg(dashMsg);
 	}
 
@@ -36,7 +37,6 @@ void TCompPlayerInput::update(float dt)
 	windstrikeMsg.variant.setBool(EngineInput["windstrike"].isPressed());
 	if (EngineInput["windstrike"].hasChanged())
 	{
-		CEntity* e = CHandle(this).getOwner();
 		e->sendMsg(windstrikeMsg);
 	}
 
@@ -45,40 +45,28 @@ void TCompPlayerInput::update(float dt)
 	omnidashMsg.variant.setBool(EngineInput["omnidash"].isPressed());
 	if (EngineInput["omnidash"].hasChanged())
 	{
-		CEntity* e = CHandle(this).getOwner();
 		e->sendMsg(omnidashMsg);
 	}
-
-  TMsgSetFSMVariable speedMsg;
-  speedMsg.variant.setName("speed");
-  speedMsg.variant.setFloat(EngineInput["move"].value);
-  if (EngineInput["move"].hasChanged())
-  {
-    CEntity* e = CHandle(this).getOwner();
-    e->sendMsg(speedMsg);
-  }
 
 	TMsgSetFSMVariable runMsg;
 	runMsg.variant.setName("run");
 	runMsg.variant.setBool(EngineInput["left"].isPressed());
-	if (EngineInput["left"].hasChanged())
+	if (EngineInput["left"].isPressed())
 	{
-		CEntity* e = CHandle(this).getOwner();
 		e->sendMsg(runMsg);
 	}
 	runMsg.variant.setBool(EngineInput["right"].isPressed());
-	if (EngineInput["right"].hasChanged())
+	if (EngineInput["right"].isPressed())
 	{
-		CEntity* e = CHandle(this).getOwner();
 		e->sendMsg(runMsg);
 	}
+	
 
 	TMsgSetFSMVariable respawnMsg;
 	respawnMsg.variant.setName("initial");
 	respawnMsg.variant.setBool(true);
 	if (EngineInput["respawn_player"].hasChanged())
 	{
-		CEntity* e = CHandle(this).getOwner();
 		e->sendMsg(respawnMsg);
 	}
 
@@ -87,7 +75,6 @@ void TCompPlayerInput::update(float dt)
 	deadMsg.variant.setBool(true);
 	if (EngineInput["kill"].hasChanged())
 	{
-		CEntity* e = CHandle(this).getOwner();
 		e->sendMsg(deadMsg);
 	}
 
@@ -96,7 +83,6 @@ void TCompPlayerInput::update(float dt)
 	glideMsg.variant.setBool(EngineInput["glide"].isPressed());
 	if (EngineInput["glide"].hasChanged())
 	{
-		CEntity* e = CHandle(this).getOwner();
 		e->sendMsg(glideMsg);
 	}
 	/*
