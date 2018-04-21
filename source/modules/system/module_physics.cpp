@@ -43,6 +43,9 @@ CModulePhysics::FilterGroup CModulePhysics::getFilterByName(const std::string& n
 		else if (strcmp("player_mask", name.c_str()) == 0) {
 			return CModulePhysics::FilterGroup::PlayerMask;
 		}
+		else if (strcmp("projectile", name.c_str()) == 0) {
+			return CModulePhysics::FilterGroup::Projectile;
+		}
     return CModulePhysics::FilterGroup::All;
 }
 
