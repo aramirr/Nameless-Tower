@@ -114,10 +114,8 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
 			PxFilterData filter_data = player_shape->getSimulationFilterData();
 			ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
-			PxControllerCollisionFlags flags = comp_collider->controller->move(
-			PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, filter_controller, filter_controller));
+			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, filter_controller, filter_controller));
 			
-			//physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
 				if (c_my_transform->getPosition().y - jumping_start_height > jumping_death_height) {
 					TMsgSetFSMVariable deadMsg;

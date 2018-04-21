@@ -5,6 +5,7 @@
 #include "components/juan/comp_transform.h"
 #include "render/render_utils.h"
 #include "modules/system/module_physics.h"
+#include "components/physics/controller_filter.h"
 
 using namespace physx;
 
@@ -13,13 +14,14 @@ DECL_OBJ_MANAGER("ai_linear_patrol", CAILinearPatrol);
 void CAILinearPatrol::Init()
 {
 	// insert all states in the map
+	AddState("sleep", (statehandler)&CAILinearPatrol::SleepState);
 	AddState("initialize_waypoint", (statehandler)&CAILinearPatrol::InitializeWaypointState);
 	AddState("next_waypoint", (statehandler)&CAILinearPatrol::NextWaypointState);
 	AddState("move_to_waypoint", (statehandler)&CAILinearPatrol::MoveToWaypointState);
 	AddState("wait_state", (statehandler)&CAILinearPatrol::WaitState);
 
 	// reset the state
-	ChangeState("initialize_waypoint");
+	ChangeState("sleep");
 	currentWaypoint = 0;
 }
 
@@ -40,6 +42,7 @@ void CAILinearPatrol::load(const json& j, TEntityParseContext& ctx) {
 
 	Init();
 
+	wake_time = j.value("wake", 0.0f);
 	speed = j.value("speed", 2.0f);
 	delay = j.value("delay", 2.0f);
 
@@ -110,7 +113,12 @@ void CAILinearPatrol::MoveToWaypointState(float dt)
 		TCompCollider *player_collider = e->get< TCompCollider >();
 		TCompTransform *player_transform = e->get< TCompTransform >();
 		VEC3 delta_pos = new_pos - my_pos;
-		player_collider->controller->move(physx::PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, DT, physx::PxControllerFilters());
+
+		PxShape* player_shape;
+		comp_collider->controller->getActor()->getShapes(&player_shape, 1);
+		PxFilterData filter_data = player_shape->getSimulationFilterData();
+		ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
+		player_collider->controller->move(PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, DT, PxControllerFilters(&filter_data, filter_controller, filter_controller));
 	}
 
 	if (VEC3::Distance(getWaypoint(), mypos->getPosition()) <= 0.25f)
@@ -119,6 +127,14 @@ void CAILinearPatrol::MoveToWaypointState(float dt)
 		ChangeState("wait_state");
 	}
 	
+}
+
+void CAILinearPatrol::SleepState(float dt)
+{
+	acum_delay += DT;
+	if (wake_time < acum_delay) {
+		ChangeState("initialize_waypoint");
+	}
 }
 
 void CAILinearPatrol::WaitState(float dt)
