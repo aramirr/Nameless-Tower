@@ -91,6 +91,7 @@
     <ClCompile Include="components\comp_light_dir.cpp" />
     <ClCompile Include="components\comp_light_point.cpp" />
     <ClCompile Include="components\comp_orbit_controller.cpp" />
+    <ClCompile Include="components\comp_player_killer.cpp" />
     <ClCompile Include="components\controllers\comp_fake_animation_controller.cpp" />
     <ClCompile Include="components\controllers\comp_player_input.cpp" />
     <ClCompile Include="components\fsm\comp_fsm.cpp" />
@@ -225,6 +226,7 @@
     <ClInclude Include="components\comp_light_dir.h" />
     <ClInclude Include="components\comp_light_point.h" />
     <ClInclude Include="components\comp_orbit_controller.h" />
+    <ClInclude Include="components\comp_player_killer.h" />
     <ClInclude Include="components\controllers\comp_fake_animation_controller.h" />
     <ClInclude Include="components\controllers\comp_player_input.h" />
     <ClInclude Include="components\fsm\comp_fsm.h" />

@@ -49,15 +49,16 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		//camIZQ->sendMsg(attach_msg);
 	}
 	else if (trigger_type == "spikes" && other_entity_name == "The Player") {
-		//CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
-		//TMsgTriggerSpike triggerSpikeMsg;
-		//triggerSpikeMsg.h_player = e_other_entity;
-		//e_collider_entity->sendMsg(triggerSpikeMsg);
 		CEntity* player = (CEntity *)getEntityByName("The Player");
 		TMsgSetFSMVariable deadMsg;
 		deadMsg.variant.setName("hit");
 		deadMsg.variant.setBool(true);		
 		player->sendMsg(deadMsg);
+	}
+	else if (trigger_type == "player_killer" && other_entity_name == "The Player") {
+		CEntity* player = (CEntity *)getEntityByName("The Player");
+		TMsgKillPlayer kill_player_message;
+		player->sendMsg(kill_player_message);
 	}
 }
 

@@ -312,6 +312,7 @@
     <ClCompile Include="render\blur_step.cpp" />
     <ClCompile Include="components\physics\controller_filter.cpp" />
     <ClCompile Include="components\physics\query_filter.cpp" />
+    <ClCompile Include="components\comp_player_killer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -818,6 +819,7 @@
     <ClInclude Include="render\blur_step.h" />
     <ClInclude Include="components\physics\controller_filter.h" />
     <ClInclude Include="components\physics\query_filter.h" />
+    <ClInclude Include="components\comp_player_killer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">

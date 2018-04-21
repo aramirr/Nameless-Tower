@@ -72,9 +72,8 @@ void CAISpikes::SpikesOnState(float dt)
 	assert(player);
 	TCompTransform *p_trans = player->get<TCompTransform>();
 	
-	CEntity *current_e = h_entity;
-	TCompTransform *curr_trans = current_e->get<TCompTransform>();
-	float distance = VEC3::Distance(p_trans->getPosition(), curr_trans->getPosition());
+	TCompTransform *my_transform = getMyTransform();
+	float distance = VEC3::Distance(p_trans->getPosition(), my_transform->getPosition());
 	if (distance < 1) {
 		TMsgKillPlayer kill_player_message;
 		player->sendMsg(kill_player_message);
