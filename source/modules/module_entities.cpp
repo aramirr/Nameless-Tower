@@ -8,6 +8,7 @@
 #include "components/juan/comp_transform.h"
 #include "components/juan/comp_name.h"
 #include "components/juan/comp_tags.h"
+#include "components/comp_light_dir.h"
 #include "render/render_manager.h"
 
 void CModuleEntities::loadListOfManagers( const json& j, std::vector< CHandleManager* > &managers) {
@@ -65,9 +66,8 @@ void CModuleEntities::update(float delta)
 		PROFILE_FUNCTION(om->getName());
 		om->updateAll(delta * timeSlower);
 	}
-  CHandleManager::destroyAllPendingObjects();
+	CHandleManager::destroyAllPendingObjects();
 }
-
 
 bool CModuleEntities::stop() {
   // Destroy all entities, should destroy all components in chain
@@ -110,7 +110,6 @@ void CModuleEntities::render()
     ImGui::TreePop();
   }
 
-
   if (ImGui::TreeNode("All Components...")) {
     for (uint32_t i = 1; i < CHandleManager::getNumDefinedTypes(); ++i)
       CHandleManager::getByType(i)->debugInMenuAll();
@@ -119,38 +118,9 @@ void CModuleEntities::render()
 
   CTagsManager::get().debugInMenu();
 
-  //static bool is_open = false;
-  //ImGui::Checkbox("ImGui Demo", &is_open);
-  //ImGui::ShowDemoWindow(&is_open);
-
-  /*
-  // ------------------------------------------
-  // Do the basic render
-  auto om_render = getObjectManager<TCompRender>();
-  om_render->forEach([](TCompRender* c) {
-
-    TCompTransform* c_transform = c->get<TCompTransform>();
-    if (!c_transform)
-      return;
-
-    cb_object.obj_world = c_transform->asMatrix();
-    cb_object.obj_color = c->color;
-    cb_object.updateGPU();
-
-    int idx = 0;
-    c->mesh->activate();
-    for (auto& m : c->materials) {
-      if (m) {
-        m->activate();
-        c->mesh->renderSubMesh(idx);
-      }
-      ++idx;
-    }
-  });
-  */
-
-  CRenderManager::get().renderCategory("default");
   CRenderManager::get().debugInMenu();
+
+  renderDebugOfComponents();
 }
 
 void CModuleEntities::renderDebugOfComponents() {
@@ -173,4 +143,6 @@ void CModuleEntities::destroyAllEntities() {
 		h.destroy();
 	});
 	CHandleManager::destroyAllPendingObjects();
+
+
 }

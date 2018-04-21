@@ -101,11 +101,6 @@ namespace FSM
     _variables.setVariant(name, value);
   }
 
-  void CContext::setVariable(const std::string& name, float value)
-  {
-    _variables.setVariant(name, value);
-  }
-
   void CContext::setVariable(const std::string& name, CHandle value)
   {
     _variables.setVariant(name, value);

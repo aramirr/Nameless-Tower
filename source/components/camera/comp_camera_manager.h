@@ -23,6 +23,8 @@ class TCompCameraManager : public TCompBase {
 	bool jumpinPlatform;
 	bool exitPlatform;
 
+	bool godMode;
+
 	/*
 		CINEMATICAS
 	*/

@@ -1,14 +1,18 @@
 #pragma once
 
 #include <vector>
+#include "components/juan/comp_transform.h"
+#include "components/camera/comp_camera.h"
+#include "components/ui/ui_mouse_pos.h"
 
 namespace FSM
 {
   class CContext;
 
   class IState
-  {
+  {		
   public:
+		DECL_SIBLING_ACCESS();
     virtual void onStart(CContext& ctx) const {}
     virtual void onFinish(CContext& ctx) const {}
     virtual bool update(float dt, CContext& ctx) const { return _isFinal; }

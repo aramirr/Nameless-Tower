@@ -118,6 +118,9 @@ void CHandleManager::destroyPendingObjects() {
     // Esta entrada ya no apunta a un objeto valido de la tabla
     ed.internal_index = invalid_index;
 
+    // Confirm the parent is null
+    ed.current_owner = CHandle();
+
     assert(last_free_handle_ext_index != invalid_index);
     auto& last_free_ed = external_to_internal[ last_free_handle_ext_index ];
     assert(last_free_ed.next_external_index == invalid_index);

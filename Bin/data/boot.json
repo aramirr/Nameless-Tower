@@ -1,13 +1,17 @@
 {
-	"boot_scenes" : [
-		"data/scenes/player.scene",
-		"data/scenes/camera.scene",
-		"data/scenes/game_camera.scene",
-		"data/scenes/skeleton_demo.scene"
-	],
-  "unused_scenes" : [
+  "boot_scenes": [
+    "data/scenes/player.scene",
     "data/scenes/scene_basic.scene",
-    "data/scenes/multimaterial.scene",
-    "dummy"
+    "data/scenes/skybox.scene", 
+    "data/scenes/torre.scene",
+    "data/scenes/cameras.scene", 
+    "data/scenes/lights.scene",
+    "data/scenes/checkpoints.scene",
+    "data/scenes/skeleton_demo.scene"
+  ],
+  "unused_scenes": [
+    "data/scenes/unused_scenes/test_cameras.scene",
+    "data/scenes/unused_scenes/camera.scene",
+    "data/scenes/unused_scenes/water_plane.scene"
   ]
-}
+}  

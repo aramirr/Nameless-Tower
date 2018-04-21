@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "comp_camera_flyover.h"
 #include "components/juan/comp_transform.h"
+#include "utils/utils.h"
 
 DECL_OBJ_MANAGER("camera_flyover", TCompCameraFlyover);
 
@@ -15,10 +16,27 @@ void TCompCameraFlyover::load(const json& j, TEntityParseContext& ctx) {
   _speed = j.value("speed", _speed);
   _sensitivity = j.value("sensitivity", _sensitivity);
   _ispeed_reduction_factor = j.value("speed_reduction_factor", _ispeed_reduction_factor);
+  _enabled = j.value("enabled", _enabled);
+
+  if (j.count("key")) {
+    std::string k = j["key"];
+    _key_toggle_enabled = k[0];
+  }
+
 }
 
 void TCompCameraFlyover::update(float scaled_dt)
 {
+  // Do we have a defined key to toggle enabling this component?
+  if (_key_toggle_enabled) {
+    const Input::TButton& bt = CEngine::get().getInput().host(Input::PLAYER_1).keyboard().key(_key_toggle_enabled);
+    if (bt.getsPressed()) 
+      _enabled = !_enabled;
+  }
+
+  if (!_enabled)
+    return;
+
   TCompTransform* c_transform = get<TCompTransform>();
   if (!c_transform)
     return;

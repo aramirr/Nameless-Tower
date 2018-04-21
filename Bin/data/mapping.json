@@ -1,6 +1,6 @@
 [
 	{
-		"name" :"action_button",
+		"name" :"omnidash",
 		"all" : false,
 		"buttons" : [ "mouse_left"]
 	},
@@ -40,7 +40,7 @@
 		"buttons" : [ "q"]
 	},
 	{
-		"name" : "turbo",
+		"name" : "dash",
 		"all" : false,
 		"buttons" : [ "shift"]
 	},
@@ -53,5 +53,30 @@
 		"name" : "move",
 		"all" : false,
 		"buttons" : [ "right"]
+	},
+	{
+		"name" : "windstrike",
+		"all" : false,
+		"buttons" : [ "e"]
+	},
+	{
+		"name" : "respawn_player",
+		"all" : false,
+		"buttons" : [ "r"]
+	},
+	{
+		"name" : "kill",
+		"all" : false,
+		"buttons" : [ "k"]
+	},
+	{
+		"name" : "pause",
+		"all" : false,
+		"buttons" : [ "p"]
+	},
+		{
+		"name" : "glide",
+		"all" : false,
+		"buttons" : [ "g"]
 	}
 ]

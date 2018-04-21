@@ -1,307 +1,17 @@
-[	{
+[	
+	{
 		"entity": {
-			"name": "Boss Runner",
-			"transform": {
-				"pos": "-23.624 -21.326 51.75",
-				"lookat": "0 0 0"
-			},
-			"render" : [
-				{
-				  "mesh": "data/meshes/cuerpoatra.mesh"
-		          ,
-		          "materials":
-		          [
-		            "data/materials/MateriCabRun.material"
-		            ,
-		            "data/materials/MaterialRum.material"
-		            ,
-		            "data/materials/MaterialCabRun.material"
-		          ]
-		        },
-				{
-		          "mesh": "data/meshes/cuerponormal.mesh"
-		          ,
-		          "materials":
-		          [
-		            "data/materials/MateriCabRun.material"
-		            ,
-		            "data/materials/MaterialRum.material"
-		            ,
-		            "data/materials/MaterialCabRun.material"
-		          ]
-		        },
-				{
-		          "mesh": "data/meshes/cuerporunfin.mesh"
-		          ,
-		          "materials":
-		          [
-		            "data/materials/MateriCabRun.material"
-		            ,
-		            "data/materials/MaterialRum.material"
-		            ,
-		            "data/materials/MaterialCabRun.material"
-		          ]
-		        },
-				{
-		          "mesh": "data/meshes/cuerpojum.mesh"
-		          ,
-		          "materials":
-		          [
-		            "data/materials/MateriCabRun.material"
-		            ,
-		            "data/materials/MaterialRum.material"
-		            ,
-		            "data/materials/MaterialCabRun.material"
-		          ]
-		        }
-			]
+			"name": "Cut_door_father",
+			"render" : {}
 			,
-			"bt_runner": {
-				"chase_distance": 20,
-				"attack_distance": 2.1,
-				"speed_factor": 2.5,
-				"tower_radius": 32,
-				"gravity": 16.5,
-				"jump_speed": 15,
-				"jump_altitude": 5.5
- 			},
-			"collider": {
-				"shape": "capsule",
-				"is_character_controller": true,
-				"radius": 0.5,
-				"height": 1.0
+			"transform": {
+				"pos": "-24.769 10.95 -21.426"
 			}
 		}
 	},
 	{
 		"entity": {
-			"name": "The Player",
-			"render":
-		      [
-			  {"mesh": "data/meshes/NajaRun.mesh",
-		          "materials":["data/materials/MaterialNaja.material"]
-		      }
-			,
-			{"mesh": "data/meshes/NajaIdle.mesh",
-		          "materials":["data/materials/MaterialNaja.material"]
-
-		      }
-			,
-			{"mesh": "data/meshes/NajaJump.mesh",
-		          "materials":["data/materials/MaterialNaja.material"]
-		      }
-			,
-			{"mesh": "data/meshes/NajaOmnidash.mesh",
-		          "materials":["data/materials/MaterialNaja.material"]
-		      }
-			,
-			{"mesh": "data/meshes/NajaDash.mesh",
-		          "materials":["data/materials/MaterialNaja.material"]
-		      },
-			{"mesh": "data/meshes/NajaDeath.mesh",
-		          "materials":["data/materials/MaterialNaja.material"]
-		      }
-
-			  ]			
-			,
-			"transform": {
-				"pos": "-6.800 1 -31.269",
-				"front": "1 0 0"
-			}
-			, 
-			"player_controller" : {
-				"rotation_speed" : 3.0,
-				"speed" : 2.0,
-				"dashing_speed": 3
-			},
-		  "collider": {
-			"shape": "capsule",
-			"is_character_controller": true
-			,
-			"radius": 0.22
-			,
-			"height": 0.7
-			,
-			"is_dynamic": false
-			,
-			"is_trigger": false
-		  },
-		  "arrow_ui":{
-		  
-		  }
-		}
-	},
-	{
-		"entity": {
-			"name": "camera_manager",
-			"transform": {
-				"pos": "0 3 3"
-			},
-			"cameraManager" : {}
-		}
-	},
-	{
-		"entity": {
-			"name": "Box Collider",
-			"transform": {
-				"pos": "32 0 0",
-				"lookat": "-1 0 15"
-			},
-			"render" : [
-				{
-					"mesh": "data/meshes/Teapot001.mesh",
-					"materials" : [
-						"data/materials/madera.material"
-					]
-				}
-			],
-			"collider": {
-				"shape": "box",
-				"is_trigger": true,
-				"halfExtent": "1 1 1"
-			},
-			"trigger": {
-				"trigger_type": "runner_appear",
-				"b_appear": true,
-				"appearing_position": "30.705 0 9.013"
-			}
-		}
-	},
-	{
-		"entity": {
-			"name": "Checkpoint Trigger",
-			"transform": {
-				"pos": "-27.628 27.000 16.146",
-				"lookat": "-1 0 15"
-			},
-			"render" : [
-				{
-					"mesh": "data/meshes/Teapot001.mesh",
-					"materials" : [
-						"data/materials/madera.material"
-					]
-				}
-			],
-			"collider": {
-				"shape": "box",
-				"is_trigger": true,
-				"halfExtent": "1 1 1"
-			},
-			"trigger": {
-				"trigger_type": "checkpoint",
-				"appearing_position": "-27.628 28.000 16.146"
-			}
-		}
-	},
-	{
-		"entity": {
-			"name": "Checkpoint Trigger 2",
-			"transform": {
-				"pos": "23.223 36.000 -22.016",
-				"lookat": "-1 0 15"
-			},
-			"render" : [
-				{
-					"mesh": "data/meshes/Teapot001.mesh",
-					"materials" : [
-						"data/materials/madera.material"
-					]
-				}
-			],
-			"collider": {
-				"shape": "box",
-				"is_trigger": true,
-				"halfExtent": "1 1 1"
-			},
-			"trigger": {
-				"trigger_type": "checkpoint",
-				"appearing_position": "23.223 37.000 -22.016"
-			}
-		}
-	},
-	{
-		"entity": {
-			"name": "Checkpoint Trigger 3",
-			"transform": {
-				"pos": "30.671 58.500 -9.127",
-				"lookat": "-1 0 15"
-			},
-			"render" : [
-				{
-					"mesh": "data/meshes/Teapot001.mesh",
-					"materials" : [
-						"data/materials/madera.material"
-					]
-				}
-			],
-			"collider": {
-				"shape": "box",
-				"is_trigger": true,
-				"halfExtent": "1 1 1"
-			},
-			"trigger": {
-				"trigger_type": "checkpoint",
-				"appearing_position": "30.671 59.500 -9.127"
-			}
-		}
-	},
-	{
-		"entity": {
-			"name": "the_camera",
-			"transform": {
-				"pos": "15 0 0"
-			},
-			"camera" : {
-				"fov" : 80 
-			}
-		}
-	},
-	{
-		"entity": {
-			"name": "camera_orbit_IZQ",
-			"transform": {
-				"pos": "-14 16 12",
-				"lookat": "-1 0 -1"
-			},
-			"orbitCamera" : {
-				"izq" : true
-			},
-			"camera" : {
-				"fov" : 80 
-			}
-		}
-	},
-	{
-		"entity": {
-			"name": "camera_platform",
-			"transform": {
-				"pos": "-14 16 12",
-				"lookat": "-1 0 -1"
-			},
-			"platformCamera" : {},
-			"camera" : {
-				"fov" : 80
-			}
-		}
-	},
-	{
-		"entity": {
-			"name": "camera_orbit_DER",
-			"transform": {
-				"pos": "-14 16 12",
-				"lookat": "-1 0 -1"
-			},
-			"orbitCamera" : {
-				"izq" : false
-			},
-			"camera" : {
-				"fov" : 80
-			}
-		}
-	},
-	{
-		"entity": {
-			"name": "Teapot Destroyable",
+			"name": "Cut_door_up",
 			"render" : [
 				{
 					"mesh": "data/meshes/Teapot001.mesh",
@@ -312,15 +22,112 @@
 			]
 			,
 			"transform": {
-				"pos": "-4 0 0"
+				"pos": "-24.769 2 -21.426"
 			},
-			"ai_destroyable": {
-				"trigger_actor" : "The Player",
-				"destoy_time" : 5
+			"collider": {
+				"shape": "box",
+				"halfExtent": "1 1 1",
+				"is_dynamic": false
 			},
-			"tags" : ["enemy"]
+			"hierarchy": {
+				"parent": "Cut_door_father"
+			},
+			"ai_cut_door":{
+		        "distance": 3,
+		        "opening_speed": 1,
+				"closing_speed": 8,
+				"up": true
+		    }
 		}
 	},
+	{
+		"entity": {
+			"name": "Cut_door_down",
+			"render" : [
+				{
+					"mesh": "data/meshes/Teapot001.mesh",
+					"materials" : [
+						"data/materials/madera.material"
+					]
+				}
+			]
+			,
+			"transform": {
+				"pos": "-24.769 3 -21.426"
+			},
+			"collider": {
+				"shape": "box",
+				"halfExtent": "1 1 1",
+				"is_dynamic": false
+			},
+			"hierarchy": {
+				"parent": "Cut_door_father"
+			},
+			"ai_cut_door":{
+		        "distance": 3,
+		        "opening_speed": 1,
+				"closing_speed": 8,
+				"up": false
+		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "Cut_door_trigger_up",
+			"render" : []
+			,
+			"transform": {
+				"pos": "-24.769 3 -21.426"
+			},
+			"collider": {
+				"shape": "box",
+				"halfExtent": "1 0.1 1",
+				"is_trigger": true
+			},
+			"hierarchy": {
+				"parent": "Cut_door_up",
+				"pos": "0 -0.1 0"
+			},
+			"trigger":
+		    {
+		    	"trigger_type": "spikes",
+		        "render": false
+		    },
+		    "ai_spikes":
+		    {
+		    	"fixed_spikes": true
+		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "Cut_door_trigger_down",
+			"render" : []
+			,
+			"transform": {
+				"pos": "-24.769 2.5 -21.426"
+			},
+			"collider": {
+				"shape": "box",
+				"halfExtent": "1 0.1 1",
+				"is_trigger": true
+			},
+			"hierarchy": {
+				"parent": "Cut_door_down",
+				"pos": "0 1.1 0"
+			},
+			"trigger":
+		    {
+		    	"trigger_type": "spikes",
+		        "render": false
+		    },
+		    "ai_spikes":
+		    {
+		    	"fixed_spikes": true
+		    }
+
+		}
+	},	
  {
     "entity": {
       "name": "Plane001",
@@ -328,19 +135,129 @@
         "pos": "5.0 2.18557e-07 5.0",
         "rotation": "0.0 0.0 0.0 -1.0"
       },
-      "render": [
+      "render": 
         {
           "mesh": "data/meshes/Plane001.mesh",
           "materials": [
             "data/materials/piedras1.material"
-          ]
+          ],
+          "is_active": true
         }
-      ],
+      ,
       "collider": {
         "shape": "plane"
       }
     }
-  }
-
+  },
+  { 
+    "entity": 
+    { 
+      "name": "Sierra" 
+      , 
+      "transform": 
+      { 
+        "pos": "-29.671 9.0 -9.985" 
+        , 
+        "rotation": "-0.707107 0.0 0.0 -0.707107" 
+      } 
+      , 
+      "render": 
+      [ 
+        { 
+          "mesh": "data/meshes/Sierra.mesh" 
+          , 
+          "materials": 
+          [ 
+            "data/materials/AManuNoLeQuierenEnSuCasa.material" 
+          ] 
+        } 
+      ] 
+      , 
+       "trigger": 
+      { 
+        "trigger_type": "spikes" 
+        , 
+        "collider_entity": "none" 
+        , 
+        "render": true 
+      } 
+      , 
+      "collider": 
+      { 
+        "shape": "box" 
+        , 
+        "halfExtent": "0.980154 0.164185 0.982231" 
+        , 
+        "is_dynamic": false 
+        , 
+        "is_trigger": true 
+      }, 
+      "circular_controller": 
+      { 
+        "speed": 3.0, 
+        "eje": "Y" 
+      } 
+      , 
+      "ai_spikes": 
+      { 
+        "fixed_spikes": true 
+      } 
+    } 
+  } ,
+  { 
+    "entity": 
+    { 
+      "name": "Sierra" 
+      , 
+      "transform": 
+      { 
+        "pos": "-29.671 13.5 -9.985" 
+        , 
+        "rotation": "-0.707107 0.0 0.0 -0.707107" 
+      } 
+      , 
+      "render": 
+      [ 
+        { 
+          "mesh": "data/meshes/Sierra.mesh" 
+          , 
+          "materials": 
+          [ 
+            "data/materials/AManuNoLeQuierenEnSuCasa.material" 
+          ] 
+        } 
+      ] 
+      , 
+       "trigger": 
+      { 
+        "trigger_type": "spikes" 
+        , 
+        "collider_entity": "none" 
+        , 
+        "render": true 
+      } 
+      , 
+      "collider": 
+      { 
+        "shape": "box" 
+        , 
+        "halfExtent": "0.980154 0.164185 0.982231" 
+        , 
+        "is_dynamic": false 
+        , 
+        "is_trigger": true 
+      }, 
+      "circular_controller": 
+      { 
+        "speed": 3.0, 
+        "eje": "Y" 
+      } 
+      , 
+      "ai_spikes": 
+      { 
+        "fixed_spikes": true 
+      } 
+    } 
+  } 
 	
 ]

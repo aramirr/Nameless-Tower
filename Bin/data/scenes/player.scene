@@ -1,0 +1,65 @@
+[
+	{
+		"entity": {
+			"name": "The Player",
+			"render":
+		      [
+			    {"mesh": "data/meshes/NajaRun.mesh",
+		            "materials":["data/materials/MaterialNaja.material"]
+		        }
+				,
+				{"mesh": "data/meshes/NajaIdle.mesh",
+			          "materials":["data/materials/MaterialNaja.material"]
+
+			      }
+				,
+				{"mesh": "data/meshes/NajaJump.mesh",
+			          "materials":["data/materials/MaterialNaja.material"]
+			      }
+				,
+				{"mesh": "data/meshes/NajaOmnidash.mesh",
+			          "materials":["data/materials/MaterialNaja.material"]
+			      }
+				,
+				{"mesh": "data/meshes/NajaDash.mesh",
+			          "materials":["data/materials/MaterialNaja.material"]
+			      }
+			    ,
+				{"mesh": "data/meshes/NajaDeath.mesh",
+			        "materials":["data/materials/MaterialNaja.material"]
+			    }
+			  ]			
+			,
+			"transform": {
+				"pos": "16.684 9.000 27.306",
+				"front": "1 0 0"
+			}
+			, 
+			"fsm" : {
+				"file" : "data/fsm/character.fsm"
+			}
+			,
+			"player_controller" : {}
+			,
+			"player_input": {}
+			,
+		    "collider": {
+				"shape": "capsule",
+				"is_character_controller": true
+				,
+				"radius": 0.22
+				,
+				"height": 0.7
+				,
+				"is_dynamic": false
+				,
+				"is_trigger": false
+				,
+				"group": "player"
+				,
+				"mask": "player_mask"
+		    },
+		    "arrow_ui":{}
+		}
+	}
+]

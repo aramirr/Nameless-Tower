@@ -43,11 +43,24 @@ HRESULT CompileShaderFromFile(
     &pErrorBlob
   );
 
+  // Always dump output of the compiler
+  if (pErrorBlob != NULL)
+    dbg("Compiling shader %s in file %s\n%s\n",
+      szEntryPoint, szFileName,
+      (char*)pErrorBlob->GetBufferPointer()
+    );
+
   if (FAILED(hr))
   {
-    if (pErrorBlob != NULL) {
-      fatal("Error compiling shader: %s ", (char*)pErrorBlob->GetBufferPointer());
+    // In case the file does not exists, we get this special error code
+    if (hr == HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)) {
+      fatal("Can't open shader file %s", szFileName);
     }
+    if (pErrorBlob != NULL) {
+      fatal("Error compiling shader at file %s:\n%s", szFileName, (char*)pErrorBlob->GetBufferPointer());
+    }
+    if (pErrorBlob != NULL)
+      fatal("Error compiling shader %s %s at file %s:\n%s", szShaderModel, szEntryPoint, szFileName, (char*)pErrorBlob->GetBufferPointer());
     if (pErrorBlob) pErrorBlob->Release();
     return hr;
   }

@@ -3,6 +3,7 @@
 #include "ai_wind_current.h"
 #include "entity/entity_parser.h"
 #include "components/juan/comp_transform.h"
+#include "components/fsm/comp_fsm.h"
 #include "render/render_utils.h"
 #include "modules/system/module_physics.h"
 #include "components/player/comp_player_controller.h"
@@ -37,25 +38,7 @@ void CAIFan::load(const json& j, TEntityParseContext& ctx) {
 void CAIFan::IdleState(float)
 {
 	if (attached.isValid()) {
-		TCompTransform *my_transform = get<TCompTransform>();
-		if (!my_transform)
-		{
-			return;
-		}
-		CEntity *e_attached = attached;
-		TCompTransform *e_transform = e_attached->get<TCompTransform>();
-		TCompCollider *e_col = e_attached->get<TCompCollider>();
-		if (!e_col) {
-			return;
-		}
-		//Mitigate force by distance from Center of the fan
-		//float distance_from_transform = VEC3::Distance(e_transform->getPosition(), my_transform->getPosition());
-		VEC3 direction = my_transform->getUp() * force;
-		e_col->controller->move(physx::PxVec3(direction.x, direction.y, direction.z), 0.f, DT, physx::PxControllerFilters());
 
-		PxRigidActor* rigidActor = ((PxRigidActor*)e_col->actor);
-		PxTransform tr = rigidActor->getGlobalPose();
-		e_transform->setPosition(VEC3(tr.p.x, tr.p.y, tr.p.z));
 	}
 }
 
@@ -66,23 +49,36 @@ void CAIFan::registerMsgs() {
 }
 
 void CAIFan::attachPlayer(const TMsgAttachTo& msg) {
-	attached = msg.h_attacher;
+	/*attached = msg.h_attacher;
 	CEntity *e_attached = attached;
 	TMsgGravityToggle disable_player_gravity_message;
 	disable_player_gravity_message.is_active = false;
-	e_attached->sendMsg(disable_player_gravity_message);
-	/*
-	TCompPlayerController *p_con = e_attached->get<TCompPlayerController>();
-	p_con->gravity_enabled = false;
-	*/
+	e_attached->sendMsg(disable_player_gravity_message);*/
+	TMsgSetFSMVariable windMsg;
+	windMsg.variant.setName("in_wind");
+	windMsg.variant.setBool(true);
+	attached = msg.h_attacher;
+	CEntity *e_attached = attached;
+	e_attached->sendMsg(windMsg);
 }
 
 void CAIFan::detachPlayer(const TMsgDetachOf& msg) {
+	//CHandle inc_attached = msg.h_attacher;
+	//CEntity *e_inc_attached = inc_attached;
+	//if (inc_attached == attached)
+	//{
+	/*
 	CEntity *e_attached = attached;
 	TMsgGravityToggle enable_player_gravity_message;
 	enable_player_gravity_message.is_active = true;
 	e_attached->sendMsg(enable_player_gravity_message);
-	/*TCompPlayerController *p_con = e_attached->get<TCompPlayerController>();
-	p_con->gravity_enabled = true;
-	attached = CHandle();*/
+	attached = CHandle();
+	//}
+	*/
+	TMsgSetFSMVariable jumpMsg;
+	jumpMsg.variant.setName("in_wind");
+	jumpMsg.variant.setBool(false);
+	attached = msg.h_attacher;
+	CEntity *e_attached = attached;
+	e_attached->sendMsg(jumpMsg);
 }

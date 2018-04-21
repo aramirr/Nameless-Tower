@@ -14,32 +14,7 @@ namespace FSM
 
   bool AnimationState::load(const json& jData)
   {
-    _animationName = jData["animation"];
-
-    return true;
-  }
-
-
-  void JumpState::onStart(CContext& ctx) const
-  {
-    // 
-  }
-
-  bool JumpState::load(const json& jData)
-  {
-    _force = jData.value("force", 1.f);
-
-    return true;
-  }
-
-
-  void HitState::onStart(CContext& ctx) const
-  {
-    // ..
-  }
-  bool HitState::load(const json& jData)
-  {
-    // ..
+    _animationName = jData.value("animation", "");
 
     return true;
   }

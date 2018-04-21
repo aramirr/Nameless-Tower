@@ -1,68 +1,213 @@
 {
-	"initial_state" : "idle",
+	"initial_state" : "initial",
 	"states" : [
 		{
 			"name" : "idle",
-			"type" : "AnimationState",
+			"type" : "IdleState",
 			"animation" : "idle"
 		},
 		{
-			"name" : "walk",
-			"type" : "AnimationState",
-			"animation" : "walk"
+			"name" : "initial",
+			"type" : "InitialState"
+		},
+		{
+			"name" : "run",
+			"type" : "RunState",
+			"animation" : "walk",
+			"x_speed" : 2.5
 		},
 		{
 			"name" : "jump",
 			"type" : "JumpState",
-			"force" : 10.0
+			"y_speed" : 12.6,
+			"x_speed" : 2.5
 		},
 		{
-			"name" : "hit",
-			"type" : "HitState"
+			"name" : "falling",
+			"type" : "FallingState",
+			"x_speed" : 2.5
+		},
+		{
+			"name" : "dash",
+			"type" : "DashState",
+			"x_speed": 6
+		},
+		{
+			"name" : "windstrike",
+			"type" : "WindstrikeState"
+		},
+		{
+			"name" : "omnidash",
+			"type" : "OmnidashState"
+		},
+		{
+			"name" : "omnijump",
+			"type" : "OmnijumpState",
+			"y_speed" : 3.5,
+			"x_speed" : 2
+		},
+		{
+			"name" : "dead",
+			"type" : "DeadState"
+		},
+		{
+			"name" : "pause",
+			"type" : "PauseState"
+		},
+		{
+			"name" : "glide",
+			"type" : "GlideState",
+			"x_speed" : 2			
 		}
 	],
 	"transitions" : [
 		{
 			"type" : "VariableTransition",
-			"source" : "idle",
-			"target" : "jump",
-			"variable" : {
-				"name" : "jump",
-				"type" : "bool",
-				"value" : true
-			},
-			"operation" : "equal"
-		},
-		{
-			"type" : "VariableTransition",
-			"source" : "walk",
-			"target" : "jump",
-			"variable" : {
-				"name" : "jump",
-				"type" : "bool",
-				"value" : true
-			},
-			"operation" : "equal"
-		},
-		{
-			"type" : "VariableTransition",
-			"source" : "idle",
-			"target" : "walk",
-			"variable" : {
-				"name" : "speed",
-				"type" : "float",
-				"value" : 0.0
-			},
-			"operation" : "greater"
-		},
-		{
-			"type" : "VariableTransition",
-			"source" : "walk",
+			"source" : "initial",
 			"target" : "idle",
 			"variable" : {
-				"name" : "speed",
-				"type" : "float",
-				"value" : 0.0
+				"name" : "is_grounded",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "idle",
+			"target" : "jump",
+			"variables" : [
+				{
+					"name" : "jump",
+					"type" : "bool",
+					"value" : true
+				},
+				{
+					"name" : "is_grounded",
+					"type" : "bool",
+					"value" : true
+				}
+			],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "idle",
+			"target" : "glide",
+			"variables" : [
+				{
+					"name" : "glide",
+					"type" : "bool",
+					"value" : true
+				},
+				{
+					"name" : "in_wind",
+					"type" : "bool",
+					"value" : true
+				}
+			],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "run",
+			"target" : "glide",
+			"variables" : [
+				{
+					"name" : "glide",
+					"type" : "bool",
+					"value" : true
+				},
+				{
+					"name" : "in_wind",
+					"type" : "bool",
+					"value" : true
+				}
+			],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "jump",
+			"target" : "glide",
+			"variables" : [
+				{
+					"name" : "glide",
+					"type" : "bool",
+					"value" : true
+				},
+				{
+					"name" : "in_wind",
+					"type" : "bool",
+					"value" : true
+				}
+			],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "falling",
+			"target" : "glide",
+			"variables" : [
+				{
+					"name" : "glide",
+					"type" : "bool",
+					"value" : true
+				},
+				{
+					"name" : "in_wind",
+					"type" : "bool",
+					"value" : true
+				}
+			],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "run",
+			"target" : "jump",
+			"variable" : {
+				"name" : "jump",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "run",
+			"variable" : {
+				"name" : "run",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "run",
+			"target" : "idle",
+			"variable" : {
+				"name" : "idle",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "jump",
+			"target" : "falling",
+			"variable" : {
+				"name" : "is_falling",
+				"type" : "bool",
+				"value" : true
 			},
 			"operation" : "equal"
 		},
@@ -71,7 +216,18 @@
 			"source" : "jump",
 			"target" : "idle",
 			"variable" : {
-				"name" : "onGround",
+				"name" : "is_grounded",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},		
+		{
+			"type" : "VariableTransition",
+			"source" : "falling",
+			"target" : "idle",
+			"variable" : {
+				"name" : "is_grounded",
 				"type" : "bool",
 				"value" : true
 			},
@@ -79,8 +235,8 @@
 		},
 		{
 			"type" : "VariableTransition",
-			"source" : "idle",
-			"target" : "hit",
+			"source" : "falling",
+			"target" : "dead",
 			"variable" : {
 				"name" : "hit",
 				"type" : "bool",
@@ -89,20 +245,513 @@
 			"operation" : "equal"
 		},
 		{
-			"type" : "TimeTransition",
-			"source" : "hit",
+			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "dead",
+			"variable" : {
+				"name" : "hit",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "idle",
+			"target" : "dash",
+			"variables" : [{
+				"name" : "dash",
+				"type" : "bool",
+				"value" : true
+			},
+			{
+				"name" : "can_dash",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "jump",
+			"target" : "dash",
+			"variables" : [{
+				"name" : "dash",
+				"type" : "bool",
+				"value" : true
+			},
+			{
+				"name" : "can_dash",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "run",
+			"target" : "dash",
+			"variables" : [{
+				"name" : "dash",
+				"type" : "bool",
+				"value" : true
+			},
+			{
+				"name" : "can_dash",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "falling",
+			"target" : "dash",
+			"variables" : [{
+				"name" : "dash",
+				"type" : "bool",
+				"value" : true
+			},
+			{
+				"name" : "can_dash",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "omnijump",
 			"target" : "idle",
-			"time" : 2.0
+			"variable" : {
+				"name" : "idle",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "TimeTransition",
+			"source" : "dash",
+			"target" : "idle",			
+			"time" : 0.3
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dash",
+			"target" : "idle",			
+			"variable" : {
+				"name" : "idle",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "TimeTransition",
+			"source" : "windstrike",
+			"target" : "idle",			
+			"time" : 0.1
+		},
+		{
+			"type" : "TimeTransition",
+			"source" : "omnidash",
+			"target" : "omnijump",			
+			"time" : 0.3
+		},
+		{
+			"type" : "TimeTransition",
+			"source" : "omnijump",
+			"target" : "idle",			
+			"time" : 0.25
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "jump",
+			"target" : "omnidash",
+			"variables" : [{
+				"name" : "omnidash",
+				"type" : "bool",
+				"value" : true
+			},
+			{
+				"name" : "can_omni",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "falling",
+			"target" : "omnidash",
+			"variables" : [{
+				"name" : "omnidash",
+				"type" : "bool",
+				"value" : true
+			},
+			{
+				"name" : "can_omni",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "windstrike",
+			"variable" : {
+				"name" : "windstrike",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "run",
+			"target" : "windstrike",
+			"variable" : {
+				"name" : "windstrike",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "jump",
+			"target" : "windstrike",
+			"variable" : {
+				"name" : "windstrike",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "falling",
+			"target" : "windstrike",
+			"variable" : {
+				"name" : "windstrike",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "omnidash",
+			"target" : "omnijump",
+			"variable" : {
+				"name" : "omnijump",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "run",
+			"target" : "falling",
+			"variable" : {
+				"name" : "is_falling",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "falling",
+			"variable" : {
+				"name" : "is_falling",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "run",
+			"target" : "dead",
+			"variable" : {
+				"name" : "hit",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "dead",
+			"variable" : {
+				"name" : "hit",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "omnijump",
+			"target" : "dead",
+			"variable" : {
+				"name" : "hit",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "jump",
+			"target" : "dead",
+			"variable" : {
+				"name" : "hit",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dash",
+			"target" : "dead",
+			"variable" : {
+				"name" : "hit",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dead",
+			"target" : "initial",
+			"variable" : {
+				"name" : "initial",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dead",
+			"target" : "initial",
+			"variable" : {
+				"name" : "initial",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dead",
+			"target" : "initial",
+			"variable" : {
+				"name" : "initial",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dead",
+			"target" : "initial",
+			"variable" : {
+				"name" : "initial",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dead",
+			"target" : "initial",
+			"variable" : {
+				"name" : "initial",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "pause",
+			"variable" : {
+				"name" : "pause",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "run",
+			"target" : "pause",
+			"variable" : {
+				"name" : "pause",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "glide",
+			"target" : "idle",
+			"variables" : [{
+				"name" : "in_wind",
+				"type" : "bool",
+				"value" : false
+			},
+			{
+				"name" : "glide",
+				"type" : "bool",
+				"value" : false
+			}],
+			"operation" : "equal",
+			"logic_operation" : "or"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "jump",
+			"target" : "pause",
+			"variable" : {
+				"name" : "pause",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "falling",
+			"target" : "pause",
+			"variable" : {
+				"name" : "pause",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "omnijump",
+			"target" : "pause",
+			"variable" : {
+				"name" : "pause",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "omnidash",
+			"target" : "pause",
+			"variable" : {
+				"name" : "pause",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "dash",
+			"target" : "pause",
+			"variable" : {
+				"name" : "pause",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "pause",
+			"target" : "idle",
+			"variable" : {
+				"name" : "idle",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
 		}
 	],
 	"variables" : [
 		{
-			"name" : "speed",
-			"type" : "float",
-			"value" : 0.0
+			"name" : "initial",
+			"type" : "bool",
+			"value" : true
+		},
+		{
+			"name" : "run",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "idle",
+			"type" : "bool",
+			"value" : false
 		},
 		{
 			"name" : "jump",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "is_grounded",
+			"type" : "bool",
+			"value" : true
+		},
+		{
+			"name" : "is_falling",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "windstrike",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "dash",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "omnidash",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "omnijump",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "is_grounded",
+			"type" : "bool",
+			"value" : true
+		},
+		{
+			"name" : "dead",
 			"type" : "bool",
 			"value" : false
 		},
@@ -112,7 +761,27 @@
 			"value" : false
 		},
 		{
-			"name" : "onGround",
+			"name" : "pause",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "glide",
+			"type" : "bool",
+			"value" : false
+		},
+		{
+			"name" : "in_wind",
+			"type" : "bool",
+			"value" : false
+		},
+		{		
+			"name" : "can_dash",
+			"type" : "bool",
+			"value" : true
+		},
+		{
+			"name" : "can_omni",
 			"type" : "bool",
 			"value" : true
 		}

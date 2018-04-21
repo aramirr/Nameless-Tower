@@ -274,7 +274,6 @@
     <ClCompile Include="components\player\comp_player_controller.cpp">
       <Filter>components</Filter>
     </ClCompile>
-    <ClCompile Include="components\ia\ai_wind_current.cpp" />
     <ClCompile Include="modules\module_tower.cpp" />
     <ClCompile Include="modules\system\module_fsm.cpp" />
     <ClCompile Include="fsm\context.cpp" />
@@ -282,11 +281,38 @@
     <ClCompile Include="fsm\custom_transitions.cpp" />
     <ClCompile Include="fsm\factory.cpp" />
     <ClCompile Include="fsm\fsm.cpp" />
-    <ClCompile Include="utils\variant.cpp" />
-    <ClCompile Include="components\comp_fsm.cpp" />
     <ClCompile Include="components\controllers\comp_fake_animation_controller.cpp" />
     <ClCompile Include="components\controllers\comp_player_input.cpp" />
     <ClCompile Include="components\controllers\comp_projectile_controller.cpp" />
+    <ClCompile Include="modules\system\module_fsm.cpp" />
+    <ClCompile Include="utils\variant.cpp" />
+    <ClCompile Include="components\comp_light_dir.cpp" />
+    <ClCompile Include="render\texture\render_to_texture.cpp" />
+    <ClCompile Include="components\comp_light_point.cpp" />
+    <ClCompile Include="render\deferred_renderer.cpp" />
+    <ClCompile Include="components\ia\ai_wind_current.cpp" />
+    <ClCompile Include="components\comp_orbit_controller.cpp" />
+    <ClCompile Include="components\ia\ai_cut_door.cpp" />
+    <ClCompile Include="components\ia\ai_rotation.cpp" />
+    <ClCompile Include="fsm\player_states\pause_state.cpp" />
+    <ClCompile Include="components\fsm\comp_fsm.cpp" />
+    <ClCompile Include="fsm\player_states\windstrike_state.cpp" />
+    <ClCompile Include="fsm\player_states\run_state.cpp" />
+    <ClCompile Include="fsm\player_states\pause_state.cpp" />
+    <ClCompile Include="fsm\player_states\omnijump_state.cpp" />
+    <ClCompile Include="fsm\player_states\omnidash_state.cpp" />
+    <ClCompile Include="fsm\player_states\jump_state.cpp" />
+    <ClCompile Include="fsm\player_states\initial_state.cpp" />
+    <ClCompile Include="fsm\player_states\idle_state.cpp" />
+    <ClCompile Include="fsm\player_states\falling_state.cpp" />
+    <ClCompile Include="fsm\player_states\dead_state.cpp" />
+    <ClCompile Include="fsm\player_states\dash_state.cpp" />
+    <ClCompile Include="fsm\player_states\glide_state.cpp" />
+    <ClCompile Include="components\postfx\comp_render_blur.cpp" />
+    <ClCompile Include="components\postfx\comp_render_blur_radial.cpp" />
+    <ClCompile Include="render\blur_step.cpp" />
+    <ClCompile Include="components\physics\controller_filter.cpp" />
+    <ClCompile Include="components\physics\query_filter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -749,7 +775,6 @@
     <ClInclude Include="components\player\comp_player_controller.h">
       <Filter>components</Filter>
     </ClInclude>
-    <ClInclude Include="components\ia\ai_wind_current.h" />
     <ClInclude Include="modules\module_tower.h" />
     <ClInclude Include="modules\system\module_fsm.h" />
     <ClInclude Include="fsm\context.h" />
@@ -759,11 +784,42 @@
     <ClInclude Include="fsm\fsm.h" />
     <ClInclude Include="fsm\state.h" />
     <ClInclude Include="fsm\transition.h" />
+    <ClInclude Include="components\controllers\comp_player_input.h" />
+    <ClInclude Include="components\controllers\comp_fake_animation_controller.h" />
+    <ClInclude Include="modules\system\module_fsm.h" />
     <ClInclude Include="utils\variant.h" />
-    <ClInclude Include="components\comp_fsm.h" />
+    <ClInclude Include="utils\variant.h" />
     <ClInclude Include="components\controllers\comp_fake_animation_controller.h" />
     <ClInclude Include="components\controllers\comp_player_input.h" />
     <ClInclude Include="components\controllers\comp_projectile_controller.h" />
+    <ClInclude Include="components\comp_light_dir.h" />
+    <ClInclude Include="render\texture\texture_slots.h" />
+    <ClInclude Include="render\texture\render_to_texture.h" />
+    <ClInclude Include="components\comp_light_point.h" />
+    <ClInclude Include="render\deferred_renderer.h" />
+    <ClInclude Include="components\ia\ai_wind_current.h" />
+    <ClInclude Include="components\comp_orbit_controller.h" />
+    <ClInclude Include="components\ia\ai_cut_door.h" />
+    <ClInclude Include="components\ia\ai_rotation.h" />
+    <ClInclude Include="components\comp_fsm.h" />
+    <ClInclude Include="components\fsm\comp_fsm.h" />
+    <ClInclude Include="fsm\player_states\windstrike_state.h" />
+    <ClInclude Include="fsm\player_states\run_state.h" />
+    <ClInclude Include="fsm\player_states\pause_state.h" />
+    <ClInclude Include="fsm\player_states\omnijump_state.h" />
+    <ClInclude Include="fsm\player_states\omnidash_state.h" />
+    <ClInclude Include="fsm\player_states\jump_state.h" />
+    <ClInclude Include="fsm\player_states\initial_state.h" />
+    <ClInclude Include="fsm\player_states\idle_state.h" />
+    <ClInclude Include="fsm\player_states\falling_state.h" />
+    <ClInclude Include="fsm\player_states\dead_state.h" />
+    <ClInclude Include="fsm\player_states\dash_state.h" />
+    <ClInclude Include="fsm\player_states\glide_state.h" />
+    <ClInclude Include="components\postfx\comp_render_blur.h" />
+    <ClInclude Include="components\postfx\comp_render_blur_radial.h" />
+    <ClInclude Include="render\blur_step.h" />
+    <ClInclude Include="components\physics\controller_filter.h" />
+    <ClInclude Include="components\physics\query_filter.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl">

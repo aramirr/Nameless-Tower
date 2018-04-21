@@ -4,9 +4,16 @@
 #include "PxPhysicsAPI.h"
 #include "entity/common_msgs.h"
 
-struct TMsgTriggerEnter{
-  CHandle h_other_entity;
-  DECL_MSG_ID();
+using namespace physx;
+
+struct TMsgTriggerEnter {
+	CHandle h_other_entity;
+	DECL_MSG_ID();
+};
+
+struct TMsgColliderEnter {
+	std::string h_other_entity;
+	DECL_MSG_ID();
 };
 
 struct TMsgTriggerExit {
@@ -36,11 +43,14 @@ public:
   };
 
   TConfig config;
-  physx::PxActor* actor;
-  physx::PxController* controller;
+  PxActor* actor;
+  PxController* controller;
   void debugInMenu();
   static void registerMsgs();
   void load(const json& j, TEntityParseContext& ctx);
   void onCreate(const TMsgEntityCreated& msg);
+  void OnColliderEnter(const TMsgColliderEnter& msg);
 	~TCompCollider();
+
+  void setupFiltering(PxU32 filterGroup, PxU32 filterMask);
 };

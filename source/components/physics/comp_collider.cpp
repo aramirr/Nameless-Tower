@@ -47,6 +47,14 @@ void TCompCollider::load(const json& j, TEntityParseContext& ctx) {
 
 void TCompCollider::registerMsgs() {
   DECL_MSG(TCompCollider, TMsgEntityCreated, onCreate);
+  DECL_MSG(TCompCollider, TMsgColliderEnter, OnColliderEnter);
+}
+
+void TCompCollider::OnColliderEnter(const TMsgColliderEnter& msg) {
+	int aux = 1;
+	/*CHandle h_other_entity = msg.h_other_entity;
+	CEntity* e_other_entity = h_other_entity;
+	std::string other_entity_name = e_other_entity->getName();*/
 }
 
 void TCompCollider::onCreate(const TMsgEntityCreated& msg) {
@@ -61,4 +69,10 @@ TCompCollider::~TCompCollider() {
 		controller->release();
 		controller = nullptr;
 	}
+}
+
+void TCompCollider::setupFiltering(PxU32 filterGroup, PxU32 filterMask) {
+	// llamada => my_collider->setupFIltering(my_collider->config.group, my_collider->config.mask);
+	CModulePhysics module_physics = CEngine::get().getPhysics();
+	module_physics.setupFiltering(static_cast<PxRigidActor*>(actor), filterGroup, filterMask);
 }

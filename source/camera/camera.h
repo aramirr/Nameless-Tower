@@ -2,27 +2,36 @@
 
 class CCamera {
 
-	VEC3 pos;         // eye
-	VEC3 target;
-	VEC3 up_aux;
+  VEC3 pos;         // eye
+  VEC3 target;
+  VEC3 up_aux;
 
-	// 3 orthonormals axis in world space
-	VEC3 front;
-	VEC3 up;
-	VEC3 left;
+  // 3 orthonormals axis in world space
+  VEC3 front;     
+  VEC3 up;
+  VEC3 left;
 
-	// Prepective params
-	float fov_vertical;     // in radians!!
-	float z_near;
-	float z_far;
-	float aspect_ratio;
+  // Prepective params
+  float fov_vertical = deg2rad( 60.f );     // in radians!!
+  float z_near = 1.f;
+  float z_far = 1000.f;
+  float aspect_ratio = 1.f;
 
-	// Matrix
-	MAT44 view;
-	MAT44 proj;
-	MAT44 view_proj;
+  // Matrix
+  MAT44 view;
+  MAT44 proj;
+  MAT44 view_proj;
 
-	void updateViewProj();
+  void updateViewProj();
+
+  // viewport
+  struct TViewport {
+    int x0 = 0;
+    int y0 = 0;
+    int width = 640;
+    int height = 480;
+  };
+  TViewport viewport;
 
 public:
 
@@ -56,10 +65,10 @@ public:
   float getZFar() const { return z_far; }
   float getAspectRatio() const { return aspect_ratio; }
 
-	
-	// 
-	void lookAt(VEC3 new_pos, VEC3 new_target, VEC3 new_up_aux = VEC3(0, 1, 0));
-	void setPerspective(float new_fov_vertical, float new_z_near, float new_z_far);
+  // 
+  void lookAt(VEC3 new_pos, VEC3 new_target, VEC3 new_up_aux = VEC3(0, 1, 0));
+  void setPerspective(float new_fov_vertical, float new_z_near, float new_z_far );
+  void setViewport(int x0, int y0, int width, int height);
+  bool getScreenCoordsOfWorldCoord(VEC3 world_pos, VEC3 *screen_coords) const;
 
-	bool getScreenCoordsOfWorldCoord(VEC3 world_pos, VEC3 *screen_coords) const;
 };

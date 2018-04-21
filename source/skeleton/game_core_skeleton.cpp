@@ -37,7 +37,8 @@ struct TSkinVertex {
   VEC3 pos;
   VEC3 normal;
   VEC2 uv;
-  //VEC4 tangent;
+  VEC2 uv2;
+  VEC4 tangent;
   uint8_t bone_ids[4];
   uint8_t bone_weights[4];    // 0.255   -> 0..1
 };
@@ -79,7 +80,12 @@ void CGameCoreSkeleton::debugInMenu() {
         ImGui::LabelText( "ID", "%d", bone_id );
         if (ImGui::SmallButton("Show Axis"))
           bone_ids_to_debug.push_back(bone_id);
-        ImGui::TreePop();
+		CalVector pos = cb->getTranslationAbsolute();
+		CalQuaternion rot = cb->getRotationAbsolute();
+		ImGui::LabelText("ID", "%d", bone_id);
+		ImGui::LabelText("Position", "%f %f %f", pos.x, pos.y, pos.z);
+		ImGui::LabelText("Rotation", "%f %f %f %f", rot.x, rot.y, rot.z, rot.w);
+		ImGui::TreePop();
       }
     }
     ImGui::TreePop();
@@ -112,6 +118,7 @@ bool CGameCoreSkeleton::convertCalCoreMesh2RenderMesh(CalCoreMesh* cal_mesh, con
   for (int idx_sm = 0; idx_sm < nsubmeshes; ++idx_sm) {
 
     CalCoreSubmesh* cal_sm = cal_mesh->getCoreSubmesh(idx_sm);
+	cal_sm->enableTangents(0, true);
 
     // Copy The vertexs
     auto& cal_vtxs = cal_sm->getVectorVertex();
@@ -128,6 +135,9 @@ bool CGameCoreSkeleton::convertCalCoreMesh2RenderMesh(CalCoreMesh* cal_mesh, con
       cal_all_uvs[0].resize(num_vtxs);
     }
     auto& cal_uvs0 = cal_all_uvs[0];
+	auto tangents = cal_sm->getVectorVectorTangentSpace();
+	assert(tangents.size() > 0);
+	assert(tangents[0].size() == num_vtxs);
 
     // Process the vtxs
     for (int vid = 0; vid < num_vtxs; ++vid) {
@@ -141,9 +151,15 @@ bool CGameCoreSkeleton::convertCalCoreMesh2RenderMesh(CalCoreMesh* cal_mesh, con
       skin_vtx.pos = Cal2DX(cal_vtx.position);
       skin_vtx.normal = Cal2DX(cal_vtx.normal);
 
+	  //Tan
+	  VEC3 tangent_f3 = Cal2DX(tangents[0][vid].tangent);
+	  skin_vtx.tangent = VEC4(tangent_f3.x, tangent_f3.y, tangent_f3.z, tangents[0][vid].crossFactor);
+
       // Texture coords
       skin_vtx.uv.x = cal_uvs0[vid].u;
       skin_vtx.uv.y = cal_uvs0[vid].v;
+	  skin_vtx.uv2.x = cal_uvs0[vid].u;
+	  skin_vtx.uv2.y = cal_uvs0[vid].v;
 
       // Weights...
       int total_weight = 0;
@@ -206,7 +222,10 @@ bool CGameCoreSkeleton::convertCalCoreMesh2RenderMesh(CalCoreMesh* cal_mesh, con
   header.num_vertexs = total_vtxs;
   header.primitive_type = CRenderMesh::TRIANGLE_LIST;
 
-  strcpy(header.vertex_type_name, "PosNUvSkin");
+  //strcpy(header.vertex_type_name, "PosNUvSkin");
+  strcpy(header.vertex_type_name, "PosNUvUvTanSkin");
+
+
 
   mesh_io.vtxs = mds_vtxs.buffer;
   mesh_io.idxs = mds_idxs.buffer;
@@ -230,7 +249,7 @@ bool CGameCoreSkeleton::create(const std::string& res_name) {
   std::string name = json["name"];
   root_path = "data/skeletons/" + name + "/";
 
-  CalLoader::setLoadingMode(LOADER_ROTATE_X_AXIS | LOADER_INVERT_V_COORD);
+  CalLoader::setLoadingMode(LOADER_ROTATE_X_AXIS);
 
   // Read the core skeleton
   std::string csf = root_path + name + ".csf";
@@ -248,13 +267,13 @@ bool CGameCoreSkeleton::create(const std::string& res_name) {
     convertCalCoreMesh2RenderMesh(getCoreMesh(mesh_id), skin_mesh_file);
 
     // Delete the cmf file
-    // std::remove(cmf.c_str());
+    std::remove(cmf.c_str());
+
   }
 
   // Read all anims
   auto& anims = json["anims"];
   for (auto it = anims.begin(); it != anims.end(); ++it) {
-
     assert(it->is_object());
 
     auto& anim = *it;

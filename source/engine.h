@@ -56,3 +56,4 @@ private:
 #define EngineInput CEngine::get().getInput()
 #define EngineTimer CEngine::get().getTimer()
 #define EngineTower CEngine::get().getTower()
+#define EngineCameras CEngine::get().getCameras()

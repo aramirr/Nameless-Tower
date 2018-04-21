@@ -31,9 +31,18 @@ CModulePhysics::FilterGroup CModulePhysics::getFilterByName(const std::string& n
     else if ( strcmp("floor", name.c_str()) == 0 ) {
         return CModulePhysics::FilterGroup::Floor;
     }
-    else if ( strcmp("scenario", name.c_str()) == 0 ) {
-        return CModulePhysics::FilterGroup::Scenario;
-    }
+		else if (strcmp("scenario", name.c_str()) == 0) {
+			return CModulePhysics::FilterGroup::Scenario;
+		}
+		else if (strcmp("windstrike", name.c_str()) == 0) {
+			return CModulePhysics::FilterGroup::Windstrike;
+		}
+		else if (strcmp("all_unless_player", name.c_str()) == 0) {
+			return CModulePhysics::FilterGroup::AllUnlessPlayer;
+		}
+		else if (strcmp("player_mask", name.c_str()) == 0) {
+			return CModulePhysics::FilterGroup::PlayerMask;
+		}
     return CModulePhysics::FilterGroup::All;
 }
 
@@ -160,10 +169,10 @@ PxFilterFlags CustomFilterShader(
 {
     if ( (filterData0.word0 & filterData1.word1) && (filterData1.word0 & filterData0.word1) )
     {
-        if ( PxFilterObjectIsTrigger(attributes0) || PxFilterObjectIsTrigger(attributes1) )
-        {
-            pairFlags = PxPairFlag::eTRIGGER_DEFAULT;
-        }
+		if (PxFilterObjectIsTrigger(attributes0) || PxFilterObjectIsTrigger(attributes1))
+		{
+			pairFlags = PxPairFlag::eTRIGGER_DEFAULT;
+		}
         else {
             pairFlags = PxPairFlag::eCONTACT_DEFAULT | PxPairFlag::eNOTIFY_TOUCH_FOUND;
         }
@@ -261,7 +270,8 @@ void CModulePhysics::CustomSimulationEventCallback::onTrigger(PxTriggerPair* pai
 {
   for (PxU32 i = 0; i < count; ++i)
   {
-    if (pairs[i].flags & (PxTriggerPairFlag::eREMOVED_SHAPE_TRIGGER | PxTriggerPairFlag::eREMOVED_SHAPE_OTHER ))
+    if (pairs[i].flags & (PxTriggerPairFlag::eREMOVED_SHAPE_TRIGGER | PxTriggerPairFlag::eREMOVED_SHAPE_OTHER
+ ))
     {
       continue;
     }
@@ -283,3 +293,23 @@ void CModulePhysics::CustomSimulationEventCallback::onTrigger(PxTriggerPair* pai
     }
   }
 }
+
+/*void CModulePhysics::CustomSimulationEventCallback::onContact(const physx::PxContactPairHeader& pairHeader, const physx::PxContactPair* pairs, physx::PxU32 nbPairs) {
+	for (PxU32 i = 0; i < nbPairs; ++i)
+	{
+		if (pairs[i].flags & (PxContactPairFlag::eREMOVED_SHAPE_0 | PxContactPairFlag::eREMOVED_SHAPE_1))
+		{
+			continue;
+		}
+		CHandle h_collider_comp_collider;
+		h_collider_comp_collider.fromVoidPtr(pairs[i].shapes[0]->userData);
+
+		CHandle h_other_comp_collider;
+		h_other_comp_collider.fromVoidPtr(pairs[i].shapes[1]->userData);
+		CEntity* e_collider = h_collider_comp_collider.getOwner();
+		CEntity* e_other = h_other_comp_collider.getOwner();
+		
+		//e_collider->sendMsg(TMsgColliderEnter{ "Hello" });
+
+	}
+}*/

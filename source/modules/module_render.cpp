@@ -4,11 +4,15 @@
 #include "imgui/imgui_impl_dx11.h"
 #include "render/render_objects.h"
 #include "render/render_utils.h"
+#include "render/render_manager.h"
+#include "components/comp_light_dir.h"
 #include "render/texture/material.h"
 #include "render/texture/texture.h"
 #include "resources/json_resource.h"
 #include "skeleton/game_core_skeleton.h"
 #include "camera/camera.h"
+#include "components/postfx/comp_render_blur.h"
+#include "components/postfx/comp_render_blur_radial.h"
 
 //--------------------------------------------------------------------------------------
 CModuleRender::CModuleRender(const std::string& name)
@@ -25,8 +29,10 @@ bool parseTechniques() {
     json& tech_j = it.value();
 
     CRenderTechnique* tech = new CRenderTechnique();
-    if (!tech->create(tech_name, tech_j))
+    if (!tech->create(tech_name, tech_j)) {
+      fatal("Failed to create tech '%s'\n", tech_name.c_str());
       return false;
+    }
     Resources.registerResource(tech);
   }
 
@@ -55,16 +61,6 @@ bool CModuleRender::start()
   if (!createRenderUtils())
     return false;
 
-	// -------------------------------------------
-	if (!cb_camera.create(CB_CAMERA))
-		return false;
-	// -------------------------------------------
-	if (!cb_object.create(CB_OBJECT))
-		return false;
-
-	cb_object.activate();
-	cb_camera.activate();
-
   // --------------------------------------------
   // ImGui
   auto& app = CApp::get();
@@ -74,7 +70,19 @@ bool CModuleRender::start()
   if (!parseTechniques())
     return false;
 
+  // Main render target before rendering in the backbuffer
+  rt_main = new CRenderToTexture;
+  if (!rt_main->createRT("rt_main.dds", Render.width, Render.height, DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_FORMAT_UNKNOWN, true))
+    return false;
+
+  if (!deferred.create(Render.width, Render.height))
+    return false;
+
   setBackgroundColor(0.0f, 0.125f, 0.3f, 1.f);
+
+  // Some camera in case there is no camera in the scene
+  camera.lookAt(VEC3(12.0f, 8.0f, 8.0f), VEC3::Zero, VEC3::UnitY);
+  camera.setPerspective(60.0f * 180.f / (float)M_PI, 0.1f, 1000.f);
 
   return true;
 }
@@ -87,16 +95,13 @@ LRESULT CModuleRender::OnOSMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 bool CModuleRender::stop()
 {
   ImGui_ImplDX11_Shutdown();
-
+  
   destroyRenderUtils();
   destroyRenderObjects();
 
   Resources.destroyAll();
 
   Render.destroyDevice();
-
-	cb_camera.destroy();
-	cb_object.destroy();
   return true;
 }
 
@@ -105,6 +110,8 @@ void CModuleRender::update(float delta)
 	(void)delta;
   // Notify ImGUI that we are starting a new frame
   ImGui_ImplDX11_NewFrame();
+
+  cb_globals.global_world_time += delta;
 }
 
 void CModuleRender::render()
@@ -116,15 +123,16 @@ void CModuleRender::render()
   }
 
   // Edit the Background color
-  ImGui::ColorEdit4("Background Color", _backgroundColor);
+  //ImGui::ColorEdit4("Background Color", &_backgroundColor.x);
 
-
-  Render.startRenderInBackbuffer();
-
-  // Clear the back buffer 
-  float ClearColor[4] = { 0.0f, 0.125f, 0.3f, 1.0f }; // red,green,blue,alpha
-  Render.ctx->ClearRenderTargetView(Render.renderTargetView, _backgroundColor);
-  Render.ctx->ClearDepthStencilView(Render.depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
+  if (ImGui::TreeNode("Render Control")) {
+    ImGui::DragFloat("Exposure Adjustment", &cb_globals.global_exposure_adjustment, 0.01f, 0.1f, 32.f);
+    ImGui::DragFloat("Ambient Adjustment", &cb_globals.global_ambient_adjustment, 0.01f, 0.0f, 1.f);
+    ImGui::DragFloat("HDR", &cb_globals.global_hdr_enabled, 0.01f, 0.0f, 1.f);
+    ImGui::DragFloat("Gamma Correction", &cb_globals.global_gamma_correction_enabled, 0.01f, 0.0f, 1.f);
+    ImGui::DragFloat("Reinhard vs Uncharted2", &cb_globals.global_tone_mapping_mode, 0.01f, 0.0f, 1.f);
+    ImGui::TreePop();
+  }
 }
 
 void CModuleRender::configure(int xres, int yres)
@@ -135,17 +143,81 @@ void CModuleRender::configure(int xres, int yres)
 
 void CModuleRender::setBackgroundColor(float r, float g, float b, float a)
 {
-  _backgroundColor[0] = r;
-  _backgroundColor[1] = g;
-  _backgroundColor[2] = b;
-  _backgroundColor[3] = a;
+  _backgroundColor.x = r;
+  _backgroundColor.y = g;
+  _backgroundColor.z = b;
+  _backgroundColor.w = a;
+
 }
 
+// -------------------------------------------------
+void CModuleRender::activateMainCamera() {
+
+  CCamera* cam = &camera;
+
+  // Find the entity with name 'the_camera'
+  h_e_camera = getEntityByName("the_camera");
+  if (h_e_camera.isValid()) {
+    CEntity* e_camera = h_e_camera;
+    TCompCamera* c_camera = e_camera->get< TCompCamera >();
+    cam = c_camera;
+    assert(cam);
+    CRenderManager::get().setEntityCamera(h_e_camera);
+  }
+
+  activateCamera(*cam, Render.width, Render.height);
+}
+
+
 void CModuleRender::generateFrame() {
+  
   {
-    PROFILE_FUNCTION("CModuleRender::generateFrame");
+    PROFILE_FUNCTION("CModuleRender::shadowsMapsGeneration");
+    CTraceScoped gpu_scope("shadowsMapsGeneration");
+    // Generate the shadow map for each active light
+    getObjectManager<TCompLightDir>()->forEach([](TCompLightDir* c) {
+      c->generateShadowMap();
+    });
+  }
+
+
+  {
     CTraceScoped gpu_scope("Frame");
-    CEngine::get().getModules().render();
+    PROFILE_FUNCTION("CModuleRender::generateFrame");
+    
+    activateMainCamera();
+    cb_globals.updateGPU();
+
+    deferred.render(rt_main);
+
+    CRenderManager::get().renderCategory("distorsions");
+
+    // Apply postFX
+    CTexture* curr_rt = rt_main;
+    if (h_e_camera.isValid()) {
+      CEntity* e_cam = h_e_camera;
+
+      // Check if we have a render_fx component
+      TCompRenderBlur* c_render_blur = e_cam->get< TCompRenderBlur >();
+      if (c_render_blur)
+        curr_rt = c_render_blur->apply(curr_rt);
+
+      // Check if we have a render_fx component
+      TCompRenderBlurRadial* c_render_blur_radial = e_cam->get< TCompRenderBlurRadial >();
+      if (c_render_blur_radial)
+        curr_rt = c_render_blur_radial->apply(curr_rt);
+    }
+
+    Render.startRenderInBackbuffer();
+    
+    renderFullScreenQuad("dump_texture.tech", curr_rt);
+
+    // Debug render
+    {
+      PROFILE_FUNCTION("Modules");
+      CTraceScoped gpu_scope("Modules");
+      CEngine::get().getModules().render();
+    }
   }
 
   {
@@ -160,4 +232,3 @@ void CModuleRender::generateFrame() {
     Render.swapChain->Present(0, 0);
   }
 }
-

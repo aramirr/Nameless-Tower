@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "comp_render.h"
 #include "comp_transform.h"
+#include "skeleton/comp_skeleton.h"
 
 DECL_OBJ_MANAGER("render", TCompRender);
 
@@ -50,12 +51,20 @@ void TCompRender::debugInMenu() {
 
 void TCompRender::renderDebug() {
   activateRSConfig(RSCFG_WIREFRAME);
-  TCompTransform *transform = get<TCompTransform>();
+  TCompTransform* transform = get<TCompTransform>();
   assert(transform);
+
+  // Ifwe have an skeleton, make sure the required bones are active and updated
+  TCompSkeleton* skel = get<TCompSkeleton>();
+  if (skel) {
+    skel->updateCtesBones();
+    skel->cb_bones.activate();
+  }
 
   for (auto& mwm : meshes) {
     if (!mwm.enabled)
       continue;
+
     renderMesh(mwm.mesh, transform->asMatrix(), color);
   }
   activateRSConfig(RSCFG_DEFAULT);
@@ -138,6 +147,7 @@ void TCompRender::load(const json& j, TEntityParseContext& ctx) {
   else {
     // We accept not receiving an array of mesh inside the comp_render, for handle files
     loadMesh(j, ctx);
+		is_active = j.value("is_active", true);
   }
 
   refreshMeshesInRenderManager();
@@ -152,7 +162,7 @@ void TCompRender::refreshMeshesInRenderManager() {
   for (auto& mwm : meshes) {
 
     // Do not register disabled meshes
-    if (!mwm.enabled)
+    if (!mwm.enabled || !is_active)
       continue;
 
     // All materials of the house...

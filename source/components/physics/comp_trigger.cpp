@@ -2,6 +2,7 @@
 #include "entity/entity_parser.h"
 #include "comp_trigger.h"
 #include "components/juan/comp_transform.h"
+#include "components/fsm/comp_fsm.h"
 #include "components/ui/ui_mouse_pos.h"
 #include "entity/common_msgs.h"
 
@@ -48,10 +49,15 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		//camIZQ->sendMsg(attach_msg);
 	}
 	else if (trigger_type == "spikes" && other_entity_name == "The Player") {
-		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
-		TMsgTriggerSpike triggerSpikeMsg;
-		triggerSpikeMsg.h_player = e_other_entity;
-		e_collider_entity->sendMsg(triggerSpikeMsg);
+		//CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
+		//TMsgTriggerSpike triggerSpikeMsg;
+		//triggerSpikeMsg.h_player = e_other_entity;
+		//e_collider_entity->sendMsg(triggerSpikeMsg);
+		CEntity* player = (CEntity *)getEntityByName("The Player");
+		TMsgSetFSMVariable deadMsg;
+		deadMsg.variant.setName("hit");
+		deadMsg.variant.setBool(true);		
+		player->sendMsg(deadMsg);
 	}
 }
 
@@ -100,7 +106,7 @@ void TCompTrigger::load(const json& j, TEntityParseContext& ctx) {
 		CEntity* e = h_entity;
 		collider_entity = e->getName();
 	}
-	if (!render) {
+	/*if (!render) {
 		CEntity* e = h_entity;
 		assert(e);
 		h_render = e->get< TCompRender >();
@@ -109,7 +115,7 @@ void TCompTrigger::load(const json& j, TEntityParseContext& ctx) {
 		r = h_render;
 		TCompRender *my_render = getMyRender();
 		my_render->is_active = false;
-	}
+	}*/
 }
 
 void TCompTrigger::update(float dt) {};

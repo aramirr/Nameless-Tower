@@ -9,13 +9,13 @@ DECL_OBJ_MANAGER("orbitCamera", TCompOrbitCamera);
 bool TCompOrbitCamera::isForward()
 {
   TCompPlayerController* pc = player->get<TCompPlayerController>();
-  return !pc->isForward();
+	return !pc->isForward();
 }
 
 bool TCompOrbitCamera::isGrounded()
 {
   TCompPlayerController* pc = player->get<TCompPlayerController>();
-  return pc->isGrounded();
+	return pc->isGrounded();
 }
 
 //void TCompOrbitCamera::changeHeight(const TMsgisGrounded & msg)

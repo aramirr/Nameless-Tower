@@ -23,8 +23,10 @@
 		"ai_destroyable",
         "ai_linear_patrol",
 		"ai_orbit_patrol",
+		"ai_rotator",
 		"ai_spikes",
 		"ai_fan",
+		"ai_cut_door",
 		"arrow_ui",
     	"flyover_controller",
     	"hierarchy",
@@ -33,9 +35,14 @@
     	"cameraManager",
 		"trigger",
 	    "local_aabb",
-		"culling"
+		"culling",
+		"light_dir",
+		"fsm",
+		"fake_animation",
+		"player_input"
 	],
 	"render_debug" : 
 	[
+		"spiral_controller"
 	]
 }
