@@ -2,33 +2,27 @@
 	{
 		"entity": {
 			"name": "The Player",
-			"render":
-		      [
-			    {"mesh": "data/meshes/NajaRun.mesh",
-		            "materials":["data/materials/MaterialNaja.material"]
-		        }
-				,
-				{"mesh": "data/meshes/NajaIdle.mesh",
-			          "materials":["data/materials/MaterialNaja.material"]
-
-			      }
-				,
-				{"mesh": "data/meshes/NajaJump.mesh",
-			          "materials":["data/materials/MaterialNaja.material"]
-			      }
-				,
-				{"mesh": "data/meshes/NajaOmnidash.mesh",
-			          "materials":["data/materials/MaterialNaja.material"]
-			      }
-				,
-				{"mesh": "data/meshes/NajaDash.mesh",
-			          "materials":["data/materials/MaterialNaja.material"]
-			      }
-			    ,
-				{"mesh": "data/meshes/NajaDeath.mesh",
-			        "materials":["data/materials/MaterialNaja.material"]
-			    }
-			  ]			
+      		"skeleton": {
+        		"skeleton": "data/skeletons/NajaTest/NajaTest.skeleton"
+      		},
+      		"render" : [
+        		{
+          			"mesh": "data/skeletons/NajaTest/NajaTest.mesh"
+          			,
+          			"materials":
+          				[
+           		 			"data/materials/NajaMaterial.material"
+          				]
+        		},
+        		{
+          			"mesh": "data/skeletons/NajaTest/PaiTest.mesh"
+          			,
+          			"materials":
+          				[
+           					"data/materials/PaipaiMaterial.material"
+          				]
+        		}
+      		]		
 			,
 			"transform": {
 				"pos": "16.684 9.000 27.306",

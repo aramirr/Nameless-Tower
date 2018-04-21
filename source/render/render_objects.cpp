@@ -257,7 +257,7 @@ void renderMesh(const CRenderMesh* mesh, MAT44 new_matrix, VEC4 color) {
 		tech_name = "solid_objs_uv2.tech";
 	else if (vdecl->name == "PosNUvSkin")
 		tech_name = "solid_objs_skin.tech";
-	else if (vdecl->name == "PosNUvTanSkin")
+	else if (vdecl->name == "PosNUvUvTanSkin")
 		tech_name = "pbr_skin.tech";
 
 	auto prev_tech = CRenderTechnique::current;
