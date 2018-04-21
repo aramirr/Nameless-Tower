@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "bt_runner.h"
 #include "entity/entity_parser.h"
+#include "components/physics/controller_filter.h"
 
 DECL_OBJ_MANAGER("bt_runner", bt_runner);
 
@@ -154,7 +155,14 @@ int bt_runner::actionChase() {
 			VEC3 delta_move = newPos - myPos;
 			distance_to_player = VEC3::Distance(myPos, ppos);
 			delta_move.y += -10 * DT;
-			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, physx::PxControllerFilters());
+
+
+			PxShape* player_shape;
+			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
+			PxFilterData filter_data = player_shape->getSimulationFilterData();
+			ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
+			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, PxControllerFilters(&filter_data, filter_controller, filter_controller));
+
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
 				current_yaw = going_right ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
@@ -237,7 +245,13 @@ int bt_runner::jumping_state() {
 		{
 			VEC3 delta_move = new_pos - my_pos;
 			delta_move.y += -(-(jump_speed - gravity * DT)) * DT;
-			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, physx::PxControllerFilters());
+
+			PxShape* player_shape;
+			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
+			PxFilterData filter_data = player_shape->getSimulationFilterData();
+			ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
+			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, PxControllerFilters(&filter_data, filter_controller, filter_controller));
+
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
 				current_yaw = going_right ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);

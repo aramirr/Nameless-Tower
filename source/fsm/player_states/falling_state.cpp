@@ -3,6 +3,7 @@
 #include "fsm/context.h"
 #include "components/player/comp_player_controller.h"
 #include "components/fsm/comp_fsm.h"
+#include "components/physics/controller_filter.h"
 
 namespace FSM
 {
@@ -57,7 +58,13 @@ namespace FSM
 		}
 		else {
 			VEC3 delta_move = new_pos - my_pos;
-			physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+
+			PxShape* player_shape;
+			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
+			PxFilterData filter_data = player_shape->getSimulationFilterData();
+			ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
+			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, filter_controller, filter_controller));
+
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 				if (player->jumping_start_height - c_my_transform->getPosition().y > player->jumping_death_height) {
 					ctx.setVariable("hit", true);

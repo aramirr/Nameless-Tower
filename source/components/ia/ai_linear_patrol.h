@@ -10,6 +10,7 @@ class CAILinearPatrol : public IAIController
   float speed;
   float delay;
   float acum_delay;
+  float wake_time;
 
   CHandle	 attached;
 
@@ -24,6 +25,7 @@ public:
   void NextWaypointState();
   void MoveToWaypointState(float dt);
   void WaitState(float dt);
+  void SleepState(float dt);
 
   void Init();
   void addWaypoint(VEC3 waypoint) { _waypoints.push_back(waypoint); };

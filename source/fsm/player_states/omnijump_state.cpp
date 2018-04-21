@@ -2,6 +2,7 @@
 #include "omnijump_state.h"
 #include "components/player/comp_player_controller.h"
 #include "fsm/context.h"
+#include "components/physics/controller_filter.h"
 
 namespace FSM
 {
@@ -52,7 +53,13 @@ namespace FSM
 		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 		current_yaw = current_yaw - (0.4f * player->omnidash_arrow.x * amount_moved);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-		physx::PxControllerCollisionFlags flags = comp_collider->controller->move(physx::PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, physx::PxControllerFilters());
+
+		PxShape* player_shape;
+		comp_collider->controller->getActor()->getShapes(&player_shape, 1);
+		PxFilterData filter_data = player_shape->getSimulationFilterData();
+		ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
+		PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, filter_controller, filter_controller));
+
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 			ctx.setVariable("idle", true);
 		}
