@@ -7,7 +7,6 @@
 class TCompCircularController : public TCompBase {
 
   float       speed = 1.0f;
-  float       curr_rad = 0.f;
   char        eje = 'X';
 
   VEC3		    u;

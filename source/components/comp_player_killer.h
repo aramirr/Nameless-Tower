@@ -6,7 +6,7 @@
 
 class TCompPlayerKiller : public TCompBase {
 
-  bool kill = true;
+  bool kill_enabled = true;
 
   void onTriggerEnter();
 

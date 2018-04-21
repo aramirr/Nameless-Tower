@@ -56,9 +56,9 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		player->sendMsg(deadMsg);
 	}
 	else if (trigger_type == "player_killer" && other_entity_name == "The Player") {
-		CEntity* player = (CEntity *)getEntityByName("The Player");
 		TMsgKillPlayer kill_player_message;
-		player->sendMsg(kill_player_message);
+		CEntity * entity = h_entity;
+		entity->sendMsg(kill_player_message);
 	}
 }
 

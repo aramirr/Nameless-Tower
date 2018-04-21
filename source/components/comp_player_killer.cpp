@@ -13,7 +13,7 @@ void TCompPlayerKiller::registerMsgs() {
 }
 
 void TCompPlayerKiller::onTriggerEnter() {
-	if (kill) {
+	if (kill_enabled) {
 		CEntity* player = (CEntity *)getEntityByName("The Player");
 		TMsgSetFSMVariable deadMsg;
 		deadMsg.variant.setName("hit");
@@ -23,15 +23,15 @@ void TCompPlayerKiller::onTriggerEnter() {
 }
 
 bool TCompPlayerKiller::getKill() {
-	return kill;
+	return kill_enabled;
 }
 
 void TCompPlayerKiller::setKill(bool new_value) {
-	kill = new_value;
+	kill_enabled = new_value;
 }
 
 void TCompPlayerKiller::load(const json& j, TEntityParseContext& ctx) {
-  kill = j.value("kill", true);
+	kill_enabled = j.value("kill", true);
 }
 
 void TCompPlayerKiller::update(float dt) {}
