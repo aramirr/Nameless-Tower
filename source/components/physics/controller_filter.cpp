@@ -20,8 +20,11 @@ bool ControllerFilterCallback::filter(const PxController& a, const PxController&
 }
 
 PxQueryHitType::Enum ControllerFilterCallback::preFilter(const PxFilterData& filter_data_a, const PxShape* shape, const PxRigidActor* actor, PxHitFlags& queryFlags) {
-	const PxFilterData& filter_data_b = shape->getSimulationFilterData();
-	if ((filter_data_a.word0 & filter_data_b.word1) && (filter_data_b.word0 & filter_data_a.word1)) {
+	const PxFilterData& filter_data_b = shape->getSimulationFilterData();	
+	if ((filter_data_a.word0 & filter_data_b.word1) && (filter_data_b.word0 & filter_data_a.word1)) {		
+		if ((filter_data_a.word0 == CModulePhysics::FilterGroup::Projectile) && (filter_data_b.word0 == CModulePhysics::FilterGroup::Player) || (filter_data_b.word0 == CModulePhysics::FilterGroup::Projectile) && (filter_data_a.word0 == CModulePhysics::FilterGroup::Player)) {
+			// Mandar mensajes de muerte al player
+		}
 		return PxQueryHitType::eBLOCK;
 	}
 	return PxQueryHitType::eNONE;
