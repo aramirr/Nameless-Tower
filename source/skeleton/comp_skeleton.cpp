@@ -50,15 +50,15 @@ void TCompSkeleton::load(const json& j, TEntityParseContext& ctx) {
 
   CalLoader::setLoadingMode(LOADER_ROTATE_X_AXIS | LOADER_INVERT_V_COORD);
 
-  std::string skel_name= j.value("skeleton", "");
+  std::string skel_name = j.value("skeleton", "");
   assert(!skel_name.empty());
   auto res_skel = Resources.get(skel_name)->as< CGameCoreSkeleton >();
   CalCoreModel* core_model = const_cast<CGameCoreSkeleton*>(res_skel);
   model = new CalModel(core_model);
-  
+
   // Play the first animation, at weight 100%, now!
   model->getMixer()->blendCycle(0, 1.0f, 0.f);
-  
+
   // Do a time zero update just to have the bones in a correct place
   model->update(0.f);
 }
@@ -80,9 +80,9 @@ void TCompSkeleton::debugInMenu() {
   static bool auto_lock = false;
 
   // Play aacton/cycle from the menu
-  ImGui::DragInt("Anim Id", &anim_id, 0.1f, 0, model->getCoreModel()->getCoreAnimationCount()-1);
+  ImGui::DragInt("Anim Id", &anim_id, 0.1f, 0, model->getCoreModel()->getCoreAnimationCount() - 1);
   auto core_anim = model->getCoreModel()->getCoreAnimation(anim_id);
-  if(core_anim)
+  if (core_anim)
     ImGui::Text("%s", core_anim->getName().c_str());
   ImGui::DragFloat("In Delay", &in_delay, 0.01f, 0, 1.f);
   ImGui::DragFloat("Out Delay", &out_delay, 0.01f, 0, 1.f);
@@ -174,6 +174,38 @@ void TCompSkeleton::updateCtesBones() {
   }
 
   cb_bones.updateGPU();
+}
+
+void TCompSkeleton::playAnimation(int id_amimation, bool is_action, float in_delay, float out_delay) {
+  deleteAnimation(id_amimation, is_action, out_delay);
+  if (is_action) {
+    model->getMixer()->executeAction(id_amimation, in_delay, out_delay, 1.0f, false);
+  }
+  else {
+    model->getMixer()->blendCycle(id_amimation, 1.0f, in_delay);
+  }
+}
+
+void TCompSkeleton::deleteAnimation(int id_animation, bool is_action, float out_delay) {
+  auto mixer = model->getMixer();
+  for (auto a : mixer->getAnimationActionList()) {
+    auto core = (CGameCoreSkeleton*)model->getCoreModel();
+    int id = core->getCoreAnimationId(a->getCoreAnimation()->getName());
+    a->remove(out_delay);
+  }
+
+  for (auto a : mixer->getAnimationCycle()) {
+    auto core = (CGameCoreSkeleton*)model->getCoreModel();
+    int id = core->getCoreAnimationId(a->getCoreAnimation()->getName());
+    mixer->clearCycle(id, out_delay);
+
+  }
+  /*if (is_action) {
+
+  }
+  else {
+
+  }*/
 }
 
 void TCompSkeleton::renderDebug() {

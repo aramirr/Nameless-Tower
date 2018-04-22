@@ -40,6 +40,7 @@ public:
   void debugInMenu();
   void load(const json& j, TEntityParseContext& ctx);
 	void change_mesh(int mesh_index);
+  void change_animation(int animation_id, bool is_action, float in_delay, float out_delay);
 
 
 	void move_player(bool left, bool change_orientation, float dt, float y_speed, float x_speed);
