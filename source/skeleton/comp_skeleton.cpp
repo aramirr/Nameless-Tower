@@ -177,35 +177,39 @@ void TCompSkeleton::updateCtesBones() {
 }
 
 void TCompSkeleton::playAnimation(int id_amimation, bool is_action, float in_delay, float out_delay) {
-  deleteAnimation(id_amimation, is_action, out_delay);
   if (is_action) {
     model->getMixer()->executeAction(id_amimation, in_delay, out_delay, 1.0f, false);
   }
   else {
     model->getMixer()->blendCycle(id_amimation, 1.0f, in_delay);
   }
-}
 
-void TCompSkeleton::deleteAnimation(int id_animation, bool is_action, float out_delay) {
+  bool first_animation = true;
+
   auto mixer = model->getMixer();
   for (auto a : mixer->getAnimationActionList()) {
-    auto core = (CGameCoreSkeleton*)model->getCoreModel();
-    int id = core->getCoreAnimationId(a->getCoreAnimation()->getName());
-    a->remove(out_delay);
+    if (first_animation) {
+      first_animation = false;
+    }
+    else {
+      auto core = (CGameCoreSkeleton*)model->getCoreModel();
+      int id = core->getCoreAnimationId(a->getCoreAnimation()->getName());
+      a->remove(out_delay);
+    }
   }
+
+  first_animation = true;
 
   for (auto a : mixer->getAnimationCycle()) {
-    auto core = (CGameCoreSkeleton*)model->getCoreModel();
-    int id = core->getCoreAnimationId(a->getCoreAnimation()->getName());
-    mixer->clearCycle(id, out_delay);
-
+    if (first_animation) {
+      first_animation = false;
+    }
+    else {
+      auto core = (CGameCoreSkeleton*)model->getCoreModel();
+      int id = core->getCoreAnimationId(a->getCoreAnimation()->getName());
+      mixer->clearCycle(id, out_delay);
+    }
   }
-  /*if (is_action) {
-
-  }
-  else {
-
-  }*/
 }
 
 void TCompSkeleton::renderDebug() {
