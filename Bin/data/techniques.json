@@ -109,7 +109,7 @@
     "ps_file": "data/shaders/pbr.fx",
     "vs_entry_point": "VS_GBufferSkin",
     "ps_entry_point": "PS_GBuffer",
-    "vertex_type": "PosNUvUvT",
+    "vertex_type": "PosNUvUvTanSkin",
     "category" : "gbuffer",
     "textures" : { 
       "environment" : "data/textures/cubemaps/env.dds", 
