@@ -43,7 +43,7 @@
   "shadows": {
     "vs_file": "data/shaders/shadows.fx",
     "vs_entry_point": "VS",
-    "vertex_type": "PosNUv",
+    "vertex_type": "Pos",
     "ps_entry_point": "",
     "rs_config": "shadows",
     "category": "shadows"
@@ -56,7 +56,14 @@
     "rs_config": "shadows",
     "category": "shadows"
   },
-
+  "shadows_instanced": {
+    "vs_file": "data/shaders/shadows.fx",
+    "vs_entry_point": "VS_Instanced",
+    "vertex_type": "Pos_x_Instance",
+    "ps_entry_point": "",
+    "rs_config": "shadows",
+    "category": "shadows"
+  },
 
   "dump_texture": {
     "vs_file": "data/shaders/screen_quad.fx",
@@ -102,7 +109,7 @@
     "ps_file": "data/shaders/pbr.fx",
     "vs_entry_point": "VS_GBufferSkin",
     "ps_entry_point": "PS_GBuffer",
-    "vertex_type": "PosNUvUvTanSkin",
+    "vertex_type": "PosNUvUvT",
     "category" : "gbuffer",
     "textures" : { 
       "environment" : "data/textures/cubemaps/env.dds", 
@@ -159,6 +166,16 @@
     "z": "test_equal",
     "category": "pbr_skybox"
   },
+  "pbr_instanced": {
+    "vs_file": "data/shaders/pbr_instanced.fx",
+    "vs_entry_point": "VS_GBufferInstanced",
+    "ps_file": "data/shaders/pbr.fx",
+    "ps_entry_point": "PS_GBuffer",
+    "vertex_type": "PosNUvUvT_x_Instance",
+    "category": "gbuffer"
+  },
+
+
   "blur": {
     "vs_file": "data/shaders/blur.fx",
     "ps_file": "data/shaders/blur.fx",

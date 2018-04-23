@@ -28,6 +28,24 @@ SamplerComparisonState samPCF : register(s2);
 SamplerState samClampLinear   : register(s3);
 
 //--------------------------------------------------------------------------------------
+// 
+//--------------------------------------------------------------------------------------
+// Should match the vertex_declaration.cpp @ createNew("Instance", ...
+struct TInstanceWorldData {
+  float4 InstanceWorld0 : TEXCOORD2;     // Stream 1
+  float4 InstanceWorld1 : TEXCOORD3;    // Stream 1
+  float4 InstanceWorld2 : TEXCOORD4;    // Stream 1
+  float4 InstanceWorld3 : TEXCOORD5;    // Stream 1
+};
+
+// Build a World matrix from the instance information
+float4x4 getWorldOfInstance( TInstanceWorldData d ) {
+  return float4x4(d.InstanceWorld0, d.InstanceWorld1, d.InstanceWorld2, d.InstanceWorld3 );  
+}
+
+//--------------------------------------------------------------------------------------
+// 
+//--------------------------------------------------------------------------------------
 float4x4 getSkinMtx( int4 iBones, float4 iWeights ) {
   // This matrix will be reused for the position, Normal, Tangent, etc
   return  Bones[iBones.x] * iWeights.x
@@ -37,9 +55,13 @@ float4x4 getSkinMtx( int4 iBones, float4 iWeights ) {
 }
 
 //--------------------------------------------------------------------------------------
+// 
+//--------------------------------------------------------------------------------------
 float2 hash2( float n ) { return frac(sin(float2(n,n+1.0))*float2(43758.5453123,22578.1459123)); }
 
-// ----------------------------------------
+//--------------------------------------------------------------------------------------
+// 
+//--------------------------------------------------------------------------------------
 float shadowsTap( float2 homo_coord, float coord_z ) {
   return txLightShadowMap.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
 }
@@ -101,6 +123,9 @@ float computeShadowFactor( float3 wPos ) {
   return shadow_factor / 12.f;
 }
 
+//--------------------------------------------------------------------------------------
+// 
+//--------------------------------------------------------------------------------------
 float3x3 computeTBN( float3 inputN, float4 inputT ) {
   // Prepare a 3x3 matrix to convert from tangent space to world space
   float3 N = inputN; 
@@ -125,8 +150,9 @@ float3 computeNormalMap( float3 inputN, float4 inputT, float2 inUV ) {
 }
 
 
-// ------------------------------------------------------
+//--------------------------------------------------------------------------------------
 // screen_coords va entre 0..1024
+//--------------------------------------------------------------------------------------
 float3 getWorldCoords(float2 screen_coords, float zlinear_normalized) {
 
 /*

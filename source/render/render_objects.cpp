@@ -247,28 +247,33 @@ void setWorldTransform(MAT44 new_matrix, VEC4 new_color) {
 }
 
 void renderMesh(const CRenderMesh* mesh, MAT44 new_matrix, VEC4 color) {
-	assert(mesh);
-	auto vdecl = mesh->getVertexDecl();
-	assert(vdecl);
-	const char* tech_name = "solid.tech";
-	if (vdecl->name == "PosNUv")
-		tech_name = "solid_objs.tech";
-	else if (vdecl->name == "PosNUvUvT")
-		tech_name = "solid_objs_uv2.tech";
-	else if (vdecl->name == "PosNUvSkin")
-		tech_name = "solid_objs_skin.tech";
-	else if (vdecl->name == "PosNUvUvTanSkin")
-		tech_name = "pbr_skin.tech";
 
-	auto prev_tech = CRenderTechnique::current;
-	auto tech = Resources.get(tech_name)->as<CRenderTechnique>();
-	tech->activate();
+  assert(mesh);
+  auto vdecl = mesh->getVertexDecl();
+  assert(vdecl);
+  const char* tech_name = nullptr;
+  if (vdecl->name == "PosNUv")
+    tech_name = "solid_objs.tech";
+  else if (vdecl->name == "PosNUvUvT")
+    tech_name = "solid_objs_uv2.tech";
+  else if (vdecl->name == "PosNUvSkin")
+    tech_name = "solid_objs_skin.tech";
+  else if (vdecl->name == "PosClr")
+    tech_name = "solid.tech";
+  else {
+    // Don't know how to render this type of vertex
+    return;
+  }
 
-	setWorldTransform(new_matrix, color);
+  auto prev_tech = CRenderTechnique::current;
+  auto tech = Resources.get(tech_name)->as<CRenderTechnique>();
+  tech->activate();
+  
+  setWorldTransform(new_matrix, color);
 
-	mesh->activateAndRender();
+  mesh->activateAndRender();
 
-	prev_tech->activate();
+  prev_tech->activate();
 }
 
 // ---------------------------------------------
