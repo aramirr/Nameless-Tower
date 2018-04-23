@@ -197,5 +197,13 @@
     "vertex_type": "PosClr",
     "category": "fx",
     "z": "disable_all"
+  },
+
+  "particles": {
+    "vs_file": "data/shaders/particles.fx",
+    "vertex_type": "Pos_x_RenderParticle",
+    "category": "particles",
+    "blend": "combinative",
+    "z": "test_but_no_write"
   }
 }

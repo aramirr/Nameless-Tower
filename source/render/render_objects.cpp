@@ -177,6 +177,24 @@ CRenderMesh* createUnitQuadXY() {
 	return mesh;
 }
 
+// ----------------------------------
+// Full screen quad to dump textures in screen
+CRenderMesh* createUnitQuadPosXY() {
+  const std::vector<VEC3> vtxs = {
+      VEC3(0, 0, 0) 
+    , VEC3(1, 0, 0) 
+    , VEC3(0, 1, 0) 
+    , VEC3(1, 1, 0) 
+  };
+  CRenderMesh* mesh = new CRenderMesh;
+  if (!mesh->create(vtxs.data(), vtxs.size() * sizeof(VEC3), "Pos"
+    , CRenderMesh::TRIANGLE_STRIP
+  ))
+    return nullptr;
+  return mesh;
+}
+
+
 // --------------------------
 void registerMesh(CRenderMesh* new_mesh, const char* name) {
 	new_mesh->setNameAndClass(name, getResourceClassOf<CRenderMesh>());
@@ -185,59 +203,64 @@ void registerMesh(CRenderMesh* new_mesh, const char* name) {
 
 bool createRenderObjects() {
 
-	registerMesh(createAxis(), "axis.mesh");
-	registerMesh(createGridXZ(20), "grid.mesh");
-	registerMesh(createLineZ(), "line.mesh");
-	registerMesh(createUnitCircleXZ(32), "circle_xz.mesh");
-	registerMesh(createCameraFrustum(), "unit_frustum.mesh");
-	registerMesh(createWiredUnitCube(), "wired_unit_cube.mesh");
-	registerMesh(createUnitQuadXY(), "unit_quad_xy.mesh");
-
-	return true;
+  registerMesh(createAxis(), "axis.mesh");
+  registerMesh(createGridXZ(20), "grid.mesh");
+  registerMesh(createLineZ(), "line.mesh");
+  registerMesh(createUnitCircleXZ(32), "circle_xz.mesh");
+  registerMesh(createCameraFrustum(), "unit_frustum.mesh");
+  registerMesh(createWiredUnitCube(), "wired_unit_cube.mesh");
+  registerMesh(createUnitQuadXY(), "unit_quad_xy.mesh");
+  registerMesh(createUnitQuadPosXY(), "unit_quad_pos_xy.mesh");
+  
+  return true;
 }
 
 void destroyRenderObjects() {
 }
 
 void activateCamera(CCamera& camera, int width, int height) {
-	assert(width > 0);
-	assert(height > 0);
-	camera.setViewport(0, 0, width, height);
-	cb_camera.camera_view = camera.getView();
-	cb_camera.camera_proj = camera.getProjection();
-	cb_camera.camera_view_proj = camera.getViewProjection();
-	cb_camera.camera_pos = camera.getPosition();
-	cb_camera.camera_dummy1 = 1.f;
-	cb_camera.camera_front = camera.getFront();
-	cb_camera.camera_dummy2 = 0.f;
+  assert(width > 0);
+  assert(height > 0);
+  camera.setViewport(0, 0, width, height);
+  cb_camera.camera_view = camera.getView();
+  cb_camera.camera_proj = camera.getProjection();
+  cb_camera.camera_view_proj = camera.getViewProjection();
+  cb_camera.camera_pos = camera.getPosition();
+  cb_camera.camera_dummy1 = 1.f;
+  cb_camera.camera_front = camera.getFront();
+  cb_camera.camera_dummy2 = 0.f;
+  cb_camera.camera_left = camera.getLeft();
+  cb_camera.camera_dummy3 = 0.f;
+  cb_camera.camera_up = camera.getUp();
+  cb_camera.camera_dummy4 = 0.f;
 
-	cb_camera.camera_zfar = camera.getZFar();
-	cb_camera.camera_znear = camera.getZNear();
-	cb_camera.camera_tan_half_fov = tan(camera.getFov() * 0.5f);
-	cb_camera.camera_aspect_ratio = camera.getAspectRatio();
+  cb_camera.camera_zfar = camera.getZFar();
+  cb_camera.camera_znear = camera.getZNear();
+  cb_camera.camera_tan_half_fov = tan( camera.getFov() * 0.5f );
+  cb_camera.camera_aspect_ratio = camera.getAspectRatio();
 
-	cb_camera.camera_inv_resolution = VEC2(1.0f / (float)width, 1.0f / (float)height);
+  cb_camera.camera_inv_resolution = VEC2(1.0f / (float)width, 1.0f / (float)height);
 
-	// Simplify conversion from screen coords to world coords 
-	MAT44 m = MAT44::CreateScale(-cb_camera.camera_inv_resolution.x * 2.f, -cb_camera.camera_inv_resolution.y * 2.f, 1.f)
-		* MAT44::CreateTranslation(1, 1, 0)
-		* MAT44::CreateScale(cb_camera.camera_tan_half_fov * cb_camera.camera_aspect_ratio, cb_camera.camera_tan_half_fov, 1.f)
-		* MAT44::CreateScale(cb_camera.camera_zfar)
-		;
+  // Simplify conversion from screen coords to world coords 
+  MAT44 m = MAT44::CreateScale(-cb_camera.camera_inv_resolution.x * 2.f, -cb_camera.camera_inv_resolution.y * 2.f, 1.f)
+    * MAT44::CreateTranslation(1, 1, 0)
+    * MAT44::CreateScale(cb_camera.camera_tan_half_fov * cb_camera.camera_aspect_ratio, cb_camera.camera_tan_half_fov, 1.f)
+    * MAT44::CreateScale(cb_camera.camera_zfar)
+    ;
 
-	// Now the transform local to world coords part
-	// float3 wPos =
-	//     CameraFront.xyz * view_dir.z
-	//   + CameraLeft.xyz  * view_dir.x
-	//   + CameraUp.xyz    * view_dir.y
-	MAT44 mtx_axis = MAT44::Identity;
-	mtx_axis.Forward(-camera.getFront());      // -getFront() because MAT44.Forward negates our input
-	mtx_axis.Left(-camera.getLeft());
-	mtx_axis.Up(camera.getUp());
+  // Now the transform local to world coords part
+  // float3 wPos =
+  //     CameraFront.xyz * view_dir.z
+  //   + CameraLeft.xyz  * view_dir.x
+  //   + CameraUp.xyz    * view_dir.y
+  MAT44 mtx_axis = MAT44::Identity;
+  mtx_axis.Forward(-camera.getFront());      // -getFront() because MAT44.Forward negates our input
+  mtx_axis.Left(-camera.getLeft());
+  mtx_axis.Up(camera.getUp());
 
-	cb_camera.camera_screen_to_world = m * mtx_axis;
+  cb_camera.camera_screen_to_world = m * mtx_axis;
 
-	cb_camera.updateGPU();
+  cb_camera.updateGPU();
 }
 
 void setWorldTransform(MAT44 new_matrix, VEC4 new_color) {

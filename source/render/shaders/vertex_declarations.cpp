@@ -135,12 +135,24 @@ bool CVertexDeclManager::create() {
   {
     static D3D11_INPUT_ELEMENT_DESC layout[] = {
       { "TEXCOORD", 2, DXGI_FORMAT_R32G32B32A32_FLOAT, 0,  0, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world0
-      { "TEXCOORD", 3, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 16, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world1
-      { "TEXCOORD", 4, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 32, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world2
-      { "TEXCOORD", 5, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 48, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world3
-      { "TEXCOORD", 6, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 64, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // life, time_blending_out
+    { "TEXCOORD", 3, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 16, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world1
+    { "TEXCOORD", 4, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 32, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world2
+    { "TEXCOORD", 5, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 48, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world3
+    { "TEXCOORD", 6, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 64, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // life, time_blending_out
     };
     createNew("InstanceColored", layout, ARRAYSIZE(layout));
+  }
+
+  { // To render simple particles: TRenderParticle
+    static D3D11_INPUT_ELEMENT_DESC layout[] = {
+    // Pos.xyz + angle
+    { "TEXCOORD", 1, DXGI_FORMAT_R32G32B32A32_FLOAT, 0,  0, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world0
+    // Color
+    { "TEXCOORD", 2, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 16, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world1
+    // scale_x, scale_y, nframe
+    { "TEXCOORD", 3, DXGI_FORMAT_R32G32B32_FLOAT, 0, 32, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world1
+    };
+    createNew("RenderParticle", layout, ARRAYSIZE(layout));
   }
 
   return true;

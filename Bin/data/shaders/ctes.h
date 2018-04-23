@@ -68,6 +68,10 @@ CB_DEF(CCteCamera, CB_CAMERA)   // Generates the b0
   float camera_dummy1;
   VEC3  camera_front;
   float camera_dummy2;
+  VEC3  camera_left;
+  float camera_dummy3;
+  VEC3  camera_up;
+  float camera_dummy4;
 
   float camera_zfar;
   float camera_znear;
@@ -75,8 +79,8 @@ CB_DEF(CCteCamera, CB_CAMERA)   // Generates the b0
   float camera_aspect_ratio;
 
   VEC2  camera_inv_resolution;
-  float camera_dummy3;
-  float camera_dummy4;
+  float camera_dummy5;
+  float camera_dummy6;
 };
 
 CB_DEF(CCteObject, CB_OBJECT)   // Generates the b1
