@@ -125,7 +125,10 @@
     <ClCompile Include="geometry\transform.cpp" />
     <ClCompile Include="gui\gui_parser.cpp" />
     <ClCompile Include="gui\gui_widget.cpp" />
+    <ClCompile Include="gui\widgets\gui_bar.cpp" />
+    <ClCompile Include="gui\widgets\gui_button.cpp" />
     <ClCompile Include="gui\widgets\gui_image.cpp" />
+    <ClCompile Include="gui\widgets\gui_text.cpp" />
     <ClCompile Include="handle\handle_def.cpp" />
     <ClCompile Include="handle\handle_manager.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
@@ -233,7 +236,10 @@
     <ClInclude Include="gui\gui_params.h" />
     <ClInclude Include="gui\gui_parser.h" />
     <ClInclude Include="gui\gui_widget.h" />
+    <ClInclude Include="gui\widgets\gui_bar.h" />
+    <ClInclude Include="gui\widgets\gui_button.h" />
     <ClInclude Include="gui\widgets\gui_image.h" />
+    <ClInclude Include="gui\widgets\gui_text.h" />
     <ClInclude Include="handle\handle.h" />
     <ClInclude Include="handle\handle_def.h" />
     <ClInclude Include="handle\handle_manager.h" />

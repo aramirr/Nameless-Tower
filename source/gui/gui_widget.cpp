@@ -50,9 +50,8 @@ void CWidget::computeLocal()
 {
   MAT44 tr = MAT44::CreateTranslation(_params._position.x, _params._position.y, 0.f);
   MAT44 rot = MAT44::CreateFromYawPitchRoll(0.f, 0.f, _params._rotation);
-  MAT44 sz = MAT44::CreateScale(_params._size.x, _params._size.y, 1.f);
   MAT44 sc = MAT44::CreateScale(_params._scale.x, _params._scale.y, 1.f);
-  _local = rot * sz * sc * tr;
+  _local = rot * sc * tr;
 }
 
 void CWidget::computeAbsolute()
@@ -66,6 +65,9 @@ void CWidget::computeAbsolute()
   {
     _absolute = _local;
   }
+  // update my children absolutes
+  /*for (auto& child : _children)
+    child->computeAbsolute();*/
 }
 
 void CWidget::updateAll(float delta)

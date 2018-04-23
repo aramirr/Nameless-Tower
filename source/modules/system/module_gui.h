@@ -2,6 +2,7 @@
 
 #include "modules/module.h"
 #include "gui/gui_widget.h"
+#include "utils/variant.h"
 
 class CModuleGUI : public IModule
 {
@@ -18,14 +19,18 @@ public:
   void activateWidget(const std::string& name);
 
   CCamera& getCamera();
+  MVariants& getVariables();
 
-  void renderTexture(const MAT44& world, const CTexture* texture);
+  void renderTexture(const MAT44& world, const CTexture* texture, const VEC2& minUV, const VEC2& maxUV, const VEC4& color);
+  void renderText(const MAT44& world, const std::string& text);
 
 private:
   CCamera _orthoCamera;
   const CRenderTechnique* _technique = nullptr;
   const CRenderMesh* _quadMesh = nullptr;
+  const CTexture* _fontTexture = nullptr;
   
   GUI::VWidgets _registeredWidgets;
   GUI::VWidgets _activeWidgets;
+  MVariants _variables;
 };

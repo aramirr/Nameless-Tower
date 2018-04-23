@@ -17,6 +17,7 @@ bool CModuleGUI::start()
 
   _technique = Resources.get("gui.tech")->as<CRenderTechnique>();
   _quadMesh = Resources.get("unit_quad_xy.mesh")->as<CRenderMesh>();
+  _fontTexture = Resources.get("data/textures/gui/font.dds")->as<CTexture>();
 
   CParser parser;
   parser.parseFile("data/gui/test.json");
@@ -24,7 +25,9 @@ bool CModuleGUI::start()
   parser.parseFile("data/gui/gameplay.json");
   parser.parseFile("data/gui/game_over.json");*/
 
-  activateWidget("test_image");
+  activateWidget("test");
+
+  _variables.setVariant("progress", 0.5f);
 
   return true;
 }
@@ -41,6 +44,18 @@ void CModuleGUI::update(float delta)
   {
     wdgt->updateAll(delta);
   }
+
+  // change bar value
+  float value = _variables.getFloat("progress");
+  if (EngineInput[VK_LEFT].isPressed())
+  {
+    value = clamp(value - 0.5f * delta, 0.f, 1.f);
+  }
+  if (EngineInput[VK_RIGHT].isPressed())
+  {
+    value = clamp(value + 0.5f * delta, 0.f, 1.f);
+  }
+  _variables.setVariant("progress", value);
 }
 
 void CModuleGUI::renderGUI()
@@ -82,22 +97,23 @@ CCamera& CModuleGUI::getCamera()
   return _orthoCamera;
 }
 
-void CModuleGUI::renderTexture(const MAT44& world, const CTexture* texture)
+MVariants& CModuleGUI::getVariables()
 {
-  //auto* tech = Resources.get("gui.tech")->as<CRenderTechnique>();
-  //auto* texture = Resources.get("data/textures/fieldstone-c.dds")->as<CTexture>();
-  //auto* mesh = Resources.get("unit_quad_xy.mesh")->as<CRenderMesh>();
+  return _variables;
+}
 
-  //MAT44 tr = MAT44::CreateTranslation(10, 50, 0);
-  //MAT44 rot = MAT44::CreateFromYawPitchRoll(0, 0, 0);
-  //MAT44 sc = MAT44::CreateScale(480, 320, 1);
-  //MAT44 world = sc * rot * tr;
-
+void CModuleGUI::renderTexture(const MAT44& world, const CTexture* texture, const VEC2& minUV, const VEC2& maxUV, const VEC4& color)
+{
   assert(_technique && _quadMesh);
 
   cb_object.obj_world = world;
   cb_object.obj_color = VEC4(1, 1, 1, 1);
   cb_object.updateGPU();
+
+  cb_gui.minUV = minUV;
+  cb_gui.maxUV = maxUV;
+  cb_gui.tint_color = color;
+  cb_gui.updateGPU();
 
   _technique->activate();
   if (texture)
@@ -106,3 +122,26 @@ void CModuleGUI::renderTexture(const MAT44& world, const CTexture* texture)
   _quadMesh->activateAndRender();
 }
 
+void CModuleGUI::renderText(const MAT44& world, const std::string& text)
+{
+  assert(_fontTexture);
+
+  int cellsPerRow = 8;
+  float cellSize = 1.f / 8.f;
+  char firstCharacter = ' ';
+  for (size_t i = 0; i < text.size(); ++i)
+  {
+    char c = text[i];
+
+    int cell = c - firstCharacter;
+    int row = cell / cellsPerRow;
+    int col = cell % cellsPerRow;
+
+    VEC2 minUV = VEC2(col * cellSize, row * cellSize);
+    VEC2 maxUV = minUV + VEC2(1, 1) * cellSize;
+    VEC2 gap = i * VEC2(1, 0);
+    MAT44 w = MAT44::CreateTranslation(gap.x, gap.y, 0.f) * world;
+
+    renderTexture(w, _fontTexture, minUV, maxUV, VEC4(1, 1, 1, 1));
+  }
+}

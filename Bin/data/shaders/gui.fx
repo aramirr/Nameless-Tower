@@ -24,6 +24,8 @@ float4 PS_GUI(
   VS_FULL_OUTPUT input
   ) : SV_Target
 {
-  float4 oDiffuse = txAlbedo.Sample(samLinear, input.UV);
-  return oDiffuse;
+  float2 finalUV = lerp(minUV, maxUV, input.UV);
+  float4 oDiffuse = txAlbedo.Sample(samLinear, finalUV);
+  float4 oColor = float4(oDiffuse.rgb * tint_color, oDiffuse.a); 
+  return oColor;
 }

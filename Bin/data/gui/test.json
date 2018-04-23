@@ -1,17 +1,186 @@
 [
 	{
-		"name" : "test_image",
-		"type" : "image",
+		"name" : "test",
+		"type" : "widget",
 		"params" : {
 			"visible" : true,
-			"position" : "1000 50",
-			"rotation" : 90.0,
-			"size" : "480 320",
-			"scale" : "2 1"
+			"position" : "0 0",
+			"rotation" : 0.0,
+			"size" : "1920 1080",
+			"scale" : "1 1"
 		},
-		"image_params" : {
-			"texture" : "data/textures/wood_d.dds",
-			"color" : "1 1 1 1"
-		}
+		"children" : [
+			{
+				"name" : "test_image",
+				"type" : "image",
+				"params" : {
+					"visible" : true,
+					"position" : "0 0",
+					"rotation" : 0.0,
+					"size" : "1920 1080",
+					"scale" : "1 1"
+				},
+				"image_params" : {
+					"texture" : "data/textures/gui/menu_anim_background.dds",
+					"color" : "1 1 1 1",
+					"minUV" : "0 0",
+					"maxUV" : "0.5 1"
+				}
+			},
+			{
+				"name" : "test_text",
+				"type" : "text",
+				"params" : {
+					"visible" : true,
+					"position" : "10 10",
+					"rotation" : 0.0,
+					"size" : "1 1",
+					"scale" : "1 1"
+				},
+				"text_params" : {
+					"size" : 30.0,
+					"font" : "arial",
+					"text" : "HELLO WORLD",
+					"color" : "1 1 1 1",
+					"alignment" : "left"
+				}
+			},
+			{
+				"name" : "test_bar",
+				"type" : "widget",
+				"params" : {
+					"visible" : true,
+					"position" : "100 200",
+					"rotation" : 0.0,
+					"size" : "1 1",
+					"scale" : "1 1"
+				},
+				"children" : [
+					{
+						"name" : "background",
+						"type" : "image",
+						"params" : {
+							"visible" : true,
+							"position" : "100 200",
+							"rotation" : 0.0,
+							"size" : "200 50",
+							"scale" : "1 1"
+						},
+						"image_params" : {
+							"texture" : "data/textures/gui/battery_empty.dds",
+							"color" : "1 1 1 1",
+							"minUV" : "0 0",
+							"maxUV" : "1 1"
+						}
+					},
+					{
+						"name" : "foreground",
+						"type" : "bar",
+						"params" : {
+							"visible" : true,
+							"position" : "100 200",
+							"rotation" : 0.0,
+							"size" : "200 50",
+							"scale" : "1 1"
+						},
+						"image_params" : {
+							"texture" : "data/textures/gui/battery_full.dds",
+							"color" : "1 1 1 1",
+							"minUV" : "0 0",
+							"maxUV" : "1 1"
+						},
+						"bar_params" : {
+							"direction" : "horizontal",
+							"variable" : "progress"
+						}
+					}
+				]
+			},
+			{
+				"name" : "test_buttons",
+				"type" : "widget",
+				"params" : {
+					"visible" : true,
+					"position" : "0 0",
+					"rotation" : 0.0,
+					"size" : "1 1",
+					"scale" : "1 1"
+				},
+				"children" : [
+					{
+						"name" : "background",
+						"type" : "button",
+						"params" : {
+							"visible" : true,
+							"position" : "810 540",
+							"rotation" : 0.0,
+							"size" : "300 50",
+							"scale" : "1 1"
+						},
+						"image_params" : {
+							"texture" : "data/textures/gui/menu_boton.dds",
+							"color" : "1 1 1 1",
+							"minUV" : "0 0",
+							"maxUV" : "1 1"
+						},
+						"text_params" : {
+							"size" : 30.0,
+							"font" : "arial",
+							"text" : "NEW GAME",
+							"color" : "1 1 1 1",
+							"alignment" : "center"
+						}
+					},
+					{
+						"name" : "background",
+						"type" : "button",
+						"params" : {
+							"visible" : true,
+							"position" : "810 640",
+							"rotation" : 0.0,
+							"size" : "300 50",
+							"scale" : "1 1"
+						},
+						"image_params" : {
+							"texture" : "data/textures/gui/menu_boton.dds",
+							"color" : "1 1 1 1",
+							"minUV" : "0 0",
+							"maxUV" : "1 1"
+						},
+						"text_params" : {
+							"size" : 30.0,
+							"font" : "arial",
+							"text" : "CONTINUE",
+							"color" : "1 1 1 1",
+							"alignment" : "center"
+						}
+					},
+					{
+						"name" : "background",
+						"type" : "button",
+						"params" : {
+							"visible" : true,
+							"position" : "810 740",
+							"rotation" : 0.0,
+							"size" : "300 50",
+							"scale" : "1 1"
+						},
+						"image_params" : {
+							"texture" : "data/textures/gui/menu_boton.dds",
+							"color" : "1 1 1 1",
+							"minUV" : "0 0",
+							"maxUV" : "1 1"
+						},
+						"text_params" : {
+							"size" : 30.0,
+							"font" : "arial",
+							"text" : "OPTIONS",
+							"color" : "1 1 1 1",
+							"alignment" : "center"
+						}
+					}
+				]
+			}
+		]
 	}
 ]

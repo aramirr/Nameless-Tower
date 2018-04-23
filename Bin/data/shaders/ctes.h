@@ -9,6 +9,7 @@
 #define CB_LIGHT        3
 #define CB_GLOBALS      4
 #define CB_MATERIAL     5
+#define CB_GUI          6
 
 // -------------------------------------------------
 // Texture Slots
@@ -122,6 +123,13 @@ CB_DEF(CCteMaterial, CB_MATERIAL)
   float  scalar_metallic;
   float  scalar_irradiance_vs_mipmaps;
   float  material_dummy;
+};
+
+CB_DEF(CCteGUI, CB_GUI)
+{
+  VEC2 minUV;
+  VEC2 maxUV;
+  VEC4 tint_color;
 };
 
 

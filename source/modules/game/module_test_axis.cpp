@@ -46,11 +46,15 @@ bool CModuleTestAxis::start()
   cb_globals.global_hdr_enabled = 1.f;
   cb_globals.global_gamma_correction_enabled = 1.f;
   cb_globals.global_tone_mapping_mode = 1.f;
+  // -------------------------------------------
+  if (!cb_gui.create(CB_GUI))
+    return false;
 
   cb_light.activate();
   cb_object.activate();
   cb_camera.activate();
   cb_globals.activate();
+  cb_gui.activate();
 
   return true;
 }
