@@ -288,6 +288,7 @@
     <ClInclude Include="fsm\player_states\omnidash_state.h" />
     <ClInclude Include="fsm\player_states\omnijump_state.h" />
     <ClInclude Include="fsm\player_states\pause_state.h" />
+    <ClInclude Include="fsm\player_states\player_state.h" />
     <ClInclude Include="fsm\player_states\run_state.h" />
     <ClInclude Include="fsm\player_states\windstrike_state.h" />
     <ClInclude Include="fsm\state.h" />

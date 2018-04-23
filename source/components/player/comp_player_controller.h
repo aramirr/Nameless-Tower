@@ -28,13 +28,23 @@ public:
 	CHandle         h_collider;        // Cached
 
 	enum EAnimations {
-		ERun = 0
-		, EIdle
-		, EJump
-		, EOmni
-		, EDash
-		, EDead
-		, EAnimations
+		NajaRun = 0
+		, NajaIdle
+		, NajaGlide
+		, NajaJumpUp
+		, NajaJumpLand
+		, NajaJumpFall
+		, NajaOmniPrep
+		, NajaOmniAb
+		, NajaOmniAr
+		, NajaOmniDe
+		, NajaOmniFr
+		, NajaDashUp
+		, NajaDashLand
+		, NajaDashFall
+		, NajaWalk
+		, NajaWindstrike,
+		EAnimations
 	};
 
   void debugInMenu();

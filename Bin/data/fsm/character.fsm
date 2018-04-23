@@ -4,7 +4,10 @@
 		{
 			"name" : "idle",
 			"type" : "IdleState",
-			"animation" : "idle"
+			"animation" : "idle",
+			"is_action": false,
+			"delay_in": 0.01,
+			"delay_out": 0.01
 		},
 		{
 			"name" : "initial",
@@ -14,27 +17,42 @@
 			"name" : "run",
 			"type" : "RunState",
 			"animation" : "walk",
-			"x_speed" : 2.5
+			"x_speed" : 2.5,
+			"is_action": false,
+			"delay_in": 0.01,
+			"delay_out": 0.01
 		},
 		{
 			"name" : "jump",
 			"type" : "JumpState",
 			"y_speed" : 12.6,
-			"x_speed" : 2.5
+			"x_speed" : 2.5,
+			"is_action": true,
+			"delay_in": 0.01,
+			"delay_out": 0.01
 		},
 		{
 			"name" : "falling",
 			"type" : "FallingState",
-			"x_speed" : 2.5
+			"x_speed" : 2.5,
+			"is_action": true,
+			"delay_in": 0.01,
+			"delay_out": 0.01
 		},
 		{
 			"name" : "dash",
 			"type" : "DashState",
-			"x_speed": 6
+			"x_speed": 6,
+			"is_action": true,
+			"delay_in": 0.01,
+			"delay_out": 0.01
 		},
 		{
 			"name" : "windstrike",
-			"type" : "WindstrikeState"
+			"type" : "WindstrikeState",
+			"is_action": true,
+			"delay_in": 0.01,
+			"delay_out": 0.01
 		},
 		{
 			"name" : "omnidash",
@@ -57,7 +75,10 @@
 		{
 			"name" : "glide",
 			"type" : "GlideState",
-			"x_speed" : 2			
+			"x_speed" : 2,
+			"is_action": false,
+			"delay_in": 0.01,
+			"delay_out": 0.01			
 		}
 	],
 	"transitions" : [

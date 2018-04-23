@@ -14,7 +14,7 @@ namespace FSM
 		ctx.setVariable("is_grounded", false);
 		player->is_grounded = false;
 		player->jumping_start_height = c_my_transform->getPosition().y;
-		player->change_mesh(2);
+		player->change_animation(player->EAnimations::NajaJumpUp, _is_action, _delay_in, _delay_out);
 		player->y_speed_factor = _y_speed;
 	}
 
@@ -22,6 +22,9 @@ namespace FSM
 	{
 		_y_speed = jData.value("y_speed", 12.f);
 		_x_speed = jData.value("x_speed", 2.f);
+		_is_action = jData.value("is_action", false);
+		_delay_out = jData.value("delay_out", 0.01f);
+		_delay_in = jData.value("delay_out", 0.01f);
 		return true;
 	}
 

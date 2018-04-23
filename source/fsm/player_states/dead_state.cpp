@@ -11,12 +11,15 @@ namespace FSM
 	{
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_mesh(player->EAnimations::EDead);	
+		//player->change_mesh(player->EAnimations::EDead);	
 		ctx.setVariable("hit", false);
 	}
 
 	bool DeadState::load(const json& jData)
 	{
+		_is_action = jData.value("is_action", false);
+		_delay_out = jData.value("delay_out", 0.01f);
+		_delay_in = jData.value("delay_out", 0.01f);
 		return true;
 	}
 

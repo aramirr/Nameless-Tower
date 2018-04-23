@@ -1,10 +1,11 @@
 #pragma once
 
 #include "fsm/state.h"
+#include "fsm/player_states/player_state.h"
 
 namespace FSM
 {
-	class GlideState : public IState
+	class GlideState : public PlayerState
 	{
 		void onStart(CContext& ctx) const override;
 		bool load(const json& jData) override;
