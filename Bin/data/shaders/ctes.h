@@ -34,6 +34,16 @@
 #define TS_DEFERRED_LINEAR_DEPTH      12
 #define TS_DEFERRED_ACC_LIGHTS        13
 
+#define TS_FIRST_SLOT_MATERIAL_0      TS_ALBEDO
+#define TS_FIRST_SLOT_MATERIAL_1      TS_ALBEDO1
+// 17,18,19 goes for extra textures of second material
+#define TS_FIRST_SLOT_MATERIAL_2      TS_ALBEDO2
+
+#define TS_ALBEDO1 16
+#define TS_NORMAL1 17
+#define TS_ALBEDO2 20
+#define TS_NORMAL2 21
+
 // -------------------------------------------------
 #define RO_COMPLETE     0
 #define RO_ALBEDO       1
@@ -136,6 +146,11 @@ CB_DEF(CCteMaterial, CB_MATERIAL)
   float  scalar_metallic;
   float  scalar_irradiance_vs_mipmaps;
   float  material_dummy;
+
+  float  mix_boost_r;
+  float  mix_boost_g;
+  float  mix_boost_b;
+  float  material_dummy2;
 };
 
 CB_DEF(CCteBlur, CB_BLUR)
