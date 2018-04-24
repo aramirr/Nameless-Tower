@@ -55,7 +55,7 @@ namespace FSM
 		float current_pitch;
 		float amount_moved = _x_speed * dt;
 		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-		current_yaw = current_yaw - (0.4f * player->omnidash_arrow.x * amount_moved);
+		current_yaw = current_yaw - (0.3f * player->omnidash_arrow.x * amount_moved);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 
 		PxShape* player_shape;
