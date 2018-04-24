@@ -131,6 +131,18 @@ void CModuleRender::render()
     ImGui::DragFloat("HDR", &cb_globals.global_hdr_enabled, 0.01f, 0.0f, 1.f);
     ImGui::DragFloat("Gamma Correction", &cb_globals.global_gamma_correction_enabled, 0.01f, 0.0f, 1.f);
     ImGui::DragFloat("Reinhard vs Uncharted2", &cb_globals.global_tone_mapping_mode, 0.01f, 0.0f, 1.f);
+
+    // Must be in the same order as the RO_* ctes
+    static const char* render_output_str =
+      "Complete\0"
+      "Albedo\0"
+      "Normal\0"
+      "Roughness\0"
+      "Metallic\0"
+      "World Pos\0"
+      "Depth Linear\0"
+      "\0";
+    ImGui::Combo("Output", &cb_globals.global_render_output, render_output_str);
     ImGui::TreePop();
   }
 }
