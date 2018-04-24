@@ -4,6 +4,7 @@
 #include <thread>
 #include <windows.h>
 #include <sys/stat.h>  
+#include <ctype.h>  
 
 class CDirectoyWatcher {
 	HANDLE    hDirectory;
@@ -65,6 +66,8 @@ public:
           while (*p) {
             if (*p == '\\')
               *p = '/';
+            else
+              *p = tolower(*p);
             ++p;
           }
 
