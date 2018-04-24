@@ -39,9 +39,7 @@ public:
 		, NajaOmniAr
 		, NajaOmniDe
 		, NajaOmniFr
-		, NajaDashUp
-		, NajaDashLand
-		, NajaDashFall
+		, NajaDash
 		, NajaWalk
 		, NajaWindstrike,
 		EAnimations

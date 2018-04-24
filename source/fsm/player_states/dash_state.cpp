@@ -10,7 +10,7 @@ namespace FSM
 		ctx.setVariable("can_dash", false);
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_animation(player->EAnimations::NajaDashUp, _is_action, _delay_in, _delay_out);
+		player->change_animation(player->EAnimations::NajaDash, _is_action, _delay_in, _delay_out);
 	}
 
 	bool DashState::load(const json& jData)

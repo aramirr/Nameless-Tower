@@ -148,6 +148,7 @@
     <ClCompile Include="fsm\player_states\idle_state.cpp" />
     <ClCompile Include="fsm\player_states\initial_state.cpp" />
     <ClCompile Include="fsm\player_states\jump_state.cpp" />
+    <ClCompile Include="fsm\player_states\landing_state.cpp" />
     <ClCompile Include="fsm\player_states\omnidash_state.cpp" />
     <ClCompile Include="fsm\player_states\omnijump_state.cpp" />
     <ClCompile Include="fsm\player_states\pause_state.cpp" />
@@ -285,6 +286,7 @@
     <ClInclude Include="fsm\player_states\idle_state.h" />
     <ClInclude Include="fsm\player_states\initial_state.h" />
     <ClInclude Include="fsm\player_states\jump_state.h" />
+    <ClInclude Include="fsm\player_states\landing_state.h" />
     <ClInclude Include="fsm\player_states\omnidash_state.h" />
     <ClInclude Include="fsm\player_states\omnijump_state.h" />
     <ClInclude Include="fsm\player_states\pause_state.h" />
