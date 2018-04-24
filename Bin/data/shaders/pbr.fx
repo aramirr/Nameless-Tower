@@ -81,32 +81,57 @@ void PS_GBufferMix(
 , float3 iNormal : NORMAL0
 , float4 iTangent : NORMAL1
 , float2 iTex0 : TEXCOORD0
-, float3 iWorldPos : TEXCOORD1
+, float2 iTex1 : TEXCOORD1
+, float3 iWorldPos : TEXCOORD2
 , out float4 o_albedo : SV_Target0
 , out float4 o_normal : SV_Target1
 , out float1 o_depth : SV_Target2
 )
 {
-
   // This is different -----------------------------------------
-  // iTex0 *= 4;
+  // Using second set of texture coords
+  float4 weight_texture_boost = txMixBlendWeights.Sample(samLinear, iTex1);	
+
   float4 albedoR = txAlbedo.Sample(samLinear, iTex0);
   float4 albedoG = txAlbedo1.Sample(samLinear, iTex0);
   float4 albedoB = txAlbedo2.Sample(samLinear, iTex0);
 
+  // Use the alpha of the albedo as heights + texture blending extra weights + material ctes extra weights (imgui)
   float w1, w2, w3;
-  computeBlendWeights( albedoR.a + mix_boost_r
-                     , albedoG.a + mix_boost_g
-                     , albedoB.a + mix_boost_b
+  computeBlendWeights( albedoR.a + mix_boost_r + weight_texture_boost.r
+                     , albedoG.a + mix_boost_g + weight_texture_boost.g
+                     , albedoB.a + mix_boost_b + weight_texture_boost.b
                      , w1, w2, w3 );
-  
+
+  // Use the weight to 'blend' the albedo colors
   float4 albedo = albedoR * w1 + albedoG * w2 + albedoB * w3;
   o_albedo.xyz = albedo.xyz;
 
-  // This is the same -----------------------------------------
-  o_albedo.a = txMetallic.Sample(samLinear, iTex0).r;
-  float3 N = computeNormalMap( iNormal, iTangent, iTex0 );
+  // Mix the normal
+  float3 normalR = txNormal.Sample(samLinear, iTex0).xyz * 2.0 - 1.0;
+  float3 normalG = txNormal1.Sample(samLinear, iTex0).xyz * 2.0 - 1.0;
+  float3 normalB = txNormal2.Sample(samLinear, iTex0).xyz * 2.0 - 1.0;
+  float3 normal_color = normalR * w1 + normalG * w2 + normalB * w3; 
+  float3x3 TBN = computeTBN( iNormal, iTangent );
 
+  // Normal map comes in the range 0..1. Recover it in the range -1..1
+  float3 wN = mul( normal_color, TBN );
+  float3 N = normalize( wN );
+
+  // Missing: Do the same with the metallic & roughness channels
+  // ...
+
+  // Possible plain blending without heights
+  //o_albedo.xyz = lerp( albedoB.xyz, albedoG.xyz, weight_texture_boost.y );
+  //o_albedo.xyz = lerp( o_albedo.xyz, albedoR.xyz, weight_texture_boost.x );
+
+  //o_albedo.xyz = float3( iTex1.xy, 0 );		// Show the texture coords1
+
+  //o_albedo.xyz = weight_texture_boost.xyz;	// Show the extra weight textures
+
+  o_albedo.a = txMetallic.Sample(samLinear, iTex0).r;
+
+  // This is the same -----------------------------------------
   // Save roughness in the alpha coord of the N render target
   float roughness = txRoughness.Sample(samLinear, iTex0).r;
   o_normal = encodeNormal( N, roughness );

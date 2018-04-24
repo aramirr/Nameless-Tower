@@ -33,6 +33,8 @@ Texture2D    txNormal2         SLOT( TS_NORMAL2 );
 //Texture2D    txMetallic2       SLOT( (TS_FIRST_SLOT_MATERIAL_2 + TS_METALLIC) );
 //Texture2D    txRoughness2      SLOT( (TS_FIRST_SLOT_MATERIAL_2 + TS_ROUGHNESS) );
 
+Texture2D    txMixBlendWeights SLOT( TS_MIX_BLEND_WEIGHTS );
+
 //--------------------------------------------------------------------------------------
 SamplerState samLinear        : register(s0);
 SamplerState samBorderLinear  : register(s1);

@@ -34,6 +34,9 @@
 #define TS_DEFERRED_LINEAR_DEPTH      12
 #define TS_DEFERRED_ACC_LIGHTS        13
 
+
+#define TS_MIX_BLEND_WEIGHTS          15
+
 #define TS_FIRST_SLOT_MATERIAL_0      TS_ALBEDO
 #define TS_FIRST_SLOT_MATERIAL_1      TS_ALBEDO1
 // 17,18,19 goes for extra textures of second material
