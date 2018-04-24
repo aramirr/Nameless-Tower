@@ -61,6 +61,7 @@ void PS_GBuffer(
   float roughness = txRoughness.Sample(samLinear, iTex0).r;
   o_normal = encodeNormal( N, roughness );
 
+  // REMOVE ALL THIS
   // Si el material lo pide, sobreescribir los valores de la textura
   // por unos escalares uniformes. Only to playtesting...
   if (scalar_metallic >= 0.f)
