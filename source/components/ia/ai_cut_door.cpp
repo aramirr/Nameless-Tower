@@ -26,8 +26,11 @@ void CAICutDoor::Init()
 
 void CAICutDoor::debugInMenu() {
 	IAIController::debugInMenu();
+	CTransform* t = getMyTransform();
+	VEC3 pos = t->getPosition();
 	ImGui::DragFloat("Opening speed: %f", &opening_speed, 0.01f, 0.f, 15.f);
 	ImGui::DragFloat("Closing speed: %f", &closing_speed, 0.01f, 0.f, 15.f);
+	ImGui::Text("pos: %f %f %f", pos.x, pos.y, pos.z);
 }
 
 void CAICutDoor::load(const json& j, TEntityParseContext& ctx) {
@@ -56,7 +59,6 @@ void CAICutDoor::ClosingState(float dt) {
 		if (my_pos.y > 0.f)
 			my_pos.y = 0.f;
 	}
-
 	TCompTransform *parent_transform = my_hierarchy->h_parent_transform;
 	VEC3 new_world_pos = parent_transform->getPosition() + my_pos;
 	TCompCollider *my_collider = getMyCollider();
