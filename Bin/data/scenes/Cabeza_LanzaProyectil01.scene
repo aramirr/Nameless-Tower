@@ -1,0 +1,44 @@
+[
+  {
+    "entity":
+    {
+      "name": "Dragon"
+      ,
+      "transform":
+      {
+        "pos": "-0.0575489 0.0 -0.0430963"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Dragon.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CabezaM.material"
+            ,
+            "data/materials/ColmillosM.material"
+            ,
+            "data/materials/AdornoM.material"
+            ,
+            "data/materials/HierbaM.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.12435 0.955582 1.05948"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+]

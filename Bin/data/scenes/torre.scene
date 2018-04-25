@@ -12065,16 +12065,23 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Porta.mesh"
+          "mesh": "data/meshes/Dragon.mesh"
           ,
           "materials":
           [
-            "data/materials/MatTorre.material"
+            "data/materials/CabezaM.material"
             ,
-            "data/materials/MatTorre.material"
+            "data/materials/ColmillosM.material"
+            ,
+            "data/materials/AdornoM.material"
+            ,
+            "data/materials/HierbaM.material"
           ]
         }
-      ]
+      ],
+      "projectile_controller": {
+      	"time_interval": 1
+      }
     }
   }
   ,
