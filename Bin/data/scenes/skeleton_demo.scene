@@ -10,11 +10,11 @@
 		"front": "1 0 0"
       },
       "skeleton": {
-        "skeleton": "data/skeletons/NajaTest/NajaTest.skeleton"
+        "skeleton": "data/skeletons/Naja/Naja.skeleton"
       },
       "render" : [
         {
-          "mesh": "data/skeletons/NajaTest/NajaTest.mesh"
+          "mesh": "data/skeletons/Naja/Naja.mesh"
           ,
           "materials":
           [
@@ -22,7 +22,7 @@
           ]
         },
         {
-          "mesh": "data/skeletons/NajaTest/PaiTest.mesh"
+          "mesh": "data/skeletons/Naja/Pai.mesh"
           ,
           "materials":
           [

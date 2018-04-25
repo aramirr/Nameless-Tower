@@ -272,12 +272,20 @@ bool CGameCoreSkeleton::create(const std::string& res_name) {
   }
 
   // Read all anims
+  int i = 0;
   auto& anims = json["anims"];
   for (auto it = anims.begin(); it != anims.end(); ++it) {
+    dbg("--------------------------------------------\n");
+    dbg("ENTRO\n");
+    i++;
     assert(it->is_object());
+    dbg(std::to_string(i).c_str());
+    dbg("\n");
 
     auto& anim = *it;
     std::string anim_name = anim["name"];
+    dbg(anim_name.c_str());
+    dbg("\n--------------------------------------------\n");
     std::string caf = root_path + anim_name + ".caf";
     int anim_id = loadCoreAnimation(caf, anim_name);
     if (anim_id < 0)

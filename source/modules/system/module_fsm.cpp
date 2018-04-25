@@ -15,6 +15,7 @@
 #include "fsm/player_states/pause_state.h"
 #include "fsm/player_states/windstrike_state.h"
 #include "fsm/player_states/glide_state.h"
+#include "fsm/player_states/landing_state.h"
 #include "fsm/custom_transitions.h"
 
 CModuleFSM::CModuleFSM(const std::string& name)
@@ -37,6 +38,7 @@ bool CModuleFSM::start()
 	_factory.registerInstancer("WindstrikeState", new FSM::StateInstancer<FSM::WindstrikeState>());
 	_factory.registerInstancer("PauseState", new FSM::StateInstancer<FSM::PauseState>());
 	_factory.registerInstancer("GlideState", new FSM::StateInstancer<FSM::GlideState>());
+	_factory.registerInstancer("LandingState", new FSM::StateInstancer<FSM::LandingState>());
   
 	_factory.registerInstancer("VariableTransition", new FSM::TransitionInstancer<FSM::VariableTransition>());
 	_factory.registerInstancer("LogicTransition", new FSM::TransitionInstancer<FSM::LogicTransition>());
