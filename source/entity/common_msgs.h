@@ -3,6 +3,7 @@
 
 #include "msgs.h"
 #include "geometry/transform.h"
+#include "utils/variant.h"
 
 struct TMsgEntityCreated {
   DECL_MSG_ID();
@@ -63,6 +64,7 @@ struct TMsgTriggerSpike{
 };
 
 struct TMsgKillPlayer {
+	float aux;
 	DECL_MSG_ID();
 };
 

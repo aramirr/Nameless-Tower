@@ -12,7 +12,7 @@ void TCompPlayerKiller::registerMsgs() {
 	DECL_MSG(TCompPlayerKiller, TMsgKillPlayer, onTriggerEnter);
 }
 
-void TCompPlayerKiller::onTriggerEnter() {
+void TCompPlayerKiller::onTriggerEnter(const TMsgKillPlayer& msg) {
 	if (kill_enabled) {
 		CEntity* player = (CEntity *)getEntityByName("The Player");
 		TMsgSetFSMVariable deadMsg;

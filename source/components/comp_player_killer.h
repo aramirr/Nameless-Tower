@@ -8,7 +8,7 @@ class TCompPlayerKiller : public TCompBase {
 
   bool kill_enabled = true;
 
-  void onTriggerEnter();
+  void onTriggerEnter(const TMsgKillPlayer& msg);
 
   DECL_SIBLING_ACCESS();
 
