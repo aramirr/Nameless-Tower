@@ -2,11 +2,11 @@
   {
     "entity":
     {
-      "name": "Dragon"
+      "name": "Proyectil"
       ,
       "transform":
       {
-        "pos": "-0.0575489 0.0 -0.0430963"
+        "pos": "8.15615e-05 0.0 0.0"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -14,17 +14,13 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Dragon.mesh"
+          "mesh": "data/meshes/Proyectil.mesh"
           ,
           "materials":
           [
-            "data/materials/DragonHeadMat.material"
+            "data/materials/projectileHeadMat.material"
             ,
-            "data/materials/DragonToothMat.material"
-            ,
-            "data/materials/DragonOrnamentsMat.material"
-            ,
-            "data/materials/DragonGrassMat.material"
+            "data/materials/projectileStakeMat.material"
           ]
         }
       ]
@@ -33,7 +29,7 @@
       {
         "shape": "box"
         ,
-        "halfExtent": "1.12435 0.955582 1.05948"
+        "halfExtent": "0.211018 0.111861 0.623263"
         ,
         "is_dynamic": false
         ,

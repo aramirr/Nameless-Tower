@@ -2,11 +2,11 @@
   {
     "entity":
     {
-      "name": "Dragon"
+      "name": "Ventilador"
       ,
       "transform":
       {
-        "pos": "-0.0575489 0.0 -0.0430963"
+        "pos": "-0.004848 0.318947 0.00791158"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -14,17 +14,13 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Dragon.mesh"
+          "mesh": "data/meshes/Ventilador.mesh"
           ,
           "materials":
           [
-            "data/materials/DragonHeadMat.material"
+            "data/materials/PaloM.material"
             ,
-            "data/materials/DragonToothMat.material"
-            ,
-            "data/materials/DragonOrnamentsMat.material"
-            ,
-            "data/materials/DragonGrassMat.material"
+            "data/materials/AspaM.material"
           ]
         }
       ]
@@ -33,7 +29,7 @@
       {
         "shape": "box"
         ,
-        "halfExtent": "1.12435 0.955582 1.05948"
+        "halfExtent": "0.677808 0.315047 0.67917"
         ,
         "is_dynamic": false
         ,

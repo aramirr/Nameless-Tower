@@ -12069,13 +12069,13 @@
           ,
           "materials":
           [
-            "data/materials/CabezaM.material"
+            "data/materials/DragonHeadMat.material"
             ,
-            "data/materials/ColmillosM.material"
+            "data/materials/DragonToothMat.material"
             ,
-            "data/materials/AdornoM.material"
+            "data/materials/DragonOrnamentsMat.material"
             ,
-            "data/materials/HierbaM.material"
+            "data/materials/DragonGrassMat.material"
           ]
         }
       ],
@@ -13962,11 +13962,13 @@
       "render":
       [
         {
-          "mesh": "data/meshes/VientoVertical.mesh"
+          "mesh": "data/meshes/Ventilador.mesh"
           ,
           "materials":
           [
-            "data/materials/VientoMat.material"
+            "data/materials/PaloM.material"
+            ,
+            "data/materials/AspaM.material"
           ]
         }
       ]
@@ -13990,7 +13992,12 @@
       "ai_fan":
       {
 
-      }
+      },
+      "circular_controller": 
+      { 
+        "speed": 25.0, 
+        "eje": "Y" 
+      } 
     }
   }
   ,
@@ -14009,11 +14016,13 @@
       "render":
       [
         {
-          "mesh": "data/meshes/VientoVertical001.mesh"
+          "mesh": "data/meshes/Ventilador.mesh"
           ,
           "materials":
           [
-            "data/materials/VientoMat.material"
+            "data/materials/PaloM.material"
+            ,
+            "data/materials/AspaM.material"
           ]
         }
       ]
@@ -14034,7 +14043,12 @@
         "is_trigger": true
       },
       "ai_fan": {      
-      }
+      },
+      "circular_controller": 
+      { 
+        "speed": 25.0, 
+        "eje": "Y" 
+      } 
     }
   }
   ,
@@ -14053,11 +14067,13 @@
       "render":
       [
         {
-          "mesh": "data/meshes/VientoVertical002.mesh"
+          "mesh": "data/meshes/Ventilador.mesh"
           ,
           "materials":
           [
-            "data/materials/VientoMat.material"
+            "data/materials/PaloM.material"
+            ,
+            "data/materials/AspaM.material"
           ]
         }
       ]
@@ -14078,7 +14094,12 @@
         "is_trigger": true
       },
       "ai_fan": {      
-      }      
+      },
+      "circular_controller": 
+      { 
+        "speed": 25.0, 
+        "eje": "Y" 
+      }   
     }
   }
   ,
@@ -14097,11 +14118,13 @@
       "render":
       [
         {
-          "mesh": "data/meshes/VientoVertical003.mesh"
+          "mesh": "data/meshes/Ventilador.mesh"
           ,
           "materials":
           [
-            "data/materials/VientoMat.material"
+            "data/materials/PaloM.material"
+            ,
+            "data/materials/AspaM.material"
           ]
         }
       ]
@@ -14122,7 +14145,12 @@
         "is_trigger": true
       },
       "ai_fan": {      
-      }
+      },
+      "circular_controller": 
+      { 
+        "speed": 25.0, 
+        "eje": "Y" 
+      } 
     }
   }
 ]
