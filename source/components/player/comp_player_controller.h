@@ -33,7 +33,7 @@ public:
 		, NajaGlide
 		, NajaJumpUp
 		, NajaJumpLand
-		, NajaJumpFall
+		, NajaJumpFallLand
 		, NajaOmniPrep
 		, NajaOmniAb
 		, NajaOmniAr
