@@ -103,23 +103,30 @@ void CModulePhysics::createActor(TCompCollider& comp_collider)
       convexDesc.points.count = config.col_mesh->mesh.header.num_vertexs;
       convexDesc.points.stride = config.col_mesh->mesh.header.bytes_per_vtx; 
       convexDesc.points.data = config.col_mesh->mesh.vtxs.data();
+      //convexDesc.indices.count = config.col_mesh->mesh.header.num_indices;
+      //convexDesc.indices.stride = config.col_mesh->mesh.header.bytes_per_idx;
+      //convexDesc.indices.data = config.col_mesh->mesh.idxs.data();
       convexDesc.flags = PxConvexFlag::eCOMPUTE_CONVEX;
 
-#ifdef _DEBUG
-      // mesh should be validated before cooking without the mesh cleaning
-      bool res = cooking->validateConvexMesh(convexDesc);
-      PX_ASSERT(res);
-#endif
+//#ifdef _DEBUG
+//      // mesh should be validated before cooking without the mesh cleaning
+//      bool res = cooking->validateConvexMesh(convexDesc);
+//      PX_ASSERT(res);
+//#endif
       
-      PxDefaultMemoryOutputStream buf;
-      bool status = cooking->cookConvexMesh(convexDesc, buf);
-      PxDefaultMemoryInputData input(buf.getData(), buf.getSize());
-      physx::PxConvexMesh* convexMesh = gPhysics->createConvexMesh(input);
-      
-      cooking->release();
+      //PxDefaultMemoryOutputStream buf;
+      //bool status = cooking->cookConvexMesh(convexDesc, buf);
+      //PxDefaultMemoryInputData input(buf.getData(), buf.getSize());
+      //physx::PxConvexMesh* convexMesh = gPhysics->createConvexMesh(input);
+      //
+      //cooking->release();
 
-      // 
-      shape = gPhysics->createShape(PxConvexMeshGeometry(convexMesh), *gMaterial);
+      //// 
+      //shape = gPhysics->createShape(PxConvexMeshGeometry(convexMesh), *gMaterial);
+      
+      physx::PxConvexMesh* convex = cooking->createConvexMesh(convexDesc, gPhysics->getPhysicsInsertionCallback());
+      physx::PxConvexMeshGeometry convex_geo = physx::PxConvexMeshGeometry(convex, physx::PxMeshScale(), physx::PxConvexMeshGeometryFlags());
+      shape = gPhysics->createShape(convex_geo, *gMaterial);
     }
     //....todo: more shapes
 
