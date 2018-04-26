@@ -1,0 +1,52 @@
+[
+  {
+    "entity": {
+      "name": "Instanced Spheres",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/GeoSphere001.instanced_mesh",
+          "materials": [
+            "data/textures/rustediron2/rustediron2_instanced.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity": {
+      "name": "Instanced Blood",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/blood.instanced_mesh",
+          "materials": [
+            "data/materials/blood_instanced.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity": {
+      "name": "Instanced Particles",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles.instanced_mesh",
+          "materials": [
+            "data/materials/particles_fire_instanced.material"
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -23,7 +23,7 @@ float4 PS(
 {
 
   float2 v2c = iTex0 - blur_center;
-  float2 distance2center = length( v2c );
+  float distance2center = length( v2c );
   v2c = normalize( v2c );
 
   float amount = smoothstep( 0, blur_d.y, distance2center );      // 0.. comp.radius

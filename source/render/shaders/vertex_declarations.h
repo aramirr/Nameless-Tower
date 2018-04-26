@@ -10,6 +10,7 @@ public:
   UINT numElements = 0;
   UINT bytes_per_vertex = 0;
   std::string name;
+  bool instancing = false;
 
 };
 
@@ -23,6 +24,8 @@ class CVertexDeclManager {
     , D3D11_INPUT_ELEMENT_DESC* layout
     , UINT numElements
   );
+
+  const CVertexDecl* createInstancedVertexDecl(const std::string& name);
 
 public:
 

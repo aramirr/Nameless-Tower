@@ -177,6 +177,24 @@ CRenderMesh* createUnitQuadXY() {
   return mesh;
 }
 
+// ----------------------------------
+// Full screen quad to dump textures in screen
+CRenderMesh* createUnitQuadPosXY() {
+  const std::vector<VEC3> vtxs = {
+      VEC3(0, 0, 0) 
+    , VEC3(1, 0, 0) 
+    , VEC3(0, 1, 0) 
+    , VEC3(1, 1, 0) 
+  };
+  CRenderMesh* mesh = new CRenderMesh;
+  if (!mesh->create(vtxs.data(), vtxs.size() * sizeof(VEC3), "Pos"
+    , CRenderMesh::TRIANGLE_STRIP
+  ))
+    return nullptr;
+  return mesh;
+}
+
+
 // --------------------------
 void registerMesh( CRenderMesh* new_mesh, const char* name ) {
   new_mesh->setNameAndClass(name, getResourceClassOf<CRenderMesh>());
@@ -192,6 +210,7 @@ bool createRenderObjects() {
   registerMesh(createCameraFrustum(), "unit_frustum.mesh");
   registerMesh(createWiredUnitCube(), "wired_unit_cube.mesh");
   registerMesh(createUnitQuadXY(), "unit_quad_xy.mesh");
+  registerMesh(createUnitQuadPosXY(), "unit_quad_pos_xy.mesh");
   
   return true;
 }
@@ -210,6 +229,17 @@ void activateCamera(CCamera& camera, int width, int height) {
   cb_camera.camera_dummy1 = 1.f;
   cb_camera.camera_front = camera.getFront();
   cb_camera.camera_dummy2 = 0.f;
+  cb_camera.camera_left = camera.getLeft();
+  cb_camera.camera_dummy3 = 0.f;
+  cb_camera.camera_up = camera.getUp();
+  cb_camera.camera_dummy4 = 0.f;
+
+
+  // To avoid converting the range -1..1 to 0..1 in the shader
+  // we concatenate the view_proj with a matrix to apply this offset
+  MAT44 mtx_offset = MAT44::CreateScale(VEC3(0.5f, -0.5f, 1.0f))
+                   * MAT44::CreateTranslation(VEC3(0.5f, 0.5f, 0.0f));
+  cb_camera.camera_proj_with_offset = camera.getProjection() * mtx_offset;
 
   cb_camera.camera_zfar = camera.getZFar();
   cb_camera.camera_znear = camera.getZNear();
@@ -250,13 +280,19 @@ void renderMesh(const CRenderMesh* mesh, MAT44 new_matrix, VEC4 color) {
   assert(mesh);
   auto vdecl = mesh->getVertexDecl();
   assert(vdecl);
-  const char* tech_name = "solid.tech";
+  const char* tech_name = nullptr;
   if (vdecl->name == "PosNUv")
     tech_name = "solid_objs.tech";
   else if (vdecl->name == "PosNUvUvT")
     tech_name = "solid_objs_uv2.tech";
   else if (vdecl->name == "PosNUvSkin")
     tech_name = "solid_objs_skin.tech";
+  else if (vdecl->name == "PosClr")
+    tech_name = "solid.tech";
+  else {
+    // Don't know how to render this type of vertex
+    return;
+  }
 
   auto prev_tech = CRenderTechnique::current;
   auto tech = Resources.get(tech_name)->as<CRenderTechnique>();

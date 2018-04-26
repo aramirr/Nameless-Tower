@@ -1,18 +1,6 @@
 #include "mcv_platform.h"
 #include "windows/app.h"
 
-/*
-extern "C" {
-#include "lua/lua.h"
-}
-
-main () {
-  {
-    ...
-    lua_State* ls = lua_newstate(nullptr, nullptr);
-  }
-*/
-
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow) {
 
   CApp app;

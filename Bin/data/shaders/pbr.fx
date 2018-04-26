@@ -61,6 +61,7 @@ void PS_GBuffer(
   float roughness = txRoughness.Sample(samLinear, iTex0).r;
   o_normal = encodeNormal( N, roughness );
 
+  // REMOVE ALL THIS
   // Si el material lo pide, sobreescribir los valores de la textura
   // por unos escalares uniformes. Only to playtesting...
   if (scalar_metallic >= 0.f)
@@ -73,6 +74,74 @@ void PS_GBuffer(
   float3 camera2wpos = iWorldPos - camera_pos;
   o_depth = dot( camera_front.xyz, camera2wpos ) / camera_zfar;
 }
+
+//--------------------------------------------------------------------------------------
+void PS_GBufferMix(
+  float4 Pos : SV_POSITION
+, float3 iNormal : NORMAL0
+, float4 iTangent : NORMAL1
+, float2 iTex0 : TEXCOORD0
+, float2 iTex1 : TEXCOORD1
+, float3 iWorldPos : TEXCOORD2
+, out float4 o_albedo : SV_Target0
+, out float4 o_normal : SV_Target1
+, out float1 o_depth : SV_Target2
+)
+{
+  // This is different -----------------------------------------
+  // Using second set of texture coords
+  float4 weight_texture_boost = txMixBlendWeights.Sample(samLinear, iTex1);	
+
+  float4 albedoR = txAlbedo.Sample(samLinear, iTex0);
+  float4 albedoG = txAlbedo1.Sample(samLinear, iTex0);
+  float4 albedoB = txAlbedo2.Sample(samLinear, iTex0);
+
+  // Use the alpha of the albedo as heights + texture blending extra weights + material ctes extra weights (imgui)
+  float w1, w2, w3;
+  computeBlendWeights( albedoR.a + mix_boost_r + weight_texture_boost.r
+                     , albedoG.a + mix_boost_g + weight_texture_boost.g
+                     , albedoB.a + mix_boost_b + weight_texture_boost.b
+                     , w1, w2, w3 );
+
+  // Use the weight to 'blend' the albedo colors
+  float4 albedo = albedoR * w1 + albedoG * w2 + albedoB * w3;
+  o_albedo.xyz = albedo.xyz;
+
+  // Mix the normal
+  float3 normalR = txNormal.Sample(samLinear, iTex0).xyz * 2.0 - 1.0;
+  float3 normalG = txNormal1.Sample(samLinear, iTex0).xyz * 2.0 - 1.0;
+  float3 normalB = txNormal2.Sample(samLinear, iTex0).xyz * 2.0 - 1.0;
+  float3 normal_color = normalR * w1 + normalG * w2 + normalB * w3; 
+  float3x3 TBN = computeTBN( iNormal, iTangent );
+
+  // Normal map comes in the range 0..1. Recover it in the range -1..1
+  float3 wN = mul( normal_color, TBN );
+  float3 N = normalize( wN );
+
+  // Missing: Do the same with the metallic & roughness channels
+  // ...
+
+  // Possible plain blending without heights
+  //o_albedo.xyz = lerp( albedoB.xyz, albedoG.xyz, weight_texture_boost.y );
+  //o_albedo.xyz = lerp( o_albedo.xyz, albedoR.xyz, weight_texture_boost.x );
+
+  //o_albedo.xyz = float3( iTex1.xy, 0 );		// Show the texture coords1
+
+  //o_albedo.xyz = weight_texture_boost.xyz;	// Show the extra weight textures
+
+  o_albedo.a = txMetallic.Sample(samLinear, iTex0).r;
+
+  // This is the same -----------------------------------------
+  // Save roughness in the alpha coord of the N render target
+  float roughness = txRoughness.Sample(samLinear, iTex0).r;
+  o_normal = encodeNormal( N, roughness );
+
+  // Compute the Z in linear space, and normalize it in the range 0...1
+  // In the range z=0 to z=zFar of the camera (not zNear)
+  float3 camera2wpos = iWorldPos - camera_pos;
+  o_depth = dot( camera_front.xyz, camera2wpos ) / camera_zfar;
+}
+
 
 //--------------------------------------------------------------------------------------
 void decodeGBuffer( 
@@ -107,7 +176,7 @@ void decodeGBuffer(
          roughness = N_rt.a;
  
   // Apply gamma correction to albedo to bring it back to linear.
-  albedo.rgb = pow(albedo.rgb, 2.2f);
+  albedo.rgb = pow(abs(albedo.rgb), 2.2f);
 
   // Lerp with metallic value to find the good diffuse and specular.
   // If metallic = 0, albedo is the albedo, if metallic = 1, the
@@ -183,6 +252,7 @@ float3 Specular(float3 specularColor, float3 h, float3 v, float3 l, float a, flo
 // Ambient pass, to compute the ambient light of each pixel
 float4 PS_ambient(
   in float4 iPosition : SV_Position
+, in float2 iUV : TEXCOORD0
 ) : SV_Target
 {
 
@@ -196,7 +266,7 @@ float4 PS_ambient(
   float mipIndex = roughness * roughness * 8.0f;
   float3 env = txEnvironmentMap.SampleLevel(samLinear, reflected_dir, mipIndex).xyz;
   // Convert the color to linear also.
-  env = pow(env, 2.2f);
+  env = pow(abs(env), 2.2f);
 
   // The irrandiance, is read using the N direction.
   // Here we are sampling using the cubemap-miplevel 4, and the already blurred txIrradiance texture
@@ -213,13 +283,15 @@ float4 PS_ambient(
   float g_ReflectionIntensity = 1.0;
   float g_AmbientLightIntensity = 1.0;
 
+  float ao = txAO.Sample( samLinear, iUV).x;
+
   float4 self_illum = float4(0,0,0,0); //txGSelfIllum.Load(uint3(iPosition.xy,0));
 
   float4 final_color = float4(env_fresnel * env * g_ReflectionIntensity + 
                               albedo.xyz * irradiance * g_AmbientLightIntensity
                               , 1.0f) + self_illum;
 
-  return final_color * global_ambient_adjustment;
+  return final_color * global_ambient_adjustment * ao;
 }
 
 //--------------------------------------------------------------------------------------

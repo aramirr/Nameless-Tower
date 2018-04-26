@@ -11,10 +11,7 @@ public:
   bool stop() override;
 
   FSM::CFactory& getFactory() { return _factory; }
-	//void loadButtonDefinitions(const std::string& filename);
 
 private:
-	void renderInMenu();
-
   FSM::CFactory _factory;
 };
