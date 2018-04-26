@@ -26,9 +26,10 @@
       ,
       "collider": {
         "shape": "box",
-        "halfExtent": "1.26787 0.725119 1.90834",
+        "halfExtent": "1.2675 1.7335 0.247",
         "is_dynamic": false,
-        "is_trigger": false
+        "is_trigger": false,
+        "offset": "0 1.816 0"
       },
       "hierarchy": {
         "parent": "Cut_door_father"
@@ -36,7 +37,7 @@
       "ai_cut_door":{
           "distance": 3,
           "opening_speed": 1,
-          "closing_speed": 8,
+          "closing_speed": 4,
           "up": true
         }
     }
@@ -58,8 +59,9 @@
       ,
       "collider": {
         "shape": "box",
-        "halfExtent": "1.26775 0.61501 0.56147",
-        "is_dynamic": false
+        "halfExtent": "1.2675 0.475 0.247",
+        "is_dynamic": false,
+        "offset": "0 -0.5175 0"
       },
       "hierarchy": {
         "parent": "Cut_door_father"
@@ -82,12 +84,12 @@
       ,
       "collider": {
         "shape": "box",
-        "halfExtent": "1 0.1 1",
+        "halfExtent": "1.2675 0.0825 0.247",
         "is_trigger": true
       },
       "hierarchy": {
         "parent": "Cut_door_up",
-        "pos": "0 -0.1 0"
+        "pos": "0 0 0"
       },
       "trigger":
         {
@@ -110,12 +112,12 @@
       ,
       "collider": {
         "shape": "box",
-        "halfExtent": "1 0.1 1",
+        "halfExtent": "1.2675 0.0425 0.247",
         "is_trigger": true
       },
       "hierarchy": {
         "parent": "Cut_door_down",
-        "pos": "0 0.71501 0"
+        "pos": "0 0 0"
       },
       "trigger":
         {
