@@ -88,6 +88,7 @@ CB_DEF(CCteCamera, CB_CAMERA)   // Generates the b0
   MAT44 camera_proj;
   MAT44 camera_view_proj;
   MAT44 camera_screen_to_world;
+  MAT44 camera_proj_with_offset;      // Used by ao
   VEC3  camera_pos;
   float camera_dummy1;
   VEC3  camera_front;

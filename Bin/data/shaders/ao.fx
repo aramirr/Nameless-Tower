@@ -30,11 +30,6 @@ float4 PS(
   , in float3 iUV : TEXCOORD0
 ) : SV_Target
 {
-
-  return float4(0.0, 0.5, 0.5, 1 );
-
-/*
-
   int3 ss_load_coords = uint3(iPosition.xy, 0);
 
   // Recover world position coords with a single mult!
@@ -45,7 +40,9 @@ float4 PS(
   float4 N_rt = txGBufferNormals.Load(ss_load_coords);
   float3 N = decodeNormal( N_rt.xyz );
   N = mul( N, (float3x3) camera_view );
-  // N = normalize( N );  // No visually required
+  //N = normalize( N );  // No visually required
+
+  //return float4( N, 1 );
 
   // Generate a TBN matrix from tangent space to view space
   float3 T = normalize( cross( N, float3(0,0,1) ) );
@@ -91,18 +88,16 @@ float4 PS(
                               coords.y * cos_angle + coords.x * sin_angle 
                               );
 
-    //rotated_coord = coords;
-
     // Generate an offset in Tangent space and bring it to view space
     float3 offset_tbn = float3( rotated_coord, amount_normal_z );
     offset_tbn = normalize( offset_tbn );
     float3 delta_view_space = mul( offset_tbn, TBN );
-    //return dot( delta_tbn_space, float3(0,0,1));
+    //return dot( delta_view_space, float3(0,0,1));
 
     // Move along the noised N in view space 
     float3 sample_view_pos = vPos + delta_view_space * amount_displaced;
 
-    // Obtain the linear Z of the new sample in view space
+    // Obtain the linear Z of the new sample in view space.VPos has z negative
     float sample_linear_depth = -sample_view_pos.z;
 
     // Project in homo space including offset to get values in the range 0..1
@@ -115,10 +110,8 @@ float4 PS(
     // This is to prevent large Z range to generate occlusion... will remove black halos in the character head
     float rangeCheck = smoothstep( zrange_discard, 0, abs(zlinear - prevDepthAtSampleCoords) );
     occlusion += ( prevDepthAtSampleCoords <= sample_linear_depth ? 1.0 : 0.0) * rangeCheck;
-    //occlusion += ( smoothstep( 0.002, 0.0, prevDepthAtSampleCoords - sample_linear_depth )) * rangeCheck;
   }
 
   // Module the amount of occlusion
   return ( 1 - global_shared_fx_amount ) + (1 - occlusion / 12 ) * global_shared_fx_amount;
-  */
 }
