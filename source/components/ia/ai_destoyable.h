@@ -5,6 +5,13 @@
 
 class CAIDestroyable : public IAIController
 {
+	float destroy_time;
+	float acum_time;
+	float recover_time;
+	VEC3 current_pos;
+
+	void onTriggerEnter(const TMsgDestroy& msg);
+	
 	DECL_SIBLING_ACCESS();
 
 public:
@@ -13,19 +20,12 @@ public:
 
 	void IdleState();
 	void TriggerDestroyState(float dt);
-	void DestoyState(float dt);
+	void DestroyState(float dt);
 	void TransitionDestroyState(float dt);
-	void RecoverDestoyState();
 	void change_color(VEC4 color);
 
 	void Init();
-
-	std::string trigger_actor;
-	float destroy_time;
-	float acum_time;
-	float recover_time;
-	VEC3 current_pos;
-
+	static void registerMsgs();
 };
 
 #endif

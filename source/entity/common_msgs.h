@@ -64,7 +64,10 @@ struct TMsgTriggerSpike{
 };
 
 struct TMsgKillPlayer {
-	float aux;
+	DECL_MSG_ID();
+};
+
+struct TMsgDestroy {
 	DECL_MSG_ID();
 };
 

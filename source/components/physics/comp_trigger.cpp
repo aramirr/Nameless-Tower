@@ -60,6 +60,11 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		CEntity * entity = h_entity;
 		entity->sendMsg(kill_player_message);
 	}
+	else if (trigger_type == "destroyable" && other_entity_name == "The Player") {
+		TMsgDestroy destroy_msg;
+		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
+		e_collider_entity->sendMsg(destroy_msg);
+	}
 }
 
 void TCompTrigger::onTriggerExit(const TMsgTriggerExit& msg) {
