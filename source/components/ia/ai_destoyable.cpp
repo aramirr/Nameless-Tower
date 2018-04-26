@@ -10,16 +10,7 @@ DECL_OBJ_MANAGER("ai_destroyable", CAIDestroyable);
 using namespace physx;
 
 void CAIDestroyable::debugInMenu() {
-
 	IAIController::debugInMenu();
-	CEntity *c_trigger = (CEntity *)getEntityByName(trigger_actor);
-	if (!c_trigger)
-		return;
-
-	TCompTransform *mypos = getMyTransform();
-	TCompTransform *ppos = c_trigger->get<TCompTransform>();
-
-	ImGui::Text("Distance %f", VEC3::Distance(mypos->getPosition(), ppos->getPosition()));
 	ImGui::Text("acum_time %f", acum_time);
 }
 
@@ -34,13 +25,11 @@ void CAIDestroyable::onTriggerEnter(const TMsgDestroy& msg) {
 
 void CAIDestroyable::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
-
-	Init();
-
-	trigger_actor = j.value("trigger_actor", "");
+	
 	destroy_time = j.value("destroy_time", 1.0f);
 	recover_time = j.value("recover_time", 5.0f);
 	acum_time = 0;
+	Init();
 }
 
 void CAIDestroyable::Init()
