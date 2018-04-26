@@ -11,7 +11,7 @@ namespace FSM
 	{		
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_mesh(2);
+		player->change_animation(player->EAnimations::NajaJumpFallLand, _is_action, _delay_in, _delay_out);
 		TMsgSetFSMVariable fallingMsg;
 		fallingMsg.variant.setName("is_falling");
 		fallingMsg.variant.setBool(true);
@@ -21,6 +21,9 @@ namespace FSM
 	bool FallingState::load(const json& jData)
 	{
 		_x_speed = jData.value("x_speed", 2.f);
+		_is_action = jData.value("is_action", false);
+		_delay_out = jData.value("delay_out", 0.01f);
+		_delay_in = jData.value("delay_out", 0.01f);
 		return true;
 	}
 

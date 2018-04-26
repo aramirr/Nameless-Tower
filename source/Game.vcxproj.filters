@@ -132,6 +132,9 @@
     <ClCompile Include="render\mesh\mesh_instanced.cpp" />
     <ClCompile Include="modules\test\module_test_instancing.cpp" />
     <ClCompile Include="modules\test\module_test_cameras.cpp" />
+    <ClCompile Include="components\physics\controller_filter.cpp" />
+    <ClCompile Include="components\physics\query_filter.cpp" />
+    <ClCompile Include="components\comp_player_killer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
@@ -291,6 +294,37 @@
     <ClInclude Include="utils\timer.h" />
     <ClInclude Include="utils\utils.h" />
     <ClInclude Include="utils\variant.h" />
+    <ClInclude Include="components\controllers\comp_fake_animation_controller.h" />
+    <ClInclude Include="components\controllers\comp_player_input.h" />
+    <ClInclude Include="components\comp_light_dir.h" />
+    <ClInclude Include="render\texture\texture_slots.h" />
+    <ClInclude Include="render\texture\render_to_texture.h" />
+    <ClInclude Include="components\comp_light_point.h" />
+    <ClInclude Include="render\deferred_renderer.h" />
+    <ClInclude Include="components\ia\ai_wind_current.h" />
+    <ClInclude Include="components\comp_orbit_controller.h" />
+    <ClInclude Include="components\ia\ai_cut_door.h" />
+    <ClInclude Include="components\ia\ai_rotation.h" />
+    <ClInclude Include="components\comp_fsm.h" />
+    <ClInclude Include="components\fsm\comp_fsm.h" />
+    <ClInclude Include="fsm\player_states\windstrike_state.h" />
+    <ClInclude Include="fsm\player_states\run_state.h" />
+    <ClInclude Include="fsm\player_states\pause_state.h" />
+    <ClInclude Include="fsm\player_states\omnijump_state.h" />
+    <ClInclude Include="fsm\player_states\omnidash_state.h" />
+    <ClInclude Include="fsm\player_states\jump_state.h" />
+    <ClInclude Include="fsm\player_states\initial_state.h" />
+    <ClInclude Include="fsm\player_states\idle_state.h" />
+    <ClInclude Include="fsm\player_states\falling_state.h" />
+    <ClInclude Include="fsm\player_states\dead_state.h" />
+    <ClInclude Include="fsm\player_states\dash_state.h" />
+    <ClInclude Include="fsm\player_states\glide_state.h" />
+    <ClInclude Include="components\postfx\comp_render_blur.h" />
+    <ClInclude Include="components\postfx\comp_render_blur_radial.h" />
+    <ClInclude Include="render\blur_step.h" />
+    <ClInclude Include="components\physics\controller_filter.h" />
+    <ClInclude Include="components\physics\query_filter.h" />
+    <ClInclude Include="components\comp_player_killer.h" />
     <ClInclude Include="windows\app.h" />
     <ClInclude Include="render\mesh\mesh_instanced.h" />
     <ClInclude Include="modules\test\module_test_instancing.h" />

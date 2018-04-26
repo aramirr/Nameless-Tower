@@ -170,14 +170,14 @@
           , 
           "materials": 
           [ 
-            "data/materials/AManuNoLeQuierenEnSuCasa.material" 
+           "data/materials/SierraM.material"
           ] 
         } 
       ] 
       , 
        "trigger": 
       { 
-        "trigger_type": "spikes" 
+        "trigger_type": "player_killer" 
         , 
         "collider_entity": "none" 
         , 
@@ -200,9 +200,9 @@
         "eje": "Y" 
       } 
       , 
-      "ai_spikes": 
+      "player_killer": 
       { 
-        "fixed_spikes": true 
+        "kill_enabled": true 
       } 
     } 
   } ,
@@ -225,14 +225,14 @@
           , 
           "materials": 
           [ 
-            "data/materials/AManuNoLeQuierenEnSuCasa.material" 
+            "data/materials/SierraM.material" 
           ] 
         } 
       ] 
       , 
        "trigger": 
       { 
-        "trigger_type": "spikes" 
+        "trigger_type": "player_killer" 
         , 
         "collider_entity": "none" 
         , 
@@ -255,9 +255,9 @@
         "eje": "Y" 
       } 
       , 
-      "ai_spikes": 
+      "player_killer": 
       { 
-        "fixed_spikes": true 
+        "kill_enabled": true 
       } 
     } 
   } 

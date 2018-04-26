@@ -2,12 +2,7 @@
 
 #include "components/comp_base.h"
 #include "fsm/context.h"
-
-
-struct TMsgSetFSMVariable {
-  CVariant variant;
-  DECL_MSG_ID();
-};
+#include "entity\common_msgs.h"
 
 class TCompFSM : public TCompBase {
 public:

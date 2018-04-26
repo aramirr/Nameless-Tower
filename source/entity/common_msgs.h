@@ -3,6 +3,7 @@
 
 #include "msgs.h"
 #include "geometry/transform.h"
+#include "utils/variant.h"
 
 struct TMsgEntityCreated {
   DECL_MSG_ID();
@@ -66,6 +67,10 @@ struct TMsgKillPlayer {
 	DECL_MSG_ID();
 };
 
+struct TMsgDestroy {
+	DECL_MSG_ID();
+};
+
 struct TMsgExitPlatform {
   DECL_MSG_ID();
 };
@@ -78,6 +83,11 @@ struct TMsgChangeDirection {
 
 struct TMsgGravityToggle {
 	bool is_active;
+	DECL_MSG_ID();
+};
+
+struct TMsgSetFSMVariable {
+	CVariant variant;
 	DECL_MSG_ID();
 };
 

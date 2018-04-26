@@ -19,8 +19,6 @@ void TCompCircularController::load(const json& j, TEntityParseContext& ctx) {
 
 void TCompCircularController::update(float dt) {
 
-	//curr_rad += speed * dt;
-
 	float DEG = rad2deg(speed);
 	float COS = cos(DEG);
 	float SIN = sin(DEG);
@@ -47,11 +45,5 @@ void TCompCircularController::update(float dt) {
 	c_my_transform->setRotation(QUAT::CreateFromRotationMatrix(posM));
 
 	assert(c_my_transform);
-
-	//std::string str = std::to_string(DEG);
-
-	//dbg("------------------------------------------------------------------------------\n");
-	//dbg(str.c_str());
-	//dbg("\n");
 }
 

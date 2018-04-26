@@ -1,0 +1,40 @@
+[
+  {
+    "entity":
+    {
+      "name": "Proyectil"
+      ,
+      "transform":
+      {
+        "pos": "8.15615e-05 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Proyectil.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/projectileHeadMat.material"
+            ,
+            "data/materials/projectileStakeMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "0.211018 0.111861 0.623263"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+]

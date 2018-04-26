@@ -1,0 +1,40 @@
+[
+  {
+    "entity":
+    {
+      "name": "Ventilador"
+      ,
+      "transform":
+      {
+        "pos": "-0.004848 0.318947 0.00791158"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Ventilador.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PaloM.material"
+            ,
+            "data/materials/AspaM.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "0.677808 0.315047 0.67917"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+]

@@ -92,6 +92,7 @@
     <ClCompile Include="components\comp_light_dir.cpp" />
     <ClCompile Include="components\comp_light_point.cpp" />
     <ClCompile Include="components\comp_orbit_controller.cpp" />
+    <ClCompile Include="components\comp_player_killer.cpp" />
     <ClCompile Include="components\controllers\comp_fake_animation_controller.cpp" />
     <ClCompile Include="components\controllers\comp_player_input.cpp" />
     <ClCompile Include="components\fsm\comp_fsm.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="fsm\player_states\idle_state.cpp" />
     <ClCompile Include="fsm\player_states\initial_state.cpp" />
     <ClCompile Include="fsm\player_states\jump_state.cpp" />
+    <ClCompile Include="fsm\player_states\landing_state.cpp" />
     <ClCompile Include="fsm\player_states\omnidash_state.cpp" />
     <ClCompile Include="fsm\player_states\omnijump_state.cpp" />
     <ClCompile Include="fsm\player_states\pause_state.cpp" />
@@ -230,6 +232,7 @@
     <ClInclude Include="components\comp_light_dir.h" />
     <ClInclude Include="components\comp_light_point.h" />
     <ClInclude Include="components\comp_orbit_controller.h" />
+    <ClInclude Include="components\comp_player_killer.h" />
     <ClInclude Include="components\controllers\comp_fake_animation_controller.h" />
     <ClInclude Include="components\controllers\comp_player_input.h" />
     <ClInclude Include="components\fsm\comp_fsm.h" />
@@ -288,9 +291,11 @@
     <ClInclude Include="fsm\player_states\idle_state.h" />
     <ClInclude Include="fsm\player_states\initial_state.h" />
     <ClInclude Include="fsm\player_states\jump_state.h" />
+    <ClInclude Include="fsm\player_states\landing_state.h" />
     <ClInclude Include="fsm\player_states\omnidash_state.h" />
     <ClInclude Include="fsm\player_states\omnijump_state.h" />
     <ClInclude Include="fsm\player_states\pause_state.h" />
+    <ClInclude Include="fsm\player_states\player_state.h" />
     <ClInclude Include="fsm\player_states\run_state.h" />
     <ClInclude Include="fsm\player_states\windstrike_state.h" />
     <ClInclude Include="fsm\state.h" />
