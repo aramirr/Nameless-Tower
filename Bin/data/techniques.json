@@ -175,6 +175,13 @@
     "category" : "gbuffer"
   },
 
+  "ao": {
+    "vs_file": "data/shaders/ao.fx",
+    "vertex_type": "PosClr",
+    "category": "fx",
+    "z": "disable_all"
+  },
+  
   "blur": {
     "vs_file": "data/shaders/blur.fx",
     "ps_file": "data/shaders/blur.fx",

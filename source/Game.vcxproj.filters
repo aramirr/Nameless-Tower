@@ -289,6 +289,9 @@
     <ClCompile Include="modules\test\module_test_instancing.cpp">
       <Filter>modules\test</Filter>
     </ClCompile>
+    <ClCompile Include="components\postfx\comp_render_ao.cpp">
+      <Filter>components\postfx</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -774,6 +777,9 @@
     </ClInclude>
     <ClInclude Include="modules\test\module_test_instancing.h">
       <Filter>modules\test</Filter>
+    </ClInclude>
+    <ClInclude Include="components\postfx\comp_render_ao.h">
+      <Filter>components\postfx</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

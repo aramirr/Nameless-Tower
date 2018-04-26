@@ -141,6 +141,7 @@ void CModuleRender::render()
       "Metallic\0"
       "World Pos\0"
       "Depth Linear\0"
+      "AO\0"
       "\0";
     ImGui::Combo("Output", &cb_globals.global_render_output, render_output_str);
     ImGui::TreePop();
@@ -199,7 +200,7 @@ void CModuleRender::generateFrame() {
     activateMainCamera();
     cb_globals.updateGPU();
 
-    deferred.render(rt_main);
+    deferred.render(rt_main, h_e_camera);
 
     CRenderManager::get().renderCategory("particles");
 

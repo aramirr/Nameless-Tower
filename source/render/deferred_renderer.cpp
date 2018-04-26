@@ -7,6 +7,7 @@
 #include "components/comp_light_dir.h"
 #include "components/comp_light_point.h"
 #include "components/comp_transform.h"
+#include "components/postfx/comp_render_ao.h"
 #include "ctes.h"
 
 void CDeferredRenderer::renderGBuffer() {
@@ -189,11 +190,32 @@ void CDeferredRenderer::renderDirectionalLights() {
 }
 
 // --------------------------------------
-void CDeferredRenderer::render( CRenderToTexture* rt_destination ) {
+void CDeferredRenderer::renderAO(CHandle h_camera) const {
+  CEntity* e_camera = h_camera;
+  assert(e_camera);
+  TCompRenderAO* comp_ao = e_camera->get<TCompRenderAO>();
+  if (!comp_ao) {
+    // As there is no comp AO, use a white texture as substitute
+    const CTexture* white_texture = Resources.get("data/textures/white.dds")->as<CTexture>();
+    white_texture->activate(TS_DEFERRED_AO);
+    return;
+  }
+  // As we are going to update the RenderTarget AO
+  // it can NOT be active as a texture while updating it.
+  CTexture::setNullTexture(TS_DEFERRED_AO);
+  auto ao = comp_ao->compute(rt_depth);
+  // Activate the updated AO texture so everybody else can use it
+  // Like the AccLight (Ambient pass or the debugger)
+  ao->activate(TS_DEFERRED_AO);
+}
+
+// --------------------------------------
+void CDeferredRenderer::render( CRenderToTexture* rt_destination, CHandle h_camera ) {
   assert(rt_destination);
 
   renderGBuffer();
   renderGBufferDecals();
+  renderAO(h_camera);
 
   // Do the same with the acc light
   CTexture::setNullTexture(TS_DEFERRED_ACC_LIGHTS);

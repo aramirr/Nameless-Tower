@@ -33,6 +33,7 @@ float3 toneMappingUncharted2(float3 x) {
 // ----------------------------------------
 float4 PS(
   in float4 iPosition : SV_Position        // Screen coord, 0...800, 0..600
+, in float2 iUV : TEXCOORD0
   ) : SV_Target
 {
   int3 ss_load_coords = uint3(iPosition.xy, 0);
@@ -76,6 +77,9 @@ float4 PS(
   else if( global_render_output == RO_DEPTH_LINEAR ) {
     float  zlinear = txGBufferLinearDepth.Load(ss_load_coords).x;
     return float4(zlinear, zlinear, zlinear,1 );
+  }
+  else if( global_render_output == RO_AO ) {
+    return txAO.Sample(samLinear, iUV);
   }
   
   return float4( gammaCorrectedColor, 1);;
