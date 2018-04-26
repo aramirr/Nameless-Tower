@@ -1,0 +1,18 @@
+[
+  {
+    "entity": {
+      "name": "Teapot00",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/teapot.mesh",
+          "materials": [
+            "data/textures/rustediron2/rustediron2.material"
+          ]
+        }
+      ]
+    }
+  }
+]
