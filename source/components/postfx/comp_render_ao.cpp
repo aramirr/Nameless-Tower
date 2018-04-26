@@ -28,7 +28,8 @@ void TCompRenderAO::load(const json& j, TEntityParseContext& ctx) {
   rt_output = new CRenderToTexture();
   char rt_name[64];
   sprintf(rt_name, "AO_%02d", g_counter++);
-  bool is_ok = rt_output->createRT(rt_name, xres, yres, DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_FORMAT_UNKNOWN);
+  //  bool is_ok = rt_output->createRT(rt_name, xres, yres, DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_FORMAT_UNKNOWN);
+  bool is_ok = rt_output->createRT(rt_name, xres, yres, DXGI_FORMAT_R8_UNORM, DXGI_FORMAT_UNKNOWN);
   assert(is_ok);
 
   white = Resources.get("data/textures/white.dds")->as<CTexture>();
