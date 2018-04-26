@@ -11,7 +11,7 @@ namespace FSM
 	{		
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_mesh(2);
+		player->change_animation(player->EAnimations::NajaJumpFallLand, _is_action, _delay_in, _delay_out);
 		TMsgSetFSMVariable fallingMsg;
 		fallingMsg.variant.setName("is_falling");
 		fallingMsg.variant.setBool(true);
@@ -21,6 +21,9 @@ namespace FSM
 	bool FallingState::load(const json& jData)
 	{
 		_x_speed = jData.value("x_speed", 2.f);
+		_is_action = jData.value("is_action", false);
+		_delay_out = jData.value("delay_out", 0.01f);
+		_delay_in = jData.value("delay_out", 0.01f);
 		return true;
 	}
 
@@ -66,7 +69,13 @@ namespace FSM
 			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, filter_controller, filter_controller));
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
+				if (player->jumping_start_height - c_my_transform->getPosition().y > player->jumping_death_height) {
+					ctx.setVariable("hit", true);
+				}
 				ctx.setVariable("is_grounded", true);
+				ctx.setVariable("is_grounded", true);
+				ctx.setVariable("can_omni", true);
+				ctx.setVariable("can_dash", true);
 			}
 		}		
 		return false;

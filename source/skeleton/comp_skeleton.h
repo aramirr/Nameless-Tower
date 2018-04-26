@@ -17,6 +17,7 @@ struct TCompSkeleton : public TCompBase {
   void debugInMenu();
   void renderDebug();
   void updateCtesBones();
+  void playAnimation(int id_amimation, bool is_action, float in_delay, float out_delay);
   DECL_SIBLING_ACCESS();
 };
 

@@ -19,6 +19,7 @@ public:
 	VEC3 checkpoint;
 	bool    looking_left;
 	bool    is_grounded;
+
 	VEC3	  center;
 	float	  tower_radius;
 	CHandle         h_entity;
@@ -27,18 +28,27 @@ public:
 	CHandle         h_collider;        // Cached
 
 	enum EAnimations {
-		ERun = 0
-		, EIdle
-		, EJump
-		, EOmni
-		, EDash
-		, EDead
-		, EAnimations
+		NajaRun = 0
+		, NajaIdle
+		, NajaGlide
+		, NajaJumpUp
+		, NajaJumpLand
+		, NajaJumpFallLand
+		, NajaOmniPrep
+		, NajaOmniAb
+		, NajaOmniAr
+		, NajaOmniDe
+		, NajaOmniFr
+		, NajaDash
+		, NajaWalk
+		, NajaWindstrike,
+		EAnimations
 	};
 
   void debugInMenu();
   void load(const json& j, TEntityParseContext& ctx);
 	void change_mesh(int mesh_index);
+  void change_animation(int animation_id, bool is_action, float in_delay, float out_delay);
 
 
 	void move_player(bool left, bool change_orientation, float dt, float y_speed, float x_speed);

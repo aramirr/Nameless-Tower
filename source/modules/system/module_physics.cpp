@@ -43,6 +43,9 @@ CModulePhysics::FilterGroup CModulePhysics::getFilterByName(const std::string& n
 		else if (strcmp("player_mask", name.c_str()) == 0) {
 			return CModulePhysics::FilterGroup::PlayerMask;
 		}
+		else if (strcmp("projectile", name.c_str()) == 0) {
+			return CModulePhysics::FilterGroup::Projectile;
+		}
     return CModulePhysics::FilterGroup::All;
 }
 
@@ -98,7 +101,10 @@ void CModulePhysics::createActor(TCompCollider& comp_collider)
     {
       shape = gPhysics->createShape(PxSphereGeometry(config.radius), *gMaterial);
       offset.p.y = config.radius;
-    }
+		}
+		else if (config.shapeType == physx::PxGeometryType::eTRIANGLEMESH) {
+			//shape = gPhysics->createShape(PxTriangleMesh(), *gMaterial);
+		}
     //....todo: more shapes
 
 

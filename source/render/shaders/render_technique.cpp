@@ -160,6 +160,11 @@ void CRenderTechnique::debugInMenu() {
   ::renderInMenu(blend_config);
 }
 
+bool CRenderTechnique::usesInstancing() const {
+  return vs->getVertexDecl()->instancing;
+}
+
+
 void CRenderTechnique::onFileChanged(const std::string& filename) {
 
   if (filename == vs_file) {

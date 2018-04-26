@@ -7,6 +7,8 @@
 #include "modules/game/module_gameover.h"
 #include "modules/game/module_test_axis.h"
 #include "modules/test/module_test_input.h"
+#include "modules/test/module_test_cameras.h"
+#include "modules/test/module_test_instancing.h"
 
 //--------------------------------------------------------------------------------------
 CEngine& CEngine::get() {
@@ -29,12 +31,14 @@ CEngine::CEngine()
 
 bool CEngine::start() {
 
+  static CModuleSplash   module_splash("splash");
+  static CModuleMainMenu module_main_menu("main_menu");
+  static CModuleGameOver module_game_over("game_over");
+  static CModuleTestAxis module_test_axis("test_axis");
+  static CModuleTestInput module_test_input("test_input");
+  static CModuleTestCameras module_test_cameras("test_cameras");
+  static CModuleTestInstancing module_test_instancing("test_instancing");
 
-	static CModuleSplash   module_splash("splash");
-	static CModuleMainMenu module_main_menu("main_menu");
-	static CModuleGameOver module_game_over("game_over");
-	static CModuleTestAxis module_test_axis("test_axis");
-	static CModuleTestInput module_test_input("test_input");
 
 	_modules.registerSystemModule(&_module_render);
 	_modules.registerSystemModule(&_module_entities);
@@ -50,6 +54,8 @@ bool CEngine::start() {
 	_modules.registerGameModule(&module_game_over);
 	_modules.registerGameModule(&module_test_axis);
 	_modules.registerGameModule(&module_test_input);
+  _modules.registerGameModule(&module_test_instancing);
+
 	_modules.loadModules("data/modules.json");
 	_modules.loadGamestates("data/gamestates.json");
 

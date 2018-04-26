@@ -8,6 +8,7 @@
 #include "components/fsm/comp_fsm.h"
 #include "components/physics/controller_filter.h"
 #include "components/physics/query_filter.h"
+#include "skeleton/comp_skeleton.h"
 
 DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
@@ -81,6 +82,22 @@ void TCompPlayerController::change_mesh(int mesh_index) {
 	//my_render->refreshMeshesInRenderManager();
 }
 
+void TCompPlayerController::change_animation(int animation_id, bool is_action, float in_delay, float out_delay) {
+  CEntity* e = h_entity;
+  TCompSkeleton* skeleton = e->get<TCompSkeleton>();
+  assert(skeleton);
+  
+  skeleton->playAnimation(animation_id, is_action, in_delay, out_delay);
+  
+  //TCompRender *my_render = getMyRender();
+  //my_render->mesh = my_render->meshes_leo[mesh_index];
+  //for (int i = 0; i < my_render->meshes.size(); ++i) {
+  //	my_render->meshes[i].enabled = false;
+  //}
+  //my_render->meshes[mesh_index].enabled = true;
+  //my_render->refreshMeshesInRenderManager();
+}
+
 void TCompPlayerController::move_player(bool left, bool change_orientation, float dt, float y_speed, float x_speed) {
 	TCompTransform *c_my_transform = get<TCompTransform>();
 
@@ -117,9 +134,9 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, filter_controller, filter_controller));
 			
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
-				if (c_my_transform->getPosition().y - jumping_start_height > jumping_death_height) {
+				if (jumping_start_height - c_my_transform->getPosition().y  > jumping_death_height) {
 					TMsgSetFSMVariable deadMsg;
-					deadMsg.variant.setName("dead");
+					deadMsg.variant.setName("hit");
 					deadMsg.variant.setBool(true);
 					CEntity* e = CHandle(this).getOwner();
 					e->sendMsg(deadMsg);

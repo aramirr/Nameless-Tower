@@ -227,7 +227,7 @@ function findIndexOrRegister ht vtxs new_vtx = (
 )
 
 
-function exportMeshObject given_obj outfilename = (
+function exportMeshObject given_obj outfilename vtxType:"PosNUvUvT" = (
 	
 	-- Convert the given object to triangular mesh
 	local obj = given_obj
@@ -293,18 +293,23 @@ function exportMeshObject given_obj outfilename = (
 				-- Get the real vertex id: 1...num_vertexs
 				local posW = getVert obj face[ vtx_id ]
 				local pos = posW * maxWorldToLocalMCV
-				
-				-- Get normals
-				local NW = normals[ vtx_id ]
-				local N = NW * maxWorldToLocalMCV.rotationpart
-				
-				-- Get UV's values
-				local uvA = meshop.getMapVert obj mapA faceA[vtx_id]
-				local uvB = meshop.getMapVert obj mapB faceB[vtx_id]
 			 
-				local new_vtx = #( pos.x, pos.y, pos.z, N.x, N.y, N.z, uvA.x, 1-uvA.y, uvB.x, 1-uvB.y ) 
+				local new_vtx
+				if( vtxType == "PosNUvUvT") then (
 				
-				-- if mapA != mapB then join new_vtx #(uvB.x, 1-uvB.y)
+					-- Get normals
+					local NW = normals[ vtx_id ]
+					local N = NW * maxWorldToLocalMCV.rotationpart
+					
+					-- Get UV's values
+					local uvA = meshop.getMapVert obj mapA faceA[vtx_id]
+					local uvB = meshop.getMapVert obj mapB faceB[vtx_id]
+
+					new_vtx = #( pos.x, pos.y, pos.z, N.x, N.y, N.z, uvA.x, 1-uvA.y, uvB.x, 1-uvB.y ) 
+				)
+				else if( vtxType == "Pos" ) then (
+					new_vtx = #( pos.x, pos.y, pos.z ) 
+				)
 				
 				-- Check if the vtx is unique
 				local new_idx = findIndexOrRegister ht vtxs new_vtx
@@ -331,9 +336,9 @@ function exportMeshObject given_obj outfilename = (
 	)
 	*/
 
-	computeTangentSpace vtxs idxs
+	if vtxType != "Pos" then computeTangentSpace vtxs idxs
 	
-	saveMeshToFile outfilename obj vtxs idxs "PosNUvUvT" subgroups
+	saveMeshToFile outfilename obj vtxs idxs vtxType subgroups
 	
 	-- If we created a copy of the mesh, it's time to remove it
 	if obj != given_obj then delete obj

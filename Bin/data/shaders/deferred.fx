@@ -6,7 +6,7 @@ float3 toneMappingReinhard(float3 hdr, float k = 1.0)
 }
 
 float3 gammaCorrect( float3 linear_color ) {
-  return pow( linear_color, 1. / 2.2 ); 
+  return pow( abs(linear_color), 1. / 2.2 ); 
 }
 
 

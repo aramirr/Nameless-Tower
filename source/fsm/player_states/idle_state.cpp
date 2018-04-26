@@ -12,11 +12,15 @@ namespace FSM
 	{
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_mesh(player->EAnimations::EIdle);		
+		//player->change_mesh(player->EAnimations::EIdle);		
+		player->change_animation(player->EAnimations::NajaIdle, _is_action, _delay_in, _delay_out);
 	}
 
 	bool IdleState::load(const json& jData)
 	{
+		_is_action = jData.value("is_action", false);
+		_delay_out = jData.value("delay_out", 0.01f);
+		_delay_in = jData.value("delay_out", 0.01f);
 		return true;
 	}
 
@@ -42,8 +46,7 @@ namespace FSM
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !player->is_grounded) {
 				if (player->jumping_start_height - c_my_transform->getPosition().y > player->jumping_death_height) {
-					player->change_mesh(5);
-					ctx.setVariable("dead", true);
+					ctx.setVariable("hit", true);
 				}
 				player->is_grounded = true;
 				ctx.setVariable("is_grounded", true);

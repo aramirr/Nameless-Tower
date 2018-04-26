@@ -43,7 +43,7 @@
   "shadows": {
     "vs_file": "data/shaders/shadows.fx",
     "vs_entry_point": "VS",
-    "vertex_type": "PosNUv",
+    "vertex_type": "Pos",
     "ps_entry_point": "",
     "rs_config": "shadows",
     "category": "shadows"
@@ -56,7 +56,14 @@
     "rs_config": "shadows",
     "category": "shadows"
   },
-
+  "shadows_instanced": {
+    "vs_file": "data/shaders/shadows.fx",
+    "vs_entry_point": "VS_Instanced",
+    "vertex_type": "Pos_x_Instance",
+    "ps_entry_point": "",
+    "rs_config": "shadows",
+    "category": "shadows"
+  },
 
   "dump_texture": {
     "vs_file": "data/shaders/screen_quad.fx",
@@ -159,6 +166,24 @@
     "z": "test_equal",
     "category": "pbr_skybox"
   },
+  "pbr_instanced": {
+    "vs_file": "data/shaders/pbr_instanced.fx",
+    "vs_entry_point": "VS_GBufferInstanced",
+    "ps_file": "data/shaders/pbr.fx",
+    "ps_entry_point": "PS_GBuffer",
+    "vertex_type": "PosNUvUvT_x_Instance",
+    "category": "gbuffer"
+  },
+  "pbr_decals": {
+    "vs_file": "data/shaders/pbr_decals.fx",
+    "vertex_type": "PosNUvUvT_x_InstanceColored",
+    "category": "gbuffer_decals",
+    "z" : "inverse_test_no_write",
+    "rs_config": "reverse_culling",
+    "blend" : "combinative_gbuffer"
+  },
+
+
   "blur": {
     "vs_file": "data/shaders/blur.fx",
     "ps_file": "data/shaders/blur.fx",
@@ -172,5 +197,13 @@
     "vertex_type": "PosClr",
     "category": "fx",
     "z": "disable_all"
+  },
+
+  "particles": {
+    "vs_file": "data/shaders/particles.fx",
+    "vertex_type": "Pos_x_RenderParticle",
+    "category": "particles",
+    "blend": "combinative",
+    "z": "test_but_no_write"
   }
 }

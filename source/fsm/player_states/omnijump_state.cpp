@@ -10,6 +10,7 @@ namespace FSM
 	{
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
+		player->change_animation(player->EAnimations::NajaOmniAr, _is_action, _delay_in, _delay_out);
 		player->y_speed_factor = _y_speed;
 	}
 
@@ -17,6 +18,9 @@ namespace FSM
 	{
 		_y_speed = jData.value("y_speed", 12.f);
 		_x_speed = jData.value("x_speed", 2.f);
+		_is_action = jData.value("is_action", false);
+		_delay_out = jData.value("delay_out", 0.01f);
+		_delay_in = jData.value("delay_out", 0.01f);
 		return true;
 	}
 
@@ -51,7 +55,7 @@ namespace FSM
 		float current_pitch;
 		float amount_moved = _x_speed * dt;
 		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-		current_yaw = current_yaw - (0.4f * player->omnidash_arrow.x * amount_moved);
+		current_yaw = current_yaw - (0.3f * player->omnidash_arrow.x * amount_moved);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 
 		PxShape* player_shape;

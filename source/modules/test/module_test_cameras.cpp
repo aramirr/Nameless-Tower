@@ -3,7 +3,7 @@
 #include "render/render_objects.h"
 #include "render/texture/material.h"
 #include "entity/entity_parser.h"
-#include "components/comp_camera.h"
+#include "components/camera/comp_camera.h"
 
 extern void registerMesh(CRenderMesh* new_mesh, const char* name);
 

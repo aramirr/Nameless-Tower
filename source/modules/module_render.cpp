@@ -190,6 +190,8 @@ void CModuleRender::generateFrame() {
 
     deferred.render(rt_main);
 
+    CRenderManager::get().renderCategory("particles");
+
     CRenderManager::get().renderCategory("distorsions");
 
     // Apply postFX

@@ -97,7 +97,8 @@ void TCompSpiralController::update(float DT) {
 	}
 
 	life -= DT;
-	if (life <= 0) destroy();
+	if (life <= 0) 
+		destroy();
 }
 
 void TCompSpiralController::registerMsgs()

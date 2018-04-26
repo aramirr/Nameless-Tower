@@ -31,7 +31,7 @@ void TCompPlayerKiller::setKill(bool new_value) {
 }
 
 void TCompPlayerKiller::load(const json& j, TEntityParseContext& ctx) {
-	kill_enabled = j.value("kill", true);
+	kill_enabled = j.value("kill_enabled", true);
 }
 
 void TCompPlayerKiller::update(float dt) {}

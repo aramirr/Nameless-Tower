@@ -7,7 +7,7 @@
 namespace FSM
 {
 	void WindstrikeState::onStart(CContext& ctx) const
-	{		
+	{				
 		CEntity* e = ctx.getOwner();
 		TEntityParseContext ctx_w;
 		ctx_w.entity_starting_the_parse = e;
@@ -15,10 +15,15 @@ namespace FSM
 		if (parseScene("data/prefabs/windstrike.prefab", ctx_w)) {
 			assert(!ctx_w.entities_loaded.empty());
 		}
+		TCompPlayerController* player = e->get<TCompPlayerController>();
+		player->change_animation(player->EAnimations::NajaWindstrike, _is_action, _delay_in, _delay_out);
 	}
 	
 	bool WindstrikeState::load(const json& jData)
 	{		
+		_is_action = jData.value("is_action", false);
+		_delay_out = jData.value("delay_out", 0.01f);
+		_delay_in = jData.value("delay_out", 0.01f);
 		return true;
 	}
 

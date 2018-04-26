@@ -143,7 +143,7 @@ void decodeGBuffer(
          roughness = N_rt.a;
  
   // Apply gamma correction to albedo to bring it back to linear.
-  albedo.rgb = pow(albedo.rgb, 2.2f);
+  albedo.rgb = pow(abs(albedo.rgb), 2.2f);
 
   // Lerp with metallic value to find the good diffuse and specular.
   // If metallic = 0, albedo is the albedo, if metallic = 1, the
@@ -232,7 +232,7 @@ float4 PS_ambient(
   float mipIndex = roughness * roughness * 8.0f;
   float3 env = txEnvironmentMap.SampleLevel(samLinear, reflected_dir, mipIndex).xyz;
   // Convert the color to linear also.
-  env = pow(env, 2.2f);
+  env = pow(abs(env), 2.2f);
 
   // The irrandiance, is read using the N direction.
   // Here we are sampling using the cubemap-miplevel 4, and the already blurred txIrradiance texture

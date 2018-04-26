@@ -88,6 +88,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
+    <ClCompile Include="components\controllers\comp_projectile_controller.cpp" />
     <ClCompile Include="components\comp_light_dir.cpp" />
     <ClCompile Include="components\comp_light_point.cpp" />
     <ClCompile Include="components\comp_orbit_controller.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="fsm\player_states\idle_state.cpp" />
     <ClCompile Include="fsm\player_states\initial_state.cpp" />
     <ClCompile Include="fsm\player_states\jump_state.cpp" />
+    <ClCompile Include="fsm\player_states\landing_state.cpp" />
     <ClCompile Include="fsm\player_states\omnidash_state.cpp" />
     <ClCompile Include="fsm\player_states\omnijump_state.cpp" />
     <ClCompile Include="fsm\player_states\pause_state.cpp" />
@@ -189,12 +191,15 @@
     <ClCompile Include="modules\system\module_fsm.cpp" />
     <ClCompile Include="modules\system\module_input.cpp" />
     <ClCompile Include="modules\system\module_physics.cpp" />
+    <ClCompile Include="modules\test\module_test_cameras.cpp" />
     <ClCompile Include="modules\test\module_test_input.cpp" />
+    <ClCompile Include="modules\test\module_test_instancing.cpp" />
     <ClCompile Include="profiling\profiling.cpp" />
     <ClCompile Include="render\blur_step.cpp" />
     <ClCompile Include="render\cte_buffer.cpp" />
     <ClCompile Include="render\deferred_renderer.cpp" />
     <ClCompile Include="render\mesh\mesh.cpp" />
+    <ClCompile Include="render\mesh\mesh_instanced.cpp" />
     <ClCompile Include="render\mesh\mesh_loader.cpp" />
     <ClCompile Include="render\render.cpp" />
     <ClCompile Include="render\render_manager.cpp" />
@@ -222,7 +227,8 @@
   <ItemGroup>
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
     <ClInclude Include="camera\camera.h" />
-    <ClInclude Include="components\comp_fsm.h" />
+    <ClInclude Include="components\controllers\comp_projectile_controller.h" />
+    <ClInclude Include="components\ia\ai_wind_current.h" />
     <ClInclude Include="components\comp_light_dir.h" />
     <ClInclude Include="components\comp_light_point.h" />
     <ClInclude Include="components\comp_orbit_controller.h" />
@@ -230,7 +236,6 @@
     <ClInclude Include="components\controllers\comp_fake_animation_controller.h" />
     <ClInclude Include="components\controllers\comp_player_input.h" />
     <ClInclude Include="components\fsm\comp_fsm.h" />
-    <ClInclude Include="components\ia\ai_wind_current.h" />
     <ClInclude Include="components\ia\ai_cut_door.h" />
     <ClInclude Include="components\ia\ai_rotation.h" />
     <ClInclude Include="components\juan\comp_aabb.h" />
@@ -286,9 +291,11 @@
     <ClInclude Include="fsm\player_states\idle_state.h" />
     <ClInclude Include="fsm\player_states\initial_state.h" />
     <ClInclude Include="fsm\player_states\jump_state.h" />
+    <ClInclude Include="fsm\player_states\landing_state.h" />
     <ClInclude Include="fsm\player_states\omnidash_state.h" />
     <ClInclude Include="fsm\player_states\omnijump_state.h" />
     <ClInclude Include="fsm\player_states\pause_state.h" />
+    <ClInclude Include="fsm\player_states\player_state.h" />
     <ClInclude Include="fsm\player_states\run_state.h" />
     <ClInclude Include="fsm\player_states\windstrike_state.h" />
     <ClInclude Include="fsm\state.h" />
@@ -340,13 +347,16 @@
     <ClInclude Include="modules\system\module_fsm.h" />
     <ClInclude Include="modules\system\module_input.h" />
     <ClInclude Include="modules\system\module_physics.h" />
+    <ClInclude Include="modules\test\module_test_cameras.h" />
     <ClInclude Include="modules\test\module_test_input.h" />
+    <ClInclude Include="modules\test\module_test_instancing.h" />
     <ClInclude Include="profiling\profiling.h" />
     <ClInclude Include="render\blur_step.h" />
     <ClInclude Include="render\cte_buffer.h" />
     <ClInclude Include="render\deferred_renderer.h" />
     <ClInclude Include="render\gpu_trace.h" />
     <ClInclude Include="render\mesh\mesh.h" />
+    <ClInclude Include="render\mesh\mesh_instanced.h" />
     <ClInclude Include="render\mesh\mesh_loader.h" />
     <ClInclude Include="render\mesh\mesh_subgroup.h" />
     <ClInclude Include="render\render.h" />
