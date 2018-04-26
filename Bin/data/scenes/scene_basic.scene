@@ -31,8 +31,7 @@
         "is_trigger": false
       },
       "hierarchy": {
-        "parent": "Cut_door_father",
-        "rotation": "0.0 0.707107 -0.707107 0.0"
+        "parent": "Cut_door_father"
       },
       "ai_cut_door":{
           "distance": 3,
@@ -63,8 +62,7 @@
         "is_dynamic": false
       },
       "hierarchy": {
-        "parent": "Cut_door_father",
-        "rotation": "-0.707107 0.0 0.0 -0.707107"
+        "parent": "Cut_door_father"
       },
       "ai_cut_door":{
             "distance": 0,
@@ -89,8 +87,7 @@
       },
       "hierarchy": {
         "parent": "Cut_door_up",
-        "pos": "0 -0.1 0",
-        "rotation": "0.0 0.707107 -0.707107 0.0"
+        "pos": "0 -0.1 0"
       },
       "trigger":
         {
@@ -118,8 +115,7 @@
       },
       "hierarchy": {
         "parent": "Cut_door_down",
-        "pos": "0 0.71501 0",
-        "rotation": "-0.707107 0.0 0.0 -0.707107"
+        "pos": "0 0.71501 0"
       },
       "trigger":
         {
