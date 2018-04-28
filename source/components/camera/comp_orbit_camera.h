@@ -6,15 +6,19 @@
 class TCompOrbitCamera : public TCompBase {
 
 	CEntity *player;
-  CEntity *platform;
+	CEntity *platform;
 	VEC3 towerCentre;
 	VEC3 pos;
 
 	VEC3 actualPos;
 
+  float offset;
+  //VEC3 playerOffset;
 	float xOffset;
 
 	float radio;
+
+  float chaseSpeed;
 
 	float X;
 	float Y;
@@ -31,29 +35,25 @@ class TCompOrbitCamera : public TCompBase {
 
 	bool izq;
 
-  bool isForward();
-	bool isGrounded();
+	float playerY;
+	float currentPlayerY;
 
-  //void changeHeight(const TMsgisGrounded& msg);
+	bool isForward();
+  bool isGrounded();
 
-  float distanceCam;
+	bool izquierda;
+  bool caida;
 
-  float playerY;
-  float currentPlayerY;
+	void activeCamera(const TMsgActiveCamera& msg);
+	void desactiveCamera(const TMsgDesactiveCamera& msg);
+
+	bool active;
 
   bool carga;
 
-  void attachPlayer(const TMsgAttachTo& msg);
-  void detachPlayer(const TMsgDetachOf& msg);
-  void exitFromPlatform(const TMsgExitPlatform& msg);
-
-  bool inPlatform;
-	bool jumpinPlatform;
-  bool exitPlatform;
-
 public:
-  static void registerMsgs();
-  
+	static void registerMsgs();
+
 	void debugInMenu();
 	void load(const json& j, TEntityParseContext& ctx);
 	void update(float dt);
