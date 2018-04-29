@@ -65,6 +65,11 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
 		e_collider_entity->sendMsg(destroy_msg);
 	}
+	else if (trigger_type == "activador" && other_entity_name == "windstrike") {
+		TMsgRotate rotate_msg;
+		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
+		e_collider_entity->sendMsg(rotate_msg);
+	}
 }
 
 void TCompTrigger::onTriggerExit(const TMsgTriggerExit& msg) {

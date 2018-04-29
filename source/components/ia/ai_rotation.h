@@ -40,6 +40,7 @@ public:
   static void registerMsgs();
   void attachPlayer(const TMsgAttachTo& msg);
   void detachPlayer(const TMsgDetachOf& msg);
+  void activateRotation(const TMsgRotate& msg);
 };
 
 #endif

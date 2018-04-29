@@ -162,15 +162,18 @@ void CAIRotator::RotateState(float dt) {
 };
 
 void CAIRotator::StopState(float dt) {
-	current_time += dt;
-	if (current_time >= config_states[it_config].wait_time)
-		ChangeState("next_config_state");
+	if (config_states[it_config].wait_time != -1.f) {
+		current_time += dt;
+		if (current_time >= config_states[it_config].wait_time)
+			ChangeState("next_config_state");
+	}
 };
 
 
 void CAIRotator::registerMsgs() {
 DECL_MSG(CAIRotator, TMsgAttachTo, attachPlayer);
 DECL_MSG(CAIRotator, TMsgDetachOf, detachPlayer);
+DECL_MSG(CAIRotator, TMsgRotate, activateRotation);
 }
 
 void CAIRotator::attachPlayer(const TMsgAttachTo& msg) {
@@ -179,4 +182,8 @@ void CAIRotator::attachPlayer(const TMsgAttachTo& msg) {
 
 void CAIRotator::detachPlayer(const TMsgDetachOf& msg) {
 	attached = CHandle();
+}
+
+void CAIRotator::activateRotation(const TMsgRotate& msg) {
+	ChangeState("next_config_state");
 }

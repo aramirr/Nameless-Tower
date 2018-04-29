@@ -1,17 +1,7 @@
 [	
 	{
     "entity": {
-      "name": "Cut_door_father",
-      "render" : {}
-      ,
-      "transform": {
-        "pos": "-24.594 9.95 -19.251"
-      }
-    }
-  },
-  {
-    "entity": {
-      "name": "Cut_door_up",
+      "name": "rotora_activable",
       "render" : [
         {
           "mesh": "data/meshes/Cut_door_up.mesh",
@@ -21,112 +11,52 @@
         }
       ],
       "transform": {
-        "pos": "-24.769 10.95 -21.426"
-      }
-      ,
+        "pos": "-24.594 9.95 -19.251"
+      },
+      "ai_rotator": {
+        "configs":[
+          {
+            "axis": "X",
+            "increase": true,
+            "speed": 1.0,
+            "wait_time": -1.0,
+            "degrees": 90.0
+          }
+        ] 
+      },
       "collider": {
         "shape": "box",
         "halfExtent": "1.2675 1.7335 0.247",
         "is_dynamic": false,
         "is_trigger": false,
         "offset": "0 1.816 0"
-      },
-      "hierarchy": {
-        "parent": "Cut_door_father"
-      },
-      "ai_cut_door":{
-          "distance": 3,
-          "opening_speed": 1,
-          "closing_speed": 4,
-          "up": true
-        }
+      }
     }
   },
   {
     "entity": {
-      "name": "Cut_door_down",
-      "render" : [
-        {
-          "mesh": "data/meshes/Cut_door_down.mesh",
-          "materials" : [
-            "data/materials/PuertaM.material"
-          ]
-        }
-      ],
+      "name": "activador_trigger",
       "transform": {
         "pos": "-24.769 10.95 -21.426"
       }
       ,
       "collider": {
         "shape": "box",
-        "halfExtent": "1.2675 0.475 0.247",
-        "is_dynamic": false,
-        "offset": "0 -0.5175 0"
-      },
-      "hierarchy": {
-        "parent": "Cut_door_father"
-      },
-      "ai_cut_door":{
-            "distance": 0,
-            "opening_speed": 1,
-        "closing_speed": 8,
-        "up": false
-        }
-    }
-  },
-  {
-    "entity": {
-      "name": "Cut_door_trigger_up",
-      "render" : [],
-      "transform": {
-        "pos": "-24.769 10.95 -21.426"
-      }
-      ,
-      "collider": {
-        "shape": "box",
-        "halfExtent": "1.2675 0.0825 0.247",
+        "halfExtent": "2 2 2",
         "is_trigger": true
       },
       "hierarchy": {
-        "parent": "Cut_door_up",
+        "parent": "rotora_activable",
         "pos": "0 0 0"
       },
       "trigger":{
-        "trigger_type": "player_killer",
-          "render": false
-      },
-      "player_killer": {
-        "kill_enabled": true
+        "trigger_type": "activador",
+        "render": false,
+        "collider_entity": "rotora_activable"
       }
     }
   },
   {
-    "entity": {
-      "name": "Cut_door_trigger_down",
-      "render" : [],
-      "transform": {
-        "pos": "-24.769 10.95 -21.426"
-      }
-      ,
-      "collider": {
-        "shape": "box",
-        "halfExtent": "1.2675 0.0425 0.247",
-        "is_trigger": true
-      },
-      "hierarchy": {
-        "parent": "Cut_door_down",
-        "pos": "0 0 0"
-      },
-      "trigger":{
-        "trigger_type": "player_killer",
-          "render": false
-      },
-      "player_killer": {
-        "kill_enabled": true
-      }
-    }
-  },	
- {
     "entity": {
       "name": "Plane001",
       "transform": {
