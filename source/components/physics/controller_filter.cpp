@@ -24,6 +24,11 @@ PxQueryHitType::Enum ControllerFilterCallback::preFilter(const PxFilterData& fil
 	if ((filter_data_a.word0 & filter_data_b.word1) && (filter_data_b.word0 & filter_data_a.word1)) {		
 		if ((filter_data_a.word0 == CModulePhysics::FilterGroup::Projectile) && (filter_data_b.word0 == CModulePhysics::FilterGroup::Player) || (filter_data_b.word0 == CModulePhysics::FilterGroup::Projectile) && (filter_data_a.word0 == CModulePhysics::FilterGroup::Player)) {
 			// Mandar mensajes de muerte al player
+			CEntity* player = (CEntity *)getEntityByName("The Player");
+			TMsgSetFSMVariable deadMsg;
+			deadMsg.variant.setName("hit");
+			deadMsg.variant.setBool(true);
+			player->sendMsg(deadMsg);
 		}
 		return PxQueryHitType::eBLOCK;
 	}
