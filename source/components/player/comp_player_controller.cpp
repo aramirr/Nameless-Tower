@@ -105,7 +105,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 	// Current orientation
 	float current_yaw;
 	float current_pitch;
-	float amount_moved = x_speed * dt;
+	float amount_moved = x_speed * 0.024f/** dt*/;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	VEC3 myPos = c_my_transform->getPosition();

@@ -94,7 +94,7 @@ void TCompOrbitCamera::update(float dt) {
   assert(p);
   VEC3 pPos = p->getPosition();
 
-  std::string strPos = std::to_string(pPos.x) + " - " + std::to_string(pPos.y) + " - " + std::to_string(pPos.z) + "\n";
+  /*std::string strPos = std::to_string(pPos.x) + " - " + std::to_string(pPos.y) + " - " + std::to_string(pPos.z) + "\n";
   dbg(strPos.c_str());
   if (izq) {
   dbg("izq\n");
@@ -102,7 +102,7 @@ void TCompOrbitCamera::update(float dt) {
   else {
   dbg("der\n");
   }
-  dbg("-------------------------------------------\n");
+  dbg("-------------------------------------------\n");*/
 
   /* if (carga) {
      playerOffset = pos - pPos;
@@ -216,8 +216,10 @@ void TCompOrbitCamera::update(float dt) {
   }*/
   if (carga) {
     carga = false;
+    
   }
   else {
+    
     float dP = VEC3::Distance(actualPos, pPos);
 
     if (dP > 10.f) chaseSpeed = 0.7f;

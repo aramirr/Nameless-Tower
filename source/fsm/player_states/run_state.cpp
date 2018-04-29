@@ -50,7 +50,7 @@ namespace FSM
 		}
 		// Si no sigue corriendo pasa a estado idle
 		if (!EngineInput["left"].isPressed() && !EngineInput["right"].isPressed()) {
-			ctx.setVariable("idle", true);
+      ctx.setVariable("idle", true);
 		}
 		return false;
 	}
