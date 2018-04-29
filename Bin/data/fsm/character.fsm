@@ -70,7 +70,10 @@
 		},
 		{
 			"name" : "dead",
-			"type" : "DeadState"
+			"type" : "DeadState",
+			"is_action": true,
+			"delay_in": 0.01,
+			"delay_out": 0.01
 		},
 		{
 			"name" : "pause",
