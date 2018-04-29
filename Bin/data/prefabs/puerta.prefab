@@ -1,119 +1,133 @@
 [
 	{
-		"entity": {
-			"name": "Cut_door_father",
-			"render" : {}
-			,
-			"transform": {
-				"pos": "-24.769 10.95 -21.426"
-			}
-		}
-	},
-	{
-		"entity": {
-			"name": "Cut_door_up",
-			"render" : [
-				{
-					"mesh": "data/meshes/Arriba.mesh",
-					"materials" : [
-						"data/materials/PuertaM.material"
-					]
-				}
-			]
-			,
-			"collider": {
-				"shape": "box",
-				"halfExtent": "1.26787 0.725119 1.90834",
-				"is_dynamic": false,
-				"is_trigger": false
-			},
-			"hierarchy": {
-				"parent": "Cut_door_father"
-			},
-			"ai_cut_door":{
-		        "distance": 3,
-		        "opening_speed": 1,
-				"closing_speed": 8,
-				"up": true
-		    }
-		}
-	},
-	{
-		"entity": {
-			"name": "Cut_door_down",
-			"render" : [
-				{
-					"mesh": "data/meshes/Abajo.mesh",
-					"materials" : [
-						"data/materials/PuertaM.material"
-					]
-				}
-			]
-			,
-			"collider": {
-				"shape": "box",
-				"halfExtent": "1.26775 0.61501 0.56147",
-				"is_dynamic": false
-			},
-			"hierarchy": {
-				"parent": "Cut_door_father"
-			},
-			"ai_cut_door":{
-		        "distance": 3,
-		        "opening_speed": 1,
-				"closing_speed": 8,
-				"up": false
-		    }
-		}
-	},
-	{
-		"entity": {
-			"name": "Cut_door_trigger_up",
-			"render" : []
-			,
-			"collider": {
-				"shape": "box",
-				"halfExtent": "1 0.1 1",
-				"is_trigger": true
-			},
-			"hierarchy": {
-				"parent": "Cut_door_up",
-				"pos": "0 -0.1 0"
-			},
-			"trigger":
-		    {
-		    	"trigger_type": "player_killer",
-		        "render": false
-		    },
-		    "player_killer":
-		    {
-		    	"kill_enabled": true
-		    }
-		}
-	},
-	{
-		"entity": {
-			"name": "Cut_door_trigger_down",
-			"render" : []
-			,
-			"collider": {
-				"shape": "box",
-				"halfExtent": "1 0.1 1",
-				"is_trigger": true
-			},
-			"hierarchy": {
-				"parent": "Cut_door_down",
-				"pos": "0 0.71501 0"
-			},
-			"trigger":
-		    {
-		    	"trigger_type": "player_killer",
-		        "render": false
-		    },
-		    "player_killer":
-		    {
-		    	"kill_enabled": true
-		    }
-		}
-	}
+    "entity": {
+      "name": "Cut_door_father",
+      "render" : {}
+      ,
+      "transform": {
+        "pos": "-24.594 9.95 -19.251"
+      }
+    }
+  },
+  {
+    "entity": {
+      "name": "Cut_door_up",
+      "render" : [
+        {
+          "mesh": "data/meshes/Cut_door_up.mesh",
+          "materials" : [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ],
+      "transform": {
+        "pos": "-24.769 10.95 -21.426"
+      }
+      ,
+      "collider": {
+        "shape": "box",
+        "halfExtent": "1.2675 1.7335 0.247",
+        "is_dynamic": false,
+        "is_trigger": false,
+        "offset": "0 1.816 0"
+      },
+      "hierarchy": {
+        "parent": "Cut_door_father"
+      },
+      "ai_cut_door":{
+          "distance": 3,
+          "opening_speed": 1,
+          "closing_speed": 4,
+          "up": true
+        }
+    }
+  },
+  {
+    "entity": {
+      "name": "Cut_door_down",
+      "render" : [
+        {
+          "mesh": "data/meshes/Cut_door_down.mesh",
+          "materials" : [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ],
+      "transform": {
+        "pos": "-24.769 10.95 -21.426"
+      }
+      ,
+      "collider": {
+        "shape": "box",
+        "halfExtent": "1.2675 0.475 0.247",
+        "is_dynamic": false,
+        "offset": "0 -0.5175 0"
+      },
+      "hierarchy": {
+        "parent": "Cut_door_father"
+      },
+      "ai_cut_door":{
+            "distance": 0,
+            "opening_speed": 1,
+        "closing_speed": 8,
+        "up": false
+        }
+    }
+  },
+  {
+    "entity": {
+      "name": "Cut_door_trigger_up",
+      "render" : [],
+      "transform": {
+        "pos": "-24.769 10.95 -21.426"
+      }
+      ,
+      "collider": {
+        "shape": "box",
+        "halfExtent": "1.2675 0.0825 0.247",
+        "is_trigger": true
+      },
+      "hierarchy": {
+        "parent": "Cut_door_up",
+        "pos": "0 0 0"
+      },
+      "trigger":
+        {
+          "trigger_type": "player_killer",
+            "render": false
+        },
+        "player_killer":
+        {
+          "kill_enabled": true
+        }
+    }
+  },
+  {
+    "entity": {
+      "name": "Cut_door_trigger_down",
+      "render" : [],
+      "transform": {
+        "pos": "-24.769 10.95 -21.426"
+      }
+      ,
+      "collider": {
+        "shape": "box",
+        "halfExtent": "1.2675 0.0425 0.247",
+        "is_trigger": true
+      },
+      "hierarchy": {
+        "parent": "Cut_door_down",
+        "pos": "0 0 0"
+      },
+      "trigger":
+        {
+          "trigger_type": "player_killer",
+            "render": false
+        },
+        "player_killer":
+        {
+          "kill_enabled": true
+        }
+    }
+  }
 ]
