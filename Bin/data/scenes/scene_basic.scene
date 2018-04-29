@@ -91,15 +91,13 @@
         "parent": "Cut_door_up",
         "pos": "0 0 0"
       },
-      "trigger":
-        {
-          "trigger_type": "player_killer",
-            "render": false
-        },
-        "player_killer":
-        {
-          "kill_enabled": true
-        }
+      "trigger":{
+        "trigger_type": "player_killer",
+          "render": false
+      },
+      "player_killer": {
+        "kill_enabled": true
+      }
     }
   },
   {
@@ -119,15 +117,13 @@
         "parent": "Cut_door_down",
         "pos": "0 0 0"
       },
-      "trigger":
-        {
-          "trigger_type": "player_killer",
-            "render": false
-        },
-        "player_killer":
-        {
-          "kill_enabled": true
-        }
+      "trigger":{
+        "trigger_type": "player_killer",
+          "render": false
+      },
+      "player_killer": {
+        "kill_enabled": true
+      }
     }
   },	
  {

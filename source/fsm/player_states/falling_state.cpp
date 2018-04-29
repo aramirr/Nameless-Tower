@@ -37,7 +37,7 @@ namespace FSM
 		VEC3 my_pos = c_my_transform->getPosition();
 		VEC3 new_pos = my_pos;
 		float y_speed;		
-		y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt * 3);
+		y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt * 2);
 		player->y_speed_factor -= player->gravity * dt / 2;
 		new_pos.y += y_speed;
 

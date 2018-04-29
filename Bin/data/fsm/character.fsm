@@ -6,7 +6,7 @@
 			"type" : "IdleState",
 			"is_action": false,
 			"delay_in": 0.1,
-			"delay_out": 0.1
+			"delay_out": 0.01
 		},
 		{
 			"name" : "initial",
@@ -17,7 +17,7 @@
 			"type" : "RunState",
 			"x_speed" : 2.5,
 			"is_action": false,
-			"delay_in": 0.01,
+			"delay_in": 0.1,
 			"delay_out": 0.01
 		},
 		{
@@ -26,8 +26,8 @@
 			"y_speed" : 12.6,
 			"x_speed" : 2.5,
 			"is_action": true,
-			"delay_in": 0.02,
-			"delay_out": 0.2
+			"delay_in": 0.2,
+			"delay_out": 0.02
 		},
 		{
 			"name" : "falling",
@@ -35,14 +35,14 @@
 			"x_speed" : 2.5,
 			"is_action": true,
 			"delay_in": 0.2,
-			"delay_out": 0.2
+			"delay_out": 0.02
 		},
 		{
 			"name" : "dash",
 			"type" : "DashState",
 			"x_speed": 6,
 			"is_action": true,
-			"delay_in": 0.01,
+			"delay_in": 0.1,
 			"delay_out": 0.01
 		},
 		{
@@ -70,7 +70,10 @@
 		},
 		{
 			"name" : "dead",
-			"type" : "DeadState"
+			"type" : "DeadState",
+			"is_action": true,
+			"delay_in": 0.01,
+			"delay_out": 0.01
 		},
 		{
 			"name" : "pause",
