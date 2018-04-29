@@ -9,7 +9,7 @@ namespace FSM
 	{		
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_animation(player->EAnimations::NajaRun, _is_action, _delay_in, _delay_out);
+		//player->change_animation(player->EAnimations::NajaRun, _is_action, _delay_in, _delay_out);
 	}
 
 	bool RunState::load(const json& jData)
@@ -50,7 +50,7 @@ namespace FSM
 		}
 		// Si no sigue corriendo pasa a estado idle
 		if (!EngineInput["left"].isPressed() && !EngineInput["right"].isPressed()) {
-			ctx.setVariable("idle", true);
+      ctx.setVariable("idle", true);
 		}
 		return false;
 	}
