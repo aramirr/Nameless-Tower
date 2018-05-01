@@ -5,6 +5,23 @@
 #include "gui/widgets/gui_bar.h"
 #include "gui/widgets/gui_button.h"
 
+namespace
+{
+  json mergeJson(const json& j1, const std::string& key)
+  {
+    json newData = j1;
+    if (j1.count(key) > 0)
+    {
+      const json& j2 = j1[key];
+      for (const auto &j : json::iterator_wrapper(j2))
+      {
+        newData[j.key()] = j.value();
+      }
+    }
+    return newData;
+  }
+}
+
 using namespace GUI;
 
 void CParser::parseFile(const std::string& filename)
@@ -89,18 +106,20 @@ CWidget* CParser::parseButton(const json& data) {
   CButton* wdgt = new CButton();
 
   parseParams(wdgt->_params, data);
+  parseParams(wdgt->_states[CButton::EState::ST_Idle]._params, data);
   parseImageParams(wdgt->_states[CButton::EState::ST_Idle]._imageParams, data);
   parseTextParams(wdgt->_states[CButton::EState::ST_Idle]._textParams, data);
-  if (data.count("selected") > 0)
-  {
-    parseImageParams(wdgt->_states[CButton::EState::ST_Selected]._imageParams, data["selected"]);
-    parseTextParams(wdgt->_states[CButton::EState::ST_Selected]._textParams, data["selected"]);
-  }
-  if (data.count("pressed") > 0)
-  {
-    parseImageParams(wdgt->_states[CButton::EState::ST_Pressed]._imageParams, data["pressed"]);
-    parseTextParams(wdgt->_states[CButton::EState::ST_Pressed]._textParams, data["pressed"]);
-  }
+
+  json jSelected = mergeJson(data, "selected");
+  parseParams(wdgt->_states[CButton::EState::ST_Selected]._params, jSelected);
+  parseImageParams(wdgt->_states[CButton::EState::ST_Selected]._imageParams, jSelected);
+  parseTextParams(wdgt->_states[CButton::EState::ST_Selected]._textParams, jSelected);
+
+  json jPressed = mergeJson(data, "pressed");
+  parseParams(wdgt->_states[CButton::EState::ST_Pressed]._params, jPressed);
+  parseImageParams(wdgt->_states[CButton::EState::ST_Pressed]._imageParams, jPressed);
+  parseTextParams(wdgt->_states[CButton::EState::ST_Pressed]._textParams, jPressed);
+
   return wdgt;
 }
 

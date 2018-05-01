@@ -49,7 +49,7 @@
 				"position" : "810 650",
 				"children" : [
 					{
-						"name" : "background",
+						"name" : "new_game",
 						"type" : "button",
 						"position" : "0 0",
 						"size" : "300 50",
@@ -57,10 +57,20 @@
 						"font_size" : 32.0,
 						"text" : "NEW GAME",
 						"halign" : "center",
-						"valign" : "center"
+						"valign" : "center",
+						"color" : "0.5 0.5 0.5 1",
+						"selected" : {
+							"position" : "30 0",
+							"font_size" : 36.0
+						},
+						"pressed" : {
+							"position" : "30 0",
+							"font_size" : 36.0,
+							"font_color" : "0.8 0.8 1 1"
+						}
 					},
 					{
-						"name" : "background",
+						"name" : "continue",
 						"type" : "button",
 						"position" : "0 80",
 						"size" : "300 50",
@@ -68,10 +78,20 @@
 						"font_size" : 32.0,
 						"text" : "CONTINUE",
 						"halign" : "center",
-						"valign" : "center"
+						"valign" : "center",
+						"color" : "0.5 0.5 0.5 1",
+						"selected" : {
+							"position" : "30 80",
+							"font_size" : 36.0
+						},
+						"pressed" : {
+							"position" : "30 80",
+							"font_size" : 36.0,
+							"font_color" : "0.8 0.8 1 1"
+						}
 					},
 					{
-						"name" : "background",
+						"name" : "options",
 						"type" : "button",
 						"position" : "0 160",
 						"size" : "300 50",
@@ -79,7 +99,17 @@
 						"font_size" : 32.0,
 						"text" : "OPTIONS",
 						"halign" : "center",
-						"valign" : "center"
+						"valign" : "center",
+						"color" : "0.5 0.5 0.5 1",
+						"selected" : {
+							"position" : "30 160",
+							"font_size" : 36.0
+						},
+						"pressed" : {
+							"position" : "30 160",
+							"font_size" : 36.0,
+							"font_color" : "0.8 0.8 1 1"
+						}
 					}
 				]
 			},

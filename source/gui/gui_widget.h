@@ -14,7 +14,7 @@ namespace GUI
 
     void addChild(CWidget* wdgt);
     void removeChild(CWidget* wdgt);
-    CWidget* getChild(const std::string& name) const;
+    CWidget* getChild(const std::string& name, bool recursive = false) const;
     const std::string& getName() const;
 
     void computeLocal();

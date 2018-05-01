@@ -7,12 +7,12 @@ namespace GUI
   class CButton : public CWidget
   {
   public:
+    enum EState { ST_Idle = 0, ST_Selected, ST_Pressed, NUM_STATES };
+    
     CButton() = default;
     void render() override;
 
   private:
-    enum EState { ST_Idle = 0, ST_Selected, ST_Pressed, NUM_STATES };
-    
     TButtonParams _states[NUM_STATES];
     EState _currentState = ST_Idle;
 

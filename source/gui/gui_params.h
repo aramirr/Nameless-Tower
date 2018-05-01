@@ -41,6 +41,7 @@ namespace GUI
 
   struct TButtonParams
   {
+    TParams _params;
     TImageParams _imageParams;
     TTextParams _textParams;
   };

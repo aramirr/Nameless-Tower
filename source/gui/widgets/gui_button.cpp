@@ -32,5 +32,5 @@ void CButton::render()
 
   MAT44 tr = MAT44::CreateTranslation(offset.x, offset.y, 0.f);
   MAT44 w = MAT44::CreateScale(btParams._textParams._size) * tr * _absolute;
-  gui.renderText(w, btParams._textParams._text);
+  gui.renderText(w, btParams._textParams._text, btParams._textParams._color);
 }

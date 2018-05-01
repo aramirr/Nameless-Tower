@@ -29,7 +29,7 @@ void CWidget::removeChild(CWidget* wdgt)
   }
 }
 
-CWidget* CWidget::getChild(const std::string& name) const
+CWidget* CWidget::getChild(const std::string& name, bool recursive) const
 {
   for (auto& child : _children)
   {
@@ -38,6 +38,19 @@ CWidget* CWidget::getChild(const std::string& name) const
       return child;
     }
   }
+
+  if(recursive)
+  {
+    for (auto& child : _children)
+    {
+      CWidget* wdgt = child->getChild(name, true);
+      if (wdgt)
+      {
+        return wdgt;
+      }
+    }
+  }
+
   return nullptr;
 }
 

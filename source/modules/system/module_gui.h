@@ -15,14 +15,14 @@ public:
 
   // widget management
   void registerWidget(GUI::CWidget* wdgt);
-  GUI::CWidget* getWidget(const std::string& name) const;
+  GUI::CWidget* getWidget(const std::string& name, bool recursive = false) const;
   void activateWidget(const std::string& name);
 
   CCamera& getCamera();
   MVariants& getVariables();
 
   void renderTexture(const MAT44& world, const CTexture* texture, const VEC2& minUV, const VEC2& maxUV, const VEC4& color);
-  void renderText(const MAT44& world, const std::string& text);
+  void renderText(const MAT44& world, const std::string& text, const VEC4& color);
 
 private:
   CCamera _orthoCamera;

@@ -71,15 +71,28 @@ void CModuleGUI::registerWidget(CWidget* wdgt)
   _registeredWidgets.push_back(wdgt);
 }
 
-CWidget* CModuleGUI::getWidget(const std::string& name) const
+CWidget* CModuleGUI::getWidget(const std::string& name, bool recursive) const
 {
-  for (auto& wdgt : _registeredWidgets)
+  for (auto& rwdgt : _registeredWidgets)
   {
-    if (wdgt->getName() == name)
+    if (rwdgt->getName() == name)
     {
-      return wdgt;
+      return rwdgt;
     }
   }
+
+  if (recursive)
+  {
+    for (auto& rwdgt : _registeredWidgets)
+    {
+      CWidget* wdgt = rwdgt->getChild(name, true);
+      if (wdgt)
+      {
+        return wdgt;
+      }
+    }
+  }
+
   return nullptr;
 }
 
@@ -122,7 +135,7 @@ void CModuleGUI::renderTexture(const MAT44& world, const CTexture* texture, cons
   _quadMesh->activateAndRender();
 }
 
-void CModuleGUI::renderText(const MAT44& world, const std::string& text)
+void CModuleGUI::renderText(const MAT44& world, const std::string& text, const VEC4& color)
 {
   assert(_fontTexture);
 
@@ -142,6 +155,6 @@ void CModuleGUI::renderText(const MAT44& world, const std::string& text)
     VEC2 gap = i * VEC2(1, 0);
     MAT44 w = MAT44::CreateTranslation(gap.x, gap.y, 0.f) * world;
 
-    renderTexture(w, _fontTexture, minUV, maxUV, VEC4(1, 1, 1, 1));
+    renderTexture(w, _fontTexture, minUV, maxUV, color);
   }
 }
