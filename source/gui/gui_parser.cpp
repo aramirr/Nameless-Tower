@@ -13,106 +13,143 @@ void CParser::parseFile(const std::string& filename)
   json json_data;
   file_json >> json_data;
 
-  for (auto& jWidget : json_data)
+  for (auto& j_element : json_data)
   {
-    parseWidget(jWidget);
+    CWidget* wdgt = parseWidget(j_element, nullptr);
+
+    // computeAbsolute will propagate calculations to the children recursively
+    wdgt->computeAbsolute();
+
+    // register the widget within the manager
+    Engine.getGUI().registerWidget(wdgt);
   }
 }
 
-void CParser::parseWidget(json& data, CWidget* parent)
+CWidget* CParser::parseWidget(const json& data, CWidget* parent)
 {
-  const std::string& name = data["name"];
-  const std::string& type = data["type"];
+  const std::string name = data.value("name", "");
+  const std::string type = data.value("type", "widget");
   CWidget* wdgt = nullptr;
 
-  if (type == "image")
+  // create and parse the widget
+  if (type == "image")        wdgt = parseImage(data);
+  else if (type == "text")    wdgt = parseText(data);
+  else if (type == "bar")     wdgt = parseBar(data);
+  else if (type == "button")  wdgt = parseButton(data);
+  else                        wdgt = parseWidget(data);
+
+  wdgt->_name = name;
+
+  // add to parent
+  if (parent)
   {
-    CImage* image = new CImage;
-    parseImageParams(image->_imageParams, data["image_params"]);
-    wdgt = image;
+    parent->addChild(wdgt);
   }
-  else if (type == "text")
+
+  // create and parse children
+  if (data.count("children") > 0)
   {
-    CText* text = new CText;
-    parseTextParams(text->_textParams, data["text_params"]);
-    wdgt = text;
-  }
-  else if (type == "bar")
-  {
-    CBar* bar = new CBar;
-    parseImageParams(bar->_imageParams, data["image_params"]);
-    parseBarParams(bar->_barParams, data["bar_params"]);
-    wdgt = bar;
-  }
-  else if (type == "button")
-  {
-    CButton* button = new CButton;
-    for (int i = 0; i < CButton::NUM_STATES; ++i)
+    for (auto& child : data["children"])
     {
-      parseImageParams(button->_states[i]._imageParams, data["image_params"]);
-      parseTextParams(button->_states[i]._textParams, data["text_params"]);
+      parseWidget(child, wdgt);
     }
-    wdgt = button;
-  }
-  else if (type == "widget")
-  {
-    wdgt = new CWidget;
   }
 
-  assert(wdgt);
-  if (wdgt)
-  {
-    wdgt->_name = name;
-    parseParams(wdgt->_params, data["params"]);
-    Engine.getGUI().registerWidget(wdgt);
-
-    if (parent)
-    {
-      parent->addChild(wdgt);
-    }
-
-
-    // parse widget children
-    for (auto& jChild : data["children"])
-    {
-      parseWidget(jChild, wdgt);
-    }
-
-    wdgt->computeAbsolute();
-  }
+  return wdgt;
 }
 
-void CParser::parseParams(TParams& params, json& data)
+// ------------- WIDGETS
+CWidget* CParser::parseWidget(const json& data) {
+  CWidget* wdgt = new CWidget();
+
+  parseParams(wdgt->_params, data);
+
+  return wdgt;
+}
+
+CWidget* CParser::parseImage(const json& data) {
+  CImage* wdgt = new CImage();
+
+  parseParams(wdgt->_params, data);
+  parseImageParams(wdgt->_imageParams, data);
+
+  return wdgt;
+}
+
+CWidget* CParser::parseText(const json& data) {
+  CText* wdgt = new CText();
+
+  parseParams(wdgt->_params, data);
+  parseTextParams(wdgt->_textParams, data);
+
+  return wdgt;
+}
+
+CWidget* CParser::parseButton(const json& data) {
+  CButton* wdgt = new CButton();
+
+  parseParams(wdgt->_params, data);
+  parseImageParams(wdgt->_states[CButton::EState::ST_Idle]._imageParams, data);
+  parseTextParams(wdgt->_states[CButton::EState::ST_Idle]._textParams, data);
+  if (data.count("selected") > 0)
+  {
+    parseImageParams(wdgt->_states[CButton::EState::ST_Selected]._imageParams, data["selected"]);
+    parseTextParams(wdgt->_states[CButton::EState::ST_Selected]._textParams, data["selected"]);
+  }
+  if (data.count("pressed") > 0)
+  {
+    parseImageParams(wdgt->_states[CButton::EState::ST_Pressed]._imageParams, data["pressed"]);
+    parseTextParams(wdgt->_states[CButton::EState::ST_Pressed]._textParams, data["pressed"]);
+  }
+  return wdgt;
+}
+
+CWidget* CParser::parseBar(const json& data) {
+  CBar* wdgt = new CBar();
+
+  parseParams(wdgt->_params, data);
+  parseImageParams(wdgt->_imageParams, data);
+  parseBarParams(wdgt->_barParams, data);
+
+  return wdgt;
+}
+
+void CParser::parseParams(TParams& params, const json& data)
 {
   params._visible = data.value("visible", true);
-  params._position = loadVEC2(data["position"]);
+  params._position = loadVEC2(data.value("position","0 0"));
   params._rotation = deg2rad(data.value("rotation", 0.f));
-  params._scale = loadVEC2(data["scale"]);
-  params._size = loadVEC2(data["size"]);
+  params._scale = loadVEC2(data.value("scale", "1 1"));
+  params._size = loadVEC2(data.value("size", "1 1"));
 }
 
-void CParser::parseImageParams(TImageParams& params, json& data)
+void CParser::parseImageParams(TImageParams& params, const json& data)
 {
-  params._color = loadVEC4(data["color"]);
-  params._minUV = loadVEC2(data["minUV"]);
-  params._maxUV = loadVEC2(data["maxUV"]);
-  const std::string& textureFile = data["texture"];
+  params._color = loadVEC4(data.value("color", "1 1 1 1"));
+  params._minUV = loadVEC2(data.value("minUV", "0 0"));
+  params._maxUV = loadVEC2(data.value("maxUV", "1 1"));
+  const std::string textureFile = data.value("texture", "");
   params._texture = Resources.get(textureFile)->as<CTexture>();
 }
 
-void CParser::parseTextParams(TTextParams& params, json& data)
+void CParser::parseTextParams(TTextParams& params, const json& data)
 {
-  params._color = loadVEC4(data["color"]);
-  params._size = data.value("size", 1.f);
-  params._text = data.value("text", std::string());
-  const std::string& alignment = data.value("alignment", "");
-  if (alignment == "center")      params._alignment = TTextParams::Center;
-  else if (alignment == "right")  params._alignment = TTextParams::Right;
-  else                            params._alignment = TTextParams::Left;
+  params._color = loadVEC4(data.value("font_color", "1 1 1 1"));
+  params._size = data.value("font_size", 1.f);
+  params._text = data.value("text", "");
+  const std::string& hAlign = data.value("halign", "");
+  if (hAlign == "center")      params._hAlign = TTextParams::Center;
+  else if (hAlign == "right")  params._hAlign = TTextParams::Right;
+  else                         params._hAlign = TTextParams::Left;
+  const std::string& vAlign = data.value("valign", "");
+  if (vAlign == "center")      params._vAlign = TTextParams::Center;
+  else if (vAlign == "bottom") params._vAlign = TTextParams::Bottom;
+  else                         params._vAlign = TTextParams::Top;
 }
 
-void CParser::parseBarParams(TBarParams& params, json& data)
+void CParser::parseBarParams(TBarParams& params, const json& data)
 {
-  params._variable = data.value("variable", std::string());
-  params._direction = data["direction"] == "vertical" ? TBarParams::Vertical : TBarParams::Horizontal;
+  params._variable = data.value("variable", "");
+  const std::string direction = data.value("direction", "horizontal");
+  params._direction = direction == "vertical" ? TBarParams::Vertical : TBarParams::Horizontal;
 }

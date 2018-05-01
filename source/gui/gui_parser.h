@@ -10,10 +10,17 @@ namespace GUI
   {
   public:
     void parseFile(const std::string& file);
-    void parseWidget(json& data, CWidget* parent = nullptr);
-    void parseParams(TParams& params, json& data);
-    void parseImageParams(TImageParams& params, json& data);
-    void parseTextParams(TTextParams& params, json& data);
-    void parseBarParams(TBarParams& params, json& data);
+    CWidget* parseWidget(const json& data, CWidget* parent);
+
+    CWidget* parseWidget(const json& data);
+    CWidget* parseImage(const json& data);
+    CWidget* parseText(const json& data);
+    CWidget* parseButton(const json& data);
+    CWidget* parseBar(const json& data);
+
+    void parseParams(TParams& params, const json& data);
+    void parseImageParams(TImageParams& params, const json& data);
+    void parseTextParams(TTextParams& params, const json& data);
+    void parseBarParams(TBarParams& params, const json& data);
   };
 }

@@ -66,8 +66,8 @@ void CWidget::computeAbsolute()
     _absolute = _local;
   }
   // update my children absolutes
-  /*for (auto& child : _children)
-    child->computeAbsolute();*/
+  for (auto& child : _children)
+    child->computeAbsolute();
 }
 
 void CWidget::updateAll(float delta)

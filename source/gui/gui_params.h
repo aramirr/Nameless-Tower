@@ -23,8 +23,9 @@ namespace GUI
 
   struct TTextParams
   {
-    enum EAlignment { Left, Center, Right };
-    EAlignment _alignment;
+    enum EAlignment { Left, Center, Right, Top, Bottom };
+    EAlignment _vAlign = Left;
+    EAlignment _hAlign = Top;
     float _size;
     //const CFont* _font = nullptr;
     std::string _text;

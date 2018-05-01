@@ -65,6 +65,7 @@ bool CModuleTestAxis::stop()
   cb_camera.destroy();
   cb_object.destroy();
   cb_globals.destroy();
+  cb_gui.destroy();
   return true;
 }
 

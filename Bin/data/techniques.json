@@ -149,8 +149,10 @@
     "vs_entry_point": "VS_GUI",
     "ps_entry_point": "PS_GUI",
     "vertex_type" : "PosClr",
+    "category" : "gui",
     "z" : "disable_all",
-    "category" : "helper"
+    "rs" : "cull_none",
+    "blend" : "combinative"
   }
 
 }
