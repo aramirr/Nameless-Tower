@@ -32,6 +32,7 @@ public:
 		, NajaIdle
 		, NajaGlide
 		, NajaJumpUp
+		, NajaJumpFall
 		, NajaJumpFallLand
 		, NajaOmniPrep
 		, NajaOmniAb
@@ -41,7 +42,8 @@ public:
 		, NajaDash
 		, NajaWalk
 		, NajaWindstrike
-		, NajaDeath,
+		, NajaDying
+		, NajaDead,
 		EAnimations
 	};
 

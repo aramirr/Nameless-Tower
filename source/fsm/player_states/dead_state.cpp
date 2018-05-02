@@ -11,7 +11,7 @@ namespace FSM
 	{
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_animation(player->EAnimations::NajaDeath, _is_action, _delay_in, _delay_out);
+		player->change_animation(player->EAnimations::NajaDead, _is_action, _delay_in, _delay_out);
 		ctx.setVariable("hit", false);
 	}
 
@@ -39,26 +39,12 @@ namespace FSM
 			PxFilterData filter_data = player_shape->getSimulationFilterData();
 			ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
 			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(0, y_speed, 0), 0.f, dt, PxControllerFilters(&filter_data, filter_controller, filter_controller));
-
-			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !player->is_grounded) {				
-				player->y_speed_factor = 0;
-				player->is_grounded = true;
-				ctx.setVariable("dead", false);
-				ctx.setVariable("can_dash", true);
-				ctx.setVariable("can_omni", true);
-				ctx.setVariable("is_grounded", true);
-			}			
+			
 		}
 		return false;
 	}
 	
 	void DeadState::onFinish(CContext& ctx) const {
-		ctx.setVariable("dead", false);		
-		CEntity* e = ctx.getOwner();
-		TCompPlayerController* player = e->get<TCompPlayerController>();		
-		TCompCollider* comp_collider = e->get<TCompCollider>();
-		if (comp_collider && comp_collider->controller) {
-			comp_collider->controller->setPosition(physx::PxExtendedVec3(player->checkpoint.x, player->checkpoint.y, player->checkpoint.z));
-		}
+		ctx.setVariable("dead", false);				
 	}
 }

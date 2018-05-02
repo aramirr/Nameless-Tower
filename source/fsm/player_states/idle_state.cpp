@@ -16,6 +16,7 @@ namespace FSM
 		// Pongo la animacion solo si no se esta moviendo
 		if (!EngineInput["left"].isPressed() & !EngineInput["right"].isPressed())
 			player->change_animation(player->EAnimations::NajaIdle, _is_action, _delay_in, _delay_out);
+		ctx.setVariable("initial", false);
 	}
 
 	bool IdleState::load(const json& jData)

@@ -34,6 +34,11 @@ namespace FSM
 		my_pos->setYawPitchRoll(y, 0, 0);
 
 		player->looking_left = my_pos->isInLeft(player->center) ? false : true;		
+		player->y_speed_factor = 0;
+		player->is_grounded = true;
+		ctx.setVariable("can_dash", true);
+		ctx.setVariable("can_omni", true);
+		ctx.setVariable("is_grounded", true);
 	}
 
 	bool InitialState::load(const json& jData)
@@ -43,7 +48,6 @@ namespace FSM
 
 	bool InitialState::update(float dt, CContext& ctx) const
 	{
-		ctx.setVariable("is_grounded", true);
 		return false;
 	}
 

@@ -135,6 +135,8 @@
     <ClCompile Include="components\physics\controller_filter.cpp" />
     <ClCompile Include="components\physics\query_filter.cpp" />
     <ClCompile Include="components\comp_player_killer.cpp" />
+    <ClCompile Include="fsm\player_states\landing_state.cpp" />
+    <ClCompile Include="fsm\player_states\dying_state.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
@@ -305,7 +307,6 @@
     <ClInclude Include="components\comp_orbit_controller.h" />
     <ClInclude Include="components\ia\ai_cut_door.h" />
     <ClInclude Include="components\ia\ai_rotation.h" />
-    <ClInclude Include="components\comp_fsm.h" />
     <ClInclude Include="components\fsm\comp_fsm.h" />
     <ClInclude Include="fsm\player_states\windstrike_state.h" />
     <ClInclude Include="fsm\player_states\run_state.h" />
@@ -329,6 +330,9 @@
     <ClInclude Include="render\mesh\mesh_instanced.h" />
     <ClInclude Include="modules\test\module_test_instancing.h" />
     <ClInclude Include="modules\test\module_test_cameras.h" />
+    <ClInclude Include="fsm\player_states\landing_state.h" />
+    <ClInclude Include="fsm\player_states\player_state.h" />
+    <ClInclude Include="fsm\player_states\dying_state.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />
