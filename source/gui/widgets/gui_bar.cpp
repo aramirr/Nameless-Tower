@@ -17,3 +17,8 @@ void CBar::render()
     maxUV,
     _imageParams._color);
 }
+
+TImageParams* CBar::getImageParams()
+{
+  return &_imageParams;
+}

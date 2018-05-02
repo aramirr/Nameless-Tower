@@ -3,6 +3,7 @@
 #include "modules/module.h"
 #include "gui/gui_widget.h"
 #include "utils/variant.h"
+#include "gui/gui_controller.h"
 
 class CModuleGUI : public IModule
 {
@@ -17,6 +18,10 @@ public:
   void registerWidget(GUI::CWidget* wdgt);
   GUI::CWidget* getWidget(const std::string& name, bool recursive = false) const;
   void activateWidget(const std::string& name);
+
+  // controller management
+  void registerController(GUI::CController* controller);
+  void unregisterController(GUI::CController* controller);
 
   CCamera& getCamera();
   MVariants& getVariables();
@@ -33,4 +38,5 @@ private:
   GUI::VWidgets _registeredWidgets;
   GUI::VWidgets _activeWidgets;
   MVariants _variables;
+  GUI::VControllers _controllers;
 };

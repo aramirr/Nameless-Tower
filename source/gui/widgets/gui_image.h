@@ -9,6 +9,7 @@ namespace GUI
   public:
     CImage() = default;
     void render() override;
+    TImageParams* getImageParams() override;
 
   private:
     TImageParams _imageParams;

@@ -21,3 +21,8 @@ void CText::render()
   MAT44 w = MAT44::CreateScale(_textParams._size) * tr * _absolute;
   Engine.get().getGUI().renderText(w, _textParams._text, _textParams._color);
 }
+
+TTextParams* CText::getTextParams()
+{
+  return &_textParams;
+}

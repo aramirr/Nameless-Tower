@@ -9,6 +9,7 @@ namespace GUI
   public:
     CText() = default;
     void render() override;
+    TTextParams* getTextParams() override;
 
   private:
     TTextParams _textParams;

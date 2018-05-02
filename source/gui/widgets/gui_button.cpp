@@ -34,3 +34,19 @@ void CButton::render()
   MAT44 w = MAT44::CreateScale(btParams._textParams._size) * tr * _absolute;
   gui.renderText(w, btParams._textParams._text, btParams._textParams._color);
 }
+
+TImageParams* CButton::getImageParams()
+{
+  return &_states[_currentState]._imageParams;
+}
+
+TTextParams* CButton::getTextParams()
+{
+  return &_states[_currentState]._textParams;
+}
+
+void CButton::setCurrentState(EState newState)
+{
+  _currentState = newState;
+}
+

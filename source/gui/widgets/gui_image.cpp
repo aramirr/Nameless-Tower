@@ -12,3 +12,8 @@ void CImage::render()
                                     _imageParams._maxUV,
                                     _imageParams._color);
 }
+
+TImageParams* CImage::getImageParams()
+{
+  return &_imageParams;
+}

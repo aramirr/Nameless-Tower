@@ -5,6 +5,7 @@
 namespace GUI
 {
   class CImageWidget;
+  class CEffect;
 
   class CParser
   {
@@ -17,6 +18,9 @@ namespace GUI
     CWidget* parseText(const json& data);
     CWidget* parseButton(const json& data);
     CWidget* parseBar(const json& data);
+
+    CEffect* parseEffect(const json& data, CWidget* wdgt);
+    CEffect* parseAnimateUVEffect(const json& data);
 
     void parseParams(TParams& params, const json& data);
     void parseImageParams(TImageParams& params, const json& data);

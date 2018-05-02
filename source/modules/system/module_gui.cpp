@@ -2,6 +2,7 @@
 #include "module_gui.h"
 #include "render/render_objects.h"
 #include "gui/gui_parser.h"
+#include "gui/controllers/gui_main_menu_controller.h"
 
 using namespace GUI;
 
@@ -29,6 +30,23 @@ bool CModuleGUI::start()
 
   _variables.setVariant("progress", 0.5f);
 
+  auto newGameCB = []() {
+    printf("STARTING GAME\n");
+  };
+  auto continueCB = []() {
+    printf("LOADING GAME\n");
+  };
+  auto optionsCB = []() {
+    printf("CONFIGURING\n");
+  };
+
+  CMainMenuController* mmc = new CMainMenuController();
+  mmc->registerOption("new_game", newGameCB);
+  mmc->registerOption("continue", continueCB);
+  mmc->registerOption("options", optionsCB);
+  mmc->setCurrentOption(0);
+  registerController(mmc);
+
   return true;
 }
 
@@ -37,12 +55,15 @@ bool CModuleGUI::stop()
   return true;
 }
 
-
 void CModuleGUI::update(float delta)
 {
   for (auto& wdgt : _activeWidgets)
   {
     wdgt->updateAll(delta);
+  }
+  for (auto& controller : _controllers)
+  {
+    controller->update(delta);
   }
 
   // change bar value
@@ -102,6 +123,24 @@ void CModuleGUI::activateWidget(const std::string& name)
   if (wdgt)
   {
     _activeWidgets.push_back(wdgt);
+  }
+}
+
+void CModuleGUI::registerController(GUI::CController* controller)
+{
+  auto it = std::find(_controllers.begin(), _controllers.end(), controller);
+  if (it == _controllers.end())
+  {
+    _controllers.push_back(controller);
+  }
+}
+
+void CModuleGUI::unregisterController(GUI::CController* controller)
+{
+  auto it = std::find(_controllers.begin(), _controllers.end(), controller);
+  if (it != _controllers.end())
+  {
+    _controllers.erase(it);
   }
 }
 

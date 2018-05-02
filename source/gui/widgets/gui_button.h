@@ -11,6 +11,9 @@ namespace GUI
     
     CButton() = default;
     void render() override;
+    TImageParams* getImageParams() override;
+    TTextParams* getTextParams() override;
+    void setCurrentState(EState newState);
 
   private:
     TButtonParams _states[NUM_STATES];

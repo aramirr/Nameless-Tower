@@ -295,6 +295,12 @@
     <ClCompile Include="gui\widgets\gui_button.cpp">
       <Filter>gui\widgets</Filter>
     </ClCompile>
+    <ClCompile Include="gui\effects\gui_animate_uv.cpp">
+      <Filter>gui\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\controllers\gui_main_menu_controller.cpp">
+      <Filter>gui\controllers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -380,6 +386,12 @@
     </Filter>
     <Filter Include="gui\widgets">
       <UniqueIdentifier>{9c020120-211f-48f2-966a-0d782852d91f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gui\effects">
+      <UniqueIdentifier>{79ed438c-0636-4813-ade9-c90903ee83b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gui\controllers">
+      <UniqueIdentifier>{60780942-ac06-4967-8c08-e98bf8578652}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -792,6 +804,18 @@
     </ClInclude>
     <ClInclude Include="gui\widgets\gui_button.h">
       <Filter>gui\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\gui_effect.h">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\effects\gui_animate_uv.h">
+      <Filter>gui\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\gui_controller.h">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\controllers\gui_main_menu_controller.h">
+      <Filter>gui\controllers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

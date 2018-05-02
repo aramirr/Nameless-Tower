@@ -59,6 +59,12 @@ const std::string& CWidget::getName() const
   return _name;
 }
 
+void CWidget::addEffect(CEffect* fx)
+{
+  _effects.push_back(fx);
+  fx->setWidget(this);
+}
+
 void CWidget::computeLocal()
 {
   MAT44 tr = MAT44::CreateTranslation(_params._position.x, _params._position.y, 0.f);
@@ -86,6 +92,10 @@ void CWidget::computeAbsolute()
 void CWidget::updateAll(float delta)
 {
   update(delta);
+  for (auto& fx : _effects)
+  {
+    fx->update(delta);
+  }
   for (auto& child : _children)
   {
     child->updateAll(delta);

@@ -4,6 +4,7 @@
 #include "gui/widgets/gui_text.h"
 #include "gui/widgets/gui_bar.h"
 #include "gui/widgets/gui_button.h"
+#include "gui/effects/gui_animate_uv.h"
 
 namespace
 {
@@ -56,6 +57,15 @@ CWidget* CParser::parseWidget(const json& data, CWidget* parent)
   else                        wdgt = parseWidget(data);
 
   wdgt->_name = name;
+
+  // create and parse effects
+  if (data.count("effects") > 0)
+  {
+    for (auto& fxData : data["effects"])
+    {
+      parseEffect(fxData, wdgt);
+    }
+  }
 
   // add to parent
   if (parent)
@@ -121,6 +131,32 @@ CWidget* CParser::parseButton(const json& data) {
   parseTextParams(wdgt->_states[CButton::EState::ST_Pressed]._textParams, jPressed);
 
   return wdgt;
+}
+
+CEffect* CParser::parseEffect(const json& data, CWidget* wdgt)
+{
+  const std::string type = data.value("type", "");
+  CEffect* fx = nullptr;
+
+  // create and parse the widget
+  if (type == "animate_uv")   fx = parseAnimateUVEffect(data);
+
+  // add to parent
+  if (wdgt && fx)
+  {
+    wdgt->addEffect(fx);
+  }
+
+  return fx;
+}
+
+CEffect* CParser::parseAnimateUVEffect(const json& data)
+{
+  CAnimateUV* fx = new CAnimateUV();
+
+  fx->_speed = loadVEC2(data.value("speed", "0 0"));
+
+  return fx;
 }
 
 CWidget* CParser::parseBar(const json& data) {

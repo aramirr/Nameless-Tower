@@ -1,6 +1,7 @@
 #pragma once
 
 #include "gui_params.h"
+#include "gui_effect.h"
 
 namespace GUI
 {
@@ -16,6 +17,10 @@ namespace GUI
     void removeChild(CWidget* wdgt);
     CWidget* getChild(const std::string& name, bool recursive = false) const;
     const std::string& getName() const;
+    virtual TImageParams* getImageParams() { return nullptr; }
+    virtual TTextParams* getTextParams() { return nullptr; }
+
+    void addEffect(CEffect* fx);
 
     void computeLocal();
     void computeAbsolute();
@@ -29,6 +34,7 @@ namespace GUI
   protected:
     std::string _name;
     VWidgets _children;
+    VEffects _effects;
     CWidget* _parent = nullptr;
     TParams _params;
     MAT44 _local;
