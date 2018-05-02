@@ -18,6 +18,10 @@
       },
       "render_ao" : {
         "enabled" :  true
+      },
+      "color_grading" : {
+        "enabled" :  true,
+        "lut": "data/textures/lut/lut1.dds"
       }
     }
   }

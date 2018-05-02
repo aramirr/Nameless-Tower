@@ -182,6 +182,13 @@
     "z": "disable_all"
   },
   
+  "color_grading": {
+    "vs_file": "data/shaders/color_grading.fx",
+    "vertex_type": "PosClr",
+    "category": "fx",
+    "z": "disable_all"
+  },
+  
   "blur": {
     "vs_file": "data/shaders/blur.fx",
     "ps_file": "data/shaders/blur.fx",

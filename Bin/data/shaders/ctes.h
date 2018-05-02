@@ -35,6 +35,8 @@
 #define TS_DEFERRED_ACC_LIGHTS        13
 #define TS_DEFERRED_AO                14
 
+// LookUpTable for the color grading
+#define TS_LUT_COLOR_GRADING          15
 
 #define TS_MIX_BLEND_WEIGHTS          15
 
