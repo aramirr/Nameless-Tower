@@ -88,6 +88,7 @@ bool parseScene(const std::string& filename, TEntityParseContext& ctx) {
         // Do the parse now outside the 'prefab' context
         prefab_ctx.parsing_prefab = false;
         e->load(j_entity_without_transform, prefab_ctx);
+		//e->addRandNumberInName();
 
       }
       else {
@@ -100,9 +101,9 @@ bool parseScene(const std::string& filename, TEntityParseContext& ctx) {
 
         // Do the parse
         e->load(j_entity, ctx);
-
+		//e->addRandNumberInName();
       }
-
+	  
       ctx.entities_loaded.push_back(h_e);
     }
   }

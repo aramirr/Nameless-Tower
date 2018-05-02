@@ -3,6 +3,7 @@
 #include "comp_spiral_controller.h"
 #include "components/juan/comp_transform.h"
 #include "components/physics/controller_filter.h"
+#include "components/physics/query_filter.h"
 
 using namespace physx;
 
@@ -80,20 +81,21 @@ void TCompSpiralController::update(float DT) {
 		my_collider->controller->getActor()->getShapes(&player_shape, 1);
 		PxFilterData filter_data = player_shape->getSimulationFilterData();
 		ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
-		PxControllerCollisionFlags flags = my_collider->controller->move(PxVec3(move_vector.x, move_vector.y, move_vector.z), 0.f, DT, PxControllerFilters(&filter_data, filter_controller, filter_controller));
+		BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
+		PxControllerCollisionFlags flags = my_collider->controller->move(PxVec3(move_vector.x, move_vector.y, move_vector.z), 0.f, DT, PxControllerFilters(&filter_data, query_filter, filter_controller));
 		
 		if (flags.isSet(PxControllerCollisionFlag::eCOLLISION_DOWN) or flags.isSet(PxControllerCollisionFlag::eCOLLISION_UP) or flags.isSet(PxControllerCollisionFlag::eCOLLISION_SIDES))
 		{
 			this->destroy();
 			return;
 		}
-		QUAT newRot = my_transform->getRotation();
+		/*QUAT newRot = my_transform->getRotation();
 		PxRigidActor* rigidActor = ((PxRigidActor*)my_collider->actor);
 		PxTransform tr = rigidActor->getGlobalPose();
 		tr.p = PxVec3(new_pos.x, new_pos.y, new_pos.z);
 		tr.q = PxQuat(newRot.x, newRot.y, newRot.z, newRot.w);
 
-		rigidActor->setGlobalPose(tr);
+		rigidActor->setGlobalPose(tr);*/
 	}
 
 	life -= DT;
