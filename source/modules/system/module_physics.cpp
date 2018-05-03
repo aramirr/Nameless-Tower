@@ -145,6 +145,7 @@ void CModulePhysics::createActor(TCompCollider& comp_collider)
       desc.triangles.data = config.col_mesh->mesh.idxs.data();
       if(config.col_mesh->mesh.header.bytes_per_idx == 2)
         desc.flags = PxMeshFlags( PxTriangleMeshFlag::e16_BIT_INDICES );
+      desc.flags |= PxMeshFlag::eFLIPNORMALS;
       assert(desc.isValid());
 
 #ifdef _DEBUG
