@@ -3,6 +3,7 @@
 #include "components/player/comp_player_controller.h"
 #include "fsm/context.h"
 #include "components/physics/controller_filter.h"
+#include "components/physics/query_filter.h"
 
 namespace FSM
 {
@@ -62,7 +63,8 @@ namespace FSM
 		comp_collider->controller->getActor()->getShapes(&player_shape, 1);
 		PxFilterData filter_data = player_shape->getSimulationFilterData();
 		ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
-		PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, filter_controller, filter_controller));
+		BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
+		PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, query_filter, filter_controller));
 
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 			ctx.setVariable("idle", true);
