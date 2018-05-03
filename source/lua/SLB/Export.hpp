@@ -38,7 +38,7 @@
 
   #  else
   #    define SLB_EXPORT   __declspec(dllimport)
-  #  endif /* SLB_LIBRARY */
+  #  endif  /*SLB_LIBRARY*/
 
 #else
   #  define SLB_EXPORT

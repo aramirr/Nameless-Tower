@@ -14,7 +14,8 @@
 #include "components/camera/comp_camera_manager.h"
 #include "entity/entity_parser.h"
 #include "render/render_manager.h"
-#include "SLB/SLB.hpp"
+#include <lua\SLB\SLB.hpp>
+
 
 class LogicManager
 {

@@ -46,6 +46,26 @@
     <ClCompile Include="lutf8lib.c" />
     <ClCompile Include="lvm.c" />
     <ClCompile Include="lzio.c" />
+    <ClCompile Include="SLB\Allocator.cpp" />
+    <ClCompile Include="SLB\Class.cpp" />
+    <ClCompile Include="SLB\ClassHelpers.cpp" />
+    <ClCompile Include="SLB\ClassInfo.cpp" />
+    <ClCompile Include="SLB\Debug.cpp" />
+    <ClCompile Include="SLB\Error.cpp" />
+    <ClCompile Include="SLB\FuncCall.cpp" />
+    <ClCompile Include="SLB\Hybrid.cpp" />
+    <ClCompile Include="SLB\Instance.cpp" />
+    <ClCompile Include="SLB\Iterator.cpp" />
+    <ClCompile Include="SLB\lua.c" />
+    <ClCompile Include="SLB\LuaCall.cpp" />
+    <ClCompile Include="SLB\Manager.cpp" />
+    <ClCompile Include="SLB\Object.cpp" />
+    <ClCompile Include="SLB\Property.cpp" />
+    <ClCompile Include="SLB\Script.cpp" />
+    <ClCompile Include="SLB\SLB.cpp" />
+    <ClCompile Include="SLB\Table.cpp" />
+    <ClCompile Include="SLB\Type.cpp" />
+    <ClCompile Include="SLB\Value.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lapi.h" />
@@ -74,6 +94,38 @@
     <ClInclude Include="lundump.h" />
     <ClInclude Include="lvm.h" />
     <ClInclude Include="lzio.h" />
+    <ClInclude Include="SLB\Allocator.hpp" />
+    <ClInclude Include="SLB\Class.hpp" />
+    <ClInclude Include="SLB\ClassHelpers.hpp" />
+    <ClInclude Include="SLB\ClassInfo.hpp" />
+    <ClInclude Include="SLB\Conversor.hpp" />
+    <ClInclude Include="SLB\Debug.hpp" />
+    <ClInclude Include="SLB\Error.hpp" />
+    <ClInclude Include="SLB\Export.hpp" />
+    <ClInclude Include="SLB\FuncCall.hpp" />
+    <ClInclude Include="SLB\FuncCall_inline.hpp" />
+    <ClInclude Include="SLB\Hybrid.hpp" />
+    <ClInclude Include="SLB\Instance.hpp" />
+    <ClInclude Include="SLB\Iterator.hpp" />
+    <ClInclude Include="SLB\lua.hpp" />
+    <ClInclude Include="SLB\LuaCall.hpp" />
+    <ClInclude Include="SLB\Manager.hpp" />
+    <ClInclude Include="SLB\Mutex.hpp" />
+    <ClInclude Include="SLB\Object.hpp" />
+    <ClInclude Include="SLB\Private_FuncCall.hpp" />
+    <ClInclude Include="SLB\Property.hpp" />
+    <ClInclude Include="SLB\PushGet.hpp" />
+    <ClInclude Include="SLB\ref_ptr.hpp" />
+    <ClInclude Include="SLB\Script.hpp" />
+    <ClInclude Include="SLB\SLB.hpp" />
+    <ClInclude Include="SLB\SPP.hpp" />
+    <ClInclude Include="SLB\StatefulHybrid.hpp" />
+    <ClInclude Include="SLB\String.hpp" />
+    <ClInclude Include="SLB\Table.hpp" />
+    <ClInclude Include="SLB\Type.hpp" />
+    <ClInclude Include="SLB\TypeInfoWrapper.hpp" />
+    <ClInclude Include="SLB\util.hpp" />
+    <ClInclude Include="SLB\Value.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -122,7 +174,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>.;..</AdditionalIncludeDirectories>
     </ClCompile>
@@ -139,7 +191,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalIncludeDirectories>.;..</AdditionalIncludeDirectories>
