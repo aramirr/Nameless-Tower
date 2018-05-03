@@ -53,22 +53,31 @@ void TCompCameraFlyover::update(float scaled_dt)
 
   // movement
   float deltaSpeed = _speed * dt;
-  if (EngineInput["turbo"])
-    deltaSpeed *= 4.f;
+  
+	if (EngineInput["pause"].value) {
+		if (activo)activo = false;
+		else activo = true;
+	}
+		
 
-  if (EngineInput["front"].value)
-    _ispeed.z = 1.f;
-  if (EngineInput["back"].value)
-    _ispeed.z = -1.f;
-  if (EngineInput["left"].value)
-    _ispeed.x = 1.f;
-  if (EngineInput["right"].value)
-    _ispeed.x = -1.f;
-  if (EngineInput["up"].value)
-    _ispeed.y = 1.f;
-  if (EngineInput["down"].value)
-    _ispeed.y = -1.f;
+	if (activo) {
+		if (EngineInput["turbo"])
+			deltaSpeed *= 4.f;
 
+		if (EngineInput["front"].value)
+			_ispeed.z = 1.f;
+		if (EngineInput["back"].value)
+			_ispeed.z = -1.f;
+		if (EngineInput["left"].value)
+			_ispeed.x = 1.f;
+		if (EngineInput["right"].value)
+			_ispeed.x = -1.f;
+		if (EngineInput["up"].value)
+			_ispeed.y = 1.f;
+		if (EngineInput["down"].value)
+			_ispeed.y = -1.f;
+	}
+	
   // Amount in each direction
   VEC3 off;
   off += front * _ispeed.z * deltaSpeed;

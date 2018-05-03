@@ -19,5 +19,6 @@ private:
   float _ispeed_reduction_factor = 0.95f;
   bool  _enabled = true;
   int   _key_toggle_enabled = 0;
+	bool activo = true;
 };
 

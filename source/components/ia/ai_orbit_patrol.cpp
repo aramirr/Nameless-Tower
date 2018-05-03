@@ -156,7 +156,7 @@ void CAIOrbitPatrol::MoveToWaypointState(float dt)
 
 
 			PxShape* player_shape;
-			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
+			player_collider->controller->getActor()->getShapes(&player_shape, 1);
 			PxFilterData filter_data = player_shape->getSimulationFilterData();
 			ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
 			BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
