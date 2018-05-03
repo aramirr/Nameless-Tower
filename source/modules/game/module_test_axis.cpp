@@ -14,11 +14,93 @@
 #include "components/camera/comp_camera_manager.h"
 #include "entity/entity_parser.h"
 #include "render/render_manager.h"
+#include "SLB/SLB.hpp"
 
+class LogicManager
+{
+	int playerlife;
+	float px, py, pz;
+
+public:
+	int numagents;
+
+	LogicManager();
+	void RespawnPlayer();
+	void TeleportPlayer(float, float, float);
+	float GetPlayerLife();
+	//   void GetPlayerPos(float &, float &, float &);
+};
+
+
+LogicManager::LogicManager()
+{
+	printf("constructor\n");
+	numagents = 37;
+}
+
+
+
+void LogicManager::RespawnPlayer()
+{
+	printf("Player Respawns \n");
+	playerlife = 100;
+	px = 0;
+	py = 0;
+	pz = 0;
+}
+
+
+void LogicManager::TeleportPlayer(float x, float y, float z)
+{
+	printf("Teleporting player to %f %f %f\n", x, y, z);
+	px = x;
+	py = y;
+	pz = z;
+}
+
+
+float LogicManager::GetPlayerLife()
+{
+	return playerlife;
+}
+
+
+/*void LogicManager::GetPlayerPos(float &x, float &y, float &z)
+{
+x = px;
+y = py;
+z = pz;
+}*/
+
+
+
+
+// ARRANQUE DE SLB
+
+void BootLuaSLB(SLB::Manager *m)
+{
+	SLB::Class< LogicManager >("LogicManager", m)
+		// a comment/documentation for the class [optional]
+		.comment("This is our wrapper of LogicManager class")
+		// empty constructor, we can also wrapper constructors
+		// with arguments using .constructor<TypeArg1,TypeArg2,..>()
+		.constructor()
+		// a method/function/value...
+		.set("RespawnPlayer", &LogicManager::RespawnPlayer)
+		.set("TeleportPlayer", &LogicManager::TeleportPlayer)
+		.set("GetPlayerLife", &LogicManager::GetPlayerLife)
+		//.set("GetPlayerPos", &LogicManager::GetPlayerPos)
+		.property("numagents", &LogicManager::numagents)
+		;
+}
 
 bool CModuleTestAxis::start()
 {
 	CCamera        camera;
+
+	SLB::Manager m;
+	BootLuaSLB(&m);
+	SLB::Script s(&m);
 
 	json jboot = loadJson("data/boot.json");
 

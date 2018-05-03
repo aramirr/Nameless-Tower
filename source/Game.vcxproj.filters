@@ -137,6 +137,25 @@
     <ClCompile Include="components\comp_player_killer.cpp" />
     <ClCompile Include="fsm\player_states\landing_state.cpp" />
     <ClCompile Include="fsm\player_states\dying_state.cpp" />
+    <ClCompile Include="SLB\Allocator.cpp" />
+    <ClCompile Include="SLB\Value.cpp" />
+    <ClCompile Include="SLB\Type.cpp" />
+    <ClCompile Include="SLB\Table.cpp" />
+    <ClCompile Include="SLB\SLB.cpp" />
+    <ClCompile Include="SLB\Script.cpp" />
+    <ClCompile Include="SLB\Property.cpp" />
+    <ClCompile Include="SLB\Object.cpp" />
+    <ClCompile Include="SLB\Manager.cpp" />
+    <ClCompile Include="SLB\LuaCall.cpp" />
+    <ClCompile Include="SLB\Iterator.cpp" />
+    <ClCompile Include="SLB\Instance.cpp" />
+    <ClCompile Include="SLB\Hybrid.cpp" />
+    <ClCompile Include="SLB\FuncCall.cpp" />
+    <ClCompile Include="SLB\Error.cpp" />
+    <ClCompile Include="SLB\Debug.cpp" />
+    <ClCompile Include="SLB\ClassInfo.cpp" />
+    <ClCompile Include="SLB\ClassHelpers.cpp" />
+    <ClCompile Include="SLB\Class.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
