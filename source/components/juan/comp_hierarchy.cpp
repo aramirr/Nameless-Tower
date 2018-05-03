@@ -1,5 +1,6 @@
 #include "mcv_platform.h"
 #include "comp_hierarchy.h"
+#include "comp_father.h"
 #include "entity/entity.h"
 #include "entity/entity_parser.h"
 #include "components/juan/comp_transform.h"
@@ -35,11 +36,18 @@ void TCompHierarchy::debugInMenu() {
 
 void TCompHierarchy::setParentEntity(CHandle new_h_parent) {
   CEntity* e_parent = new_h_parent;
+
   if (e_parent) {
     // Cache the two handles: the comp_transform of the entity I'm tracing, and my comp_transform
     h_parent_transform = e_parent->get<TCompTransform>();
     CEntity* e_my_owner = CHandle(this).getOwner();
     h_my_transform = e_my_owner->get<TCompTransform>();
+
+	TCompFather* father = e_parent->get<TCompFather>();
+	if (father) {
+		CEntity* e_son = CHandle(this).getOwner();
+		father->sons.push_back(e_son);
+	}
   }
   else {
     // Invalidate previous contents
@@ -57,18 +65,18 @@ void TCompHierarchy::update(float dt) {
 
   // My Sibling comp transform
   TCompTransform* c_my_transform = h_my_transform;
-  assert(c_my_transform);
-
-  // Combine the current world transform with my 
-	CTransform t = c_parent_transform->combineWith(*this);
-  c_my_transform->set(t);
-	CEntity* e = h_my_transform.getOwner();
-	TCompCollider *my_collider = e->get<TCompCollider>();
-	if (my_collider) {
-		PxRigidActor* rigidActor = ((PxRigidActor*)my_collider->actor);
-		PxTransform tr = rigidActor->getGlobalPose();
-		tr.p = PxVec3(t.getPosition().x, t.getPosition().y, t.getPosition().z);
-		tr.q = PxQuat(t.getRotation().x, t.getRotation().y, t.getRotation().z, t.getRotation().w);
-		rigidActor->setGlobalPose(tr);
-	}
+  if (c_my_transform) {
+	  // Combine the current world transform with my 
+	  CTransform t = c_parent_transform->combineWith(*this);
+	  c_my_transform->set(t);
+	  CEntity* e = h_my_transform.getOwner();
+	  TCompCollider *my_collider = e->get<TCompCollider>();
+	  if (my_collider) {
+		  PxRigidActor* rigidActor = ((PxRigidActor*)my_collider->actor);
+		  PxTransform tr = rigidActor->getGlobalPose();
+		  tr.p = PxVec3(t.getPosition().x, t.getPosition().y, t.getPosition().z);
+		  tr.q = PxQuat(t.getRotation().x, t.getRotation().y, t.getRotation().z, t.getRotation().w);
+		  rigidActor->setGlobalPose(tr);
+	  }
+  }
 }

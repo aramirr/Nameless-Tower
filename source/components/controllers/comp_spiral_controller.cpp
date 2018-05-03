@@ -4,6 +4,7 @@
 #include "components/juan/comp_transform.h"
 #include "components/physics/controller_filter.h"
 #include "components/physics/query_filter.h"
+#include "components/juan/comp_father.h"
 
 using namespace physx;
 
@@ -124,6 +125,14 @@ void TCompSpiralController::destroy()
 		return;
 	}
 	CEntity * e = h_entity;
+	/*TCompFather *father_comp = e->get<TCompFather>();
+	if (father_comp) {
+		for (auto h : father_comp->sons) {
+			CEntity* e = h;
+			e->~CEntity();
+		}
+	}*/
+
 	TCompCollider *my_col = e->get<TCompCollider>();
 	if (my_col) {
 		my_col->actor->getScene()->removeActor(*my_col->actor);

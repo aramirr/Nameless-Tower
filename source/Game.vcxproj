@@ -100,6 +100,7 @@
     <ClCompile Include="components\ia\ai_cut_door.cpp" />
     <ClCompile Include="components\ia\ai_rotation.cpp" />
     <ClCompile Include="components\juan\comp_aabb.cpp" />
+    <ClCompile Include="components\juan\comp_father.cpp" />
     <ClCompile Include="components\old\comp_bullet_controller.cpp" />
     <ClCompile Include="components\camera\comp_camera.cpp" />
     <ClCompile Include="components\camera\comp_camera_manager.cpp" />
@@ -241,6 +242,7 @@
     <ClInclude Include="components\ia\ai_rotation.h" />
     <ClInclude Include="components\juan\comp_aabb.h" />
     <ClInclude Include="components\comp_base.h" />
+    <ClInclude Include="components\juan\comp_father.h" />
     <ClInclude Include="components\old\comp_bullet_controller.h" />
     <ClInclude Include="components\camera\comp_camera.h" />
     <ClInclude Include="components\camera\comp_camera_manager.h" />
