@@ -301,6 +301,9 @@
     <ClCompile Include="components\postfx\comp_render_bloom.cpp">
       <Filter>components\postfx</Filter>
     </ClCompile>
+    <ClCompile Include="components\postfx\comp_render_focus.cpp">
+      <Filter>components\postfx</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -797,6 +800,9 @@
       <Filter>components\postfx</Filter>
     </ClInclude>
     <ClInclude Include="components\postfx\comp_render_bloom.h">
+      <Filter>components\postfx</Filter>
+    </ClInclude>
+    <ClInclude Include="components\postfx\comp_render_focus.h">
       <Filter>components\postfx</Filter>
     </ClInclude>
   </ItemGroup>

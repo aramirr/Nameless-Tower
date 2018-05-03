@@ -204,6 +204,13 @@
     "z": "disable_all"
   },
 
+  "focus": {
+    "vs_file": "data/shaders/focus.fx",
+    "vertex_type": "PosClr",
+    "category" : "fx",
+    "z" : "disable_all"
+  },
+
   "particles": {
     "vs_file": "data/shaders/particles.fx",
     "vertex_type": "Pos_x_RenderParticle",

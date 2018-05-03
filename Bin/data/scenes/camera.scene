@@ -19,14 +19,17 @@
       "render_ao" : {
         "enabled" :  true
       },
-      "color_grading" : {
-        "enabled" :  true,
-        "lut": "data/textures/lut/lut1.dds"
-      },
       "render_bloom" : {
         "enabled" :  true,
         "max_steps" : 4,
         "rt_name" : "Bloom"
+      },
+      "render_focus": {
+        "enabled": false
+      },
+      "color_grading" : {
+        "enabled" :  false,
+        "lut": "data/textures/lut/lut1.dds"
       }
     }
   }
