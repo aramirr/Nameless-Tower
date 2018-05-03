@@ -18,7 +18,7 @@ class TCompOrbitCamera : public TCompBase {
 
 	float radio;
 
-  float chaseSpeed;
+  float speedCaida;
 
 	float X;
 	float Y;
@@ -38,6 +38,7 @@ class TCompOrbitCamera : public TCompBase {
 	float playerY;
 	float currentPlayerY;
 
+  float getYSpeed();
 	bool isForward();
   bool isGrounded();
 
@@ -48,7 +49,6 @@ class TCompOrbitCamera : public TCompBase {
 	void desactiveCamera(const TMsgDesactiveCamera& msg);
 
 	bool active;
-
   bool carga;
 
 public:

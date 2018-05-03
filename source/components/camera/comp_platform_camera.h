@@ -24,6 +24,8 @@ class TCompPlatformCamera : public TCompBase {
 	float z_near;
 	float z_far;
 
+	float speedCaida;
+
 	float distance;
 	float height;
 

@@ -6,6 +6,11 @@
 
 DECL_OBJ_MANAGER("orbitCamera", TCompOrbitCamera);
 
+float TCompOrbitCamera::getYSpeed(){
+  TCompPlayerController* pc = player->get<TCompPlayerController>();
+  return pc->y_speed_factor;
+}
+
 bool TCompOrbitCamera::isForward() {
   TCompPlayerController* pc = player->get<TCompPlayerController>();
   return !pc->isForward();
@@ -77,9 +82,9 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
 
   if (izq) offset = -2.2;
   else offset = 2.2;
-  chaseSpeed = 0.05f;
+  speedCaida = 0.f;
 
-  caida = false;
+  //caida = false;
 
   carga = true;
 }
@@ -94,16 +99,8 @@ void TCompOrbitCamera::update(float dt) {
   assert(p);
   VEC3 pPos = p->getPosition();
 
-  /*std::string strPos = std::to_string(pPos.x) + " - " + std::to_string(pPos.y) + " - " + std::to_string(pPos.z) + "\n";
-  dbg(strPos.c_str());
-  if (izq) {
-  dbg("izq\n");
-  }
-  else {
-  dbg("der\n");
-  }
-  dbg("-------------------------------------------\n");*/
-
+  TCompPlayerController* pc = player->get<TCompPlayerController>();
+  assert(pc);
   /* if (carga) {
      playerOffset = pos - pPos;
 
@@ -112,36 +109,116 @@ void TCompOrbitCamera::update(float dt) {
 
   VEC3 newPos;
 
+
   float dY = abs(actualPos.y - pPos.y);
 
-  //dbg((std::to_string(dY) + " == " + std::to_string(height) + "\n").c_str());
-  if (caida && isGrounded()) {
-    currentPlayerY = pPos.y;
-    caida = false;
+  if (currentPlayerY < pPos.y - 0.1f) {
+	  //dbg((std::to_string(dY) + "\n").c_str());
+	  if (dY > height + height) {
+		  //dbg("4\n");
+		  //currentPlayerY = (pPos.y - height/*+ height*/);
+		  // -= (pPos.y - height /*+ height*/); //12.5f;
+		  currentPlayerY += 1.5f;
+		  speedCaida = 40.f;
+	  }
+	  else if (dY > height + (height / 2)) {
+		  //dbg("3\n");
+		  //currentPlayerY = (pPos.y - height/*+ height*/);
+		  //currentPlayerY -= (pPos.y - height/*+ height*/); //6.5f;
+		  currentPlayerY += 1.125f;
+		  speedCaida = 30.f;
+	  }
+	  else if (dY > height + (height / 3)) {
+		  //dbg("2\n");
+		  //currentPlayerY = (pPos.y - height/*+ height*/);
+		  //currentPlayerY -= (pPos.y - height/*+ height*/);
+		  currentPlayerY += 0.75f;
+		  speedCaida = 10.f;
+	  }
+	  else if (dY > height + (height / 4)) {
+		  //dbg("2\n");
+		  //currentPlayerY = (pPos.y - height/*+ height*/);
+		  //currentPlayerY -= (pPos.y - height/*+ height*/);
+		  currentPlayerY += 0.375f;
+		  speedCaida = 10.f;
+	  }
+	  else {
+		  //dbg("1\n");
+		  currentPlayerY += 0.05f;
+		  speedCaida = 0.f;
+	  }
+  }
+  else if (currentPlayerY > pPos.y + 0.1f) {
+	  //dbg((std::to_string(dY) + "\n").c_str());
+	  if (dY > height + height) {
+		  //dbg("4\n");
+		  //currentPlayerY = (pPos.y - height/*+ height*/);
+		  // -= (pPos.y - height /*+ height*/); //12.5f;
+		  currentPlayerY -= 1.5f;
+		  speedCaida = 40.f;
+	  }
+	  else if (dY > height + (height / 2)) {
+		  //dbg("3\n");
+		  //currentPlayerY = (pPos.y - height/*+ height*/);
+		  //currentPlayerY -= (pPos.y - height/*+ height*/); //6.5f;
+		  currentPlayerY -= 1.125f;
+		  speedCaida = 30.f;
+	  }
+	  else if (dY > height + (height / 3)) {
+		  //dbg("3\n");
+		  //currentPlayerY = (pPos.y - height/*+ height*/);
+		  //currentPlayerY -= (pPos.y - height/*+ height*/); //6.5f;
+		  currentPlayerY -= 0.75f;
+		  speedCaida = 20.f;
+	  }
+	  else if (dY > height + (height / 4)) {
+		  //dbg("2\n");
+		  //currentPlayerY = (pPos.y - height/*+ height*/);
+		  //currentPlayerY -= (pPos.y - height/*+ height*/);
+		  currentPlayerY -= 0.375f;
+		  speedCaida = 10.f;
+	  }
+	  else {
+		  //dbg("1\n");
+		  currentPlayerY -= 0.05f;
+		  speedCaida = 0.f;
+	  }
   }
 
-  if (currentPlayerY < pPos.y - 0.1f) {
-    //dbg((std::to_string(dY) + " > " + std::to_string(height) + "\n").c_str());
-    if (dY > height + 0.7f) {
-      currentPlayerY = pPos.y + height;//12.5f;
-      caida = true;
-      //Y = 2.f;
-    }
-    //else if (dY > 7.f)currentPlayerY += 11.f;//6.5f;
-    //else if (dY > 4.f)currentPlayerY += 8.f;
-    else currentPlayerY += 0.025f;
-  }
-  if (currentPlayerY > pPos.y + 0.1f) {
-    dbg((std::to_string(dY) + " > " + std::to_string(height) + "\n").c_str());
-    if (dY > height + 0.7f) {
-      currentPlayerY = pPos.y - height; //12.5f;
-      caida = true;
-      //Y = 2.f;
-    }
-    //else if (dY > 7.f)currentPlayerY -= 11.f; //6.5f;
-    //else if (dY > 4.f)currentPlayerY -= 8.f;
-    else currentPlayerY -= 0.025f;
-  }
+  //dbg((std::to_string(dY) + " == " + std::to_string(height) + "\n").c_str());
+ /* if (caida && isGrounded()) {
+    currentPlayerY = pPos.y;
+    caida = false;
+  }*/
+
+  //if (currentPlayerY < pPos.y - 0.1f) {
+  //  //dbg((std::to_string(dY) + " > " + std::to_string(height) + "\n").c_str());
+  //  if (dY > height + 0.7f) {
+  //    currentPlayerY = pPos.y + height;//12.5f;
+  //    caida = true;
+  //    //Y = 2.f;
+  //  }
+  //  //else if (dY > 7.f)currentPlayerY += 11.f;//6.5f;
+  //  //else if (dY > 4.f)currentPlayerY += 8.f;
+  //  else currentPlayerY += 0.025f;
+  //}
+  //if (currentPlayerY > pPos.y + 0.1f) {
+  //  dbg((std::to_string(dY) + " > " + std::to_string(height) + "\n").c_str());
+  //  if (dY > height + 0.7f) {
+  //    currentPlayerY = pPos.y - height; //12.5f;
+  //    caida = true;
+  //    //Y = 2.f;
+  //  }
+  //  //else if (dY > 7.f)currentPlayerY -= 11.f; //6.5f;
+  //  //else if (dY > 4.f)currentPlayerY -= 8.f;
+  //  else currentPlayerY -= 0.025f;
+  //}
+
+  //currentPlayerY = pPos.y;
+  /*if (pc->y_speed_factor < 0.0f && !isGrounded())
+    cameraCatchup = pc->y_speed_factor / 10.f;
+  else
+    cameraCatchup = 0.0f;*/
 
   VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
 
@@ -178,7 +255,7 @@ void TCompOrbitCamera::update(float dt) {
     pos.y = currentPlayerY + height;
     pos.z = z;
 
-    if (VEC3::Distance(actualPos, center) < distance)carga = true;
+    //if (VEC3::Distance(actualPos, center) < distance)carga = true;
 
     /*std::string strPos = std::to_string(VEC3::Distance(actualPos, pPos)) + " - " + std::to_string(distance) + "\n";
     dbg(strPos.c_str());
@@ -215,19 +292,25 @@ void TCompOrbitCamera::update(float dt) {
     c->lookAt(newPos, center);
   }*/
   if (carga) {
-    carga = false;
-    
+    float dP = VEC3::Distance(actualPos, pPos);
+    if (dP < 7.4f) carga = false;
   }
   else {
     
-    float dP = VEC3::Distance(actualPos, pPos);
+    //dbg(("Y speed: " + std::to_string(getYSpeed()) + "\n").c_str());
+    newPos = VEC3::Lerp(actualPos, newPos, dt * (10 + speedCaida)  /*(10 + speedCaida * dt)*/ /** getYSpeed()*/);//(10 + speedCaida)/*chaseSpeed + cameraCatchup*/);
+   
 
-    if (dP > 10.f) chaseSpeed = 0.7f;
+    /*if (dP > 10.f) chaseSpeed = 0.7f;
     else if (dP > 7.f) chaseSpeed = 0.4f;
     else if (dP > 4.f) chaseSpeed = 0.1f;
-    else chaseSpeed = 0.05f;
+    else chaseSpeed = 0.05f;*/
 
-    newPos = actualPos + (newPos - actualPos) * chaseSpeed;
+    /*dbg((std::to_string(dP) + "\n").c_str());*/
+
+
+    //newPos = actualPos + (newPos - actualPos) * chaseSpeed;
+
   }
 
   /*std::string strPos = std::to_string(newPos.x) + " - " + std::to_string(newPos.y) + " - " + std::to_string(newPos.z) + "\n";
@@ -243,6 +326,4 @@ void TCompOrbitCamera::update(float dt) {
   c->setPosition(newPos);
   actualPos = newPos;
   c->lookAt(newPos, center);
-
 }
-
