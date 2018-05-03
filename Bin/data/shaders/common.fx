@@ -37,6 +37,12 @@ Texture2D    txNormal2         SLOT( TS_NORMAL2 );
 
 Texture2D    txMixBlendWeights SLOT( TS_MIX_BLEND_WEIGHTS );
 
+// Bloom
+Texture2D    txBloom0         SLOT(0);
+Texture2D    txBloom1         SLOT(1);
+Texture2D    txBloom2         SLOT(2);
+Texture2D    txBloom3         SLOT(3);
+
 //--------------------------------------------------------------------------------------
 SamplerState samLinear        : register(s0);
 SamplerState samBorderLinear  : register(s1);

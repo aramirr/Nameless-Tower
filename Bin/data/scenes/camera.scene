@@ -1,12 +1,12 @@
 [
   {
     "entity": {
-        "name": "the_camera",
-        "transform": {
-            "pos": "0 3 3"
-        },
-        "render" : {},
-        "camera_flyover" : {},
+      "name": "the_camera",
+      "transform": {
+          "pos": "0 3 3"
+      },
+      "render" : {},
+      "camera_flyover" : {},
       "camera": {
         "fov": 80
       },
@@ -22,6 +22,11 @@
       "color_grading" : {
         "enabled" :  true,
         "lut": "data/textures/lut/lut1.dds"
+      },
+      "render_bloom" : {
+        "enabled" :  true,
+        "max_steps" : 4,
+        "rt_name" : "Bloom"
       }
     }
   }

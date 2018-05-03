@@ -15,6 +15,7 @@
 #include "components/postfx/comp_render_blur_radial.h"
 #include "components/postfx/comp_color_grading.h"
 #include "render/mesh/collision_mesh.h"
+#include "components/postfx/comp_render_bloom.h"
 
 //--------------------------------------------------------------------------------------
 CModuleRender::CModuleRender(const std::string& name)
@@ -214,6 +215,13 @@ void CModuleRender::generateFrame() {
     if (h_e_camera.isValid()) {
       CEntity* e_cam = h_e_camera;
 
+      // The bloom blurs the given input
+      TCompRenderBloom* c_render_bloom = e_cam->get< TCompRenderBloom >();
+      if (c_render_bloom) {
+        c_render_bloom->generateHighlights(curr_rt);
+        c_render_bloom->addBloom();
+      }
+
       // Check if we have a render_fx component
       TCompRenderBlur* c_render_blur = e_cam->get< TCompRenderBlur >();
       if (c_render_blur)
@@ -231,7 +239,7 @@ void CModuleRender::generateFrame() {
     }
 
     Render.startRenderInBackbuffer();
-    
+
     renderFullScreenQuad("dump_texture.tech", curr_rt);
 
     // Debug render

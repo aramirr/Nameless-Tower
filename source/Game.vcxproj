@@ -112,6 +112,7 @@
     <ClCompile Include="components\ia\ai_patrol.cpp" />
     <ClCompile Include="components\postfx\comp_color_grading.cpp" />
     <ClCompile Include="components\postfx\comp_render_ao.cpp" />
+    <ClCompile Include="components\postfx\comp_render_bloom.cpp" />
     <ClCompile Include="components\postfx\comp_render_blur.cpp" />
     <ClCompile Include="components\postfx\comp_render_blur_radial.cpp" />
     <ClCompile Include="engine.cpp" />
@@ -218,6 +219,7 @@
     <ClInclude Include="components\ia\ai_patrol.h" />
     <ClInclude Include="components\postfx\comp_color_grading.h" />
     <ClInclude Include="components\postfx\comp_render_ao.h" />
+    <ClInclude Include="components\postfx\comp_render_bloom.h" />
     <ClInclude Include="components\postfx\comp_render_blur.h" />
     <ClInclude Include="components\postfx\comp_render_blur_radial.h" />
     <ClInclude Include="engine.h" />
