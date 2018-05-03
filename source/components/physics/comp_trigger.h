@@ -6,7 +6,6 @@
 
 class TCompTrigger : public IAIController {
 	enum TriggerTypes {player, runner, plattform, spikes, none};
-	std::string trigger_type;
 	std::string collider_entity;
 
 	CHandle         h_entity;
@@ -22,6 +21,8 @@ class TCompTrigger : public IAIController {
 	DECL_SIBLING_ACCESS();
 
 public:
+	std::string trigger_type;
+
 	static void registerMsgs();
 	void debugInMenu();
 	void load(const json& j, TEntityParseContext& ctx);

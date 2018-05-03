@@ -15,6 +15,8 @@ void TCompPlayerKiller::registerMsgs() {
 void TCompPlayerKiller::onTriggerEnter(const TMsgKillPlayer& msg) {
 	if (kill_enabled) {
 		CEntity* player = (CEntity *)getEntityByName("The Player");
+		TCompCollider* player_collider = player->get<TCompCollider>();
+		player_collider->config.mask = CModulePhysics::FilterGroup::Scenario;
 		TMsgSetFSMVariable deadMsg;
 		deadMsg.variant.setName("hit");
 		deadMsg.variant.setBool(true);

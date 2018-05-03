@@ -2,6 +2,7 @@
 #include "module_physics.h"
 #include "entity/entity.h"
 #include "components/juan/comp_transform.h"
+#include "components/physics/comp_trigger.h"
 
 
 #pragma comment(lib,"PhysX3_x64.lib")
@@ -300,7 +301,9 @@ void CModulePhysics::CustomSimulationEventCallback::onTrigger(PxTriggerPair* pai
     }
     else if (pairs[i].status == PxPairFlag::eNOTIFY_TOUCH_LOST)
     {
-      e_trigger->sendMsg(TMsgTriggerExit{ h_other_comp_collider.getOwner() });
+		TCompTrigger* comp_trigger = e_trigger->get<TCompTrigger>();
+		if (comp_trigger->trigger_type != "player_killer")
+			e_trigger->sendMsg(TMsgTriggerExit{ h_other_comp_collider.getOwner() });
     }
   }
 }

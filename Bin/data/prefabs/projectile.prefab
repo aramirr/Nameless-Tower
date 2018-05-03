@@ -30,10 +30,8 @@
 				"radius": 0.2,
 				"height": 0.1,
 				"offset": "0.0 -0.3 0.0",
-				"group": "projectile",
-				"debug_name": "padre"
-			},
-			"father": {}
+				"group": "projectile"
+			}
 		}
 	},
 	{
@@ -46,12 +44,18 @@
 			"hierarchy": {
 				"parent": "projectile"
 			},
-		      "collider": {
+		    "collider": {
 		        "shape": "box",
-		        "halfExtent": "1 1 1",
-		        "is_trigger": true,
-				"debug_name": "hijo"
-		      }
+		        "halfExtent": "0.6 0.6 0.6",
+		        "is_trigger": true
+		    },
+		    "trigger":{
+		    	"trigger_type": "player_killer",
+		        "render": false
+		    },
+		    "player_killer": {
+		        "kill_enabled": true
+		    }
 		}
 	}
 ]
