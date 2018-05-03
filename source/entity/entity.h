@@ -30,7 +30,7 @@ public:
 
   const char* getName() const;
 
-  void addRandNumberInName();
+	void addNumberToName(int number);
 
   template< class TMsg >
   void sendMsg(const TMsg& msg) {

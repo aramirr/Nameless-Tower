@@ -133,11 +133,15 @@ void TCompSpiralController::destroy()
 		}
 	}*/
 
+	CHandle h_col = e->get<TCompCollider>();
 	TCompCollider *my_col = e->get<TCompCollider>();
 	if (my_col) {
 		my_col->actor->getScene()->removeActor(*my_col->actor);
 		my_col->actor = nullptr;
 
+		CEntity* e = CHandle(this).getOwner();
+		assert(e);
+		dbg("TCompSpiralController of entity %s dtor of ctroller %p (Handle: %08x) D_name %s\n", e->getName(), my_col->controller, h_col.asUnsigned(), my_col->debug_name.c_str());
 		my_col->controller->release();
 		my_col->controller = nullptr;
 	}

@@ -87,6 +87,11 @@ void CModulePhysics::createActor(TCompCollider& comp_collider)
     ctrl->setFootPosition(PxExtendedVec3(pos.x + config.offset.x, pos.y + config.offset.y, pos.z + config.offset.z));
     actor = ctrl->getActor();
     comp_collider.controller = ctrl;
+
+		CEntity* e = CHandle(&comp_collider).getOwner();
+		assert(e);
+		dbg("ModulePhysics. of entity %s dtor of ctroller %p D_name %s.\n", e->getName(), ctrl, comp_collider.debug_name.c_str());
+
     setupFiltering(actor, config.group, config.mask);
   }
   else

@@ -36,6 +36,11 @@ void TCompHierarchy::debugInMenu() {
 
 void TCompHierarchy::setParentEntity(CHandle new_h_parent) {
   CEntity* e_parent = new_h_parent;
+	srand(time(NULL));
+	int rand_num = rand() % 1000;
+	e_parent->addNumberToName(rand_num);
+	CEntity* e = CHandle(this).getOwner();
+	e->addNumberToName(rand_num);
 
   if (e_parent) {
     // Cache the two handles: the comp_transform of the entity I'm tracing, and my comp_transform
@@ -43,11 +48,11 @@ void TCompHierarchy::setParentEntity(CHandle new_h_parent) {
     CEntity* e_my_owner = CHandle(this).getOwner();
     h_my_transform = e_my_owner->get<TCompTransform>();
 
-	TCompFather* father = e_parent->get<TCompFather>();
-	if (father) {
-		CEntity* e_son = CHandle(this).getOwner();
-		father->sons.push_back(e_son);
-	}
+		/*TCompFather* father = e_parent->get<TCompFather>();
+		if (father) {
+			CEntity* e_son = CHandle(this).getOwner();
+			father->sons.push_back(e_son);
+		}*/
   }
   else {
     // Invalidate previous contents

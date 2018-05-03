@@ -35,12 +35,11 @@ const char* CEntity::getName() const {
   return comp_name->getName();
 }
 
-void CEntity::addRandNumberInName() {
+void CEntity::addNumberToName(int number) {
 	TCompName* comp_name = get<TCompName>();
-	srand(time(NULL));
-	int rand_number = rand()%1000;
+	
 	std::string new_name = comp_name->getName();
-	new_name += std::to_string(rand_number);
+	new_name += std::to_string(number);
 	comp_name->setName(new_name.c_str());
 }
 

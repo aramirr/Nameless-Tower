@@ -42,9 +42,11 @@ public:
 
   };
 
+	std::string debug_name;
+	int debug_number;
   TConfig config;
-  PxActor* actor;
-  PxController* controller;
+  PxActor* actor = nullptr;
+	PxController* controller = nullptr;
   void debugInMenu();
   static void registerMsgs();
   void load(const json& j, TEntityParseContext& ctx);
@@ -53,4 +55,6 @@ public:
 	~TCompCollider();
 
   void setupFiltering(PxU32 filterGroup, PxU32 filterMask);
+
+	void update(float dt);
 };
