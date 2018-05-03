@@ -14,6 +14,7 @@ namespace FSM
 		ctx.setVariable("is_grounded", false);
 		player->is_grounded = false;
 		player->jumping_start_height = c_my_transform->getPosition().y;
+		player->change_animation(player->EAnimations::NajaJumpFall, false, _delay_in, _delay_out);
 		player->change_animation(player->EAnimations::NajaJumpUp, _is_action, _delay_in, _delay_out);
 		player->y_speed_factor = _y_speed;
 	}
