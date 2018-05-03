@@ -7,7 +7,9 @@ float4 PS_filter(
 ) : SV_Target
 {
   float4 in_color = txBloom0.Sample(samClampLinear, iTex0);
-  float lum = dot( in_color.xyz, float3( 0.3, 0.3, 0.3 ) );
+
+  // Or use any other measure to compute amount of light from rgb
+  float lum = dot( in_color.xyz, float3( 0.2126, 0.7152, 0.0722 ) );
   float amount = smoothstep( bloom_threshold_min, bloom_threshold_max, lum);
   return float4( in_color.xyz * amount, 1 );
 }
