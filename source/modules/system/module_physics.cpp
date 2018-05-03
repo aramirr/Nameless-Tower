@@ -128,8 +128,38 @@ void CModulePhysics::createActor(TCompCollider& comp_collider)
       physx::PxConvexMeshGeometry convex_geo = physx::PxConvexMeshGeometry(convex, physx::PxMeshScale(), physx::PxConvexMeshGeometryFlags());
       shape = gPhysics->createShape(convex_geo, *gMaterial);
     }
-    //....todo: more shapes
+    else if (config.shapeType == physx::PxGeometryType::eTRIANGLEMESH)
+    {
 
+      // We could save this cooking process
+      PxTolerancesScale scale;
+      PxCooking *cooking = PxCreateCooking(PX_PHYSICS_VERSION, gPhysics->getFoundation(), PxCookingParams(scale));
+
+      PxTriangleMeshDesc desc;
+      desc.setToDefault();
+      desc.points.count = config.col_mesh->mesh.header.num_vertexs;
+      desc.points.stride = config.col_mesh->mesh.header.bytes_per_vtx;
+      desc.points.data = config.col_mesh->mesh.vtxs.data();
+      desc.triangles.count = config.col_mesh->mesh.header.num_indices / 3;
+      desc.triangles.stride = config.col_mesh->mesh.header.bytes_per_idx * 3;
+      desc.triangles.data = config.col_mesh->mesh.idxs.data();
+      if(config.col_mesh->mesh.header.bytes_per_idx == 2)
+        desc.flags = PxMeshFlags( PxTriangleMeshFlag::e16_BIT_INDICES );
+      assert(desc.isValid());
+
+#ifdef _DEBUG
+      // mesh should be validated before cooked without the mesh cleaning
+      bool res = cooking->validateTriangleMesh(desc);
+      PX_ASSERT(res);
+#endif
+
+      physx::PxTriangleMesh* tri_mesh = cooking->createTriangleMesh(desc, gPhysics->getPhysicsInsertionCallback());
+      assert(tri_mesh);
+      physx::PxTriangleMeshGeometry tri_mesh_geo = physx::PxTriangleMeshGeometry(tri_mesh);
+      shape = gPhysics->createShape(tri_mesh_geo, *gMaterial);
+    }
+
+    assert(shape);
     setupFiltering(shape, config.group, config.mask);
     shape->setLocalPose(offset);
    
