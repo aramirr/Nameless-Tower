@@ -161,13 +161,13 @@ void TCompCameraManager::load(const json& j, TEntityParseContext& ctx) {
 void TCompCameraManager::update(float dt) {
 
   if (isPressed(VK_F1)) {
-    CEntity* player = (CEntity*)getEntityByName("The Player");
+    /*CEntity* player = (CEntity*)getEntityByName("The Player");
 
     TMsgSetFSMVariable pauseMsg;
     pauseMsg.variant.setName("pause");
     pauseMsg.variant.setBool(true);
 
-    player->sendMsg(pauseMsg);
+    player->sendMsg(pauseMsg);*/
    
     godMode = true;
   }
