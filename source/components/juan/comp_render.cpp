@@ -147,7 +147,7 @@ void TCompRender::load(const json& j, TEntityParseContext& ctx) {
   else {
     // We accept not receiving an array of mesh inside the comp_render, for handle files
     loadMesh(j, ctx);
-		is_active = j.value("is_active", true);
+    is_active = j.value("is_active", true);
   }
 
   refreshMeshesInRenderManager();
