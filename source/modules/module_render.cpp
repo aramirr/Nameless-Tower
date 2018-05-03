@@ -11,6 +11,7 @@
 #include "resources/json_resource.h"
 #include "skeleton/game_core_skeleton.h"
 #include "camera/camera.h"
+#include "components/postfx/comp_render_focus.h"
 #include "components/postfx/comp_render_blur.h"
 #include "components/postfx/comp_render_blur_radial.h"
 #include "render/mesh/collision_mesh.h"
@@ -222,6 +223,11 @@ void CModuleRender::generateFrame() {
       TCompRenderBlurRadial* c_render_blur_radial = e_cam->get< TCompRenderBlurRadial >();
       if (c_render_blur_radial)
         curr_rt = c_render_blur_radial->apply(curr_rt);
+
+      // Requires the blur to be active
+      TCompRenderFocus* c_render_focus = e_cam->get< TCompRenderFocus >();
+      if (c_render_focus)
+        curr_rt = c_render_focus->apply(rt_main, curr_rt);
     }
 
     Render.startRenderInBackbuffer();

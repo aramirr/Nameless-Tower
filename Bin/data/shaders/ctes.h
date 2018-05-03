@@ -10,6 +10,7 @@
 #define CB_GLOBALS      4
 #define CB_MATERIAL     5
 #define CB_BLUR         6
+#define CB_FOCUS        7
 
 // -------------------------------------------------
 // Texture Slots
@@ -173,5 +174,14 @@ CB_DEF(CCteBlur, CB_BLUR)
   VEC2 blur_step;     // Extra modifier
   VEC2 blur_center; // To keep aligned x4
 };
+
+CB_DEF(CCteFocus, CB_FOCUS)
+{
+  float focus_z_center_in_focus;
+  float focus_z_margin_in_focus;
+  float focus_transition_distance;
+  float focus_modifier;
+};
+
 
 #endif
