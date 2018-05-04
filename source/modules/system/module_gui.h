@@ -18,6 +18,7 @@ public:
   void registerWidget(GUI::CWidget* wdgt);
   GUI::CWidget* getWidget(const std::string& name, bool recursive = false) const;
   void activateWidget(const std::string& name);
+  void removeWidget();
 
   // controller management
   void registerController(GUI::CController* controller);
@@ -39,4 +40,6 @@ private:
   GUI::VWidgets _activeWidgets;
   MVariants _variables;
   GUI::VControllers _controllers;
+
+  bool carga;
 };

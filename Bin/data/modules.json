@@ -8,20 +8,20 @@
 		"render",
 		"cameras",
 		"main_menu",
-		"gui",
 		"splash",
 		"game_over",
 	    "test_input",
 	    "cameras",
-	    "test_axis"
+	    "test_axis",
+	    "gui"
 	],
 	"render" : 
 	[
 		"render",
 		"test_axis",
 		"entities",
-		"gui",
 		"cameras",
-		"input"
+		"input",
+		"gui"
 	]
 }

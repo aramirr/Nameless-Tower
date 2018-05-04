@@ -6,12 +6,16 @@
 
 using namespace GUI;
 
+CMainMenuController* mmc;
+
 CModuleGUI::CModuleGUI(const std::string& name)
 	: IModule(name)
 {}
 
 bool CModuleGUI::start()
 {
+  carga = true;
+
   const float width = 1920;
   const float height = 1080;
   _orthoCamera.setOrthographic(width, height);
@@ -22,6 +26,7 @@ bool CModuleGUI::start()
 
   CParser parser;
   parser.parseFile("data/gui/test.json");
+  parser.parseFile("data/gui/vacio.json");
   /*parser.parseFile("data/gui/main_menu.json");
   parser.parseFile("data/gui/gameplay.json");
   parser.parseFile("data/gui/game_over.json");*/
@@ -40,7 +45,7 @@ bool CModuleGUI::start()
     printf("CONFIGURING\n");
   };
 
-  CMainMenuController* mmc = new CMainMenuController();
+  mmc = new CMainMenuController();
   mmc->registerOption("new_game", newGameCB);
   mmc->registerOption("continue", continueCB);
   mmc->registerOption("options", optionsCB);
@@ -57,6 +62,18 @@ bool CModuleGUI::stop()
 
 void CModuleGUI::update(float delta)
 {
+  if (carga) {
+    CEntity* player = (CEntity*)getEntityByName("The Player");
+
+    TMsgSetFSMVariable pauseMsg;
+    pauseMsg.variant.setName("pause");
+    pauseMsg.variant.setBool(true);
+
+    player->sendMsg(pauseMsg);
+
+    carga = false;
+  }
+
   for (auto& wdgt : _activeWidgets)
   {
     wdgt->updateAll(delta);
@@ -124,6 +141,12 @@ void CModuleGUI::activateWidget(const std::string& name)
   {
     _activeWidgets.push_back(wdgt);
   }
+}
+
+void CModuleGUI::removeWidget()
+{
+  _activeWidgets.pop_back();
+  unregisterController(mmc);
 }
 
 void CModuleGUI::registerController(GUI::CController* controller)
