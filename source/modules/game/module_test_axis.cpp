@@ -44,6 +44,8 @@ bool CModuleTestAxis::start()
 		return false;
 	if (!cb_blur.create(CB_BLUR))
 		return false;
+  if (!cb_gui.create(CB_GUI))
+    return false;
 	cb_globals.global_exposure_adjustment = 1.f;
 	cb_globals.global_ambient_adjustment = 1.f;
 	cb_globals.global_world_time = 0.f;
@@ -56,6 +58,7 @@ bool CModuleTestAxis::start()
 	cb_globals.activate();
 	cb_camera.activate();
 	cb_blur.activate();
+  cb_gui.activate();
 
 	return true;
 }
@@ -67,6 +70,7 @@ bool CModuleTestAxis::stop()
 	cb_object.destroy();
 	cb_globals.destroy();
 	cb_blur.destroy();
+  cb_gui.destroy();
 	Engine.getEntities().destroyAllEntities();
 	Engine.getCameras().destroyAllCameras();
 	return true;

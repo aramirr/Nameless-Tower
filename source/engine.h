@@ -10,6 +10,7 @@
 #include "modules/module_tower.h"
 #include "modules/system/module_cameras.h"
 #include "modules/system/module_fsm.h"
+#include "modules/system/module_gui.h"
 
 
 class CEngine
@@ -34,6 +35,7 @@ public:
 	CModuleCameras& getCameras() { return _module_cameras; }
 	CModuleEntities& getEntities() { return _module_entities; }
 	CModuleFSM& getFSM() { return _module_fsm; }
+  CModuleGUI& getGUI() { return _module_gui; }
 
 	float getUnscaledDeltaTime() const { return current_unscaled_delta_time; }
 
@@ -48,6 +50,7 @@ private:
 	CModuleTower    _module_tower;
 	CModuleCameras  _module_cameras;
 	CModuleFSM      _module_fsm;
+  CModuleGUI      _module_gui;
 
 	float           current_unscaled_delta_time = 0.f;
 };
