@@ -1,0 +1,41 @@
+[
+  {
+    "entity":
+    {
+      "name": "Ground Physics",
+      "transform": {},
+      "collider": {
+        "is_dynamic": false,
+        "shape": "plane"
+      }
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "Hedra",
+      "transform":
+      {
+        "pos": "0.0 5.0 0.0",
+        "lookat" : " 0 0 10"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Hedra001.mesh"
+          ,
+          "materials":
+          [
+            "data/textures/rustediron2/rustediron2.material"
+          ]
+        }
+      ],
+      "collider": {
+        "is_dynamic": true,
+        "shape": "convex_mesh",
+        "mesh_src": "data/meshes/Hedra001.col_mesh"
+      }
+    }
+  }
+]

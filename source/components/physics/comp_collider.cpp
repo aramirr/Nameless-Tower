@@ -2,6 +2,7 @@
 #include "comp_collider.h"
 #include "components/juan/comp_transform.h"
 #include "components/juan/comp_hierarchy.h"
+#include "render/mesh/collision_mesh.h"
 
 DECL_OBJ_MANAGER("collider", TCompCollider);
 
@@ -26,6 +27,18 @@ void TCompCollider::load(const json& j, TEntityParseContext& ctx) {
   {
     config.shapeType = physx::PxGeometryType::eCAPSULE;
   }
+	else if (shape == "convex_mesh")
+	{
+		config.shapeType = physx::PxGeometryType::eCONVEXMESH;
+		std::string mesh_src = j.value("mesh_src", "");
+		config.col_mesh = Resources.get(mesh_src)->as<CCollisionMesh>();
+	}
+	else if (shape == "tri_mesh")
+	{
+		config.shapeType = physx::PxGeometryType::eTRIANGLEMESH;
+		std::string mesh_src = j.value("mesh_src", "");
+		config.col_mesh = Resources.get(mesh_src)->as<CCollisionMesh>();
+	}
   
   config.is_character_controller = j.value("is_character_controller", false);
   config.is_dynamic = j.value("is_dynamic", false);
@@ -46,6 +59,7 @@ void TCompCollider::load(const json& j, TEntityParseContext& ctx) {
 
   if (j.count("halfExtent"))
     config.halfExtent = loadVEC3(j["halfExtent"]);
+
 }
 
 

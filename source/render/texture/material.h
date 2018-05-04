@@ -9,6 +9,7 @@ class CTexture;
 // ----------------------------------------------
 class CMaterial : public IResource {
 
+protected:
   bool  cast_shadows = true;
 
   static const int max_textures = TS_NUM_MATERIALS_SLOTS;
@@ -22,12 +23,14 @@ public:
 
   CMaterial();
 
-  void activate() const;
-  bool create(const std::string& name);
+  virtual void activate() const;
+  virtual bool create(const json& j);
   void destroy() override;
   void debugInMenu() override;
   void onFileChanged(const std::string& filename) override;
   bool castsShadows() const { return cast_shadows; }
+
+  void activateTextures(int slot) const;
 
 protected:
 
@@ -35,3 +38,12 @@ protected:
 
 };
 
+// ----------------------------------------------
+class CMaterialMixing : public CMaterial {
+  const CMaterial*  mats[3] = { nullptr, nullptr, nullptr };
+  const CTexture*   mix_blend_weights = nullptr;
+public:
+  void activate() const override;
+  bool create(const json& j) override;
+  void debugInMenu() override;
+};

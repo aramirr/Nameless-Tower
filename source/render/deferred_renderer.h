@@ -19,11 +19,12 @@ public:
   void renderDirectionalLights();
   void renderPointLights();
   void renderSkyBox() const;
+  void renderAO(CHandle h_camera) const;
 
 public:
 
   bool create( int xres, int yres );
-  void render( CRenderToTexture* rt_destination );
+  void render( CRenderToTexture* rt_destination, CHandle h_camera);
 
 };
 

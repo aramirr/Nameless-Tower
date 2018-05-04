@@ -3,12 +3,13 @@
 #include "entity/entity.h"
 #include "components/juan/comp_transform.h"
 #include "components/physics/comp_trigger.h"
-
+#include "render/mesh/collision_mesh.h"
 
 #pragma comment(lib,"PhysX3_x64.lib")
 #pragma comment(lib,"PhysX3Common_x64.lib")
 #pragma comment(lib,"PhysX3Extensions.lib")
 #pragma comment(lib,"PxFoundation_x64.lib")
+#pragma comment(lib,"PhysX3Cooking_x64.lib")
 #pragma comment(lib,"PxPvdSDK_x64.lib")
 #pragma comment(lib, "PhysX3CharacterKinematic_x64.lib")
 
@@ -107,13 +108,77 @@ void CModulePhysics::createActor(TCompCollider& comp_collider)
     {
       shape = gPhysics->createShape(PxSphereGeometry(config.radius), *gMaterial);
       offset.p.y = config.radius;
-		}
-		else if (config.shapeType == physx::PxGeometryType::eTRIANGLEMESH) {
-			//shape = gPhysics->createShape(PxTriangleMesh(), *gMaterial);
-		}
-    //....todo: more shapes
+    }
+		else if (config.shapeType == physx::PxGeometryType::eCONVEXMESH)
+		{
+			// http://docs.nvidia.com/gameworks/content/gameworkslibrary/physx/guide/Manual/Geometry.html
 
+			// We could save this cooking process
+			PxTolerancesScale scale;
+			PxCooking *cooking = PxCreateCooking(PX_PHYSICS_VERSION, gPhysics->getFoundation(), PxCookingParams(scale));
 
+			PxConvexMeshDesc convexDesc;
+			convexDesc.points.count = config.col_mesh->mesh.header.num_vertexs;
+			convexDesc.points.stride = config.col_mesh->mesh.header.bytes_per_vtx;
+			convexDesc.points.data = config.col_mesh->mesh.vtxs.data();
+			//convexDesc.indices.count = config.col_mesh->mesh.header.num_indices;
+			//convexDesc.indices.stride = config.col_mesh->mesh.header.bytes_per_idx;
+			//convexDesc.indices.data = config.col_mesh->mesh.idxs.data();
+			convexDesc.flags = PxConvexFlag::eCOMPUTE_CONVEX;
+
+//#ifdef _DEBUG
+//      // mesh should be validated before cooking without the mesh cleaning
+//      bool res = cooking->validateConvexMesh(convexDesc);
+//      PX_ASSERT(res);
+//#endif
+      
+      //PxDefaultMemoryOutputStream buf;
+      //bool status = cooking->cookConvexMesh(convexDesc, buf);
+      //PxDefaultMemoryInputData input(buf.getData(), buf.getSize());
+      //physx::PxConvexMesh* convexMesh = gPhysics->createConvexMesh(input);
+      //
+      //cooking->release();
+
+      //// 
+      //shape = gPhysics->createShape(PxConvexMeshGeometry(convexMesh), *gMaterial);
+      
+      physx::PxConvexMesh* convex = cooking->createConvexMesh(convexDesc, gPhysics->getPhysicsInsertionCallback());
+      physx::PxConvexMeshGeometry convex_geo = physx::PxConvexMeshGeometry(convex, physx::PxMeshScale(), physx::PxConvexMeshGeometryFlags());
+      shape = gPhysics->createShape(convex_geo, *gMaterial);
+    }
+    else if (config.shapeType == physx::PxGeometryType::eTRIANGLEMESH)
+    {
+
+      // We could save this cooking process
+      PxTolerancesScale scale;
+      PxCooking *cooking = PxCreateCooking(PX_PHYSICS_VERSION, gPhysics->getFoundation(), PxCookingParams(scale));
+
+      PxTriangleMeshDesc desc;
+      desc.setToDefault();
+      desc.points.count = config.col_mesh->mesh.header.num_vertexs;
+      desc.points.stride = config.col_mesh->mesh.header.bytes_per_vtx;
+      desc.points.data = config.col_mesh->mesh.vtxs.data();
+      desc.triangles.count = config.col_mesh->mesh.header.num_indices / 3;
+      desc.triangles.stride = config.col_mesh->mesh.header.bytes_per_idx * 3;
+      desc.triangles.data = config.col_mesh->mesh.idxs.data();
+      if(config.col_mesh->mesh.header.bytes_per_idx == 2)
+        desc.flags = PxMeshFlags( PxTriangleMeshFlag::e16_BIT_INDICES );
+      desc.flags |= PxMeshFlag::eFLIPNORMALS;
+      assert(desc.isValid());
+
+#ifdef _DEBUG
+      // mesh should be validated before cooked without the mesh cleaning
+      bool res = cooking->validateTriangleMesh(desc);
+      PX_ASSERT(res);
+#endif
+
+      physx::PxTriangleMesh* tri_mesh = cooking->createTriangleMesh(desc, gPhysics->getPhysicsInsertionCallback());
+      assert(tri_mesh);
+      physx::PxTriangleMeshGeometry tri_mesh_geo = physx::PxTriangleMeshGeometry(tri_mesh);
+      shape = gPhysics->createShape(tri_mesh_geo, *gMaterial);
+    }
+
+    assert(shape);
     setupFiltering(shape, config.group, config.mask);
     shape->setLocalPose(offset);
    

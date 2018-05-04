@@ -2,12 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
-    <ClCompile Include="components\controllers\comp_projectile_controller.cpp" />
     <ClCompile Include="components\comp_light_dir.cpp" />
     <ClCompile Include="components\comp_light_point.cpp" />
     <ClCompile Include="components\comp_orbit_controller.cpp" />
-    <ClCompile Include="components\controllers\comp_fake_animation_controller.cpp" />
-    <ClCompile Include="components\controllers\comp_player_input.cpp" />
     <ClCompile Include="components\fsm\comp_fsm.cpp" />
     <ClCompile Include="components\ia\ai_wind_current.cpp" />
     <ClCompile Include="components\ia\ai_cut_door.cpp" />
@@ -32,9 +29,6 @@
     <ClCompile Include="components\juan\comp_tags.cpp" />
     <ClCompile Include="components\juan\comp_transform.cpp" />
     <ClCompile Include="components\physics\comp_trigger.cpp" />
-    <ClCompile Include="components\controllers\comp_camera_flyover.cpp" />
-    <ClCompile Include="components\controllers\comp_camera_orbit.cpp" />
-    <ClCompile Include="components\controllers\comp_spiral_controller.cpp" />
     <ClCompile Include="components\ia\ai_boss_runner.cpp" />
     <ClCompile Include="components\ia\ai_controller.cpp" />
     <ClCompile Include="components\ia\ai_destoyable.cpp" />
@@ -138,17 +132,22 @@
     <ClCompile Include="fsm\player_states\landing_state.cpp" />
     <ClCompile Include="fsm\player_states\dying_state.cpp" />
     <ClCompile Include="components\juan\comp_father.cpp" />
+    <ClCompile Include="components\controllers\comp_camera_flyover.cpp" />
+    <ClCompile Include="components\controllers\comp_camera_orbit.cpp" />
+    <ClCompile Include="components\controllers\comp_fake_animation_controller.cpp" />
+    <ClCompile Include="components\controllers\comp_player_input.cpp" />
+    <ClCompile Include="components\controllers\comp_projectile_controller.cpp" />
+    <ClCompile Include="components\controllers\comp_spiral_controller.cpp" />
+    <ClCompile Include="components\postfx\comp_render_ao.cpp" />
+    <ClCompile Include="render\mesh\collision_mesh.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
     <ClInclude Include="camera\camera.h" />
-    <ClInclude Include="components\controllers\comp_projectile_controller.h" />
     <ClInclude Include="components\ia\ai_wind_current.h" />
     <ClInclude Include="components\comp_light_dir.h" />
     <ClInclude Include="components\comp_light_point.h" />
     <ClInclude Include="components\comp_orbit_controller.h" />
-    <ClInclude Include="components\controllers\comp_fake_animation_controller.h" />
-    <ClInclude Include="components\controllers\comp_player_input.h" />
     <ClInclude Include="components\fsm\comp_fsm.h" />
     <ClInclude Include="components\ia\ai_cut_door.h" />
     <ClInclude Include="components\ia\ai_rotation.h" />
@@ -173,9 +172,6 @@
     <ClInclude Include="components\juan\comp_tags.h" />
     <ClInclude Include="components\juan\comp_transform.h" />
     <ClInclude Include="components\physics\comp_trigger.h" />
-    <ClInclude Include="components\controllers\comp_camera_flyover.h" />
-    <ClInclude Include="components\controllers\comp_camera_orbit.h" />
-    <ClInclude Include="components\controllers\comp_spiral_controller.h" />
     <ClInclude Include="components\ia\ai_boss_runner.h" />
     <ClInclude Include="components\ia\ai_controller.h" />
     <ClInclude Include="components\ia\ai_destoyable.h" />
@@ -335,6 +331,14 @@
     <ClInclude Include="fsm\player_states\player_state.h" />
     <ClInclude Include="fsm\player_states\dying_state.h" />
     <ClInclude Include="components\juan\comp_father.h" />
+    <ClInclude Include="components\controllers\comp_camera_flyover.h" />
+    <ClInclude Include="components\controllers\comp_camera_orbit.h" />
+    <ClInclude Include="components\controllers\comp_fake_animation_controller.h" />
+    <ClInclude Include="components\controllers\comp_player_input.h" />
+    <ClInclude Include="components\controllers\comp_projectile_controller.h" />
+    <ClInclude Include="components\controllers\comp_spiral_controller.h" />
+    <ClInclude Include="components\postfx\comp_render_ao.h" />
+    <ClInclude Include="render\mesh\collision_mesh.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />
