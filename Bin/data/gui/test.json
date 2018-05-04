@@ -8,16 +8,30 @@
 				"name" : "background",
 				"children" : [
 					{
-						"name" : "background",
+						"name" : "fondoA",
 						"type" : "image",
 						"size" : "1920 1080",
-						"texture" : "data/textures/gui/menu_anim_background.dds",
+						"texture" : "data/textures/gui/menu_anim_background19.dds",
 						"minUV" : "0 0",
 						"maxUV" : "0.5 1",
 						"effects" : [
 							{
 								"type" : "animate_uv",
 								"speed" : "0.025 0"
+							}
+						]
+					},
+					{
+						"name" : "fondoB",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/menu_anim_background1.dds",
+						"minUV" : "0 0",
+						"maxUV" : "0.5 1",
+						"effects" : [
+							{
+								"type" : "animate_uv",
+								"speed" : "-0.05 0"
 							}
 						]
 					},
