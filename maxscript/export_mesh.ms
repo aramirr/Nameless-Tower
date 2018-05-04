@@ -347,4 +347,5 @@ function exportMeshObject given_obj outfilename vtxType:"PosNUvUvT" = (
 
 
 --exportMeshObject $Box001
---exportMeshObject $ "c:\\code\\pep.mesh"
+--exportMeshObject $ "c:\\code\\engine\\bin\\data\\meshes\\Hedra001.mesh"
+--exportMeshObject $ "c:\\code\\engine\\bin\\data\\meshes\\Hedra001.col_mesh" vtxType:"Pos"

@@ -4,6 +4,7 @@
 #include "components/player/comp_player_controller.h"
 #include "modules/system/module_physics.h"
 #include "components/physics/controller_filter.h"
+#include "components/physics/query_filter.h"
 
 using namespace physx;
 
@@ -75,7 +76,8 @@ namespace FSM
 		e_col->controller->getActor()->getShapes(&player_shape, 1);
 		PxFilterData filter_data = player_shape->getSimulationFilterData();
 		ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
-		e_col->controller->move(PxVec3(direction.x, direction.y, direction.z), 0.f, dt, PxControllerFilters(&filter_data, filter_controller, filter_controller));
+		BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
+		e_col->controller->move(PxVec3(direction.x, direction.y, direction.z), 0.f, dt, PxControllerFilters(&filter_data, query_filter, filter_controller));
 
 		return false;
 	}

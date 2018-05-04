@@ -33,6 +33,30 @@
 #define TS_DEFERRED_NORMALS           11
 #define TS_DEFERRED_LINEAR_DEPTH      12
 #define TS_DEFERRED_ACC_LIGHTS        13
+#define TS_DEFERRED_AO                14
+
+
+#define TS_MIX_BLEND_WEIGHTS          15
+
+#define TS_FIRST_SLOT_MATERIAL_0      TS_ALBEDO
+#define TS_FIRST_SLOT_MATERIAL_1      TS_ALBEDO1
+// 17,18,19 goes for extra textures of second material
+#define TS_FIRST_SLOT_MATERIAL_2      TS_ALBEDO2
+
+#define TS_ALBEDO1 16
+#define TS_NORMAL1 17
+#define TS_ALBEDO2 20
+#define TS_NORMAL2 21
+
+// -------------------------------------------------
+#define RO_COMPLETE     0
+#define RO_ALBEDO       1
+#define RO_NORMAL       2
+#define RO_ROUGHNESS    3
+#define RO_METALLIC     4
+#define RO_WORLD_POS    5
+#define RO_DEPTH_LINEAR 6
+#define RO_AO           7
 
 // -------------------------------------------------
 #define MAX_SUPPORTED_BONES        200
@@ -64,6 +88,7 @@ CB_DEF(CCteCamera, CB_CAMERA)   // Generates the b0
   MAT44 camera_proj;
   MAT44 camera_view_proj;
   MAT44 camera_screen_to_world;
+  MAT44 camera_proj_with_offset;      // Used by ao
   VEC3  camera_pos;
   float camera_dummy1;
   VEC3  camera_front;
@@ -115,10 +140,17 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
   float global_exposure_adjustment;
   float global_ambient_adjustment;
   float global_hdr_enabled;
+
   float global_gamma_correction_enabled;
   float global_tone_mapping_mode;
-  float global_dummy1;
-  float global_dummy2;
+  int   global_render_output;
+  float global_dummy;
+
+  float global_shared_fx_amount;
+  float global_shared_fx_val1;
+  float global_shared_fx_val2;
+  float global_shared_fx_val3;
+
 };
 
 CB_DEF(CCteMaterial, CB_MATERIAL) 
@@ -127,6 +159,11 @@ CB_DEF(CCteMaterial, CB_MATERIAL)
   float  scalar_metallic;
   float  scalar_irradiance_vs_mipmaps;
   float  material_dummy;
+
+  float  mix_boost_r;
+  float  mix_boost_g;
+  float  mix_boost_b;
+  float  material_dummy2;
 };
 
 CB_DEF(CCteBlur, CB_BLUR)

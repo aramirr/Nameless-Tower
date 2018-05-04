@@ -35,6 +35,14 @@ const char* CEntity::getName() const {
   return comp_name->getName();
 }
 
+void CEntity::addNumberToName(int number) {
+	TCompName* comp_name = get<TCompName>();
+	
+	std::string new_name = comp_name->getName();
+	new_name += std::to_string(number);
+	comp_name->setName(new_name.c_str());
+}
+
 void CEntity::renderDebug() {
   for (uint32_t i = 0; i < CHandleManager::getNumDefinedTypes(); ++i) {
     CHandle h = comps[i];

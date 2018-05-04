@@ -105,7 +105,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 	// Current orientation
 	float current_yaw;
 	float current_pitch;
-	float amount_moved = x_speed * dt;
+	float amount_moved = x_speed *  dt;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	VEC3 myPos = c_my_transform->getPosition();
@@ -131,7 +131,8 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
 			PxFilterData filter_data = player_shape->getSimulationFilterData();
 			ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
-			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, filter_controller, filter_controller));
+			BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
+			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, query_filter, filter_controller));
 			
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
 				if (jumping_start_height - c_my_transform->getPosition().y  > jumping_death_height) {

@@ -3,6 +3,8 @@
 #include "comp_spiral_controller.h"
 #include "components/juan/comp_transform.h"
 #include "components/physics/controller_filter.h"
+#include "components/physics/query_filter.h"
+#include "components/juan/comp_father.h"
 
 using namespace physx;
 
@@ -80,20 +82,21 @@ void TCompSpiralController::update(float DT) {
 		my_collider->controller->getActor()->getShapes(&player_shape, 1);
 		PxFilterData filter_data = player_shape->getSimulationFilterData();
 		ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
-		PxControllerCollisionFlags flags = my_collider->controller->move(PxVec3(move_vector.x, move_vector.y, move_vector.z), 0.f, DT, PxControllerFilters(&filter_data, filter_controller, filter_controller));
+		BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
+		PxControllerCollisionFlags flags = my_collider->controller->move(PxVec3(move_vector.x, move_vector.y, move_vector.z), 0.f, DT, PxControllerFilters(&filter_data, query_filter, filter_controller));
 		
 		if (flags.isSet(PxControllerCollisionFlag::eCOLLISION_DOWN) or flags.isSet(PxControllerCollisionFlag::eCOLLISION_UP) or flags.isSet(PxControllerCollisionFlag::eCOLLISION_SIDES))
 		{
 			this->destroy();
 			return;
 		}
-		QUAT newRot = my_transform->getRotation();
+		/*QUAT newRot = my_transform->getRotation();
 		PxRigidActor* rigidActor = ((PxRigidActor*)my_collider->actor);
 		PxTransform tr = rigidActor->getGlobalPose();
 		tr.p = PxVec3(new_pos.x, new_pos.y, new_pos.z);
 		tr.q = PxQuat(newRot.x, newRot.y, newRot.z, newRot.w);
 
-		rigidActor->setGlobalPose(tr);
+		rigidActor->setGlobalPose(tr);*/
 	}
 
 	life -= DT;
@@ -122,11 +125,23 @@ void TCompSpiralController::destroy()
 		return;
 	}
 	CEntity * e = h_entity;
+	/*TCompFather *father_comp = e->get<TCompFather>();
+	if (father_comp) {
+		for (auto h : father_comp->sons) {
+			CEntity* e = h;
+			e->~CEntity();
+		}
+	}*/
+
+	CHandle h_col = e->get<TCompCollider>();
 	TCompCollider *my_col = e->get<TCompCollider>();
 	if (my_col) {
 		my_col->actor->getScene()->removeActor(*my_col->actor);
 		my_col->actor = nullptr;
 
+		CEntity* e = CHandle(this).getOwner();
+		assert(e);
+		dbg("TCompSpiralController of entity %s dtor of ctroller %p (Handle: %08x) D_name %s\n", e->getName(), my_col->controller, h_col.asUnsigned(), my_col->debug_name.c_str());
 		my_col->controller->release();
 		my_col->controller = nullptr;
 	}

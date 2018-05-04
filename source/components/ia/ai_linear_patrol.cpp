@@ -6,6 +6,7 @@
 #include "render/render_utils.h"
 #include "modules/system/module_physics.h"
 #include "components/physics/controller_filter.h"
+#include "components/physics/query_filter.h"
 
 using namespace physx;
 
@@ -118,7 +119,8 @@ void CAILinearPatrol::MoveToWaypointState(float dt)
 		player_collider->controller->getActor()->getShapes(&player_shape, 1);
 		PxFilterData filter_data = player_shape->getSimulationFilterData();
 		ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
-		player_collider->controller->move(PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, DT, PxControllerFilters(&filter_data, filter_controller, filter_controller));
+		BasicQueryFilterCallback * query_filter = new BasicQueryFilterCallback();
+		player_collider->controller->move(PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, DT, PxControllerFilters(&filter_data, query_filter, filter_controller));
 	}
 
 	if (VEC3::Distance(getWaypoint(), mypos->getPosition()) <= 0.25f)

@@ -1,4 +1,5 @@
-[{
+[
+	{
 		"entity": {
 			"name": "projectile",
 			"transform": {
@@ -19,7 +20,8 @@
 		      ]
 			,
 			"spiral_controller":{
-				"speed": 10
+				"speed": 10,
+				"life": 2
 			}
 			,
 			"collider":{
@@ -30,6 +32,30 @@
 				"offset": "0.0 -0.3 0.0",
 				"group": "projectile"
 			}
+		}
+	},
+	{
+		"entity": {
+			"name": "proj_son",
+			"render": [],
+			"transform": {
+				"pos": "0 0 0"
+			},
+			"hierarchy": {
+				"parent": "projectile"
+			},
+		    "collider": {
+		        "shape": "box",
+		        "halfExtent": "0.6 0.6 0.6",
+		        "is_trigger": true
+		    },
+		    "trigger":{
+		    	"trigger_type": "player_killer",
+		        "render": false
+		    },
+		    "player_killer": {
+		        "kill_enabled": true
+		    }
 		}
 	}
 ]

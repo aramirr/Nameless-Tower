@@ -30,7 +30,7 @@ void VS(
   int   ify = (int) (iframe / 4);
   float2 uv = float2(ifx, ify) / nframes_per_axis;
   // Add the local coord to get the uv's for each vertex of the quad
-  uv += iPos * ( 1.0 / nframes_per_axis);
+  uv += iPos.xy * ( 1.0 / nframes_per_axis);
 
   float3 local_pos = iPos.xyz * 2. - 1.;
   local_pos.xy *= scale.xy;

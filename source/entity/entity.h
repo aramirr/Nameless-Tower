@@ -30,6 +30,8 @@ public:
 
   const char* getName() const;
 
+	void addNumberToName(int number);
+
   template< class TMsg >
   void sendMsg(const TMsg& msg) {
     auto range = all_registered_msgs.equal_range(TMsg::getMsgID());

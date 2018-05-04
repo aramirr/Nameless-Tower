@@ -1,6 +1,8 @@
 #include "mcv_platform.h"
 #include "module_test_instancing.h"
 #include "geometry/transform.h"
+#include "entity/entity_parser.h"
+#include "components/juan/comp_transform.h"
 
 float unitRandom() {
   return (float)rand() / (float)RAND_MAX;
@@ -122,6 +124,22 @@ void CModuleTestInstancing::update(float delta)
       }
       ImGui::TreePop();
     }
+
+    // ----------------------------------------------
+    if (ImGui::SmallButton("Make Teapots")) {
+      std::string prefab = "data/prefabs/teapot_hi.prefab";
+      for (int i = -num; i < num; ++i) {
+        for (int j = -num; j < num; ++j) {
+          VEC3 pos((float)i, 0, (float)j);
+          TEntityParseContext ctx;
+          parseScene(prefab, ctx);
+          CEntity* e = ctx.entities_loaded[0];
+          TCompTransform* t = e->get<TCompTransform>();
+          t->setPosition(pos * sz);
+        }
+      }
+    }
+
     ImGui::TreePop();
   }
 
