@@ -5,6 +5,7 @@
 #include "components/fsm/comp_fsm.h"
 #include "components/ui/ui_mouse_pos.h"
 #include "entity/common_msgs.h"
+#include "modules\game\module_test_axis.h"
 
 DECL_OBJ_MANAGER("trigger", TCompTrigger);
 
@@ -56,6 +57,7 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		player->sendMsg(deadMsg);
 	}
 	else if (trigger_type == "player_killer" && other_entity_name == "The Player") {
+		int a = EngineScripting.auxiliar_bdg;
 		TMsgKillPlayer kill_player_message;
 		CEntity * entity = h_entity;
 		entity->sendMsg(kill_player_message);

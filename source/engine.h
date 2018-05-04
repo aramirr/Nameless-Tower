@@ -10,6 +10,7 @@
 #include "modules/module_tower.h"
 #include "modules/system/module_cameras.h"
 #include "modules/system/module_fsm.h"
+#include "scripting/scripting_module.h"
 
 
 class CEngine
@@ -34,6 +35,7 @@ public:
 	CModuleCameras& getCameras() { return _module_cameras; }
 	CModuleEntities& getEntities() { return _module_entities; }
 	CModuleFSM& getFSM() { return _module_fsm; }
+	ScriptingModule& getScriptingModule() { return _module_scripting; }
 
 	float getUnscaledDeltaTime() const { return current_unscaled_delta_time; }
 
@@ -48,6 +50,7 @@ private:
 	CModuleTower    _module_tower;
 	CModuleCameras  _module_cameras;
 	CModuleFSM      _module_fsm;
+	ScriptingModule _module_scripting;
 
 	float           current_unscaled_delta_time = 0.f;
 };
@@ -57,3 +60,4 @@ private:
 #define EngineTimer CEngine::get().getTimer()
 #define EngineTower CEngine::get().getTower()
 #define EngineCameras CEngine::get().getCameras()
+#define EngineScripting CEngine::get().getScriptingModule()

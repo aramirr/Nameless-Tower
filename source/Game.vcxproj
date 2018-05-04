@@ -222,6 +222,8 @@
     <ClCompile Include="render\texture\texture.cpp" />
     <ClCompile Include="resources\json_resource.cpp" />
     <ClCompile Include="resources\resources_manager.cpp" />
+    <ClCompile Include="scripting\logic_manager.cpp" />
+    <ClCompile Include="scripting\scripting_module.cpp" />
     <ClCompile Include="skeleton\comp_bone_tracker.cpp" />
     <ClCompile Include="skeleton\comp_skeleton.cpp" />
     <ClCompile Include="skeleton\game_core_skeleton.cpp" />
@@ -386,6 +388,8 @@
     <ClInclude Include="resources\json_resource.h" />
     <ClInclude Include="resources\resource.h" />
     <ClInclude Include="resources\resources_manager.h" />
+    <ClInclude Include="scripting\logic_manager.h" />
+    <ClInclude Include="scripting\scripting_module.h" />
     <ClInclude Include="skeleton\cal3d2engine.h" />
     <ClInclude Include="skeleton\comp_bone_tracker.h" />
     <ClInclude Include="skeleton\comp_skeleton.h" />

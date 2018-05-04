@@ -14,69 +14,8 @@
 #include "components/camera/comp_camera_manager.h"
 #include "entity/entity_parser.h"
 #include "render/render_manager.h"
-#include <lua\SLB\SLB.hpp>
+#include "scripting\logic_manager.h"
 
-
-class LogicManager
-{
-	int playerlife;
-	float px, py, pz;
-
-public:
-	int numagents;
-
-	LogicManager();
-	void RespawnPlayer();
-	void TeleportPlayer(float, float, float);
-	float GetPlayerLife();
-	//   void GetPlayerPos(float &, float &, float &);
-};
-
-
-LogicManager::LogicManager()
-{
-	printf("constructor\n");
-	numagents = 37;
-}
-
-
-
-void LogicManager::RespawnPlayer()
-{
-	printf("Player Respawns \n");
-	playerlife = 100;
-	px = 0;
-	py = 0;
-	pz = 0;
-}
-
-
-void LogicManager::TeleportPlayer(float x, float y, float z)
-{
-	printf("Teleporting player to %f %f %f\n", x, y, z);
-	px = x;
-	py = y;
-	pz = z;
-}
-
-
-float LogicManager::GetPlayerLife()
-{
-	return playerlife;
-}
-
-
-/*void LogicManager::GetPlayerPos(float &x, float &y, float &z)
-{
-x = px;
-y = py;
-z = pz;
-}*/
-
-
-
-
-// ARRANQUE DE SLB
 
 void BootLuaSLB(SLB::Manager *m)
 {
@@ -90,6 +29,7 @@ void BootLuaSLB(SLB::Manager *m)
 		.set("RespawnPlayer", &LogicManager::RespawnPlayer)
 		.set("TeleportPlayer", &LogicManager::TeleportPlayer)
 		.set("GetPlayerLife", &LogicManager::GetPlayerLife)
+		.set("printdbg", &LogicManager::printDbg)
 		//.set("GetPlayerPos", &LogicManager::GetPlayerPos)
 		.property("numagents", &LogicManager::numagents)
 		;
@@ -98,10 +38,12 @@ void BootLuaSLB(SLB::Manager *m)
 bool CModuleTestAxis::start()
 {
 	CCamera        camera;
-
-	SLB::Manager m;
-	BootLuaSLB(&m);
-	SLB::Script s(&m);
+	//EngineScripting.boot();
+	//ScriptingModule script_module("new");
+	Manager logic_manager;
+	BootLuaSLB(&logic_manager);
+	Script script(&logic_manager);
+	script.doFile("data/scripts/test.lua");
 
 	json jboot = loadJson("data/boot.json");
 

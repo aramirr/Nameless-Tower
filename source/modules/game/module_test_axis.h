@@ -1,6 +1,9 @@
 #pragma once
 
 #include "modules/module.h"
+#include <lua\SLB\SLB.hpp>
+
+using namespace SLB;
 
 class CModuleTestAxis : public IModule
 {
@@ -14,4 +17,6 @@ public:
   bool stop() override;
   void update(float delta) override;
   void render() override;
+
 };
+
