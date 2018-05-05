@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "module_tower.h"
 #include "components/juan/comp_render.h"
+#include "render/render_objects.h"
 
 
 bool CModuleTower::start()
@@ -40,7 +41,7 @@ const bool CModuleTower::getLastCheckpointLeft()
 }
 
 const void CModuleTower::setLastCheckpointLeft(bool checkpoint_left) {
-	last_checkpoint_looking_left = checkpoint_left;
+	last_checkpoint_looking_left = checkpoint_left;	
 }
 
 const void CModuleTower::disappearEntity(const std::string& name) {
@@ -55,4 +56,8 @@ const void CModuleTower::appearEntity(const std::string& name) {
 	TCompRender* h_render = entity->get< TCompRender >();
 	h_render->is_active = true;
 	h_render->refreshMeshesInRenderManager();
+}
+
+const void CModuleTower::setAmbientAdjustment(float ambient) {
+	cb_globals.global_ambient_adjustment = ambient;
 }
