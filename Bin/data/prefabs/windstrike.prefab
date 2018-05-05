@@ -4,9 +4,14 @@
 			"transform": {
 				"pos": "0 0 0"
 			},
-			"render" : {
-				
-			}
+			"render" : [
+		      {
+		        "mesh": "data/meshes/VientoWindstrike.mesh",
+		        "materials" : [
+		          "data/materials/VientoMat.material"
+		        ]
+		      }
+		    ]
 			,
 			"spiral_controller":{
 				"speed": 10

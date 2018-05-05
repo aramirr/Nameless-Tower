@@ -36,6 +36,66 @@
     <ClCompile Include="lutf8lib.c" />
     <ClCompile Include="lvm.c" />
     <ClCompile Include="lzio.c" />
+    <ClCompile Include="SLB\Allocator.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\Class.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\ClassHelpers.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\ClassInfo.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\Debug.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\Error.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\FuncCall.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\Hybrid.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\Instance.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\Iterator.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\lua.c">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\LuaCall.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\Manager.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\Object.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\Property.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\Script.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\SLB.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\Table.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\Type.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
+    <ClCompile Include="SLB\Value.cpp">
+      <Filter>SLB</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lapi.h" />
@@ -64,5 +124,106 @@
     <ClInclude Include="lundump.h" />
     <ClInclude Include="lvm.h" />
     <ClInclude Include="lzio.h" />
+    <ClInclude Include="SLB\Allocator.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Class.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\ClassHelpers.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\ClassInfo.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Conversor.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Debug.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Error.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Export.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\FuncCall.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\FuncCall_inline.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Hybrid.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Instance.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Iterator.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\lua.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\LuaCall.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Manager.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Mutex.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Object.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Private_FuncCall.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Property.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\PushGet.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\ref_ptr.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Script.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\SLB.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\SPP.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\StatefulHybrid.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\String.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Table.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Type.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\TypeInfoWrapper.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\util.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+    <ClInclude Include="SLB\Value.hpp">
+      <Filter>SLB</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="SLB">
+      <UniqueIdentifier>{511057ef-5258-459b-b677-21aac19cffb9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

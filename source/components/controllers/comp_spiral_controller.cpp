@@ -141,7 +141,6 @@ void TCompSpiralController::destroy()
 
 		CEntity* e = CHandle(this).getOwner();
 		assert(e);
-		dbg("TCompSpiralController of entity %s dtor of ctroller %p (Handle: %08x) D_name %s\n", e->getName(), my_col->controller, h_col.asUnsigned(), my_col->debug_name.c_str());
 		my_col->controller->release();
 		my_col->controller = nullptr;
 	}

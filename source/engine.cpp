@@ -27,6 +27,7 @@ CEngine::CEngine()
 	, _module_tower("tower")
 	, _module_cameras("cameras")
 	, _module_fsm("fsm")
+	, _module_scripting("scripting")
 {}
 
 bool CEngine::start() {
@@ -48,7 +49,7 @@ bool CEngine::start() {
 	_modules.registerSystemModule(&_module_timer);
 	_modules.registerSystemModule(&_module_tower);
 	_modules.registerSystemModule(&_module_cameras);
-  _modules.registerSystemModule(&_module_fsm);
+	_modules.registerSystemModule(&_module_fsm);
 	_modules.registerGameModule(&module_splash);
 	_modules.registerGameModule(&module_main_menu);
 	_modules.registerGameModule(&module_game_over);

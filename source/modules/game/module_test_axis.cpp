@@ -14,12 +14,12 @@
 #include "components/camera/comp_camera_manager.h"
 #include "entity/entity_parser.h"
 #include "render/render_manager.h"
+#include "scripting\logic_manager.h"
 
 
 bool CModuleTestAxis::start()
 {
 	CCamera        camera;
-
 	json jboot = loadJson("data/boot.json");
 
 	// Auto load some scenes
