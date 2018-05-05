@@ -5,11 +5,9 @@ SLB.using(SLB)
 lm = LogicManager();
 
 function OnTriggerEnterSierra()
-	lm:printdbg()
-	lm:printdbg()
-	lm:printdbg()
+	lm:printdbg("joselito")
 end
 
 function OnTriggerEnterRoom1()
-	lm:hide_mesh("wall_room_1")
+	val1, val2, val3 = lm:test_vec3()
 end
