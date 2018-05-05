@@ -22,6 +22,7 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("hide_mesh", &LogicManager::disappearEntity)
 		.set("unhide_mesh", &LogicManager::appearEntity)
 		.set("activate_camera", &LogicManager::activateCamera)
+		.set("disactivate_camera", &LogicManager::disactivateCamera)
 		;
 }
 

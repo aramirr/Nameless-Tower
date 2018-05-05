@@ -31,3 +31,6 @@ void LogicManager::activateCamera(const char* name) {
 	dbg("JOHAN");
 }
 
+void LogicManager::disactivateCamera(const char* name) {
+	dbg("JOHAN");
+}
