@@ -38,12 +38,21 @@ void BootLuaSLB(SLB::Manager *m)
 bool CModuleTestAxis::start()
 {
 	CCamera        camera;
-	//EngineScripting.boot();
+	EngineScripting.boot();
 	//ScriptingModule script_module("new");
-	Manager logic_manager;
-	BootLuaSLB(&logic_manager);
-	Script script(&logic_manager);
-	script.doFile("data/scripts/test.lua");
+	//SLB::Manager m;
+	//BootLuaSLB(&m);
+	//SLB::Script s(&m);
+	//s.doFile("data/scripts/test.lua");
+	//auto p1 = EngineScripting.script->exists("Test");
+	//auto p2 = EngineScripting.script->exists("OnPlayerKilled");
+
+	BootLuaSLB(&EngineScripting.logic_manager);
+	Script s(&EngineScripting.logic_manager);
+	EngineScripting.script = &s;
+	EngineScripting.script->doFile("data/scripts/test.lua");
+	auto p3 = EngineScripting.script->exists("Test");
+	auto p4 = EngineScripting.script->exists("OnPlayerKilled");
 
 	json jboot = loadJson("data/boot.json");
 

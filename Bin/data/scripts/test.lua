@@ -6,7 +6,7 @@ print(LogicManager)
 
 lm = LogicManager();
 
-
+lm:printdbg("hello----------------------------")
 
 
 val=lm:GetPlayerLife();
@@ -22,9 +22,6 @@ print(val);
 
 lm:TeleportPlayer(1,2,3);
 
-val =lm:getentity("player");
-
-lm:destroy(val);
 
 print('Numero de agentes');
 print(lm.numagents);

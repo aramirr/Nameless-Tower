@@ -5,14 +5,19 @@
 using namespace SLB;
 
 ScriptingModule::ScriptingModule(const std::string& name)
-{}
-
-void ScriptingModule::boot() {
+{
+	this->name = name;
 	BootLuaSLB(&logic_manager);
 	Script s(&logic_manager);
-	//script = &s;
-	//s.doFile("data/scripts/test.lua");
-	s.doString("printdbg", "hello");
+	script = &s;
+	script->doFile("data/scripts/test.lua");
+}
+
+void ScriptingModule::boot() {
+	std::string aux = name;
+	auto p1 = script->exists("Test");
+	auto p2 = script->exists("OnPlayerKilled");
+	auto p3 = script->exists("OnPlayerKilled");
 	auxiliar_bdg = 1;
 }
 

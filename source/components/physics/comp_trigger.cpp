@@ -57,7 +57,8 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		player->sendMsg(deadMsg);
 	}
 	else if (trigger_type == "player_killer" && other_entity_name == "The Player") {
-		int a = EngineScripting.auxiliar_bdg;
+		auto p3 = EngineScripting.script->exists("Test");
+		auto p4 = EngineScripting.script->exists("OnPlayerKilled");
 		TMsgKillPlayer kill_player_message;
 		CEntity * entity = h_entity;
 		entity->sendMsg(kill_player_message);
