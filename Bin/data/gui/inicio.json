@@ -34,12 +34,6 @@
 								"speed" : "-0.0125 0"
 							}
 						]
-					},
-					{
-						"name" : "foreground",
-						"type" : "image",
-						"size" : "1920 1080",
-						"texture" : "data/textures/gui/menu_foreground.dds"
 					}
 				]
 			},
@@ -116,6 +110,7 @@
 						"name" : "OmnidashImage",
 						"type" : "image",
 						"size" : "128 128",
+						"position": "0 0",
 						"texture" : "data/textures/gui/aire.dds",
 						"minUV" : "0 0",
 						"maxUV" : "1 1"

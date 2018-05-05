@@ -28,7 +28,7 @@ namespace GUI
 
       position = VEC2(player_position.x, player_position.y);
 
-      CWidget* od = EngineUI.getWidget("Omnidash", true);
+      CWidget* od = EngineUI.getWidget("OmnidashImage", true);
       od->setPosition(position);
       od->setRotation(angle);
     }
@@ -37,7 +37,7 @@ namespace GUI
   {
     active = _active;
     if (active) {
-      EngineUI.activateWidget("Omnidash");
+      //EngineUI.activateWidget("Omnidash");
     }
     else {
       EngineUI.desactivateWidget("Omnidash");

@@ -111,9 +111,12 @@ void CWidget::renderAll()
   }
 }
 
-void CWidget::update(float)
+void CWidget::update(float delta)
 {
-  // ...
+  MAT44 tr = MAT44::CreateTranslation(_params._position.x, _params._position.y, 0.f);
+  MAT44 rot = MAT44::CreateFromYawPitchRoll(0.f, 0.f, _params._rotation);
+  MAT44 sc = MAT44::CreateScale(_params._scale.x, _params._scale.y, 1.f);
+  _local = rot * sc * tr;
 }
 
 void CWidget::render()
