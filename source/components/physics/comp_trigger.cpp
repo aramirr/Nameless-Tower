@@ -77,7 +77,8 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
 		e_collider_entity->sendMsg(rotate_msg);
 	}
-	EngineScripting.ExecEvent(ScriptEvents::trigger_enter, params);
+	if (other_entity_name == "The Player")
+		EngineScripting.ExecEvent(ScriptEvents::trigger_enter, params);
 }
 
 void TCompTrigger::onTriggerExit(const TMsgTriggerExit& msg) {

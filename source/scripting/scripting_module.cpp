@@ -37,9 +37,11 @@ void ScriptingModule::ExecEvent(ScriptEvents e, vector<string> params) {
 
 
 void ScriptingModule::fTriggerEnter(vector<string> params) {
-	string name = params[0];
-	string func_name = "OnTriggerEnter" + name;
-	auto p = EngineScripting.script.exists(func_name);
-	if (p)
-		EngineScripting.script.doString(func_name+"()");
+	if (params.size() > 0) {
+		string name = params[0];
+		string func_name = "OnTriggerEnter" + name;
+		auto p = EngineScripting.script.exists(func_name);
+		if (p)
+			EngineScripting.script.doString(func_name + "()");
+	}
 }
