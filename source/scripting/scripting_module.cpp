@@ -3,18 +3,14 @@
 #include "logic_manager.h"
 #include <lua/SLB/SLB.hpp>
 using namespace SLB;
+using namespace std;
 
-ScriptingModule::ScriptingModule(const std::string& name): logic_manager(), script(&logic_manager)
+ScriptingModule::ScriptingModule(const string& name): logic_manager(), script(&logic_manager)
 {
 	this->name = name;
 	BootLuaSLB(&logic_manager);
 	script.mcvSetManager(&logic_manager);
 	script.doFile("data/scripts/test.lua");
-}
-
-void ScriptingModule::boot() {
-	std::string aux = name;
-	auxiliar_bdg = 1;
 }
 
 void ScriptingModule::BootLuaSLB(SLB::Manager *m)
@@ -33,4 +29,22 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		//.set("GetPlayerPos", &LogicManager::GetPlayerPos)
 		.property("numagents", &LogicManager::numagents)
 		;
+}
+
+void ScriptingModule::ExecEvent(ScriptEvents e, vector<string> params) {
+	switch (e) {
+		case ScriptEvents::trigger_enter:
+			fTriggerEnter(params);
+	}
+		
+
+}
+
+
+void ScriptingModule::fTriggerEnter(vector<string> params) {
+	string name = params[0];
+	string func_name = "OnTriggerEnter" + name;
+	auto p = EngineScripting.script.exists(func_name);
+	if (p)
+		EngineScripting.script.doString(func_name+"()");
 }

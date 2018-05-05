@@ -67,6 +67,7 @@ namespace SLB {
     close();
   }
 
+	//Added by MCV - Edu
 	void Script::mcvSetManager(Manager *m) {
 		_manager = m;
 	}
@@ -183,10 +184,10 @@ namespace SLB {
     _errorHandler = e;
   }
 
-  // Added by MCV
-  bool Script::exists(const char *name) {
+  // Added by MCV - Juan
+  bool Script::exists(std::string name) {
     lua_State* L = getState();
-    lua_getglobal(L, name);
+    lua_getglobal(L, name.c_str());
     bool rc = lua_isfunction(L, lua_gettop(L));
     // Confirm if this is required
     lua_pop(L, 1);

@@ -13,6 +13,5 @@ public:
 	float GetPlayerLife();
 	void printDbg();
 
-	void shake_body();
 	//   void GetPlayerPos(float &, float &, float &);
 };

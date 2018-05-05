@@ -33,20 +33,12 @@ void LogicManager::TeleportPlayer(float x, float y, float z)
 
 void LogicManager::printDbg()
 {
-	dbg("JOSUE");
+	dbg("JOSELITO");
 }
 
 float LogicManager::GetPlayerLife()
 {
 	return playerlife;
-}
-
-void LogicManager:: shake_body() {
-	CEntity* player = getEntityByName("The Player");
-	TCompCollider* player_collider = player->get<TCompCollider>();
-	//player_collider->controller->move(PxVec3(0, 0.5*dt, 0), 0.f, dt, PxControllerFilters());
-
-
 }
 
 

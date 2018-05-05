@@ -80,7 +80,7 @@ namespace SLB {
     { return SLB::getGlobal<T>(getState(), name); }
 
     static void* allocator(void *ud, void *ptr, size_t osize, size_t nsize);
-    bool exists(const char *name);
+    bool exists(std::string name);
 
   protected:
     virtual void onNewState(lua_State * /*L*/) {}

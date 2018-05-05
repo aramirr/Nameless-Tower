@@ -85,7 +85,6 @@ TCompCollider::~TCompCollider() {
 	actor = nullptr;
 	CHandle h_this = CHandle(this);
 	CEntity* e = CHandle(this).getOwner();
-	dbg("TCompCollider of entity %s dtor of ctroller %p. H_this = %08x D_name %s.\n", e ?  e->getName() : "<null>", controller, h_this.asUnsigned(), debug_name.c_str());
 	if (controller != NULL && controller) {
 		controller->release();
 		controller = nullptr;

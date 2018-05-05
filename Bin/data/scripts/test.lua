@@ -28,6 +28,8 @@ print(lm.numagents);
 
 
 
-function OnPlayerKilled()
+function OnTriggerEnterSierra()
+lm:printdbg()
+lm:printdbg()
 lm:printdbg()
 end

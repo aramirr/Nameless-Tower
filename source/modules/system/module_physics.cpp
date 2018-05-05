@@ -92,7 +92,6 @@ void CModulePhysics::createActor(TCompCollider& comp_collider)
 
 		CEntity* e = CHandle(&comp_collider).getOwner();
 		assert(e);
-		dbg("ModulePhysics. of entity %s dtor of ctroller %p D_name %s.\n", e->getName(), ctrl, comp_collider.debug_name.c_str());
 
     setupFiltering(actor, config.group, config.mask);
   }

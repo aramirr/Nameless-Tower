@@ -57,11 +57,13 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		player->sendMsg(deadMsg);
 	}
 	else if (trigger_type == "player_killer" && other_entity_name == "The Player") {
-		auto p4 = EngineScripting.script.exists("OnPlayerKilled");
-		if (p4)
-			EngineScripting.script.doString("OnPlayerKilled()");
+		CEntity* entity = h_entity;
+		std::vector<std::string> params;
+		std::string name = entity->getName();
+		params.push_back(name);
+		EngineScripting.ExecEvent(ScriptEvents::trigger_enter, params);
+
 		TMsgKillPlayer kill_player_message;
-		CEntity * entity = h_entity;
 		entity->sendMsg(kill_player_message);
 	}
 	else if (trigger_type == "destroyable" && other_entity_name == "The Player") {
