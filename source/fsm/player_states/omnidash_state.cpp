@@ -13,6 +13,7 @@ namespace FSM
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->change_animation(player->EAnimations::NajaOmniPrep, _is_action, _delay_in, _delay_out);
 		EngineTimer.setTimeSlower(0.25f);
+    EngineUI.setOmindash(true);
 	}
 
 	bool OmnidashState::load(const json& jData)
@@ -42,6 +43,7 @@ namespace FSM
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->y_speed_factor = 0;
 		EngineTimer.setTimeSlower(1.f);
+    EngineUI.setOmindash(false);
 
 		CEntity* e_camera = EngineCameras.getActiveCamera();
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();

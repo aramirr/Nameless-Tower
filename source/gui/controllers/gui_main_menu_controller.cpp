@@ -21,8 +21,8 @@ namespace GUI
       auto newGameCB = []() {
         dbg("STARTING GAME\n");
 
-        Engine.get().getGUI().removeWidget("pantallaInicio");
-        Engine.get().getGUI().desactiveMainMenu();
+        EngineUI.desactivateWidget("pantallaInicio");
+        EngineUI.desactiveMainMenu();
 
         CEntity* player = (CEntity*)getEntityByName("The Player");
 
@@ -68,7 +68,7 @@ namespace GUI
 
   void CMainMenuController::registerOption(const std::string& name, GUICallback cb)
   {
-    CWidget* wdgt = Engine.getGUI().getWidget(name, true);
+    CWidget* wdgt = EngineUI.getWidget(name, true);
     CButton* bt = dynamic_cast<CButton*>(wdgt);
     if (bt)
     {

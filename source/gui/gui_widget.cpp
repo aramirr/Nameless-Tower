@@ -120,3 +120,21 @@ void CWidget::render()
 {
   // ...
 }
+
+void CWidget::setPosition(VEC2 position)
+{
+  _params._position = position;
+  for (auto& child : _children)
+  {
+    child->setPosition(position);
+  }
+}
+
+void CWidget::setRotation(float rotation)
+{
+  _params._rotation = rotation;
+  for (auto& child : _children)
+  {
+    child->setRotation(rotation);
+  }
+}

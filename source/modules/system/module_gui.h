@@ -5,6 +5,7 @@
 #include "utils/variant.h"
 #include "gui/gui_controller.h"
 #include "gui/controllers/gui_main_menu_controller.h"
+#include "gui/controllers/gui_omnidash_arrow_controller.h"
 
 using namespace GUI;
 
@@ -17,13 +18,15 @@ public:
   void update(float delta) override;
   void renderGUI() override;
 
+  //FUNCIONES GENERICAS PARA SER LLAMADAS DESDE DIFERENTES LUGARES DEL ENGINE
   void desactiveMainMenu();
+  void setOmindash(bool omnidash);
 
   // widget management
   void registerWidget(GUI::CWidget* wdgt);
   GUI::CWidget* getWidget(const std::string& name, bool recursive = false) const;
   void activateWidget(const std::string& name);
-  void removeWidget(const std::string& name);
+  void desactivateWidget(const std::string& name);
 
   // controller management
   void registerController(GUI::CController* controller);
@@ -42,6 +45,7 @@ private:
   const CTexture* _fontTexture = nullptr;
   
   CMainMenuController* mmc;
+  COmnidashArrowController* odc;
 
   GUI::VWidgets _registeredWidgets;
   GUI::VWidgets _activeWidgets;

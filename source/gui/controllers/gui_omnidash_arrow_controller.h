@@ -9,7 +9,9 @@ namespace GUI
   public:
     virtual void update(float delta) override;
 
+    void setActive(bool _active);
+
   private:
- 
+    bool active = false;;
   };
 }

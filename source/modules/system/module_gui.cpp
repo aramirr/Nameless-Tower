@@ -30,8 +30,14 @@ bool CModuleGUI::start()
 
   //_variables.setVariant("progress", 0.5f);
 
+  //MAIN MENU
   mmc = new CMainMenuController();
   registerController(mmc);
+
+  //OMNI DASH
+  odc = new COmnidashArrowController();
+  registerController(odc);
+  setOmindash(false);
 
   return true;
 }
@@ -80,6 +86,11 @@ void CModuleGUI::desactiveMainMenu()
   unregisterController(mmc);
 }
 
+void CModuleGUI::setOmindash(bool omnidash)
+{
+  odc->setActive(omnidash);
+}
+
 void CModuleGUI::registerWidget(CWidget* wdgt)
 {
   _registeredWidgets.push_back(wdgt);
@@ -120,7 +131,7 @@ void CModuleGUI::activateWidget(const std::string& name)
 }
 
 //FUNCION APARTE DEL MODULO DE ALBERT
-void CModuleGUI::removeWidget(const std::string& name)
+void CModuleGUI::desactivateWidget(const std::string& name)
 {
   for (int i = 0; i < _activeWidgets.size(); i++) {
     if (_activeWidgets[i]->getName() == name) {

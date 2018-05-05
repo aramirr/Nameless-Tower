@@ -106,5 +106,20 @@
 		        "valign" : "bottom"
 		    }
 		]
-	}
+	},
+	{
+				"name" : "Omnidash",
+				"type" : "widget",
+				"position": "0 0",
+				"children" : [
+		    		{
+						"name" : "OmnidashImage",
+						"type" : "image",
+						"size" : "128 128",
+						"texture" : "data/textures/gui/aire.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1"
+					}
+				]
+			}
 ]

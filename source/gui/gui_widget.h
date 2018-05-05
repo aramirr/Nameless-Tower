@@ -31,6 +31,10 @@ namespace GUI
     virtual void update(float delta);
     virtual void render();
 
+    void setPosition(VEC2 position);
+    void setRotation(float rotation);
+
+    
   protected:
     std::string _name;
     VWidgets _children;
