@@ -20,6 +20,8 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.constructor()
 		.set("printdbg", &LogicManager::printDbg)
 		.set("hide_mesh", &LogicManager::disappearEntity)
+		.set("unhide_mesh", &LogicManager::appearEntity)
+		.set("activate_camera", &LogicManager::activateCamera)
 		;
 }
 
