@@ -4,6 +4,9 @@
 #include "gui/gui_widget.h"
 #include "utils/variant.h"
 #include "gui/gui_controller.h"
+#include "gui/controllers/gui_main_menu_controller.h"
+
+using namespace GUI;
 
 class CModuleGUI : public IModule
 {
@@ -36,6 +39,8 @@ private:
   const CRenderMesh* _quadMesh = nullptr;
   const CTexture* _fontTexture = nullptr;
   
+  CMainMenuController* mmc;
+
   GUI::VWidgets _registeredWidgets;
   GUI::VWidgets _activeWidgets;
   MVariants _variables;

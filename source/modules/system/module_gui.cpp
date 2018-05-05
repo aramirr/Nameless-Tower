@@ -2,11 +2,8 @@
 #include "module_gui.h"
 #include "render/render_objects.h"
 #include "gui/gui_parser.h"
-#include "gui/controllers/gui_main_menu_controller.h"
 
-using namespace GUI;
-
-CMainMenuController* mmc;
+//using namespace GUI;
 
 CModuleGUI::CModuleGUI(const std::string& name)
 	: IModule(name)
@@ -22,10 +19,10 @@ bool CModuleGUI::start()
 
   _technique = Resources.get("gui.tech")->as<CRenderTechnique>();
   _quadMesh = Resources.get("unit_quad_xy.mesh")->as<CRenderMesh>();
-  _fontTexture = Resources.get("data/textures/gui/font.dds")->as<CTexture>();
+  _fontTexture = Resources.get("data/textures/gui/Letras.dds")->as<CTexture>();
 
   CParser parser;
-  parser.parseFile("data/gui/test.json");
+  parser.parseFile("data/gui/inicio.json");
   /*parser.parseFile("data/gui/main_menu.json");
   parser.parseFile("data/gui/gameplay.json");
   parser.parseFile("data/gui/game_over.json");*/
@@ -35,13 +32,13 @@ bool CModuleGUI::start()
   _variables.setVariant("progress", 0.5f);
 
   auto newGameCB = []() {
-    printf("STARTING GAME\n");
+    dbg("STARTING GAME\n");
   };
   auto continueCB = []() {
-    printf("LOADING GAME\n");
+    dbg("LOADING GAME\n");
   };
   auto optionsCB = []() {
-    printf("CONFIGURING\n");
+    dbg("CONFIGURING\n");
   };
 
   mmc = new CMainMenuController();

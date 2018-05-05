@@ -21,7 +21,7 @@ namespace GUI
     if (EngineInput[VK_SPACE].getsReleased())
     {
 
-      if (_currentOption == 0) {
+      /*if (_currentOption == 0) {
         Engine.get().getGUI().removeWidget();
 
         CEntity* player = (CEntity*)getEntityByName("The Player");
@@ -31,7 +31,7 @@ namespace GUI
         pauseMsg.variant.setBool(true);
 
         player->sendMsg(pauseMsg);
-      }
+      }*/
       _options[_currentOption].button->setCurrentState(CButton::EState::ST_Selected);
       _options[_currentOption].callback();
     }
