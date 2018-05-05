@@ -219,5 +219,16 @@
     "category": "particles",
     "blend": "combinative",
     "z": "test_but_no_write"
+  },
+
+  "gui" : {
+    "vs_file": "data/shaders/gui.fx",
+    "vs_entry_point": "VS_GUI",
+    "ps_entry_point": "PS_GUI",
+    "vertex_type" : "PosClr",
+    "category" : "gui",
+    "z" : "disable_all",
+    "rs" : "cull_none",
+    "blend" : "combinative"
   }
 }
