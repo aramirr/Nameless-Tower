@@ -56,8 +56,6 @@ namespace FSM
 	}
 
 	void RunState::onFinish(CContext& ctx) const {
-		CEntity* e = ctx.getOwner();
-		ctx.setVariable("run", false);
-		TCompPlayerController* player = e->get<TCompPlayerController>();
+		ctx.setVariable("run", false);		
 	}
 }
