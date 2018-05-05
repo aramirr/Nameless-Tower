@@ -140,6 +140,7 @@
     <ClCompile Include="components\controllers\comp_spiral_controller.cpp" />
     <ClCompile Include="components\postfx\comp_render_ao.cpp" />
     <ClCompile Include="render\mesh\collision_mesh.cpp" />
+    <ClCompile Include="components\ia\ai_cinta_transportadora.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
@@ -339,6 +340,7 @@
     <ClInclude Include="components\controllers\comp_spiral_controller.h" />
     <ClInclude Include="components\postfx\comp_render_ao.h" />
     <ClInclude Include="render\mesh\collision_mesh.h" />
+    <ClInclude Include="components\ia\ai_cinta_transportadora.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />

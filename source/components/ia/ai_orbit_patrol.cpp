@@ -154,7 +154,6 @@ void CAIOrbitPatrol::MoveToWaypointState(float dt)
 			}
 			player_transform->setYawPitchRoll(p_y, p_p);
 
-
 			PxShape* player_shape;
 			player_collider->controller->getActor()->getShapes(&player_shape, 1);
 			PxFilterData filter_data = player_shape->getSimulationFilterData();
