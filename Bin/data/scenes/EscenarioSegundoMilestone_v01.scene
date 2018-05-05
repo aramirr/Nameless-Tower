@@ -1,0 +1,5642 @@
+[
+  {
+    "entity":
+    {
+      "name": "ArbolInterior"
+      ,
+      "transform":
+      {
+        "pos": "27.1053 28.7316 17.9125"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ArbolInterior.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Arbol.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tapado"
+      ,
+      "transform":
+      {
+        "pos": "15.4158 24.75 26.7683"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tapado.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TorreSec01"
+      ,
+      "transform":
+      {
+        "pos": "-28.6349 20.4265 4.82156"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TorreSec01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreSeccio1.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PlataformaMadera1"
+      ,
+      "transform":
+      {
+        "pos": "-26.2082 10.5829 17.0515"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PlataformaMadera1.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Arbol.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PlataformaMadera002"
+      ,
+      "transform":
+      {
+        "pos": "-29.6628 13.9839 9.78307"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PlataformaMadera002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Arbol.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Valla"
+      ,
+      "transform":
+      {
+        "pos": "-28.9648 7.27527 16.6583"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Valla.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Arbol.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Arbolito"
+      ,
+      "transform":
+      {
+        "pos": "-33.4016 16.3405 -4.71564"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Arbolito.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Arbol.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TorreCentro001"
+      ,
+      "transform":
+      {
+        "pos": "-0.978106 53.9096 -14.0668"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TorreCentro001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pintxos001"
+      ,
+      "transform":
+      {
+        "pos": "25.1299 48.7921 18.3385"
+        ,
+        "rotation": "0.0 0.301747 0.0 -0.953388"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Pintxos001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.9706 0.766924 3.22297"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pintxos002"
+      ,
+      "transform":
+      {
+        "pos": "28.2691 48.7921 12.7201"
+        ,
+        "rotation": "0.0 0.274943 0.0 -0.961461"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Pintxos002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.968259 0.766924 3.22274"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Valla02"
+      ,
+      "transform":
+      {
+        "pos": "31.0195 45.3252 6.20784"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Valla02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Arbol.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Estatua"
+      ,
+      "transform":
+      {
+        "pos": "13.2364 26.2052 22.6966"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Estatua.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Dragon002"
+      ,
+      "transform":
+      {
+        "pos": "21.7231 28.3367 22.7149"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Dragon002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Dragon003"
+      ,
+      "transform":
+      {
+        "pos": "21.3726 19.2415 22.3148"
+        ,
+        "rotation": "0.0 -0.918205 0.0 -0.396106"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Dragon003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Dragon001"
+      ,
+      "transform":
+      {
+        "pos": "29.9102 23.6959 6.91025"
+        ,
+        "rotation": "0.0 0.143025 0.0 -0.989719"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Dragon001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Dragon"
+      ,
+      "transform":
+      {
+        "pos": "29.9102 14.89 6.91025"
+        ,
+        "rotation": "0.0 0.143025 0.0 -0.989719"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Dragon.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Dragon004"
+      ,
+      "transform":
+      {
+        "pos": "-17.969 11.0703 24.4519"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Dragon004.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tapado1"
+      ,
+      "transform":
+      {
+        "pos": "-14.2519 11.4265 27.971"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tapado1.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Oculta.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions00"
+      ,
+      "transform":
+      {
+        "pos": "-21.5602 7.99398 -18.0708"
+        ,
+        "rotation": "0.0 0.110386 0.0 -0.993889"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Collisions00.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Oculta.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "10.0 10.0 10.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions01"
+      ,
+      "transform":
+      {
+        "pos": "-28.7297 5.14811 -3.52781"
+        ,
+        "rotation": "0.0 0.0120673 0.0 -0.999927"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "4.09027 0.890479 4.17172"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions02"
+      ,
+      "transform":
+      {
+        "pos": "-21.5602 19.3209 -18.0708"
+        ,
+        "rotation": "0.0 0.110386 0.0 -0.993889"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "7.8659 1.1692 13.0366"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions03"
+      ,
+      "transform":
+      {
+        "pos": "-13.0894 13.7486 -24.7349"
+        ,
+        "rotation": "0.0 0.478798 0.0 -0.877925"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "7.90482 4.57509 0.890479"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions04"
+      ,
+      "transform":
+      {
+        "pos": "-30.2631 18.256 -9.83211"
+        ,
+        "rotation": "0.0 0.165422 0.0 -0.986223"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.9762 4.57509 3.22127"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions05"
+      ,
+      "transform":
+      {
+        "pos": "-30.3495 13.6809 3.21667"
+        ,
+        "rotation": "0.0 -0.0508177 0.0 -0.998708"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.9762 8.93011 3.25348"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions06"
+      ,
+      "transform":
+      {
+        "pos": "-28.7664 18.1512 -3.12041"
+        ,
+        "rotation": "0.0 0.0448318 0.0 -0.998995"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "4.09027 2.31525 4.17172"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions07"
+      ,
+      "transform":
+      {
+        "pos": "-26.0127 5.15524 15.0346"
+        ,
+        "rotation": "0.0 -0.256552 0.0 -0.96653"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "4.09027 0.890479 4.17172"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions08"
+      ,
+      "transform":
+      {
+        "pos": "-30.177 6.82478 6.39599"
+        ,
+        "rotation": "0.0 0.631452 0.0 -0.775415"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "6.4406 1.1692 2.24491"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions09"
+      ,
+      "transform":
+      {
+        "pos": "-28.5861 27.1223 12.2945"
+        ,
+        "rotation": "0.0 0.600512 0.0 -0.799616"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "6.4406 1.1692 2.24491"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions10"
+      ,
+      "transform":
+      {
+        "pos": "-22.1056 26.8982 23.0433"
+        ,
+        "rotation": "0.0 0.395178 0.0 -0.918605"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "6.4406 1.1692 2.24491"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions11"
+      ,
+      "transform":
+      {
+        "pos": "-12.5629 26.8982 28.583"
+        ,
+        "rotation": "0.0 0.123439 0.0 -0.992352"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "6.4406 1.1692 2.24491"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions12"
+      ,
+      "transform":
+      {
+        "pos": "-23.1422 4.66261 20.9075"
+        ,
+        "rotation": "0.0 -0.307699 0.0 -0.951484"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.9762 8.93011 3.31888"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions13"
+      ,
+      "transform":
+      {
+        "pos": "-14.4406 6.81449 26.416"
+        ,
+        "rotation": "0.0 -0.636149 0.0 -0.771566"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "4.82652 1.05077 8.55202"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions14"
+      ,
+      "transform":
+      {
+        "pos": "-14.4406 13.4161 26.416"
+        ,
+        "rotation": "0.0 -0.636149 0.0 -0.771566"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "4.82652 4.54144 8.55202"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions15"
+      ,
+      "transform":
+      {
+        "pos": "3.29951 13.3889 31.0734"
+        ,
+        "rotation": "0.0 -0.711046 0.0 -0.703146"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.9762 13.5738 3.31888"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions16"
+      ,
+      "transform":
+      {
+        "pos": "-9.41792 28.9828 29.384"
+        ,
+        "rotation": "0.0 -0.592687 0.0 -0.805433"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.9762 8.93011 3.31888"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions17"
+      ,
+      "transform":
+      {
+        "pos": "3.18812 7.20844 30.5415"
+        ,
+        "rotation": "0.0 -0.747011 0.0 -0.664812"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.97646 0.890479 3.29253"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions18"
+      ,
+      "transform":
+      {
+        "pos": "-3.21514 5.08284 30.6744"
+        ,
+        "rotation": "0.0 -0.669046 0.0 -0.743221"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.05552 0.890479 3.75348"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions19"
+      ,
+      "transform":
+      {
+        "pos": "9.47993 4.98027 29.2923"
+        ,
+        "rotation": "0.0 -0.813673 0.0 -0.581323"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.99622 0.890479 4.08274"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions20"
+      ,
+      "transform":
+      {
+        "pos": "15.4683 7.20953 26.4485"
+        ,
+        "rotation": "0.0 -0.834438 0.0 -0.551102"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.60893 0.890479 3.29253"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions21"
+      ,
+      "transform":
+      {
+        "pos": "24.2686 7.20953 17.6532"
+        ,
+        "rotation": "0.0 -0.954511 0.0 -0.298175"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.97418 0.890479 10.9918"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions22"
+      ,
+      "transform":
+      {
+        "pos": "9.41789 11.172 29.0638"
+        ,
+        "rotation": "0.0 -0.826214 0.0 -0.563356"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.9762 13.02 3.31888"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions23"
+      ,
+      "transform":
+      {
+        "pos": "21.094 11.172 23.4737"
+        ,
+        "rotation": "0.0 -0.917539 0.0 -0.397646"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.9762 10.165 3.31888"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions24"
+      ,
+      "transform":
+      {
+        "pos": "30.611 8.46032 6.46607"
+        ,
+        "rotation": "0.0 -0.988047 0.0 -0.154154"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.9762 18.27 3.31888"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions25"
+      ,
+      "transform":
+      {
+        "pos": "28.3891 49.4999 10.9463"
+        ,
+        "rotation": "0.0 -0.943213 0.0 -0.332188"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "4.07462 2.25291 10.9918"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions26"
+      ,
+      "transform":
+      {
+        "pos": "2.82554 53.9918 30.6854"
+        ,
+        "rotation": "0.0 -0.777123 0.0 -0.629349"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.71937 2.255 3.31"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions27"
+      ,
+      "transform":
+      {
+        "pos": "25.8889 53.934 16.3184"
+        ,
+        "rotation": "0.0 -0.950753 0.0 -0.309951"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.40311 24.7319 1.95814"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions32"
+      ,
+      "transform":
+      {
+        "pos": "17.1032 35.9904 24.6884"
+        ,
+        "rotation": "0.0 -0.935274 0.0 -0.353923"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.52105 0.890479 6.89184"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions33"
+      ,
+      "transform":
+      {
+        "pos": "10.5807 37.4627 25.9796"
+        ,
+        "rotation": "0.0 -0.819795 0.0 -0.572657"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.79187 1.54775 12.0446"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions34"
+      ,
+      "transform":
+      {
+        "pos": "-29.4925 16.9943 9.46279"
+        ,
+        "rotation": "0.0 0.549434 0.0 -0.835537"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.37044 0.553733 1.79592"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions35"
+      ,
+      "transform":
+      {
+        "pos": "-26.0821 12.5154 17.2201"
+        ,
+        "rotation": "0.0 -0.256552 0.0 -0.96653"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.3026 0.556525 1.83556"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorA"
+      ,
+      "transform":
+      {
+        "pos": "-22.071 23.4675 22.0277"
+        ,
+        "rotation": "0.0 -0.386908 0.0 -0.922118"
+      }
+      ,
+      "render":
+      {
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorA_up"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_up.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-22.071 23.4675 -22.0277"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 1.7335 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 1.816 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorA"
+      }
+      ,
+      "ai_cut_door":
+      {
+        "distance": 3.0
+        ,
+        "opening_speed": 1.0
+        ,
+        "closing_speed": 4.0
+        ,
+        "up": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorA_down"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_down.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-22.071 23.4675 -22.0277"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.475 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 -0.5175 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorA"
+      }
+      ,
+      "ai_cut_door":
+      {
+        "distance": 0.0
+        ,
+        "opening_speed": 1.0
+        ,
+        "closing_speed": 8.0
+        ,
+        "up": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorA_trigger_up"
+      ,
+      "render":
+      [
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-22.071 23.4675 -22.0277"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.0825 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "offset": "0 1.816 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorA_up"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorA_trigger_down"
+      ,
+      "render":
+      [
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-22.071 23.4675 -22.0277"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.0425 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "offset": "0 -0.5175 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorA_down"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorB"
+      ,
+      "transform":
+      {
+        "pos": "-18.4048 23.4675 25.2874"
+        ,
+        "rotation": "0.0 -0.426717 0.0 -0.904385"
+      }
+      ,
+      "render":
+      {
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorB_up"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_up.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-18.4048 23.4675 -25.2874"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 1.7335 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 1.816 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorB"
+      }
+      ,
+      "ai_cut_door":
+      {
+        "distance": 3.0
+        ,
+        "opening_speed": 1.0
+        ,
+        "closing_speed": 4.0
+        ,
+        "up": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorB_down"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_down.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-18.4048 23.4675 -25.2874"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.475 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 -0.5175 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorB"
+      }
+      ,
+      "ai_cut_door":
+      {
+        "distance": 0.0
+        ,
+        "opening_speed": 1.0
+        ,
+        "closing_speed": 8.0
+        ,
+        "up": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorB_trigger_up"
+      ,
+      "render":
+      [
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-18.4048 23.4675 -25.2874"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.0825 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "offset": "0 1.816 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorB_up"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorB_trigger_down"
+      ,
+      "render":
+      [
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-18.4048 23.4675 -25.2874"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.0425 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "offset": "0 -0.5175 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorB_down"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorC"
+      ,
+      "transform":
+      {
+        "pos": "-15.4027 23.4675 27.2208"
+        ,
+        "rotation": "0.0 -0.464482 0.0 -0.885583"
+      }
+      ,
+      "render":
+      {
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorC_up"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_up.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-15.4027 23.4675 -27.2208"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 1.7335 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 1.816 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorC"
+      }
+      ,
+      "ai_cut_door":
+      {
+        "distance": 3.0
+        ,
+        "opening_speed": 1.0
+        ,
+        "closing_speed": 4.0
+        ,
+        "up": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorC_down"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_down.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-15.4027 23.4675 -27.2208"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.475 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 -0.5175 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorC"
+      }
+      ,
+      "ai_cut_door":
+      {
+        "distance": 0.0
+        ,
+        "opening_speed": 1.0
+        ,
+        "closing_speed": 8.0
+        ,
+        "up": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorC_trigger_up"
+      ,
+      "render":
+      [
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-15.4027 23.4675 -27.2208"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.0825 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "offset": "0 1.816 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorC_up"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorC_trigger_down"
+      ,
+      "render":
+      [
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-15.4027 23.4675 -27.2208"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.0425 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "offset": "0 -0.5175 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorC_down"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorD"
+      ,
+      "transform":
+      {
+        "pos": "-10.9348 23.4675 29.1949"
+        ,
+        "rotation": "0.0 -0.546861 0.0 -0.837223"
+      }
+      ,
+      "render":
+      {
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorD_up"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_up.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-10.9348 23.4675 -29.1949"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 1.7335 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 1.816 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorD"
+      }
+      ,
+      "ai_cut_door":
+      {
+        "distance": 3.0
+        ,
+        "opening_speed": 1.0
+        ,
+        "closing_speed": 4.0
+        ,
+        "up": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorD_down"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_down.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-10.9348 23.4675 -29.1949"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.475 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 -0.5175 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorD"
+      }
+      ,
+      "ai_cut_door":
+      {
+        "distance": 0.0
+        ,
+        "opening_speed": 1.0
+        ,
+        "closing_speed": 8.0
+        ,
+        "up": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorD_trigger_up"
+      ,
+      "render":
+      [
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-10.9348 23.4675 -29.1949"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.0825 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "offset": "0 1.816 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorD_up"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorD_trigger_down"
+      ,
+      "render":
+      [
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-10.9348 23.4675 -29.1949"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.0425 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "offset": "0 -0.5175 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorD_down"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "SierraA"
+      ,
+      "transform":
+      {
+        "pos": "-31.1275 9.30189 3.72072"
+        ,
+        "rotation": "0.0 -0.714229 0.0 -0.699912"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/SierraA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SierraM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.96031 1.96446 0.328369"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PinchosA"
+      ,
+      "transform":
+      {
+        "pos": "-30.6558 7.65276 -4.98624"
+        ,
+        "rotation": "0.0 0.064802 0.0 -0.997898"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PinchosM.material"
+            ,
+            "data/materials/PinchosSangreM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PinchosB"
+      ,
+      "transform":
+      {
+        "pos": "-31.0731 7.65276 -1.75678"
+        ,
+        "rotation": "0.0 0.0292339 0.0 -0.999573"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PinchosM.material"
+            ,
+            "data/materials/PinchosSangreM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PinchosC"
+      ,
+      "transform":
+      {
+        "pos": "-28.5489 7.65277 14.352"
+        ,
+        "rotation": "0.0 -0.202415 0.0 -0.9793"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosC.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PinchosM.material"
+            ,
+            "data/materials/PinchosSangreM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PinchosD"
+      ,
+      "transform":
+      {
+        "pos": "-26.9582 7.65277 17.4101"
+        ,
+        "rotation": "0.0 -0.233342 0.0 -0.972395"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosD.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PinchosM.material"
+            ,
+            "data/materials/PinchosSangreM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PinchosE"
+      ,
+      "transform":
+      {
+        "pos": "7.70078 7.65277 29.6924"
+        ,
+        "rotation": "0.0 -0.810005 0.0 -0.586423"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosE.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PinchosM.material"
+            ,
+            "data/materials/PinchosSangreM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PinchosF"
+      ,
+      "transform":
+      {
+        "pos": "10.8052 7.65277 28.6722"
+        ,
+        "rotation": "0.0 -0.810005 0.0 -0.586423"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosF.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PinchosM.material"
+            ,
+            "data/materials/PinchosSangreM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ascensor"
+      ,
+      "transform":
+      {
+        "pos": "1.44958 46.9102 30.7651"
+        ,
+        "rotation": "0.0 -0.720437 0.0 -0.69352"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ascensor.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/AscensorMaderaMat.material"
+            ,
+            "data/materials/AscensorEngrMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 0.05
+        ,
+        "delay": 0.1
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "1.44958 46.9102 30.7651"
+          ,
+          "1.44958 51.91 30.7651"
+        ]
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 -1.65 0.0"
+        ,
+        "halfExtent": "1.81064 0.66 1.58955"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ascensorTrigger"
+      ,
+      "transform":
+      {
+        "pos": "1.4441 46.0966 30.6734"
+        ,
+        "rotation": "0.0 -0.720866 0.0 -0.693075"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ascensorTrigger.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/AscensorEngrMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 0.05
+        ,
+        "delay": 0.1
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "1.4441 46.0966 30.6734"
+          ,
+          "1.4441 51.097 30.6734"
+        ]
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "ascensor"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.18708 0.170271 1.67722"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Agua"
+      ,
+      "transform":
+      {
+        "pos": "8.08769 19.9289 22.178"
+        ,
+        "rotation": "-0.706483 0.0265308 -0.0296952 -0.706609"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Agua.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/AguaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Altar"
+      ,
+      "transform":
+      {
+        "pos": "-16.7093 85.5 24.7723"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Altar.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TorreCentro"
+      ,
+      "transform":
+      {
+        "pos": "-0.392519 13.5 -0.353354"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TorreCentro.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "SeccionPisoParte"
+      ,
+      "transform":
+      {
+        "pos": "-0.392517 4.5 -0.353355"
+        ,
+        "rotation": "0.0 -0.891006 0.0 0.453991"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/SeccionPisoParte.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pintxos004"
+      ,
+      "transform":
+      {
+        "pos": "1.1082 42.8343 30.7341"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Pintxos004.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.841629 2.16225 0.962135"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PlataformaMadera005"
+      ,
+      "transform":
+      {
+        "pos": "21.7903 46.5369 21.774"
+        ,
+        "rotation": "0.0 -0.9526 0.0 0.304224"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PlataformaMadera005.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Arbol.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PlataformaMadera006"
+      ,
+      "transform":
+      {
+        "pos": "21.7903 55.3319 21.774"
+        ,
+        "rotation": "0.0 -0.9526 0.0 0.304224"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PlataformaMadera006.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Arbol.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PlataformaMaderaExtra"
+      ,
+      "transform":
+      {
+        "pos": "21.9424 54.6943 21.9879"
+        ,
+        "rotation": "-0.0318001 -0.947382 -0.0995739 0.302558"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PlataformaMaderaExtra.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Arbol.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pintxos005"
+      ,
+      "transform":
+      {
+        "pos": "22.0911 50.1142 21.8914"
+        ,
+        "rotation": "0.0 0.433444 0.0 -0.901181"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Pintxos005.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.955786 0.543381 1.37911"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PlataformaMadera011"
+      ,
+      "transform":
+      {
+        "pos": "4.53119 64.3513 30.602"
+        ,
+        "rotation": "-0.161232 0.0 -0.986917 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PlataformaMadera011.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Arbol.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Seccion4Arcos"
+      ,
+      "transform":
+      {
+        "pos": "-2.9327 13.5 -8.17124"
+        ,
+        "rotation": "0.0 -0.156435 0.0 -0.987688"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Seccion4Arcos.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "SeccioArcos2"
+      ,
+      "transform":
+      {
+        "pos": "-2.9327 13.5 -8.17124"
+        ,
+        "rotation": "0.0 -0.156435 0.0 -0.987688"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/SeccioArcos2.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PlataformaMadera014"
+      ,
+      "transform":
+      {
+        "pos": "13.8669 40.7943 27.5459"
+        ,
+        "rotation": "0.0 -0.988464 0.0 0.151459"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PlataformaMadera014.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Arbol.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TorreSec003"
+      ,
+      "transform":
+      {
+        "pos": "-0.392487 4.5 -0.353392"
+        ,
+        "rotation": "0.0 -0.913545 0.0 0.406737"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TorreSec003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+            ,
+            "data/materials/Arbol.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TorreSec02"
+      ,
+      "transform":
+      {
+        "pos": "0.0 4.5 -1.96701e-07"
+        ,
+        "rotation": "0.0 -0.838671 0.0 -0.544639"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TorreSec02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreSeccio2.material"
+            ,
+            "data/materials/CascadaPintadaS2.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions036"
+      ,
+      "transform":
+      {
+        "pos": "22.273 37.7844 22.2612"
+        ,
+        "rotation": "0.0 -0.917539 0.0 -0.397646"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.48503 3.615 1.67055"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions037"
+      ,
+      "transform":
+      {
+        "pos": "-2.01758 40.3003 31.1056"
+        ,
+        "rotation": "0.0 -0.689032 0.0 -0.72473"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.40311 22.6 1.95814"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions038"
+      ,
+      "transform":
+      {
+        "pos": "21.6308 48.4865 21.5759"
+        ,
+        "rotation": "0.0 -0.917539 0.0 -0.397646"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.68982 0.54805 1.67055"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions039"
+      ,
+      "transform":
+      {
+        "pos": "21.6308 57.2944 21.5759"
+        ,
+        "rotation": "0.0 -0.917539 0.0 -0.397646"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.68982 0.54805 1.67055"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions040"
+      ,
+      "transform":
+      {
+        "pos": "4.50078 66.3183 30.1691"
+        ,
+        "rotation": "0.0 -0.76379 0.0 -0.645465"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.68982 0.54805 1.60373"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions041"
+      ,
+      "transform":
+      {
+        "pos": "21.5549 76.502 21.6292"
+        ,
+        "rotation": "0.0 -0.92418 0.0 -0.381957"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.40311 9.0 1.684"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions042"
+      ,
+      "transform":
+      {
+        "pos": "15.2622 76.349 25.5894"
+        ,
+        "rotation": "0.0 -0.885856 0.0 -0.463961"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.31153 2.33 6.04548"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions043"
+      ,
+      "transform":
+      {
+        "pos": "5.19897 76.349 29.6934"
+        ,
+        "rotation": "0.0 -0.745573 0.0 -0.666424"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.31153 2.33 6.04548"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions044"
+      ,
+      "transform":
+      {
+        "pos": "17.0733 98.9798 24.9307"
+        ,
+        "rotation": "0.0 -0.885856 0.0 -0.463961"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.45022 2.33 11.1999"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions045"
+      ,
+      "transform":
+      {
+        "pos": "3.14246 94.4985 30.2048"
+        ,
+        "rotation": "0.0 -0.806433 0.0 -0.591326"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.31153 2.33 6.04548"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions046"
+      ,
+      "transform":
+      {
+        "pos": "-1.96734 89.9779 29.7488"
+        ,
+        "rotation": "0.0 -0.691298 0.0 -0.722569"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.31153 2.33 4.89684"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorE"
+      ,
+      "transform":
+      {
+        "pos": "12.2143 59.5134 28.3476"
+        ,
+        "rotation": "0.0 -0.841915 0.0 -0.53961"
+      }
+      ,
+      "render":
+      {
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorE_up"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_up.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "12.2143 59.5134 -28.3476"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 1.7335 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 1.816 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorE"
+      }
+      ,
+      "ai_cut_door":
+      {
+        "distance": 3.0
+        ,
+        "opening_speed": 1.0
+        ,
+        "closing_speed": 4.0
+        ,
+        "up": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorE_down"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_down.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "12.2143 59.5134 -28.3476"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.475 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 -0.5175 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorE"
+      }
+      ,
+      "ai_cut_door":
+      {
+        "distance": 0.0
+        ,
+        "opening_speed": 1.0
+        ,
+        "closing_speed": 8.0
+        ,
+        "up": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorE_trigger_up"
+      ,
+      "render":
+      [
+      ]
+      ,
+      "transform":
+      {
+        "pos": "12.2143 59.5134 -28.3476"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.0825 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "offset": "0 1.816 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorE_up"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorE_trigger_down"
+      ,
+      "render":
+      [
+      ]
+      ,
+      "transform":
+      {
+        "pos": "12.2143 59.5134 -28.3476"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.0425 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "offset": "0 -0.5175 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorE_down"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorF"
+      ,
+      "transform":
+      {
+        "pos": "17.9474 59.5134 24.9798"
+        ,
+        "rotation": "0.0 -0.896587 0.0 -0.442867"
+      }
+      ,
+      "render":
+      {
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorF_up"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_up.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "17.9474 59.5134 -24.9798"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 1.7335 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 1.816 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorF"
+      }
+      ,
+      "ai_cut_door":
+      {
+        "distance": 3.0
+        ,
+        "opening_speed": 1.0
+        ,
+        "closing_speed": 4.0
+        ,
+        "up": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorF_down"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_down.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "17.9474 59.5134 -24.9798"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.475 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 -0.5175 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorF"
+      }
+      ,
+      "ai_cut_door":
+      {
+        "distance": 0.0
+        ,
+        "opening_speed": 1.0
+        ,
+        "closing_speed": 8.0
+        ,
+        "up": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorF_trigger_up"
+      ,
+      "render":
+      [
+      ]
+      ,
+      "transform":
+      {
+        "pos": "17.9474 59.5134 -24.9798"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.0825 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "offset": "0 1.816 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorF_up"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorF_trigger_down"
+      ,
+      "render":
+      [
+      ]
+      ,
+      "transform":
+      {
+        "pos": "17.9474 59.5134 -24.9798"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.0425 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "offset": "0 -0.5175 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorF_down"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorG"
+      ,
+      "transform":
+      {
+        "pos": "-0.735714 86.4851 30.9691"
+        ,
+        "rotation": "0.0 -0.713262 0.0 -0.700897"
+      }
+      ,
+      "render":
+      {
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorG_up"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_up.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-0.735714 86.4851 -30.9691"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 1.7335 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 1.816 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorG"
+      }
+      ,
+      "ai_cut_door":
+      {
+        "distance": 3.0
+        ,
+        "opening_speed": 1.0
+        ,
+        "closing_speed": 4.0
+        ,
+        "up": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorG_down"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_down.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-0.735714 86.4851 -30.9691"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.475 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 -0.5175 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorG"
+      }
+      ,
+      "ai_cut_door":
+      {
+        "distance": 0.0
+        ,
+        "opening_speed": 1.0
+        ,
+        "closing_speed": 8.0
+        ,
+        "up": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorG_trigger_up"
+      ,
+      "render":
+      [
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-0.735714 86.4851 -30.9691"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.0825 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "offset": "0 1.816 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorG_up"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "cut_doorG_trigger_down"
+      ,
+      "render":
+      [
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-0.735714 86.4851 -30.9691"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.0425 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "offset": "0 -0.5175 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "cut_doorG_down"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "SierraB"
+      ,
+      "transform":
+      {
+        "pos": "18.1522 40.744 24.6893"
+        ,
+        "rotation": "0.0 -0.327804 0.0 -0.944746"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/SierraB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SierraM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.96031 1.96446 0.328369"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "SierraC"
+      ,
+      "transform":
+      {
+        "pos": "12.4718 43.9101 28.6377"
+        ,
+        "rotation": "0.0 -0.227954 0.0 -0.973672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/SierraC.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SierraM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.96031 1.96446 0.328369"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "SierraD"
+      ,
+      "transform":
+      {
+        "pos": "6.35812 40.7484 30.0681"
+        ,
+        "rotation": "0.0 -0.131606 0.0 -0.991302"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/SierraD.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SierraM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.96031 1.96446 0.328369"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "SierraE"
+      ,
+      "transform":
+      {
+        "pos": "11.8193 69.6925 27.0793"
+        ,
+        "rotation": "0.0 0.532751 0.0 -0.846272"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/SierraE.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.96031 1.96446 0.328369"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "SierraF"
+      ,
+      "transform":
+      {
+        "pos": "14.556 69.6925 25.5938"
+        ,
+        "rotation": "0.0 0.497471 0.0 -0.867481"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/SierraF.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.96031 1.96446 0.328369"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "SierraG"
+      ,
+      "transform":
+      {
+        "pos": "13.2338 89.9468 26.3675"
+        ,
+        "rotation": "0.0 0.508541 0.0 -0.861038"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/SierraG.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.96031 1.96446 0.328369"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "SierraH"
+      ,
+      "transform":
+      {
+        "pos": "4.3429 89.9468 29.3136"
+        ,
+        "rotation": "0.0 0.612301 0.0 -0.790625"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/SierraH.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.96031 1.96446 0.328369"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PinchosRetractilesB"
+      ,
+      "transform":
+      {
+        "pos": "10.6783 92.1777 28.286"
+        ,
+        "rotation": "-0.111791 -0.698214 -0.698214 0.111791"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosRetractilesB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PinchosM.material"
+            ,
+            "data/materials/PinchosSangreM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PinchosRetractilesA"
+      ,
+      "transform":
+      {
+        "pos": "7.46834 87.7881 29.2019"
+        ,
+        "rotation": "-0.0750961 -0.703108 -0.703108 0.0750961"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosRetractilesA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PinchosM.material"
+            ,
+            "data/materials/PinchosSangreM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pintxos006"
+      ,
+      "transform":
+      {
+        "pos": "2.24821 81.7088 30.4832"
+        ,
+        "rotation": "-0.0376493 -0.0363536 -0.693667 -0.718392"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Pintxos006.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.841629 2.16225 0.962135"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pintxos007"
+      ,
+      "transform":
+      {
+        "pos": "6.5769 81.7068 29.998"
+        ,
+        "rotation": "-0.690863 -0.715622 0.0728023 0.0727629"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Pintxos007.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.841629 2.16225 0.962135"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pintxos008"
+      ,
+      "transform":
+      {
+        "pos": "10.903 81.7065 28.7303"
+        ,
+        "rotation": "-0.690863 -0.715622 0.0728023 0.0727629"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Pintxos008.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.841629 2.16225 0.962135"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pintxos009"
+      ,
+      "transform":
+      {
+        "pos": "14.8018 81.708 26.7461"
+        ,
+        "rotation": "-0.183112 -0.187061 -0.67012 -0.694562"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Pintxos009.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.841629 2.16225 0.962135"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pintxos010"
+      ,
+      "transform":
+      {
+        "pos": "18.4079 81.7032 24.28"
+        ,
+        "rotation": "-0.228446 -0.234054 -0.656052 -0.680167"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Pintxos010.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.841629 2.16225 0.962135"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions047"
+      ,
+      "transform":
+      {
+        "pos": "20.584 54.8494 22.5328"
+        ,
+        "rotation": "0.0 -0.917539 0.0 -0.397646"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.68982 1.30436 0.250583"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions048"
+      ,
+      "transform":
+      {
+        "pos": "20.584 53.2265 22.5328"
+        ,
+        "rotation": "0.0 -0.917539 0.0 -0.397646"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.68982 0.352177 0.250583"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Orbital"
+      ,
+      "transform":
+      {
+        "pos": "8.91515 67.5809 29.2299"
+        ,
+        "rotation": "0.0 -0.798867 0.0 -0.601508"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Orbital.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/OrbitalPlatMat.material"
+            ,
+            "data/materials/OrbitalEngrMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_orbit_patrol":
+      {
+        "speed": 0.05
+        ,
+        "delay": 1.0
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "8.91515 67.5809 29.2299"
+          ,
+          "18.7981 67.5809 24.0936"
+        ]
+        ,
+        "center": "0.0 67.5692 -2.95354e-06"
+        ,
+        "radius": 30.5592
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.04 -0.33 0.0"
+        ,
+        "halfExtent": "1.41464 0.14 1.65"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Orbital_col"
+      ,
+      "transform":
+      {
+        "pos": "8.91515 67.5649 29.2299"
+        ,
+        "rotation": "0.0 -0.798867 0.0 -0.601508"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Orbital_col.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/OrbitalPlatMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_orbit_patrol":
+      {
+        "speed": 0.05
+        ,
+        "delay": 1.0
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "8.91515 67.5649 29.2299"
+          ,
+          "18.7981 67.5649 24.0936"
+        ]
+        ,
+        "center": "0.0 67.5649 -2.95336e-06"
+        ,
+        "radius": 30.5592
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "Orbital"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.26847 0.229405 1.6868"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible"
+      ,
+      "transform":
+      {
+        "pos": "16.5375 52.3108 25.8122"
+        ,
+        "rotation": "0.0 0.471059 0.0 -0.882102"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Destruible.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_destroyable":
+      {
+        "trigger_actor": "The Player"
+        ,
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 -0.3 0.0"
+        ,
+        "halfExtent": "1.25557 0.48 1.70118"
+        ,
+        "is_dynamic": true
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible_trigger"
+      ,
+      "transform":
+      {
+        "pos": "16.5819 52.4261 25.8786"
+        ,
+        "rotation": "0.0 0.471059 0.0 -0.882102"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Destruible_trigger.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "Destruible"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.25477 0.177481 1.69847"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible_post"
+      ,
+      "transform":
+      {
+        "pos": "16.5375 52.3108 25.8122"
+        ,
+        "rotation": "0.0 0.471059 0.0 -0.882102"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Destruible_post.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions049"
+      ,
+      "transform":
+      {
+        "pos": "-8.62791 94.4985 28.8463"
+        ,
+        "rotation": "0.0 -0.598679 0.0 -0.800989"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.31153 2.33 7.25457"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions050"
+      ,
+      "transform":
+      {
+        "pos": "-19.5779 94.4985 22.8378"
+        ,
+        "rotation": "0.0 -0.433807 0.0 -0.901006"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.31153 2.33 7.25457"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions051"
+      ,
+      "transform":
+      {
+        "pos": "-26.2012 94.4985 15.3486"
+        ,
+        "rotation": "0.0 -0.290383 0.0 -0.956911"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.31153 2.33 7.25457"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions052"
+      ,
+      "transform":
+      {
+        "pos": "-27.1627 67.6764 12.8428"
+        ,
+        "rotation": "0.0 -0.259567 0.0 -0.965725"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.75009 13.786 1.95814"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions053"
+      ,
+      "transform":
+      {
+        "pos": "-8.62791 58.3317 28.8463"
+        ,
+        "rotation": "0.0 -0.598679 0.0 -0.800989"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.31153 2.33 7.25457"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions054"
+      ,
+      "transform":
+      {
+        "pos": "-19.5779 58.3317 22.8378"
+        ,
+        "rotation": "0.0 -0.433807 0.0 -0.901006"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.31153 2.33 7.25457"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions055"
+      ,
+      "transform":
+      {
+        "pos": "-26.2012 58.3317 15.3486"
+        ,
+        "rotation": "0.0 -0.290383 0.0 -0.956911"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.31153 2.33 7.25457"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions056"
+      ,
+      "transform":
+      {
+        "pos": "-4.62363 62.7208 29.4704"
+        ,
+        "rotation": "0.0 -0.610626 0.0 -0.791919"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.75009 11.39 1.95814"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Cinta"
+      ,
+      "transform":
+      {
+        "pos": "10.9045 58.0992 29.0261"
+        ,
+        "rotation": "0.0 -0.188109 0.0 -0.982148"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cinta.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaRuedaMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_cinta_controller":
+      {
+        "configs":
+        [
+          {
+            "speed": 0.1
+            ,
+            "time": 1.0
+            ,
+            "left": true
+          }
+        ]
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.4 0.432835 1.50554"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TornoB"
+      ,
+      "transform":
+      {
+        "pos": "9.88238 58.0992 29.4326"
+        ,
+        "rotation": "0.0 -0.188109 0.0 -0.982148"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TornoB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaCintaMat.material"
+          ]
+        }
+      ]
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TornoA"
+      ,
+      "transform":
+      {
+        "pos": "11.9267 58.0992 28.6197"
+        ,
+        "rotation": "0.0 -0.188109 0.0 -0.982148"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TornoA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaCintaMat.material"
+          ]
+        }
+      ]
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerCinta"
+      ,
+      "transform":
+      {
+        "pos": "10.9045 58.6941 29.0261"
+        ,
+        "rotation": "0.0 -0.188109 0.0 -0.982148"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TriggerCinta.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaCintaMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "Cinta"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.40216 0.199106 1.51733"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Cinta002"
+      ,
+      "transform":
+      {
+        "pos": "13.8478 58.0992 27.6374"
+        ,
+        "rotation": "0.0 -0.23331 0.0 -0.972402"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cinta002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaRuedaMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_cinta_controller":
+      {
+        "configs":
+        [
+          {
+            "speed": 0.1
+            ,
+            "time": 1.0
+            ,
+            "left": true
+          }
+        ]
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.4 0.432835 1.50554"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TornoA001"
+      ,
+      "transform":
+      {
+        "pos": "14.8281 58.0992 27.1383"
+        ,
+        "rotation": "0.0 -0.23331 0.0 -0.972402"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TornoA001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaCintaMat.material"
+          ]
+        }
+      ]
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TornoB001"
+      ,
+      "transform":
+      {
+        "pos": "12.8676 58.0992 28.1365"
+        ,
+        "rotation": "0.0 -0.23331 0.0 -0.972402"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TornoB001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaCintaMat.material"
+          ]
+        }
+      ]
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerCinta001"
+      ,
+      "transform":
+      {
+        "pos": "13.8478 58.6941 27.6374"
+        ,
+        "rotation": "0.0 -0.23331 0.0 -0.972402"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TriggerCinta001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaCintaMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "Cinta002"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.40216 0.199106 1.51733"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Cinta003"
+      ,
+      "transform":
+      {
+        "pos": "16.599 58.0992 26.0721"
+        ,
+        "rotation": "0.0 -0.281254 0.0 -0.959633"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cinta003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaRuedaMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_cinta_controller":
+      {
+        "configs":
+        [
+          {
+            "speed": 0.1
+            ,
+            "time": 1.0
+            ,
+            "left": true
+          }
+        ]
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.4 0.432835 1.50554"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TornoA002"
+      ,
+      "transform":
+      {
+        "pos": "17.525 58.0992 25.4783"
+        ,
+        "rotation": "0.0 -0.281254 0.0 -0.959633"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TornoA002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaCintaMat.material"
+          ]
+        }
+      ]
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TornoB002"
+      ,
+      "transform":
+      {
+        "pos": "15.673 58.0992 26.6658"
+        ,
+        "rotation": "0.0 -0.281254 0.0 -0.959633"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TornoB002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaCintaMat.material"
+          ]
+        }
+      ]
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerCinta002"
+      ,
+      "transform":
+      {
+        "pos": "16.599 58.6941 26.0721"
+        ,
+        "rotation": "0.0 -0.281254 0.0 -0.959633"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TriggerCinta002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaCintaMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "Cinta003"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.40216 0.199106 1.51733"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Cinta004"
+      ,
+      "transform":
+      {
+        "pos": "19.226 58.0992 24.2255"
+        ,
+        "rotation": "0.0 -0.334216 0.0 -0.942496"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cinta004.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaRuedaMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_cinta_controller":
+      {
+        "configs":
+        [
+          {
+            "speed": 0.1
+            ,
+            "time": 1.0
+            ,
+            "left": true
+          }
+        ]
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.4 0.432835 1.50554"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TornoA003"
+      ,
+      "transform":
+      {
+        "pos": "20.0803 58.0992 23.5325"
+        ,
+        "rotation": "0.0 -0.334216 0.0 -0.942496"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TornoA003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaCintaMat.material"
+          ]
+        }
+      ]
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TornoB003"
+      ,
+      "transform":
+      {
+        "pos": "18.3718 58.0992 24.9185"
+        ,
+        "rotation": "0.0 -0.334216 0.0 -0.942496"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TornoB003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaCintaMat.material"
+          ]
+        }
+      ]
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerCinta003"
+      ,
+      "transform":
+      {
+        "pos": "19.226 58.6941 24.2255"
+        ,
+        "rotation": "0.0 -0.334216 0.0 -0.942496"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TriggerCinta003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaCintaMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "Cinta004"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.40216 0.199106 1.51733"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+]
