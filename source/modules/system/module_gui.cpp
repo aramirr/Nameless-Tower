@@ -11,7 +11,6 @@ CModuleGUI::CModuleGUI(const std::string& name)
 
 bool CModuleGUI::start()
 {
-  carga = true;
 
   const float width = 1920;
   const float height = 1080;
@@ -27,25 +26,11 @@ bool CModuleGUI::start()
   parser.parseFile("data/gui/gameplay.json");
   parser.parseFile("data/gui/game_over.json");*/
 
-  activateWidget("test");
+  activateWidget("pantallaInicio");
 
-  _variables.setVariant("progress", 0.5f);
-
-  auto newGameCB = []() {
-    dbg("STARTING GAME\n");
-  };
-  auto continueCB = []() {
-    dbg("LOADING GAME\n");
-  };
-  auto optionsCB = []() {
-    dbg("CONFIGURING\n");
-  };
+  //_variables.setVariant("progress", 0.5f);
 
   mmc = new CMainMenuController();
-  mmc->registerOption("new_game", newGameCB);
-  mmc->registerOption("continue", continueCB);
-  mmc->registerOption("options", optionsCB);
-  mmc->setCurrentOption(0);
   registerController(mmc);
 
   return true;
@@ -58,17 +43,6 @@ bool CModuleGUI::stop()
 
 void CModuleGUI::update(float delta)
 {
-  if (carga) {
-    CEntity* player = (CEntity*)getEntityByName("The Player");
-
-    TMsgSetFSMVariable pauseMsg;
-    pauseMsg.variant.setName("pause");
-    pauseMsg.variant.setBool(true);
-
-    player->sendMsg(pauseMsg);
-
-    carga = false;
-  }
 
   for (auto& wdgt : _activeWidgets)
   {
@@ -79,17 +53,17 @@ void CModuleGUI::update(float delta)
     controller->update(delta);
   }
 
-  // change bar value
-  float value = _variables.getFloat("progress");
-  if (EngineInput[VK_LEFT].isPressed())
-  {
-    value = clamp(value - 0.5f * delta, 0.f, 1.f);
-  }
-  if (EngineInput[VK_RIGHT].isPressed())
-  {
-    value = clamp(value + 0.5f * delta, 0.f, 1.f);
-  }
-  _variables.setVariant("progress", value);
+  //// change bar value
+  //float value = _variables.getFloat("progress");
+  //if (EngineInput[VK_LEFT].isPressed())
+  //{
+  //  value = clamp(value - 0.5f * delta, 0.f, 1.f);
+  //}
+  //if (EngineInput[VK_RIGHT].isPressed())
+  //{
+  //  value = clamp(value + 0.5f * delta, 0.f, 1.f);
+  //}
+  //_variables.setVariant("progress", value);
 }
 
 void CModuleGUI::renderGUI()
@@ -98,6 +72,12 @@ void CModuleGUI::renderGUI()
   {
     wdgt->renderAll();
   }
+}
+
+//FUNCION APARTE DEL MODULO DE ALBERT
+void CModuleGUI::desactiveMainMenu()
+{
+  unregisterController(mmc);
 }
 
 void CModuleGUI::registerWidget(CWidget* wdgt)
@@ -139,10 +119,15 @@ void CModuleGUI::activateWidget(const std::string& name)
   }
 }
 
-void CModuleGUI::removeWidget()
+//FUNCION APARTE DEL MODULO DE ALBERT
+void CModuleGUI::removeWidget(const std::string& name)
 {
-  _activeWidgets.pop_back();
-  unregisterController(mmc);
+  for (int i = 0; i < _activeWidgets.size(); i++) {
+    if (_activeWidgets[i]->getName() == name) {
+      _activeWidgets.erase(_activeWidgets.begin() + i);
+      break;
+    }
+  }
 }
 
 void CModuleGUI::registerController(GUI::CController* controller)

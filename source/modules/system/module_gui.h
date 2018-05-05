@@ -17,11 +17,13 @@ public:
   void update(float delta) override;
   void renderGUI() override;
 
+  void desactiveMainMenu();
+
   // widget management
   void registerWidget(GUI::CWidget* wdgt);
   GUI::CWidget* getWidget(const std::string& name, bool recursive = false) const;
   void activateWidget(const std::string& name);
-  void removeWidget();
+  void removeWidget(const std::string& name);
 
   // controller management
   void registerController(GUI::CController* controller);
@@ -45,6 +47,4 @@ private:
   GUI::VWidgets _activeWidgets;
   MVariants _variables;
   GUI::VControllers _controllers;
-
-  bool carga;
 };

@@ -6,6 +6,47 @@ namespace GUI
 {
   void CMainMenuController::update(float delta)
   {
+
+    //-----------------------------------------------------------------------------------
+
+    if (carga) {
+      CEntity* player = (CEntity*)getEntityByName("The Player");
+
+      TMsgSetFSMVariable pauseMsg;
+      pauseMsg.variant.setName("pause");
+      pauseMsg.variant.setBool(true);
+
+      player->sendMsg(pauseMsg);
+
+      auto newGameCB = []() {
+        dbg("STARTING GAME\n");
+
+        Engine.get().getGUI().removeWidget("pantallaInicio");
+        Engine.get().getGUI().desactiveMainMenu();
+
+        CEntity* player = (CEntity*)getEntityByName("The Player");
+
+        TMsgSetFSMVariable pauseMsg;
+        pauseMsg.variant.setName("idle");
+        pauseMsg.variant.setBool(true);
+
+        player->sendMsg(pauseMsg);
+      };
+      auto exitCB = []() {
+        dbg("LOADING GAME\n");
+
+        exit(0);
+      };
+
+      registerOption("new_game", newGameCB);
+      registerOption("exit", exitCB);
+      setCurrentOption(0);
+
+      carga = false;
+    }
+
+    //-----------------------------------------------------------------------------------
+
     if (EngineInput[VK_DOWN].getsPressed())
     {
       setCurrentOption(_currentOption + 1);
@@ -20,18 +61,6 @@ namespace GUI
     }
     if (EngineInput[VK_SPACE].getsReleased())
     {
-
-      /*if (_currentOption == 0) {
-        Engine.get().getGUI().removeWidget();
-
-        CEntity* player = (CEntity*)getEntityByName("The Player");
-
-        TMsgSetFSMVariable pauseMsg;
-        pauseMsg.variant.setName("idle");
-        pauseMsg.variant.setBool(true);
-
-        player->sendMsg(pauseMsg);
-      }*/
       _options[_currentOption].button->setCurrentState(CButton::EState::ST_Selected);
       _options[_currentOption].callback();
     }

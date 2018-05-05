@@ -21,5 +21,7 @@ namespace GUI
     };
     std::vector<TOption> _options;
     int _currentOption = 0;
+
+    bool carga = true;
   };
 }
