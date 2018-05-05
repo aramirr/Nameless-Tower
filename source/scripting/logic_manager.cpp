@@ -31,9 +31,9 @@ void LogicManager::TeleportPlayer(float x, float y, float z)
 	pz = z;
 }
 
-void LogicManager::printDbg(const char* msg)
+void LogicManager::printDbg()
 {
-	dbg(msg);
+	dbg("JOSUE");
 }
 
 float LogicManager::GetPlayerLife()

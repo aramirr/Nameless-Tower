@@ -6,7 +6,7 @@ print(LogicManager)
 
 lm = LogicManager();
 
-lm:printdbg("hello----------------------------")
+lm:printdbg()
 
 
 val=lm:GetPlayerLife();
@@ -29,9 +29,5 @@ print(lm.numagents);
 
 
 function OnPlayerKilled()
-print("Player comes back to life");
-lm:RespawnPlayer();
-val=lm:GetPlayerLife();
-print(val);
-lm:TeleportPlayer(100,100,100);
+lm:printdbg()
 end

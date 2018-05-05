@@ -11,7 +11,7 @@ class ScriptingModule
 		ScriptingModule(const std::string& name);
 
 		Manager logic_manager;
-		Script *script;
+		Script script;
 		std::string name;
 		int auxiliar_bdg = 0;
 		void boot();

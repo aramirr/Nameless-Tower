@@ -11,7 +11,7 @@ public:
 	void RespawnPlayer();
 	void TeleportPlayer(float, float, float);
 	float GetPlayerLife();
-	void printDbg(const char* msg);
+	void printDbg();
 
 	void shake_body();
 	//   void GetPlayerPos(float &, float &, float &);

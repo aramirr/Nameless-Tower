@@ -67,6 +67,10 @@ namespace SLB {
     close();
   }
 
+	void Script::mcvSetManager(Manager *m) {
+		_manager = m;
+	}
+
   void Script::setAllocator(lua_Alloc f, void *ud)
   {
     _allocator = f;

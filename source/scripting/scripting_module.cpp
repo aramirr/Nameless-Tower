@@ -4,20 +4,16 @@
 #include <lua/SLB/SLB.hpp>
 using namespace SLB;
 
-ScriptingModule::ScriptingModule(const std::string& name)
+ScriptingModule::ScriptingModule(const std::string& name): logic_manager(), script(&logic_manager)
 {
 	this->name = name;
 	BootLuaSLB(&logic_manager);
-	Script s(&logic_manager);
-	script = &s;
-	script->doFile("data/scripts/test.lua");
+	script.mcvSetManager(&logic_manager);
+	script.doFile("data/scripts/test.lua");
 }
 
 void ScriptingModule::boot() {
 	std::string aux = name;
-	auto p1 = script->exists("Test");
-	auto p2 = script->exists("OnPlayerKilled");
-	auto p3 = script->exists("OnPlayerKilled");
 	auxiliar_bdg = 1;
 }
 
