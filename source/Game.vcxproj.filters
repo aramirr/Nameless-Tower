@@ -142,6 +142,7 @@
     <ClCompile Include="render\mesh\collision_mesh.cpp" />
     <ClCompile Include="scripting\logic_manager.cpp" />
     <ClCompile Include="scripting\scripting_module.cpp" />
+    <ClCompile Include="components\ia\ai_cinta_transportadora.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
@@ -343,6 +344,7 @@
     <ClInclude Include="render\mesh\collision_mesh.h" />
     <ClInclude Include="scripting\logic_manager.h" />
     <ClInclude Include="scripting\scripting_module.h" />
+    <ClInclude Include="components\ia\ai_cinta_transportadora.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />

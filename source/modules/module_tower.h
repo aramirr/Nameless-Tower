@@ -24,5 +24,7 @@ public:
 	const void setLastCheckpointYaw(float checkpoint_yaw);
 	const bool getLastCheckpointLeft();
 	const void setLastCheckpointLeft(bool checkpoint_left);
+	const void disappearEntity(const std::string& name);
+	const void appearEntity(const std::string& name);
 };
 

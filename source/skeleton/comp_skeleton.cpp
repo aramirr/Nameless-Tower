@@ -212,6 +212,15 @@ void TCompSkeleton::playAnimation(int id_amimation, bool is_action, float in_del
   }
 }
 
+void TCompSkeleton::clearActions(float out_delay) {
+	auto mixer = model->getMixer();
+	for (auto a : mixer->getAnimationActionList()) {
+		auto core = (CGameCoreSkeleton*)model->getCoreModel();
+		int id = core->getCoreAnimationId(a->getCoreAnimation()->getName());
+		a->remove(out_delay);
+	}
+}
+
 void TCompSkeleton::renderDebug() {
   assert(model);
   VEC3 lines[MAX_SUPPORTED_BONES][2];

@@ -28,7 +28,6 @@ void ScriptingModule::ExecEvent(ScriptEvents e, vector<string> params) {
 			fTriggerEnter(params);
 	}
 		
-
 }
 
 
