@@ -17,32 +17,9 @@
 #include "scripting\logic_manager.h"
 
 
-void BootLuaSLB(SLB::Manager *m)
-{
-	SLB::Class< LogicManager >("LogicManager", m)
-		// a comment/documentation for the class [optional]
-		.comment("This is our wrapper of LogicManager class")
-		// empty constructor, we can also wrapper constructors
-		// with arguments using .constructor<TypeArg1,TypeArg2,..>()
-		.constructor()
-		// a method/function/value...
-		.set("RespawnPlayer", &LogicManager::RespawnPlayer)
-		.set("TeleportPlayer", &LogicManager::TeleportPlayer)
-		.set("GetPlayerLife", &LogicManager::GetPlayerLife)
-		.set("printdbg", &LogicManager::printDbg)
-		//.set("GetPlayerPos", &LogicManager::GetPlayerPos)
-		.property("numagents", &LogicManager::numagents)
-		;
-}
-
 bool CModuleTestAxis::start()
 {
 	CCamera        camera;
-	
-	auto p4 = EngineScripting.script.exists("OnPlayerKilled");
-	if (p4)
-		EngineScripting.script.doString("OnPlayerKilled()");
-
 	json jboot = loadJson("data/boot.json");
 
 	// Auto load some scenes
