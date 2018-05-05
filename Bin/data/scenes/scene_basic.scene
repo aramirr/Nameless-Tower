@@ -1,6 +1,44 @@
 [	
 	{
     "entity": {
+      "name": "Room1",
+      "render" : [
+        {
+          "mesh": "data/meshes/Cut_door_up.mesh",
+          "materials" : [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ],
+      "transform": {
+        "pos": "-30.916 0.5 -8.259"
+      },
+      "collider": {
+        "shape": "box",
+        "halfExtent": "1 1 1",
+        "is_trigger": true
+      },
+      "trigger": {} 
+    }
+  },
+  {
+    "entity": {
+      "name": "wall_room_1",
+      "render" : [
+        {
+          "mesh": "data/meshes/Cut_door_up.mesh",
+          "materials" : [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ],
+      "transform": {
+        "pos": "-30.916 4.5 -8.259"
+      }
+    }
+  },  
+  {
+    "entity": {
       "name": "rotora_activable",
       "render" : [
         {

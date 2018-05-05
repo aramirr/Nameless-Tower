@@ -19,6 +19,7 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.comment("This is our wrapper of LogicManager class")
 		.constructor()
 		.set("printdbg", &LogicManager::printDbg)
+		.set("hide_mesh", &LogicManager::disappearEntity)
 		;
 }
 

@@ -4,9 +4,6 @@ SLB.using(SLB)
 
 lm = LogicManager();
 
-lm:printdbg()
-
-
 function OnTriggerEnterSierra()
 	lm:printdbg()
 	lm:printdbg()

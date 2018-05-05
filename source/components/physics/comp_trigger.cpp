@@ -14,6 +14,12 @@ void TCompTrigger::debugInMenu() {
 }
 
 void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
+	CEntity* entity = h_entity;
+	std::string name = entity->getName();
+
+	std::vector<std::string> params;
+	params.push_back(name);
+
 	h_other_entity = msg.h_other_entity;
 	CEntity* e_other_entity = h_other_entity;
 	std::string other_entity_name = e_other_entity->getName();
@@ -57,12 +63,7 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		player->sendMsg(deadMsg);
 	}
 	else if (trigger_type == "player_killer" && other_entity_name == "The Player") {
-		CEntity* entity = h_entity;
-		std::vector<std::string> params;
-		std::string name = entity->getName();
-		params.push_back(name);
-		EngineScripting.ExecEvent(ScriptEvents::trigger_enter, params);
-
+		
 		TMsgKillPlayer kill_player_message;
 		entity->sendMsg(kill_player_message);
 	}
@@ -76,6 +77,7 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
 		e_collider_entity->sendMsg(rotate_msg);
 	}
+	EngineScripting.ExecEvent(ScriptEvents::trigger_enter, params);
 }
 
 void TCompTrigger::onTriggerExit(const TMsgTriggerExit& msg) {
