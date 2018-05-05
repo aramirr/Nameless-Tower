@@ -72,30 +72,20 @@ void TCompPlayerController::setEntity(CHandle new_entity) {
 	assert(h_entity.isValid());
 }
 
-void TCompPlayerController::change_mesh(int mesh_index) {
-	//TCompRender *my_render = getMyRender();
-	//my_render->mesh = my_render->meshes_leo[mesh_index];
-	//for (int i = 0; i < my_render->meshes.size(); ++i) {
-	//	my_render->meshes[i].enabled = false;
-	//}
-	//my_render->meshes[mesh_index].enabled = true;
-	//my_render->refreshMeshesInRenderManager();
-}
-
 void TCompPlayerController::change_animation(int animation_id, bool is_action, float in_delay, float out_delay) {
   CEntity* e = h_entity;
   TCompSkeleton* skeleton = e->get<TCompSkeleton>();
   assert(skeleton);
   
   skeleton->playAnimation(animation_id, is_action, in_delay, out_delay);
-  
-  //TCompRender *my_render = getMyRender();
-  //my_render->mesh = my_render->meshes_leo[mesh_index];
-  //for (int i = 0; i < my_render->meshes.size(); ++i) {
-  //	my_render->meshes[i].enabled = false;
-  //}
-  //my_render->meshes[mesh_index].enabled = true;
-  //my_render->refreshMeshesInRenderManager();
+}
+
+void TCompPlayerController::clear_animations(float out_delay) {
+	CEntity* e = h_entity;
+	TCompSkeleton* skeleton = e->get<TCompSkeleton>();
+	assert(skeleton);
+
+	skeleton->clearActions(out_delay);
 }
 
 void TCompPlayerController::move_player(bool left, bool change_orientation, float dt, float y_speed, float x_speed) {
