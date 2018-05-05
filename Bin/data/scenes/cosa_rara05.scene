@@ -1,0 +1,113 @@
+[
+  {
+    "entity":
+    {
+      "name": "Box001_trigger"
+      ,
+      "transform":
+      {
+        "pos": "-4.91233 -1.61404e-06 -36.9249"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Box001_trigger.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/spike_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "10.0 10.0 10.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Box002_rotora_activable"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "activador"
+        ,
+        "collider_entity": "Box002_rotora_activable"
+        ,
+        "render": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Box002_rotora_activable"
+      ,
+      "transform":
+      {
+        "pos": "337.285 -1.61404e-06 -36.9249"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Box002_rotora_activable.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/spike_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_rotator":
+      {
+        "configs":
+        [
+          {
+            "speed": 0.1
+            ,
+            "wait_time": -1.0
+            ,
+            "degrees": 0.0
+            ,
+            "axis": "X"
+            ,
+            "increase": true
+          }
+        ]
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "10.0 10.0 10.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+]

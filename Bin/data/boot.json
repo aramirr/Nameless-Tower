@@ -1,13 +1,11 @@
 {
   "boot_scenes": [
     "data/scenes/player.scene",
-    "data/scenes/scene_basic.scene",
     "data/scenes/skybox.scene", 
-    "data/scenes/Torre2Milestone.scene",
+    "data/scenes/test_level.scene",
     "data/scenes/cameras.scene", 
     "data/scenes/lights.scene",
-    "data/scenes/checkpoints.scene",
-    "data/scenes/skeleton_demo.scene"
+    "data/scenes/checkpoints.scene"
   ],
   "unused_scenes": [
     "data/scenes/unused_scenes/test_cameras.scene",
