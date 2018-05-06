@@ -49,12 +49,16 @@ bool CModuleTestAxis::start()
   // -------------------------------------------
   if (!cb_blur.create(CB_BLUR))
     return false;
+  // -------------------------------------------
+  if (!cb_gui.create(CB_GUI))
+    return false;
 
   cb_light.activate();
   cb_object.activate();
   cb_camera.activate();
   cb_globals.activate();
   cb_blur.activate();
+  cb_gui.activate();
 
   return true;
 }
@@ -66,6 +70,7 @@ bool CModuleTestAxis::stop()
   cb_object.destroy();
   cb_globals.destroy();
   cb_blur.destroy();
+  cb_gui.destroy();
   return true;
 }
 

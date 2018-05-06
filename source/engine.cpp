@@ -24,6 +24,7 @@ CEngine::CEngine()
   , _module_input("input")
   , _module_cameras("cameras")
   , _module_fsm("fsm")
+  , _module_gui("gui")
 {}
 
 bool CEngine::start() {
@@ -43,6 +44,7 @@ bool CEngine::start() {
   _modules.registerSystemModule(&_module_input);
   _modules.registerSystemModule(&_module_cameras);
   _modules.registerSystemModule(&_module_fsm);
+  _modules.registerSystemModule(&_module_gui);
 
 	_modules.registerGameModule(&module_splash);
 	_modules.registerGameModule(&module_main_menu);

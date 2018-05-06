@@ -12,6 +12,7 @@ extern CRenderCte<CCteObject>  cb_object;
 extern CRenderCte<CCteLight>   cb_light;
 extern CRenderCte<CCteGlobals> cb_globals;
 extern CRenderCte<CCteBlur>    cb_blur;
+extern CRenderCte<CCteGUI>    cb_gui;
 
 class CTexture;
 

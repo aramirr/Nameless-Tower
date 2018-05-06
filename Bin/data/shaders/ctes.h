@@ -12,6 +12,7 @@
 #define CB_BLUR         6
 #define CB_BLOOM        7
 #define CB_FOCUS        8
+#define CB_GUI          9
 
 // -------------------------------------------------
 // Texture Slots
@@ -193,6 +194,13 @@ CB_DEF(CCteFocus, CB_FOCUS)
   float focus_z_margin_in_focus;
   float focus_transition_distance;
   float focus_modifier;
+};
+
+CB_DEF(CCteGUI, CB_GUI)
+{
+  VEC2 minUV;
+  VEC2 maxUV;
+  VEC4 tint_color;
 };
 
 #endif
