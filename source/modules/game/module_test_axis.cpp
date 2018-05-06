@@ -57,6 +57,10 @@ bool CModuleTestAxis::start()
 	cb_camera.activate();
 	cb_blur.activate();
 
+	auto p = EngineScripting.script.exists("OnLevel1Start");
+	if (p)
+		EngineScripting.script.doString("OnLevel1Start()");
+
 	return true;
 }
 

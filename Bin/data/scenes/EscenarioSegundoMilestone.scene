@@ -170,7 +170,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -221,7 +221,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -282,7 +282,7 @@
   {
     "entity":
     {
-      "name": "Estatua"
+      "name": "EstatuaPequena"
       ,
       "transform":
       {
@@ -294,11 +294,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Estatua.mesh"
+          "mesh": "data/meshes/EstatuaPequena.mesh"
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -324,7 +324,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -350,7 +350,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -376,7 +376,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/VallaMat.material"
           ]
         }
       ]
@@ -402,7 +402,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -428,7 +428,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -2501,84 +2501,6 @@
   {
     "entity":
     {
-      "name": "Altar"
-      ,
-      "transform":
-      {
-        "pos": "-16.7093 85.5 24.7723"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Altar.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Piedra.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TorreSeccion5"
-      ,
-      "transform":
-      {
-        "pos": "-0.392519 13.5 -0.353354"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TorreSeccion5.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Piedra.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "SeccionPisoParte"
-      ,
-      "transform":
-      {
-        "pos": "-0.392517 4.5 -0.353355"
-        ,
-        "rotation": "0.0 -0.891006 0.0 0.453991"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/SeccionPisoParte.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Piedra.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Pintxos004"
       ,
       "transform":
@@ -2595,7 +2517,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -2682,6 +2604,57 @@
   {
     "entity":
     {
+      "name": "PinchosRetractilesC"
+      ,
+      "transform":
+      {
+        "pos": "23.9274 53.5008 19.2686"
+        ,
+        "rotation": "0.0 0.353102 0.0 -0.935585"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosRetractilesC.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra2Mat.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.963469 0.103989 2.29664"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "PlataformaMaderaExtra"
       ,
       "transform":
@@ -2724,7 +2697,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -2827,7 +2800,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -3925,7 +3898,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -3981,7 +3954,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -4037,7 +4010,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -4093,7 +4066,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -4255,7 +4228,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -4294,7 +4267,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -4345,7 +4318,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -4396,7 +4369,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -4447,7 +4420,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -4498,7 +4471,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -4842,7 +4815,7 @@
           ,
           "materials":
           [
-            "data/materials/Piedra.material"
+            "data/materials/Piedra2Mat.material"
           ]
         }
       ]
@@ -4932,7 +4905,7 @@
       ,
       "transform":
       {
-        "pos": "-27.1627 81.4624 12.8428"
+        "pos": "-27.5139 81.4624 12.3212"
         ,
         "rotation": "0.0 -0.259567 0.0 -0.965725"
       }
@@ -4941,7 +4914,7 @@
       {
         "shape": "box"
         ,
-        "halfExtent": "2.75009 13.786 1.95814"
+        "halfExtent": "3.0801 13.786 3.4009"
       }
     }
   }
@@ -5016,7 +4989,7 @@
       ,
       "transform":
       {
-        "pos": "-4.62363 74.1108 29.4704"
+        "pos": "-4.22673 74.1108 29.5941"
         ,
         "rotation": "0.0 -0.610626 0.0 -0.791919"
       }
@@ -6510,6 +6483,13 @@
         }
       ]
       ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
       "player_killer":
       {
         "kill_enabled": true
@@ -6571,6 +6551,13 @@
           ]
         }
       ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
       ,
       "player_killer":
       {
@@ -6634,6 +6621,18 @@
         }
       ]
       ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
       "ai_linear_patrol":
       {
         "speed": 0.1
@@ -6648,11 +6647,6 @@
           ,
           "4.51042 62.1179 30.4911"
         ]
-      }
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
       }
       ,
       "collider":
@@ -6694,6 +6688,18 @@
         }
       ]
       ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
       "ai_linear_patrol":
       {
         "speed": 0.1
@@ -6708,11 +6714,6 @@
           ,
           "1.19822 66.4862 30.9465"
         ]
-      }
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
       }
       ,
       "collider":
@@ -6928,6 +6929,13 @@
         "kill_enabled": true
       }
       ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
       "ai_rotator":
       {
         "configs":
@@ -7042,34 +7050,6 @@
   {
     "entity":
     {
-      "name": "TorreSeccion2"
-      ,
-      "transform":
-      {
-        "pos": "0.0 4.5 -2.04118e-07"
-        ,
-        "rotation": "0.0 -0.838671 0.0 -0.544639"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TorreSeccion2.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/SeccionSegundaMat.material"
-            ,
-            "data/materials/rockMate.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Arbolito"
       ,
       "transform":
@@ -7148,13 +7128,20 @@
   {
     "entity":
     {
-      "name": "Collisions059"
+      "name": "TriggerPinchosKiller"
       ,
       "transform":
       {
         "pos": "-3.21514 7.3503 30.6744"
         ,
         "rotation": "0.0 -0.669046 0.0 -0.743221"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
       }
       ,
       "player_killer":
@@ -7319,6 +7306,394 @@
   {
     "entity":
     {
+      "name": "varillas"
+      ,
+      "transform":
+      {
+        "pos": "-4.19617e-05 4.5 -1.96701e-07"
+        ,
+        "rotation": "0.0 -0.913545 0.0 0.406737"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/varillas.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VallaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Wall01"
+      ,
+      "transform":
+      {
+        "pos": "-24.2116 13.5 -17.6179"
+        ,
+        "rotation": "-1.50996e-07 8.72612e-05 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Wall01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EntradaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoVertical"
+      ,
+      "transform":
+      {
+        "pos": "24.1388 29.4646 19.2728"
+        ,
+        "rotation": "0.0 0.309017 0.0 -0.951056"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoVertical.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVertMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.76098 20.5103 1.7313"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoVertical001"
+      ,
+      "transform":
+      {
+        "pos": "25.9034 29.4646 16.77"
+        ,
+        "rotation": "0.0 0.309017 0.0 -0.951056"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoVertical001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVertMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.76098 20.5103 1.7313"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoVertical002"
+      ,
+      "transform":
+      {
+        "pos": "27.6129 29.4646 13.8129"
+        ,
+        "rotation": "0.0 0.309017 0.0 -0.951056"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoVertical002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVertMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.76098 20.5103 1.7313"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoVertical003"
+      ,
+      "transform":
+      {
+        "pos": "28.8547 29.4646 10.9701"
+        ,
+        "rotation": "0.0 0.309017 0.0 -0.951056"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoVertical003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVertMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.76098 20.5103 1.7313"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoVertical004"
+      ,
+      "transform":
+      {
+        "pos": "24.4831 92.1766 19.7786"
+        ,
+        "rotation": "0.0 0.309017 0.0 -0.951056"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoVertical004.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVertMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.76098 20.5103 1.7313"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoHorizontal"
+      ,
+      "transform":
+      {
+        "pos": "9.78369 92.1716 27.1525"
+        ,
+        "rotation": "-0.630037 0.32102 -0.32102 -0.630037"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoHorizontal.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVertMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "4.53453 11.0666 1.71579"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoHorizontal001"
+      ,
+      "transform":
+      {
+        "pos": "9.78369 87.997 27.1525"
+        ,
+        "rotation": "-0.630037 0.32102 -0.32102 -0.630037"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoHorizontal001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVertMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "4.53453 11.0666 1.71579"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "TorreSeccion4"
       ,
       "transform":
@@ -7362,6 +7737,10 @@
           "materials":
           [
             "data/materials/SeccionTerceraMat.material"
+            ,
+            "data/materials/Seccion4Mat.material"
+            ,
+            "data/materials/PiedraMat.material"
           ]
         }
       ]
@@ -7371,26 +7750,992 @@
   {
     "entity":
     {
-      "name": "varillas"
+      "name": "TorreSeccion2"
       ,
       "transform":
       {
-        "pos": "-4.19617e-05 4.5 -1.96701e-07"
+        "pos": "0.0 4.5 -2.04118e-07"
         ,
-        "rotation": "0.0 -0.913545 0.0 0.406737"
+        "rotation": "0.0 -0.838671 0.0 -0.544639"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/varillas.mesh"
+          "mesh": "data/meshes/TorreSeccion2.mesh"
           ,
           "materials":
           [
-            "data/materials/VallaMat.material"
+            "data/materials/SeccionSegundaMat.material"
+            ,
+            "data/materials/rockMate.material"
           ]
         }
       ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TorreSeccion5"
+      ,
+      "transform":
+      {
+        "pos": "-15.6517 81.0 20.6716"
+        ,
+        "rotation": "-0.958807 0.0 0.284059 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TorreSeccion5.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CabezaDragonAdornoMat.material"
+            ,
+            "data/materials/CabezaDragonCabezaMat.material"
+            ,
+            "data/materials/CabezaDragonColmillosMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Estatua"
+      ,
+      "transform":
+      {
+        "pos": "-14.923 89.7732 23.7148"
+        ,
+        "rotation": "-0.958807 0.0 0.284059 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Estatua.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CabezaDragonAdornoMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Wall04"
+      ,
+      "transform":
+      {
+        "pos": "-8.48404 90.1196 26.7814"
+        ,
+        "rotation": "-0.958807 0.0 0.284059 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Wall04.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CabezaDragonCabezaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Wall05"
+      ,
+      "transform":
+      {
+        "pos": "-8.48404 90.0356 26.7814"
+        ,
+        "rotation": "-0.958807 0.0 0.284059 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Wall05.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CabezaDragonCabezaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions059"
+      ,
+      "transform":
+      {
+        "pos": "-19.1047 69.7054 25.103"
+        ,
+        "rotation": "0.0 -0.547064 0.0 -0.837091"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.54269 2.2608 7.25457"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions060"
+      ,
+      "transform":
+      {
+        "pos": "-24.2094 69.7054 18.1206"
+        ,
+        "rotation": "0.0 -0.296684 0.0 -0.954976"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.54269 2.2608 7.25457"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions061"
+      ,
+      "transform":
+      {
+        "pos": "-25.545 78.6109 17.814"
+        ,
+        "rotation": "0.0 -0.407494 0.0 -0.913208"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.54269 2.2608 7.25457"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions062"
+      ,
+      "transform":
+      {
+        "pos": "-10.9358 78.6109 27.8842"
+        ,
+        "rotation": "0.0 -0.455875 0.0 -0.890044"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.58519 2.2608 7.25457"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions063"
+      ,
+      "transform":
+      {
+        "pos": "-25.6198 83.3444 15.2646"
+        ,
+        "rotation": "0.0 -0.259567 0.0 -0.965725"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "3.0801 2.61934 3.4009"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions064"
+      ,
+      "transform":
+      {
+        "pos": "-21.2164 85.2468 21.5011"
+        ,
+        "rotation": "0.0 -0.390399 0.0 -0.920646"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.54269 0.25639 1.65985"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions065"
+      ,
+      "transform":
+      {
+        "pos": "-16.2485 85.2468 25.503"
+        ,
+        "rotation": "0.0 -0.47373 0.0 -0.88067"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.54269 0.25639 1.65985"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Collisions066"
+      ,
+      "transform":
+      {
+        "pos": "-10.7534 85.2468 28.3351"
+        ,
+        "rotation": "0.0 -0.56258 0.0 -0.826743"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "2.54269 0.25639 1.65985"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerWallEntry04"
+      ,
+      "transform":
+      {
+        "pos": "-1.05669 87.6989 31.376"
+        ,
+        "rotation": "0.0 0.0298572 0.0 -0.999554"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.803752 2.26049 1.44695"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerWallExit04"
+      ,
+      "transform":
+      {
+        "pos": "0.902432 87.6989 31.4931"
+        ,
+        "rotation": "0.0 0.0298572 0.0 -0.999554"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.803752 2.26049 1.44695"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerWallEntry05"
+      ,
+      "transform":
+      {
+        "pos": "-14.9394 84.0286 22.902"
+        ,
+        "rotation": "0.0 0.293084 0.0 -0.956087"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "12.8752 0.685741 5.51032"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerWallExit05"
+      ,
+      "transform":
+      {
+        "pos": "-14.9394 85.8756 22.902"
+        ,
+        "rotation": "0.0 0.293084 0.0 -0.956087"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "12.8752 0.685741 5.51032"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PinchosG"
+      ,
+      "transform":
+      {
+        "pos": "-23.5866 81.6662 19.7871"
+        ,
+        "rotation": "0.0 0.849049 0.0 -0.528314"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosG.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PinchosM.material"
+            ,
+            "data/materials/PinchosSangreM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "SierraI"
+      ,
+      "transform":
+      {
+        "pos": "-8.37858 80.9952 29.6823"
+        ,
+        "rotation": "0.0 0.141492 0.0 -0.989939"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/SierraI.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra2Mat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "comp_circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "Y"
+      }
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/SierraE.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pintxos011"
+      ,
+      "transform":
+      {
+        "pos": "-13.5067 81.8174 27.2901"
+        ,
+        "rotation": "0.136596 0.178853 -0.670263 -0.707178"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Pintxos011.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra2Mat.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.841629 2.16225 0.962135"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "LosaDestruibleA"
+      ,
+      "transform":
+      {
+        "pos": "-23.2591 85.2457 19.4053"
+        ,
+        "rotation": "0.0 0.416801 0.0 -0.908998"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/LosaDestruibleA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra2Mat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_destroyable":
+      {
+        "trigger_actor": "The Player"
+        ,
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.9503 0.266174 2.50986"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "LosaDestruibleB"
+      ,
+      "transform":
+      {
+        "pos": "-18.8306 85.2457 23.8451"
+        ,
+        "rotation": "0.0 0.322759 0.0 -0.946481"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/LosaDestruibleB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra2Mat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_destroyable":
+      {
+        "trigger_actor": "The Player"
+        ,
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.9503 0.266174 2.50986"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "LosaDestruibleC"
+      ,
+      "transform":
+      {
+        "pos": "-13.5575 85.2457 27.1889"
+        ,
+        "rotation": "0.0 0.21888 0.0 -0.975752"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/LosaDestruibleC.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra2Mat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_destroyable":
+      {
+        "trigger_actor": "The Player"
+        ,
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.9503 0.266174 2.50986"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "LosaDestruibleD"
+      ,
+      "transform":
+      {
+        "pos": "-7.54082 85.2457 29.5087"
+        ,
+        "rotation": "0.0 0.138635 0.0 -0.990344"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/LosaDestruibleD.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra2Mat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_destroyable":
+      {
+        "trigger_actor": "The Player"
+        ,
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.9503 0.266174 2.50986"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "LosaDestruibleTriggerA"
+      ,
+      "transform":
+      {
+        "pos": "-23.2591 85.8191 19.4053"
+        ,
+        "rotation": "0.0 0.416801 0.0 -0.908998"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/LosaDestruibleTriggerA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra2Mat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "LosaDestruibleA"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.9503 0.266174 2.50986"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "LosaDestruibleTriggerB"
+      ,
+      "transform":
+      {
+        "pos": "-18.8306 85.8191 23.8451"
+        ,
+        "rotation": "0.0 0.322759 0.0 -0.946481"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/LosaDestruibleTriggerB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra2Mat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "LosaDestruibleB"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.9503 0.266174 2.50986"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "LosaDestruibleTriggerC"
+      ,
+      "transform":
+      {
+        "pos": "-13.5575 85.8191 27.1889"
+        ,
+        "rotation": "0.0 0.21888 0.0 -0.975752"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/LosaDestruibleTriggerC.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra2Mat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "LosaDestruibleC"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.9503 0.266174 2.50986"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "LosaDestruibleTriggerD"
+      ,
+      "transform":
+      {
+        "pos": "-7.54082 85.8191 29.5087"
+        ,
+        "rotation": "0.0 0.138635 0.0 -0.990344"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/LosaDestruibleTriggerD.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Piedra2Mat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "LosaDestruibleD"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.9503 0.266174 2.50986"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
     }
   }
 ]

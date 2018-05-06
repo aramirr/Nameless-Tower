@@ -11,6 +11,8 @@ namespace FSM
 	{
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
+		TCompTransform* c_my_transform = e->get<TCompTransform>();
+		player->jumping_start_height = c_my_transform->getPosition().y;
 		player->change_animation(player->EAnimations::NajaOmniAr, _is_action, _delay_in, _delay_out);
 		player->y_speed_factor = _y_speed;
 	}
