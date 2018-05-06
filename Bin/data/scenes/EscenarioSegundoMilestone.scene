@@ -1244,8 +1244,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "offset": "0 1.816 0"
       }
       ,
       "hierarchy":
@@ -1292,8 +1290,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "offset": "0 -0.5175 0"
       }
       ,
       "hierarchy":
@@ -7399,7 +7395,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-      }
+      },
+      "ai_fan":{}
     }
   }
   ,
@@ -7447,7 +7444,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-      }
+      },
+      "ai_fan":{}
     }
   }
   ,
@@ -7495,7 +7493,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-      }
+      },
+      "ai_fan":{}
     }
   }
   ,
@@ -7543,7 +7542,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-      }
+      },
+      "ai_fan":{}
     }
   }
   ,

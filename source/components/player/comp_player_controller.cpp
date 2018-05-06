@@ -21,7 +21,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
 	gravity = j.value("gravity", 75.f);	
 	center = VEC3(0.f, 0.f, 0.f);
-	tower_radius = j.value("tower_radius", 32.f);
+	tower_radius = j.value("tower_radius", 31.5f);
 	jumping_death_height = j.value("jumping_death_height", 9.f);
 	is_grounded = true;
 	looking_left = true;

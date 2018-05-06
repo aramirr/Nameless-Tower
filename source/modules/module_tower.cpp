@@ -17,6 +17,10 @@ void CModuleTower::render()
 {
 }
 
+float CModuleTower::getTowerRadius() {
+	return tower_radius;
+}
+
 const VEC3 CModuleTower::getLastCheckpoint()
 {
 	return last_checkpoint_position;
