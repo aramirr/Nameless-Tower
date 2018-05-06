@@ -1,9 +1,12 @@
 {
-  
+  "technique": "pbr.tech"
+  ,
   "shadows": true
   ,
   "textures":
   {
     "albedo": "data/textures/arbol.dds"
+    ,
+    "normal": "data/textures/null_normal.dds"
   }
 }
