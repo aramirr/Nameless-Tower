@@ -2,7 +2,6 @@
 #include "module_gui.h"
 #include "render/render_objects.h"
 #include "gui/gui_parser.h"
-#include "gui/controllers/gui_main_menu_controller.h"
 
 using namespace GUI;
 
@@ -26,27 +25,6 @@ bool CModuleGUI::start()
   parser.parseFile("data/gui/gameplay.json");
   parser.parseFile("data/gui/game_over.json");*/
 
-  activateWidget("test");
-
-  _variables.setVariant("progress", 0.5f);
-
-  auto newGameCB = []() {
-    printf("STARTING GAME\n");
-  };
-  auto continueCB = []() {
-    printf("LOADING GAME\n");
-  };
-  auto optionsCB = []() {
-    printf("CONFIGURING\n");
-  };
-
-  CMainMenuController* mmc = new CMainMenuController();
-  mmc->registerOption("new_game", newGameCB);
-  mmc->registerOption("continue", continueCB);
-  mmc->registerOption("options", optionsCB);
-  mmc->setCurrentOption(0);
-  registerController(mmc);
-
   return true;
 }
 
@@ -65,18 +43,6 @@ void CModuleGUI::update(float delta)
   {
     controller->update(delta);
   }
-
-  // change bar value
-  float value = _variables.getFloat("progress");
-  if (EngineInput[VK_LEFT].isPressed())
-  {
-    value = clamp(value - 0.5f * delta, 0.f, 1.f);
-  }
-  if (EngineInput[VK_RIGHT].isPressed())
-  {
-    value = clamp(value + 0.5f * delta, 0.f, 1.f);
-  }
-  _variables.setVariant("progress", value);
 }
 
 void CModuleGUI::renderGUI()
