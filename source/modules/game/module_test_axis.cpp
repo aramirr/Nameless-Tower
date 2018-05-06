@@ -44,8 +44,9 @@ bool CModuleTestAxis::start()
 		return false;
 	if (!cb_blur.create(CB_BLUR))
 		return false;
-  if (!cb_gui.create(CB_GUI))
-    return false;
+	if (!cb_gui.create(CB_GUI))
+	    return false;
+
 	cb_globals.global_exposure_adjustment = 1.f;
 	cb_globals.global_ambient_adjustment = 1.f;
 	cb_globals.global_world_time = 0.f;
@@ -58,7 +59,9 @@ bool CModuleTestAxis::start()
 	cb_globals.activate();
 	cb_camera.activate();
 	cb_blur.activate();
-  cb_gui.activate();
+    cb_gui.activate();
+
+    EngineTower.setAmbientAdjustment(0.1);
 
 	return true;
 }
