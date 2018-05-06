@@ -54,8 +54,14 @@ namespace FSM
 		VEC3 my_pos = c_my_transform->getPosition();
 		VEC3 player_position;
 		c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
-		player->omnidash_arrow = mouse._position - VEC2(player_position.x, player_position.y);
+		player->omnidash_arrow = mouse._position - VEC2(player_position.x + 400, player_position.y + 300);
 		player->omnidash_arrow.Normalize();
+
+    std::string str = std::to_string(/*player->omnidash_arrow*/player_position.x) + ", " + std::to_string(/*player->omnidash_arrow*/player_position.y) + "\n";
+    dbg(str.c_str());
+    std::string str2 = std::to_string(/*player->omnidash_arrow*/mouse._position.x) + ", " + std::to_string(/*player->omnidash_arrow*/mouse._position.y) + "\n";
+    dbg(str2.c_str());
+
 		player->y_speed_factor = 0;
 
 		TEntityParseContext ctx1;
