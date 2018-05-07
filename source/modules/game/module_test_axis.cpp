@@ -91,12 +91,14 @@ void CModuleTestAxis::update(float delta)
 
 		TCompCameraManager* cm = cam->get<TCompCameraManager>();
 		assert(cm);
-
+    
 		//cm->activateCinematic("final");
 
 		carga = false;
 	}
+  CEntity* cam = (CEntity*)getEntityByName("camera_manager");
 
+  
 	static VEC3 world_pos;
 	ImGui::DragFloat3("Pos", &world_pos.x, 0.025f, -50.f, 50.f);
 
