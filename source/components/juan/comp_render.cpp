@@ -114,6 +114,10 @@ void TCompRender::loadMesh(const json& j, TEntityParseContext& ctx) {
       }
       mwm.materials.push_back(material);
     }
+		if (mwm.materials.size() > mwm.mesh->getSubGroups().size()) {
+			auto a = name_mesh;
+			int b = 1;
+		}
     assert(mwm.materials.size() <= mwm.mesh->getSubGroups().size());
   }
   else {

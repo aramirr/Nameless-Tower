@@ -806,5 +806,322 @@
         "kill_enabled": true
       }
     }
+  },
+  {
+    "entity":
+    {
+      "name": "Ventilador001"
+      ,
+      "transform":
+      {
+        "pos": "-19.1316 70.747 23.8548"
+        ,
+        "rotation": "0.0 0.336255 0.0 -0.941771"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Ventilador001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Seccion4Mat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.24996 1.58777 1.70092"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Reja004"
+      ,
+      "transform":
+      {
+        "pos": "-19.0973 72.0929 23.8458"
+        ,
+        "rotation": "0.0 -0.952526 0.0 0.304456"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Reja004.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VallaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoVertical005"
+      ,
+      "transform":
+      {
+        "pos": "-19.0772 76.3506 23.8699"
+        ,
+        "rotation": "0.0 0.309017 0.0 -0.951056"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoVertical005.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVertMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_fan":
+      {
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.72735 4.11033 1.70297"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "GirableWindstrikeTriggerInicio"
+      ,
+      "transform":
+      {
+        "pos": "-26.6127 22.3009 16.5166"
+        ,
+        "rotation": "0.339471 0.339471 -0.62029 -0.62029"
+      }
+      ,
+      "render":
+      []
+      ,
+      "hierarchy":
+      {
+        "parent": "GirableWindstrikeInicio"
+        ,
+        "pos": "-0.004179 0.472641 0.020628"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "GirableWindstrikeInicio"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.62879 0.23382 1.27857"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "GirableWindstrikeTriggerActivadorInicio"
+      ,
+      "transform":
+      {
+        "pos": "-26.342 22.4454 16.9395"
+        ,
+        "rotation": "0.339471 0.339471 -0.62029 -0.62029"
+      }
+      ,
+      "render":
+      []
+      ,
+      "hierarchy":
+      {
+        "parent": "GirableWindstrikeInicio"
+        ,
+        "pos": "-0.004179 -0.377701 0.0206261"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "activador"
+        ,
+        "collider_entity": "GirableWindstrikeInicio"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.05427 1.48346 1.61257"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "GirableWindstrikeTriggerKillInicio"
+      ,
+      "transform":
+      {
+        "pos": "-26.0649 22.3225 17.3726"
+        ,
+        "rotation": "0.339471 0.339471 -0.62029 -0.62029"
+      }
+      ,
+      "render":
+      []
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "GirableWindstrikeInicio"
+        ,
+        "pos": "-0.004179 -0.377701 0.0206261"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.62879 0.419247 1.27857"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "GirableWindstrikeInicio"
+      ,
+      "transform":
+      {
+        "pos": "-26.323 22.2732 16.9484"
+        ,
+        "rotation": "0.339471 0.339471 -0.62029 -0.62029"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/GirableWindstrikeInicio.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/GirableMaderaMat.material"
+            ,
+            "data/materials/GirableMetalMat.material"
+            ,
+            "data/materials/GirableAceroMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_rotator":
+      {
+        "configs":
+        [
+          {
+            "speed": 1.0
+            ,
+            "wait_time": -1.0
+            ,
+            "degrees": 90.0
+            ,
+            "axis": "X"
+            ,
+            "increase": true
+          }
+        ]
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.11 0.0"
+        ,
+        "halfExtent": "1.70057 0.124 1.28108"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
   }
 ]

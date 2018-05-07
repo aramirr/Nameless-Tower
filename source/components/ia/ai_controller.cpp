@@ -101,7 +101,7 @@ void IAIController::setEntity(CHandle new_entity) {
   assert(h_entity.isValid());
 }
 
-void IAIController::change_mesh(int mesh_index) {
+bool IAIController::change_mesh(int mesh_index) {
 	TCompRender *my_render = getMyRender();
 	if (my_render->meshes.size() > mesh_index) {
 		//my_render->mesh = my_render->meshes_leo[mesh_index];
@@ -110,5 +110,7 @@ void IAIController::change_mesh(int mesh_index) {
 		}
 		my_render->meshes[mesh_index].enabled = true;
 		my_render->refreshMeshesInRenderManager();
+		return true;
 	}
+	return false;
 }

@@ -69,7 +69,9 @@ void CAIDestroyable::TransitionDestroyState(float dt)
 		return;
 	}
 	current_pos = mypos->getPosition();
-	change_mesh(1);
+	bool has_mesh = change_mesh(1);
+	if (!has_mesh)
+		mypos->setPosition(VEC3(0.f, 0.f, 0.f));
 	TCompCollider* comp_collider = get<TCompCollider>();
 	if (comp_collider)
 	{
@@ -90,12 +92,14 @@ void CAIDestroyable::DestroyState(float dt)
 	if (acum_time >= recover_time)
 	{
 		acum_time = 0;
-		change_mesh(0);
+		
 		TCompTransform *mypos = getMyTransform();
 		if (!mypos) {
 			return;
 		}
+		bool has_mesh = change_mesh(0);
 
+		mypos->setPosition(current_pos);
 		TCompCollider* comp_collider = get<TCompCollider>();
 		if (comp_collider)
 		{

@@ -1764,7 +1764,7 @@
       ,
       "transform":
       {
-        "pos": "18.1522 40.744 24.6893"
+        "pos": "18.737 40.744 25.321"
         ,
         "rotation": "0.0 -0.327804 0.0 -0.944746"
       }
@@ -1820,7 +1820,7 @@
       ,
       "transform":
       {
-        "pos": "12.4718 43.9101 28.6377"
+        "pos": "12.65 43.9101 28.996"
         ,
         "rotation": "0.0 -0.227954 0.0 -0.973672"
       }
@@ -1876,7 +1876,7 @@
       ,
       "transform":
       {
-        "pos": "6.35812 40.7484 30.0681"
+        "pos": "6.541 40.7484 30.744"
         ,
         "rotation": "0.0 -0.131606 0.0 -0.991302"
       }
@@ -2086,7 +2086,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
+        "is_trigger": true
         ,
         "mesh_src": "data/meshes/SierraE.col_mesh"
       }
@@ -2142,7 +2142,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
+        "is_trigger": true
         ,
         "mesh_src": "data/meshes/SierraE.col_mesh"
       }
@@ -4675,7 +4675,7 @@
       ,
       "transform":
       {
-        "pos": "0.0 4.32353 -1.96404e-07"
+        "pos": "15.7006 24.75 27.3208"
         ,
         "rotation": "0.0 -0.838671 0.0 -0.544639"
       }
@@ -5259,8 +5259,6 @@
             "data/materials/SeccionTerceraMat.material"
             ,
             "data/materials/Seccion4Mat.material"
-            ,
-            "data/materials/Piedra3Mat.material"
           ]
         }
       ]
@@ -5595,7 +5593,7 @@
       ,
       "transform":
       {
-        "pos": "-8.37858 80.9952 29.6823"
+        "pos": "-8.325 80.9952 30.38"
         ,
         "rotation": "0.0 0.141492 0.0 -0.989939"
       }
@@ -5904,7 +5902,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "plattform"
+        "trigger_type": "destroyable"
         ,
         "collider_entity": "LosaDestruibleA"
         ,
@@ -5943,7 +5941,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "plattform"
+        "trigger_type": "destroyable"
         ,
         "collider_entity": "LosaDestruibleB"
         ,
@@ -5982,7 +5980,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "plattform"
+        "trigger_type": "destroyable"
         ,
         "collider_entity": "LosaDestruibleC"
         ,
@@ -6021,7 +6019,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "plattform"
+        "trigger_type": "destroyable"
         ,
         "collider_entity": "LosaDestruibleD"
         ,
