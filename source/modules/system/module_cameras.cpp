@@ -208,6 +208,11 @@ CEntity * CModuleCameras::getActiveCamera()
   return camera;
 }
 
+CEntity * CModuleCameras::getOutputCamera()
+{
+	return _outputCamera;
+}
+
 void CModuleCameras::renderInMenu()
 {
   if (ImGui::TreeNode("Cameras"))

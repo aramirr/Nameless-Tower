@@ -140,12 +140,21 @@
     <ClCompile Include="components\controllers\comp_spiral_controller.cpp" />
     <ClCompile Include="components\postfx\comp_render_ao.cpp" />
     <ClCompile Include="render\mesh\collision_mesh.cpp" />
+    <ClCompile Include="gui\gui_parser.cpp" />
+    <ClCompile Include="gui\gui_widget.cpp" />
+    <ClCompile Include="modules\system\module_gui.cpp" />
+    <ClCompile Include="gui\controllers\gui_main_menu_controller.cpp" />
+    <ClCompile Include="gui\effects\gui_animate_uv.cpp" />
+    <ClCompile Include="gui\widgets\gui_bar.cpp" />
+    <ClCompile Include="gui\widgets\gui_button.cpp" />
+    <ClCompile Include="gui\widgets\gui_image.cpp" />
+    <ClCompile Include="gui\widgets\gui_text.cpp" />
+    <ClCompile Include="gui\controllers\gui_omnidash_arrow_controller.cpp" />
     <ClCompile Include="scripting\logic_manager.cpp" />
     <ClCompile Include="scripting\scripting_module.cpp" />
     <ClCompile Include="components\ia\ai_cinta_transportadora.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Bin\data\shaders\ctes.h" />
     <ClInclude Include="camera\camera.h" />
     <ClInclude Include="components\ia\ai_wind_current.h" />
     <ClInclude Include="components\comp_light_dir.h" />
@@ -342,6 +351,20 @@
     <ClInclude Include="components\controllers\comp_spiral_controller.h" />
     <ClInclude Include="components\postfx\comp_render_ao.h" />
     <ClInclude Include="render\mesh\collision_mesh.h" />
+    <ClInclude Include="gui\gui_controller.h" />
+    <ClInclude Include="gui\gui_effect.h" />
+    <ClInclude Include="gui\gui_params.h" />
+    <ClInclude Include="gui\gui_parser.h" />
+    <ClInclude Include="gui\gui_widget.h" />
+    <ClInclude Include="modules\system\module_gui.h" />
+    <ClInclude Include="..\Bin\data\shaders\ctes.h" />
+    <ClInclude Include="gui\controllers\gui_main_menu_controller.h" />
+    <ClInclude Include="gui\effects\gui_animate_uv.h" />
+    <ClInclude Include="gui\widgets\gui_bar.h" />
+    <ClInclude Include="gui\widgets\gui_button.h" />
+    <ClInclude Include="gui\widgets\gui_image.h" />
+    <ClInclude Include="gui\widgets\gui_text.h" />
+    <ClInclude Include="gui\controllers\gui_omnidash_arrow_controller.h" />
     <ClInclude Include="scripting\logic_manager.h" />
     <ClInclude Include="scripting\scripting_module.h" />
     <ClInclude Include="components\ia\ai_cinta_transportadora.h" />

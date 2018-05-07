@@ -25,7 +25,7 @@ namespace FSM
 		_x_speed = jData.value("x_speed", 2.f);
 		_is_action = jData.value("is_action", false);
 		_delay_out = jData.value("delay_out", 0.01f);
-		_delay_in = jData.value("delay_out", 0.01f);
+		_delay_in = jData.value("delay_in", 0.01f);
 		return true;
 	}
 

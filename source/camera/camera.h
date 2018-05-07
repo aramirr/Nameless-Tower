@@ -22,6 +22,8 @@ class CCamera {
   MAT44 proj;
   MAT44 view_proj;
 
+  bool is_ortho = false;
+
   void updateViewProj();
 
   // viewport
@@ -35,39 +37,40 @@ class CCamera {
 
 public:
 
-	CCamera();
+  CCamera();
 
-	// 
-	VEC3 getPosition() const { return pos; }
-	VEC3 getTarget() const { return target; }
+  // 
+  VEC3 getPosition() const { return pos; }
+  VEC3 getTarget() const { return target; }
 
-	VEC3 getFront() const { return front; }
-	VEC3 getUp() const { return up; }
-	VEC3 getLeft() const { return left; }
+  VEC3 getFront() const { return front; }
+  VEC3 getUp() const { return up; }
+  VEC3 getLeft() const { return left; }
 
-	// -------------------------------------
-	MAT44 getView() const {
-		return view;
-	}
+  // -------------------------------------
+  MAT44 getView() const {
+    return view;
+  }
 
-	MAT44 getProjection() const {
-		return proj;
-	}
+  MAT44 getProjection() const {
+    return proj;
+  }
 
-	MAT44 getViewProjection() const {
-		return view_proj;
-	}
-
+  MAT44 getViewProjection() const {
+    return view_proj;
+  }
   
   // -------------------------------------
   float getFov() const { return fov_vertical; }
   float getZNear() const { return z_near; }
   float getZFar() const { return z_far; }
   float getAspectRatio() const { return aspect_ratio; }
+  TViewport getViewport() const { return viewport; }
 
   // 
   void lookAt(VEC3 new_pos, VEC3 new_target, VEC3 new_up_aux = VEC3(0, 1, 0));
   void setPerspective(float new_fov_vertical, float new_z_near, float new_z_far );
+  void setOrthographic(float width, float height);
   void setViewport(int x0, int y0, int width, int height);
   bool getScreenCoordsOfWorldCoord(VEC3 world_pos, VEC3 *screen_coords) const;
 

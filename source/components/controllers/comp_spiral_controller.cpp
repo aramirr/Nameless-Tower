@@ -31,7 +31,14 @@ void TCompSpiralController::load(const json& j, TEntityParseContext& ctx) {
 	radius = 31.999847;
   center = VEC3(0, current_position.y, 0);
   offsetY = current_position.y;
-  direction = t_creator->getFront();
+  if (ctx.front.x) {
+	  direction = ctx.front;
+	  set_once = false;
+  }
+  else {
+	  direction = t_creator->getFront();
+  }
+
   direction.Normalize();
 
 }

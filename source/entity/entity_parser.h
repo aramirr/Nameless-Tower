@@ -29,6 +29,9 @@ struct TEntityParseContext {
   // Make sense for the comp_transform
   CTransform           root_transform;
 
+  // Front vector
+  VEC3				   front;
+
   // Find an entity in the list of entities parsed in this file
   // or search in the parent contexts, or search in the global dict
   CHandle findEntityByName(const std::string& name) const;

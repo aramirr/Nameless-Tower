@@ -12,7 +12,8 @@
 		"game_over",
 	    "test_input",
 	    "cameras",
-	    "test_axis"
+	    "test_axis",
+	    "gui"
 	],
 	"render" : 
 	[
@@ -20,6 +21,7 @@
 		"test_axis",
 		"entities",
 		"cameras",
-		"input"
+		"input",
+		"gui"
 	]
 }

@@ -10,6 +10,7 @@
 #define CB_GLOBALS      4
 #define CB_MATERIAL     5
 #define CB_BLUR         6
+#define CB_GUI          7
 
 // -------------------------------------------------
 // Texture Slots
@@ -172,6 +173,13 @@ CB_DEF(CCteBlur, CB_BLUR)
   VEC4 blur_d;        // distances for the 1st, 2nd and 3rd tap
   VEC2 blur_step;     // Extra modifier
   VEC2 blur_center; // To keep aligned x4
+};
+
+CB_DEF(CCteGUI, CB_GUI)
+{
+  VEC2 minUV;
+  VEC2 maxUV;
+  VEC4 tint_color;
 };
 
 #endif

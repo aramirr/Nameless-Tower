@@ -15,12 +15,12 @@ end
 
 function OnTriggerEnterTriggerWallEntry01()
 	lm:set_ambient(0.1)
-	lm:hide_mesh("Wall01")
+	--lm:hide_mesh("Wall01")
 end
 
 function OnTriggerEnterTriggerWallExit01()
 	lm:set_ambient(1)
-	lm:unhide_mesh("Wall01")
+	--lm:unhide_mesh("Wall01")
 end
 
 function OnTriggerEnterTriggerWallEntry02()
