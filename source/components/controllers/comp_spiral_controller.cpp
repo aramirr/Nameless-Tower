@@ -39,7 +39,6 @@ void TCompSpiralController::load(const json& j, TEntityParseContext& ctx) {
 	  direction = t_creator->getFront();
   }
 
-
   direction.Normalize();
 
 }

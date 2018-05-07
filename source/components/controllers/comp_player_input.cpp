@@ -51,12 +51,12 @@ void TCompPlayerInput::update(float dt)
 	TMsgSetFSMVariable runMsg;
 	runMsg.variant.setName("run");
 	runMsg.variant.setBool(EngineInput["left"].isPressed());
-	if (EngineInput["left"].isPressed())
+	if (EngineInput["left"].hasChanged())
 	{
 		e->sendMsg(runMsg);
 	}
 	runMsg.variant.setBool(EngineInput["right"].isPressed());
-	if (EngineInput["right"].isPressed())
+	if (EngineInput["right"].hasChanged())
 	{
 		e->sendMsg(runMsg);
 	}

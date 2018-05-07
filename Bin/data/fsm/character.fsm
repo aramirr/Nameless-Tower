@@ -5,7 +5,7 @@
 			"name" : "idle",
 			"type" : "IdleState",
 			"is_action": false,
-			"delay_in": 0.1,
+			"delay_in": 0.2,
 			"delay_out": 0.01
 		},
 		{
@@ -372,7 +372,7 @@
 		{
 			"type" : "TimeTransition",
 			"source" : "dash",
-			"target" : "idle",			
+			"target" : "falling",			
 			"time" : 0.3
 		},				
 		{

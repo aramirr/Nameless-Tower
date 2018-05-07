@@ -29,8 +29,8 @@ struct TEntityParseContext {
   // Make sense for the comp_transform
   CTransform           root_transform;
 
-  //Front Vector
-  VEC3					front;
+  // Front vector
+  VEC3				   front;
 
   // Find an entity in the list of entities parsed in this file
   // or search in the parent contexts, or search in the global dict
