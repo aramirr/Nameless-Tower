@@ -85,19 +85,17 @@ namespace FSM
 		TEntityParseContext ctx1;
 		ctx1.entity_starting_the_parse = e;
 		ctx1.root_transform = *(TCompTransform*)e->get<TCompTransform>();
+		VEC3 omni_vector = c_my_transform->getFront();
+		if (player->looking_left)
+			omni_vector *= player->omnidash_arrow.x;
+		else
+			omni_vector *= player->omnidash_arrow.x * -1;
+
+		omni_vector.y += player->omnidash_arrow.y;
+		ctx1.front = -omni_vector;
 		if (parseScene("data/prefabs/windstrike.prefab", ctx1)) {
 			assert(!ctx1.entities_loaded.empty());
-			TMsgChangeDirection MsgChangeDirection;
-			VEC3 omni_vector = c_my_transform->getFront();
-			if (player->looking_left)
-				omni_vector *= player->omnidash_arrow.x;
-			else
-				omni_vector *= player->omnidash_arrow.x * -1;
 
-			omni_vector.y += player->omnidash_arrow.y;
-			MsgChangeDirection.new_direction = -omni_vector;
-			CEntity *e = ctx1.current_entity;
-			e->sendMsg(MsgChangeDirection);
 		}
 	}
 }

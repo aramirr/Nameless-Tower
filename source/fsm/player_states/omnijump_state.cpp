@@ -11,8 +11,11 @@ namespace FSM
 	{
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
+		TCompTransform* c_my_transform = e->get<TCompTransform>();
+		player->jumping_start_height = c_my_transform->getPosition().y;
 		player->change_animation(player->EAnimations::NajaOmniAr, _is_action, _delay_in, _delay_out);
 		player->y_speed_factor = _y_speed;
+		dbg("ojump\n");
 	}
 
 	bool OmnijumpState::load(const json& jData)
@@ -21,7 +24,7 @@ namespace FSM
 		_x_speed = jData.value("x_speed", 2.f);
 		_is_action = jData.value("is_action", false);
 		_delay_out = jData.value("delay_out", 0.01f);
-		_delay_in = jData.value("delay_out", 0.01f);
+		_delay_in = jData.value("delay_in", 0.01f);
 		return true;
 	}
 

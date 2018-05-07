@@ -13,8 +13,6 @@ namespace FSM
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->change_animation(player->EAnimations::NajaDead, _is_action, _delay_in, _delay_out);
-		TCompTransform *c_my_transform = e->get<TCompTransform>();
-		player->jumping_start_height = c_my_transform->getPosition().y;
 		ctx.setVariable("hit", false);
 	}
 
@@ -22,7 +20,7 @@ namespace FSM
 	{
 		_is_action = jData.value("is_action", false);
 		_delay_out = jData.value("delay_out", 0.01f);
-		_delay_in = jData.value("delay_out", 0.01f);
+		_delay_in = jData.value("delay_in", 0.01f);
 		return true;
 	}
 

@@ -12,6 +12,7 @@ namespace FSM
 		TCompTransform* my_pos = e->get<TCompTransform>();
 		TCompCollider* comp_collider = e->get<TCompCollider>();
 		VEC3 position;
+		dbg("initial\n");
 		if (comp_collider && comp_collider->controller) {
 			if (player->checkpoint.x) {
 				comp_collider->controller->setPosition(physx::PxExtendedVec3(player->checkpoint.x, player->checkpoint.y, player->checkpoint.z));
