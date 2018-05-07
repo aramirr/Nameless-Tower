@@ -13,12 +13,14 @@ public:
         Floor = 1 << 1,
         Player = 1 << 2,
         Enemy = 1 << 3,
-				Windstrike = 1 << 4,
-				Projectile = 1 << 5,
+		Windstrike = 1 << 4,
+		Projectile = 1 << 5,
+		Vientos = 1 << 6,
         Scenario = Wall | Floor,
         Characters = Player | Enemy,
-				AllUnlessPlayer = -Player,
-				PlayerMask = Scenario | Projectile,
+		AllUnlessPlayer = -Player,
+		AllUnlessProjectiles = 4294967279,
+		PlayerMask = Scenario | Projectile,
         All = -1
     };
 

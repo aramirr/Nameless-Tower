@@ -33,24 +33,31 @@ CModulePhysics::FilterGroup CModulePhysics::getFilterByName(const std::string& n
     else if ( strcmp("floor", name.c_str()) == 0 ) {
         return CModulePhysics::FilterGroup::Floor;
     }
-		else if (strcmp("scenario", name.c_str()) == 0) {
-			return CModulePhysics::FilterGroup::Scenario;
-		}
-		else if (strcmp("windstrike", name.c_str()) == 0) {
-			return CModulePhysics::FilterGroup::Windstrike;
-		}
-		else if (strcmp("all_unless_player", name.c_str()) == 0) {
-			return CModulePhysics::FilterGroup::AllUnlessPlayer;
-		}
-		else if (strcmp("player_mask", name.c_str()) == 0) {
-			return CModulePhysics::FilterGroup::PlayerMask;
-		}
-		else if (strcmp("projectile", name.c_str()) == 0) {
-			return CModulePhysics::FilterGroup::Projectile;
-		}
-		else if (strcmp("all", name.c_str()) == 0) {
-			return CModulePhysics::FilterGroup::All;
-		}
+	else if (strcmp("scenario", name.c_str()) == 0) {
+		return CModulePhysics::FilterGroup::Scenario;
+	}
+	else if (strcmp("windstrike", name.c_str()) == 0) {
+		return CModulePhysics::FilterGroup::Windstrike;
+	}
+	else if (strcmp("all_unless_player", name.c_str()) == 0) {
+		return CModulePhysics::FilterGroup::AllUnlessPlayer;
+	}
+	else if (strcmp("player_mask", name.c_str()) == 0) {
+		return CModulePhysics::FilterGroup::PlayerMask;
+	}
+	else if (strcmp("projectile", name.c_str()) == 0) {
+		return CModulePhysics::FilterGroup::Projectile;
+	}
+	else if (strcmp("all_unless_projectile", name.c_str()) == 0) {
+		auto a = CModulePhysics::FilterGroup::AllUnlessProjectiles;
+		return CModulePhysics::FilterGroup::AllUnlessProjectiles;
+	}
+	else if (strcmp("vientos", name.c_str()) == 0) {
+		return CModulePhysics::FilterGroup::Vientos;
+	}
+	else if (strcmp("all", name.c_str()) == 0) {
+		return CModulePhysics::FilterGroup::All;
+	}
     return CModulePhysics::FilterGroup::All;
 }
 
