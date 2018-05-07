@@ -41,6 +41,7 @@ end
 function OnTriggerEnterTriggerWallExit03()
 	lm:set_ambient(1)
 	lm:unhide_mesh("Wall03")
+	lm:disactivate_text("text_pista")
 end
 
 function OnTriggerEnterTriggerWallEntry03_2()
@@ -51,6 +52,7 @@ end
 function OnTriggerEnterTriggerWallExit03_2()
 	lm:set_ambient(1)
 	lm:unhide_mesh("Wall03")
+	lm:disactivate_text("text_pista")
 end
 
 function OnTriggerEnterTriggerWallEntry04()

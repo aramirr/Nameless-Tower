@@ -17,6 +17,10 @@ void TCompPlayerKiller::onTriggerEnter(const TMsgKillPlayer& msg) {
 		CEntity* player = (CEntity *)getEntityByName("The Player");
 		TCompCollider* player_collider = player->get<TCompCollider>();
 		player_collider->config.mask = CModulePhysics::FilterGroup::Scenario;
+		EngineUI.desactivateWidget("text_pista");
+		EngineUI.desactivateWidget("text_sala_eleccion");
+		EngineUI.desactivateWidget("text_plataforma_activable");
+		EngineUI.desactivateWidget("text_planear");
 		TMsgSetFSMVariable deadMsg;
 		deadMsg.variant.setName("hit");
 		deadMsg.variant.setBool(true);
