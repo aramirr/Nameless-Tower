@@ -132,7 +132,15 @@ void CModuleGUI::activateWidget(const std::string& name)
   CWidget* wdgt = getWidget(name);
   if (wdgt)
   {
-    _activeWidgets.push_back(wdgt);
+	  bool active = false;
+	  for (int i = 0; i < _activeWidgets.size(); i++) {
+		  auto name2 = _activeWidgets[i]->getName();
+		  if (_activeWidgets[i]->getName() == name) {
+			  active = true;
+		  }
+	  }
+	  if (!active)
+		_activeWidgets.push_back(wdgt);
   }
 }
 
@@ -140,6 +148,7 @@ void CModuleGUI::activateWidget(const std::string& name)
 void CModuleGUI::desactivateWidget(const std::string& name)
 {
   for (int i = 0; i < _activeWidgets.size(); i++) {
+	  auto name2 = _activeWidgets[i]->getName();
     if (_activeWidgets[i]->getName() == name) {
       _activeWidgets.erase(_activeWidgets.begin() + i);
       break;
