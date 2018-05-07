@@ -142,3 +142,7 @@ end
 function OnTriggerEnterHTextPlanear()
 	lm:disactivate_text("text_planear")
 end
+
+function OnTriggerEnterCinematica()
+	lm:play_last_cinematic()
+end

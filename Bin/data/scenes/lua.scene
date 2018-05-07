@@ -168,5 +168,73 @@
         "is_trigger": true
       }
     }
+},
+{
+    "entity":
+    {
+      "name": "HTextPlanear"
+      ,
+      "transform":
+      {
+        "pos": "22.719 45.014 21.820"
+        ,
+        "rotation": "0.0 -0.882102 0.0 -0.471058"
+      }
+      ,
+      "render":
+      []
+      ,
+      "trigger":
+      {
+        "trigger_type": "default"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 3 1"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+},
+{
+    "entity":
+    {
+      "name": "Cinematica"
+      ,
+      "transform":
+      {
+        "pos": "-19.097 65 23.846"
+        ,
+        "rotation": "0.0 -0.882102 0.0 -0.471058"
+      }
+      ,
+      "render":
+      []
+      ,
+      "trigger":
+      {
+        "trigger_type": "default"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 3 1"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
 }
 ]
