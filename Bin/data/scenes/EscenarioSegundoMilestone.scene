@@ -6720,6 +6720,14 @@
           [
             "data/materials/DestruibleMat.material"
           ]
+        },
+        {
+          "mesh": "data/meshes/Destruible_post001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
         }
       ]
       ,
@@ -6730,8 +6738,7 @@
         "destroy_time": 1.0
         ,
         "recover_time": 5.0
-      }
-      ,
+      },
       "collider":
       {
         "shape": "box"
@@ -6745,34 +6752,7 @@
         "is_trigger": false
       }
     }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Destruible_post001"
-      ,
-      "transform":
-      {
-        "pos": "16.7105 13.4276 25.5651"
-        ,
-        "rotation": "0.0 0.471059 0.0 -0.882102"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible_post001.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
+  },
   {
     "entity":
     {
@@ -6790,7 +6770,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "plattform"
+        "trigger_type": "destroyable"
         ,
         "collider_entity": "Destruible001"
         ,
@@ -6803,7 +6783,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.25477 0.177481 1.69847"
+        "halfExtent": "1.25477 0.5 1.69847"
         ,
         "is_dynamic": false
         ,
@@ -6833,6 +6813,14 @@
           [
             "data/materials/DestruibleMat.material"
           ]
+        },
+        {
+          "mesh": "data/meshes/Destruible_post002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
         }
       ]
       ,
@@ -6843,8 +6831,7 @@
         "destroy_time": 1.0
         ,
         "recover_time": 5.0
-      }
-      ,
+      },
       "collider":
       {
         "shape": "box"
@@ -6858,34 +6845,7 @@
         "is_trigger": false
       }
     }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Destruible_post002"
-      ,
-      "transform":
-      {
-        "pos": "13.6841 13.4276 27.4203"
-        ,
-        "rotation": "0.0 0.498087 0.0 -0.867127"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible_post002.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
+  },
   {
     "entity":
     {
@@ -6903,7 +6863,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "plattform"
+        "trigger_type": "destroyable"
         ,
         "collider_entity": "Destruible002"
         ,
@@ -6916,7 +6876,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.25477 0.177481 1.69847"
+        "halfExtent": "1.25477 0.5 1.69847"
         ,
         "is_dynamic": false
         ,
@@ -6924,6 +6884,8 @@
       }
     }
   }
+
+
   ,
   {
     "entity":
