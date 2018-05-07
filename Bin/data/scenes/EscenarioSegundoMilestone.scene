@@ -1932,7 +1932,7 @@
       ,
       "transform":
       {
-        "pos": "12.0613 69.6925 27.5841"
+        "pos": "12.0613 71.6925 27.5841"
         ,
         "rotation": "0.0 0.532751 0.0 -0.846272"
       }
@@ -1974,7 +1974,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
+        "is_trigger": true
         ,
         "mesh_src": "data/meshes/SierraE.col_mesh"
       }
@@ -1988,7 +1988,7 @@
       ,
       "transform":
       {
-        "pos": "14.8388 69.6925 26.077"
+        "pos": "14.8388 71.6925 26.077"
         ,
         "rotation": "0.0 0.497471 0.0 -0.867481"
       }
@@ -2030,7 +2030,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
+        "is_trigger": true
         ,
         "mesh_src": "data/meshes/SierraE.col_mesh"
       }
@@ -2914,7 +2914,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.4 0.432835 1.50554"
+        "halfExtent": "1.575 0.432835 1.50554"
         ,
         "is_dynamic": false
         ,
@@ -3029,7 +3029,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.40216 0.199106 1.51733"
+        "halfExtent": "1.575 0.199106 1.51733"
         ,
         "is_dynamic": false
         ,
@@ -3068,7 +3068,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.4 0.432835 1.50554"
+        "halfExtent": "1.575 0.432835 1.50554"
         ,
         "is_dynamic": false
         ,
@@ -3183,7 +3183,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.40216 0.199106 1.51733"
+        "halfExtent": "1.575 0.199106 1.51733"
         ,
         "is_dynamic": false
         ,
@@ -3222,7 +3222,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.4 0.432835 1.50554"
+        "halfExtent": "1.575 0.432835 1.50554"
         ,
         "is_dynamic": false
         ,
@@ -3337,7 +3337,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.40216 0.199106 1.51733"
+        "halfExtent": "1.575 0.199106 1.51733"
         ,
         "is_dynamic": false
         ,
@@ -3376,7 +3376,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.4 0.432835 1.50554"
+        "halfExtent": "1.575 0.432835 1.50554"
         ,
         "is_dynamic": false
         ,
@@ -3491,7 +3491,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.40216 0.199106 1.51733"
+        "halfExtent": "1.575 0.199106 1.51733"
         ,
         "is_dynamic": false
         ,
@@ -5132,6 +5132,7 @@
       ,
       "ai_fan":
       {
+        "force":  0.2
       }
       ,
       "trigger":
@@ -6673,7 +6674,7 @@
       ,
       "ai_fan":
       {
-        "force":  0.1
+        "force":  0.2
       }
       ,
       "trigger":
@@ -7993,7 +7994,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "11.684 4.5156 5.04293"
+        "halfExtent": "11.684 4.5156 7.04293"
         ,
         "is_dynamic": false
         ,
