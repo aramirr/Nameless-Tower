@@ -13,6 +13,10 @@ public:
 	void disactivateCamera(const char* name);
 
 	void setAmbientAdjustment(float value);
+	void playLastCinematic();
+
+	void activateText(const char* name);
+	void disactivateText(const char* name);
 
 };
 

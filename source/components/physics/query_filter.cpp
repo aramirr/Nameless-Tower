@@ -8,10 +8,8 @@ PxQueryHitType::Enum BasicQueryFilterCallback::preFilter(const PxFilterData& fil
 	CModulePhysics::FilterGroup::Player;
 	CModulePhysics::FilterGroup::Wall;
 	PxFilterData& filter_data_b = shape->getQueryFilterData();
-	bool b = (filter_data_a.word0 & filter_data_b.word1);
-	bool b2 = (filter_data_b.word0 & filter_data_a.word1);
-	//if ((filter_data_a.word0 == 32) || (filter_data_b.word0 == 32))
-		//return PxQueryHitType::eNONE;
+	if (filter_data_a.word0 == 32 || filter_data_b.word0 == 32)
+		return PxQueryHitType::eNONE;
 	if ((filter_data_a.word0 & filter_data_b.word1) && (filter_data_b.word0 & filter_data_a.word1)) {
 		return PxQueryHitType::eBLOCK;
 	}

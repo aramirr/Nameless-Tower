@@ -184,5 +184,6 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 
 void TCompPlayerController::setCheckpoint(const TMsgCheckpoint& msg)
 {
+	dbg("Checkpoint\n");
    	checkpoint = msg.appearing_position;
 }

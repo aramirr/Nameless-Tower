@@ -4,6 +4,7 @@
 #include "logic_manager.h"
 #include "components/juan/comp_transform.h"
 #include "components/juan/comp_render.h"
+#include "components/camera/comp_camera_manager.h"
 using namespace SLB;
 
 
@@ -33,6 +34,25 @@ void LogicManager::disactivateCamera(const char* name) {
 void LogicManager::setAmbientAdjustment(float value) {
 	EngineTower.setAmbientAdjustment(value);
 };
+
+void LogicManager::playLastCinematic() {
+	CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+
+	TCompCameraManager* cm = cam->get<TCompCameraManager>();
+	assert(cm);
+
+	cm->activateCinematic("final");
+}
+
+void LogicManager::activateText(const char* name) {
+	std::string s = name;
+	EngineUI.activateWidget(s);
+}
+
+void LogicManager::disactivateText(const char* name) {
+	std::string s = name;
+	EngineUI.desactivateWidget(s);
+}
 
 
 LogicPlayer::LogicPlayer() {}

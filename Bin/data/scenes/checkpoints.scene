@@ -1,18 +1,13 @@
 [
 	{
 		"entity": {
-			"name": "Checkpoint Trigger",
+			"name": "Checkpoint Trigger 1",
 			"transform": {
-				"pos": "-27.628 27.000 16.146",
+				"pos": "-30.570 9.163 -7.598",
 				"lookat": "-1 0 15"
 			},
 			"render" : [
-				{
-					"mesh": "data/meshes/Teapot001.mesh",
-					"materials" : [
-						"data/materials/madera.material"
-					]
-				}
+				
 			],
 			"collider": {
 				"shape": "box",
@@ -21,7 +16,7 @@
 			},
 			"trigger": {
 				"trigger_type": "checkpoint",
-				"appearing_position": "-27.628 28.000 16.146"
+				"appearing_position": "-30.570 9.163 -7.598"
 			}
 		}
 	},
@@ -29,16 +24,11 @@
 		"entity": {
 			"name": "Checkpoint Trigger 2",
 			"transform": {
-				"pos": "23.223 36.000 -22.016",
+				"pos": "-8.426 23.258 30.011",
 				"lookat": "-1 0 15"
 			},
 			"render" : [
-				{
-					"mesh": "data/meshes/Teapot001.mesh",
-					"materials" : [
-						"data/materials/madera.material"
-					]
-				}
+				
 			],
 			"collider": {
 				"shape": "box",
@@ -47,7 +37,7 @@
 			},
 			"trigger": {
 				"trigger_type": "checkpoint",
-				"appearing_position": "23.223 37.000 -22.016"
+				"appearing_position": "-8.426 23.258 30.011"
 			}
 		}
 	},
@@ -55,16 +45,11 @@
 		"entity": {
 			"name": "Checkpoint Trigger 3",
 			"transform": {
-				"pos": "30.671 58.500 -9.127",
+				"pos": "19.461 9.599 24.283",
 				"lookat": "-1 0 15"
 			},
 			"render" : [
-				{
-					"mesh": "data/meshes/Teapot001.mesh",
-					"materials" : [
-						"data/materials/madera.material"
-					]
-				}
+				
 			],
 			"collider": {
 				"shape": "box",
@@ -73,7 +58,91 @@
 			},
 			"trigger": {
 				"trigger_type": "checkpoint",
-				"appearing_position": "30.671 59.500 -9.127"
+				"appearing_position": "19.461 9.599 24.283"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "Checkpoint Trigger 4",
+			"transform": {
+				"pos": "22.482 45.562 21.584",
+				"lookat": "-1 0 15"
+			},
+			"render" : [
+				
+			],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "checkpoint",
+				"appearing_position": "22.482 45.562 21.584"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "Checkpoint Trigger 5",
+			"transform": {
+				"pos": "17.425 51.383 25.968",
+				"lookat": "-1 0 15"
+			},
+			"render" : [
+				
+			],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "checkpoint",
+				"appearing_position": "17.425 51.383 25.968"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "Checkpoint Trigger 6",
+			"transform": {
+				"pos": "5.419 68.026 31.116",
+				"lookat": "-1 0 15"
+			},
+			"render" : [
+				
+			],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "checkpoint",
+				"appearing_position": "5.419 68.026 31.116"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "Checkpoint Trigger 7",
+			"transform": {
+				"pos": "-3.267 86.708 29.9576",
+				"lookat": "-1 0 15"
+			},
+			"render" : [
+				
+			],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "checkpoint",
+				"appearing_position": "-3.267 86.708 29.9576"
 			}
 		}
 	}

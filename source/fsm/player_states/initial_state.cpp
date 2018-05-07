@@ -14,9 +14,10 @@ namespace FSM
 		VEC3 position;
 		dbg("initial\n");
 		if (comp_collider && comp_collider->controller) {
-			if (player->checkpoint.x) {
-				comp_collider->controller->setPosition(physx::PxExtendedVec3(player->checkpoint.x, player->checkpoint.y, player->checkpoint.z));
-				position = VEC3(player->checkpoint.x, player->checkpoint.y, player->checkpoint.z);
+			if (Engine.getTower().getLastCheckpoint().x) {
+				VEC3 checkpoint = Engine.getTower().getLastCheckpoint();
+				comp_collider->controller->setPosition(physx::PxExtendedVec3(checkpoint.x, checkpoint.y + 0.5, checkpoint.z));
+				position = VEC3(checkpoint.x, checkpoint.y, checkpoint.z);
 			}				
 			else {
 				player->checkpoint = my_pos->getPosition();
