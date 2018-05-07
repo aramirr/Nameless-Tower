@@ -87,6 +87,11 @@ void CModuleGUI::desactiveMainMenu()
   unregisterController(mmc);
 }
 
+void CModuleGUI::activeMainMenu()
+{
+  registerController(mmc);
+}
+
 void CModuleGUI::setOmindash(bool omnidash)
 {
   odc->setActive(omnidash);

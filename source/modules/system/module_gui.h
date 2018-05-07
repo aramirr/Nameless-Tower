@@ -20,6 +20,7 @@ public:
 
   //FUNCIONES GENERICAS PARA SER LLAMADAS DESDE DIFERENTES LUGARES DEL ENGINE
   void desactiveMainMenu();
+  void activeMainMenu();
   void setOmindash(bool omnidash);
 
   // widget management

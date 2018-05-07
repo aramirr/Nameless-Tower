@@ -276,11 +276,14 @@ void TCompCameraManager::update(float dt) {
 				currentTime = 0.f;
 				totalTime = 0.f;
 
+        EngineUI.activeMainMenu();
+        EngineUI.activateWidget("pantallaInicio");
+
         CEntity* player = (CEntity*)getEntityByName("The Player");
 
         TMsgSetFSMVariable pauseMsg;
         pauseMsg.variant.setName("pause");
-        pauseMsg.variant.setBool(false);
+        pauseMsg.variant.setBool(true);
 
         player->sendMsg(pauseMsg);
 
