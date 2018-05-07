@@ -48,13 +48,6 @@ CModulePhysics::FilterGroup CModulePhysics::getFilterByName(const std::string& n
 	else if (strcmp("projectile", name.c_str()) == 0) {
 		return CModulePhysics::FilterGroup::Projectile;
 	}
-	else if (strcmp("all_unless_projectile", name.c_str()) == 0) {
-		auto a = CModulePhysics::FilterGroup::AllUnlessProjectiles;
-		return CModulePhysics::FilterGroup::AllUnlessProjectiles;
-	}
-	else if (strcmp("vientos", name.c_str()) == 0) {
-		return CModulePhysics::FilterGroup::Vientos;
-	}
 	else if (strcmp("all", name.c_str()) == 0) {
 		return CModulePhysics::FilterGroup::All;
 	}

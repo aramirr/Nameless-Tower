@@ -31,7 +31,7 @@ void CAIFan::Init()
 void CAIFan::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
 
-	force = j.value("force", 0.025);
+	force = j.value("force", 1);
 	Init();
 }
 

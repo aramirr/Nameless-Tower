@@ -5132,7 +5132,7 @@
       ,
       "ai_fan":
       {
-        "force":  0.2
+        "force":  1
       }
       ,
       "trigger":
@@ -6695,10 +6695,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "group": "vientos"
-        ,
-        "mask": "all_unless_projectile"
       }
     }
   }
