@@ -94,8 +94,7 @@ namespace FSM
 		omni_vector.y += player->omnidash_arrow.y;
 		ctx1.front = -omni_vector;
 		if (parseScene("data/prefabs/windstrike.prefab", ctx1)) {
-			assert(!ctx1.entities_loaded.empty());
-
+			assert(!ctx1.entities_loaded.empty());			
 		}
 	}
 }

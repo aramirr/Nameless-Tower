@@ -5,8 +5,8 @@
 			"name" : "idle",
 			"type" : "IdleState",
 			"is_action": false,
-			"delay_in": 0.2,
-			"delay_out": 0.01
+			"delay_in": 0,
+			"delay_out": 0
 		},
 		{
 			"name" : "initial",
@@ -17,7 +17,7 @@
 			"type" : "RunState",
 			"x_speed" : 2.5,
 			"is_action": false,
-			"delay_in": 0.1,
+			"delay_in": 0.01,
 			"delay_out": 0.01
 		},
 		{
@@ -361,7 +361,7 @@
 		{
 			"type" : "VariableTransition",
 			"source" : "omnijump",
-			"target" : "idle",
+			"target" : "falling",
 			"variable" : {
 				"name" : "idle",
 				"type" : "bool",
