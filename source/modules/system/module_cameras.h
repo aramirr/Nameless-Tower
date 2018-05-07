@@ -22,6 +22,7 @@ public:
 
   //Funcion aparte no perteneciente al modulo de Albert
   CEntity* getActiveCamera();
+  CEntity* getOutputCamera();
 
 private:
 	void renderInMenu();

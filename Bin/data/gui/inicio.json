@@ -11,7 +11,7 @@
 						"name" : "fondoA",
 						"type" : "image",
 						"size" : "1920 1080",
-						"texture" : "data/textures/gui/menu_anim_background19.dds",
+						"texture" : "data/textures/gui/MenuFondo.dds",
 						"minUV" : "0 0",
 						"maxUV" : "0.5 1",
 						"effects" : [
@@ -31,7 +31,7 @@
 						"effects" : [
 							{
 								"type" : "animate_uv",
-								"speed" : "-0.0125 0"
+								"speed" : "-0.025 0"
 							}
 						]
 					}
@@ -102,19 +102,37 @@
 		]
 	},
 	{
-				"name" : "Omnidash",
-				"type" : "widget",
+		"name" : "Omnidash",
+		"type" : "widget",
+		"position": "0 0",
+		"children" : [
+		    {
+				"name" : "OmnidashImage",
+				"type" : "image",
+				"size" : "128 128",
 				"position": "0 0",
-				"children" : [
-		    		{
-						"name" : "OmnidashImage",
-						"type" : "image",
-						"size" : "128 128",
-						"position": "0 0",
-						"texture" : "data/textures/gui/aire.dds",
-						"minUV" : "0 0",
-						"maxUV" : "1 1"
-					}
-				]
+				"texture" : "data/textures/gui/aire2.dds",
+				"minUV" : "0 0",
+				"maxUV" : "1 1"
 			}
+		]
+	},
+	{
+		"name" : "text_tutorial",
+		"type" : "widget",
+		"position" : "810 650",
+		"children" : [
+		    {
+				"name" : "tutorial",
+				"type" : "text",
+				"position" : "0 250",
+				"size" : "300 50",
+				"font_size" : 32.0,
+				"text" : "CHOOSE WISELY. REMEMBER THE CLUE",
+				"halign" : "center",
+				"valign" : "center",
+				"color" : "0.5 0.5 0.5 1"
+			}
+		]
+	}
 ]

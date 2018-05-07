@@ -14,6 +14,7 @@ namespace FSM
 
 	private:
 		float _omnidash_max_time;
+		mutable VEC2 _mouseStartPosition;
 	};
 
 }

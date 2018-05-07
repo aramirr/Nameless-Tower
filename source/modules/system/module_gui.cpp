@@ -27,6 +27,7 @@ bool CModuleGUI::start()
   parser.parseFile("data/gui/game_over.json");*/
 
   activateWidget("pantallaInicio");
+  //activateWidget("text_tutorial");
 
   //_variables.setVariant("progress", 0.5f);
 

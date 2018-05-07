@@ -12,7 +12,7 @@ namespace GUI
       float angle;
 
       CEntity* player = (CEntity*)getEntityByName("The Player");
-      CEntity* e_camera = EngineCameras.getActiveCamera();
+	  CEntity* e_camera = EngineCameras.getOutputCamera();
       TCompCamera* c_camera = e_camera->get< TCompCamera >();
       TCompTransform *c_my_transform = player->get<TCompTransform>();
       const Input::TInterface_Mouse& mouse = EngineInput.mouse();
@@ -22,9 +22,9 @@ namespace GUI
       
       angle = (float)(atan2(mouse._position.y - player_position.y, mouse._position.x - player_position.x));
 
-      if (angle < 0) {
+      /*if (angle < 0) {
         angle += 360;
-      }
+      }*/
 
       position = VEC2(player_position.x, player_position.y);
 
@@ -37,7 +37,7 @@ namespace GUI
   {
     active = _active;
     if (active) {
-      //EngineUI.activateWidget("Omnidash");
+      EngineUI.activateWidget("Omnidash");
     }
     else {
       EngineUI.desactivateWidget("Omnidash");
