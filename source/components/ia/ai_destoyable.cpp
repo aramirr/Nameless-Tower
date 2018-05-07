@@ -46,13 +46,13 @@ void CAIDestroyable::Init()
 
 void CAIDestroyable::IdleState()
 {
-	change_color(VEC4(0, 1, 0, 1));
+	change_mesh(0);
 }
 
 
 void CAIDestroyable::TriggerDestroyState(float dt)
 {
-	change_color(VEC4(1, 0, 0, 1));
+	change_mesh(0);
 	acum_time += DT;
 	if (acum_time >= destroy_time)
 	{
@@ -63,16 +63,18 @@ void CAIDestroyable::TriggerDestroyState(float dt)
 
 void CAIDestroyable::TransitionDestroyState(float dt)
 {
-	change_color(VEC4(1, 1, 0, 1));
+	
 	TCompTransform *mypos = getMyTransform();
 	if (!mypos) {
 		return;
 	}
 	current_pos = mypos->getPosition();
-	mypos->setPosition(VEC3(0, 0, 0));
+	change_mesh(1);
 	TCompCollider* comp_collider = get<TCompCollider>();
 	if (comp_collider)
 	{
+		comp_collider->config.group = EnginePhysics.getFilterByName("windstrike");
+		comp_collider->config.mask = -4;
 		PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
 		PxTransform tr = rigidActor->getGlobalPose();
 		tr.p = PxVec3(0, 0, 0);
@@ -88,15 +90,17 @@ void CAIDestroyable::DestroyState(float dt)
 	if (acum_time >= recover_time)
 	{
 		acum_time = 0;
+		change_mesh(0);
 		TCompTransform *mypos = getMyTransform();
 		if (!mypos) {
 			return;
 		}
 
-		mypos->setPosition(current_pos);
 		TCompCollider* comp_collider = get<TCompCollider>();
 		if (comp_collider)
 		{
+			comp_collider->config.group = EnginePhysics.getFilterByName("scenario");
+			comp_collider->config.mask = EnginePhysics.getFilterByName("all");
 			PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
 			PxTransform tr = rigidActor->getGlobalPose();
 			tr.p = PxVec3(current_pos.x, current_pos.y, current_pos.z);

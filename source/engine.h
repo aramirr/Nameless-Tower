@@ -61,3 +61,4 @@ private:
 #define EngineTower CEngine::get().getTower()
 #define EngineCameras CEngine::get().getCameras()
 #define EngineScripting CEngine::get().getScriptingModule()
+#define EnginePhysics CEngine::get().getPhysics()

@@ -48,6 +48,9 @@ CModulePhysics::FilterGroup CModulePhysics::getFilterByName(const std::string& n
 		else if (strcmp("projectile", name.c_str()) == 0) {
 			return CModulePhysics::FilterGroup::Projectile;
 		}
+		else if (strcmp("all", name.c_str()) == 0) {
+			return CModulePhysics::FilterGroup::All;
+		}
     return CModulePhysics::FilterGroup::All;
 }
 
@@ -344,26 +347,29 @@ void CModulePhysics::render()
 
 void CModulePhysics::CustomSimulationEventCallback::onTrigger(PxTriggerPair* pairs, PxU32 count)
 {
-  for (PxU32 i = 0; i < count; ++i)
-  {
-    if (pairs[i].flags & (PxTriggerPairFlag::eREMOVED_SHAPE_TRIGGER | PxTriggerPairFlag::eREMOVED_SHAPE_OTHER
- ))
-    {
-      continue;
-    }
+	for (PxU32 i = 0; i < count; ++i)
+	{
+		if (pairs[i].flags & (PxTriggerPairFlag::eREMOVED_SHAPE_TRIGGER | PxTriggerPairFlag::eREMOVED_SHAPE_OTHER
+			))
+		{
+			continue;
+		}
 
 
-    CHandle h_trigger_comp_collider;
-    h_trigger_comp_collider.fromVoidPtr( pairs[i].triggerActor->userData);
-    
-    CHandle h_other_comp_collider;
-    h_other_comp_collider.fromVoidPtr(pairs[i].otherActor->userData);
+		CHandle h_trigger_comp_collider;
+		h_trigger_comp_collider.fromVoidPtr(pairs[i].triggerActor->userData);
+
+		CHandle h_other_comp_collider;
+		h_other_comp_collider.fromVoidPtr(pairs[i].otherActor->userData);
 		CEntity* e_trigger = h_trigger_comp_collider.getOwner();
 		CEntity* e_other = h_other_comp_collider.getOwner();
 		TCompTrigger* comp_trigger = e_trigger->get<TCompTrigger>();
 
-		if (comp_trigger->trigger_type == "activador")
-			int a = 1;
+
+		if (comp_trigger->trigger_type != "player_killer"){
+			auto a = e_trigger->getName();
+			int b = 1;
+		}
 
 
     if (pairs[i].status == PxPairFlag::eNOTIFY_TOUCH_FOUND)
