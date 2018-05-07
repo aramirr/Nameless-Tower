@@ -118,7 +118,7 @@
 		]
 	},
 	{
-		"name" : "text_tutorial",
+		"name" : "text_sala_eleccion",
 		"type" : "widget",
 		"position" : "810 650",
 		"children" : [
@@ -129,6 +129,78 @@
 				"size" : "300 50",
 				"font_size" : 32.0,
 				"text" : "CHOOSE WISELY. REMEMBER THE CLUE",
+				"halign" : "center",
+				"valign" : "center",
+				"color" : "0.5 0.5 0.5 1"
+			}
+		]
+	},
+	{
+		"name" : "text_pista",
+		"type" : "widget",
+		"position" : "810 650",
+		"children" : [
+		    {
+				"name" : "tutorial",
+				"type" : "text",
+				"position" : "0 250",
+				"size" : "300 50",
+				"font_size" : 32.0,
+				"text" : "HMMM..., THIS SEEMS IMPORTANT",
+				"halign" : "center",
+				"valign" : "center",
+				"color" : "0.5 0.5 0.5 1"
+			}
+		]
+	},
+	{
+		"name" : "text_plataforma_eleccion",
+		"type" : "widget",
+		"position" : "810 650",
+		"children" : [
+		    {
+				"name" : "tutorial",
+				"type" : "text",
+				"position" : "0 250",
+				"size" : "300 50",
+				"font_size" : 32.0,
+				"text" : "CHOOSE YOUR NEXT STEP WISELY FOR IT COULD COST YOR LIFE",
+				"halign" : "center",
+				"valign" : "center",
+				"color" : "0.5 0.5 0.5 1"
+			}
+		]
+	},
+	{
+		"name" : "text_plataforma_activable",
+		"type" : "widget",
+		"position" : "810 650",
+		"children" : [
+		    {
+				"name" : "tutorial",
+				"type" : "text",
+				"position" : "0 250",
+				"size" : "300 50",
+				"font_size" : 32.0,
+				"text" : "THE POWER OF WIND COULD HELP YOU MOVE THIS PLATFORM",
+				"halign" : "center",
+				"valign" : "center",
+				"color" : "0.5 0.5 0.5 1"
+			}
+		]
+	},
+	{
+		"name" : "text_planear",
+		"type" : "widget",
+		"position" : "810 650",
+		"children" : [
+		    {
+				"name" : "tutorial",
+				"type" : "text",
+				"position" : "0 250",
+				"size" : "300 50",
+				"font_size" : 32.0,
+				"text" : "PRESS G TO GLIDE",
 				"halign" : "center",
 				"valign" : "center",
 				"color" : "0.5 0.5 0.5 1"
