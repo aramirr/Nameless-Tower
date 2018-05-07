@@ -24,6 +24,7 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("activate_camera", &LogicManager::activateCamera)
 		.set("disactivate_camera", &LogicManager::disactivateCamera)
 		.set("set_ambient", &LogicManager::setAmbientAdjustment)
+		.set("play_last_cinematic", &LogicManager::playLastCinematic)
 		;
 }
 
