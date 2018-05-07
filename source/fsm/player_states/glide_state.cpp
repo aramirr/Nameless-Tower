@@ -51,6 +51,7 @@ namespace FSM
 		VEC3 new_pos = my_pos;
 		float y_speed;
 
+		player->jumping_start_height = c_my_transform->getPosition().y;
 		// Chequea movimiento
 		if (EngineInput["left"].isPressed()) {
 			if (!player->looking_left) {

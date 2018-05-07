@@ -351,24 +351,27 @@ void CModulePhysics::CustomSimulationEventCallback::onTrigger(PxTriggerPair* pai
     {
       continue;
     }
+
+
     CHandle h_trigger_comp_collider;
     h_trigger_comp_collider.fromVoidPtr( pairs[i].triggerActor->userData);
     
     CHandle h_other_comp_collider;
     h_other_comp_collider.fromVoidPtr(pairs[i].otherActor->userData);
 		CEntity* e_trigger = h_trigger_comp_collider.getOwner();
-		auto aux = e_trigger->getName();
-		if (aux == "AscensorTrigger")
-			int a = 1;
 		CEntity* e_other = h_other_comp_collider.getOwner();
+		TCompTrigger* comp_trigger = e_trigger->get<TCompTrigger>();
+
+		if (comp_trigger->trigger_type == "activador")
+			int a = 1;
+
 
     if (pairs[i].status == PxPairFlag::eNOTIFY_TOUCH_FOUND)
     {
-	  e_trigger->sendMsg(TMsgTriggerEnter{ h_other_comp_collider.getOwner() });
+			e_trigger->sendMsg(TMsgTriggerEnter{ h_other_comp_collider.getOwner() });
     }
     else if (pairs[i].status == PxPairFlag::eNOTIFY_TOUCH_LOST)
     {
-		TCompTrigger* comp_trigger = e_trigger->get<TCompTrigger>();
 		if (comp_trigger->trigger_type != "player_killer")
 			e_trigger->sendMsg(TMsgTriggerExit{ h_other_comp_collider.getOwner() });
     }

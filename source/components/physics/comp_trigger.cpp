@@ -23,6 +23,10 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 	h_other_entity = msg.h_other_entity;
 	CEntity* e_other_entity = h_other_entity;
 	std::string other_entity_name = e_other_entity->getName();
+	
+	if (trigger_type == "activador")
+		int a = 1;
+
 	if (trigger_type == "runner_appear" && other_entity_name == "The Player") {
 		CEntity* runner_entity = (CEntity*)getEntityByName("Boss Runner");
 		TMsgRunnerAppear msg2;
@@ -45,6 +49,17 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		//CHandle(this).getOwner().destroy(); //En lugares con 2 caminos no puedes poner checkpoint a mitad del camino, solo en la interseccion entre los dos caminos (culpas a manu y leo)
 	}
 	else if (trigger_type == "plattform" && other_entity_name == "The Player"){
+		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
+		TMsgAttachTo attach_msg;
+		attach_msg.h_attacher = h_other_entity;
+		attach_msg.h_attached = e_collider_entity;
+		e_collider_entity->sendMsg(attach_msg);
+		CEntity* camDER = (CEntity *)getEntityByName("camera_manager");
+		//CEntity* camIZQ = (CEntity *)getEntityByName("camera_orbit_IZQ");
+		camDER->sendMsg(attach_msg);
+		//camIZQ->sendMsg(attach_msg);
+	}
+	else if (trigger_type == "cinta" && other_entity_name == "The Player") {
 		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
 		TMsgAttachTo attach_msg;
 		attach_msg.h_attacher = h_other_entity;

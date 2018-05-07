@@ -185,5 +185,6 @@ void CAIRotator::detachPlayer(const TMsgDetachOf& msg) {
 }
 
 void CAIRotator::activateRotation(const TMsgRotate& msg) {
-	ChangeState("next_config_state");
+	if (state == "stop_state")
+		ChangeState("next_config_state");
 }

@@ -31,6 +31,8 @@ public:
   CFileDataProvider(const char* infilename) {
     f = fopen(infilename, "rb");
     name = infilename;
+		if (!isValid())
+			auto a = name;
     assert(isValid());
   }
 
