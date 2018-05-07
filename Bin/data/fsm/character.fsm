@@ -567,6 +567,17 @@
 				"value" : true
 			},
 			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "glide",
+			"target" : "dying",
+			"variable" : {
+				"name" : "hit",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
 		},		
 		{
 			"type" : "TimeTransition",
