@@ -1,0 +1,104 @@
+[
+{
+    "entity":
+    {
+      "name": "ATextPlatActivable"
+      ,
+      "transform":
+      {
+        "pos": "-28.896 18.102 12.542"
+        ,
+        "rotation": "0.0 -0.882102 0.0 -0.471058"
+      }
+      ,
+      "render":
+      []
+      ,
+      "trigger":
+      {
+        "trigger_type": "default"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 3 1"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+},
+{
+    "entity":
+    {
+      "name": "HTextPlatActivable"
+      ,
+      "transform":
+      {
+        "pos": "-24.210 22.523 20.152"
+        ,
+        "rotation": "0.0 -0.882102 0.0 -0.471058"
+      }
+      ,
+      "render":
+      []
+      ,
+      "trigger":
+      {
+        "trigger_type": "default"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 3 1"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+},
+{
+    "entity":
+    {
+      "name": "ATextPlanear"
+      ,
+      "transform":
+      {
+        "pos": "21.209 8.990 23.290"
+        ,
+        "rotation": "0.0 -0.882102 0.0 -0.471058"
+      }
+      ,
+      "render":
+      []
+      ,
+      "trigger":
+      {
+        "trigger_type": "default"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 3 1"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+}
+]

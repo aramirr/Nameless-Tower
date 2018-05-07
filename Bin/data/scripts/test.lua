@@ -56,11 +56,13 @@ end
 function OnTriggerEnterTriggerWallEntry04()
 	lm:set_ambient(0.1)
 	lm:hide_mesh("Wall04")
+	lm:activate_text("text_sala_eleccion")
 end
 
 function OnTriggerEnterTriggerWallExit04()
 	lm:set_ambient(1)
 	lm:unhide_mesh("Wall04")
+	lm:disactivate_text("text_sala_eleccion")
 end
 
 function OnTriggerEnterTriggerWallEntry05()
@@ -123,11 +125,11 @@ end
 
 function OnTriggerEnterATextPlatActivable()
 	
-	lm:activate_text("text_sala_eleccion")
+	lm:activate_text("text_plataforma_activable")
 end
 
 function OnTriggerEnterHTextPlatActivable()
-	lm:disactivate_text("text_sala_eleccion")
+	lm:disactivate_text("text_plataforma_activable")
 end
 
 function OnTriggerEnterATextPlanear()
