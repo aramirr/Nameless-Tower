@@ -1197,7 +1197,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 0.05
+        "speed": 0.5
         ,
         "delay": 0.1
         ,
@@ -1205,7 +1205,7 @@
         ,
         "waypoints":
         [
-          "1.45625 46.9102 30.9402"
+          "1.45625 44.0 30.9402"
           ,
           "1.45625 50.9102 30.9402"
         ]
@@ -1262,7 +1262,7 @@
       {
         "trigger_type": "plattform"
         ,
-        "collider_entity": "ascensor"
+        "collider_entity": "Ascensor"
         ,
         "render": false
       }
@@ -3109,54 +3109,6 @@
   {
     "entity":
     {
-      "name": "Destruible"
-      ,
-      "transform":
-      {
-        "pos": "16.774 52.3108 26.1655"
-        ,
-        "rotation": "0.0 0.471059 0.0 -0.882102"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-      ]
-      ,
-      "ai_destroyable":
-      {
-        "trigger_actor": "The Player"
-        ,
-        "destroy_time": 1.0
-        ,
-        "recover_time": 5.0
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 -0.3 0.0"
-        ,
-        "halfExtent": "1.25557 0.48 1.70118"
-        ,
-        "is_dynamic": true
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Destruible_trigger"
       ,
       "transform":
@@ -3197,7 +3149,7 @@
   {
     "entity":
     {
-      "name": "Destruible_post"
+      "name": "Destruible"
       ,
       "transform":
       {
@@ -3209,6 +3161,14 @@
       "render":
       [
         {
+          "mesh": "data/meshes/Destruible.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        },
+        {
           "mesh": "data/meshes/Destruible_post.mesh"
           ,
           "materials":
@@ -3216,7 +3176,28 @@
             "data/materials/DestruibleMat.material"
           ]
         }
-      ]
+      ],
+      "ai_destroyable":
+      {
+        "trigger_actor": "The Player"
+        ,
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 -0.3 0.0"
+        ,
+        "halfExtent": "1.25557 0.48 1.70118"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
     }
   }
   ,
@@ -4096,9 +4077,9 @@
         "configs":
         [
           {
-            "speed": 0.1
+            "speed": 1
             ,
-            "wait_time": 3.0
+            "wait_time": 5.0
             ,
             "degrees": 90.0
             ,
@@ -4204,9 +4185,9 @@
         "configs":
         [
           {
-            "speed": 0.1
+            "speed": 1
             ,
-            "wait_time": 3.0
+            "wait_time": 5.0
             ,
             "degrees": 90.0
             ,
@@ -6968,42 +6949,6 @@
           ]
         }
       ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Collisions33_cintaTrigger"
-      ,
-      "transform":
-      {
-        "pos": "10.5807 42.188 25.9796"
-        ,
-        "rotation": "0.0 -0.819795 0.0 -0.572657"
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "plattform"
-        ,
-        "collider_entity": "Collisions33_cinta"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "3.79187 1.54775 12.0446"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
     }
   }
   ,

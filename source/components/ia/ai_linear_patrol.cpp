@@ -27,7 +27,6 @@ void CAILinearPatrol::Init()
 }
 
 void CAILinearPatrol::debugInMenu() {
-
 	IAIController::debugInMenu();
 	TCompTransform *mypos = getMyTransform();
 	VEC3 vp = mypos->getPosition();
@@ -95,7 +94,7 @@ void CAILinearPatrol::MoveToWaypointState(float dt)
 	VEC3 my_pos = mypos->getPosition();
 	VEC3 dir = wppos - mypos->getPosition();
 	dir.Normalize();
-	VEC3 new_pos = mypos->getPosition() + (speed * 100) * dir * DT;
+	VEC3 new_pos = mypos->getPosition() + (speed) * dir * DT;
 	mypos->setPosition(new_pos);
 
 	
