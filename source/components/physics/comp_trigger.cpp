@@ -42,10 +42,8 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		TMsgRunnerStop msg2;
 		runner_entity->sendMsg(msg2);
 	}
-	else if (trigger_type == "checkpoint" && other_entity_name == "The Player") {
-		TMsgCheckpoint msg2;
-		msg2.appearing_position = appearing_position;
-		e_other_entity->sendMsg(msg2);
+	else if (trigger_type == "checkpoint" && other_entity_name == "The Player") {		
+		Engine.getTower().setLastCheckpoint(appearing_position);
 		//CHandle(this).getOwner().destroy(); //En lugares con 2 caminos no puedes poner checkpoint a mitad del camino, solo en la interseccion entre los dos caminos (culpas a manu y leo)
 	}
 	else if (trigger_type == "plattform" && other_entity_name == "The Player"){
