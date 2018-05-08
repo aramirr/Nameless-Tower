@@ -37,6 +37,7 @@ public:
     return render_target_view;
   }
   CTexture* getZTexture() { return ztexture; }
+  static CRenderToTexture* getCurrentRT() { return current_rt; }
 
   void debugInMenu() override;
 };

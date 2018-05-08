@@ -19,6 +19,8 @@ void TCompRenderOutlines::load(const json& j, TEntityParseContext& ctx) {
   mesh = Resources.get("unit_quad_xy.mesh")->as<CRenderMesh>();
 }
 
+extern ID3D11ShaderResourceView* depth_shader_resource_view;
+
 void TCompRenderOutlines::apply( ) {
   if (!enabled)
     return;
@@ -28,9 +30,15 @@ void TCompRenderOutlines::apply( ) {
   cb_globals.global_shared_fx_amount = amount;
   cb_globals.updateGPU();
 
-  //CRenderToTexture* rt = CRenderToTexture::getCurrent();
+  // Disable the ZBuffer
+  CRenderToTexture* rt = CRenderToTexture::getCurrentRT();
+  ID3D11RenderTargetView* rtv = rt->getRenderTargetView();
+  Render.ctx->OMSetRenderTargets(1, &rtv, nullptr);
+
+  Render.ctx->PSSetShaderResources( 0, 1, &depth_shader_resource_view);
 
   tech->activate();
   mesh->activateAndRender();
 
+  rt->activateRT();
 }
