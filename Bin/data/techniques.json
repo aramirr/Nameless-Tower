@@ -178,6 +178,31 @@
     "rs_config": "reverse_culling",
     "blend" : "combinative_gbuffer"
   },
+  "pbr_outline": {
+    "vs_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_GBuffer",
+    "ps_entry_point": "",
+    "vertex_type": "PosNUvUvT",
+    "category": "gbuffer",
+    "textures": {
+      "environment": "data/textures/cubemaps/env.dds",
+      "irradiance": "data/textures/cubemaps/irradiance.dds"
+    },
+    "z" : "default_with_stencil",
+    "priority" : 150
+  },
+  "pbr_post_outline": {
+    "vs_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_GBuffer",
+    "ps_entry_point": "PS_GBuffer",
+    "vertex_type": "PosNUvUvT",
+    "category": "gbuffer",
+    "textures": {
+      "environment": "data/textures/cubemaps/env.dds",
+      "irradiance": "data/textures/cubemaps/irradiance.dds"
+    },
+    "priority" : 160
+  },
 
   "pbr_mix": {
     "vs_file": "data/shaders/pbr.fx",

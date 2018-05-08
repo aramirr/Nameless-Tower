@@ -10,6 +10,7 @@ enum ZConfig {
 , ZCFG_TEST_BUT_NO_WRITE
 , ZCFG_TEST_EQUAL
 , ZCFG_INVERSE_TEST_NO_WRITE
+, ZCFG_DEFAULT_WITH_STENCIL
 , ZCFG_COUNT
 };
 void activateZConfig( ZConfig cfg);
