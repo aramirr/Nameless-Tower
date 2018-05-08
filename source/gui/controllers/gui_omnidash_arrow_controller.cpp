@@ -35,13 +35,13 @@ namespace GUI
   }
   void COmnidashArrowController::setActive(bool _active)
   {
-    active = _active;
+    /*active = _active;
     if (active) {
       EngineUI.activateWidget("Omnidash");
     }
     else {
       EngineUI.desactivateWidget("Omnidash");
-    }
+    }*/
   }
 
   
