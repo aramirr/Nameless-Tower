@@ -35,7 +35,7 @@ struct TSkinVertex {
   VEC3 pos;
   VEC3 normal;
   VEC2 uv;
-  //VEC4 tangent;
+  VEC4 tangent;
   uint8_t bone_ids[4];
   uint8_t bone_weights[4];    // 0.255   -> 0..1
 };
