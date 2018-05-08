@@ -50,12 +50,12 @@ void CAICutDoor::ClosingState(float dt) {
 	TCompHierarchy *my_hierarchy = e->get<TCompHierarchy>();
 	VEC3 my_pos = my_hierarchy->getPosition();
 	if (up) {
-		my_pos.y -= closing_speed * dt;
+		my_pos.y -= closing_speed * DT;
 		if (my_pos.y < 0.f)
 			my_pos.y = 0.f;
 	}
 	else {
-		my_pos.y += closing_speed * dt;
+		my_pos.y += closing_speed * DT;
 		if (my_pos.y > 0.f)
 			my_pos.y = 0.f;
 	}
@@ -78,12 +78,12 @@ void CAICutDoor::OpeningState(float dt) {
 	TCompHierarchy *my_hierarchy = e->get<TCompHierarchy>();
 	VEC3 my_pos = my_hierarchy->getPosition();
 	if (up) {
-		my_pos.y += opening_speed * dt;
+		my_pos.y += opening_speed * DT;
 		if (my_pos.y > distance)
 			my_pos.y = distance;
 	}
 	else { 
-		my_pos.y -= opening_speed * dt; 
+		my_pos.y -= opening_speed * DT;
 		if (my_pos.y < -distance)
 			my_pos.y = -distance;
 	}

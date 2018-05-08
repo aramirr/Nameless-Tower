@@ -72,7 +72,7 @@ void CAIRotator::RotateState(float dt) {
 	float y, p, r;
 	my_transform->getYawPitchRoll(&y, &p, &r);
 
-	float rotation = config_states[it_config].speed * dt;
+	float rotation = config_states[it_config].speed * DT;
 	if (config_states[it_config].axis == X) {
 		change_color(VEC4(1, 0, 0, 0));
 		if (config_states[it_config].increase) {
@@ -163,7 +163,7 @@ void CAIRotator::RotateState(float dt) {
 
 void CAIRotator::StopState(float dt) {
 	if (config_states[it_config].wait_time != -1.f) {
-		current_time += dt;
+		current_time += DT;
 		if (current_time >= config_states[it_config].wait_time)
 			ChangeState("next_config_state");
 	}

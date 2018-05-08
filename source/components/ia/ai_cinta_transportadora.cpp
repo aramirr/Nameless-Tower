@@ -83,11 +83,11 @@ void CAICintaTransportadora::MovingState(float dt) {
 		bool move_right = player_transform->isInLeft(player_controller->center);
 		if (config_states[it_config].state_left)
 		{
-			p_y -= dt * config_states[it_config].state_speed;
+			p_y -= DT * config_states[it_config].state_speed;
 		}
 		else
 		{
-			p_y += dt * config_states[it_config].state_speed;
+			p_y += DT * config_states[it_config].state_speed;
 		}
 		player_transform->setYawPitchRoll(p_y, p_p);
 		VEC3 center = player_controller->center;
@@ -97,7 +97,7 @@ void CAICintaTransportadora::MovingState(float dt) {
 		VEC3 delta_pos = newPos - p_position;
 		player_collider->controller->move(physx::PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, DT, physx::PxControllerFilters());
 	}
-	current_time += dt;
+	current_time += DT;
 	if (current_time > config_states[it_config].state_time)
 		ChangeState("next_config_state");
 };
