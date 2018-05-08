@@ -274,6 +274,15 @@
     "blend" : "additive"
   },
 
+  "outlines": {
+    "vs_file": "data/shaders/screen_quad.fx",
+    "ps_file": "data/shaders/outlines.fx",
+    "vertex_type": "PosClr",
+    "category" : "fx",
+    "z" : "on_non_zero_stencil",
+    "blend" : "combinative"
+  },
+
   "gui" : {
     "vs_file": "data/shaders/gui.fx",
     "vs_entry_point": "VS_GUI",

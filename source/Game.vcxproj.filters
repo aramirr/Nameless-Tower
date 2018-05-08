@@ -337,6 +337,9 @@
     <ClCompile Include="skeleton\bone_correction.cpp">
       <Filter>skeleton</Filter>
     </ClCompile>
+    <ClCompile Include="components\postfx\comp_render_outlines.cpp">
+      <Filter>components\postfx</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -891,6 +894,9 @@
     </ClInclude>
     <ClInclude Include="skeleton\bone_correction.h">
       <Filter>skeleton</Filter>
+    </ClInclude>
+    <ClInclude Include="components\postfx\comp_render_outlines.h">
+      <Filter>components\postfx</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

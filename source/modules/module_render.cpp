@@ -15,6 +15,7 @@
 #include "components/postfx/comp_render_blur.h"
 #include "components/postfx/comp_render_blur_radial.h"
 #include "components/postfx/comp_color_grading.h"
+#include "components/postfx/comp_render_outlines.h"
 #include "render/mesh/collision_mesh.h"
 #include "components/postfx/comp_render_bloom.h"
 
@@ -242,6 +243,10 @@ void CModuleRender::generateFrame() {
       TCompColorGrading* c_color_grading = e_cam->get< TCompColorGrading >();
       if (c_color_grading)
         curr_rt = c_color_grading->apply(curr_rt);
+
+      TCompRenderOutlines* c_render_outlines = e_cam->get< TCompRenderOutlines >();
+      if (c_render_outlines)
+        c_render_outlines->apply();
     }
 
     Render.startRenderInBackbuffer();

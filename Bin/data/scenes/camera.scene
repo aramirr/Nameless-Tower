@@ -30,6 +30,9 @@
       "color_grading" : {
         "enabled" :  false,
         "lut": "data/textures/lut/lut1.dds"
+      },
+      "render_outlines" : {
+        "enabled" : true
       }
     }
   }
