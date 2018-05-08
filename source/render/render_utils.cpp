@@ -100,7 +100,7 @@ struct CZConfigs {
 
     // Stencil operations if pixel is back-facing
     desc.BackFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
-    desc.BackFace.StencilDepthFailOp = D3D11_STENCIL_OP_DECR;
+    desc.BackFace.StencilDepthFailOp = D3D11_STENCIL_OP_KEEP;
     desc.BackFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
     desc.BackFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
 
@@ -409,7 +409,7 @@ void activateAllSamplers() {
 
 void activateZConfig(enum ZConfig cfg) {
   assert(zconfigs.z_cfgs[cfg] != nullptr);
-  Render.ctx->OMSetDepthStencilState(zconfigs.z_cfgs[cfg], 0);
+  Render.ctx->OMSetDepthStencilState(zconfigs.z_cfgs[cfg], 255);
 }
 
 void activateRSConfig(enum RSConfig cfg) {
