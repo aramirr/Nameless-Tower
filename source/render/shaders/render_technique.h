@@ -18,6 +18,7 @@ class CRenderTechnique : public IResource {
   std::string category = "default";
   // To compare categories string faster than comparing strings
   uint32_t category_id = 0;
+  uint32_t priority = 0;
 
   // Raster configuration for this tech is the default
   RSConfig    rs_config = RSCFG_DEFAULT;
@@ -48,6 +49,7 @@ public:
   bool usesSkin() const { return uses_skin; }
   bool usesInstancing() const;
 
+  uint32_t getPriority() const { return priority; }
   uint32_t getCategoryID() const { return category_id; }
   const std::string& getCategory() const { return category; }
 };
