@@ -50,16 +50,16 @@ namespace FSM
 		EngineUI.setOmindash(false);
 
 		CEntity* e_camera = EngineCameras.getActiveCamera();
-		CEntity* render_camera = EngineCameras.getOutputCamera();
-		TCompCamera* c_render_camera = render_camera->get< TCompCamera >();
+		/*CEntity* render_camera = EngineCameras.getOutputCamera();
+		TCompCamera* c_render_camera = render_camera->get< TCompCamera >();*/
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		const Input::TInterface_Mouse& mouse = EngineInput.mouse();
 		VEC3 my_pos = c_my_transform->getPosition();
 		VEC3 player_position;
 		c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
-		player_position.x *= c_render_camera->getViewport().width / c_camera->getViewport().width;
-		player_position.y *= c_render_camera->getViewport().height / c_camera->getViewport().height;
+		/*player_position.x *= c_render_camera->getViewport().width / c_camera->getViewport().width;
+		player_position.y *= c_render_camera->getViewport().height / c_camera->getViewport().height;*/
 		player->omnidash_arrow = mouse._position - VEC2(player_position.x /*+ 400*/, player_position.y /*+ 300*/);
 		player->omnidash_arrow.Normalize();
 

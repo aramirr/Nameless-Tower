@@ -12,7 +12,7 @@ namespace GUI
       float angle;
 
       CEntity* player = (CEntity*)getEntityByName("The Player");
-	    CEntity* e_camera = EngineCameras.getOutputCamera();
+	    CEntity* e_camera = EngineCameras.getActiveCamera();
       TCompCamera* c_camera = e_camera->get< TCompCamera >();
       TCompTransform *c_my_transform = player->get<TCompTransform>();
       const Input::TInterface_Mouse& mouse = EngineInput.mouse();
@@ -35,13 +35,13 @@ namespace GUI
   }
   void COmnidashArrowController::setActive(bool _active)
   {
-    /*active = _active;
+    active = _active;
     if (active) {
       EngineUI.activateWidget("Omnidash");
     }
     else {
       EngineUI.desactivateWidget("Omnidash");
-    }*/
+    }
   }
 
   
