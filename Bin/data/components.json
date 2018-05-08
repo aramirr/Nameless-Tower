@@ -12,6 +12,7 @@
     "player_controller",
     "bullet_controller",
     "skeleton",
+    "skel_lookat",
     "bone_tracker",
     "ai_patrol",
     "camera_flyover",
@@ -20,13 +21,14 @@
     "camera",
     "light_dir",
     "culling",
-		"fsm",
-		"fake_animation",
-		"player_input"
+	"fsm",
+	"fake_animation",
+	"player_input"
   ],
 	"render_debug" : 
 	[
     "transform",
-    "light_dir"
+    "light_dir",
+    "skeleton"
 	]
 }

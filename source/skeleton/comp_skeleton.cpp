@@ -176,10 +176,24 @@ void TCompSkeleton::updateCtesBones() {
 
 void TCompSkeleton::renderDebug() {
   assert(model);
+
   VEC3 lines[MAX_SUPPORTED_BONES][2];
   int nrLines = model->getSkeleton()->getBoneLines(&lines[0][0].x);
   TCompTransform* transform = get<TCompTransform>();
   float scale = transform->getScale();
   for (int currLine = 0; currLine < nrLines; currLine++)
     renderLine(lines[currLine][0] * scale, lines[currLine][1] * scale, VEC4(1, 1, 1, 1));
+
+  // Show list of bones
+  auto mesh = Resources.get("axis.mesh")->as<CRenderMesh>();
+  auto core = (CGameCoreSkeleton*)model->getCoreModel();
+  auto& bones_to_debug = core->bone_ids_to_debug;
+  for (auto it : bones_to_debug) {
+    CalBone* cal_bone = model->getSkeleton()->getBone(it);
+    QUAT rot = Cal2DX(cal_bone->getRotationAbsolute());
+    VEC3 pos = Cal2DX(cal_bone->getTranslationAbsolute());
+    MAT44 matrix;
+    matrix = MAT44::CreateFromQuaternion(rot) * MAT44::CreateTranslation(pos);
+    renderMesh(mesh, matrix, VEC4(1, 1, 1, 1));
+  }
 }

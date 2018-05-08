@@ -6,8 +6,8 @@
 DECL_OBJ_MANAGER("camera_flyover", TCompCameraFlyover);
 
 void TCompCameraFlyover::debugInMenu() {
-  ImGui::DragFloat("Max Speed", &_speed, 10.f, 1.f, 100.f);
-  ImGui::DragFloat("Sensitivity", &_sensitivity, 0.01f, 0.001f, 0.1f);
+  ImGui::DragFloat("Max Speed", &_speed, 0.1f, 1.f, 100.f);
+  ImGui::DragFloat("Sensitivity", &_sensitivity, 0.001f, 0.001f, 0.1f);
   ImGui::DragFloat("Inertia", &_ispeed_reduction_factor, 0.001f, 0.7f, 1.f);
   ImGui::LabelText("Curr Speed", "%f", _ispeed);
 }

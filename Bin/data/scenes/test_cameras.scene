@@ -8,10 +8,11 @@
 			},
 			"render" : {},
 			"camera_flyover" : {
-        "key" : "Z"
-      },
+		        "key" : "Z"
+		      },
 			"camera" : {
-				"fov" : 80 
+				"fov" : 80,
+				"z_near" : 0.01
 			},
 			"culling": true
 		}

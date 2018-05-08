@@ -331,6 +331,9 @@
     <ClCompile Include="gui\controllers\gui_main_menu_controller.cpp">
       <Filter>gui\controllers</Filter>
     </ClCompile>
+    <ClCompile Include="skeleton\comp_skel_lookat.cpp">
+      <Filter>skeleton</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -879,6 +882,9 @@
     </ClInclude>
     <ClInclude Include="gui\controllers\gui_main_menu_controller.h">
       <Filter>gui\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="skeleton\comp_skel_lookat.h">
+      <Filter>skeleton</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
