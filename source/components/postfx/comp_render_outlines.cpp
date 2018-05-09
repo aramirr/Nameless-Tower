@@ -34,11 +34,14 @@ void TCompRenderOutlines::apply( ) {
   CRenderToTexture* rt = CRenderToTexture::getCurrentRT();
   ID3D11RenderTargetView* rtv = rt->getRenderTargetView();
   Render.ctx->OMSetRenderTargets(1, &rtv, nullptr);
-
-  Render.ctx->PSSetShaderResources( 0, 1, &depth_shader_resource_view);
+  
+  // Activate the depth stencil buffer as texture 0
+  Render.ctx->PSSetShaderResources( TS_ALBEDO, 1, &Render.depth_shader_resource_view);
 
   tech->activate();
   mesh->activateAndRender();
 
+  // Restore the current render target as it was
+  CTexture::setNullTexture(TS_ALBEDO);
   rt->activateRT();
 }

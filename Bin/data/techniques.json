@@ -178,31 +178,6 @@
     "rs_config": "reverse_culling",
     "blend" : "combinative_gbuffer"
   },
-  "pbr_outline": {
-    "vs_file": "data/shaders/pbr.fx",
-    "vs_entry_point": "VS_GBuffer",
-    "ps_entry_point": "",
-    "vertex_type": "PosNUvUvT",
-    "category": "gbuffer",
-    "textures": {
-      "environment": "data/textures/cubemaps/env.dds",
-      "irradiance": "data/textures/cubemaps/irradiance.dds"
-    },
-    "z" : "default_with_stencil",
-    "priority" : 150
-  },
-  "pbr_post_outline": {
-    "vs_file": "data/shaders/pbr.fx",
-    "vs_entry_point": "VS_GBuffer",
-    "ps_entry_point": "PS_GBuffer",
-    "vertex_type": "PosNUvUvT",
-    "category": "gbuffer",
-    "textures": {
-      "environment": "data/textures/cubemaps/env.dds",
-      "irradiance": "data/textures/cubemaps/irradiance.dds"
-    },
-    "priority" : 160
-  },
 
   "pbr_mix": {
     "vs_file": "data/shaders/pbr.fx",
@@ -274,13 +249,37 @@
     "blend" : "additive"
   },
 
+  "pbr_outline": {
+    "vs_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_GBuffer",
+    "ps_entry_point": "",
+    "vertex_type": "PosNUvUvT",
+    "category": "gbuffer",
+    "z" : "test_no_writes_mark_stencil",
+    "priority" : 150,
+    "comment" : "This needs to go after the pbr's solids, but just before the object to render"
+  },
+  "pbr_post_outline": {
+    "vs_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_GBuffer",
+    "ps_entry_point": "PS_GBuffer",
+    "vertex_type": "PosNUvUvT",
+    "category": "gbuffer",
+    "textures": {
+      "environment": "data/textures/cubemaps/env.dds",
+      "irradiance": "data/textures/cubemaps/irradiance.dds"
+    },
+    "priority" : 160,
+    "comment" : "This needs to go after the pbr_outline"
+  },
   "outlines": {
     "vs_file": "data/shaders/screen_quad.fx",
     "ps_file": "data/shaders/outlines.fx",
     "vertex_type": "PosClr",
     "category" : "fx",
-    "z" : "on_non_zero_stencil",
-    "blend" : "combinative"
+    "blend" : "combinative",
+    "ps_entry_point__if_stencil_test": "PS_Solid",
+    "z__if_stencil_test" : "on_non_zero_stencil"
   },
 
   "gui" : {

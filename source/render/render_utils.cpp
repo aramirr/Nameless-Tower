@@ -87,6 +87,7 @@ struct CZConfigs {
     desc.DepthEnable = TRUE;
     desc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ZERO; // Do NOT update the Z
     desc.DepthFunc = D3D11_COMPARISON_LESS;
+
     // Stencil test parameters
     desc.StencilEnable = true;
     desc.StencilReadMask = 0xFF;
@@ -104,7 +105,7 @@ struct CZConfigs {
     desc.BackFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
     desc.BackFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
 
-    if (!add(desc, ZCFG_DEFAULT_WITH_STENCIL, "default_with_stencil"))
+    if (!add(desc, ZCFG_TEST_NO_WRITES_MARK_STENCIL, "test_no_writes_mark_stencil"))
       return false;
 
     // Default app, only pass those which are near than the previous samples

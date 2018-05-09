@@ -8,7 +8,6 @@
 #pragma comment(lib, "dxguid")    // For the setDXName
 
 CRender Render;
-ID3D11ShaderResourceView* depth_shader_resource_view = nullptr;
 
 bool CRender::createDevice(int new_width, int new_height) {
 
@@ -70,7 +69,7 @@ bool CRender::createDevice(int new_width, int new_height) {
   desc.Height = height;
   desc.MipLevels = 1;
   desc.ArraySize = 1;
-  desc.Format = DXGI_FORMAT_R24G8_TYPELESS; // DXGI_FORMAT_D24_UNORM_S8_UINT;
+  desc.Format = DXGI_FORMAT_R24G8_TYPELESS; // was DXGI_FORMAT_D24_UNORM_S8_UINT;
   desc.SampleDesc.Count = 1;
   desc.SampleDesc.Quality = 0;
   desc.Usage = D3D11_USAGE_DEFAULT;
@@ -101,7 +100,11 @@ bool CRender::createDevice(int new_width, int new_height) {
   hr = Render.device->CreateShaderResourceView(depthTexture, &srv_desc, &depth_shader_resource_view);
   if (FAILED(hr))
     return false;
-  setDXName(depth_shader_resource_view, "Back-ZBuffer");
+  setDXName(depth_shader_resource_view, "BackBuffer-Stencil");
+
+  // Create a ShaderResourceView of the "depth" part of the resource 
+  // using the strongly typed format DXGI_FORMAT_R24_UNORM_X8_TYPELESS.
+  // Texture2D<float> depthBuffer; // Red contains depth.
 
   return true;
 }
@@ -109,6 +112,7 @@ bool CRender::createDevice(int new_width, int new_height) {
 // -------------------------------------------------------------------
 void CRender::destroyDevice() {
   if (ctx) ctx->ClearState();
+  SAFE_RELEASE(depth_shader_resource_view);
   SAFE_RELEASE(depthTexture);
   SAFE_RELEASE(depthStencilView);
   SAFE_RELEASE(renderTargetView);
