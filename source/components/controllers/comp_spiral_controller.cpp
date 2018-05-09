@@ -68,7 +68,6 @@ void TCompSpiralController::update(float DT) {
 		new_pos.y = offsetY;
 	}
 	VEC3 move_vector = new_pos - start_pos;
-	my_transform->lookAt(new_pos, center);
 
 	if (set_once == false) 
 	{ 
@@ -77,10 +76,6 @@ void TCompSpiralController::update(float DT) {
 		is_left = t_creator->isInLeft(center);
 		set_once = true;
 	}
-
-	float y, p, r;
-	my_transform->getYawPitchRoll(&y, &p, &r);
-	is_left ? my_transform->setYawPitchRoll(deg2rad(-90) + y, p, r) : my_transform->setYawPitchRoll(deg2rad(90)+ y, p, r);
 
 	TCompCollider *my_collider = e->get<TCompCollider>();
 	if (my_collider)
