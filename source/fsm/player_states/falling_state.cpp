@@ -13,11 +13,6 @@ namespace FSM
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->change_animation(player->EAnimations::NajaJumpFall, _is_action, _delay_in, _delay_out);
-		TMsgSetFSMVariable fallingMsg;
-		fallingMsg.variant.setName("is_falling");
-		fallingMsg.variant.setBool(true);
-		e->sendMsg(fallingMsg);
-		dbg("falling\n");
 	}
 
 	bool FallingState::load(const json& jData)
@@ -75,7 +70,6 @@ namespace FSM
 				if (player->jumping_start_height - c_my_transform->getPosition().y > player->jumping_death_height) {
 					ctx.setVariable("hit", true);
 				}
-				ctx.setVariable("is_grounded", true);
 				ctx.setVariable("is_grounded", true);
 				ctx.setVariable("can_omni", true);
 				ctx.setVariable("can_dash", true);

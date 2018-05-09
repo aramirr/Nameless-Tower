@@ -19,6 +19,7 @@ public:
 	VEC3 checkpoint;
 	bool    looking_left;
 	bool    is_grounded;
+	bool    is_falling;
 
 	VEC3	  center;
 	float	  tower_radius;
