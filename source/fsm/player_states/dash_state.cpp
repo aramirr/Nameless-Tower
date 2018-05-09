@@ -40,6 +40,6 @@ namespace FSM
 		ctx.setVariable("dash", false);
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->clear_animations(_delay_out);
+		//player->clear_animations(_delay_out);
 	}
 }
