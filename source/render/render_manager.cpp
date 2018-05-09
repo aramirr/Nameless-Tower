@@ -37,6 +37,7 @@ bool CRenderManager::sortRenderKeys(const TRenderKey& k1, const TRenderKey& k2) 
   if (t1 != t2 ) {
     if (t1->getPriority() != t2->getPriority())
       return t1->getPriority() < t2->getPriority();
+    // I have no other criteria to sort the tech
     return t1 < t2;
   }
   // Materials Wood vs Dark Wood

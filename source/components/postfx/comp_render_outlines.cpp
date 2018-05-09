@@ -28,7 +28,7 @@ void TCompRenderOutlines::apply( ) {
   cb_globals.global_shared_fx_amount = amount;
   cb_globals.updateGPU();
 
-  CRenderToTexture* rt = CRenderToTexture::getCurrent();
+  //CRenderToTexture* rt = CRenderToTexture::getCurrent();
 
   tech->activate();
   mesh->activateAndRender();
