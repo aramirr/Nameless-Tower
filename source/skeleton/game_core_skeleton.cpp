@@ -83,7 +83,17 @@ void CGameCoreSkeleton::debugInMenu() {
     ImGui::TreePop();
   }
 
-  ImGui::DragFloat("Debug Bones Scale", &bone_ids_debug_scale, 0.01f, 0.1f, 5.0f);
+  ImGui::DragFloat("Debug Bones Scale", &bone_ids_debug_scale, 0.01f, 0.1f, 15.0f);
+
+  if (ImGui::TreeNode("LookAt Corrections")) {
+    for (auto& it : lookat_corrections) {
+      ImGui::PushID(&it);
+      it.debugInMenu();
+      ImGui::PopID();
+    }
+    ImGui::TreePop();
+  }
+
 }
 
 // ------------------------------------------------------------
@@ -266,6 +276,19 @@ bool CGameCoreSkeleton::create(const std::string& res_name) {
   // Array of bone ids to debug (auto conversion from array of json to array of ints)
   if(json["bone_ids_to_debug"].is_array())
     bone_ids_to_debug = json["bone_ids_to_debug"].get< std::vector< int > >();
+
+  // Read shared lookat correction set of bones
+  if (json.count("lookat_corrections")) {
+    auto& jcorrs = json["lookat_corrections"];
+    assert(jcorrs.is_array());
+    for (int i = 0; i<jcorrs.size(); ++i ) {
+      TBoneCorrection c;
+      c.load(jcorrs[i]);
+      // Resolve the bone_name to bone_id here
+      c.bone_id = getCoreSkeleton()->getCoreBoneId(c.bone_name);
+      lookat_corrections.push_back(c);
+    }
+  }
 
   return true;
 }

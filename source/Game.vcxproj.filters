@@ -334,6 +334,9 @@
     <ClCompile Include="skeleton\comp_skel_lookat.cpp">
       <Filter>skeleton</Filter>
     </ClCompile>
+    <ClCompile Include="skeleton\bone_correction.cpp">
+      <Filter>skeleton</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="windows">
@@ -884,6 +887,9 @@
       <Filter>gui\controllers</Filter>
     </ClInclude>
     <ClInclude Include="skeleton\comp_skel_lookat.h">
+      <Filter>skeleton</Filter>
+    </ClInclude>
+    <ClInclude Include="skeleton\bone_correction.h">
       <Filter>skeleton</Filter>
     </ClInclude>
   </ItemGroup>

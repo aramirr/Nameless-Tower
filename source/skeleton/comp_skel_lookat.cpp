@@ -5,90 +5,36 @@
 #include "cal3d/cal3d.h"
 #include "cal3d2engine.h"
 #include "entity/entity_parser.h"
+#include "game_core_skeleton.h"
 
 DECL_OBJ_MANAGER("skel_lookat", TCompSkelLookAt);
 
-void TCompSkelLookAt::TCorrection::load(const json& j) {
-  bone_name = j.value("bone", "");
-  bone_id = -1;
-  axis = loadVEC3(j["axis"]);
-  local_axis_to_correct = loadVEC3(j["local_axis_to_correct"]);
-  angle = deg2rad( j.value("angle", 0.f) );
-  rotation_amount = j.value("rotation_amount", 0.f);
-}
-
-void TCompSkelLookAt::TCorrection::debugInMenu() {
-  float angle_in_deg = rad2deg(angle);
-  if (ImGui::DragFloat("Angle", &angle_in_deg, 0.5f, -180.f, 180.f))
-    angle = deg2rad(angle_in_deg);
-}
-
-void TCompSkelLookAt::TCorrection::renderDebug() {
-
-}
-
-// -----------------------------------------
-CalQuaternion findRotationFromDirToDir(CalVector a, CalVector b) {
-  // Dot = cos(angle)
-  float cos_angle = a * b;
-
-  // Find rotation axis doing a cross product from a to b
-  CalVector axis;
-
-  return CalQuaternion();
-}
-
-
-void TCompSkelLookAt::TCorrection::apply(TCompSkeleton* c_skel, VEC3 dx_world_target) {
-
-  CalVector world_target = DX2Cal(dx_world_target);
-
-  // The cal3d skeleton instance
-  CalSkeleton* skel = c_skel->model->getSkeleton();
-
-  // We want to correct a bone by name, but we need a bone_id
-  // to access that bone
-  if (bone_id == -1)
-    bone_id = skel->getCoreSkeleton()->getCoreBoneId(bone_name);
-  if (bone_id == -1)   // The bone_name does not exists in the skel...
-    return;
-
-  CalBone* bone = skel->getBone(bone_id);
-  assert(bone);
-
-  // Where is the bone now in abs coords
-  CalVector bone_abs_pos = bone->getTranslationAbsolute();
-
-  // In world coordinate system...
-  CalVector abs_dir = world_target - bone_abs_pos;
-
-  // getRotationAbsolute goes from local to abs, so I need the inverse
-  CalQuaternion rot_abs_to_local = bone->getRotationAbsolute();
-  rot_abs_to_local.invert();
-
-  // Convert from absolute coords to local bone coords
-  CalVector local_dir = abs_dir;
-  local_dir *= rot_abs_to_local;
-
-  // Find a quaternion to rotate 'local_axis_to_correct' to 'local_dir'
-  CalQuaternion q_rot = findRotationFromDirToDir(local_axis_to_correct, local_dir);
-
-  //
-  CalQuaternion rot = bone->getRotation();
-  //QUAT dx_rot_extra = QUAT::CreateFromAxisAngle(axis, angle);
-  CalQuaternion new_rot = q_rot;
-  new_rot *= rot;
-
-  bone->setRotation(new_rot);
-  bone->calculateState();
-}
-
 void TCompSkelLookAt::load(const json& j, TEntityParseContext& ctx) {
-  correction.load(j["correction"]);
+  if( j.count("target"))
+    target = loadVEC3( j["target"] );
+  amount = j.value("amount", amount);
+  target_transition_factor = j.value("target_transition_factor", target_transition_factor);
+
+  target_entity_name = j.value("target_entity_name", "");
 }
 
 void TCompSkelLookAt::update(float dt) {
   TCompSkeleton* c_skel = h_skeleton;
+
+  if (!target_entity_name.empty() && !h_target_entity.isValid()) {
+    h_target_entity = getEntityByName(target_entity_name);
+  }
+
+  // If we have a target entity, use it to assign a target position
+  CEntity* e = h_target_entity;
+  if (e) {
+    TCompTransform* t = e->get<TCompTransform>();
+    // We should ensure the target position is not moving abruptly
+    // to avoid large changes in the skeleton reorientation
+    // make the target smoothly change between positions
+    VEC3 new_target = t->getPosition();
+    target = target * target_transition_factor + new_target * (1.0f - target_transition_factor);
+  }
 
   if (c_skel == nullptr) {
     // Search the parent entity by name
@@ -101,13 +47,18 @@ void TCompSkelLookAt::update(float dt) {
     c_skel = h_skeleton;
   }
 
-  correction.apply(c_skel);
+  // The cal3d skeleton instance
+  CalSkeleton* skel = c_skel->model->getSkeleton();
+
+  // The set of bones to correct
+  auto core = (CGameCoreSkeleton*)c_skel->model->getCoreModel();
+  for (auto& it : core->lookat_corrections)
+    it.apply(skel, target, amount);
 }
 
 void TCompSkelLookAt::debugInMenu() {
-  correction.debugInMenu();
-}
-
-void TCompSkelLookAt::renderDebug() {
-  correction.renderDebug();
+  ImGui::InputFloat3("Target", &target.x);
+  ImGui::LabelText( "Target Name", "%s", target_entity_name.c_str() );
+  ImGui::DragFloat("Amount", &amount, 0.01f, 0.f, 1.0f);
+  ImGui::DragFloat("Transition Factor", &target_transition_factor, 0.01f, 0.f, 1.0f);
 }

@@ -95,11 +95,23 @@
 				"scale": 1.0
 			},
 			"skel_lookat" : {
-				"correction" : {
-					"bone" : "Bip001 Spine1",
-					"axis" : "0 1 0"
-				}
+				"target_entity_name" : "Jugador Target"
 			}
 		}
+	},
+	{
+		"entity": {
+			"name": "Jugador Target",
+			"transform": {
+				"pos": "3 2 3"
+			},
+			"render": [
+				{
+		          "mesh": "axis.mesh",
+		          "materials": ["data/materials/solid.material"]
+		        }
+			]
+		}
 	}
+
 ]

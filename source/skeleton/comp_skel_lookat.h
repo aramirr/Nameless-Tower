@@ -3,35 +3,23 @@
 
 #include "../components/comp_base.h"
 #include "../entity/entity.h"
+#include "bone_correction.h"
 
 class CalModel;
 struct TCompSkeleton;
 
 struct TCompSkelLookAt : public TCompBase {
   CHandle     h_skeleton;        // Handle to comp_skeleton of the entity being tracked
+  CHandle     h_target_entity;
+  std::string target_entity_name;
 
-  struct TCorrection {
-    std::string bone_name;
-    int         bone_id = -1;
-    VEC3        axis = VEC3(0,1,0);
-    float       angle = 0.f;
-
-    VEC3        local_axis_to_correct;  // 0,1,-0.2
-    float       rotation_amount;        // In case we want to rotate not the 100%
-
-    void load(const json& j);
-    void debugInMenu();
-    void apply(TCompSkeleton* skel, VEC3 world_target);
-    void renderDebug();
-  };
-
-  TCorrection correction;
   VEC3        target;
+  float       amount = 0.f;
+  float       target_transition_factor = 0.95f;
 
-  void debugInMenu();
   void load(const json& j, TEntityParseContext& ctx);
   void update(float dt);
-  void renderDebug();
+  void debugInMenu();
   DECL_SIBLING_ACCESS();
 };
 

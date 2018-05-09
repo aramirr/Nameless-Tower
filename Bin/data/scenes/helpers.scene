@@ -1,0 +1,25 @@
+[
+	{
+		"entity": {
+			"name": "axis and helpers",
+			"transform": {
+				"pos": "0 0 0"
+			},
+		      "render":
+		      [
+		        {
+		          "mesh": "axis.mesh",
+		          "materials": [
+		            "data/materials/solid.material"
+		          ]
+		        },
+		        {
+		          "mesh": "grid.mesh",
+		          "materials": [
+		            "data/materials/solid.material"
+		          ]
+		        }
+		      ]
+		}
+	}
+]
