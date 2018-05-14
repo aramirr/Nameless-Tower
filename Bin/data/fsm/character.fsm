@@ -586,15 +586,10 @@
 			"time" : 0.5
 		},		
 		{
-			"type" : "VariableTransition",
+			"type" : "TimeTransition",
 			"source" : "dead",
 			"target" : "initial",
-			"variable" : {
-				"name" : "initial",
-				"type" : "bool",
-				"value" : true
-			},
-			"operation" : "equal"
+			"time" : 1.2
 		},		
 		{
 			"type" : "VariableTransition",
