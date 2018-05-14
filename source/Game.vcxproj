@@ -138,6 +138,7 @@
     <ClCompile Include="components\postfx\comp_render_ao.cpp" />
     <ClCompile Include="components\postfx\comp_render_blur.cpp" />
     <ClCompile Include="components\postfx\comp_render_blur_radial.cpp" />
+    <ClCompile Include="components\sound\comp_sound.cpp" />
     <ClCompile Include="components\ui\ui_mouse_pos.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity\entity.cpp" />
@@ -295,6 +296,7 @@
     <ClInclude Include="components\postfx\comp_render_ao.h" />
     <ClInclude Include="components\postfx\comp_render_blur.h" />
     <ClInclude Include="components\postfx\comp_render_blur_radial.h" />
+    <ClInclude Include="components\sound\comp_sound.h" />
     <ClInclude Include="components\ui\ui_mouse_pos.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="entity\common_msgs.h" />
@@ -435,6 +437,9 @@
   <ItemGroup>
     <ProjectReference Include="Cal3D\Cal3D.vcxproj">
       <Project>{f13518a5-98d4-48a8-98ed-81b5e9d70bce}</Project>
+    </ProjectReference>
+    <ProjectReference Include="FMOD\FMOD.vcxproj">
+      <Project>{9a8e0654-7e34-4b78-9d65-321a4ed2643c}</Project>
     </ProjectReference>
     <ProjectReference Include="lua\LuaLib.vcxproj">
       <Project>{9ed7c695-9ec5-46c2-8b7a-6d9ac59a09c3}</Project>
