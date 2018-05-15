@@ -236,6 +236,22 @@
     "z": "test_but_no_write"
   },
 
+  "grass": {
+    "vs_file": "data/shaders/grass.fx",
+    "vertex_type": "Pos_x_InstancedPos",
+    "category": "particles",
+    "blend": "default",
+    "z": "default"
+  },
+  "shadows_grass_instanced": {
+    "vs_file": "data/shaders/grass.fx",
+    "vertex_type": "Pos_x_InstancedPos",
+    "ps_entry_point": "PS_Shadows",
+    "category": "shadows",
+    "blend": "default",
+    "z": "default"
+  },
+
   "bloom_filter": {
     "vs_file": "data/shaders/screen_quad.fx",
     "ps_file": "data/shaders/bloom.fx",
