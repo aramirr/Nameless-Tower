@@ -88,7 +88,6 @@ void CModuleTestAxis::update(float delta)
 
 	if (carga) {
 		CEntity* cam = (CEntity*)getEntityByName("camera_manager");
-
 		TCompCameraManager* cm = cam->get<TCompCameraManager>();
 		assert(cm);
     

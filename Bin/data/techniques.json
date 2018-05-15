@@ -198,6 +198,13 @@
     "z": "disable_all"
   },
   
+  "color_grading": {
+    "vs_file": "data/shaders/color_grading.fx",
+    "vertex_type": "PosClr",
+    "category": "fx",
+    "z": "disable_all"
+  },
+  
   "blur": {
     "vs_file": "data/shaders/blur.fx",
     "ps_file": "data/shaders/blur.fx",
@@ -213,12 +220,70 @@
     "z": "disable_all"
   },
 
+  "focus": {
+    "vs_file": "data/shaders/focus.fx",
+    "vertex_type": "PosClr",
+    "category" : "fx",
+    "z" : "disable_all"
+  },
+
   "particles": {
     "vs_file": "data/shaders/particles.fx",
     "vertex_type": "Pos_x_RenderParticle",
     "category": "particles",
     "blend": "combinative",
     "z": "test_but_no_write"
+  },
+
+  "bloom_filter": {
+    "vs_file": "data/shaders/screen_quad.fx",
+    "ps_file": "data/shaders/bloom.fx",
+    "ps_entry_point": "PS_filter",
+    "vertex_type": "PosClr",
+    "category" : "fx",
+    "z" : "disable_all"
+  },
+  "bloom_add": {
+    "vs_file": "data/shaders/screen_quad.fx",
+    "ps_file": "data/shaders/bloom.fx",
+    "ps_entry_point": "PS_add",
+    "vertex_type": "PosClr",
+    "category" : "fx",
+    "z" : "disable_all",
+    "blend" : "additive"
+  },
+
+  "pbr_outline": {
+    "vs_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_GBuffer",
+    "ps_entry_point": "",
+    "vertex_type": "PosNUvUvT",
+    "category": "gbuffer",
+    "z" : "test_no_writes_mark_stencil",
+    "priority" : 150,
+    "comment" : "This needs to go after the pbr's solids, but just before the object to render"
+  },
+  "pbr_post_outline": {
+    "vs_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_GBuffer",
+    "ps_entry_point": "PS_GBuffer",
+    "vertex_type": "PosNUvUvT",
+    "category": "gbuffer",
+    "textures": {
+      "environment": "data/textures/cubemaps/env.dds",
+      "irradiance": "data/textures/cubemaps/irradiance.dds"
+    },
+    "priority" : 160,
+    "comment" : "This needs to go after the pbr_outline"
+  },
+  "outlines": {
+    "vs_file": "data/shaders/screen_quad.fx",
+    "ps_file": "data/shaders/outlines.fx",
+    "vertex_type": "PosClr",
+    "category" : "fx",
+    "blend" : "combinative",
+    "ps_entry_point__if_stencil_test": "PS_Solid",
+    "z__if_stencil_test" : "on_non_zero_stencil"
   },
 
   "gui" : {

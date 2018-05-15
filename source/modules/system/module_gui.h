@@ -9,6 +9,7 @@
 
 using namespace GUI;
 
+
 class CModuleGUI : public IModule
 {
 public:
@@ -28,6 +29,7 @@ public:
   GUI::CWidget* getWidget(const std::string& name, bool recursive = false) const;
   void activateWidget(const std::string& name);
   void desactivateWidget(const std::string& name);
+
 
   // controller management
   void registerController(GUI::CController* controller);

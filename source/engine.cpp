@@ -29,6 +29,7 @@ CEngine::CEngine()
 	, _module_fsm("fsm")
     , _module_gui("gui")
 	, _module_scripting("scripting")
+
 {}
 
 bool CEngine::start() {
@@ -52,6 +53,7 @@ bool CEngine::start() {
 	_modules.registerSystemModule(&_module_cameras);
 	_modules.registerSystemModule(&_module_fsm);
 	_modules.registerSystemModule(&_module_gui);
+
 
 	_modules.registerGameModule(&module_splash);
 	_modules.registerGameModule(&module_main_menu);

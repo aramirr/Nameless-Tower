@@ -82,6 +82,7 @@ public:
   void debugInMenu();
 
   void setEntityCamera(CHandle h_new_entity_camera);
+  void forceDirty();
 
   static CRenderManager& get();
 

@@ -81,13 +81,15 @@ void TCompRenderBlur::load(const json& j, TEntityParseContext& ctx) {
   int xres = Render.width;
   int yres = Render.height;
 
+  std::string rt_name = j.value("rt_name", "Blur");
+
   // To generate unique names
   static int g_blur_counter = 0;
   for (int i = 0; i < nsteps; ++i) {
     CBlurStep* s = new CBlurStep;
 
     char blur_name[64];
-    sprintf( blur_name, "Blur_%02d", g_blur_counter);
+    sprintf( blur_name, "%s_%02d", rt_name.c_str(), g_blur_counter);
     g_blur_counter++;
 
     is_ok &= s->create(blur_name, xres, yres);

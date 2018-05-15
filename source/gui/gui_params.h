@@ -47,5 +47,4 @@ namespace GUI
   };
 
   using GUICallback = std::function<void()>;
-
 }

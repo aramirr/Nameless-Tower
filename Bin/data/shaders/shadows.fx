@@ -36,7 +36,7 @@ VS_OUTPUT VS_Skin(
     float4 iPos : POSITION
   , float3 iN   : NORMAL
   , float2 iUV  : TEXCOORD0
-  , int4   iBones   : BONES
+  , uint4  iBones   : BONES
   , float4 iWeights : WEIGHTS
   )
 {

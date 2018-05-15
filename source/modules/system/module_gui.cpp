@@ -5,6 +5,7 @@
 
 //using namespace GUI;
 
+
 CModuleGUI::CModuleGUI(const std::string& name)
 	: IModule(name)
 {}
@@ -50,7 +51,6 @@ bool CModuleGUI::stop()
 
 void CModuleGUI::update(float delta)
 {
-
   for (auto& wdgt : _activeWidgets)
   {
     wdgt->updateAll(delta);
@@ -71,6 +71,7 @@ void CModuleGUI::update(float delta)
   //  value = clamp(value + 0.5f * delta, 0.f, 1.f);
   //}
   //_variables.setVariant("progress", value);
+
 }
 
 void CModuleGUI::renderGUI()

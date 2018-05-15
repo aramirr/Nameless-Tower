@@ -69,11 +69,11 @@ bool CRender::createDevice(int new_width, int new_height) {
   desc.Height = height;
   desc.MipLevels = 1;
   desc.ArraySize = 1;
-  desc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+  desc.Format = DXGI_FORMAT_R24G8_TYPELESS; // was DXGI_FORMAT_D24_UNORM_S8_UINT;
   desc.SampleDesc.Count = 1;
   desc.SampleDesc.Quality = 0;
   desc.Usage = D3D11_USAGE_DEFAULT;
-  desc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
+  desc.BindFlags = D3D11_BIND_DEPTH_STENCIL | D3D11_BIND_SHADER_RESOURCE;
   desc.CPUAccessFlags = 0;
   desc.MiscFlags = 0;
 
@@ -84,11 +84,27 @@ bool CRender::createDevice(int new_width, int new_height) {
   // Create the depth stencil view
   D3D11_DEPTH_STENCIL_VIEW_DESC descDSV;
   ZeroMemory(&descDSV, sizeof(descDSV));
-  descDSV.Format = desc.Format;
+  descDSV.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
   descDSV.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
   hr = Render.device->CreateDepthStencilView(depthTexture, &descDSV, &depthStencilView);
   if (FAILED(hr))
     return false;
+
+  // -----------------------------------------
+  // Create a resource view so we can use the data in a shader
+  D3D11_SHADER_RESOURCE_VIEW_DESC srv_desc;
+  ZeroMemory(&srv_desc, sizeof(srv_desc));
+  srv_desc.Format = DXGI_FORMAT_X24_TYPELESS_G8_UINT;
+  srv_desc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+  srv_desc.Texture2D.MipLevels = desc.MipLevels;
+  hr = Render.device->CreateShaderResourceView(depthTexture, &srv_desc, &depth_shader_resource_view);
+  if (FAILED(hr))
+    return false;
+  setDXName(depth_shader_resource_view, "BackBuffer-Stencil");
+
+  // Create a ShaderResourceView of the "depth" part of the resource 
+  // using the strongly typed format DXGI_FORMAT_R24_UNORM_X8_TYPELESS.
+  // Texture2D<float> depthBuffer; // Red contains depth.
 
   return true;
 }
@@ -96,6 +112,7 @@ bool CRender::createDevice(int new_width, int new_height) {
 // -------------------------------------------------------------------
 void CRender::destroyDevice() {
   if (ctx) ctx->ClearState();
+  SAFE_RELEASE(depth_shader_resource_view);
   SAFE_RELEASE(depthTexture);
   SAFE_RELEASE(depthStencilView);
   SAFE_RELEASE(renderTargetView);

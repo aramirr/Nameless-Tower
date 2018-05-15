@@ -39,6 +39,7 @@ public:
     CModuleGUI& getGUI() { return _module_gui; }
 	ScriptingModule& getScriptingModule() { return _module_scripting; }
 
+
 	float getUnscaledDeltaTime() const { return current_unscaled_delta_time; }
 
 private:
@@ -56,6 +57,7 @@ private:
 	ScriptingModule _module_scripting;
 
 	float           current_unscaled_delta_time = 0.f;
+
 };
 
 #define Engine CEngine::get()

@@ -11,9 +11,13 @@
 #include "resources/json_resource.h"
 #include "skeleton/game_core_skeleton.h"
 #include "camera/camera.h"
+#include "components/postfx/comp_render_focus.h"
 #include "components/postfx/comp_render_blur.h"
 #include "components/postfx/comp_render_blur_radial.h"
+#include "components/postfx/comp_color_grading.h"
+#include "components/postfx/comp_render_outlines.h"
 #include "render/mesh/collision_mesh.h"
+#include "components/postfx/comp_render_bloom.h"
 
 //--------------------------------------------------------------------------------------
 CModuleRender::CModuleRender(const std::string& name)
@@ -214,6 +218,13 @@ void CModuleRender::generateFrame() {
     if (h_e_camera.isValid()) {
       CEntity* e_cam = h_e_camera;
 
+      // The bloom blurs the given input
+      TCompRenderBloom* c_render_bloom = e_cam->get< TCompRenderBloom >();
+      if (c_render_bloom) {
+        c_render_bloom->generateHighlights(curr_rt);
+        c_render_bloom->addBloom();
+      }
+
       // Check if we have a render_fx component
       TCompRenderBlur* c_render_blur = e_cam->get< TCompRenderBlur >();
       if (c_render_blur)
@@ -223,10 +234,24 @@ void CModuleRender::generateFrame() {
       TCompRenderBlurRadial* c_render_blur_radial = e_cam->get< TCompRenderBlurRadial >();
       if (c_render_blur_radial)
         curr_rt = c_render_blur_radial->apply(curr_rt);
+
+      // Requires the blur component to be active
+      TCompRenderFocus* c_render_focus = e_cam->get< TCompRenderFocus >();
+      if (c_render_focus)
+        curr_rt = c_render_focus->apply(rt_main, curr_rt);
+
+      // Check if we have a color grading component
+      TCompColorGrading* c_color_grading = e_cam->get< TCompColorGrading >();
+      if (c_color_grading)
+        curr_rt = c_color_grading->apply(curr_rt);
+
+      TCompRenderOutlines* c_render_outlines = e_cam->get< TCompRenderOutlines >();
+      if (c_render_outlines)
+        c_render_outlines->apply();
     }
 
     Render.startRenderInBackbuffer();
-    
+
     renderFullScreenQuad("dump_texture.tech", curr_rt);
 
     // Debug render
@@ -251,6 +276,22 @@ void CModuleRender::generateFrame() {
 		CCamera* cam3 = c_camera3;
 		activateCamera(*cam3, Render.width, Render.height);
 	}
+
+  {
+    PROFILE_FUNCTION("GUI");
+    CTraceScoped gpu_scope("GUI");
+
+    activateRSConfig(RSCFG_CULL_NONE);
+    activateZConfig(ZCFG_DISABLE_ALL);
+    activateBlendConfig(BLEND_CFG_COMBINATIVE);
+
+    activateCamera(CEngine::get().getGUI().getCamera(), Render.width, Render.height);
+    CEngine::get().getModules().renderGUI();
+
+    activateRSConfig(RSCFG_DEFAULT);
+    activateZConfig(ZCFG_DEFAULT);
+    activateBlendConfig(BLEND_CFG_DEFAULT);
+  }
 
   {
     PROFILE_FUNCTION("GUI");

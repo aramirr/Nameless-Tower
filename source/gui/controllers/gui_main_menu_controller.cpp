@@ -47,6 +47,7 @@ namespace GUI
 
     //-----------------------------------------------------------------------------------
 
+
     if (EngineInput[VK_DOWN].getsPressed())
     {
       setCurrentOption(_currentOption + 1);

@@ -34,7 +34,6 @@ namespace GUI
     void setPosition(VEC2 position);
     void setRotation(float rotation);
 
-    
   protected:
     std::string _name;
     VWidgets _children;

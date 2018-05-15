@@ -14,6 +14,7 @@ Texture2D    txLightShadowMap SLOT( TS_LIGHT_SHADOW_MAP );
 TextureCube  txEnvironmentMap SLOT( TS_ENVIRONMENT_MAP );
 TextureCube  txIrradianceMap  SLOT( TS_IRRADIANCE_MAP );
 Texture2D    txNoiseMap       SLOT( TS_NOISE_MAP );
+Texture3D    txLUT            SLOT( TS_LUT_COLOR_GRADING );
 
 // output from deferred
 Texture2D    txGBufferAlbedos     SLOT( TS_DEFERRED_ALBEDOS );
@@ -35,6 +36,12 @@ Texture2D    txNormal2         SLOT( TS_NORMAL2 );
 //Texture2D    txRoughness2      SLOT( (TS_FIRST_SLOT_MATERIAL_2 + TS_ROUGHNESS) );
 
 Texture2D    txMixBlendWeights SLOT( TS_MIX_BLEND_WEIGHTS );
+
+// Bloom
+Texture2D    txBloom0         SLOT(0);
+Texture2D    txBloom1         SLOT(1);
+Texture2D    txBloom2         SLOT(2);
+Texture2D    txBloom3         SLOT(3);
 
 //--------------------------------------------------------------------------------------
 SamplerState samLinear        : register(s0);
