@@ -39,7 +39,7 @@ namespace FSM
 	
 		//Mitigate force by distance from Center of the fan
 		//float distance_from_transform = VEC3::Distance(e_transform->getPosition(), my_transform->getPosition());
-		VEC3 direction = VEC3(0,1,0) * 0.05;
+		VEC3 direction = VEC3(0,1,0) * 0.1;
 		
 
 		PxRigidActor* rigidActor = ((PxRigidActor*)e_col->actor);

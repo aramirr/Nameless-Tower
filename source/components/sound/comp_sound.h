@@ -6,8 +6,8 @@
 #include "render/cte_buffer.h"
 #include <stdio.h>
 #include <conio.h>
-#include <FMOD/fmod.hpp>
-#include <FMOD/fmod_studio.hpp>
+#include <fmod.hpp>
+#include <fmod_studio.hpp>
 
 
 struct TCompSound: public TCompBase {
