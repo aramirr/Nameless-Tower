@@ -5,7 +5,10 @@
 			"transform": {
 				"pos": "0 3 3"
 			},
-			"cameraManager" : {}
+			"cameraManager" : {},
+			"render_outlines" : {
+		        "enabled" : true
+		      }
 		}
 	},
 	{
@@ -16,7 +19,17 @@
 			},
 			"camera" : {
 				"fov" : 80 
-			}
+			},
+			"render_ao" : {
+		        "enabled" :  true
+		      },		    
+		      "color_grading" : {
+		        "enabled" :  true,
+		        "lut": "data/textures/lut/lut1.dds"
+		      },
+		      "render_outlines" : {
+		        "enabled" : true
+		      }
 		}
 	},
 	{
@@ -43,7 +56,10 @@
 			},
 			"camera" : {
 				"fov" : 80 
-			}
+			},
+			"render_outlines" : {
+		        "enabled" : true
+		      }
 		}
 	},
 	{
@@ -56,7 +72,10 @@
 			"platformCamera" : {},
 			"camera" : {
 				"fov" : 80
-			}
+			},
+			"render_outlines" : {
+		        "enabled" : true
+		      }
 		}
 	},
 	{
@@ -71,7 +90,10 @@
 			},
 			"camera" : {
 				"fov" : 80
-			}
+			},
+			"render_outlines" : {
+		        "enabled" : true
+		      }
 		}
 	}
 ]

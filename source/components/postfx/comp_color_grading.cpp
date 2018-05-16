@@ -14,7 +14,7 @@ void TCompColorGrading::debugInMenu() {
 
 void TCompColorGrading::load(const json& j, TEntityParseContext& ctx) {
   enabled = j.value("enabled", true);
-  amount= j.value( "amount", 1.0f);
+  amount= j.value( "amount", 0.0f);
   int xres = Render.width;
   int yres = Render.height;
   if (!rt) {
