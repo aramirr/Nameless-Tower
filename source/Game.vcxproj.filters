@@ -159,6 +159,8 @@
     <ClCompile Include="components\postfx\comp_render_outlines.cpp" />
     <ClCompile Include="skeleton\bone_correction.cpp" />
     <ClCompile Include="skeleton\comp_skel_lookat.cpp" />
+    <ClCompile Include="components\sound\comp_sound.cpp" />
+    <ClCompile Include="modules\system\module_sound.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera\camera.h" />
@@ -380,6 +382,8 @@
     <ClInclude Include="components\postfx\comp_render_outlines.h" />
     <ClInclude Include="skeleton\bone_correction.h" />
     <ClInclude Include="skeleton\comp_skel_lookat.h" />
+    <ClInclude Include="components\sound\comp_sound.h" />
+    <ClInclude Include="modules\system\module_sound.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />

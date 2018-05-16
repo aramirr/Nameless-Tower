@@ -11,6 +11,7 @@
 #include "modules/system/module_cameras.h"
 #include "modules/system/module_fsm.h"
 #include "modules/system/module_gui.h"
+#include "modules/system/module_sound.h"
 #include "scripting/scripting_module.h"
 
 
@@ -36,7 +37,8 @@ public:
 	CModuleCameras& getCameras() { return _module_cameras; }
 	CModuleEntities& getEntities() { return _module_entities; }
 	CModuleFSM& getFSM() { return _module_fsm; }
-    CModuleGUI& getGUI() { return _module_gui; }
+	CModuleGUI& getGUI() { return _module_gui; }
+	CModuleSound& getSound() { return _module_sound; }
 	ScriptingModule& getScriptingModule() { return _module_scripting; }
 
 
@@ -53,7 +55,8 @@ private:
 	CModuleTower    _module_tower;
 	CModuleCameras  _module_cameras;
 	CModuleFSM      _module_fsm;
-    CModuleGUI      _module_gui;
+	CModuleGUI      _module_gui;
+	CModuleSound		_module_sound;
 	ScriptingModule _module_scripting;
 
 	float           current_unscaled_delta_time = 0.f;
@@ -68,3 +71,4 @@ private:
 #define EngineUI CEngine::get().getGUI()
 #define EngineScripting CEngine::get().getScriptingModule()
 #define EnginePhysics CEngine::get().getPhysics()
+#define EngineSound CEngine::get().getSound()

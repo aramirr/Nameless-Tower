@@ -142,6 +142,7 @@
     <ClCompile Include="components\postfx\comp_render_blur_radial.cpp" />
     <ClCompile Include="components\postfx\comp_render_focus.cpp" />
     <ClCompile Include="components\postfx\comp_render_outlines.cpp" />
+    <ClCompile Include="components\sound\comp_sound.cpp" />
     <ClCompile Include="components\ui\ui_mouse_pos.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity\entity.cpp" />
@@ -211,6 +212,7 @@
     <ClCompile Include="modules\system\module_gui.cpp" />
     <ClCompile Include="modules\system\module_input.cpp" />
     <ClCompile Include="modules\system\module_physics.cpp" />
+    <ClCompile Include="modules\system\module_sound.cpp" />
     <ClCompile Include="modules\test\module_test_cameras.cpp" />
     <ClCompile Include="modules\test\module_test_input.cpp" />
     <ClCompile Include="modules\test\module_test_instancing.cpp" />
@@ -305,6 +307,7 @@
     <ClInclude Include="components\postfx\comp_render_blur_radial.h" />
     <ClInclude Include="components\postfx\comp_render_focus.h" />
     <ClInclude Include="components\postfx\comp_render_outlines.h" />
+    <ClInclude Include="components\sound\comp_sound.h" />
     <ClInclude Include="components\ui\ui_mouse_pos.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="entity\common_msgs.h" />
@@ -393,6 +396,7 @@
     <ClInclude Include="modules\system\module_gui.h" />
     <ClInclude Include="modules\system\module_input.h" />
     <ClInclude Include="modules\system\module_physics.h" />
+    <ClInclude Include="modules\system\module_sound.h" />
     <ClInclude Include="modules\test\module_test_cameras.h" />
     <ClInclude Include="modules\test\module_test_input.h" />
     <ClInclude Include="modules\test\module_test_instancing.h" />
@@ -447,6 +451,9 @@
   <ItemGroup>
     <ProjectReference Include="Cal3D\Cal3D.vcxproj">
       <Project>{f13518a5-98d4-48a8-98ed-81b5e9d70bce}</Project>
+    </ProjectReference>
+    <ProjectReference Include="FMOD\FMOD.vcxproj">
+      <Project>{9a8e0654-7e34-4b78-9d65-321a4ed2643c}</Project>
     </ProjectReference>
     <ProjectReference Include="lua\LuaLib.vcxproj">
       <Project>{9ed7c695-9ec5-46c2-8b7a-6d9ac59a09c3}</Project>
