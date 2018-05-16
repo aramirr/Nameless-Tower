@@ -6,19 +6,20 @@
 #include "render/cte_buffer.h"
 #include <stdio.h>
 #include <conio.h>
-#include <FMOD/fmod.hpp>
-#include <FMOD/fmod_studio.hpp>
+#include <fmod.hpp>
+#include <fmod_studio.hpp>
+#include <string>
+#include <map>
 
+using namespace std;
 
 struct TCompSound: public TCompBase {
-	FMOD_RESULT res;
 
-  TCompSound();
-  ~TCompSound();
   void load(const json& j, TEntityParseContext& ctx);
   void update(float dt);
   void debugInMenu();
 
+	std::vector<Studio::EventInstance*> events;
   DECL_SIBLING_ACCESS();
 };
 

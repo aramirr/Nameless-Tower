@@ -2,9 +2,10 @@
 
 #include "modules/module.h"
 #include "utils/variant.h"
-#include <FMOD/fmod.hpp>
-#include <FMOD/fmod_studio.hpp>
+#include <fmod.hpp>
+#include <fmod_studio.hpp>
 
+using namespace FMOD;
 
 class CModuleSound : public IModule
 {
@@ -15,6 +16,7 @@ public:
   void update(float delta) override;
 
 	FMOD_RESULT res;
+	Studio::System* system = NULL;
 
 private:
 

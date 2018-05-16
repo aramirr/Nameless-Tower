@@ -10,17 +10,16 @@ DECL_OBJ_MANAGER("sound", TCompSound);
 
 using namespace FMOD;
 
-TCompSound::TCompSound()
-{  
-}
-
-TCompSound::~TCompSound() {
-}
-
-// ---------------------------------------------------------------------------------------
 void TCompSound::load(const json& j, TEntityParseContext& ctx) {
+	for (auto& event : j["events"]) {
+		Studio::EventDescription* event_description= NULL;
+		std::string event_name = event.get<std::string>();
+		EngineSound.res = EngineSound.system->getEvent(event_name.c_str(), &event_description);
 
-	
+		Studio::EventInstance* event_instance = NULL;
+		EngineSound.res = event_description->createInstance(&event_instance);
+		events.push_back(event_instance);
+	}	
 }
 
 void TCompSound::update(float dt) {

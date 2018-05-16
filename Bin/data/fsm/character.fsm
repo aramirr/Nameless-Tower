@@ -18,7 +18,8 @@
 			"x_speed" : 2.5,
 			"is_action": false,
 			"delay_in": 0.01,
-			"delay_out": 0.01
+			"delay_out": 0.01,
+			"sound": "event:/Steps/footsteps"
 		},
 		{
 			"name" : "jump",
@@ -62,8 +63,8 @@
 		{
 			"name" : "omnijump",
 			"type" : "OmnijumpState",
-			"y_speed" : 3.5,
-			"x_speed" : 2,
+			"y_speed" : 3,
+			"x_speed" : 1.8,
 			"is_action": true,
 			"delay_in": 0.01,
 			"delay_out": 0.01

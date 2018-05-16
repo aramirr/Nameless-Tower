@@ -10,7 +10,7 @@ namespace FSM
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->change_animation(player->EAnimations::NajaRun, _is_action, _delay_in, _delay_out);
-		dbg("run\n");
+		EngineSound.res = _sound->start();
 	}
 
 	bool RunState::load(const json& jData)
@@ -19,6 +19,14 @@ namespace FSM
 		_is_action = jData.value("is_action", false);
 		_delay_out = jData.value("delay_out", 0.01f);
 		_delay_in = jData.value("delay_in", 0.01f);
+
+		if (jData.count("sound")) {
+			Studio::EventDescription* event_description = NULL;
+			std::string event_name = jData["sound"];
+			EngineSound.res = EngineSound.system->getEvent(event_name.c_str(), &event_description);
+			EngineSound.res = event_description->createInstance(&_sound);
+		}		
+
 		return true;
 	}
 
@@ -57,6 +65,7 @@ namespace FSM
 	}
 
 	void RunState::onFinish(CContext& ctx) const {
+		EngineSound.res = _sound->stop(FMOD_STUDIO_STOP_IMMEDIATE);
 		ctx.setVariable("run", false);		
 	}
 }

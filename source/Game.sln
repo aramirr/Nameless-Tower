@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game.vcxproj", "{BC06472A-AE43-4007-AE25-59879F8D23F2}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -11,8 +11,6 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cal3D", "Cal3D\Cal3D.vcxproj", "{F13518A5-98D4-48A8-98ED-81B5E9D70BCE}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LuaLib", "lua\LuaLib.vcxproj", "{9ED7C695-9EC5-46C2-8B7A-6D9AC59A09C3}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FMOD", "FMOD\FMOD.vcxproj", "{9A8E0654-7E34-4B78-9D65-321A4ED2643C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,14 +38,6 @@ Global
 		{9ED7C695-9EC5-46C2-8B7A-6D9AC59A09C3}.Release|x64.ActiveCfg = Release|x64
 		{9ED7C695-9EC5-46C2-8B7A-6D9AC59A09C3}.Release|x64.Build.0 = Release|x64
 		{9ED7C695-9EC5-46C2-8B7A-6D9AC59A09C3}.Release|x86.ActiveCfg = Release|x64
-		{9A8E0654-7E34-4B78-9D65-321A4ED2643C}.Debug|x64.ActiveCfg = Debug|x64
-		{9A8E0654-7E34-4B78-9D65-321A4ED2643C}.Debug|x64.Build.0 = Debug|x64
-		{9A8E0654-7E34-4B78-9D65-321A4ED2643C}.Debug|x86.ActiveCfg = Debug|Win32
-		{9A8E0654-7E34-4B78-9D65-321A4ED2643C}.Debug|x86.Build.0 = Debug|Win32
-		{9A8E0654-7E34-4B78-9D65-321A4ED2643C}.Release|x64.ActiveCfg = Release|x64
-		{9A8E0654-7E34-4B78-9D65-321A4ED2643C}.Release|x64.Build.0 = Release|x64
-		{9A8E0654-7E34-4B78-9D65-321A4ED2643C}.Release|x86.ActiveCfg = Release|Win32
-		{9A8E0654-7E34-4B78-9D65-321A4ED2643C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
