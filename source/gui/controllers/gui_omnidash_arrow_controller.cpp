@@ -11,24 +11,36 @@ namespace GUI
       VEC2 position;
       float angle;
 
+      CWidget* od = EngineUI.getWidget("OmnidashImage", true);
+
       CEntity* player = (CEntity*)getEntityByName("The Player");
-	    CEntity* e_camera = EngineCameras.getActiveCamera();
+      CEntity* e_camera = EngineCameras.getActiveCamera();
       TCompCamera* c_camera = e_camera->get< TCompCamera >();
       TCompTransform *c_my_transform = player->get<TCompTransform>();
       const Input::TInterface_Mouse& mouse = EngineInput.mouse();
       VEC3 my_pos = c_my_transform->getPosition();
       VEC3 player_position;
+      my_pos.y += 0.55f;
       c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
-      
+
       angle = (float)(atan2(mouse._position.y - player_position.y, mouse._position.x - player_position.x));
+
+      //Sacamos la otra esquina de la imagen
+      float x = (od->getSize().x) * cos(angle);
+      float y = (od->getSize().x) * sin(angle);
 
       /*if (angle < 0) {
         angle += 360;
       }*/
 
-      position = VEC2(player_position.x, player_position.y);
+      VEC2 vec = VEC2(x - player_position.x, y - player_position.y);
 
-      CWidget* od = EngineUI.getWidget("OmnidashImage", true);
+      position = VEC2(player_position.x + /*(vec.y * -1)*/x, player_position.y + y/*vec.x * -1*/);
+
+
+      //position.x += od->getSize().x / 2;
+      //position.y += od->getSize().y / 2;
+
       od->setPosition(position);
       od->setRotation(angle);
     }
@@ -44,5 +56,5 @@ namespace GUI
     }
   }
 
-  
+
 }

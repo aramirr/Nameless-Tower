@@ -34,6 +34,8 @@ namespace GUI
     void setPosition(VEC2 position);
     void setRotation(float rotation);
 
+    VEC2 getSize() { return _params._size; }
+
     
   protected:
     std::string _name;

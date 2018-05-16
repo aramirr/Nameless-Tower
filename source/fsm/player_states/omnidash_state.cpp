@@ -82,6 +82,7 @@ namespace FSM
 		player->omnidash_vector = c_my_transform->getFront() * mouseDir.x + c_my_transform->getUp() * -mouseDir.y;
 		player->omnidash_vector.Normalize();*/
 
+
 		TEntityParseContext ctx1;
 		ctx1.entity_starting_the_parse = e;
 		ctx1.root_transform = *(TCompTransform*)e->get<TCompTransform>();
