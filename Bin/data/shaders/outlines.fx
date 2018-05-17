@@ -48,7 +48,7 @@ float4 PS(
   uint diff = sum_stencils - s_cc * 9;
   // If not we are in the border
   if( diff != 0 )
-    return float4( 1,0,0,a); 
+    return float4( 0,0,0,a); 
 
   // else, or we are inside ( stencil != 0 ) 
   if( s_cc != 0 ) {

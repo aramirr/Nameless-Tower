@@ -1,0 +1,39 @@
+[
+  {
+    "entity": {
+      "name": "the_camera",
+      "transform": {
+          "pos": "0 3 3"
+      },
+      "render" : {},
+      "camera_flyover" : {},
+      "camera": {
+        "fov": 80
+      },
+      "render_blur" : {
+        "enabled" :  false
+      },
+      "render_blur_radial" : {
+        "enabled" :  false
+      },
+      "render_ao" : {
+        "enabled" :  true
+      },
+      "render_bloom" : {
+        "enabled" :  true,
+        "max_steps" : 4,
+        "rt_name" : "Bloom"
+      },
+      "render_focus": {
+        "enabled": false
+      },
+      "color_grading" : {
+        "enabled" :  false,
+        "lut": "data/textures/lut/lut1.dds"
+      },
+      "render_outlines" : {
+        "enabled" : false
+      }
+    }
+  }
+]

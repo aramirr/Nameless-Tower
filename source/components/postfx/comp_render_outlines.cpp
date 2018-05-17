@@ -14,7 +14,7 @@ void TCompRenderOutlines::debugInMenu() {
 
 void TCompRenderOutlines::load(const json& j, TEntityParseContext& ctx) {
   enabled = j.value("enabled", true);
-  amount= j.value( "amount", 1.0f);
+  amount= j.value( "amount", 0.2f);
   tech = Resources.get("outlines.tech")->as<CRenderTechnique>();
   mesh = Resources.get("unit_quad_xy.mesh")->as<CRenderMesh>();
 }
