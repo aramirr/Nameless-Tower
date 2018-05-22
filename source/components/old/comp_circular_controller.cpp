@@ -2,6 +2,7 @@
 #include "entity/entity_parser.h"
 #include "comp_circular_controller.h"
 #include "components/juan/comp_transform.h"
+#include "components/juan/comp_hierarchy.h"
 
 DECL_OBJ_MANAGER("circular_controller", TCompCircularController);
 
@@ -24,26 +25,36 @@ void TCompCircularController::update(float dt) {
 	float SIN = sin(DEG);
 
 	TCompTransform *c_my_transform = get<TCompTransform>();
+	TCompHierarchy *c_my_hierarchy = get<TCompHierarchy>();
+	MAT44 posM;
+	if (c_my_hierarchy)
+		posM = c_my_hierarchy->asMatrix();
+	else posM = c_my_transform->asMatrix();
 
 	if (carga) {    //CARGA INICIAL
-
-		if (eje == 'X')u = c_my_transform->getFront();
-		else if (eje == 'Y')u = c_my_transform->getUp();
-		else if (eje == 'Z')u = c_my_transform->getLeft();
+		if (c_my_hierarchy) {
+			if (eje == 'X')u = c_my_hierarchy->getFront();
+			else if (eje == 'Y')u = c_my_hierarchy->getUp();
+			else if (eje == 'Z')u = c_my_hierarchy->getLeft();
+		}
+		else {
+			if (eje == 'X')u = c_my_transform->getFront();
+			else if (eje == 'Y')u = c_my_transform->getUp();
+			else if (eje == 'Z')u = c_my_transform->getLeft();
+		}
 		u.Normalize();
 
 		carga = false;
 	}
 
-	MAT44 posM = c_my_transform->asMatrix();
 
 	posM *= MAT44(COS + pow(u.x, 2) * (1 - COS), u.x * u.y * (1 - COS) - u.z * SIN, u.x * u.z * (1 - COS) + u.y * SIN, 0,
 		u.y * u.x * (1 - COS) + u.z * SIN, COS + pow(u.y, 2) * (1 - COS), u.y * u.z * (1 - COS) - u.x * SIN, 0,
 		u.z * u.x * (1 - COS) - u.y * SIN, u.z * u.y * (1 - COS) + u.x * SIN, COS + pow(u.z, 2) * (1 - COS), 0,
 		0, 0, 0, 1);
 
-	c_my_transform->setRotation(QUAT::CreateFromRotationMatrix(posM));
-
-	assert(c_my_transform);
+	if (c_my_hierarchy)
+		c_my_hierarchy->setRotation(QUAT::CreateFromRotationMatrix(posM));
+	else c_my_transform->setRotation(QUAT::CreateFromRotationMatrix(posM));
 }
 

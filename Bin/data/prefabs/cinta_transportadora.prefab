@@ -1,0 +1,160 @@
+[
+{
+    "entity":
+    {
+      "name": "Cinta002"
+      ,
+      "transform":
+      {
+        "pos": "13.8478 58.0992 27.6374"
+        ,
+        "rotation": "0.0 -0.23331 0.0 -0.972402"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cinta002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaRuedaMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.575 0.432835 1.50554"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TornoA001"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TornoA001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaCintaMat.material"
+          ]
+        }
+      ],
+      "hierarchy": {
+        "parent": "Cinta002",
+        "pos": "-0.9803 0 0"      
+      }
+      ,
+      "circular_controller":
+      {
+        "speed": -7.0
+        ,
+        "eje": "X"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TornoB001"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TornoB001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CintaCintaMat.material"
+          ]
+        }
+      ],
+      "hierarchy": {
+        "parent": "Cinta002",
+        "pos": "0.9803 0 0"
+      }
+      ,
+      "circular_controller":
+      {
+        "speed": -7.0
+        ,
+        "eje": "X"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TriggerCinta002"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":[],
+      "hierarchy": {
+        "parent": "Cinta002",
+        "pos": "0 0.6 0"
+      }
+      ,
+      "ai_cinta_transportadora":
+      {
+        "configs":
+        [
+          {
+            "speed": 0.1
+            ,
+            "time": 1.0
+            ,
+            "left": true
+          }
+        ]
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.575 0.199106 1.51733"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+]
