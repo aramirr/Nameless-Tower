@@ -17,15 +17,17 @@ void CDeferredRenderer::renderGBuffer() {
   // Disable the gbuffer textures as we are going to update them
   // Can't render to those textures and have them active in some slot...
   CTexture::setNullTexture(TS_DEFERRED_ALBEDOS);
-  CTexture::setNullTexture(TS_DEFERRED_NORMALS);
+	CTexture::setNullTexture(TS_DEFERRED_NORMALS);
+	CTexture::setNullTexture(TS_DEFERRED_SELF_ILLUM);
   CTexture::setNullTexture(TS_DEFERRED_LINEAR_DEPTH);
 
   // Activate el multi-render-target MRT
-  const int nrender_targets = 3;
+  const int nrender_targets = 4;
   ID3D11RenderTargetView* rts[nrender_targets] = {
     rt_albedos->getRenderTargetView(),
     rt_normals->getRenderTargetView(),
-    rt_depth->getRenderTargetView(),
+		rt_depth->getRenderTargetView(),
+		rt_self_illum->getRenderTargetView()
   };
 
   // We use our 3 rt's and the Zbuffer of the backbuffer
@@ -36,7 +38,8 @@ void CDeferredRenderer::renderGBuffer() {
   // with new data.
   rt_albedos->clear(VEC4(1, 0, 0, 1));      
   rt_normals->clear(VEC4(0, 0, 1, 1));        
-  rt_depth->clear(VEC4(1, 1, 1, 1));     
+	rt_depth->clear(VEC4(1, 1, 1, 1));
+	rt_self_illum->clear(VEC4(0, 0, 0, 1));
 
   // Clear ZBuffer with the value 1.0 (far)
   Render.ctx->ClearDepthStencilView(Render.depthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
@@ -51,7 +54,8 @@ void CDeferredRenderer::renderGBuffer() {
 
   // Activate the gbuffer textures to other shaders
   rt_albedos->activate(TS_DEFERRED_ALBEDOS);
-  rt_normals->activate(TS_DEFERRED_NORMALS);
+	rt_normals->activate(TS_DEFERRED_NORMALS);
+	rt_self_illum->activate(TS_DEFERRED_SELF_ILLUM);
   rt_depth->activate(TS_DEFERRED_LINEAR_DEPTH);
 }
 
@@ -109,6 +113,10 @@ bool CDeferredRenderer::create(int xres, int yres) {
   rt_acc_light = new CRenderToTexture;
   if (!rt_acc_light->createRT("acc_light.dds", xres, yres, DXGI_FORMAT_R16G16B16A16_FLOAT, DXGI_FORMAT_UNKNOWN, true))
     return false;
+
+	rt_self_illum = new CRenderToTexture;
+	if (!rt_self_illum->createRT("g_self_illum.dds", xres, yres, DXGI_FORMAT_R8G8B8A8_UNORM))
+		return false;
 
   return true;
 }

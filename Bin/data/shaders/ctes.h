@@ -21,37 +21,39 @@
 #define TS_NORMAL              1
 #define TS_METALLIC            2
 #define TS_ROUGHNESS           3
+#define TS_EMISSIVE            4
 
 // .. Other slots of the material
-#define TS_NUM_MATERIALS_SLOTS 4
+#define TS_NUM_MATERIALS_SLOTS 5
 
 // Here goes the slots NOT associated to a material
-#define TS_LIGHT_PROJECTOR     5
-#define TS_LIGHT_SHADOW_MAP    6 
-#define TS_ENVIRONMENT_MAP     7
-#define TS_IRRADIANCE_MAP      8
-#define TS_NOISE_MAP           9
+#define TS_LIGHT_PROJECTOR     6
+#define TS_LIGHT_SHADOW_MAP    7 
+#define TS_ENVIRONMENT_MAP     8
+#define TS_IRRADIANCE_MAP      9
+#define TS_NOISE_MAP           10
 
-#define TS_DEFERRED_ALBEDOS           10
-#define TS_DEFERRED_NORMALS           11
-#define TS_DEFERRED_LINEAR_DEPTH      12
-#define TS_DEFERRED_ACC_LIGHTS        13
-#define TS_DEFERRED_AO                14
+#define TS_DEFERRED_ALBEDOS           11
+#define TS_DEFERRED_NORMALS           12
+#define TS_DEFERRED_LINEAR_DEPTH      13
+#define TS_DEFERRED_ACC_LIGHTS        14
+#define TS_DEFERRED_AO                15
+#define TS_DEFERRED_SELF_ILLUM        16
 
 // LookUpTable for the color grading
-#define TS_LUT_COLOR_GRADING          15
+#define TS_LUT_COLOR_GRADING          17
 
-#define TS_MIX_BLEND_WEIGHTS          15
+#define TS_MIX_BLEND_WEIGHTS          18
 
 #define TS_FIRST_SLOT_MATERIAL_0      TS_ALBEDO
 #define TS_FIRST_SLOT_MATERIAL_1      TS_ALBEDO1
 // 17,18,19 goes for extra textures of second material
 #define TS_FIRST_SLOT_MATERIAL_2      TS_ALBEDO2
 
-#define TS_ALBEDO1 16
-#define TS_NORMAL1 17
-#define TS_ALBEDO2 20
-#define TS_NORMAL2 21
+#define TS_ALBEDO1 19
+#define TS_NORMAL1 20
+#define TS_ALBEDO2 21
+#define TS_NORMAL2 22
 
 // -------------------------------------------------
 #define RO_COMPLETE     0

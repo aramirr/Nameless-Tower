@@ -120,8 +120,11 @@ void PS_GBuffer(
 , out float4 o_albedo : SV_Target0
 , out float4 o_normal : SV_Target1
 , out float1 o_depth  : SV_Target2
+, out float4 o_self_illum : SV_Target3
 )
 {
+  o_self_illum = txEmissive.Sample(samLinear, iTex0);
+  o_self_illum.xyz *= self_color;
   // Store in the Alpha channel of the albedo texture, the 'metallic' amount of
   // the material
   o_albedo = txAlbedo.Sample(samLinear, iTex0);
@@ -357,7 +360,7 @@ float4 PS_ambient(
 
   float ao = txAO.Sample( samLinear, iUV).x;
 
-  float4 self_illum = float4(0,0,0,0); //txGSelfIllum.Load(uint3(iPosition.xy,0));
+  float4 self_illum = txSelfIllum.Load(uint3(iPosition.xy,0));
 
   float4 final_color = float4(env_fresnel * env * g_ReflectionIntensity + 
                               albedo.xyz * irradiance * g_AmbientLightIntensity

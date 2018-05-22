@@ -7,7 +7,7 @@
 			},
 			"cameraManager" : {},
 			"render_outlines" : {
-		        "enabled" : true
+		        "enabled" : false
 		      }
 		}
 	},
@@ -28,7 +28,7 @@
 		        "lut": "data/textures/lut/lut1.dds"
 		      },
 		      "render_outlines" : {
-		        "enabled" : true
+		        "enabled" : false
 		      }
 		}
 	},
@@ -58,7 +58,7 @@
 				"fov" : 80 
 			},
 			"render_outlines" : {
-		        "enabled" : true
+		        "enabled" : false
 		      }
 		}
 	},
@@ -74,7 +74,7 @@
 				"fov" : 80
 			},
 			"render_outlines" : {
-		        "enabled" : true
+		        "enabled" : false
 		      }
 		}
 	},
@@ -92,7 +92,7 @@
 				"fov" : 80
 			},
 			"render_outlines" : {
-		        "enabled" : true
+		        "enabled" : false
 		      }
 		}
 	}
