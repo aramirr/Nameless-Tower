@@ -1,0 +1,102 @@
+[
+{
+    "entity":
+    {
+      "name": "Ascensor"
+      ,
+      "transform":
+      {
+        "pos": "2.1551 46.9102 30.9402"
+        ,
+        "rotation": "0.0 -0.720437 0.0 -0.69352"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Ascensor.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/AscensorMaderaMat.material"
+            ,
+            "data/materials/AscensorEngrMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 1
+        ,
+        "delay": 0.1
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "2.1551 46.5 30.9402"
+          ,
+          "2.1551 50.9102 30.9402"
+        ]
+      }
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Ascensor.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "AscensorTrigger"
+      ,
+      "transform":
+      {
+        "pos": "1.84588 46.0966 30.8485"
+        ,
+        "rotation": "0.0 -0.720866 0.0 -0.693075"
+      }
+      ,
+      "render":
+      []
+      ,
+      "hierarchy":
+      {
+        "parent": "Ascensor"
+        ,
+        "pos": "-0.309223 -0.813599 -0.0917015"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "Ascensor"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.18708 0.170271 1.67722"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+]

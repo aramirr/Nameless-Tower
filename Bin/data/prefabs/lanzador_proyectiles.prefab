@@ -1,0 +1,32 @@
+[
+{
+    "entity":
+    {
+      "name": "Dragon01"
+      ,
+      "transform":
+      {
+        "pos": "30.4881 15.0526 7.32213"
+        ,
+        "rotation": "0.0 0.108719 0.0 -0.994072"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Dragon01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CabezaDragonCabezaMat.material"
+            ,
+            "data/materials/CabezaDragonColmillosMat.material"
+            ,
+            "data/materials/CabezaDragonAdornoMat.material"
+          ]
+        }
+      ],
+      "projectile_controller":{}
+    }
+  }
+]

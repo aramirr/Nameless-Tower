@@ -1,0 +1,103 @@
+[
+ {
+    "entity":
+    {
+      "name": "Orbital"
+      ,
+      "transform":
+      {
+        "pos": "9.01728 67.5809 29.585"
+        ,
+        "rotation": "0.0 -0.798867 0.0 -0.601508"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Orbital.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/OrbitalPlatMat.material"
+            ,
+            "data/materials/OrbitalEngrMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_orbit_patrol":
+      {
+        "speed": 0.05
+        ,
+        "delay": 1.0
+        ,
+        "wake": 2.0
+        ,
+        "waypoints":
+        [
+          "9.01728 67.5809 29.585"
+          ,
+          "18.5921 67.5809 24.7167"
+        ]
+        ,
+        "center": "0.0 67.5692 -2.95354e-06"
+        ,
+        "radius": 30.9287
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.04 -0.33 0.0"
+        ,
+        "halfExtent": "1.41464 0.14 1.65"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "Orbital_trigger"
+      ,
+      "transform":
+      {
+        "pos": "9.01728 67.5649 29.585"
+        ,
+        "rotation": "0.0 -0.798867 0.0 -0.601508"
+      }
+      ,
+      "render":
+      [],
+      "hierarchy": {
+        "parent": "Orbital"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "Orbital"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.26847 0.229405 1.6868"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+] 

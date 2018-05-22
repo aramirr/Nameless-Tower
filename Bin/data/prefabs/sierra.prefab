@@ -1,0 +1,73 @@
+[
+{
+    "entity":
+    {
+      "name": "SierraVertical"
+      ,
+      "transform":
+      {
+        "pos": "12.0613 9 27.5841"
+        ,
+        "rotation": "0.0 0.006 1 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/SierraJ.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SierraM.material"
+          ]
+        }
+      ]
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 2.0
+        ,
+        "delay": 0.0
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "0 0 0"
+          ,
+          "0 3 0"
+        ]
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "circular_controller":
+      {
+        "speed": 7.0
+        ,
+        "eje": "X"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/SierraE.col_mesh"
+      }
+    }
+  }
+]
