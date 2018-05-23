@@ -22,6 +22,7 @@
 #define TS_METALLIC            2
 #define TS_ROUGHNESS           3
 #define TS_EMISSIVE            4
+#define TS_HEIGHT              24
 #define TS_ALPHA			   23
 
 // .. Other slots of the material

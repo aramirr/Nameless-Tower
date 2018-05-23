@@ -8,6 +8,7 @@ Texture2D    txNormal         SLOT( TS_NORMAL );
 Texture2D    txMetallic       SLOT( TS_METALLIC );
 Texture2D    txRoughness      SLOT( TS_ROUGHNESS );
 Texture2D    txEmissive       SLOT(TS_EMISSIVE);
+Texture2D    txHeight         SLOT(TS_HEIGHT);
 
 // from the light and env
 Texture2D    txLightProjector SLOT( TS_LIGHT_PROJECTOR );
@@ -147,6 +148,45 @@ float computeShadowFactor( float3 wPos ) {
 
   // Divide by the number of taps
   return shadow_factor / 12.f;
+}
+
+float2 parallaxMapping(float2 texCoords, float3 view_dir)
+{
+  // determine optimal number of layers
+  const float minLayers = 10;
+  const float maxLayers = 15;
+  float numLayers = lerp(maxLayers, minLayers, abs(dot(float3(0, 0, 1), view_dir)));
+
+  // height of each layer
+  float layerHeight = 1.0 / numLayers;
+  float curLayerHeight = 0.0;
+  float2 dtex = 0.075 * view_dir.xy / numLayers;
+
+  // current texture coordinates
+  float2 currentTextureCoords = texCoords;
+  float heightFromTexture = 1 - txHeight.Sample(samLinear, currentTextureCoords).r;
+
+  // while point is above the surface
+  [unroll(230)]
+  while (heightFromTexture > curLayerHeight)
+  {
+    // to the next layer
+    curLayerHeight += layerHeight;
+    currentTextureCoords -= dtex;
+    heightFromTexture = 1 - txHeight.Sample(samLinear, currentTextureCoords).r;
+  }
+
+  // previous texture coordinates
+  float2 prevTCoords = currentTextureCoords + dtex;
+  float nextH = heightFromTexture - curLayerHeight;
+  float prevH = 1 - txHeight.Sample(samLinear, prevTCoords).r - curLayerHeight + layerHeight;
+
+  float weight = nextH / (nextH - prevH);
+  float2 finalTexCoords = prevTCoords * weight + currentTextureCoords * (1.0 - weight);
+  //parallaxHeight = curLayerHeight + prevH * weight + nextH * (1.0 - weight);
+
+  // return result
+  return finalTexCoords;
 }
 
 //--------------------------------------------------------------------------------------
