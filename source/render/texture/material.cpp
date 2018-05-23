@@ -72,6 +72,8 @@ bool CMaterial::create(const json& j) {
         ts = TS_ROUGHNESS;
 			else if (slot == "emissive")
 				ts = TS_EMISSIVE;
+			else if (slot == "alpha")
+				ts = TS_ALPHA;
 
       assert(ts != TS_NUM_MATERIALS_SLOTS || fatal("Material %s has an invalid texture slot %s\n", name.c_str(), slot.c_str()));
 

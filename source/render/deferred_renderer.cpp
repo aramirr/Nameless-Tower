@@ -19,14 +19,16 @@ void CDeferredRenderer::renderGBuffer() {
   CTexture::setNullTexture(TS_DEFERRED_ALBEDOS);
 	CTexture::setNullTexture(TS_DEFERRED_NORMALS);
 	CTexture::setNullTexture(TS_DEFERRED_SELF_ILLUM);
-  CTexture::setNullTexture(TS_DEFERRED_LINEAR_DEPTH);
+	CTexture::setNullTexture(TS_DEFERRED_LINEAR_DEPTH);
+	CTexture::setNullTexture(TS_DEFERRED_ALPHA);
 
   // Activate el multi-render-target MRT
-  const int nrender_targets = 4;
+  const int nrender_targets = 5;
   ID3D11RenderTargetView* rts[nrender_targets] = {
     rt_albedos->getRenderTargetView(),
     rt_normals->getRenderTargetView(),
-		rt_depth->getRenderTargetView(),
+	rt_depth->getRenderTargetView(),
+	rt_alpha->getRenderTargetView(),
 		rt_self_illum->getRenderTargetView()
   };
 
@@ -40,6 +42,7 @@ void CDeferredRenderer::renderGBuffer() {
   rt_normals->clear(VEC4(0, 0, 1, 1));        
 	rt_depth->clear(VEC4(1, 1, 1, 1));
 	rt_self_illum->clear(VEC4(0, 0, 0, 1));
+	rt_alpha->clear(VEC4(0, 0, 0, 1));
 
   // Clear ZBuffer with the value 1.0 (far)
   Render.ctx->ClearDepthStencilView(Render.depthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
@@ -56,7 +59,8 @@ void CDeferredRenderer::renderGBuffer() {
   rt_albedos->activate(TS_DEFERRED_ALBEDOS);
 	rt_normals->activate(TS_DEFERRED_NORMALS);
 	rt_self_illum->activate(TS_DEFERRED_SELF_ILLUM);
-  rt_depth->activate(TS_DEFERRED_LINEAR_DEPTH);
+	rt_depth->activate(TS_DEFERRED_LINEAR_DEPTH);
+	rt_alpha->activate(TS_DEFERRED_ALPHA);
 }
 
 // --------------------------------------------------------------
@@ -116,6 +120,10 @@ bool CDeferredRenderer::create(int xres, int yres) {
 
 	rt_self_illum = new CRenderToTexture;
 	if (!rt_self_illum->createRT("g_self_illum.dds", xres, yres, DXGI_FORMAT_R8G8B8A8_UNORM))
+		return false;
+
+	rt_alpha = new CRenderToTexture;
+	if (!rt_alpha->createRT("g_alpha.dds", xres, yres, DXGI_FORMAT_R8G8B8A8_UNORM))
 		return false;
 
   return true;

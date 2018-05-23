@@ -22,6 +22,7 @@
 #define TS_METALLIC            2
 #define TS_ROUGHNESS           3
 #define TS_EMISSIVE            4
+#define TS_ALPHA			   23
 
 // .. Other slots of the material
 #define TS_NUM_MATERIALS_SLOTS 5
@@ -39,6 +40,7 @@
 #define TS_DEFERRED_ACC_LIGHTS        14
 #define TS_DEFERRED_AO                15
 #define TS_DEFERRED_SELF_ILLUM        16
+#define TS_DEFERRED_ALPHA             23
 
 // LookUpTable for the color grading
 #define TS_LUT_COLOR_GRADING          17

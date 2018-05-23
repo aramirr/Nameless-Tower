@@ -124,7 +124,7 @@ void PS_GBuffer(
 )
 {
   o_self_illum = txEmissive.Sample(samLinear, iTex0);
-  o_self_illum.xyz *= self_color;
+  //o_self_illum.xyz *= self_color;
   // Store in the Alpha channel of the albedo texture, the 'metallic' amount of
   // the material
   o_albedo = txAlbedo.Sample(samLinear, iTex0);
