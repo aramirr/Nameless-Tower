@@ -410,6 +410,7 @@ float4 PS_ambient(
                               albedo.xyz * irradiance * g_AmbientLightIntensity
                               , 1.0f) + self_illum;
 
+
   final_color =  final_color * global_ambient_adjustment * ao;
   return lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
 }
