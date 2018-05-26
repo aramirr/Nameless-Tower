@@ -122,6 +122,23 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			PxFilterData filter_data = player_shape->getSimulationFilterData();
 			ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
 			BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
+
+			//Raycast looking for walls
+			VEC3 player_position = c_my_transform->getPosition();
+			VEC3 player_front = c_my_transform->getFront();
+			VEC3 pose = player_position + player_front * 0.5f;
+			PxVec3 origin = PxVec3(pose.x, pose.y +0.5f, pose.z);
+			PxVec3 unitDir = PxVec3(player_front.x, player_front.y, player_front.z);
+			PxReal maxDistance = 4.0f;
+			PxRaycastBuffer hit;
+
+			if (EnginePhysics.gScene->raycast(origin, unitDir, maxDistance, hit)) {
+				PxFilterData filter_data = hit.block.shape->getSimulationFilterData();
+				if (filter_data.word0 == CModulePhysics::FilterGroup::Scenario) {
+					//TODO: Mandar mensaje a la camara para que se quede quieta -> MANUE el LLoron
+				}
+			}
+
 			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, query_filter, filter_controller));
 			
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
