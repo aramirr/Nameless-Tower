@@ -90,6 +90,11 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
 		e_collider_entity->sendMsg(rotate_msg);
 	}
+	else if (trigger_type == "torch" && other_entity_name == "windstrike") {
+		TMsgDeactivateTorch deactivate_msg;
+		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
+		e_collider_entity->sendMsg(deactivate_msg);
+	}
 	if (other_entity_name == "The Player")
 		EngineScripting.ExecEvent(ScriptEvents::trigger_enter, params);
 }

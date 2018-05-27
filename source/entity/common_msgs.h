@@ -71,6 +71,14 @@ struct TMsgDestroy {
 	DECL_MSG_ID();
 };
 
+struct TMsgDeactivateTorch {
+	DECL_MSG_ID();
+};
+
+struct TMsgActivateTorchPuzzle {
+	DECL_MSG_ID();
+};
+
 struct TMsgRotate {
 	DECL_MSG_ID();
 };

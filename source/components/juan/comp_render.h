@@ -14,10 +14,7 @@ class TCompRender : public TCompBase {
 public:
   VEC4 color = VEC4(1, 1, 1, 1);
   bool is_active = true;
-
-  // This represents a single object mesh with several materials. Not multiples meshes
-	//std::vector<const CRenderMesh*> meshes_leo;
-  //std::vector<const CMaterial*> materials;
+	float self_illumination = 1.f;
 
   ~TCompRender();
 
