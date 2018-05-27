@@ -209,6 +209,8 @@ void CModuleRender::generateFrame() {
 
     deferred.render(rt_main, h_e_camera);
 
+    CRenderManager::get().renderCategory("opacity");
+
     CRenderManager::get().renderCategory("particles");
 
     CRenderManager::get().renderCategory("distorsions");
