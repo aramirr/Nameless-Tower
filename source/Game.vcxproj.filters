@@ -161,6 +161,8 @@
     <ClCompile Include="skeleton\comp_skel_lookat.cpp" />
     <ClCompile Include="components\sound\comp_sound.cpp" />
     <ClCompile Include="modules\system\module_sound.cpp" />
+    <ClCompile Include="components\ia\puzzles\ai_torch.cpp" />
+    <ClCompile Include="components\ia\puzzles\ai_torch_puzzle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera\camera.h" />
@@ -384,6 +386,8 @@
     <ClInclude Include="skeleton\comp_skel_lookat.h" />
     <ClInclude Include="components\sound\comp_sound.h" />
     <ClInclude Include="modules\system\module_sound.h" />
+    <ClInclude Include="components\ia\puzzles\ai_torch.h" />
+    <ClInclude Include="components\ia\puzzles\ai_torch_puzzle.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />
