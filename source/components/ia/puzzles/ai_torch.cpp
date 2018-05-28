@@ -23,6 +23,7 @@ void CAITorch::debugInMenu() {
 }
 
 void CAITorch::load(const json& j, TEntityParseContext& ctx) {
+    setEntity(ctx.current_entity);
 	timer_limit = j.value("time_limit", 5.0f);
 	puzzle_name = j.value("puzzle", "");
 	if (puzzle_name != "") {
