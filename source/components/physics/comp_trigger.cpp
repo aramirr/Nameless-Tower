@@ -92,7 +92,7 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 	}
 	else if (trigger_type == "torch" && other_entity_name == "windstrike") {
 		TMsgDeactivateTorch deactivate_msg;
-		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
+		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);        
 		e_collider_entity->sendMsg(deactivate_msg);
 	}
 	if (other_entity_name == "The Player")

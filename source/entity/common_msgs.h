@@ -76,6 +76,7 @@ struct TMsgDeactivateTorch {
 };
 
 struct TMsgActivateTorchPuzzle {
+    CHandle h_attacher;
 	DECL_MSG_ID();
 };
 

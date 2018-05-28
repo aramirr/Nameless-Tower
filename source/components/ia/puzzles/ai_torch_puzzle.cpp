@@ -50,7 +50,10 @@ void CAITorchPuzzle::deactivate() {
 	active = false;
 	TCompRender *my_render = getMyRender();
 	my_render->self_illumination = 1;
-	ChangeState("active");
+	ChangeState("inactive");
+    for (auto torch : torchs) {
+        torch->activate();
+    }
 }
 
 
@@ -59,5 +62,7 @@ void CAITorchPuzzle::activate(const TMsgActivateTorchPuzzle& msg) {
 		active = true;
 		timer = 0;
 		ChangeState("active");
+        CEntity* e = msg.h_attacher;
+        torchs.push_back(e->get<CAITorch>());
 	}	
 }

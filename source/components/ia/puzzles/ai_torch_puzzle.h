@@ -1,5 +1,5 @@
-#ifndef _AIC_TORCH
-#define _AIC_TORCH
+#ifndef _AIC_TORCH_PUZZLE
+#define _AIC_TORCH_PUZZLE
 
 #include "../ai_controller.h"
 #include "ai_torch.h"
@@ -10,12 +10,11 @@ class CAITorchPuzzle : public IAIController
 
 	float timer = 0.f;
 	float timer_limit;
-	boolean active;
-	std::vector<CAITorch> config_states;
+	boolean active = false;
+	std::vector<CAITorch*> torchs;
 
 
 public:
-	boolean active = false;
   void load(const json& j, TEntityParseContext& ctx);
   void debugInMenu();
 

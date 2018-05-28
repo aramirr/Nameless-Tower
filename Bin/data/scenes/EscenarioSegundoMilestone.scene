@@ -922,7 +922,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "torch"
         ,
         "render": true
       }
@@ -936,6 +936,9 @@
         "is_trigger": true
         ,
         "mesh_src": "data/meshes/SierraA.col_mesh"
+      },
+      "ai_torch": {
+      	"time_limit": 2
       }
     }
   }
