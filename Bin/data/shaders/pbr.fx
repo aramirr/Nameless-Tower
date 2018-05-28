@@ -269,13 +269,13 @@ float4 PS_Opacity(
 
   float4 final_color = float4(env_fresnel * env * g_ReflectionIntensity + 
                               albedo.xyz * irradiance * g_AmbientLightIntensity
-                              , 1.0f) + self_illum;
+                              , 0.3f) + self_illum;
 
 
   final_color =  final_color * global_ambient_adjustment;// * ao;
   //return float4(0,0,0,1);
   final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
-  final_color.a = 0.3f;
+  //final_color.a = 0.3f;
   return final_color;
 }
 
