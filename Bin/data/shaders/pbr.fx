@@ -274,7 +274,9 @@ float4 PS_Opacity(
 
   final_color =  final_color * global_ambient_adjustment;// * ao;
   //return float4(0,0,0,1);
-  return lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
+  final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
+  final_color.a = 0.3f;
+  return final_color;
 }
 
 void PS_GBuffer_Parallax(

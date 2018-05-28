@@ -282,6 +282,7 @@
     "ps_entry_point": "PS_Opacity",
     "vertex_type": "PosNUvUvTanSkin",
     "category": "opacity",
+    "blend": "combinative",
     "priority" : 150,
     "comment" : "This needs to go after the pbr's solids, but just before the object to render"
   },
