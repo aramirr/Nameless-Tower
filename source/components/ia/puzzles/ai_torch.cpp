@@ -29,6 +29,10 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
 	if (puzzle_name != "") {
 		in_puzzle = true;
 		CEntity* puzzle_entity = (CEntity*)getEntityByName(puzzle_name);
+        TMsgAttachTo activate_msg;
+        CEntity* e = h_entity;
+        activate_msg.h_attacher = h_entity;
+        puzzle_entity->sendMsg(activate_msg);
 	}
 	Init();
 }
@@ -68,12 +72,13 @@ void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
 		my_render->self_illumination = 1;
 		timer = 0;
 		ChangeState("inactive");
-		if (in_puzzle) {
+		if (in_puzzle && !attached) {
 			TMsgActivateTorchPuzzle activate_msg;
 			CEntity* e_collider_entity = (CEntity*)getEntityByName(puzzle_name);
             CEntity* e = h_entity;
             activate_msg.h_attacher = h_entity;
 			e_collider_entity->sendMsg(activate_msg);
+            attached = true;
 		}
 	}	
 }
