@@ -12,7 +12,7 @@ class CAITorchPuzzle : public IAIController
 	float timer_limit;
     int activated_torchs = 0;
 	bool active = false;
-	std::vector<CAITorch*> torchs;
+	std::vector<CEntity*> torchs;
 
 
 public:
