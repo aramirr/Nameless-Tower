@@ -30,8 +30,8 @@ void TCompOrbitCamera::desactiveCamera(const TMsgDesactiveCamera & msg) {
 }
 
 void TCompOrbitCamera::registerMsgs() {
-  DECL_MSG(TCompOrbitCamera, TMsgActiveCamera, activeCamera);
-  DECL_MSG(TCompOrbitCamera, TMsgDesactiveCamera, desactiveCamera);
+  //DECL_MSG(TCompOrbitCamera, TMsgActiveCamera, activeCamera);
+  //DECL_MSG(TCompOrbitCamera, TMsgDesactiveCamera, desactiveCamera);
 }
 
 void TCompOrbitCamera::debugInMenu() {

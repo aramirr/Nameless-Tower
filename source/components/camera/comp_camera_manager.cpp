@@ -10,6 +10,13 @@ DECL_OBJ_MANAGER("cameraManager", TCompCameraManager);
 
 static Interpolator::TSineInOutInterpolator interpolator;
 
+void TCompCameraManager::registerMsgs() {
+  DECL_MSG(TCompCameraManager, TMsgAttachTo, attachPlayer);
+  DECL_MSG(TCompCameraManager, TMsgDetachOf, detachPlayer);
+  DECL_MSG(TCompCameraManager, TMsgActiveCamera, startCamera);
+  DECL_MSG(TCompCameraManager, TMsgDesactiveCamera, stopCamera);
+}
+
 bool TCompCameraManager::isGrounded()
 {
 	TCompPlayerController* pc = player->get<TCompPlayerController>();
@@ -40,6 +47,43 @@ void TCompCameraManager::detachPlayer(const TMsgDetachOf & msg) {
 		inPlatform = false;
 		jumpinPlatform = true;
 	}
+}
+
+//FIJAR CAMARA 
+void TCompCameraManager::startCamera(const TMsgActiveCamera & msg) {
+  active = true;
+}
+
+void TCompCameraManager::stopCamera(const TMsgDesactiveCamera & msg) {
+  active = false;
+  CEntity* cam = (CEntity*)getEntityByName("the_camera");
+
+  TCompTransform* ct = cam->get<TCompTransform>();
+  assert(ct);
+
+  CEntity* cam2;
+  TCompTransform* c;
+  if (lateral) {
+    cam2 = (CEntity *)getEntityByName("camera_platform");
+    c = cam2->get<TCompTransform>();
+    assert(c);
+  }
+  else {
+    if (pForwarding) {
+      cam2 = (CEntity *)getEntityByName("camera_orbit_IZQ");
+      c = cam2->get<TCompTransform>();
+      assert(c);
+    }
+    else {
+      cam2 = (CEntity *)getEntityByName("camera_orbit_DER");
+      c = cam2->get<TCompTransform>();
+      assert(c);
+    }
+  }
+  ct->setPosition(c->getPosition());
+  ct->lookAt(c->getPosition(), c->getFront());
+
+  Engine.getCameras().blendInCamera(cam, 0.1f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 }
 
 void TCompCameraManager::loadCinematics()
@@ -95,10 +139,6 @@ void TCompCameraManager::loadCinematics()
 	}
 }
 
-void TCompCameraManager::registerMsgs() {
-	DECL_MSG(TCompCameraManager, TMsgAttachTo, attachPlayer);
-	DECL_MSG(TCompCameraManager, TMsgDetachOf, detachPlayer);
-}
 
 void TCompCameraManager::activateCinematic(std::string name)
 {
@@ -150,6 +190,7 @@ void TCompCameraManager::load(const json& j, TEntityParseContext& ctx) {
 	cinemating = false;
 
 	godMode = false;
+  active = true;
 
 	cinematics.clear();
 
@@ -210,10 +251,10 @@ void TCompCameraManager::update(float dt) {
 			cameras.clear();
 			cameras = cinematics[cinematicName];
 
-			ct->setPosition(cameras[0].first.camPos);
-			ct->lookAt(cameras[0].first.camPos, cameras[0].first.camLookAt);
+      ct->setPosition(cameras[0].first.camPos);
+      ct->lookAt(cameras[0].first.camPos, cameras[0].first.camLookAt);
 
-			Engine.getCameras().blendInCamera(cam, 0.1f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
+      Engine.getCameras().blendInCamera(cam, 0.1f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 
 			cameraActive = 1;
 
@@ -295,7 +336,7 @@ void TCompCameraManager::update(float dt) {
 			CHandle h_camera = getEntityByName("camera_god");
 			Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 		}
-		else {
+		else if(active){
 			TCompTransform* p = player->get<TCompTransform>();
 			assert(p);
 			VEC3 pPos = p->getPosition();
@@ -351,6 +392,5 @@ void TCompCameraManager::update(float dt) {
 				}
 			}
 		}
-
 	}
 }
