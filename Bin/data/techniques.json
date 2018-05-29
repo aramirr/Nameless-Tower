@@ -104,6 +104,18 @@
       "irradiance": "data/textures/cubemaps/irradiance.dds"
     }
   },
+   "pbr_parallax": {
+    "vs_file": "data/shaders/pbr.fx",
+    "ps_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_GBuffer",
+    "ps_entry_point": "PS_GBuffer_Parallax",
+    "vertex_type": "PosNUvUvT",
+    "category" : "gbuffer",
+    "textures" : { 
+      "environment" : "data/textures/cubemaps/env.dds", 
+      "irradiance" : "data/textures/cubemaps/irradiance.dds" 
+    }
+  },
 "pbr_skin": {
     "vs_file": "data/shaders/pbr.fx",
     "ps_file": "data/shaders/pbr.fx",
@@ -260,6 +272,17 @@
     "vertex_type": "PosNUvUvTanSkin",
     "category": "gbuffer",
     "z" : "test_no_writes_mark_stencil",
+    "priority" : 150,
+    "comment" : "This needs to go after the pbr's solids, but just before the object to render"
+  },
+  "opacity": {
+    "vs_file": "data/shaders/pbr.fx",
+    "ps_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_GBufferSkin",
+    "ps_entry_point": "PS_Opacity",
+    "vertex_type": "PosNUvUvTanSkin",
+    "category": "opacity",
+    "blend": "combinative",
     "priority" : 150,
     "comment" : "This needs to go after the pbr's solids, but just before the object to render"
   },
