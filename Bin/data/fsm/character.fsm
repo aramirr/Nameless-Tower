@@ -15,7 +15,7 @@
 		{
 			"name" : "run",
 			"type" : "RunState",
-			"x_speed" : 2.5,
+			"x_speed" : 2,
 			"is_action": false,
 			"delay_in": 0.01,
 			"delay_out": 0.01,
@@ -25,7 +25,7 @@
 			"name" : "jump",
 			"type" : "JumpState",
 			"y_speed" : 12.6,
-			"x_speed" : 2.5,
+			"x_speed" : 2,
 			"is_action": true,
 			"delay_in": 0.1,
 			"delay_out": 0.1
@@ -33,7 +33,7 @@
 		{
 			"name" : "falling",
 			"type" : "FallingState",
-			"x_speed" : 2.5,
+			"x_speed" : 2,
 			"is_action": false,
 			"delay_in": 0.1,
 			"delay_out": 0.01
@@ -41,7 +41,7 @@
 		{
 			"name" : "dash",
 			"type" : "DashState",
-			"x_speed": 6,
+			"x_speed": 4,
 			"is_action": true,
 			"delay_in": 0.1,
 			"delay_out": 0.01
@@ -63,8 +63,8 @@
 		{
 			"name" : "omnijump",
 			"type" : "OmnijumpState",
-			"y_speed" : 3,
-			"x_speed" : 1.8,
+			"y_speed" : 2.5,
+			"x_speed" : 1.5,
 			"is_action": true,
 			"delay_in": 0.01,
 			"delay_out": 0.01
