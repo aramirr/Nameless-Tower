@@ -14,6 +14,8 @@ class CAITorch : public IAIController
 	bool in_puzzle;
 	std::string puzzle_name;
 
+    bool b_fuego = true;
+
 public:
 	bool active = true;
   void load(const json& j, TEntityParseContext& ctx);

@@ -8,6 +8,7 @@
 #include "components/player/comp_player_controller.h"
 
 
+
 DECL_OBJ_MANAGER("ai_torch", CAITorch);
 
 void CAITorch::Init()
@@ -30,7 +31,7 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
 		in_puzzle = true;
 		CEntity* puzzle_entity = (CEntity*)getEntityByName(puzzle_name);
 	}
-	Init();
+    Init();
 }
 
 void CAITorch::registerMsgs() {
@@ -40,6 +41,11 @@ DECL_MSG(CAITorch, TMsgDeactivateTorch, deactivate);
 
 void CAITorch::ActiveState(float dt)
 {	
+    if (b_fuego) {
+        TCompTransform* my_transform = getMyTransform();
+        EngineParticles.addFuegoTest(my_transform->getPosition());
+        b_fuego = false;
+    }
 }
 
 

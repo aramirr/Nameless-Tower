@@ -75,3 +75,4 @@ private:
 #define EngineScripting CEngine::get().getScriptingModule()
 #define EnginePhysics CEngine::get().getPhysics()
 #define EngineSound CEngine::get().getSound()
+#define EngineParticles CEngine::get().getParticles()

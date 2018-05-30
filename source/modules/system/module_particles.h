@@ -39,4 +39,5 @@ public:
 	{}
   bool start() override;
   void update(float delta) override;
+  void addFuegoTest(VEC3 position);
 };

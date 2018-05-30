@@ -30,6 +30,21 @@ bool CModuleParticles::start()
   return true;
 }
 
+void CModuleParticles::addFuegoTest(VEC3 position) {
+    TRenderParticle new_instance;
+    new_instance.scale_x = randomFloat(0.3f, 0.5f);
+    new_instance.scale_y = new_instance.scale_x;
+    new_instance.pos = position;
+    new_instance.pos.y += 1.0f;
+    new_instance.nframe = randomFloat(0.f, 16.f);
+    new_instance.angle = deg2rad(randomFloat(0, 360));
+    new_instance.color.x = unitRandom();
+    new_instance.color.y = unitRandom();
+    new_instance.color.z = 1 - new_instance.color.x - new_instance.color.y;
+    new_instance.color.w = 1;
+    particles_instances.push_back(new_instance);
+}
+
 void CModuleParticles::update(float delta)
 {
 
@@ -145,8 +160,8 @@ void CModuleParticles::update(float delta)
 
   // Rotate the particles
   for (auto& p : particles_instances) {
-      p.angle += delta;
-      p.pos.y += delta;
+      //p.angle += delta;
+      
   }
 
   // Move the instances in the cpu
