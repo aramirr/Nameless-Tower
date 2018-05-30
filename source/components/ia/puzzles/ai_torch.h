@@ -12,10 +12,12 @@ class CAITorch : public IAIController
 	float timer = 0.f;
 	float timer_limit;
 	bool in_puzzle;
+    bool active = true;
+    bool attached = false;
 	std::string puzzle_name;
 
 public:
-	bool active = true;
+	
   void load(const json& j, TEntityParseContext& ctx);
   void debugInMenu();
 

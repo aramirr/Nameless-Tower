@@ -1,0 +1,33 @@
+[{
+    "entity":
+    {
+      "name": "torch"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      {}
+      ,      
+      "trigger":
+      {
+        "trigger_type": "torch"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "mesh_src": "data/meshes/SierraA.col_mesh"
+      }
+    }
+  }
+]
