@@ -16,11 +16,11 @@ void LogicManager::printDbg(const char* msg) {
 }
 
 void LogicManager::disappearEntity(const char* name) {
-	EngineTower.disappearEntity(name);
+//	EngineTower.disappearEntity(name);
 }
 
 void LogicManager::appearEntity(const char* name) {
-	EngineTower.appearEntity(name);
+	//EngineTower.appearEntity(name);
 }
 
 void LogicManager::activateCamera(const char* name) {

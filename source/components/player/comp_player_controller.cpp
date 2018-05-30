@@ -26,6 +26,8 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	is_grounded = true;
 	looking_left = true;
 
+  rayWall = false;
+
 	init();
 }
 
@@ -126,25 +128,38 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			//Raycast looking for walls
 			VEC3 player_position = c_my_transform->getPosition();
 			VEC3 player_front = c_my_transform->getFront();
-			VEC3 pose = player_position + player_front * 0.5f;
-			PxVec3 origin = PxVec3(pose.x, pose.y +0.5f, pose.z);
-			PxVec3 unitDir = PxVec3(player_front.x, player_front.y, player_front.z);
+			
+      //FRONT
+      VEC3 posef = player_position + player_front * 0.5f;
+			PxVec3 originf = PxVec3(posef.x, posef.y +0.5f, posef.z);
+      PxVec3 unitDirf = PxVec3(player_front.x, player_front.y, player_front.z);
+      
+      //BACK
+      VEC3 poseb = player_position - player_front * 0.5f;
+      PxVec3 originb = PxVec3(poseb.x, poseb.y + 0.5f, poseb.z);
+      PxVec3 unitDirb = PxVec3(-player_front.x, -player_front.y, -player_front.z);
+
 			PxReal maxDistance = 4.0f;
 			PxRaycastBuffer hit;
 
-			if (EnginePhysics.gScene->raycast(origin, unitDir, maxDistance, hit)) {
+			if (EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) {
 				PxFilterData filter_data = hit.block.shape->getSimulationFilterData();
-        CEntity* e = (CEntity*)getEntityByName("camera_manager");
+        
         if (filter_data.word0 == CModulePhysics::FilterGroup::Scenario) {
 					//TODO: Mandar mensaje a la camara para que se quede quieta -> MANUE el LLoron
+          CEntity* e = (CEntity*)getEntityByName("camera_manager");
+          rayWall = true;
           TMsgDesactiveCamera msg;
           e->sendMsg(msg);
         }
-        else {
-          TMsgActiveCamera msg;
-          e->sendMsg(msg);
-        }
+        
 			}
+      else if(rayWall && !EnginePhysics.gScene->raycast(originb, unitDirb, maxDistance, hit)) {
+        CEntity* e = (CEntity*)getEntityByName("camera_manager");
+        rayWall = false;
+        TMsgActiveCamera msg;
+        e->sendMsg(msg);
+      }
 
 			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, query_filter, filter_controller));
 			
