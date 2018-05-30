@@ -94,6 +94,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
+    <ClCompile Include="components\comp_particles.cpp" />
     <ClCompile Include="components\controllers\comp_projectile_controller.cpp" />
     <ClCompile Include="components\comp_light_dir.cpp" />
     <ClCompile Include="components\comp_light_point.cpp" />
@@ -217,6 +218,7 @@
     <ClCompile Include="modules\system\module_fsm.cpp" />
     <ClCompile Include="modules\system\module_gui.cpp" />
     <ClCompile Include="modules\system\module_input.cpp" />
+    <ClCompile Include="modules\system\module_particles.cpp" />
     <ClCompile Include="modules\system\module_physics.cpp" />
     <ClCompile Include="modules\system\module_sound.cpp" />
     <ClCompile Include="modules\test\module_test_cameras.cpp" />
@@ -260,6 +262,7 @@
   <ItemGroup>
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
     <ClInclude Include="camera\camera.h" />
+    <ClInclude Include="components\comp_particles.h" />
     <ClInclude Include="components\controllers\comp_projectile_controller.h" />
     <ClInclude Include="components\ia\puzzles\ai_torch.h" />
     <ClInclude Include="components\ia\ai_wind_current.h" />
@@ -403,6 +406,7 @@
     <ClInclude Include="modules\system\module_fsm.h" />
     <ClInclude Include="modules\system\module_gui.h" />
     <ClInclude Include="modules\system\module_input.h" />
+    <ClInclude Include="modules\system\module_particles.h" />
     <ClInclude Include="modules\system\module_physics.h" />
     <ClInclude Include="modules\system\module_sound.h" />
     <ClInclude Include="modules\test\module_test_cameras.h" />
