@@ -117,6 +117,8 @@ void TCompPlatformCamera::load(const json& j, TEntityParseContext& ctx) {
 	speedCaida = 0.f;
 }
 
+VEC3 oldpos2;
+
 void TCompPlatformCamera::update(float dt) {
 	xOffset = deg2rad(((2 * 3.14159f * radio) / 360) * apertura);
 	TCompTransform* c = get<TCompTransform>();
@@ -140,28 +142,28 @@ void TCompPlatformCamera::update(float dt) {
 
 	if (currentPlayerY < pPos.y - 0.1f) {
 		//dbg((std::to_string(dY) + "\n").c_str());
-		if (dY > height + height) {
+		if (dY > height + height + 1.5f) {
 			//dbg("4\n");
 			//currentPlayerY = (pPos.y - height/*+ height*/);
 			// -= (pPos.y - height /*+ height*/); //12.5f;
 			currentPlayerY += 1.5f;
 			speedCaida = 40.f;
 		}
-		else if (dY > height + (height / 2)) {
+		else if (dY > height + (height / 2) + 1.5f) {
 			//dbg("3\n");
 			//currentPlayerY = (pPos.y - height/*+ height*/);
 			//currentPlayerY -= (pPos.y - height/*+ height*/); //6.5f;
 			currentPlayerY += 1.125f;
 			speedCaida = 30.f;
 		}
-		else if (dY > height + (height / 3)) {
+		else if (dY > height + (height / 3) + 1.5f) {
 			//dbg("2\n");
 			//currentPlayerY = (pPos.y - height/*+ height*/);
 			//currentPlayerY -= (pPos.y - height/*+ height*/);
 			currentPlayerY += 0.75f;
 			speedCaida = 10.f;
 		}
-		else if (dY > height + (height / 4)) {
+		else if (dY > height + (height / 4) + 1.5f) {
 			//dbg("2\n");
 			//currentPlayerY = (pPos.y - height/*+ height*/);
 			//currentPlayerY -= (pPos.y - height/*+ height*/);
@@ -176,28 +178,28 @@ void TCompPlatformCamera::update(float dt) {
 	}
 	else if (currentPlayerY > pPos.y + 0.1f) {
 		//dbg((std::to_string(dY) + "\n").c_str());
-		if (dY > height + height) {
+		if (dY > height + height + 1.5f) {
 			//dbg("4\n");
 			//currentPlayerY = (pPos.y - height/*+ height*/);
 			// -= (pPos.y - height /*+ height*/); //12.5f;
 			currentPlayerY -= 1.5f;
 			speedCaida = 40.f;
 		}
-		else if (dY > height + (height / 2)) {
+		else if (dY > height + (height / 2) + 1.5f) {
 			//dbg("3\n");
 			//currentPlayerY = (pPos.y - height/*+ height*/);
 			//currentPlayerY -= (pPos.y - height/*+ height*/); //6.5f;
 			currentPlayerY -= 1.125f;
 			speedCaida = 30.f;
 		}
-		else if (dY > height + (height / 3)) {
+		else if (dY > height + (height / 3) + 1.5f) {
 			//dbg("3\n");
 			//currentPlayerY = (pPos.y - height/*+ height*/);
 			//currentPlayerY -= (pPos.y - height/*+ height*/); //6.5f;
 			currentPlayerY -= 0.75f;
 			speedCaida = 20.f;
 		}
-		else if (dY > height + (height / 4)) {
+		else if (dY > height + (height / 4) + 1.5f) {
 			//dbg("2\n");
 			//currentPlayerY = (pPos.y - height/*+ height*/);
 			//currentPlayerY -= (pPos.y - height/*+ height*/);
@@ -361,7 +363,14 @@ void TCompPlatformCamera::update(float dt) {
 		newPos = actualPos;
 		newPos.y = currentPlayerY + height;
 	  }*/
-	newPos = VEC3::Lerp(actualPos, newPos, dt * (10 + speedCaida));
+  VEC3 desiredpos;
+
+  desiredpos = VEC3::Lerp(actualPos, newPos, dt * (10 + speedCaida)  /*(10 + speedCaida * dt)*/ /** getYSpeed()*/);//(10 + speedCaida)/*chaseSpeed + cameraCatchup*/);
+
+  float vel = 0.75;
+
+  newPos = vel * oldpos2 + (1 - vel)*desiredpos;
+  oldpos2 = newPos;
 	c->setPosition(newPos);
 	actualPos = newPos;
 	/* }*/

@@ -6,6 +6,7 @@
 DECL_OBJ_MANAGER("player_input", TCompPlayerInput);
 
 void TCompPlayerInput::debugInMenu() {
+	ImGui::DragFloat("wind time: %f", &windstrike_time, 0.01f, 0.f, 100.f);
 }
 
 void TCompPlayerInput::load(const json& j, TEntityParseContext& ctx) {
@@ -14,6 +15,7 @@ void TCompPlayerInput::load(const json& j, TEntityParseContext& ctx) {
 void TCompPlayerInput::update(float dt)
 {
 	CEntity* e = CHandle(this).getOwner();
+	windstrike_time += dt;
 
   TMsgSetFSMVariable jumpMsg;
   jumpMsg.variant.setName("jump");
@@ -35,8 +37,10 @@ void TCompPlayerInput::update(float dt)
 	TMsgSetFSMVariable windstrikeMsg;
 	windstrikeMsg.variant.setName("windstrike");
 	windstrikeMsg.variant.setBool(EngineInput["windstrike"].isPressed());
-	if (EngineInput["windstrike"].hasChanged())
+	if (EngineInput["windstrike"].hasChanged() && windstrike_time > windstrike_wait_time)
 	{
+		if (EngineInput["windstrike"].isPressed())
+			windstrike_time = 0;
 		e->sendMsg(windstrikeMsg);
 	}
 
