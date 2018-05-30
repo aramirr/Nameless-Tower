@@ -35,7 +35,7 @@ void CModuleParticles::addFuegoTest(VEC3 position) {
     new_instance.scale_x = randomFloat(0.3f, 0.5f);
     new_instance.scale_y = new_instance.scale_x;
     new_instance.pos = position;
-    new_instance.pos.y += 1.0f;
+    new_instance.pos.y += 0.8f;
     new_instance.nframe = randomFloat(0.f, 16.f);
     new_instance.angle = deg2rad(randomFloat(0, 360));
     new_instance.color.x = unitRandom();
