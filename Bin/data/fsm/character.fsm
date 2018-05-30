@@ -25,7 +25,7 @@
 			"name" : "jump",
 			"type" : "JumpState",
 			"y_speed" : 12.6,
-			"x_speed" : 2,
+			"x_speed" : 1.6,
 			"is_action": true,
 			"delay_in": 0.1,
 			"delay_out": 0.1
@@ -63,8 +63,8 @@
 		{
 			"name" : "omnijump",
 			"type" : "OmnijumpState",
-			"y_speed" : 2.5,
-			"x_speed" : 1.5,
+			"y_speed" : 2,
+			"x_speed" : 1,
 			"is_action": true,
 			"delay_in": 0.01,
 			"delay_out": 0.01
