@@ -899,26 +899,18 @@
       "render":
       [
         {
-          "mesh": "data/meshes/SierraA.mesh"
+          "mesh": "data/meshes/Antorcha.mesh"
           ,
           "materials":
           [
-            "data/materials/SierraM.material"
+            "data/materials/Antorcha Material.material"
+            ,
+            "data/materials/PaloMaterial.material"
+            ,
+            "data/materials/BaseMate.material"
           ]
         }
       ]
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "circular_controller":
-      {
-        "speed": 7.0
-        ,
-        "eje": "X"
-      }
       ,
       "trigger":
       {
