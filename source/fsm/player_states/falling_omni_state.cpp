@@ -14,7 +14,7 @@ namespace FSM
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->change_animation(player->EAnimations::NajaJumpFall, _is_action, _delay_in, _delay_out);
 		if (player->omnidash_arrow.y > 0.9)
-			player->y_speed_factor = player->omnidash_arrow.y * 7;
+			player->y_speed_factor = player->omnidash_arrow.y * 6;
 		else if (player->omnidash_arrow.y > 0.6)
 			player->y_speed_factor = player->omnidash_arrow.y * 11;
 		else if (player->omnidash_arrow.y > 0.3)
@@ -50,19 +50,19 @@ namespace FSM
 		if (EngineInput["left"].isPressed()) {
 			if (!player->looking_left) {
 				player->looking_left = true;
-				player->move_player(false, true, dt, y_speed, _x_speed * 1.2);
+				player->move_player(false, true, dt, y_speed, _x_speed);
 			}
 			else {
-				player->move_player(false, false, dt, y_speed, _x_speed * 1.2);
+				player->move_player(false, false, dt, y_speed, _x_speed);
 			}
 		}
 		else if (EngineInput["right"].isPressed()) {
 			if (!player->looking_left) {
-				player->move_player(true, false, dt, y_speed, _x_speed * 1.2);
+				player->move_player(true, false, dt, y_speed, _x_speed);
 			}
 			else {
 				player->looking_left = false;
-				player->move_player(true, true, dt, y_speed, _x_speed * 1.2);
+				player->move_player(true, true, dt, y_speed, _x_speed);
 			}
 		}
 		else {
