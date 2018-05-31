@@ -1,13 +1,21 @@
 #include "mcv_platform.h"
 #include "comp_rigid_anim.h"
 #include "components/juan/comp_transform.h"
+#include "entity/entity_parser.h"
 
-DECL_OBJ_MANAGER("player_input", TCompRigidAnim);
+DECL_OBJ_MANAGER("rigid_anim", TCompRigidAnim);
 
 void TCompRigidAnim::load(const json& j, TEntityParseContext& ctx) {
   controller.track_name = j.value( "track", "" );
-//  controller.track_index = j.value
-  controller.anims = Resources.get(j["anims"])->as<RigidAnims::CRigidAnimResource>();
+  if (controller.track_name.empty()) {
+    CEntity* e = ctx.current_entity;
+    assert(e);
+    controller.track_name = e->getName();
+  }
+  assert(j.count("src") > 0);
+  controller.anims = Resources.get(j["src"])->as<RigidAnims::CRigidAnimResource>();
+  controller.track_index = controller.anims->findTrackIndexByName(controller.track_name);
+  assert(controller.track_index != RigidAnims::CController::invalid_track_index);
   current_time = 0;
   speed_factor = j.value("speed_factor", 1.0f);
 }

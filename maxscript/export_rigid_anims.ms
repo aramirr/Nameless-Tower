@@ -28,8 +28,9 @@ struct TRigidAnimExporter (
 	-- ----------------------------------------------------------
 	fn writeFixedStr fs str max_bytes = (
 		-- Write the vertex type as 32 bytes string with zero paddings
+		format "Wringing name '%'\n" str
 		WriteString fs str
-		for i = str.count+1 to max_bytes do WriteByte fs 0
+		for i = str.count+1 to ( max_bytes - 1 ) do WriteByte fs 0
 	),
 	
 	-- ----------------------------------------------------------
@@ -98,28 +99,38 @@ struct TRigidAnimExporter (
 		local fs = fopen ofilename "wb"
 		if fs == undefined then throw ( "Can't create file " + ofilename )
 		
+		local num_keys = 0;
+		for t in tracks do num_keys += t.keys.count
+		
 		local magicHeader = 0x11777711
-			
+		local track_name_length = 32
+		local bytes_per_track = track_name_length + 5 * 4
+		
 		-- Save header
 		-- Total Bytes, NumIdxs, 
 		local headerSize = 8
 		local version = 1
-		writeChunk fs magicHeader headerSize	-- 8 bytes
-		WriteLong fs tracks.count	-- NumTracks
+		WriteLong fs magicHeader		-- version
 		WriteLong fs version		-- version
+		WriteLong fs tracks.count	-- NumTracks
+		WriteLong fs num_keys	-- Total num keys
+		WriteLong fs track_name_length
+		WriteLong fs bytes_per_track
 
 		-- Save the names and index info
 		local key0 = 0
 		for t in tracks do (
-			writeFixedStr fs t.track_name 32
+			format "Track % uses % keys\n" t.track_name t.keys.count
+			local num_keys = t.keys.count
+			writeFixedStr fs t.track_name track_name_length
 			writeLong fs key0				-- Index of first key
-			writeLong fs t.keys.count		-- Num keys for this track
+			writeLong fs num_keys		-- Num keys for this track
 			writeFloat fs t.fps		
 			writeFloat fs t.begin_time		
 			writeFloat fs t.end_time
-			key0 += t.keys.count
+			key0 += num_keys
 		)
-		
+
 		-- Save all the keys
 		for t in tracks do (
 			for k in t.keys do (

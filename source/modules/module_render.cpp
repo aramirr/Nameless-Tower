@@ -18,6 +18,7 @@
 #include "components/postfx/comp_render_outlines.h"
 #include "render/mesh/collision_mesh.h"
 #include "components/postfx/comp_render_bloom.h"
+#include "geometry/rigid_anim.h"
 
 //--------------------------------------------------------------------------------------
 CModuleRender::CModuleRender(const std::string& name)
@@ -60,6 +61,7 @@ bool CModuleRender::start()
   Resources.registerResourceClass(getResourceClassOf<CMaterial>());
   Resources.registerResourceClass(getResourceClassOf<CGameCoreSkeleton>());
   Resources.registerResourceClass(getResourceClassOf<CCollisionMesh>());
+  Resources.registerResourceClass(getResourceClassOf<RigidAnims::CRigidAnimResource>());
 
   if (!createRenderObjects())
     return false;
