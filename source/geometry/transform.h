@@ -29,6 +29,13 @@ public:
       ;
   }
 
+  MAT44 asMatrixCustomPosition(VEC3 custom_position) const {
+      return MAT44::CreateScale(scale)
+          * MAT44::CreateFromQuaternion(rot)
+          * MAT44::CreateTranslation(custom_position)
+          ;
+  }
+
   // -------------------------------------------
   void setYawPitchRoll(float new_yaw, float new_pitch, float new_roll = 0.f);
   void getYawPitchRoll(float* yaw, float* pitch, float* roll = nullptr) const;
