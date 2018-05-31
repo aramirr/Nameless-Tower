@@ -117,23 +117,16 @@ struct TRigidAnimExporter (
 		local track_name_length = 32
 		local bytes_per_track = track_name_length + 5 * 4
 		
-		local last_end_time = 0
-		for t in tracks do (
-			if t.end_time > last_end_time then last_end_time = t.end_time
-		)
-		local total_duration = last_end_time
-		
 		-- Save header
 		-- Total Bytes, NumIdxs, 
 		local headerSize = 8
-		local version = 2
+		local version = 1
 		WriteLong fs magicHeader		-- version
 		WriteLong fs version		-- version
 		WriteLong fs tracks.count	-- NumTracks
 		WriteLong fs num_keys	-- Total num keys
 		WriteLong fs track_name_length
 		WriteLong fs bytes_per_track
-		writeFloat fs total_duration
 
 		-- Save the names and index info
 		local key0 = 0
