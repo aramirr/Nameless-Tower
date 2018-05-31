@@ -45,7 +45,6 @@ namespace FSM
 		player->omnidash_vector.y += player->omnidash_arrow.y;
 		VEC3 new_pos;
 		new_pos = my_pos + (player->omnidash_vector * ((_y_speed * 6 - player->gravity * dt) * dt));
-		player->y_speed_factor -= player->gravity * dt / 4;
 
 		VEC3 centre = VEC3(0, new_pos.y, 0);
 		float d = VEC3::Distance(centre, new_pos);
@@ -59,7 +58,7 @@ namespace FSM
 		float current_pitch;
 		float amount_moved = _x_speed * dt;
 		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-		current_yaw = current_yaw - (0.3f * player->omnidash_arrow.x * amount_moved);
+		current_yaw = current_yaw - (0.33f * player->omnidash_arrow.x * amount_moved);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 
 		PxShape* player_shape;

@@ -11,6 +11,8 @@ public:
   void debugInMenu();
   void load(const json& j, TEntityParseContext& ctx);
   void update(float dt);
+  float windstrike_time = 1;
+  int windstrike_wait_time = 1;
 
 private:
 };
