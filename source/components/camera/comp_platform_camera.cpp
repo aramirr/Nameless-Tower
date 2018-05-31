@@ -378,7 +378,10 @@ void TCompPlatformCamera::update(float dt) {
 	 /*}*/
 
 	 //c->setPerspective(deg2rad(fov_deg), z_near, z_far);
-	c->lookAt(newPos, center);
+
+  VEC3 aim = center;
+  aim = aim + p->getFront()*0;
+	c->lookAt(newPos, aim);
 	/*}*/
 }
 
