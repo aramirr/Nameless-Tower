@@ -39,9 +39,18 @@
 			"delay_out": 0.01
 		},
 		{
+			"name" : "falling_omni",
+			"type" : "FallingOmniState",
+			"x_speed" : 2.2,
+			"y_speed" : 2,
+			"is_action": false,
+			"delay_in": 0.1,
+			"delay_out": 0.01
+		},
+		{
 			"name" : "dash",
 			"type" : "DashState",
-			"x_speed": 4,
+			"x_speed": 5,
 			"is_action": true,
 			"delay_in": 0.1,
 			"delay_out": 0.01
@@ -271,6 +280,17 @@
 		},
 		{
 			"type" : "VariableTransition",
+			"source" : "falling_omni",
+			"target" : "idle",
+			"variable" : {
+				"name" : "is_grounded",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
 			"source" : "falling",
 			"target" : "dying",
 			"variable" : {
@@ -362,7 +382,7 @@
 		{
 			"type" : "VariableTransition",
 			"source" : "omnijump",
-			"target" : "falling",
+			"target" : "falling_omni",
 			"variable" : {
 				"name" : "idle",
 				"type" : "bool",
@@ -402,8 +422,8 @@
 		{
 			"type" : "TimeTransition",
 			"source" : "omnijump",
-			"target" : "idle",			
-			"time" : 0.25
+			"target" : "falling_omni",			
+			"time" : 0.3
 		},
 		{
 			"type" : "LogicTransition",
