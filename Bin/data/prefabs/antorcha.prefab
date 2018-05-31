@@ -1,8 +1,8 @@
 [
-{
+  {
     "entity":
     {
-      "name": "Antorcha"
+      "name": "antorcha"
       ,
       "transform":
       {
@@ -45,12 +45,10 @@
         "mesh_src": "data/meshes/SierraA.col_mesh"
       },
       "ai_torch": {
-      	"time_limit": 2
-      },
-      "light_point": {
-        "intensity": 1,
-        "color" :  "229 54 9 1",
-        "radius" : 3.960
+        "time_limit": 2,
+        "intensity": 30,
+        "color" :  "0.898 0.212 0.0353 1",
+        "radius" : 2
       }
     }
   }
