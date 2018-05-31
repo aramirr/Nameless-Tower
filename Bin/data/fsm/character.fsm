@@ -50,7 +50,7 @@
 		{
 			"name" : "dash",
 			"type" : "DashState",
-			"x_speed": 5,
+			"x_speed": 4,
 			"is_action": true,
 			"delay_in": 0.1,
 			"delay_out": 0.01
@@ -213,6 +213,25 @@
 			"logic_operation" : "and"
 		},
 		{
+			"type" : "LogicTransition",
+			"source" : "falling_omni",
+			"target" : "glide",
+			"variables" : [
+				{
+					"name" : "glide",
+					"type" : "bool",
+					"value" : true
+				},
+				{
+					"name" : "in_wind",
+					"type" : "bool",
+					"value" : true
+				}
+			],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
 			"type" : "VariableTransition",
 			"source" : "run",
 			"target" : "jump",
@@ -302,6 +321,17 @@
 		},
 		{
 			"type" : "VariableTransition",
+			"source" : "falling_omni",
+			"target" : "dying",
+			"variable" : {
+				"name" : "hit",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
 			"source" : "idle",
 			"target" : "dying",
 			"variable" : {
@@ -365,6 +395,23 @@
 		{
 			"type" : "LogicTransition",
 			"source" : "falling",
+			"target" : "dash",
+			"variables" : [{
+				"name" : "dash",
+				"type" : "bool",
+				"value" : true
+			},
+			{
+				"name" : "can_dash",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "falling_omni",
 			"target" : "dash",
 			"variables" : [{
 				"name" : "dash",
