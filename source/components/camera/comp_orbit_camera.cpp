@@ -89,6 +89,11 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
   carga = true;
 }
 
+
+
+VEC3 oldpos;
+
+
 void TCompOrbitCamera::update(float dt) {
   xOffset = deg2rad(((2 * 3.14159f * radio) / 360) * apertura);
   TCompTransform* c = get<TCompTransform>();
@@ -298,8 +303,14 @@ void TCompOrbitCamera::update(float dt) {
   else {
     
     //dbg(("Y speed: " + std::to_string(getYSpeed()) + "\n").c_str());
-    newPos = VEC3::Lerp(actualPos, newPos, dt * (10 + speedCaida)  /*(10 + speedCaida * dt)*/ /** getYSpeed()*/);//(10 + speedCaida)/*chaseSpeed + cameraCatchup*/);
+    VEC3 desiredpos;
+    
+    desiredpos= VEC3::Lerp(actualPos, newPos, dt * (10 + speedCaida)  /*(10 + speedCaida * dt)*/ /** getYSpeed()*/);//(10 + speedCaida)/*chaseSpeed + cameraCatchup*/);
    
+    float vel = 0.95;
+
+    newPos = vel*oldpos + (1-vel)*desiredpos;
+    oldpos = newPos;
 
     /*if (dP > 10.f) chaseSpeed = 0.7f;
     else if (dP > 7.f) chaseSpeed = 0.4f;

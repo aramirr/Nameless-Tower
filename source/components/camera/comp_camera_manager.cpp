@@ -185,13 +185,16 @@ void TCompCameraManager::update(float dt) {
 
 
 	if (carga) {																				// CONFIGURACION INICIAL DEL MANAGER DE CAMARAS
-		CHandle h_camera = getEntityByName("camera_orbit_IZQ");
+		CHandle h_camera = getEntityByName("camera_platform");
 		Engine.getCameras().setDefaultCamera(h_camera);
+    inPlatform = true;
+
+    Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 
 		h_camera = getEntityByName("the_camera");
 		Engine.getCameras().setOutputCamera(h_camera);
 
-		lateral = true;
+		lateral = false;
 
 		carga = false;
 
@@ -293,7 +296,7 @@ void TCompCameraManager::update(float dt) {
 	else {																						// MANAGER DE CAMARAS POR DEFECTO
 		if (godMode) {
 			CHandle h_camera = getEntityByName("camera_god");
-			Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
+			Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 		}
 		else {
 			TCompTransform* p = player->get<TCompTransform>();
@@ -311,7 +314,7 @@ void TCompCameraManager::update(float dt) {
 
 			if ((inPlatform || exitPlatform) && lateral) {
 				CHandle h_camera = getEntityByName("camera_platform");
-				Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
+				Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 
 				lateral = false;
 			}
@@ -333,7 +336,7 @@ void TCompCameraManager::update(float dt) {
 				if ((playerForward && distanceCamDer > 9.f)) {
 
 					CHandle h_camera = getEntityByName("camera_orbit_IZQ");
-					Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
+					Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 
 					pForwarding = true;
 
@@ -342,7 +345,7 @@ void TCompCameraManager::update(float dt) {
 				}
 				else if (distanceCamIzq > 9.f) {
 					CHandle h_camera = getEntityByName("camera_orbit_DER");
-					Engine.getCameras().blendInCamera(h_camera, 1.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
+					Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 
 					pForwarding = false;
 
