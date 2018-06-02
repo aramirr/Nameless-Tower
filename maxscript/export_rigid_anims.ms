@@ -17,7 +17,7 @@ struct TRigidAnimKey (
 
 struct TRigidAnimExporter (
 
-	project_path = "c:/code/engine/bin/",
+	project_path = "d:/code/mcv_2018/engine/bin/",
 	base_path = "data/",
 	anims_path = base_path + "anims/",
 	
@@ -65,13 +65,22 @@ struct TRigidAnimExporter (
 		
 		format "Limits of % are %\n" obj.name limits
 		
+		local max2mcv = rotateXMatrix -90
+		local mcv2max = rotateXMatrix 90
+		local mcv_position = obj.position * max2mcv
+		-- From mcv, we will go to max, apply the max transform and go back to mcv coord system
+		
 		local t = limits.x
 		while t <= limits.y do (
 			local k = TRigidAnimKey()
 			at time t (
-				k.pos = obj.pos
-				k.rot = obj.rotation
+				-- obj.transform is evaluated at every time
+				local mcv_transform = mcv2max * obj.transform * max2mcv
+				
+				k.pos = obj.pos * max2mcv 
+				k.rot = inverse (mcv_transform.rotationPart as quat)
 				k.scale = obj.scale.x
+				
 			)
 			append keys k
 			t += 1.0 / fps
@@ -89,8 +98,10 @@ struct TRigidAnimExporter (
 		local track_info = getTracksKeys obj t.fps
 		t.track_name = obj.name
 		t.keys = track_info.keys
-		t.begin_time = track_info.limits.x
-		t.end_time = track_info.limits.y
+		local frames_to_second = 1.0 / (float) frameRate
+		t.begin_time = (track_info.limits.x as integer )* frames_to_second
+		t.end_time = (track_info.limits.y as integer) * frames_to_second
+		format "Track % has length %\n" t.track_name t.end_time
 		return t
 	),
 			
@@ -106,16 +117,23 @@ struct TRigidAnimExporter (
 		local track_name_length = 32
 		local bytes_per_track = track_name_length + 5 * 4
 		
+		local last_end_time = 0
+		for t in tracks do (
+			if t.end_time > last_end_time then last_end_time = t.end_time
+		)
+		local total_duration = last_end_time
+		
 		-- Save header
 		-- Total Bytes, NumIdxs, 
 		local headerSize = 8
-		local version = 1
+		local version = 2
 		WriteLong fs magicHeader		-- version
 		WriteLong fs version		-- version
 		WriteLong fs tracks.count	-- NumTracks
 		WriteLong fs num_keys	-- Total num keys
 		WriteLong fs track_name_length
 		WriteLong fs bytes_per_track
+		writeFloat fs total_duration
 
 		-- Save the names and index info
 		local key0 = 0

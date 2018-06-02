@@ -36,9 +36,10 @@ namespace RigidAnims {
     uint32_t num_keys = 0;
     uint32_t name_max_length = 0;
     uint32_t bytes_per_track = 0;
+    float    total_duration = 0.f;
 
     static const uint32_t valid_magic = 0x11777711;
-    static const uint32_t valid_version = 1;
+    static const uint32_t valid_version = 2;
     bool isValid() const {
       return magic == valid_magic 
         && version == valid_version
@@ -66,6 +67,8 @@ namespace RigidAnims {
     keys.resize(header.num_keys);
     fdp.readBytes(keys.data(), keys.size() * sizeof(TKey));
 
+    total_duration = header.total_duration;
+
     return true;
   }
 
@@ -91,7 +94,6 @@ namespace RigidAnims {
     return anims->sample(track_index, out_key, t);
   }
 
-
   uint32_t CRigidAnimResource::findTrackIndexByName(const std::string& name) const {
     uint32_t idx = 0;
     for (auto& t : tracks) {
@@ -101,27 +103,48 @@ namespace RigidAnims {
     }
     return CController::invalid_track_index;
   }
+  
+  void CRigidAnimResource::onFileChanged(const std::string& filename) {
+    create(filename);
+  }
 
   bool CRigidAnimResource::sample(uint32_t track_index, TKey* out_key, float t) const {
-    if (track_index >= tracks.size())
-      return true;
-    auto track = &tracks[track_index];
-    if (t < track->min_time)
-      t = track->min_time;
-    if (t > track->max_time)
-      t = track->max_time;
 
-    float ut = ( t - track->min_time ) / ( track->max_time - track->min_time );
+    // asking for an invalid track, nothing to do.
+    if( track_index >= tracks.size())
+      return true;
+
+    auto track = &tracks[track_index];
+    
+    float ut = 1.f;
+    
+    // If we only have one key, we are not really animated
+    if (track->num_keys > 1) {
+
+      float st = t;
+      // Here enter the animated objects.
+      if (t < track->min_time)
+        st = track->min_time;
+      else if (t > track->max_time)
+        st = track->max_time;
+
+      assert(track->max_time > track->min_time);
+      ut = (st - track->min_time) / (track->max_time - track->min_time);
+    }
 
     // Check time limits
     if (ut < 0) {
-      *out_key = keys.front();
+      *out_key = keys[track->first_key];
       return false;
     }
 
+    // I want single key object to enter this if, because we don't have two
+    // keys to interpolate
     if (ut >= 1.0f) {
-      *out_key = keys.back();
-      return true;
+      // Copy my last key
+      *out_key = keys[track->first_key + track->num_keys - 1];
+      // Return true only when the whole animation has loop
+      return t >= this->total_duration;
     }
 
     float key_float_idx = (track->num_keys - 1) * ut;

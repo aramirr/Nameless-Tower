@@ -18,11 +18,13 @@ void TCompRigidAnim::load(const json& j, TEntityParseContext& ctx) {
   assert(controller.track_index != RigidAnims::CController::invalid_track_index);
   current_time = 0;
   speed_factor = j.value("speed_factor", 1.0f);
+  loops = j.value("loops", true);
 }
 
 void TCompRigidAnim::debugInMenu() {
   ImGui::DragFloat("Time", &current_time, 0.01f, 0.f, 10.0f);
   ImGui::DragFloat("Speed Factor", &speed_factor, 0.01f, 0.f, 5.0f);
+  ImGui::Checkbox("Loops", &loops);
 }
 
 void TCompRigidAnim::update(float dt) {
@@ -41,6 +43,8 @@ void TCompRigidAnim::update(float dt) {
   c_trans->setScale(k.scale);
 
   if (has_finished) {
+    if( loops )
+      current_time = 0;
     // loop, change direction?, set is_moving = false...
   }
 
