@@ -46,6 +46,8 @@ bool CModuleTestAxis::start()
 		return false;
 	if (!cb_gui.create(CB_GUI))
 	    return false;
+	if (!cb_particles.create(CB_PARTICLE))
+		return false;
 
 	cb_globals.global_exposure_adjustment = 1.f;
 	cb_globals.global_ambient_adjustment = 1.f;
@@ -60,6 +62,7 @@ bool CModuleTestAxis::start()
 	cb_camera.activate();
 	cb_blur.activate();
     cb_gui.activate();
+	cb_particles.activate();
 
     EngineTower.setAmbientAdjustment(0.1);
 
@@ -77,7 +80,7 @@ bool CModuleTestAxis::stop()
 	cb_object.destroy();
 	cb_globals.destroy();
 	cb_blur.destroy();
-  cb_gui.destroy();
+    cb_gui.destroy();
 	Engine.getEntities().destroyAllEntities();
 	Engine.getCameras().destroyAllCameras();
 	return true;
