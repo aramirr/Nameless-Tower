@@ -16,6 +16,7 @@ void TCompPlayerInput::update(float dt)
 {
 	CEntity* e = CHandle(this).getOwner();
 	windstrike_time += dt;
+	dash_time += dt;
 
   TMsgSetFSMVariable jumpMsg;
   jumpMsg.variant.setName("jump");
@@ -29,8 +30,10 @@ void TCompPlayerInput::update(float dt)
 	TMsgSetFSMVariable dashMsg;
 	dashMsg.variant.setName("dash");
 	dashMsg.variant.setBool(EngineInput["dash"].isPressed());
-	if (EngineInput["dash"].hasChanged())
+	if (EngineInput["dash"].hasChanged() && dash_time > dash_wait_time)
 	{
+		if (EngineInput["dash"].isPressed())
+			dash_time = 0;
 		e->sendMsg(dashMsg);
 	}
 
