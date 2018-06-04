@@ -101,6 +101,9 @@ namespace FSM
 				ctx.setVariable("can_omni", true);
 				ctx.setVariable("can_dash", true);
 			}
+			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {				
+				ctx.setVariable("is_falling", true);
+			}
 		}		
 		return false;
 	}

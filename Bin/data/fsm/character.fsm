@@ -233,6 +233,17 @@
 		},
 		{
 			"type" : "VariableTransition",
+			"source" : "falling_omni",
+			"target" : "falling",
+			"variable" : {
+				"name" : "is_falling",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
 			"source" : "run",
 			"target" : "jump",
 			"variable" : {
