@@ -6,19 +6,16 @@
 class TCompOrbitCamera : public TCompBase {
 
 	CEntity *player;
-	CEntity *platform;
 	VEC3 towerCentre;
-	VEC3 pos;
 
 	VEC3 actualPos;
+  VEC3 oldPos;
 
   float offset;
-  //VEC3 playerOffset;
-	float xOffset;
-
 	float radio;
 
   float speedCaida;
+  float vel;
 
 	float X;
 	float Y;
@@ -33,17 +30,11 @@ class TCompOrbitCamera : public TCompBase {
 
 	float apertura;
 
-	bool izq;
-
 	float playerY;
 	float currentPlayerY;
 
-  float getYSpeed();
 	bool isForward();
   bool isGrounded();
-
-	bool izquierda;
-  bool caida;
 
 	void activeCamera(const TMsgActiveCamera& msg);
 	void desactiveCamera(const TMsgDesactiveCamera& msg);

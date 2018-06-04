@@ -3,7 +3,7 @@
 #include "components/comp_base.h"
 #include "camera/camera.h"
 
-class TCompOrbitCamera : public TCompBase {
+class TCompOrbitCameraOLD : public TCompBase {
 
 	CEntity *player;
 	CEntity *platform;

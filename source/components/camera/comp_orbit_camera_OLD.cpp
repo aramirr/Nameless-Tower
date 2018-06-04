@@ -1,40 +1,40 @@
 #include "mcv_platform.h"
-#include "comp_orbit_camera.h"
+#include "comp_orbit_camera_OLD.h"
 #include "components/juan/comp_transform.h"
 #include "components/player/comp_player_controller.h"
 #include <iostream>
 
-DECL_OBJ_MANAGER("orbitCamera", TCompOrbitCamera);
+DECL_OBJ_MANAGER("orbitCameraOLD", TCompOrbitCameraOLD);
 
-float TCompOrbitCamera::getYSpeed(){
+float TCompOrbitCameraOLD::getYSpeed(){
   TCompPlayerController* pc = player->get<TCompPlayerController>();
   return pc->y_speed_factor;
 }
 
-bool TCompOrbitCamera::isForward() {
+bool TCompOrbitCameraOLD::isForward() {
   TCompPlayerController* pc = player->get<TCompPlayerController>();
   return !pc->isForward();
 }
 
-bool TCompOrbitCamera::isGrounded() {
+bool TCompOrbitCameraOLD::isGrounded() {
   TCompPlayerController* pc = player->get<TCompPlayerController>();
   return pc->isGrounded();
 }
 
-void TCompOrbitCamera::activeCamera(const TMsgActiveCamera & msg) {
+void TCompOrbitCameraOLD::activeCamera(const TMsgActiveCamera & msg) {
   active = true;
 }
 
-void TCompOrbitCamera::desactiveCamera(const TMsgDesactiveCamera & msg) {
+void TCompOrbitCameraOLD::desactiveCamera(const TMsgDesactiveCamera & msg) {
   active = false;
 }
 
-void TCompOrbitCamera::registerMsgs() {
-  DECL_MSG(TCompOrbitCamera, TMsgActiveCamera, activeCamera);
-  DECL_MSG(TCompOrbitCamera, TMsgDesactiveCamera, desactiveCamera);
+void TCompOrbitCameraOLD::registerMsgs() {
+  DECL_MSG(TCompOrbitCameraOLD, TMsgActiveCamera, activeCamera);
+  DECL_MSG(TCompOrbitCameraOLD, TMsgDesactiveCamera, desactiveCamera);
 }
 
-void TCompOrbitCamera::debugInMenu() {
+void TCompOrbitCameraOLD::debugInMenu() {
   ImGui::Text("Izquierda: %s", izquierda ? "Si" : "No");
   ImGui::Text("Delante: %s", isForward() ? "Si" : "No");
   ImGui::Text("Suelo: %s", isGrounded() ? "Si" : "No");
@@ -50,7 +50,7 @@ void TCompOrbitCamera::debugInMenu() {
 
 }
 
-void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
+void TCompOrbitCameraOLD::load(const json& j, TEntityParseContext& ctx) {
 
   // ..
   player = (CEntity *)getEntityByName("The Player");
@@ -94,7 +94,7 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
 VEC3 oldpos;
 
 
-void TCompOrbitCamera::update(float dt) {
+void TCompOrbitCameraOLD::update(float dt) {
   xOffset = deg2rad(((2 * 3.14159f * radio) / 360) * apertura);
   TCompTransform* c = get<TCompTransform>();
   assert(c);
