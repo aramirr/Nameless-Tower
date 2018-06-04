@@ -12,7 +12,9 @@ public:
   void load(const json& j, TEntityParseContext& ctx);
   void update(float dt);
   float windstrike_time = 1;
+  float dash_time = 1;
   int windstrike_wait_time = 1;
+  int dash_wait_time = 1;
 
 private:
 };
