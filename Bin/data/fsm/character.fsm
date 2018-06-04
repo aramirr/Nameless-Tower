@@ -38,6 +38,14 @@
 			"delay_in": 0.1,
 			"delay_out": 0.01
 		},
+				{
+			"name" : "falling_dash",
+			"type" : "FallingDashState",
+			"x_speed" : 2,
+			"is_action": false,
+			"delay_in": 0.1,
+			"delay_out": 0.01
+		},
 		{
 			"name" : "falling_omni",
 			"type" : "FallingOmniState",
@@ -214,6 +222,25 @@
 		},
 		{
 			"type" : "LogicTransition",
+			"source" : "falling_dash",
+			"target" : "glide",
+			"variables" : [
+				{
+					"name" : "glide",
+					"type" : "bool",
+					"value" : true
+				},
+				{
+					"name" : "in_wind",
+					"type" : "bool",
+					"value" : true
+				}
+			],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "LogicTransition",
 			"source" : "falling_omni",
 			"target" : "glide",
 			"variables" : [
@@ -300,6 +327,17 @@
 		{
 			"type" : "VariableTransition",
 			"source" : "falling",
+			"target" : "idle",
+			"variable" : {
+				"name" : "is_grounded",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "falling_dash",
 			"target" : "idle",
 			"variable" : {
 				"name" : "is_grounded",
@@ -451,7 +489,7 @@
 		{
 			"type" : "TimeTransition",
 			"source" : "dash",
-			"target" : "falling",			
+			"target" : "falling_dash",			
 			"time" : 0.3
 		},				
 		{

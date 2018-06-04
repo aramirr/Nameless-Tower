@@ -161,6 +161,7 @@
     <ClCompile Include="fsm\player_states\dash_state.cpp" />
     <ClCompile Include="fsm\player_states\dead_state.cpp" />
     <ClCompile Include="fsm\player_states\dying_state.cpp" />
+    <ClCompile Include="fsm\player_states\falling_dash_state.cpp" />
     <ClCompile Include="fsm\player_states\falling_omni_state.cpp" />
     <ClCompile Include="fsm\player_states\falling_state.cpp" />
     <ClCompile Include="fsm\player_states\glide_state.cpp" />
@@ -331,6 +332,7 @@
     <ClInclude Include="fsm\player_states\dash_state.h" />
     <ClInclude Include="fsm\player_states\dead_state.h" />
     <ClInclude Include="fsm\player_states\dying_state.h" />
+    <ClInclude Include="fsm\player_states\falling_dash_state.h" />
     <ClInclude Include="fsm\player_states\falling_omni_state.h" />
     <ClInclude Include="fsm\player_states\falling_state.h" />
     <ClInclude Include="fsm\player_states\glide_state.h" />

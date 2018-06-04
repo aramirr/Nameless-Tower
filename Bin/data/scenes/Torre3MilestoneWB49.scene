@@ -1113,7 +1113,7 @@
       {
         "distance": 3.0
         ,
-        "opening_speed": 1.0
+        "opening_speed": 4.0
         ,
         "closing_speed": 8.0
         ,
@@ -1375,7 +1375,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 1.0
+        "speed": 2.0
         ,
         "delay": 0.1
         ,
@@ -1447,7 +1447,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 1.0
+        "speed": 1.5
         ,
         "delay": 0.1
         ,
@@ -1644,82 +1644,6 @@
   {
     "entity":
     {
-      "name": "Sierra002"
-      ,
-      "transform":
-      {
-        "pos": "-19.1769 9.0285 -24.7643"
-        ,
-        "rotation": "0.0 -0.94788 0.0 0.318629"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sierra002.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
-      ]
-      ,
-      "ai_orbit_patrol":
-      {
-        "speed": 0.15
-        ,
-        "delay": 1.0
-        ,
-        "wake": 0.0
-        ,
-        "waypoints":
-        [
-          "-19.1769 9.0285 -24.7643"
-          ,
-          "-22.4484 9.0285 -21.8425"
-        ]
-        ,
-        "center": "0.0 9.0285 -3.94648e-07"
-        ,
-        "radius": 31.3213
-      }
-      ,
-      "circular_controller":
-      {
-        "speed": 3.0
-        ,
-        "eje": "X"
-      }
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": true
-      }
-      ,
-      "collider":
-      {
-        "shape": "convex_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-        ,
-        "mesh_src": "data/meshes/Sierra01.col_mesh"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Sierra01"
       ,
       "transform":
@@ -1800,7 +1724,7 @@
       ,
       "transform":
       {
-        "pos": "-23.8853 146.1 -18.6812"
+        "pos": "-23.8791 146.1 -18.6713"
         ,
         "rotation": "0.00715813 0.70707 -0.707071 -0.00715773"
       }
@@ -1876,7 +1800,7 @@
       ,
       "transform":
       {
-        "pos": "-29.0056 150.574 -8.54566"
+        "pos": "-28.9994 150.574 -8.53578"
         ,
         "rotation": "0.00715813 0.70707 -0.707071 -0.00715773"
       }
@@ -2007,7 +1931,7 @@
       {
         "distance": 3.0
         ,
-        "opening_speed": 1.0
+        "opening_speed": 4.0
         ,
         "closing_speed": 8.0
         ,
@@ -2255,7 +2179,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.25477 0.177481 1.69847"
+        "halfExtent": "1.27189 0.177481 1.69847"
         ,
         "is_dynamic": false
         ,
@@ -2351,7 +2275,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.25477 0.177481 1.69847"
+        "halfExtent": "1.27189 0.177481 1.69847"
         ,
         "is_dynamic": false
         ,
@@ -2447,7 +2371,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.25477 0.177481 1.69847"
+        "halfExtent": "1.27189 0.177481 1.69847"
         ,
         "is_dynamic": false
         ,
@@ -2543,7 +2467,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.25477 0.177481 1.69847"
+        "halfExtent": "1.27189 0.177481 1.69847"
         ,
         "is_dynamic": false
         ,
@@ -2639,7 +2563,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.25477 0.177481 1.69847"
+        "halfExtent": "1.27189 0.177481 1.69847"
         ,
         "is_dynamic": false
         ,
@@ -2735,7 +2659,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.25477 0.177481 1.69847"
+        "halfExtent": "1.27189 0.177481 1.69847"
         ,
         "is_dynamic": false
         ,
@@ -2806,7 +2730,7 @@
       {
         "distance": 3.0
         ,
-        "opening_speed": 1.0
+        "opening_speed": 4.0
         ,
         "closing_speed": 8.0
         ,
@@ -3022,7 +2946,7 @@
       {
         "distance": 3.0
         ,
-        "opening_speed": 1.0
+        "opening_speed": 4.0
         ,
         "closing_speed": 8.0
         ,
@@ -3238,7 +3162,7 @@
       {
         "distance": 3.0
         ,
-        "opening_speed": 1.0
+        "opening_speed": 4.0
         ,
         "closing_speed": 8.0
         ,
@@ -3554,7 +3478,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 4.0
+        "speed": 6.0
         ,
         "delay": 1.0
         ,
@@ -3621,7 +3545,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 1.0
+        "speed": 6.0
         ,
         "delay": 0.1
         ,
@@ -3688,7 +3612,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 4.0
+        "speed": 6.0
         ,
         "delay": 1.0
         ,
@@ -3810,7 +3734,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 1.0
+        "speed": 1.5
         ,
         "delay": 1.0
         ,
@@ -3845,6 +3769,82 @@
         "is_trigger": true
         ,
         "mesh_src": "data/meshes/Compresor01.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sierra002"
+      ,
+      "transform":
+      {
+        "pos": "-19.1769 9.0285 -24.7643"
+        ,
+        "rotation": "0.0 -0.94788 0.0 0.318629"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sierra002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_orbit_patrol":
+      {
+        "speed": 0.15
+        ,
+        "delay": 1.0
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "-19.1769 9.0285 -24.7643"
+          ,
+          "-22.4484 9.0285 -21.8425"
+        ]
+        ,
+        "center": "0.0 9.0285 -3.94648e-07"
+        ,
+        "radius": 31.3213
+      }
+      ,
+      "circular_controller":
+      {
+        "speed": 3.0
+        ,
+        "eje": "X"
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "mesh_src": "data/meshes/Sierra01.col_mesh"
       }
     }
   }

@@ -35,8 +35,9 @@ namespace FSM
 		VEC3 new_pos = my_pos;
 		float y_speed;		
 		y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt * 2);
-		if (player->y_speed_factor > -9)
+		if (player->y_speed_factor > -9) {
 			player->y_speed_factor -= player->gravity * dt / 3;
+		}			
 		new_pos.y += y_speed;
 
 		if (EngineInput["left"].isPressed()) {

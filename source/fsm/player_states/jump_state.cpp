@@ -43,8 +43,10 @@ namespace FSM
 		VEC3 new_pos = my_pos;
 		float y_speed;
 		if (player->y_speed_factor > 0) {
-			y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt / 2);
-			player->y_speed_factor -= player->gravity * dt / 2;
+			y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt * 2);
+			if (player->y_speed_factor > -9) {
+				player->y_speed_factor -= player->gravity * dt / 3;
+			}
 			new_pos.y += y_speed;
 
 			// Chequea movimiento
@@ -94,7 +96,9 @@ namespace FSM
 				player->is_falling = true;
 			}
 			y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt * 2);
-			player->y_speed_factor -= player->gravity * dt / 2;
+			if (player->y_speed_factor > -9) {
+				player->y_speed_factor -= player->gravity * dt / 3;
+			}
 			new_pos.y += y_speed;
 
 			if (EngineInput["left"].isPressed()) {
