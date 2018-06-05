@@ -183,7 +183,7 @@ void TCompOrbitCamera::update(float dt) {
 		vel = 0.75f;
 	}
     else {
-		vel = 0.25f;
+		vel = 0.1f;
     }
 	newPos = vel * oldPos + (1 - vel) * actualPos;
   }else carga = false;

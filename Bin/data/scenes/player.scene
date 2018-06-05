@@ -5,19 +5,7 @@
       		"skeleton": {
         		"skeleton": "data/skeletons/Naja/naja.skeleton"
       		},
-      		"render" : [
-        		{
-					"mesh": "data/skeletons/NajaTest/NajaTest.mesh",
-					"materials" : [
-						"data/materials/madera_outline.material"
-					]
-				},
-				{
-					"mesh": "data/skeletons/NajaTest/PaiTest.mesh",
-					"materials" : [
-						"data/materials/madera_outline.material"
-					]
-				},
+      		"render" : [        					
         		{
           			"mesh": "data/skeletons/NajaTest/NajaTest.mesh"
           			,
