@@ -13,6 +13,7 @@ namespace FSM
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->change_animation(player->EAnimations::NajaJumpFall, _is_action, _delay_in, _delay_out);
+		player->y_speed_factor = 0;
 	}
 
 	bool FallingDashState::load(const json& jData)
@@ -86,6 +87,9 @@ namespace FSM
 				ctx.setVariable("is_grounded", true);
 				ctx.setVariable("can_omni", true);
 				ctx.setVariable("can_dash", true);
+			}
+			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
+				ctx.setVariable("idle", true);
 			}
 		}		
 		return false;

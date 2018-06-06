@@ -17,8 +17,8 @@
 			"type" : "RunState",
 			"x_speed" : 2,
 			"is_action": false,
-			"delay_in": 0.01,
-			"delay_out": 0.01,
+			"delay_in": 0,
+			"delay_out": 0,
 			"sound": "event:/Steps/footsteps"
 		},
 		{
@@ -27,24 +27,24 @@
 			"y_speed" : 12.6,
 			"x_speed" : 1.6,
 			"is_action": true,
-			"delay_in": 0.1,
-			"delay_out": 0.1
+			"delay_in": 0,
+			"delay_out": 0
 		},
 		{
 			"name" : "falling",
 			"type" : "FallingState",
 			"x_speed" : 2,
 			"is_action": false,
-			"delay_in": 0.1,
-			"delay_out": 0.01
+			"delay_in": 0,
+			"delay_out": 0
 		},
 				{
 			"name" : "falling_dash",
 			"type" : "FallingDashState",
-			"x_speed" : 2,
+			"x_speed" : 2.5,
 			"is_action": false,
-			"delay_in": 0.1,
-			"delay_out": 0.01
+			"delay_in": 0,
+			"delay_out": 0
 		},
 		{
 			"name" : "falling_omni",
@@ -52,30 +52,30 @@
 			"x_speed" : 2.2,
 			"y_speed" : 2,
 			"is_action": false,
-			"delay_in": 0.1,
-			"delay_out": 0.01
+			"delay_in": 0,
+			"delay_out": 0
 		},
 		{
 			"name" : "dash",
 			"type" : "DashState",
 			"x_speed": 4,
 			"is_action": true,
-			"delay_in": 0.1,
-			"delay_out": 0.01
+			"delay_in": 0,
+			"delay_out": 0
 		},
 		{
 			"name" : "windstrike",
 			"type" : "WindstrikeState",
 			"is_action": true,
-			"delay_in": 0.3,
-			"delay_out": 0.3
+			"delay_in": 0,
+			"delay_out": 0
 		},
 		{
 			"name" : "omnidash",
 			"type" : "OmnidashState",
 			"is_action": true,
-			"delay_in": 0.01,
-			"delay_out": 0.01
+			"delay_in": 0,
+			"delay_out": 0
 		},
 		{
 			"name" : "omnijump",
@@ -83,22 +83,22 @@
 			"y_speed" : 2,
 			"x_speed" : 1,
 			"is_action": true,
-			"delay_in": 0.01,
-			"delay_out": 0.01
+			"delay_in": 0,
+			"delay_out": 0
 		},
 		{
 			"name" : "dying",
 			"type" : "DyingState",
 			"is_action": true,
-			"delay_in": 0.1,
-			"delay_out": 0.01
+			"delay_in": 0,
+			"delay_out": 0
 		},
 		{
 			"name" : "dead",
 			"type" : "DeadState",
 			"is_action": false,
-			"delay_in": 0.1,
-			"delay_out": 0.01
+			"delay_in": 0,
+			"delay_out": 0
 		},
 		{
 			"name" : "pause",
@@ -109,8 +109,8 @@
 			"type" : "GlideState",
 			"x_speed" : 2,
 			"is_action": false,
-			"delay_in": 0.01,
-			"delay_out": 0.01			
+			"delay_in": 0,
+			"delay_out": 0			
 		}
 	],
 	"transitions" : [
@@ -495,6 +495,17 @@
 		{
 			"type" : "VariableTransition",
 			"source" : "dash",
+			"target" : "idle",			
+			"variable" : {
+				"name" : "idle",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "falling_dash",
 			"target" : "idle",			
 			"variable" : {
 				"name" : "idle",
