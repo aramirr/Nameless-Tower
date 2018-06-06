@@ -74,4 +74,7 @@ public:
   void setViewport(int x0, int y0, int width, int height);
   bool getScreenCoordsOfWorldCoord(VEC3 world_pos, VEC3 *screen_coords) const;
 
+  //bool getActive() { return active; }
+  //void setActive(bool _active) { active = _active; }
+
 };
