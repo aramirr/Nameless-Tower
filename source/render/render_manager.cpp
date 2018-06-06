@@ -11,6 +11,7 @@
 #include "components/juan/comp_culling.h"
 #include "components/juan/comp_aabb.h"
 #include "skeleton/comp_skeleton.h"
+#include "shaders/vertex_shader.h"
 
 static CRenderManager the_render_manager;
 CRenderManager& CRenderManager::get() {
@@ -86,7 +87,11 @@ void CRenderManager::addRenderKey(
       shadow_mat = Resources.get("data/materials/shadows_skin.material")->as<CMaterial>();
     }
     else if (material->tech->usesInstancing()) {
-      shadow_mat = Resources.get("data/materials/shadows_instanced.material")->as<CMaterial>();
+
+      if( material->tech->vs->getVertexDecl()->name == "Pos_x_InstancedPos")
+        shadow_mat = Resources.get("data/materials/shadows_grass_instanced.material")->as<CMaterial>();
+      else
+        shadow_mat = Resources.get("data/materials/shadows_instanced.material")->as<CMaterial>();
     }
     else {
       //if(mesh->getVertexDecl()->name == "PosNUvCvTan" )

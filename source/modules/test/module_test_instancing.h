@@ -33,6 +33,14 @@ class CModuleTestInstancing : public IModule
   CRenderMeshInstanced* particles_instances_mesh = nullptr;
   std::vector< TRenderParticle > particles_instances;
 
+  // -------------------------------------------------------------------
+  struct TGrassParticle {
+    VEC3  pos;      
+  };
+  CRenderMeshInstanced* grass_instances_mesh = nullptr;
+  std::vector< TGrassParticle > grass_instances;
+
+
 public:
   CModuleTestInstancing(const std::string& name)
 		: IModule(name)

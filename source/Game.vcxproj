@@ -101,6 +101,7 @@
     <ClCompile Include="components\comp_player_killer.cpp" />
     <ClCompile Include="components\controllers\comp_fake_animation_controller.cpp" />
     <ClCompile Include="components\controllers\comp_player_input.cpp" />
+    <ClCompile Include="components\controllers\comp_rigid_anim.cpp" />
     <ClCompile Include="components\fsm\comp_fsm.cpp" />
     <ClCompile Include="components\ia\puzzles\ai_torch.cpp" />
     <ClCompile Include="components\ia\ai_wind_current.cpp" />
@@ -177,6 +178,7 @@
     <ClCompile Include="geometry\angular.cpp" />
     <ClCompile Include="geometry\curve.cpp" />
     <ClCompile Include="geometry\geometry.cpp" />
+    <ClCompile Include="geometry\rigid_anim.cpp" />
     <ClCompile Include="geometry\SimpleMath.cpp" />
     <ClCompile Include="geometry\transform.cpp" />
     <ClCompile Include="gui\controllers\gui_main_menu_controller.cpp" />
@@ -263,6 +265,7 @@
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
     <ClInclude Include="camera\camera.h" />
     <ClInclude Include="components\controllers\comp_projectile_controller.h" />
+    <ClInclude Include="components\controllers\comp_rigid_anim.h" />
     <ClInclude Include="components\ia\puzzles\ai_torch.h" />
     <ClInclude Include="components\ia\ai_wind_current.h" />
     <ClInclude Include="components\comp_light_dir.h" />
@@ -352,6 +355,7 @@
     <ClInclude Include="geometry\curve.h" />
     <ClInclude Include="geometry\geometry.h" />
     <ClInclude Include="geometry\interpolators.h" />
+    <ClInclude Include="geometry\rigid_anim.h" />
     <ClInclude Include="geometry\SimpleMath.h" />
     <ClInclude Include="geometry\transform.h" />
     <ClInclude Include="gui\controllers\gui_main_menu_controller.h" />
