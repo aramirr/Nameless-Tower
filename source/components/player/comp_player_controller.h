@@ -67,5 +67,8 @@ public:
 	TCompCollider* getMyCollider();
 
 private:
+
+  bool rayWall;
+
 	void setEntity(CHandle new_entity);
 };

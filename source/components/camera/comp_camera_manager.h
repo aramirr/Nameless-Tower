@@ -13,6 +13,7 @@ class TCompCameraManager : public TCompBase {
 	bool normal;
 
 	bool godMode;
+  bool active;
 
 	/*
 		CINEMATICAS
@@ -45,6 +46,8 @@ public:
 	static void registerMsgs();
 
 	void activateCinematic(std::string name);
+//  void stopCamera(const TMsgDesactiveCamera & msg);
+  //void startCamera(const TMsgActiveCamera & msg);
 
 	void debugInMenu();
 	void load(const json& j, TEntityParseContext& ctx);

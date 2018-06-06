@@ -7,6 +7,7 @@
 class CModulePhysics : public IModule
 {
 public:
+	physx::PxScene*				gScene;
 
     enum FilterGroup {
         Wall = 1 << 0,
@@ -38,7 +39,6 @@ private:
     physx::PxPhysics*				gPhysics;
 
     physx::PxDefaultCpuDispatcher*	gDispatcher;
-    physx::PxScene*				gScene;
 
     physx::PxMaterial*				gMaterial;
 

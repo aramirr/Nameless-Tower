@@ -13,7 +13,7 @@ bool TCompOrbitCamera::isForward() {
 bool TCompOrbitCamera::isGrounded() {
   TCompPlayerController* pc = player->get<TCompPlayerController>();
   return pc->isGrounded();
-  
+
 }
 
 void TCompOrbitCamera::activateCamera(const TMsgActiveCamera & msg)
@@ -90,51 +90,52 @@ void TCompOrbitCamera::update(float dt) {
   VEC3 pos = c->getPosition();
 
   VEC3 newPos;
-  VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
+
 
   bool b_caida = false;
 
+  TCompTransform* p = player->get<TCompTransform>();
+  assert(p);
+  VEC3 pPos = p->getPosition();
+
+  float dY = abs(oldPos.y - pPos.y);
+
+  if (currentPlayerY < pPos.y - 0.1f) {
+    if (dY > height + height + 1.5f) {
+      currentPlayerY += 1.5f;
+      speedCaida = 40.f;
+    }
+    else if (dY > height + (height / 2) + 1.5f) {
+      currentPlayerY += 1.125f;
+      speedCaida = 30.f;
+    }
+    else if (dY > height + (height / 3) + 1.5f) {
+      currentPlayerY += 0.75f;
+      speedCaida = 10.f;
+    }
+    else if (dY > height + (height / 4) + 1.5f) {
+      currentPlayerY += 0.375f;
+      speedCaida = 10.f;
+    }
+    else {
+      currentPlayerY += 0.05f;
+      speedCaida = 0.f;
+    }
+  }
+  else if (currentPlayerY > pPos.y + 0.1f) {
+    b_caida = true;
+    currentPlayerY = pPos.y;
+
+    if (dY > height + height + 1.5f) speedCaida = 40.f;
+    else if (dY > height + (height / 2) + 1.5f) speedCaida = 30.f;
+    else if (dY > height + (height / 3) + 1.5f) speedCaida = 20.f;
+    else if (dY > height + (height / 4) + 1.5f) speedCaida = 10.f;
+    else speedCaida = 0.f;
+  }
+
+  VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
+
   if (active) {
-
-    TCompTransform* p = player->get<TCompTransform>();
-    assert(p);
-    VEC3 pPos = p->getPosition();
-
-    float dY = abs(oldPos.y - pPos.y);
-
-    if (currentPlayerY < pPos.y - 0.1f) {
-      if (dY > height + height + 1.5f) {
-        currentPlayerY += 1.5f;
-        speedCaida = 40.f;
-      }
-      else if (dY > height + (height / 2) + 1.5f) {
-        currentPlayerY += 1.125f;
-        speedCaida = 30.f;
-      }
-      else if (dY > height + (height / 3) + 1.5f) {
-        currentPlayerY += 0.75f;
-        speedCaida = 10.f;
-      }
-      else if (dY > height + (height / 4) + 1.5f) {
-        currentPlayerY += 0.375f;
-        speedCaida = 10.f;
-      }
-      else {
-        currentPlayerY += 0.05f;
-        speedCaida = 0.f;
-      }
-    }
-    else if (currentPlayerY > pPos.y + 0.1f) {
-      b_caida = true;
-      currentPlayerY = pPos.y;
-
-      if (dY > height + height + 1.5f) speedCaida = 40.f;
-      else if (dY > height + (height / 2) + 1.5f) speedCaida = 30.f;
-      else if (dY > height + (height / 3) + 1.5f) speedCaida = 20.f;
-      else if (dY > height + (height / 4) + 1.5f) speedCaida = 10.f;
-      else speedCaida = 0.f;
-    }
-
     float d = VEC3::Distance(center, pPos);
     float _d = (d - distance) / d;
     float x = pPos.x - _d * (center.x - pPos.x);
@@ -161,6 +162,7 @@ void TCompOrbitCamera::update(float dt) {
   }
   else {
     newPos = oldPos;
+    newPos.y = currentPlayerY + height;
   }
 
   if (!carga) {
