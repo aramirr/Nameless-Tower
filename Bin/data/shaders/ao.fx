@@ -1,3 +1,4 @@
+
 #include "common.fx"
 
 // AO based on http://john-chapman-graphics.blogspot.com.es/2013/01/ssao-tutorial.html

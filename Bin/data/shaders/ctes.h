@@ -13,7 +13,7 @@
 #define CB_BLOOM        7
 #define CB_FOCUS        8
 #define CB_GUI          9
-#define CB_PARTICLE     22
+#define CB_PARTICLE     10
 
 // -------------------------------------------------
 // Texture Slots
