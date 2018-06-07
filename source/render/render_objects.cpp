@@ -8,6 +8,7 @@ CRenderCte<CCteLight>   cb_light("Light");
 CRenderCte<CCteGlobals> cb_globals("Globals");
 CRenderCte<CCteBlur>    cb_blur("Blur");
 CRenderCte<CCteGUI>     cb_gui("Gui");
+CRenderCte<CCteParticle>    cb_particles("Particles");
 
 
 struct TVtxPosClr {
