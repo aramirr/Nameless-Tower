@@ -8,23 +8,17 @@
 
 class bt_runner:public bt
 	{
-	VEC3 appearing_position;
-	std::queue<VEC3> jump_positions;
-	float chase_distance;
+	
 	float attack_distance;
-	float distance_to_player = 0.f;
-	float speed_factor;
-	float gravity;
-	float jump_speed;
-	float tower_radius;
-	float jump_end;
-	float jump_altitude;
-	float y_speed_factor = 0.f;
+    float debug_timer = 0.f;
 
-	bool going_right = false;
-	bool jumping = false;
-	bool freeze = false;
-	bool run = false;
+    bool b_disappear = false;
+    bool b_appear = false;
+    bool b_chase = false;
+    bool b_recular = false;
+    bool on_wall = false;
+
+    VEC3 appearing_position;
 	
 	VEC3 tower_center = VEC3::Zero;
 	std::string actual_state;
@@ -35,30 +29,37 @@ class bt_runner:public bt
 		void load(const json& j, TEntityParseContext& ctx);
 		void debugInMenu();
 
-		void on_player_jump(const TMsgJump& msg);
-		void appear(const TMsgRunnerAppear& msg);
-		void stop(const TMsgRunnerStop& msg);
+        void appear(const TMsgRunnerAppear& msg);
+        void disappear(const TMsgRunnerDisappear& msg);
 
 		static void registerMsgs();
 
 
 		void create(string);
 
-		int actionDisappear();
-		int actionIdle();
-		int actionAppear();
-		int actionAttack();
-		int actionChase();
-		int actionHide();
+        int actionStop();
+        int actionScream();
+        int actionDisappear();
+        int actionRecular();
+        int actionRecover();
+        int actionAttackWall1();
+        int actionAttackWall2();
+        int actionAttackFloor1();
+        int actionAttackFloor2();
+        int actionChase();
+        int actionAppear();
+        int actionHide();
 
-		bool conditionIdle();
-		bool conditionDisappear();
-		bool conditionRun();
-		bool conditionAttack();
+        bool conditionDisappear();
+        bool conditionChase();
+        bool conditionRecular();
+        bool conditionAttack();
+        bool conditionAttackWall();
+        bool conditionAttackFloor();
+        bool conditionAppear();
 
+        void killPlayer();
 
-
-		int jumping_state();
 	};
 
 #endif

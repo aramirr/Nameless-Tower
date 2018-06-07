@@ -151,6 +151,11 @@ void bt::change_mesh(int mesh_index) {
 	my_render->refreshMeshesInRenderManager();
 }
 
+void bt::change_color(VEC4 color) {
+    TCompRender *my_render = getMyRender();
+    my_render->color = color;
+}
+
 void bt::setEntity(CHandle new_entity) {
 	h_entity = new_entity;
 }
