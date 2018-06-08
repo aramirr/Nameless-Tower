@@ -295,9 +295,9 @@
   "opacity": {
     "vs_file": "data/shaders/pbr.fx",
     "ps_file": "data/shaders/pbr.fx",
-    "vs_entry_point": "VS_GBufferSkin",
+    "vs_entry_point": "VS_GBuffer",
     "ps_entry_point": "PS_Opacity",
-    "vertex_type": "PosNUvUvTanSkin",
+    "vertex_type": "PosNUvUvT",
     "category": "opacity",
     "blend": "combinative",
     "priority" : 150,

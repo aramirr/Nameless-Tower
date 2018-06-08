@@ -19,7 +19,7 @@ public:
     if (mat_type == "std") {
       res = new CMaterial();
     }
-    else if( mat_type == "mix" ) {
+    else if (mat_type == "mix") {
       res = new CMaterialMixing();
     }
     else {
@@ -49,11 +49,11 @@ bool CMaterial::create(const json& j) {
 
   // If nothing is set, use 'pbr.tech'
   std::string technique_name = "pbr.tech";
-  if( j.count( "technique" ) )
+  if (j.count("technique"))
     technique_name = j.value("technique", "");
   tech = Resources.get(technique_name)->as<CRenderTechnique>();
 
-  cast_shadows = j.value( "shadows", true );
+  cast_shadows = j.value("shadows", true);
 
   if (j.count("textures")) {
     auto& j_textures = j["textures"];
@@ -70,16 +70,20 @@ bool CMaterial::create(const json& j) {
         ts = TS_METALLIC;
       else if (slot == "roughness")
         ts = TS_ROUGHNESS;
-	  else if (slot == "emissive")
-		ts = TS_EMISSIVE;
-	  else if (slot == "alpha")
-		ts = TS_ALPHA;
-	  else if (slot == "height")
-		ts = TS_HEIGHT;
+      else if (slot == "emissive")
+        ts = TS_EMISSIVE;
+      else if (slot == "alpha")
+        ts = TS_ALPHA;
+      else if (slot == "height")
+        ts = TS_HEIGHT;
+      else if (slot == "transparency")
+        ts = TS_TRANSPARENCY;
+      else if (slot == "ao")
+        ts = TS_DEFERRED_AO;
 
       assert(ts != TS_NUM_MATERIALS_SLOTS || fatal("Material %s has an invalid texture slot %s\n", name.c_str(), slot.c_str()));
 
-      textures[ ts ] = Resources.get(texture_name)->as<CTexture>();
+      textures[ts] = Resources.get(texture_name)->as<CTexture>();
 
       // To update all textures in a single DX call
       srvs[ts] = textures[ts]->getShaderResourceView();
@@ -133,7 +137,7 @@ void CMaterial::debugInMenu() {
   ImGui::Checkbox("Cast Shadows", &cast_shadows);
   for (int i = 0; i < max_textures; ++i)
     if (textures[i])
-      ((CTexture*) textures[i])->debugInMenu();
+      ((CTexture*)textures[i])->debugInMenu();
 
   // Allow overwrite the metallic and roughness of the material
   bool enabled;
@@ -173,7 +177,7 @@ void CMaterialMixing::activate() const {
 
 }
 
-bool CMaterialMixing::create(const json& j ) {
+bool CMaterialMixing::create(const json& j) {
   if (!CMaterial::create(j))
     return false;
   for (int i = 0; i < 3; ++i) {

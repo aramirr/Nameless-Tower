@@ -145,8 +145,10 @@ void CRenderTechnique::activate() const {
   activateBlendConfig(blend_config);
 
   // Activate the textures associated to this technique
-  for (auto& t : textures) 
+  for (auto& t : textures) {
+    //if(t.slot == TS_TRANSPARENCY)dbg(("-----------------------SLOT : " + std::to_string(t.slot) + "\n").c_str());
     t.texture->activate(t.slot);
+  }
 
   // Save me as the current active technique
   current = this;
