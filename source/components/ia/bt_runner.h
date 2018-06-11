@@ -9,16 +9,11 @@
 class bt_runner:public bt
 	{
 
-	struct connections {
-		int id_destiny;
-		float weight;
-	};
-
 	struct waypoint {
 		int id;
 		VEC3 position;
 		std::string type;
-		std::vector<connections> neighbours;
+		std::vector<int> neighbours;
 	};
 	
 	float attack_distance;
@@ -76,8 +71,10 @@ class bt_runner:public bt
 
         void killPlayer();
 		void chase();
-		void findPath();
-		int findClosestWaypoint();
+		void findPath(int origin, int destiny, std::vector<int>& path);
+		int findClosestWaypoint(VEC3 position);
+		void go_to_next_waypoint();
+		void walk();
 
 	};
 

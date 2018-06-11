@@ -25,8 +25,21 @@ void bt_runner::registerMsgs() {
 void bt_runner::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
 	attack_distance = j.value("attack_distance", 1.0f);
+
+	waypoint a;
+	waypoint b;
+	a.position = VEC3(-8.426f, 0.f, 30.011f);
+	b.position = VEC3(30.649, 5.f, 7.272f);
+	a.type = "floor";
+	b.type = "floor";
+	a.id = 1;
+	b.id = 2;
+	a.neighbours.push_back(b.id);
+	b.neighbours.push_back(a.id);
+	waypoints_map.push_back(a);
+	waypoints_map.push_back(b);
 	
-  create("runner");
+    create("runner");
 }
 
 std::string foo(bool b) {
@@ -189,6 +202,12 @@ int bt_runner::actionAttackFloor2() {
 int bt_runner::actionChase() {
 	dbg("chase\n");
     change_color(VEC4(0.0f, 0.0f, 0.0f, 1.0f));
+	actual_waypoint = waypoints_map[0];
+	
+	next_waypoint = waypoints_map[1];
+	go_to_next_waypoint();
+
+
     return LEAVE;
 };
 
@@ -251,6 +270,43 @@ void bt_runner::killPlayer() {
     deadMsg.variant.setBool(true);
     player->sendMsg(deadMsg);
 }
+
+
+int bt_runner::findClosestWaypoint(VEC3 position) {
+	float min_dist = INFINITE;
+	int closest_waypoint;
+	for (auto wp : waypoints_map) {
+		float d = VEC3::Distance(position, wp.position);
+		if (d < min_dist) {
+			min_dist = d;
+			closest_waypoint = wp.id;
+		}
+	}
+	return closest_waypoint;
+}
+
+void bt_runner::findPath(int origin, int destiny, std::vector<int>& path){
+
+
+}
+
+void bt_runner::go_to_next_waypoint() {
+	if (actual_waypoint.type == "floor") {
+		if (next_waypoint.type == "floor") {
+			walk();
+		}
+	}
+	else if (actual_waypoint.type == "edge") {
+
+	}
+	else if (actual_waypoint.type == "wall") {
+
+	}
+
+}
+
+
+
 
 /*int bt_runner::jumping_state() {
 	TCompTransform *c_my_transform = get<TCompTransform>();
@@ -341,30 +397,23 @@ int bt_runner::actionAttack() {
     player->sendMsg(kill);
     change_mesh(0);
     return LEAVE;
-};
+};*/
 
-int bt_runner::actionChase() {
+void bt_runner::walk() {
     TCompTransform *c_my_transform = getMyTransform();
     VEC3 myPos = c_my_transform->getPosition();
-    CEntity *player = (CEntity *)getEntityByName("The Player");
-    TCompTransform *c_p_transform = player->get<TCompTransform>();
-    VEC3 ppos = c_p_transform->getPosition();
-    if (jumping) return jumping_state();
-    if (!jump_positions.empty() && VEC3::Distance(myPos, jump_positions.front()) < 1.f) {
-        jumping = true;
-        jump_end = c_my_transform->getPosition().y + jump_altitude;
-        jump_positions.pop();
-        return jumping_state();
-    }
 
     float current_yaw;
     float current_pitch;
-    float amount_moved = speed_factor * DT;
+    float amount_moved = 1 * DT;
     c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
     tower_center.y = myPos.y;
 
-    if (!c_my_transform->isInFront(ppos)) {
+	//hardcoded for debug
+	bool going_right = true;
+
+    if (!c_my_transform->isInFront(next_waypoint.position)) {
         current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
         float debug = rad2deg(current_yaw);
         going_right = !going_right;
@@ -374,13 +423,12 @@ int bt_runner::actionChase() {
         current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
         c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
         VEC3 aux_vector = going_right ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
-        VEC3 newPos = tower_center + (aux_vector * tower_radius);
+        VEC3 newPos = tower_center + (aux_vector * 31.7f);
         c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
         TCompCollider* comp_collider = get<TCompCollider>();
         if (comp_collider && comp_collider->controller)
         {
             VEC3 delta_move = newPos - myPos;
-            distance_to_player = VEC3::Distance(myPos, ppos);
             delta_move.y += -10 * DT;
 
 
@@ -397,10 +445,4 @@ int bt_runner::actionChase() {
             }
         }
     }
-    change_mesh(2);
-    distance_to_player = VEC3::Distance(myPos, ppos);
-    if ((distance_to_player < attack_distance) or (distance_to_player > chase_distance + 5.f)) {
-        return LEAVE;
-    }
-    else return STAY;
-};*/
+};
