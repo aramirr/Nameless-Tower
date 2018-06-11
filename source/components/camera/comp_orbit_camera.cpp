@@ -154,7 +154,7 @@ void TCompOrbitCamera::update(float dt) {
   if (!carga) {
     actualPos = VEC3::Lerp(oldPos, newPos, dt *(10 + speedCaida));
     if (!b_caida) {
-		pesoOldPosition = 0.75f;
+		pesoOldPosition = 0.82f;
 	}
     else {
 		pesoOldPosition = 0.1f;

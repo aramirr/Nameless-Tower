@@ -116,14 +116,14 @@ void CAIOrbitPatrol::MoveToWaypointState(float dt)
 
 	if (move_left == true)
 	{
-		y -= DT * speed;
+		y += DT * speed;
 	}
 	else
 	{
-		y += DT * speed;
+		y -= DT * speed;
 	}
 	c_my_transform->setYawPitchRoll(y, p);
-	VEC3 newPos = c_my_transform->getPosition() - (c_my_transform->getFront() * distance);
+	VEC3 newPos = c_my_transform->getPosition() + (c_my_transform->getFront() * distance);
 	c_my_transform->setPosition(newPos);
 	QUAT newRot = c_my_transform->getRotation();
 
@@ -175,7 +175,7 @@ void CAIOrbitPatrol::MoveToWaypointState(float dt)
 		}
 	}
 	
-	if (VEC3::Distance(getWaypoint(), myPos) < 2.5)
+	if (VEC3::Distance(getWaypoint(), myPos) < 0.1)
 	{
 		acum_delay = 0;
 		ChangeState("wait_state");

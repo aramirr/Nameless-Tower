@@ -27,6 +27,7 @@ namespace FSM
 		else {
 			player->checkpoint = my_pos->getPosition();
 			position = my_pos->getPosition();
+            Engine.getTower().setLastCheckpoint(position);
 		}
 
 		my_pos->lookAt(position, player->center);
