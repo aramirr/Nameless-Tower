@@ -1,0 +1,59 @@
+[
+	{
+		"entity": {
+			"name": "Runner",
+      		"render" : [
+		        {
+		          "mesh": "data/meshes/Teapot001.mesh",
+		          "materials" : [
+		            "data/materials/PuertaM.material"
+		          ]
+		        }
+		      ]	
+			,
+			"transform": {
+				"pos": "-8.426 0 30.011",
+				"front": "1 0 0"
+			}
+			,
+		    "collider": {
+				"shape": "capsule",
+				"is_character_controller": true
+				,
+				"radius": 0.22
+				,
+				"height": 0.7
+				,
+				"is_dynamic": false
+				,
+				"is_trigger": false
+		    },
+		    "bt_runner": {}		 	    	
+		}
+	},
+	{
+		"entity": {
+			"name": "Runner Trigger 1",
+			"transform": {
+				"pos": "1.243 0 31.475"
+			},
+			"render" : [
+		        {
+		          "mesh": "data/meshes/UnitBox.mesh",
+		          "materials" : [
+		            "data/materials/PuertaM.material"
+		          ]
+		        }
+		      ],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "runner_appear",
+				"appearing_position": "-8.426 0 30.011"
+			}
+		}
+	}
+]

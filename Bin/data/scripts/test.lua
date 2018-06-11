@@ -9,7 +9,7 @@ function OnTriggerEnterSierra()
 end
 
 function OnLevel1Start()
-	lm:set_ambient(0.1)
+	lm:set_ambient(1)
 	lm:hide_mesh("Wall01")
 end
 

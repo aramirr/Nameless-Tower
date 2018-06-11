@@ -2,11 +2,10 @@
   "boot_scenes": [
     "data/scenes/player.scene",
     "data/scenes/skybox.scene", 
-    "data/scenes/EscenarioSegundoMilestone.scene",
-    "data/scenes/cameras.scene", 
-    "data/scenes/checkpoints.scene", 
+    "data/scenes/scene_basic.scene",
+    "data/scenes/cameras.scene",
     "data/scenes/lights.scene",
-    "data/scenes/cut_doors.scene"
+    "data/scenes/boss_runner.scene"
 
   ],
   "unused_scenes": [

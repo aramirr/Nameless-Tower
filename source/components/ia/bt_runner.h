@@ -8,6 +8,18 @@
 
 class bt_runner:public bt
 	{
+
+	struct connections {
+		int id_destiny;
+		float weight;
+	};
+
+	struct waypoint {
+		int id;
+		VEC3 position;
+		std::string type;
+		std::vector<connections> neighbours;
+	};
 	
 	float attack_distance;
     float debug_timer = 0.f;
@@ -18,8 +30,12 @@ class bt_runner:public bt
     bool b_recular = false;
     bool on_wall = false;
 
+	std::vector<waypoint> path;
+	std::vector<waypoint> waypoints_map;
+	waypoint actual_waypoint;
+	waypoint next_waypoint;
+
     VEC3 appearing_position;
-	
 	VEC3 tower_center = VEC3::Zero;
 	std::string actual_state;
 
@@ -59,6 +75,9 @@ class bt_runner:public bt
         bool conditionAppear();
 
         void killPlayer();
+		void chase();
+		void findPath();
+		int findClosestWaypoint();
 
 	};
 

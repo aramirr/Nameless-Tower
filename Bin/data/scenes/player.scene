@@ -25,7 +25,7 @@
       		]		
 			,
 			"transform": {
-				"pos": "-8.426 23.258 30.011",
+				"pos": "-8.426 0.258 30.011",
 				"front": "1 0 0"
 			}
 			, 
@@ -53,10 +53,7 @@
 				,
 				"mask": "player_mask"
 		    },
-		    "arrow_ui":{},
-		    "sound": {
-		    	"events": ["event:/Steps/footsteps"]
-		    }		 	    	
+		    "arrow_ui":{}		 	    	
 		}
 	}
 ]

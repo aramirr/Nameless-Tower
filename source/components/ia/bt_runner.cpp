@@ -29,6 +29,12 @@ void bt_runner::load(const json& j, TEntityParseContext& ctx) {
   create("runner");
 }
 
+std::string foo(bool b) {
+	if (b)
+		return "True";
+	else return "False";
+}
+
 void bt_runner::debugInMenu() {
 	bt::debugInMenu();
 	string state;
@@ -36,6 +42,13 @@ void bt_runner::debugInMenu() {
 		state = "null";
 	else state = current->getName();
 	ImGui::Text("State %s", state);
+	ImGui::Text("b_disappear %s", foo(b_disappear));
+	ImGui::Text("b_appear %s", foo(b_appear));
+	ImGui::Text("b_chase %s", foo(b_chase));
+	ImGui::Text("b_recular %s", foo(b_recular));
+	ImGui::Text("on_wall %s", foo(on_wall));
+	ImGui::Text("timer %f", debug_timer);
+
 }
 
 void bt_runner::create(string s)
@@ -73,6 +86,7 @@ void bt_runner::create(string s)
 
 //----- ACTIONS -----
 int bt_runner::actionStop() {
+	dbg("stop\n");
     change_color(VEC4(0.5f, 0.0f, 0.0f, 1.0f));
     debug_timer += DT;
     if (debug_timer >= 1.f) {
@@ -83,6 +97,7 @@ int bt_runner::actionStop() {
 };
 
 int bt_runner::actionScream() {
+	dbg("scream\n");
     change_color(VEC4(1.0f, 0.0f, 0.0f, 1.0f));
     debug_timer += DT;
     if (debug_timer >= 1.f) {
@@ -93,8 +108,8 @@ int bt_runner::actionScream() {
 };
 
 int bt_runner::actionDisappear() {
-    TCompRender *my_render = getMyRender();
-    my_render->is_active = false;
+	dbg("disappear\n");
+	EngineTower.disappearEntity("Runner");
     TCompCollider *comp_collider = getMyCollider();
     comp_collider->controller->setPosition(physx::PxExtendedVec3(tower_center.x, tower_center.y, tower_center.z));
     b_disappear = false;
@@ -102,16 +117,19 @@ int bt_runner::actionDisappear() {
 };
 
 int bt_runner::actionRecular() {
+	dbg("recular\n");
     change_color(VEC4(0.0f, 0.5f, 0.0f, 1.0f));
     debug_timer += DT;
     if (debug_timer >= 1.f) {
         debug_timer = 0.f;
+		b_recular = false;
         return LEAVE;
     }
     return STAY;
 };
 
 int bt_runner::actionRecover() {
+	dbg("recover\n");
     change_color(VEC4(0.0f, 1.0f, 0.0f, 1.0f));
     debug_timer += DT;
     if (debug_timer >= 1.f) {
@@ -123,6 +141,7 @@ int bt_runner::actionRecover() {
 };
 
 int bt_runner::actionAttackWall1() {
+	dbg("attackwall1\n");
     debug_timer += DT;
     if (debug_timer >= 1.f) {
         debug_timer = 0.f;
@@ -133,6 +152,7 @@ int bt_runner::actionAttackWall1() {
 };
 
 int bt_runner::actionAttackWall2() {
+	dbg("attackwall2\n");
     debug_timer += DT;
     if (debug_timer >= 1.f) {
         debug_timer = 0.f;
@@ -143,6 +163,7 @@ int bt_runner::actionAttackWall2() {
 };
 
 int bt_runner::actionAttackFloor1() {
+	dbg("attackfloor1\n");
     change_color(VEC4(0.0f, 0.0f, 1.0f, 1.0f));
     debug_timer += DT;
     if (debug_timer >= 1.f) {
@@ -154,6 +175,7 @@ int bt_runner::actionAttackFloor1() {
 };
 
 int bt_runner::actionAttackFloor2() {
+	dbg("attackfloor2\n");
     change_color(VEC4(0.0f, 0.0f, 0.5f, 1.0f));
     debug_timer += DT;
     if (debug_timer >= 1.f) {
@@ -165,19 +187,23 @@ int bt_runner::actionAttackFloor2() {
 };
 
 int bt_runner::actionChase() {
+	dbg("chase\n");
     change_color(VEC4(0.0f, 0.0f, 0.0f, 1.0f));
-    return STAY;
+    return LEAVE;
 };
 
 int bt_runner::actionAppear() {
+	dbg("appear\n");
     TCompCollider* my_collider = getMyCollider();
     my_collider->controller->setPosition(physx::PxExtendedVec3(appearing_position.x, appearing_position.y, appearing_position.z));
-    TCompRender *my_render = getMyRender();
-    my_render->is_active = true;
+	EngineTower.appearEntity("Runner");
+	b_appear = false;
+	b_chase = true;
     return LEAVE;
 };
 
 int bt_runner::actionHide() {
+	dbg("hide\n");
 	return LEAVE;
 };
 
