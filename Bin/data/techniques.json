@@ -293,8 +293,8 @@
     "comment" : "This needs to go after the pbr's solids, but just before the object to render"
   },
   "opacity": {
-    "vs_file": "data/shaders/pbr.fx",
-    "ps_file": "data/shaders/pbr.fx",
+    "vs_file": "data/shaders/opacity.fx",
+    "ps_file": "data/shaders/opacity.fx",
     "vs_entry_point": "VS_Opacity",
     "ps_entry_point": "PS_Opacity",
     "vertex_type": "PosNUvUvT",

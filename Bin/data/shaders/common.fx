@@ -55,6 +55,12 @@ SamplerState samBorderLinear  : register(s1);
 SamplerComparisonState samPCF : register(s2);
 SamplerState samClampLinear   : register(s3);
 
+float3 Specular_F_Roughness(float3 specularColor, float gloss, float3 h, float3 v)
+{
+  // Sclick using roughness to attenuate fresnel.
+    return (specularColor + (max(gloss, specularColor) - specularColor) * pow((1 - saturate(dot(v, h))), 5));
+}
+
 //--------------------------------------------------------------------------------------
 // 
 //--------------------------------------------------------------------------------------
