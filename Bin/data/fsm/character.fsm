@@ -22,6 +22,14 @@
 			"sound": "event:/Steps/footsteps"
 		},
 		{
+			"name" : "turn_around",
+			"type" : "TurnAroundState",
+			"x_speed" : 2,
+			"is_action": false,
+			"delay_in": 0,
+			"delay_out": 0
+		},
+		{
 			"name" : "jump",
 			"type" : "JumpState",
 			"y_speed" : 12.6,
@@ -279,6 +287,23 @@
 				"value" : true
 			},
 			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
+			"source" : "run",
+			"target" : "turn_around",
+			"variable" : {
+				"name" : "turn_around",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+			{
+			"type" : "TimeTransition",
+			"source" : "turn_around",
+			"target" : "run",
+			"time": 0.1
 		},
 		{
 			"type" : "VariableTransition",
@@ -915,6 +940,11 @@
 			"name" : "can_omni",
 			"type" : "bool",
 			"value" : true
+		},
+			{
+			"name" : "turn_around",
+			"type" : "bool",
+			"value" : false
 		}
 	]
 }

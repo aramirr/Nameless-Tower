@@ -174,6 +174,7 @@
     <ClCompile Include="fsm\player_states\omnijump_state.cpp" />
     <ClCompile Include="fsm\player_states\pause_state.cpp" />
     <ClCompile Include="fsm\player_states\run_state.cpp" />
+    <ClCompile Include="fsm\player_states\turn_around_state.cpp" />
     <ClCompile Include="fsm\player_states\windstrike_state.cpp" />
     <ClCompile Include="geometry\angular.cpp" />
     <ClCompile Include="geometry\curve.cpp" />
@@ -351,6 +352,7 @@
     <ClInclude Include="fsm\player_states\pause_state.h" />
     <ClInclude Include="fsm\player_states\player_state.h" />
     <ClInclude Include="fsm\player_states\run_state.h" />
+    <ClInclude Include="fsm\player_states\turn_around_state.h" />
     <ClInclude Include="fsm\player_states\windstrike_state.h" />
     <ClInclude Include="fsm\state.h" />
     <ClInclude Include="fsm\transition.h" />

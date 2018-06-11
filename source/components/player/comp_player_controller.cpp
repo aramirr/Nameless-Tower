@@ -106,6 +106,11 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 	if (change_orientation) {
 		current_yaw = left ? current_yaw + deg2rad(180) : current_yaw - deg2rad(180);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+		TMsgSetFSMVariable turnMsg;
+		turnMsg.variant.setName("turn_around");
+		turnMsg.variant.setBool(true);
+		CEntity* e = CHandle(this).getOwner();
+		e->sendMsg(turnMsg);
 	}
 	else {
 		current_yaw = left ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
