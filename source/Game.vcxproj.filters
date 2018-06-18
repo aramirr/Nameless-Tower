@@ -171,6 +171,7 @@
     <ClCompile Include="particles\particle_system.cpp" />
     <ClCompile Include="particles\particle_parser.cpp" />
     <ClCompile Include="components\comp_light_spot.cpp" />
+    <ClCompile Include="components\comp_emission_controller.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera\camera.h" />
@@ -405,6 +406,7 @@
     <ClInclude Include="particles\particle_system.h" />
     <ClInclude Include="particles\particle_parser.h" />
     <ClInclude Include="components\comp_light_spot.h" />
+    <ClInclude Include="components\comp_emission_controller.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />

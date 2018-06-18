@@ -124,6 +124,11 @@ CB_DEF(CCteObject, CB_OBJECT)   // Generates the b1
 {
 	MAT44 obj_world;
 	VEC4  obj_color;
+	VEC4   self_color;
+	float  self_intensity;
+	float  self_dummy1;
+	float  self_dummy2;
+	float  self_dummy3;
 };
 
 CB_DEF(CCteSkinBones, CB_SKIN_BONES)
@@ -166,11 +171,17 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
 	float global_tone_mapping_mode;
 	int   global_render_output;
 	float global_dummy;
+	float global_fog_density;
 
 	float global_shared_fx_amount;
 	float global_shared_fx_val1;
 	float global_shared_fx_val2;
 	float global_shared_fx_val3;
+
+	float global_self_intensity;
+	float global_dummy2;
+	float global_dummy3;
+	float global_dummy4;
 
 };
 
@@ -179,6 +190,11 @@ CB_DEF(CCteMaterial, CB_MATERIAL)
 	float  scalar_roughness;
 	float  scalar_metallic;
 	float  scalar_irradiance_vs_mipmaps;
+
+	float  scalar_emission;
+	VEC4   color_emission;
+	VEC4   color_material;
+
 	float  material_dummy;
 
 	float  mix_boost_r;

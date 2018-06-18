@@ -55,6 +55,11 @@ bool CMaterial::create(const json& j) {
 
   cast_shadows = j.value("shadows", true);
 
+	// Setting default textures
+	textures[TS_EMISSIVE] = Resources.get("data/textures/default_emissive.dds")->as<CTexture>();
+	textures[TS_HEIGHT] = Resources.get("data/textures/default_white.dds")->as<CTexture>();
+
+
   if (j.count("textures")) {
     auto& j_textures = j["textures"];
     for (auto it = j_textures.begin(); it != j_textures.end(); ++it) {
@@ -95,6 +100,16 @@ bool CMaterial::create(const json& j) {
   cb_material.scalar_metallic = -1.f;     // Initially disabled
   cb_material.scalar_roughness = 1.f;
   cb_material.scalar_irradiance_vs_mipmaps = 0.f;
+
+	cb_material.color_emission = VEC4(1, 1, 1, 1);
+	cb_material.scalar_emission = j.value("emission", 10.0f);
+
+	if (j.count("self_color"))
+		cb_material.color_emission = loadVEC4(j["self_color"]);
+
+	cb_material.color_material = VEC4(1, 1, 1, 1);
+	if (j.count("color"))
+		cb_material.color_material = loadVEC4(j["color"]);
 
   cb_material.mix_boost_r = 0;
   cb_material.mix_boost_g = 0;
