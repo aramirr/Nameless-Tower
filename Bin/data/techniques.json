@@ -159,6 +159,19 @@
     "rs_config": "reverse_culling",
     "blend": "additive"
   },
+  "cell_skin": {
+    "vs_file": "data/shaders/cell_shading.fx",
+    "ps_file": "data/shaders/cell_shading.fx",
+    "vs_entry_point": "VS_Skin",
+    "ps_entry_point": "PS",
+    "vertex_type": "PosNUvUvTanSkin",
+    "category" : "cell",
+    "textures" : { 
+      "environment" : "data/textures/cubemaps/env.dds", 
+      "irradiance" : "data/textures/cubemaps/irradiance.dds" 
+    },
+    "uses_skin" : true
+  },
   "water": {
     "vs_file": "data/shaders/water.fx",
     "ps_file": "data/shaders/water.fx",

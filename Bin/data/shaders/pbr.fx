@@ -141,7 +141,7 @@ void PS_GBuffer_Parallax(
 
     o_albedo = txAlbedo.Sample(samLinear, iTex0);
     o_albedo.a = txMetallic.Sample(samLinear, iTex0).r;
-    o_selfIllum = txEmissive.Sample(samLinear, iTex0) * self_intensity;;
+    o_selfIllum = txEmissive.Sample(samLinear, iTex0) * 1;// self_intensity;
     //o_selfIllum.xyz *= self_color;
 
   // Save roughness in the alpha coord of the N render target

@@ -50,8 +50,6 @@ void TCompLightPoint::activate() {
   cb_light.light_pos = c->getPosition();
   cb_light.light_radius = radius * c->getScale();
   cb_light.light_view_proj_offset = MAT44::Identity;
+  cb_light.light_point = true;
   cb_light.updateGPU();
 }
-
-
-

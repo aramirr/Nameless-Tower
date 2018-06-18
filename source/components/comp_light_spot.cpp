@@ -122,6 +122,7 @@ void TCompLightSpot::activate() {
 	cb_light.light_direction = VEC4(c->getFront().x, c->getFront().y, c->getFront().z, 1);
 	cb_light.light_inner_cut = cos(deg2rad(clamp(inner_cut, 0.f, angle) * .5f));
 	cb_light.light_outer_cut = spot_angle;
+  cb_light.light_point = false;
   cb_light.updateGPU();
 
   // If we have a ZTexture, it's the time to activate it
