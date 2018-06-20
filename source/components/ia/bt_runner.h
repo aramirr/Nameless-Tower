@@ -75,6 +75,7 @@ class bt_runner:public bt
 		int findClosestWaypoint(VEC3 position);
 		void go_to_next_waypoint();
 		void walk();
+		void jump();
 
 	};
 

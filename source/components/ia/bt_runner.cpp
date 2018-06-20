@@ -92,7 +92,7 @@ void bt_runner::create(string s)
 
     addChild("runner_p", "appear_s", SEQUENCE, (btcondition)&bt_runner::conditionAppear, NULL);
     addChild("appear_s", "appear", ACTION, NULL, (btaction)&bt_runner::actionAppear);
-    addChild("appear_s", "scream_2", ACTION, NULL, (btaction)&bt_runner::actionScream);
+    //addChild("appear_s", "scream_2", ACTION, NULL, (btaction)&bt_runner::actionScream);
 
     addChild("runner_p", "hide", ACTION, NULL, (btaction)&bt_runner::actionHide);
 }
@@ -297,6 +297,9 @@ void bt_runner::go_to_next_waypoint() {
 		}
 	}
 	else if (actual_waypoint.type == "edge") {
+		if (next_waypoint.type == "edge") {
+			jump();
+		}
 
 	}
 	else if (actual_waypoint.type == "wall") {
@@ -305,7 +308,59 @@ void bt_runner::go_to_next_waypoint() {
 
 }
 
+void bt_runner::walk() {
+	TCompTransform *c_my_transform = getMyTransform();
+	VEC3 myPos = c_my_transform->getPosition();
+	dbg("pos: %f %f %f", myPos.x, myPos.y, myPos.z);
 
+	float current_yaw;
+	float current_pitch;
+	float amount_moved = 0.005f;
+	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
+
+	tower_center.y = myPos.y;
+
+	//hardcoded for debug
+	bool going_right = true;
+
+	if (!c_my_transform->isInLeft(next_waypoint.position)) {
+		current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
+		float debug = rad2deg(current_yaw);
+		going_right = !going_right;
+		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+	}
+	else {
+		current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
+		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+		VEC3 aux_vector = !going_right ? -1 * c_my_transform->getFront() : c_my_transform->getFront();
+		VEC3 newPos = tower_center + (aux_vector * 31.7f);
+		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+		TCompCollider* comp_collider = get<TCompCollider>();
+		if (comp_collider && comp_collider->controller)
+		{
+			VEC3 delta_move = newPos - myPos;
+			delta_move.y += -10 * DT;
+
+
+			PxShape* player_shape;
+			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
+			PxFilterData filter_data = player_shape->getSimulationFilterData();
+			ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
+			BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
+			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, PxControllerFilters(&filter_data, query_filter, filter_controller));
+			VEC3 myPos2 = c_my_transform->getPosition();
+
+			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
+				current_yaw = going_right ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
+				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+			}
+		}
+	}
+}
+
+void bt_runner::jump() {
+
+}
 
 
 /*int bt_runner::jumping_state() {
@@ -399,50 +454,3 @@ int bt_runner::actionAttack() {
     return LEAVE;
 };*/
 
-void bt_runner::walk() {
-    TCompTransform *c_my_transform = getMyTransform();
-    VEC3 myPos = c_my_transform->getPosition();
-
-    float current_yaw;
-    float current_pitch;
-    float amount_moved = 1 * DT;
-    c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-
-    tower_center.y = myPos.y;
-
-	//hardcoded for debug
-	bool going_right = true;
-
-    if (!c_my_transform->isInFront(next_waypoint.position)) {
-        current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
-        float debug = rad2deg(current_yaw);
-        going_right = !going_right;
-        c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-    }
-    else {
-        current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
-        c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-        VEC3 aux_vector = going_right ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
-        VEC3 newPos = tower_center + (aux_vector * 31.7f);
-        c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-        TCompCollider* comp_collider = get<TCompCollider>();
-        if (comp_collider && comp_collider->controller)
-        {
-            VEC3 delta_move = newPos - myPos;
-            delta_move.y += -10 * DT;
-
-
-            PxShape* player_shape;
-            comp_collider->controller->getActor()->getShapes(&player_shape, 1);
-            PxFilterData filter_data = player_shape->getSimulationFilterData();
-            ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
-            BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
-            PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, PxControllerFilters(&filter_data, query_filter, filter_controller));
-
-            if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
-                current_yaw = going_right ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
-                c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-            }
-        }
-    }
-};
