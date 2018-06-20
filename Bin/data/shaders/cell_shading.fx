@@ -88,14 +88,14 @@ float4 PS(
   
   // Save roughness in the alpha coord of the N render target
     float roughness = txRoughness.Sample(samLinear, iTex0).r;
-    float4 o_normal = encodeNormal(N, roughness);
+    //float4 o_normal = encodeNormal(N, roughness);
 
     // Si el material lo pide, sobreescribir los valores de la textura
 	// por unos escalares uniformes. Only to playtesting...
-    if (scalar_metallic >= 0.f)
-        o_albedo.a = scalar_metallic;
-    if (scalar_roughness >= 0.f)
-        o_normal.a = scalar_roughness;
+    //if (scalar_metallic >= 0.f)
+    //    o_albedo.a = scalar_metallic;
+    //if (scalar_roughness >= 0.f)
+    //    o_normal.a = scalar_roughness;
 
   // Compute the Z in linear space, and normalize it in the range 0...1
   // In the range z=0 to z=zFar of the camera (not zNear)
@@ -110,43 +110,56 @@ float4 PS(
 
     //decodeGBuffer(iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir);
 
-    int3 ss_load_coords = uint3(Pos.xy, 0);
+     //-------------------------------------------------------------------------------------------------
+
+   // , out float3 wPos
+   //, out  float3 N
+   //, out float3 real_albedo
+   //, out float3 real_specular_color
+   //, out float roughness
+   //, out float3 reflected_dir
+   //, out float3 view_dir
+
+
+    //int3 ss_load_coords = uint3(Pos.xy, 0);
 
   // Recover world position coords
-    float zlinear = txGBufferLinearDepth.Load(ss_load_coords).x;
-    wPos = getWorldCoords(Pos.xy, zlinear);
+    //    float zlinear = txGBufferLinearDepth.Load(ss_load_coords).x;
+    //wPos = getWorldCoords(Pos.xy, zlinear);
 
   // Recuperar la normal en ese pixel. Sabiendo que se
   // guardó en el rango 0..1 pero las normales se mueven
   // en el rango -1..1
-    float4 N_rt = txGBufferNormals.Load(ss_load_coords);
-    N = decodeNormal(N_rt.xyz);
-    N = normalize(N);
+       // float4 N_rt = txNormal.Load(ss_load_coords);
+        //N = decodeNormal(N_rt.xyz);
+        //N = normalize(N);
 
   // Get other inputs from the GBuffer
-    albedo = txGBufferAlbedos.Load(ss_load_coords);
+        //albedo = txAlbedo.Load(ss_load_coords);
   // In the alpha of the albedo, we stored the metallic value
   // and in the alpha of the normal, we stored the roughness
-    float metallic = albedo.a;
-    roughness = N_rt.a;
+        //float metallic = albedo.a;
+        //roughness = N_rt.a;
  
   // Apply gamma correction to albedo to bring it back to linear.
-    albedo.rgb = pow(abs(albedo.rgb), 2.2f);
+       // albedo.rgb = pow(abs(albedo.rgb), 2.2f);
 
   // Lerp with metallic value to find the good diffuse and specular.
   // If metallic = 0, albedo is the albedo, if metallic = 1, the
   // used albedo is almost black
-    float3 real_albedo = albedo.rgb * (1. - metallic);
+    //float3 _albedo = albedo.rgb * (1. - metallic);
 
   // 0.03 default specular value for dielectric.
-    specular_color = lerp(0.03f, albedo.rgb, metallic);
+    specular_color = lerp(0.03f, o_albedo.rgb, o_albedo.a);
 
   // Eye to object
-    float3 incident_dir = normalize(wPos - camera_pos.xyz);
-    reflected_dir = normalize(reflect(incident_dir, N));
-    view_dir = -incident_dir;
+    float3 incident_dir = normalize(iWorldPos - camera_pos.xyz);
+        reflected_dir = normalize(reflect(incident_dir, N));
+        view_dir = -incident_dir;
 
     //-------------------------------------------------------------------------------------------------
+
+
   // if roughness = 0 -> I want to use the miplevel 0, the all-detailed image
   // if roughness = 1 -> I will use the most blurred image, the 8-th mipmap, If image was 256x256 => 1x1
     float mipIndex = roughness * roughness * 8.0f; //*32
@@ -183,18 +196,18 @@ float4 PS(
     //final_color = final_color * global_ambient_adjustment * ao;
     //return lerp(float4(env, 1), final_color, visibility) + float4(self_illum.xyz, 1) * global_ambient_adjustment * global_self_intensity;
 
-    float4 final_color = float4(env_fresnel * env * g_ReflectionIntensity +
-                              albedo.xyz * irradiance * g_AmbientLightIntensity
-                              , 1.0f) + self_illum;
+    float4 final_color = float4(/*env_fresnel * env **/ g_ReflectionIntensity +
+                              o_albedo.xyz /** irradiance */* g_AmbientLightIntensity
+                              , 1.0f) /*+ o_self_illum*/;
 
 
     final_color = final_color * global_ambient_adjustment * ao;
-    final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
+    //final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
 
     final_color.a = 1;
 
     float intensity;
-    if (light_point)
+    if (light_point == 1)
     {
         intensity = dot(normalize(Pos.xyz - light_pos), N);
     }
@@ -205,11 +218,11 @@ float4 PS(
  
     // Discretize the intensity, based on a few cutoff points
     if (intensity > 0.8)
-        final_color = float4(1.0, 1.0, 1.0, 1.0) * final_color;
+        final_color = float4(1.0, 1.0, 1.0, 1.0) * o_albedo;
     else if (intensity < -0.8)
-        final_color = float4(0.35, 0.35, 0.35, 1.0) * final_color;
-    else 
-        final_color = float4(0.7, 0.7, 0.7, 1.0) * final_color;
+        final_color = float4(0.35, 0.35, 0.35, 1.0) * o_albedo;
+    else
+        final_color = float4(0.7, 0.7, 0.7, 1.0) * o_albedo;
 
     return final_color;
 }

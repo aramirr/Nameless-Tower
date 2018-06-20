@@ -62,20 +62,20 @@ void TCompCameraFlyover::update(float scaled_dt)
 
 	if (activo) {
 		if (EngineInput["turbo"])
-			deltaSpeed *= 4.f;
+			deltaSpeed *= 2.f;
 
 		if (EngineInput["front"].value)
-			_ispeed.z = 1.f;
+			_ispeed.z = 0.25f;
 		if (EngineInput["back"].value)
-			_ispeed.z = -1.f;
+			_ispeed.z = -0.25f;
 		if (EngineInput["left"].value)
-			_ispeed.x = 1.f;
+			_ispeed.x = 0.25f;
 		if (EngineInput["right"].value)
-			_ispeed.x = -1.f;
+			_ispeed.x = -0.25f;
 		if (EngineInput["up"].value)
-			_ispeed.y = 1.f;
+			_ispeed.y = 0.25f;
 		if (EngineInput["down"].value)
-			_ispeed.y = -1.f;
+			_ispeed.y = -0.25f;
 	}
 	
   // Amount in each direction

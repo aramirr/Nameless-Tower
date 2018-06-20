@@ -90,7 +90,7 @@ void TCompLightDir::activate() {
   cb_light.light_radius = getZFar();
   cb_light.light_view_proj_offset = getViewProjection() * mtx_offset;
   cb_light.light_direction = VEC4(c->getFront().x, c->getFront().y, c->getFront().z, 1);
-  cb_light.light_point = false;
+  cb_light.light_point = 0;
 	cb_light.light_angle = 0;
   cb_light.updateGPU();
 

@@ -143,7 +143,10 @@ CB_DEF(CCteLight, CB_LIGHT)
 	float light_intensity;
 	VEC4  light_direction;
 
-  bool light_point;
+  int light_point;
+	int dummy1;
+	int dummy2;
+	int dummy3;
 
 	// Align x4
 	float light_shadows_step;
@@ -155,7 +158,7 @@ CB_DEF(CCteLight, CB_LIGHT)
 	float light_angle;
 	float light_inner_cut;
 	float light_outer_cut;
-	float dummy2;
+	float dummy4;
 
 	// Align x4
 	MAT44 light_view_proj_offset;
@@ -172,7 +175,7 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
 	float global_gamma_correction_enabled;
 	float global_tone_mapping_mode;
 	int   global_render_output;
-	//float global_dummy;
+	float global_dummy;
 	//float global_fog_density;
 
 	float global_shared_fx_amount;
