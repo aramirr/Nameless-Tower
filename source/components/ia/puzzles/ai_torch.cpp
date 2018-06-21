@@ -78,7 +78,7 @@ void CAITorch::ActiveState(float dt)
         on_start = false;
     }
     if (b_fuego) {
-        EngineParticles.addFuegoTest(fire_position);
+        EngineBillboards.addFuegoTest(fire_position);
         b_fuego = false;
     }
     

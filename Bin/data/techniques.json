@@ -234,6 +234,16 @@
     "blend": "combinative",
     "z": "test_but_no_write"
   },
+  
+  "grass": {
+    "vs_file": "data/shaders/grass.fx",
+    "vertex_type": "Pos_x_InstancedPos",
+    "category": "gbuffer",
+    "textures": {
+      "environment": "data/textures/cubemaps/env.dds",
+      "irradiance": "data/textures/cubemaps/irradiance.dds"
+    }
+  },
 
   "bloom_filter": {
     "vs_file": "data/shaders/screen_quad.fx",
