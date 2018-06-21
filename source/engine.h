@@ -15,6 +15,7 @@
 #include "modules/system/module_billboards.h"
 #include "scripting/scripting_module.h"
 
+#include "modules/system/module_particles.h"
 
 class CEngine
 {
@@ -42,7 +43,7 @@ public:
   CModuleSound& getSound() { return _module_sound; }
   CModuleBillboards& getBillboards() { return _module_billboards; }
 	ScriptingModule& getScriptingModule() { return _module_scripting; }
-
+    CModuleParticles& getParticles() { return _module_particles; }
 
 	float getUnscaledDeltaTime() const { return current_unscaled_delta_time; }
 
@@ -64,6 +65,7 @@ private:
 
 	float           current_unscaled_delta_time = 0.f;
 
+    CModuleParticles  _module_particles;
 };
 
 #define Engine CEngine::get()

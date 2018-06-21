@@ -163,6 +163,12 @@
     <ClCompile Include="modules\system\module_sound.cpp" />
     <ClCompile Include="components\ia\puzzles\ai_torch.cpp" />
     <ClCompile Include="components\ia\puzzles\ai_torch_puzzle.cpp" />
+    <ClCompile Include="fsm\player_states\falling_omni_state.cpp" />
+    <ClCompile Include="components\controllers\comp_rigid_anim.cpp" />
+    <ClCompile Include="geometry\rigid_anim.cpp" />
+    <ClCompile Include="modules\system\module_particles.cpp" />
+    <ClCompile Include="particles\particle_system.cpp" />
+    <ClCompile Include="particles\particle_parser.cpp" />
     <ClCompile Include="modules\system\module_billboards.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -389,6 +395,13 @@
     <ClInclude Include="modules\system\module_sound.h" />
     <ClInclude Include="components\ia\puzzles\ai_torch.h" />
     <ClInclude Include="components\ia\puzzles\ai_torch_puzzle.h" />
+    <ClInclude Include="fsm\player_states\falling_omni_state.h" />
+    <ClInclude Include="components\controllers\comp_rigid_anim.h" />
+    <ClInclude Include="geometry\rigid_anim.h" />
+    <ClInclude Include="modules\system\module_particles.h" />
+    <ClInclude Include="particles\particle.h" />
+    <ClInclude Include="particles\particle_system.h" />
+    <ClInclude Include="particles\particle_parser.h" />
     <ClInclude Include="modules\system\module_billboards.h" />
   </ItemGroup>
   <ItemGroup>
