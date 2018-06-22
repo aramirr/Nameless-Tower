@@ -246,13 +246,6 @@
     }
   },
 
-  "grass": {
-    "vs_file": "data/shaders/grass.fx",
-    "vertex_type": "Pos_x_InstancedPos",
-    "category": "particles",
-    "blend": "default",
-    "z": "default"
-  },
   "shadows_grass_instanced": {
     "vs_file": "data/shaders/grass.fx",
     "vertex_type": "Pos_x_InstancedPos",
