@@ -22,24 +22,34 @@ void bt_runner::registerMsgs() {
     DECL_MSG(bt_runner, TMsgRunnerDisappear, disappear);
 }
 
+void bt_runner::load_waypoint(const json& j) {
+  waypoint w;
+  w.position = loadVEC3(j["pos"]);
+  std::string aux_type = j["type"];
+  w.type = aux_type;
+  w.id = int(j["id"]);
+  auto& j_neighbours = j["neighbours"];
+  for (auto it = j_neighbours.begin(); it != j_neighbours.end(); ++it) {
+    std::string id = it.value().get< std::string >();
+    w.neighbours.push_back(atoi(id.c_str()));
+  }
+
+  waypoints_map.push_back(w);
+
+}
+
 void bt_runner::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
 	attack_distance = j.value("attack_distance", 1.0f);
 
-	waypoint a;
-	waypoint b;
-	a.position = VEC3(-8.426f, 0.f, 30.011f);
-	b.position = VEC3(30.649, 5.f, 7.272f);
-	a.type = "floor";
-	b.type = "floor";
-	a.id = 1;
-	b.id = 2;
-	a.neighbours.push_back(b.id);
-	b.neighbours.push_back(a.id);
-	waypoints_map.push_back(a);
-	waypoints_map.push_back(b);
-	
-    create("runner");
+  auto& j_waypoints = j["waypoints_map"];
+  for (size_t i = 0; i < j_waypoints.size(); ++i) {
+    load_waypoint(j_waypoints[i]);
+  }
+  actual_waypoint = waypoints_map[0];
+
+  get_next_waypoint();
+  create("runner");
 }
 
 std::string foo(bool b) {
@@ -62,6 +72,12 @@ void bt_runner::debugInMenu() {
 	ImGui::Text("on_wall %s", foo(on_wall));
 	ImGui::Text("timer %f", debug_timer);
 
+}
+
+void bt_runner::get_next_waypoint() {
+  int id1 = actual_waypoint.id;
+  int id2 = actual_waypoint.neighbours[0];
+  next_waypoint = waypoints_map[actual_waypoint.neighbours[0]];
 }
 
 void bt_runner::create(string s)
@@ -202,9 +218,7 @@ int bt_runner::actionAttackFloor2() {
 int bt_runner::actionChase() {
 	dbg("chase\n");
     change_color(VEC4(0.0f, 0.0f, 0.0f, 1.0f));
-	actual_waypoint = waypoints_map[0];
 	
-	next_waypoint = waypoints_map[1];
 	go_to_next_waypoint();
 
 
@@ -213,8 +227,16 @@ int bt_runner::actionChase() {
 
 int bt_runner::actionAppear() {
 	dbg("appear\n");
-    TCompCollider* my_collider = getMyCollider();
-    my_collider->controller->setPosition(physx::PxExtendedVec3(appearing_position.x, appearing_position.y, appearing_position.z));
+  TCompCollider* my_collider = getMyCollider();
+  my_collider->controller->setPosition(physx::PxExtendedVec3(appearing_position.x, appearing_position.y, appearing_position.z));
+
+  /*TCompTransform* my_transform = getMyTransform();
+  my_transform->lookAt(my_transform->getPosition(), tower_center);
+  float y, p;
+  my_transform->getYawPitchRoll(&y, &p);
+  y += deg2rad(180);
+  my_transform->setYawPitchRoll(y, p);*/
+
 	EngineTower.appearEntity("Runner");
 	b_appear = false;
 	b_chase = true;
@@ -222,6 +244,12 @@ int bt_runner::actionAppear() {
 };
 
 int bt_runner::actionHide() {
+  TCompTransform* my_transform = getMyTransform();
+  my_transform->lookAt(my_transform->getPosition(), tower_center);
+  float y, p;
+  my_transform->getYawPitchRoll(&y, &p);
+  y += deg2rad(90);
+  my_transform->setYawPitchRoll(y, p);
 	dbg("hide\n");
 	return LEAVE;
 };
@@ -305,6 +333,11 @@ void bt_runner::go_to_next_waypoint() {
 	else if (actual_waypoint.type == "wall") {
 
 	}
+  TCompTransform* my_transform = getMyTransform();
+  if (VEC3::Distance(my_transform->getPosition(), next_waypoint.position) <= 1.f) {
+    actual_waypoint = next_waypoint;
+    get_next_waypoint();
+  }
 
 }
 
@@ -320,22 +353,31 @@ void bt_runner::walk() {
 
 	tower_center.y = myPos.y;
 
-	//hardcoded for debug
-	bool going_right = true;
-
-	if (!c_my_transform->isInLeft(next_waypoint.position)) {
+  TCompCollider* comp_collider = get<TCompCollider>();
+	if (!c_my_transform->isInFront(next_waypoint.position)) {
 		current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
 		float debug = rad2deg(current_yaw);
 		going_right = !going_right;
+
+    PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
+    PxTransform tr = rigidActor->getGlobalPose();
+    auto& rot2 = c_my_transform->getRotation();
+
+
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+
+   
+    auto& rot = c_my_transform->getRotation();
+    tr.q = PxQuat(rot.x, rot.y, rot.z, rot.w);
+    rigidActor->setGlobalPose(tr);
+
 	}
 	else {
 		current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-		VEC3 aux_vector = !going_right ? -1 * c_my_transform->getFront() : c_my_transform->getFront();
+		VEC3 aux_vector = going_right ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
 		VEC3 newPos = tower_center + (aux_vector * 31.7f);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-		TCompCollider* comp_collider = get<TCompCollider>();
 		if (comp_collider && comp_collider->controller)
 		{
 			VEC3 delta_move = newPos - myPos;
@@ -359,6 +401,7 @@ void bt_runner::walk() {
 }
 
 void bt_runner::jump() {
+  
 
 }
 

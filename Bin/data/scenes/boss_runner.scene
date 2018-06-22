@@ -12,7 +12,8 @@
 		      ]	
 			,
 			"transform": {
-				"pos": "-8.426 0 30.011"
+				"pos": "-8.426 0.258 30.011",
+				"front": "1 0 0"
 			}
 			,
 		    "collider": {
@@ -27,7 +28,34 @@
 				,
 				"is_trigger": false
 		    },
-		    "bt_runner": {}		 	    	
+		    "bt_runner": {
+		    	"waypoints_map": [
+		    		{
+		    			"pos": "-8.426 0.258 30.011",
+		    			"id": 0,
+		    			"type": "floor",
+		    			"neighbours": ["1"]
+		    		},
+		    		{
+		    			"pos": "19.104 0.258 25.046",
+		    			"id": 1,
+		    			"type": "floor",
+		    			"neighbours": ["2"]
+		    		},
+		    		{
+		    			"pos": "10.308 0.258 29.766",
+		    			"id": 2,
+		    			"type": "floor",
+		    			"neighbours": ["3"]
+		    		},
+		    		{
+		    			"pos": "30.374 0.258 8.347",
+		    			"id": 3,
+		    			"type": "floor",
+		    			"neighbours": ["0"]
+		    		}
+		    	]
+		    }		 	    	
 		}
 	},
 	{
