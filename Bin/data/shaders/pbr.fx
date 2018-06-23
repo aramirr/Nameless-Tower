@@ -87,8 +87,10 @@ void PS_GBuffer(
 , out float4 o_normal : SV_Target1
 , out float1 o_depth : SV_Target2
 , out float4 o_self_illum : SV_Target3
+, out float1 o_cell : SV_Target4
 )
 {
+    o_cell = o_self_illum = txCell.Sample(samLinear, iTex0);
     o_self_illum = txEmissive.Sample(samLinear, iTex0);
   //o_self_illum.xyz *= self_color;
   // Store in the Alpha channel of the albedo texture, the 'metallic' amount of
@@ -385,6 +387,28 @@ float4 PS_ambient(
 
     final_color = final_color * global_ambient_adjustment * ao;
     return lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
+
+    //final_color.a = 1;
+
+    //float intensity;
+    //if (light_point == 1)
+    //{
+    //    intensity = dot(normalize(iPosition.xyz - light_pos), N);
+    //}
+    //else
+    //{
+    //    intensity = dot(normalize(light_direction.xyz), N);
+    //}
+ 
+    //// Discretize the intensity, based on a few cutoff points
+    //if (intensity > 0.8)
+    //    final_color = float4(1.0, 1.0, 1.0, 1.0) * final_color;
+    //else if (intensity < -0.8)
+    //    final_color = float4(0.35, 0.35, 0.35, 1.0) * final_color;
+    //else
+    //    final_color = float4(0.7, 0.7, 0.7, 1.0) * final_color;
+
+    //return final_color;
 
 }
 

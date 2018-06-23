@@ -85,6 +85,8 @@ bool CMaterial::create(const json& j) {
         ts = TS_TRANSPARENCY;
       else if (slot == "ao")
         ts = TS_DEFERRED_AO;
+			else if (slot == "cell")
+				ts = TS_CELL;
 
       assert(ts != TS_NUM_MATERIALS_SLOTS || fatal("Material %s has an invalid texture slot %s\n", name.c_str(), slot.c_str()));
 

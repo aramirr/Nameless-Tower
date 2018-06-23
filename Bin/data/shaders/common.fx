@@ -11,6 +11,7 @@ Texture2D    txEmissive       SLOT( TS_EMISSIVE );
 Texture2D    txHeight         SLOT( TS_HEIGHT );
 Texture2D    txAlpha          SLOT(TS_ALPHA);
 Texture2D    txTransparency   SLOT(TS_TRANSPARENCY);
+Texture2D    txCell           SLOT(TS_CELL);
 
 // from the light and env
 Texture2D    txLightProjector SLOT( TS_LIGHT_PROJECTOR );
@@ -28,6 +29,7 @@ Texture2D    txAccLights          SLOT( TS_DEFERRED_ACC_LIGHTS );
 Texture2D    txAO                 SLOT( TS_DEFERRED_AO );
 Texture2D    txSelfIllum          SLOT( TS_DEFERRED_SELF_ILLUM );
 Texture2D    txGBufferAlpha       SLOT( TS_DEFERRED_ALPHA );
+Texture2D    txGBufferCell        SLOT(TS_DEFERRED_CELL);
 
 // 2nd material
 Texture2D    txAlbedo1         SLOT( TS_ALBEDO1 );

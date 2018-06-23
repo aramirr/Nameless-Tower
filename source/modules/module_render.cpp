@@ -213,7 +213,7 @@ void CModuleRender::generateFrame() {
 
     CRenderManager::get().renderCategory("opacity");
 
-		CRenderManager::get().renderCategory("cell");
+		//CRenderManager::get().renderCategory("cell");
 
     CRenderManager::get().renderCategory("alpha");
 
