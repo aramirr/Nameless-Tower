@@ -87,10 +87,10 @@ void PS_GBuffer(
 , out float4 o_normal : SV_Target1
 , out float1 o_depth : SV_Target2
 , out float4 o_self_illum : SV_Target3
-, out float1 o_cell : SV_Target4
+, out float1 o_cell : SV_Target5
 )
 {
-    o_cell = o_self_illum = txCell.Sample(samLinear, iTex0);
+    o_cell = (txCell.Sample(samLinear, iTex0)).x;
     o_self_illum = txEmissive.Sample(samLinear, iTex0);
   //o_self_illum.xyz *= self_color;
   // Store in the Alpha channel of the albedo texture, the 'metallic' amount of
@@ -101,7 +101,7 @@ void PS_GBuffer(
     float3 N = computeNormalMap(iNormal, iTangent, iTex0);
   
   // Save roughness in the alpha coord of the N render target
-    float roughness = txRoughness.Sample(samLinear, iTex0).r;
+    float roughness = 0.5f;//txRoughness.Sample(samLinear, iTex0).r;
     o_normal = encodeNormal(N, roughness);
 
     // Si el material lo pide, sobreescribir los valores de la textura
@@ -143,7 +143,7 @@ void PS_GBuffer_Parallax(
 
     o_albedo = txAlbedo.Sample(samLinear, iTex0);
     o_albedo.a = txMetallic.Sample(samLinear, iTex0).r;
-    o_selfIllum = txEmissive.Sample(samLinear, iTex0) * 1;// self_intensity;
+    o_selfIllum = txEmissive.Sample(samLinear, iTex0) * 1; // self_intensity;
     //o_selfIllum.xyz *= self_color;
 
   // Save roughness in the alpha coord of the N render target
@@ -242,6 +242,7 @@ void decodeGBuffer(
    , out float roughness
    , out float3 reflected_dir
    , out float3 view_dir
+   , out bool cell_shading
    )
 {
 
@@ -280,6 +281,11 @@ void decodeGBuffer(
     float3 incident_dir = normalize(wPos - camera_pos.xyz);
     reflected_dir = normalize(reflect(incident_dir, N));
     view_dir = -incident_dir;
+
+  // Comprobamos si el objeto se pinta con PBR o Cell Shading
+    if ((txGBufferCell.Load(ss_load_coords)).x == 0.f)
+        cell_shading = false;
+    else cell_shading = true;
 }
 
 float NormalDistribution_GGX(float a, float NdH)
@@ -342,7 +348,8 @@ float4 PS_ambient(
   // Declare some float3 to store the values from the GBuffer
     float3 wPos, N, albedo, specular_color, reflected_dir, view_dir;
     float roughness;
-    decodeGBuffer(iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir);
+    bool cell;
+    decodeGBuffer(iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir, cell);
 
   // if roughness = 0 -> I want to use the miplevel 0, the all-detailed image
   // if roughness = 1 -> I will use the most blurred image, the 8-th mipmap, If image was 256x256 => 1x1
@@ -382,33 +389,36 @@ float4 PS_ambient(
 
     float4 final_color = float4(env_fresnel * env * g_ReflectionIntensity +
                               albedo.xyz * irradiance * g_AmbientLightIntensity
-                              , 1.0f) + self_illum;
+                              , 1.0f) /*+ self_illum*/;
 
 
     final_color = final_color * global_ambient_adjustment * ao;
-    return lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
+    final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
 
-    //final_color.a = 1;
+    if (cell)
+    {
+        final_color.a = 1;
 
-    //float intensity;
-    //if (light_point == 1)
-    //{
-    //    intensity = dot(normalize(iPosition.xyz - light_pos), N);
-    //}
-    //else
-    //{
-    //    intensity = dot(normalize(light_direction.xyz), N);
-    //}
+        float intensity;
+        if (light_point == 1)
+        {
+            intensity = dot(normalize(iPosition.xyz - light_pos), N);
+        }
+        else
+        {
+            intensity = dot(normalize(light_direction.xyz), N);
+        }
  
-    //// Discretize the intensity, based on a few cutoff points
-    //if (intensity > 0.8)
-    //    final_color = float4(1.0, 1.0, 1.0, 1.0) * final_color;
-    //else if (intensity < -0.8)
-    //    final_color = float4(0.35, 0.35, 0.35, 1.0) * final_color;
-    //else
-    //    final_color = float4(0.7, 0.7, 0.7, 1.0) * final_color;
-
-    //return final_color;
+    // Discretize the intensity, based on a few cutoff points
+        if (intensity > 0.8)
+            final_color = float4(1.0, 1.0, 1.0, 1.0) * final_color;
+        else if (intensity < -0.8)
+            final_color = float4(0.35, 0.35, 0.35, 1.0) * final_color;
+        else
+            final_color = float4(0.7, 0.7, 0.7, 1.0) * final_color;
+    }
+  
+    return final_color;
 
 }
 
@@ -443,7 +453,8 @@ float4 shade(
   // Decode GBuffer information
     float3 wPos, N, albedo, specular_color, reflected_dir, view_dir;
     float roughness;
-    decodeGBuffer(iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir);
+    bool cell;
+    decodeGBuffer(iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir, cell);
     N = normalize(N);
   // Shadow factor entre 0 (totalmente en sombra) y 1 (no ocluido)
     //float shadow_factor = use_shadows ? computeShadowFactor(wPos) : 1.;
@@ -471,7 +482,33 @@ float4 shade(
     float shadow_factor = use_shadows ? computeShadowFactor(wPos) : 1.; // shadow factor
 
     float3 final_color = light_color.xyz * NdL * (cDiff * (1.0f - cSpec) + cSpec) * att * light_intensity * shadow_factor;
-    return float4(final_color, 1);
+
+    float4 final_color2 = float4(final_color, 1);
+
+    //if (cell)
+    //{
+    //    final_color2.a = 1;
+
+    //    float intensity;
+    //    if (light_point == 1)
+    //    {
+    //        intensity = dot(normalize(iPosition.xyz - light_pos), N);
+    //    }
+    //    else
+    //    {
+    //        intensity = dot(normalize(light_direction.xyz), N);
+    //    }
+ 
+    //// Discretize the intensity, based on a few cutoff points
+    //    if (intensity > 0.8)
+    //        final_color2 = float4(1.0, 1.0, 1.0, 1.0) * final_color2;
+    //    else if (intensity < -0.8)
+    //        final_color2 = float4(0.35, 0.35, 0.35, 1.0) * final_color2;
+    //    else
+    //        final_color2 = float4(0.7, 0.7, 0.7, 1.0) * final_color2;
+    //}
+
+    return final_color2;
 }
 
 float4 PS_point_lights(in float4 iPosition : SV_Position) : SV_Target
