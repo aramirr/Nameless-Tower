@@ -387,16 +387,18 @@ float4 PS_ambient(
     //final_color = final_color * global_ambient_adjustment * ao;
     //return lerp(float4(env, 1), final_color, visibility) + float4(self_illum.xyz, 1) * global_ambient_adjustment * global_self_intensity;
 
-    float4 final_color = float4(env_fresnel * env * g_ReflectionIntensity +
-                              albedo.xyz * irradiance * g_AmbientLightIntensity
-                              , 1.0f) /*+ self_illum*/;
-
-
-    final_color = final_color * global_ambient_adjustment * ao;
-    final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
+    float4 final_color;
 
     if (cell)
     {
+        final_color = float4(/*env_fresnel * env * g_ReflectionIntensity +*/
+                              albedo.xyz * /*irradiance **/ g_AmbientLightIntensity
+                              , 1.0f) + self_illum;
+
+
+        final_color = final_color * global_ambient_adjustment /** ao*/;
+        final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
+
         final_color.a = 1;
 
         float intensity;
@@ -411,11 +413,22 @@ float4 PS_ambient(
  
     // Discretize the intensity, based on a few cutoff points
         if (intensity > 0.8)
-            final_color = float4(1.0, 1.0, 1.0, 1.0) * final_color;
+            final_color = float4(1.0, 1.0, 1.0, 1.0) * final_color;//float4(albedo, 1);
         else if (intensity < -0.8)
-            final_color = float4(0.35, 0.35, 0.35, 1.0) * final_color;
+            final_color = float4(0.35, 0.35, 0.35, 1.0) * final_color; //float4(albedo, 1);
         else
-            final_color = float4(0.7, 0.7, 0.7, 1.0) * final_color;
+            final_color = float4(0.7, 0.7, 0.7, 1.0) * final_color; //float4(albedo, 1);
+    }
+    else
+    {
+        final_color = float4(env_fresnel * env * g_ReflectionIntensity +
+                              albedo.xyz * irradiance * g_AmbientLightIntensity
+                              , 1.0f) + self_illum;
+
+
+        final_color = final_color * global_ambient_adjustment * ao;
+        final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
+
     }
   
     return final_color;
