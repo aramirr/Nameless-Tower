@@ -320,14 +320,13 @@ void bt_runner::findPath(int origin, int destiny, std::vector<int>& path){
 
 void bt_runner::go_to_next_waypoint() {
 	if (actual_waypoint.type == "floor") {
-		if (next_waypoint.type == "floor") {
-			walk();
-		}
+		walk();
 	}
 	else if (actual_waypoint.type == "edge") {
 		if (next_waypoint.type == "edge") {
 			jump();
 		}
+		else walk();
 
 	}
 	else if (actual_waypoint.type == "wall") {
@@ -344,11 +343,11 @@ void bt_runner::go_to_next_waypoint() {
 void bt_runner::walk() {
 	TCompTransform *c_my_transform = getMyTransform();
 	VEC3 myPos = c_my_transform->getPosition();
-	dbg("pos: %f %f %f", myPos.x, myPos.y, myPos.z);
+	//dbg("pos: %f %f %f", myPos.x, myPos.y, myPos.z);
 
 	float current_yaw;
 	float current_pitch;
-	float amount_moved = 0.005f;
+	float amount_moved = speed * DT;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	tower_center.y = myPos.y;
@@ -376,12 +375,16 @@ void bt_runner::walk() {
 		current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		VEC3 aux_vector = going_right ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
-		VEC3 newPos = tower_center + (aux_vector * 31.7f);
+		VEC3 newPos = tower_center + (aux_vector * EngineTower.getTowerRadius());
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		if (comp_collider && comp_collider->controller)
 		{
 			VEC3 delta_move = newPos - myPos;
-			delta_move.y += -10 * DT;
+			if (!going_up)
+				delta_move.y += -10 * DT;
+			else {
+
+			}
 
 
 			PxShape* player_shape;
@@ -401,8 +404,101 @@ void bt_runner::walk() {
 }
 
 void bt_runner::jump() {
-  
+	calculate_top_jump_position();
 
+
+
+	TCompTransform *c_my_transform = getMyTransform();
+	VEC3 myPos = c_my_transform->getPosition();
+
+	float current_yaw;
+	float current_pitch;
+	float amount_moved = speed * DT;
+	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
+
+	tower_center.y = myPos.y;
+
+	TCompCollider* comp_collider = get<TCompCollider>();
+	if (!c_my_transform->isInFront(next_waypoint.position)) {
+		current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
+		float debug = rad2deg(current_yaw);
+		going_right = !going_right;
+
+		PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
+		PxTransform tr = rigidActor->getGlobalPose();
+
+		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+		auto& rot = c_my_transform->getRotation();
+		tr.q = PxQuat(rot.x, rot.y, rot.z, rot.w);
+		rigidActor->setGlobalPose(tr);
+	}
+	else {
+		current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
+		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+		VEC3 aux_vector = going_right ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
+		VEC3 newPos = tower_center + (aux_vector * EngineTower.getTowerRadius());
+		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+		if (comp_collider && comp_collider->controller)
+		{
+
+			if (going_up) {
+				float d1 = distance_x_z(newPos, top_jump_position);
+
+				float d2 = distance_x_z(actual_waypoint.position, top_jump_position);
+				float perc = 1 - (d1 / d2);
+				if (perc < 0) perc = 0;
+				if (perc >= 0.98) {
+					going_up = false;
+				}
+				//perc = perc * perc*perc * (perc * (6.f*perc - 15.f) + 10.f);
+				perc = sin(perc * 3.1415 * 0.5f);
+
+				float aux = lerp(actual_waypoint.position.y, top_jump_position.y, perc);
+				newPos.y = aux;
+			}
+			else {
+				float d1 = distance_x_z(newPos, next_waypoint.position);
+				float d2 = distance_x_z(top_jump_position, next_waypoint.position);
+				float perc = 1 - (d1 / d2);
+				if (perc < 0) perc = 0;
+				//perc = perc * perc*perc * (perc * (6.f*perc - 15.f) + 10.f);
+				perc = sin(perc * 3.1415 * 0.5f);
+				float aux = lerp(top_jump_position.y, next_waypoint.position.y, perc);
+				newPos.y = aux;
+
+			}
+			VEC3 delta_move = newPos - myPos;
+
+
+			PxShape* player_shape;
+			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
+			PxFilterData filter_data = player_shape->getSimulationFilterData();
+			ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
+			BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
+			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, PxControllerFilters(&filter_data, query_filter, filter_controller));
+			VEC3 myPos2 = c_my_transform->getPosition();
+
+			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
+				current_yaw = going_right ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
+				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+			}
+		}
+	}
+
+}
+
+void bt_runner::calculate_top_jump_position() {
+	float alpha = acos(actual_waypoint.position.x / EngineTower.getTowerRadius());
+	float beta = acos(next_waypoint.position.x / EngineTower.getTowerRadius());
+	float charlie = (alpha + beta) / 2.f;
+	float top_y = max(actual_waypoint.position.y, next_waypoint.position.y) + 2.0f;
+	top_jump_position = VEC3(EngineTower.getTowerRadius()*cos(charlie), top_y, EngineTower.getTowerRadius()*sin(charlie));
+}
+
+float bt_runner::distance_x_z(VEC3 v1, VEC3 v2) {
+	v1.y = 0.f;
+	v2.y = 0.f;
+	return VEC3::Distance(v1, v2);
 }
 
 

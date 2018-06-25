@@ -8,7 +8,7 @@ class IAIController;
 class CModuleTower : public IModule {
 
 protected:
-	float tower_radius;
+	float tower_radius = 31.5f;
 	VEC3  last_checkpoint_position;
 	float last_checkpoint_yaw;
 	bool  last_checkpoint_looking_left;
