@@ -216,10 +216,10 @@ int bt_runner::actionAttackFloor2() {
 int bt_runner::actionChase() {
 	dbg("chase\n");
 
-	getPath();
-	if (b_chase_player)
+	//getPath();
+	/*if (b_chase_player)
 		chase_player();
-	else chase_waypoint();
+	else */chase_waypoint();
 
 	//Cambiar a STAY y poner interrupciones que reinicien el BT
     return LEAVE;
@@ -227,8 +227,15 @@ int bt_runner::actionChase() {
 
 int bt_runner::actionAppear() {
 	dbg("appear\n");
-    TCompCollider* my_collider = getMyCollider();
-    my_collider->controller->setPosition(physx::PxExtendedVec3(appearing_position.x, appearing_position.y, appearing_position.z));
+  TCompCollider* my_collider = getMyCollider();
+  my_collider->controller->setPosition(physx::PxExtendedVec3(appearing_position.x, appearing_position.y, appearing_position.z));
+  TCompTransform* my_transform = getMyTransform();
+  tower_center.y = appearing_position.y;
+  my_transform->lookAt(appearing_position, tower_center);
+  float y, p;
+  my_transform->getYawPitchRoll(&y, &p);
+  y += deg2rad(90);
+  my_transform->setYawPitchRoll(y, p);
 
 	EngineTower.appearEntity("Runner");
 	b_appear = false;
@@ -237,12 +244,7 @@ int bt_runner::actionAppear() {
 };
 
 int bt_runner::actionHide() {
-  TCompTransform* my_transform = getMyTransform();
-  my_transform->lookAt(my_transform->getPosition(), tower_center);
-  float y, p;
-  my_transform->getYawPitchRoll(&y, &p);
-  y += deg2rad(90);
-  my_transform->setYawPitchRoll(y, p);
+
 	dbg("hide\n");
 	return LEAVE;
 };
@@ -436,6 +438,8 @@ void bt_runner::jump() {
 				float d2 = distance_x_z(actual_waypoint.position, top_jump_position);
 				float perc = 1 - (d1 / d2);
 				if (perc < 0) perc = 0;
+        if (perc > 0.2)
+          int basdad = 1;
 				if (perc >= 0.98) {
 					going_up = false;
 				}
@@ -477,11 +481,44 @@ void bt_runner::jump() {
 }
 
 void bt_runner::calculate_top_jump_position() {
-	float alpha = acos(actual_waypoint.position.x / EngineTower.getTowerRadius());
-	float beta = acos(next_waypoint.position.x / EngineTower.getTowerRadius());
+	float alpha = asin(actual_waypoint.position.z / EngineTower.getTowerRadius());
+  if (alpha < 0) {
+    alpha += deg2rad(360.f);
+  }
+  if (actual_waypoint.position.z < 0.f and rad2deg(alpha) > 0.f and rad2deg(alpha) < 180.f) {
+    alpha += deg2rad(180.f);
+  }
+  else if (actual_waypoint.position.z > 0.f and not(rad2deg(alpha) > 0.f and rad2deg(alpha) < 180.f)) {
+    alpha -= deg2rad(180.f);
+  }
+
+
+	float beta = asin(next_waypoint.position.z / EngineTower.getTowerRadius());
+  if (beta < 0) {
+    beta += deg2rad(360.f);
+  }
+  if (actual_waypoint.position.z < 0.f and rad2deg(beta) > 0.f and rad2deg(beta) < 180.f) {
+    beta += deg2rad(180.f);
+  }
+  else if (actual_waypoint.position.z > 0.f and not(rad2deg(beta) > 0.f and rad2deg(beta) < 180.f)) {
+    beta -= deg2rad(180.f);
+  }
+
 	float charlie = (alpha + beta) / 2.f;
-	float top_y = max(actual_waypoint.position.y, next_waypoint.position.y) + 2.0f;
+	float top_y = max(actual_waypoint.position.y, next_waypoint.position.y) + 5.0f;
+
 	top_jump_position = VEC3(EngineTower.getTowerRadius()*cos(charlie), top_y, EngineTower.getTowerRadius()*sin(charlie));
+
+
+
+  
+  // Cosinus positivo entre 270-90 grados. Negativo entre 90-270 grados.
+  if (charlie < deg2rad(90) and charlie > deg2rad(270) and top_jump_position.z < 0)
+    top_jump_position.z = -top_jump_position.z;
+
+  // Cosinus positivo entre 270-90 grados. Negativo entre 90-270 grados.
+  if (charlie > deg2rad(0) and charlie < deg2rad(180) and top_jump_position.x < 0)
+    top_jump_position.x = -top_jump_position.x;
 }
 
 float bt_runner::distance_x_z(VEC3 v1, VEC3 v2) {

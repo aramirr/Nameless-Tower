@@ -31,25 +31,25 @@
 		    "bt_runner": {
 		    	"waypoints_map": [
 		    		{
-		    			"pos": "-8.426 0.258 30.011",
+		    			"pos": "-2.527 9.000 -31.398",
 		    			"id": 0,
 		    			"type": "floor",
 		    			"neighbours": ["1"]
 		    		},
 		    		{
-		    			"pos": "10.308 0.258 29.766",
+		    			"pos": "-9.055 9.000 -30.171",
 		    			"id": 1,
 		    			"type": "edge",
 		    			"neighbours": ["2"]
 		    		},
 		    		{
-		    			"pos": "19.104 0.258 25.046",
+		    			"pos": "-13.556 9.000 -28.434",
 		    			"id": 2,
 		    			"type": "edge",
 		    			"neighbours": ["3"]
 		    		},
 		    		{
-		    			"pos": "30.374 0.258 8.347",
+		    			"pos": "-26.966 9.000 -16.281",
 		    			"id": 3,
 		    			"type": "floor",
 		    			"neighbours": ["0"]
@@ -76,7 +76,7 @@
 		"entity": {
 			"name": "Runner Trigger 1",
 			"transform": {
-				"pos": "10.308 0 29.766"
+				"pos": "-9.055 9.000 -30.171"
 			},
 			"render" : [
 		        {
@@ -93,7 +93,7 @@
 			},
 			"trigger": {
 				"trigger_type": "runner_appear",
-				"appearing_position": "-8.426 1 30.011"
+				"appearing_position": "-2.527 9.500 -31.398"
 			}
 		}
 	}
