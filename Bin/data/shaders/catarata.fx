@@ -89,33 +89,33 @@ float4 PS(
   //float4 surface_color = lerp( water_color, color_base, amount_of_color_base );
 
   //// Shadow factor entre 0 (totalmente en sombra) y 1 (no ocluido)
-  //float shadow_factor = computeShadowFactor( iWorldPos ); 
+  float shadow_factor = computeShadowFactor( iWorldPos ); 
   //float water_surface_shadow_factor = 0.5 + saturate( 0.5 + shadow_factor);
 
   //// A random N in tangen space
   ////float3 normal_color = float3( noiseF.xy, 1.5 );
   //  float4 N_rt = txNormal.Load(ss_load_coords);
   //  float3 N = decodeNormal(N_rt.xyz);
-  //  N = normalize(N);
+    float3 N = normalize(iNormal);
 
-  //// Compute reflected color using the eye direction reflected in the N
+  ////// Compute reflected color using the eye direction reflected in the N
   //float3 eye = normalize( iWorldPos - camera_pos );
   //float3 eye_r = reflect( eye, iNormal );
   //float4 env_color = txEnvironmentMap.SampleLevel( samLinear, eye_r, 3 );
 
-  //// Apply a small fresnel effect
+  ////// Apply a small fresnel effect
   //float  amount = dot( iNormal, -eye );
   //amount = saturate ( amount );
-  //// Change the curve of the influence,.
+  ////// Change the curve of the influence,.
   //amount = pow( amount, 0.5 );
 
-  //// Add some specular
-  //float3 L = normalize( light_pos.xyz - iWorldPos );
-  //float spec_term = getSpecularTerm(iWorldPos, N, L);
+  ////// Add some specular
+  float3 L = normalize( light_pos.xyz - iWorldPos );
+  float spec_term = getSpecularTerm(iWorldPos, N, L);
 
-  //float4 final_color = surface_color * amount + env_color * ( 1 - amount );
+  //  float4 final_color = color_base * amount + env_color * (1 - amount);
 
   // Add spec + final color
-  //return final_color + spec_term * shadow_factor;
-    return color_base;
+    return color_base + spec_term * shadow_factor;
+    //return final_color;
 }

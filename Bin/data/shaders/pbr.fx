@@ -74,6 +74,38 @@ void VS_GBufferSkin(
 }
 
 //--------------------------------------------------------------------------------------
+// GBuffer Catarata generation pass. Vertex
+//--------------------------------------------------------------------------------------
+void VS_GBuffer_Catarata(
+  in float4 iPos : POSITION
+, in float3 iNormal : NORMAL0
+, in float2 iTex0 : TEXCOORD0
+, in float2 iTex1 : TEXCOORD1
+, in float4 iTangent : NORMAL1
+
+, out float4 oPos : SV_POSITION
+, out float3 oNormal : NORMAL0
+, out float4 oTangent : NORMAL1
+, out float2 oTex0 : TEXCOORD0
+, out float2 oTex1 : TEXCOORD1
+, out float3 oWorldPos : TEXCOORD2
+)
+{
+    float4 world_pos = mul(iPos, obj_world);
+    oPos = mul(world_pos, camera_view_proj);
+
+  // Rotar la normal segun la transform del objeto
+    oNormal = mul(iNormal, (float3x3) obj_world);
+    oTangent.xyz = mul(iTangent.xyz, (float3x3) obj_world);
+    oTangent.w = iTangent.w;
+
+  // Las uv's se pasan directamente al ps
+    oTex0 = float2(iTex0.x, (iTex0.y - global_world_time * 0.2));
+    oTex1 = iTex1;
+    oWorldPos = world_pos.xyz;
+}
+
+//--------------------------------------------------------------------------------------
 // GBuffer generation pass. Pixel shader
 //--------------------------------------------------------------------------------------
 void PS_GBuffer(
@@ -102,6 +134,50 @@ void PS_GBuffer(
   
   // Save roughness in the alpha coord of the N render target
     float roughness = 0.5f;//txRoughness.Sample(samLinear, iTex0).r;
+    o_normal = encodeNormal(N, roughness);
+
+    // Si el material lo pide, sobreescribir los valores de la textura
+	// por unos escalares uniformes. Only to playtesting...
+    if (scalar_metallic >= 0.f)
+        o_albedo.a = scalar_metallic;
+    if (scalar_roughness >= 0.f)
+        o_normal.a = scalar_roughness;
+
+  // Compute the Z in linear space, and normalize it in the range 0...1
+  // In the range z=0 to z=zFar of the camera (not zNear)
+    float3 camera2wpos = iWorldPos - camera_pos;
+    o_depth = dot(camera_front.xyz, camera2wpos) / camera_zfar;
+}
+
+//--------------------------------------------------------------------------------------
+// GBuffer Alpha generation pass. Pixel shader
+//--------------------------------------------------------------------------------------
+void PS_GBuffer_Alpha(
+  float4 Pos : SV_POSITION
+, float3 iNormal : NORMAL0
+, float4 iTangent : NORMAL1
+, float2 iTex0 : TEXCOORD0
+, float2 iTex1 : TEXCOORD1
+, float3 iWorldPos : TEXCOORD2
+, out float4 o_albedo : SV_Target0
+, out float4 o_normal : SV_Target1
+, out float1 o_depth : SV_Target2
+, out float4 o_self_illum : SV_Target3
+, out float1 o_cell : SV_Target5
+)
+{
+    o_cell = (txCell.Sample(samLinear, iTex0)).x;
+    o_self_illum = txEmissive.Sample(samLinear, iTex0);
+  //o_self_illum.xyz *= self_color;
+  // Store in the Alpha channel of the albedo texture, the 'metallic' amount of
+  // the material
+    o_albedo = txAlbedo.Sample(samLinear, iTex0);
+    o_albedo.a = txAlpha.Sample(samLinear, iTex0).r;
+
+    float3 N = computeNormalMap(iNormal, iTangent, iTex0);
+  
+  // Save roughness in the alpha coord of the N render target
+    float roughness = 0.5f; //txRoughness.Sample(samLinear, iTex0).r;
     o_normal = encodeNormal(N, roughness);
 
     // Si el material lo pide, sobreescribir los valores de la textura
@@ -494,32 +570,40 @@ float4 shade(
     // Spotlight attenuation
     float shadow_factor = use_shadows ? computeShadowFactor(wPos) : 1.; // shadow factor
 
-    float3 final_color = light_color.xyz * NdL * (cDiff * (1.0f - cSpec) + cSpec) * att * light_intensity * shadow_factor;
+    float4 final_color2;
 
-    float4 final_color2 = float4(final_color, 1);
+    if (cell)
+    {
+        float3 final_color = light_color.xyz * cDiff /** NdL * (cDiff * (1.0f - cSpec) + cSpec) * att*/ * light_intensity * shadow_factor;
 
-    //if (cell)
-    //{
-    //    final_color2.a = 1;
+        final_color2 = float4(final_color, 1);
 
-    //    float intensity;
-    //    if (light_point == 1)
-    //    {
-    //        intensity = dot(normalize(iPosition.xyz - light_pos), N);
-    //    }
-    //    else
-    //    {
-    //        intensity = dot(normalize(light_direction.xyz), N);
-    //    }
+        final_color2.a = 1;
+
+        float intensity;
+        if (light_point == 1)
+        {
+            intensity = dot(normalize(iPosition.xyz - light_pos), N);
+        }
+        else
+        {
+            intensity = dot(normalize(light_direction.xyz), N);
+        }
  
-    //// Discretize the intensity, based on a few cutoff points
-    //    if (intensity > 0.8)
-    //        final_color2 = float4(1.0, 1.0, 1.0, 1.0) * final_color2;
-    //    else if (intensity < -0.8)
-    //        final_color2 = float4(0.35, 0.35, 0.35, 1.0) * final_color2;
-    //    else
-    //        final_color2 = float4(0.7, 0.7, 0.7, 1.0) * final_color2;
-    //}
+    // Discretize the intensity, based on a few cutoff points
+        if (intensity > 0.8)
+            final_color2 = float4(1.0, 1.0, 1.0, 1.0) * final_color2;
+        else if (intensity < -0.8)
+            final_color2 = float4(0.35, 0.35, 0.35, 1.0) * final_color2;
+        else
+            final_color2 = float4(0.7, 0.7, 0.7, 1.0) * final_color2;
+    }
+    else
+    {
+        float3 final_color = light_color.xyz * NdL * (cDiff * (1.0f - cSpec) + cSpec) * att * light_intensity * shadow_factor;
+
+        final_color2 = float4(final_color, 1);
+    }
 
     return final_color2;
 }

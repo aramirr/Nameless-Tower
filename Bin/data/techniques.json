@@ -184,12 +184,12 @@
     }
   },
   "catarata": {
-    "vs_file": "data/shaders/catarata.fx",
-    "ps_file": "data/shaders/catarata.fx",
-    "vs_entry_point": "VS",
-    "ps_entry_point": "PS",
+    "vs_file": "data/shaders/pbr.fx",
+    "ps_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_GBuffer_Catarata",
+    "ps_entry_point": "PS_GBuffer",
     "vertex_type": "PosNUvUvT",
-    "category": "distorsions",
+    "category": "gbuffer",
     "textures": {
       "noise": "data/textures/noise_cloud3.dds"
     }
