@@ -25,6 +25,7 @@ class bt_runner:public bt
     bool b_chase = false;
     bool b_recular = false;
     bool on_wall = false;
+	bool b_chase_player = false;
 
 	bool going_right = false;
 	bool going_up = true;
@@ -87,7 +88,8 @@ class bt_runner:public bt
 	void chase();
 	void findPath(int origin, int destiny, std::vector<int>& path);
 	int findClosestWaypoint(VEC3 position);
-	void go_to_next_waypoint();
+	void chase_waypoint();
+	void chase_player();
 	void walk();
 	void jump();
 

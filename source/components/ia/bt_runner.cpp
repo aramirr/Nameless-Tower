@@ -75,8 +75,6 @@ void bt_runner::debugInMenu() {
 }
 
 void bt_runner::get_next_waypoint() {
-  int id1 = actual_waypoint.id;
-  int id2 = actual_waypoint.neighbours[0];
   next_waypoint = waypoints_map[actual_waypoint.neighbours[0]];
 }
 
@@ -217,25 +215,20 @@ int bt_runner::actionAttackFloor2() {
 
 int bt_runner::actionChase() {
 	dbg("chase\n");
-    change_color(VEC4(0.0f, 0.0f, 0.0f, 1.0f));
-	
-	go_to_next_waypoint();
 
+	getPath();
+	if (b_chase_player)
+		chase_player();
+	else chase_waypoint();
 
+	//Cambiar a STAY y poner interrupciones que reinicien el BT
     return LEAVE;
 };
 
 int bt_runner::actionAppear() {
 	dbg("appear\n");
-  TCompCollider* my_collider = getMyCollider();
-  my_collider->controller->setPosition(physx::PxExtendedVec3(appearing_position.x, appearing_position.y, appearing_position.z));
-
-  /*TCompTransform* my_transform = getMyTransform();
-  my_transform->lookAt(my_transform->getPosition(), tower_center);
-  float y, p;
-  my_transform->getYawPitchRoll(&y, &p);
-  y += deg2rad(180);
-  my_transform->setYawPitchRoll(y, p);*/
+    TCompCollider* my_collider = getMyCollider();
+    my_collider->controller->setPosition(physx::PxExtendedVec3(appearing_position.x, appearing_position.y, appearing_position.z));
 
 	EngineTower.appearEntity("Runner");
 	b_appear = false;
@@ -318,7 +311,7 @@ void bt_runner::findPath(int origin, int destiny, std::vector<int>& path){
 
 }
 
-void bt_runner::go_to_next_waypoint() {
+void bt_runner::chase_waypoint() {
 	if (actual_waypoint.type == "floor") {
 		walk();
 	}
@@ -327,17 +320,15 @@ void bt_runner::go_to_next_waypoint() {
 			jump();
 		}
 		else walk();
-
 	}
 	else if (actual_waypoint.type == "wall") {
-
+		
 	}
-  TCompTransform* my_transform = getMyTransform();
-  if (VEC3::Distance(my_transform->getPosition(), next_waypoint.position) <= 1.f) {
-    actual_waypoint = next_waypoint;
-    get_next_waypoint();
-  }
-
+    TCompTransform* my_transform = getMyTransform();
+    if (VEC3::Distance(my_transform->getPosition(), next_waypoint.position) <= 1.f) {
+      actual_waypoint = next_waypoint;
+      get_next_waypoint();
+    }
 }
 
 void bt_runner::walk() {
@@ -406,14 +397,12 @@ void bt_runner::walk() {
 void bt_runner::jump() {
 	calculate_top_jump_position();
 
-
-
 	TCompTransform *c_my_transform = getMyTransform();
 	VEC3 myPos = c_my_transform->getPosition();
 
 	float current_yaw;
 	float current_pitch;
-	float amount_moved = speed * DT;
+	float amount_moved = speed * DT * 1.5f;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	tower_center.y = myPos.y;
@@ -463,12 +452,12 @@ void bt_runner::jump() {
 				if (perc < 0) perc = 0;
 				//perc = perc * perc*perc * (perc * (6.f*perc - 15.f) + 10.f);
 				perc = sin(perc * 3.1415 * 0.5f);
+
 				float aux = lerp(top_jump_position.y, next_waypoint.position.y, perc);
 				newPos.y = aux;
 
 			}
 			VEC3 delta_move = newPos - myPos;
-
 
 			PxShape* player_shape;
 			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
