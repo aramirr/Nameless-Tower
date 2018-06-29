@@ -574,7 +574,7 @@ float4 shade(
 
     if (cell)
     {
-        float3 final_color = light_color.xyz * cDiff /** NdL * (cDiff * (1.0f - cSpec) + cSpec) * att*/ * light_intensity * shadow_factor;
+        float3 final_color = light_color.xyz * cDiff /** NdL * (cDiff * (1.0f - cSpec) + cSpec) */ * att * light_intensity * shadow_factor;
 
         final_color2 = float4(final_color, 1);
 

@@ -1,0 +1,287 @@
+[
+  {
+    "entity":
+    {
+      "name": "arco"
+      ,
+      "transform":
+      {
+        "pos": "-2.14023 16.3564 -21.0299"
+        ,
+        "rotation": "0.0 0.707107 -0.707107 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arco.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaterialArco.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ColumnaLow"
+      ,
+      "transform":
+      {
+        "pos": "0.693517 6.10764 -20.9256"
+        ,
+        "rotation": "0.0 -1.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ColumnaLow.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaterialColumna.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arco001"
+      ,
+      "transform":
+      {
+        "pos": "3.51905 16.3564 -21.0299"
+        ,
+        "rotation": "0.0 0.707107 -0.707107 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arco001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaterialArco.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ColumnaLow001"
+      ,
+      "transform":
+      {
+        "pos": "6.34852 6.10764 -20.8228"
+        ,
+        "rotation": "0.0 -1.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ColumnaLow001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaterialColumna.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arco002"
+      ,
+      "transform":
+      {
+        "pos": "9.17228 16.3564 -20.7855"
+        ,
+        "rotation": "0.0276249 0.706567 -0.706567 0.0276249"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arco002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaterialArco.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ColumnaLow002"
+      ,
+      "transform":
+      {
+        "pos": "-4.98775 6.10764 -20.8228"
+        ,
+        "rotation": "0.0 -1.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ColumnaLow002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaterialColumna.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ColumnaLow003"
+      ,
+      "transform":
+      {
+        "pos": "-6.30558 7.11753 -21.9785"
+        ,
+        "rotation": "0.0 -1.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ColumnaLow003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaterialColumna.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arco003"
+      ,
+      "transform":
+      {
+        "pos": "-9.6851 8.69799 -21.5829"
+        ,
+        "rotation": "0.126201 -0.761385 0.630277 -0.0843628"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arco003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaterialArco.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arco004"
+      ,
+      "transform":
+      {
+        "pos": "-5.41216 10.0418 -21.7189"
+        ,
+        "rotation": "0.126201 -0.761385 0.630277 -0.0843628"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arco004.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaterialArco.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arco005"
+      ,
+      "transform":
+      {
+        "pos": "-6.27717 16.3559 -20.8323"
+        ,
+        "rotation": "0.0 0.707107 -0.707107 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arco005.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaterialArco.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Escalones"
+      ,
+      "transform":
+      {
+        "pos": "0.0 5.4794 -23.4776"
+        ,
+        "rotation": "0.0128231 0.70699 -0.706991 0.0128231"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Escalones.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaterialEscalones.material"
+          ]
+        }
+      ]
+    }
+  }
+]
