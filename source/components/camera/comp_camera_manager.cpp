@@ -317,13 +317,13 @@ void TCompCameraManager::update(float dt) {
 			else if (!inPlatform && !exitPlatform) {
 				bool playerForward = isForward();  //Vemos si el player se esta moviendo hacia delante o hacia atras
 
-				CEntity* camIzq = (CEntity *)getEntityByName("camera_orbit_IZQ");
+				CEntity* camIzq = (CEntity *)getEntityByName("camera_platform");
 				TCompTransform* ci = camIzq->get<TCompTransform>();
 				assert(ci);
 				VEC3 cip = ci->getPosition();
 				float distanceCamIzq = VEC3::Distance(pPos, cip);
 
-				CEntity* camDer = (CEntity *)getEntityByName("camera_orbit_IZQ");
+				CEntity* camDer = (CEntity *)getEntityByName("camera_platform");
 				TCompTransform* cd = camDer->get<TCompTransform>();
 				assert(cd);
 				VEC3 cdp = cd->getPosition();
@@ -331,7 +331,7 @@ void TCompCameraManager::update(float dt) {
 
 				if ((playerForward && distanceCamDer > 9.f)) {
 
-					CHandle h_camera = getEntityByName("camera_orbit_IZQ");
+					CHandle h_camera = getEntityByName("camera_platform");
 					Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 
 					pForwarding = true;
@@ -340,7 +340,7 @@ void TCompCameraManager::update(float dt) {
 
 				}
 				else if (distanceCamIzq > 9.f) {
-					CHandle h_camera = getEntityByName("camera_orbit_IZQ");
+					CHandle h_camera = getEntityByName("camera_platform");
 					Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 
 					pForwarding = false;

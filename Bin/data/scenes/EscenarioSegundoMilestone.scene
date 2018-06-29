@@ -963,11 +963,11 @@
   {
     "entity":
     {
-      "name": "SierrapuzzleA"
+      "name": "antorcha"
       ,
       "transform":
       {
-        "pos": "-31.1275 9.30189 3.72072"
+        "pos": "-30 10.5 3.72072"
         ,
         "rotation": "0.0 0.699912 0.0 -0.714229"
       }
@@ -975,26 +975,18 @@
       "render":
       [
         {
-          "mesh": "data/meshes/SierraA.mesh"
+          "mesh": "data/meshes/Antorcha.mesh"
           ,
           "materials":
           [
-            "data/materials/SierraM.material"
+            "data/materials/Antorcha Material.material"
+            ,
+            "data/materials/PaloMaterial.material"
+            ,
+            "data/materials/BaseMate.material"
           ]
         }
       ]
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "circular_controller":
-      {
-        "speed": 7.0
-        ,
-        "eje": "X"
-      }
       ,
       "trigger":
       {
@@ -1015,7 +1007,9 @@
       },
       "ai_torch": {
       	"time_limit": 2,
-      	"puzzle": "puzzle"
+        "intensity": 30,
+        "color" :  "0.898 0.212 0.0353 1",
+        "radius" : 2
       }
     }
   }

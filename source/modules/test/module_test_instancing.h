@@ -5,7 +5,7 @@
 
 class CModuleTestInstancing : public IModule
 {
-
+/*
   // -------------------------------------------------------------------
   struct TInstance {
     MAT44 world;
@@ -40,7 +40,7 @@ class CModuleTestInstancing : public IModule
   CRenderMeshInstanced* grass_instances_mesh = nullptr;
   std::vector< TGrassParticle > grass_instances;
 
-
+  */
 public:
   CModuleTestInstancing(const std::string& name)
 		: IModule(name)

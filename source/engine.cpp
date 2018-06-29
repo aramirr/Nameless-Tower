@@ -31,6 +31,9 @@ CEngine::CEngine()
 	, _module_sound("sound")
 	, _module_scripting("scripting")
    , _module_particles("particles")
+  , _module_billboards("billboards")
+
+
 {}
 
 bool CEngine::start() {
@@ -56,6 +59,8 @@ bool CEngine::start() {
 	_modules.registerSystemModule(&_module_gui);
 	_modules.registerSystemModule(&_module_sound);
    _modules.registerSystemModule(&_module_particles);
+    _modules.registerSystemModule(&_module_billboards);
+
 
 	_modules.registerGameModule(&module_splash);
 	_modules.registerGameModule(&module_main_menu);

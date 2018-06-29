@@ -247,14 +247,17 @@
     "blend": "combinative",
     "z": "test_but_no_write"
   },
-
+  
   "grass": {
     "vs_file": "data/shaders/grass.fx",
     "vertex_type": "Pos_x_InstancedPos",
-    "category": "particles",
-    "blend": "default",
-    "z": "default"
+    "category": "gbuffer",
+    "textures": {
+      "environment": "data/textures/cubemaps/env.dds",
+      "irradiance": "data/textures/cubemaps/irradiance.dds"
+    }
   },
+
   "shadows_grass_instanced": {
     "vs_file": "data/shaders/grass.fx",
     "vertex_type": "Pos_x_InstancedPos",

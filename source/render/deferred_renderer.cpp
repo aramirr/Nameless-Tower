@@ -10,6 +10,7 @@
 #include "components/juan/comp_transform.h"
 #include "components/postfx/comp_render_ao.h"
 #include "ctes.h"
+#include "components/ia/puzzles/ai_torch.h"
 
 void CDeferredRenderer::renderGBuffer() {
   CTraceScoped gpu_scope("Deferred.GBuffer");
@@ -178,6 +179,20 @@ void CDeferredRenderer::renderPointLights() {
     // mandar a pintar una geometria que refleje los pixeles que potencialmente
     // puede iluminar esta luz.... El Frustum solido
     mesh->render();
+  });
+
+  //Pintar luz de las antorchas
+  getObjectManager<CAITorch>()->forEach([mesh](CAITorch* c) {
+
+      // subir las contantes de la posicion/dir
+      // activar el shadow map...
+      c->simulateLight();
+
+      setWorldTransform(c->getWorld());
+
+      // mandar a pintar una geometria que refleje los pixeles que potencialmente
+      // puede iluminar esta luz.... El Frustum solido
+      mesh->render();
   });
 }
 

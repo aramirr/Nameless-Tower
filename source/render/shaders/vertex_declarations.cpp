@@ -174,8 +174,6 @@ bool CVertexDeclManager::create() {
     createNew("InstancedPos", layout, ARRAYSIZE(layout));
   }
 
-
-
   return true;
 }
 

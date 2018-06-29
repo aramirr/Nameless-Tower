@@ -223,6 +223,7 @@
     <ClCompile Include="modules\system\module_gui.cpp" />
     <ClCompile Include="modules\system\module_input.cpp" />
     <ClCompile Include="modules\system\module_particles.cpp" />
+    <ClCompile Include="modules\system\module_billboards.cpp" />
     <ClCompile Include="modules\system\module_physics.cpp" />
     <ClCompile Include="modules\system\module_sound.cpp" />
     <ClCompile Include="modules\test\module_test_cameras.cpp" />
@@ -416,6 +417,7 @@
     <ClInclude Include="modules\system\module_fsm.h" />
     <ClInclude Include="modules\system\module_gui.h" />
     <ClInclude Include="modules\system\module_input.h" />
+    <ClInclude Include="modules\system\module_billboards.h" />
     <ClInclude Include="modules\system\module_particles.h" />
     <ClInclude Include="modules\system\module_physics.h" />
     <ClInclude Include="modules\system\module_sound.h" />

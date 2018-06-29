@@ -4,17 +4,11 @@
 #include "entity/entity_parser.h"
 #include "components/juan/comp_transform.h"
 
-float unitRandom() {
-  return (float)rand() / (float)RAND_MAX;
-}
 
-float randomFloat( float vmin, float vmax) {
-  return vmin + (vmax - vmin) * unitRandom();
-}
 
 bool CModuleTestInstancing::start()
 {
-  {
+  /*{
     auto rmesh = Resources.get("data/meshes/GeoSphere001.instanced_mesh")->as<CRenderMesh>();
     // Remove cast and upcast to CRenderMeshInstanced
     instances_mesh = (CRenderMeshInstanced*)rmesh;
@@ -30,13 +24,13 @@ bool CModuleTestInstancing::start()
   {
     auto rmesh = Resources.get("data/meshes/grass.instanced_mesh")->as<CRenderMesh>();
     grass_instances_mesh = (CRenderMeshInstanced*)rmesh;
-  }
+  }*/
   return true;
 }
 
 void CModuleTestInstancing::update(float delta)
 {
-
+  /*
   if (ImGui::TreeNode("Instancing")) {
 
     // -- Creation params ----------------------
@@ -187,5 +181,5 @@ void CModuleTestInstancing::update(float delta)
 
   blood_instances_mesh->setInstancesData(blood_instances.data(), blood_instances.size(), sizeof(TInstanceBlood));
   
-  particles_instances_mesh->setInstancesData(particles_instances.data(), particles_instances.size(), sizeof(TRenderParticle));
+  particles_instances_mesh->setInstancesData(particles_instances.data(), particles_instances.size(), sizeof(TRenderParticle));*/
 }
