@@ -8,22 +8,12 @@ class TCompCameraManager : public TCompBase {
 	CEntity *player;
 	CEntity *platform;
 
-	bool isGrounded();
-	bool isForward();
-	bool pForwarding;
-
 	bool carga;
 
-	bool lateral;
-
-	void attachPlayer(const TMsgAttachTo& msg);
-	void detachPlayer(const TMsgDetachOf& msg);
-
-	bool inPlatform;
-	bool jumpinPlatform;
-	bool exitPlatform;
+	bool normal;
 
 	bool godMode;
+  bool active;
 
 	/*
 		CINEMATICAS
@@ -56,6 +46,8 @@ public:
 	static void registerMsgs();
 
 	void activateCinematic(std::string name);
+//  void stopCamera(const TMsgDesactiveCamera & msg);
+  //void startCamera(const TMsgActiveCamera & msg);
 
 	void debugInMenu();
 	void load(const json& j, TEntityParseContext& ctx);
