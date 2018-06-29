@@ -438,9 +438,7 @@ void bt_runner::jump() {
 				float d2 = distance_x_z(actual_waypoint.position, top_jump_position);
 				float perc = 1 - (d1 / d2);
 				if (perc < 0) perc = 0;
-        if (perc > 0.2)
-          int basdad = 1;
-				if (perc >= 0.98) {
+				if (perc >= 0.99) {
 					going_up = false;
 				}
 				//perc = perc * perc*perc * (perc * (6.f*perc - 15.f) + 10.f);
@@ -482,32 +480,21 @@ void bt_runner::jump() {
 
 void bt_runner::calculate_top_jump_position() {
 	float alpha = asin(actual_waypoint.position.z / EngineTower.getTowerRadius());
-  if (alpha < 0) {
-    alpha += deg2rad(360.f);
-  }
-  if (actual_waypoint.position.z < 0.f and rad2deg(alpha) > 0.f and rad2deg(alpha) < 180.f) {
-    alpha += deg2rad(180.f);
-  }
-  else if (actual_waypoint.position.z > 0.f and not(rad2deg(alpha) > 0.f and rad2deg(alpha) < 180.f)) {
-    alpha -= deg2rad(180.f);
-  }
-
-
 	float beta = asin(next_waypoint.position.z / EngineTower.getTowerRadius());
-  if (beta < 0) {
-    beta += deg2rad(360.f);
-  }
-  if (actual_waypoint.position.z < 0.f and rad2deg(beta) > 0.f and rad2deg(beta) < 180.f) {
-    beta += deg2rad(180.f);
-  }
-  else if (actual_waypoint.position.z > 0.f and not(rad2deg(beta) > 0.f and rad2deg(beta) < 180.f)) {
-    beta -= deg2rad(180.f);
-  }
-
-	float charlie = (alpha + beta) / 2.f;
-	float top_y = max(actual_waypoint.position.y, next_waypoint.position.y) + 5.0f;
+  	float charlie = (alpha + beta) / 2.f;
+	float top_y = max(actual_waypoint.position.y, next_waypoint.position.y) + 2.0f;
 
 	top_jump_position = VEC3(EngineTower.getTowerRadius()*cos(charlie), top_y, EngineTower.getTowerRadius()*sin(charlie));
+
+  if (not ((top_jump_position.x > actual_waypoint.position.x and top_jump_position.x < next_waypoint.position.x) or
+    (top_jump_position.x < actual_waypoint.position.x and top_jump_position.x > next_waypoint.position.x))) {
+    top_jump_position.x = -top_jump_position.x;
+  }
+
+  if (not ((top_jump_position.z > actual_waypoint.position.z and top_jump_position.z < next_waypoint.position.z) or
+    (top_jump_position.z < actual_waypoint.position.z and top_jump_position.z > next_waypoint.position.z))) {
+    top_jump_position.z = -top_jump_position.z;
+  }
 
 
 
