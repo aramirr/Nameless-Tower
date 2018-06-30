@@ -4,11 +4,20 @@ SLB.using(SLB)
 
 lm = LogicManager();
 
+-- Debug
+
+function OnTriggerEnterDebugTrigger()
+	lm:set_dir_light_intensity("LightDir00", 0)
+end
+
 
 function OnLevel1Start()
 	lm:set_ambient(1)
 end
 
+function function_name( ... )
+	-- body
+end
 
 -- Sala 1
 function OnTriggerEnterTSCabeza()

@@ -30,4 +30,6 @@ public:
   void activate();
   void generateShadowMap();
 
+  void setIntensity(float value);
+
 };

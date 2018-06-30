@@ -26,7 +26,9 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("set_ambient", &LogicManager::setAmbientAdjustment)
 		.set("play_last_cinematic", &LogicManager::playLastCinematic)
 		.set("activate_text", &LogicManager::activateText)
-		.set("disactivate_text", &LogicManager::disactivateText)
+    .set("disactivate_text", &LogicManager::disactivateText)
+    .set("set_dir_light_intensity", &LogicManager::setDirLightIntensity)
+    .set("set_point_light_intensity", &LogicManager::setPointLightIntensity)
 		;
 }
 

@@ -125,6 +125,10 @@ void TCompLightDir::generateShadowMap() {
   CRenderManager::get().renderCategory("shadows");
 }
 
+void TCompLightDir::setIntensity(float value) {
+  intensity = value;
+}
+
 
 
 
