@@ -1,0 +1,87 @@
+[ 
+  {
+    "entity":
+    {
+      "name": "PuertaVisagrasSeparadaA"
+      ,
+      "transform":
+      {
+        "pos": "-1.24362 0.0 -0.208553"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PuertaVisagrasSeparadaA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/PuertaVisagrasSeparadaA.col_mesh"
+      },
+      "rigid_anim" : 
+      {
+        "src" : "data/anims/PuertasTests.anims",
+        "speed_factor": 0.6,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PuertaVisagrasSeparadaB"
+      ,
+      "transform":
+      {
+        "pos": "1.24361 0.0 -0.208553"
+        ,
+        "rotation": "0.0 -1.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PuertaVisagrasSeparadaB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/PuertaVisagrasSeparadaB.col_mesh"
+      },
+      "rigid_anim" : 
+      {
+        "src" : "data/anims/PuertasTests.anims",
+        "speed_factor": 0.6,
+        "loops": false
+      }
+    }
+  }
+]
