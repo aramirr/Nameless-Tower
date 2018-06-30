@@ -6,7 +6,7 @@ lm = LogicManager();
 
 
 function OnLevel1Start()
-	-- body
+	lm:set_ambient(1)
 end
 
 
