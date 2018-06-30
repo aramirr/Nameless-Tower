@@ -7,6 +7,7 @@
 		"physics",
 		"render",
 		"cameras",
+		"particles",
 		"main_menu",
 		"splash",
 		"game_over",
@@ -14,15 +15,17 @@
 	    "cameras",
 	    "test_axis",
 	    "sound",
-	    "gui"
+	    "gui",
+	    "billboards"
 	],
 	"render" : 
 	[
 		"render",
 		"test_axis",
 		"entities",
-		"cameras",
 		"input",
-		"gui"
+		"particles",
+		"gui",
+		"cameras"
 	]
 }

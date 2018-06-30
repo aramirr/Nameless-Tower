@@ -13,6 +13,7 @@
 #define CB_BLOOM        7
 #define CB_FOCUS        8
 #define CB_GUI          9
+#define CB_PARTICLE     10
 
 // -------------------------------------------------
 // Texture Slots
@@ -207,5 +208,13 @@ CB_DEF(CCteGUI, CB_GUI)
   VEC2 maxUV;
   VEC4 tint_color;
 };
+
+CB_DEF(CCteParticle, CB_PARTICLE)
+{
+  VEC2 particle_minUV;
+  VEC2 particle_maxUV;
+  VEC4 particle_color;
+};
+
 
 #endif

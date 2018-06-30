@@ -579,7 +579,7 @@ float4 shade(
   float3 cSpec = Specular(specular_color, h, view_dir, light_dir, a, NdL, NdV, NdH, VdH, LdV);
 
   float  att = ( 1. - smoothstep( 0.90, 0.98, distance_to_light / light_radius ));
-  // att *= 1 / distance_to_light;
+  att *= 1 / ( 1 + distance_to_light * distance_to_light * distance_to_light) ;
 
   float3 final_color = light_color.xyz * NdL * (cDiff * (1.0f - cSpec) + cSpec) * att * light_intensity * shadow_factor;
   return float4( final_color, 1 );
