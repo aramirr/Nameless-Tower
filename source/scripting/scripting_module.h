@@ -6,7 +6,7 @@
  
  enum ScriptEvents {
 	 trigger_enter = 0,
-   windstrike_activate,
+   windstrike_activate = 1,
 	 max_num_events
  };
 

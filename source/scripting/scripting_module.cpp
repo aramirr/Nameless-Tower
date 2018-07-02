@@ -35,12 +35,20 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 }
 
 void ScriptingModule::ExecEvent(ScriptEvents e, vector<string> params) {
-	switch (e) {
-		case ScriptEvents::trigger_enter:
-			fTriggerEnter(params);
-    case ScriptEvents::windstrike_activate:
+	/*switch (e) {
+    case ScriptEvents::trigger_enter: {
+      fTriggerEnter(params);
+    }
+    case ScriptEvents::windstrike_activate: {
       fWindstrikeActivate(params);
-	}
+    }
+	}*/
+  if (e == ScriptEvents::trigger_enter) {
+    fTriggerEnter(params);
+  }
+  else if (e == ScriptEvents::windstrike_activate) {
+    fWindstrikeActivate(params);
+  }
 		
 }
 
