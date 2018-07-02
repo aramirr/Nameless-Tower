@@ -87,7 +87,7 @@ bool CMaterial::create(const json& j) {
         ts = TS_CELL;
       else if (slot == "ao")
         ts = TS_DEFERRED_AO;
-     /* else if (slot == "sublime")
+      /*else if (slot == "sublime")
         ts = TS_SUBLIME;*/
 
       assert(ts != TS_NUM_MATERIALS_SLOTS || fatal("Material %s has an invalid texture slot %s\n", name.c_str(), slot.c_str()));
@@ -147,6 +147,9 @@ void CMaterial::activate() const {
 }
 
 void CMaterial::activateTextures(int slot0) const {
+  assert(slot0 == 0);
+  assert(max_textures == TS_NUM_MATERIALS_SLOTS);
+  //assert(srvs)
   Render.ctx->PSSetShaderResources(slot0, max_textures, (ID3D11ShaderResourceView**)srvs);
 }
 
