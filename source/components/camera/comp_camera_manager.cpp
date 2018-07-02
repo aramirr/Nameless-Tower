@@ -185,7 +185,7 @@ void TCompCameraManager::update(float dt) {
 
 
 	if (carga) {																				// CONFIGURACION INICIAL DEL MANAGER DE CAMARAS
-		CHandle h_camera = getEntityByName("camera_orbit_IZQ");
+		CHandle h_camera = getEntityByName("camera_platform");
 		Engine.getCameras().setDefaultCamera(h_camera);
     inPlatform = true;
 
@@ -224,6 +224,10 @@ void TCompCameraManager::update(float dt) {
 		}
 		else {
 			currentTime += dt;
+
+			//TO DO
+			//Ir interpolando manualmente entre las camaras que componen la cinematica en cuestion
+			//...
 
 			float ratio = ((currentTime - totalTime) / cameras[cameraActive].second);
 
@@ -309,7 +313,7 @@ void TCompCameraManager::update(float dt) {
 			}
 
 			if ((inPlatform || exitPlatform) && lateral) {
-				CHandle h_camera = getEntityByName("camera_orbit_IZQ");
+				CHandle h_camera = getEntityByName("camera_platform");
 				Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 
 				lateral = false;

@@ -4,143 +4,166 @@ SLB.using(SLB)
 
 lm = LogicManager();
 
-function OnTriggerEnterSierra()
-	lm:printdbg("joselito")
+-- Debug
+
+function OnTriggerEnterDebugTrigger()
+	lm:set_dir_light_intensity("LightDir00", 0)
 end
+
 
 function OnLevel1Start()
-	lm:set_ambient(0.1)
-	lm:hide_mesh("Wall01")
-end
-
-function OnTriggerEnterTriggerWallEntry01()
-	lm:set_ambient(0.1)
-	lm:hide_mesh("Wall01")
-end
-
-function OnTriggerEnterTriggerWallExit01()
 	lm:set_ambient(1)
-	lm:unhide_mesh("Wall01")
 end
 
-function OnTriggerEnterTriggerWallEntry02()
-	lm:set_ambient(0.1)
-	lm:hide_mesh("Wall02")
+function function_name( ... )
+	-- body
 end
 
-function OnTriggerEnterTriggerWallExit02()
-	lm:set_ambient(1)
-	lm:unhide_mesh("Wall02")
+-- Sala 1
+function OnTriggerEnterTSCabeza()
+	-- body
 end
 
-function OnTriggerEnterTriggerWallEntry03()
-	lm:set_ambient(0.1)
-	lm:hide_mesh("Wall03")
+-- Sala 2
+function OnTriggerEnterTPTutorialIzq()
+	-- body
 end
 
-function OnTriggerEnterTriggerWallExit03()
-	lm:set_ambient(1)
-	lm:unhide_mesh("Wall03")
-	lm:disactivate_text("text_pista")
+function OnTriggerEnterTPTutorialDer()
+	-- body
 end
 
-function OnTriggerEnterTriggerWallEntry03_2()
-	lm:set_ambient(0.1)
-	lm:hide_mesh("Wall03")
+-- Sala 3
+function OnTriggerEnterTSEstatuaAbajo()
+	-- body
 end
 
-function OnTriggerEnterTriggerWallExit03_2()
-	lm:set_ambient(1)
-	lm:unhide_mesh("Wall03")
-	lm:disactivate_text("text_pista")
+function OnTriggerEnterTSEstatuaArriba()
+	lm:unhide_mesh("ParedTapada4")
+	lm:hide_mesh("ParedDestapada4")
 end
 
-function OnTriggerEnterTriggerWallEntry04()
-	lm:set_ambient(0.1)
-	lm:hide_mesh("Wall04")
-	lm:activate_text("text_sala_eleccion")
+-- Sala 4
+function OnTriggerEnterTSWindstrikeDer()
+	lm:hide_mesh("ParedTapada4")
+	lm:unhide_mesh("ParedDestapada4")
 end
 
-function OnTriggerEnterTriggerWallExit04()
-	lm:set_ambient(1)
-	lm:unhide_mesh("Wall04")
-	lm:disactivate_text("text_sala_eleccion")
+function OnTriggerEnterTSWindstrikeIzq()
+	lm:hide_mesh("ParedTapada4")
+	lm:unhide_mesh("ParedDestapada4")
+
+	lm:hide_mesh("ParedDestapada5")
+	lm:unhide_mesh("ParedTapada5")
 end
 
-function OnTriggerEnterTriggerWallEntry05()
-	lm:set_ambient(0.1)
-	lm:hide_mesh("Wall05")
+-- Sala 5
+function OnTriggerEnterTSEscaleras1Izq()
+	lm:unhide_mesh("ParedTapada4")
+	lm:hide_mesh("ParedDestapada4")
+
+	lm:unhide_mesh("ParedDestapada5")
+	lm:hide_mesh("ParedTapada5")
 end
 
-function OnTriggerEnterTriggerWallExit05()
-	lm:set_ambient(1)
-	lm:unhide_mesh("Wall05")
+function OnTriggerEnterTSEscaleras1Der()
+	lm:unhide_mesh("ParedDestapada5")
+	lm:hide_mesh("ParedTapada5")
 end
 
-function OnTriggerEnterTriggerWallEntry06()
-	lm:set_ambient(0.1)
-	lm:hide_mesh("Wall06")
+-- Sala 6
+function OnTriggerEnterTSEscaleras2Izq()
+	lm:hide_mesh("ParedDestapada5")
+	lm:unhide_mesh("ParedTapada5")
 end
 
-function OnTriggerEnterTriggerWallExit06()
-	lm:set_ambient(1)
-	lm:unhide_mesh("Wall06")
+function OnTriggerEnterTSEscaleras2Der()
+	lm:hide_mesh("ParedDestapada7")
+	lm:unhide_mesh("ParedTapada7")
 end
 
-function OnTriggerEnterTriggerWallEntry07()
-	lm:set_ambient(0.1)
-	lm:hide_mesh("Wall07")
+-- Sala 7
+function OnTriggerEnterTPTechosIzq()
+	lm:unhide_mesh("ParedDestapada7")
+	lm:hide_mesh("ParedTapada7")
 end
 
-function OnTriggerEnterTriggerWallExit07()
-	lm:set_ambient(1)
-	lm:unhide_mesh("Wall07")
+function OnTriggerEnterTPTechosDer()
+	lm:unhide_mesh("ParedDestapada7")
+	lm:hide_mesh("ParedTapada7")
 end
 
-function OnTriggerEnterTriggerWallEntry08()
-	lm:set_ambient(0.1)
-	lm:hide_mesh("Wall08")
+-- Sala 8
+function OnTriggerEnterTSPuertasIzq()
+	lm:hide_mesh("ParedDestapada7")
+	lm:unhide_mesh("ParedTapada7")
 end
 
-function OnTriggerEnterTriggerWallExit08()
-	lm:set_ambient(1)
-	lm:unhide_mesh("Wall08")
+function OnTriggerEnterTSPuertasZoom()
+	-- body
 end
 
-function OnTriggerEnterATextPista()
-	
-	lm:activate_text("text_pista")
+function OnTriggerEnterTSPuertasDer()
+	-- body
 end
 
-function OnTriggerEnterHTextPista()
-	lm:disactivate_text("text_pista")
+-- Sala 9
+function OnTriggerEnterTSArbolAbajo()
+	-- body
 end
 
-function OnTriggerEnterATextSalaEleccion()
-	
-	lm:activate_text("text_sala_eleccion")
+function OnTriggerEnterTSArbolArriba()
+	lm:hide_mesh("ParedDestapada10")
+	lm:unhide_mesh("ParedTapada10")
 end
 
-function OnTriggerEnterHTextSalaEleccion()
-	lm:disactivate_text("text_sala_eleccion")
+-- Sala 10
+function OnTriggerEnterTSRunnerIzq()
+	lm:unhide_mesh("ParedDestapada10")
+	lm:hide_mesh("ParedTapada10")
 end
 
-function OnTriggerEnterATextPlatActivable()
-	
-	lm:activate_text("text_plataforma_activable")
+function OnTriggerEnterTSRunnerDer()
+	lm:unhide_mesh("ParedDestapada10")
+	lm:hide_mesh("ParedTapada10")
 end
 
-function OnTriggerEnterHTextPlatActivable()
-	lm:disactivate_text("text_plataforma_activable")
+-- Sala 11
+function OnTriggerEnterTSCascadaAbajo()
+	lm:hide_mesh("ParedDestapada10")
+	lm:unhide_mesh("ParedTapada10")
 end
 
-function OnTriggerEnterATextPlanear()
-	
-	lm:activate_text("text_planear")
+function OnTriggerEnterTSCascadaArriba()
+	lm:hide_mesh("ParedDestapada12")
+	lm:unhide_mesh("ParedTapada12")
 end
 
-function OnTriggerEnterHTextPlanear()
-	lm:disactivate_text("text_planear")
+-- Sala 12
+function OnTriggerEnterTSAntorchasIzq()
+	lm:unhide_mesh("ParedDestapada12")
+	lm:hide_mesh("ParedTapada12")
+end
+
+function OnTriggerEnterTSAntorchasDer()
+	lm:unhide_mesh("ParedDestapada12")
+	lm:hide_mesh("ParedTapada12")
+
+	lm:hide_mesh("ParedDestapada13")
+	lm:unhide_mesh("ParedTapada13")
+end
+
+-- Sala 13
+function OnTriggerEnterTTSalidaAbajo()
+	lm:hide_mesh("ParedDestapada12")
+	lm:unhide_mesh("ParedTapada12")
+
+	lm:unhide_mesh("ParedDestapada13")
+	lm:hide_mesh("ParedTapada13")
+end
+
+function OnTriggerEnterTTSalidaArriba()
+	-- body
 end
 
 function OnTriggerEnterCinematica()

@@ -51,6 +51,7 @@ class bt : public TCompBase
 		TCompRender* getMyRender();
 		TCompCollider* getMyCollider();
 		void change_mesh(int mesh_index);
+        void change_color(VEC4 color);
 		void setEntity(CHandle new_entity);
 
 		float DT;

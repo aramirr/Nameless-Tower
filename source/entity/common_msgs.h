@@ -36,6 +36,10 @@ struct TMsgRunnerAppear {
 	DECL_MSG_ID();
 };
 
+struct TMsgRunnerDisappear {
+    DECL_MSG_ID();
+};
+
 struct TMsgRunnerStop {
 	DECL_MSG_ID();
 };
