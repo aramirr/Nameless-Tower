@@ -28,7 +28,11 @@
   {
     "entity":
     {
+<<<<<<< HEAD
       "name": "Pinchos01"
+=======
+      "name": "Plataformas"
+>>>>>>> feature/final_camera
       ,
       "transform":
       {
@@ -40,7 +44,11 @@
       "render":
       [
         {
+<<<<<<< HEAD
           "mesh": "data/meshes/PinchosA.mesh"
+=======
+          "mesh": "data/meshes/Plataformas.mesh"
+>>>>>>> feature/final_camera
           ,
           "materials":
           [
@@ -71,7 +79,13 @@
         ,
         "is_dynamic": false
         ,
+<<<<<<< HEAD
         "is_trigger": true
+=======
+        "mesh_src": "data/meshes/Plataformas.col_mesh"
+        ,
+        "group": "scenario"
+>>>>>>> feature/final_camera
       }
     }
   }
@@ -79,7 +93,11 @@
   {
     "entity":
     {
+<<<<<<< HEAD
       "name": "Pinchos002"
+=======
+      "name": "Viento1"
+>>>>>>> feature/final_camera
       ,
       "transform":
       {
@@ -91,7 +109,11 @@
       "render":
       [
         {
+<<<<<<< HEAD
           "mesh": "data/meshes/PinchosA.mesh"
+=======
+          "mesh": "data/meshes/Viento1.mesh"
+>>>>>>> feature/final_camera
           ,
           "materials":
           [
@@ -130,11 +152,19 @@
   {
     "entity":
     {
+<<<<<<< HEAD
       "name": "Pinchos003"
       ,
       "transform":
       {
         "pos": "-30.026 2.91952 -8.24117"
+=======
+      "name": "Viento2"
+      ,
+      "transform":
+      {
+        "pos": "-30.4155 125.953 -8.37745"
+>>>>>>> feature/final_camera
         ,
         "rotation": "0.0 -0.453991 0.0 -0.891007"
       }
@@ -142,7 +172,11 @@
       "render":
       [
         {
+<<<<<<< HEAD
           "mesh": "data/meshes/PinchosA.mesh"
+=======
+          "mesh": "data/meshes/Viento2.mesh"
+>>>>>>> feature/final_camera
           ,
           "materials":
           [
@@ -153,12 +187,16 @@
         }
       ]
       ,
+<<<<<<< HEAD
       "player_killer":
       {
         "kill_enabled": true
       }
       ,
       "trigger":
+=======
+      "ai_fan":
+>>>>>>> feature/final_camera
       {
         "trigger_type": "player_killer"
         ,
@@ -175,6 +213,7 @@
         ,
         "is_trigger": true
       }
+<<<<<<< HEAD
     }
   }
   ,
@@ -266,12 +305,20 @@
         ,
         "render": true
       }
+=======
+>>>>>>> feature/final_camera
       ,
       "collider":
       {
         "shape": "box"
         ,
+<<<<<<< HEAD
         "halfExtent": "1.2417 0.804776 1.58385"
+=======
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68865 22.5035 1.66299"
+>>>>>>> feature/final_camera
         ,
         "is_dynamic": false
         ,
@@ -279,6 +326,7 @@
       }
     }
   }
+<<<<<<< HEAD
   ,
   {
     "entity":
@@ -4751,4 +4799,6 @@
       }
     }
   }
+=======
+>>>>>>> feature/final_camera
 ]

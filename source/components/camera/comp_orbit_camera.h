@@ -2,51 +2,55 @@
 
 #include "components/comp_base.h"
 #include "camera/camera.h"
+#include "comp_camera.h"
 
 class TCompOrbitCamera : public TCompBase {
 
-	CEntity *player;
-	VEC3 towerCentre;
+  TCompCamera* camera;
 
-	VEC3 actualPos;
-    VEC3 oldPos;
+  CEntity *player;
+  VEC3 towerCentre;
 
-    float offset;
-	float radio;
+  VEC3 actualPos;
+  VEC3 oldPos;
 
-    float speedCaida;
-    float pesoOldPosition;
+  float offset;
+  float radio;
 
-	float X;
-	float Y;
-	float Z;
+  float speedCaida;
+  float pesoOldPosition;
 
-	float fov_deg;
-	float z_near;
-	float z_far;
+  float X;
+  float Y;
+  float Z;
 
-	float distance;
-	float height;
+  float fov_deg;
+  float z_near;
+  float z_far;
 
-	float apertura;
+  float distance;
+  float height;
 
-	float playerY;
-	float currentPlayerY;
+  float apertura;
 
-	bool isForward();
-    bool isGrounded();
+  float playerY;
+  float currentPlayerY;
 
-	void activeCamera(const TMsgActiveCamera& msg);
-	void desactiveCamera(const TMsgDesactiveCamera& msg);
+  bool isForward();
+  bool isGrounded();
 
-	bool active;
-    bool carga;
+  bool carga;
+
+  bool active;
+
+  void activateCamera(const TMsgActiveCamera& msg);
+  void deactivateCamera(const TMsgDeactiveCamera& msg);
 
 public:
-	static void registerMsgs();
+  static void registerMsgs();
 
-	void debugInMenu();
-	void load(const json& j, TEntityParseContext& ctx);
-	void update(float dt);
-	DECL_SIBLING_ACCESS();
+  void debugInMenu();
+  void load(const json& j, TEntityParseContext& ctx);
+  void update(float dt);
+  DECL_SIBLING_ACCESS();
 };

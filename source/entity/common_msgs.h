@@ -116,7 +116,7 @@ struct TMsgActiveCamera {
   DECL_MSG_ID();
 };
 
-struct TMsgDesactiveCamera {
+struct TMsgDeactiveCamera {
   DECL_MSG_ID();
 };
 
