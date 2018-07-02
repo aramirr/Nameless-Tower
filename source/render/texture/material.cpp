@@ -85,8 +85,8 @@ bool CMaterial::create(const json& j) {
         ts = TS_TRANSPARENCY;
       else if (slot == "cell")
         ts = TS_CELL;
-      /*else if (slot == "ao")
-        ts = TS_DEFERRED_AO;*/
+      else if (slot == "ao")
+        ts = TS_DEFERRED_AO;
      /* else if (slot == "sublime")
         ts = TS_SUBLIME;*/
 
