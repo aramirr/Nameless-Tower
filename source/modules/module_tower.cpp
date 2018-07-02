@@ -2,6 +2,7 @@
 #include "module_tower.h"
 #include "components/juan/comp_render.h"
 #include "render/render_objects.h"
+#include "components/controllers/comp_rigid_anim.h"
 
 
 bool CModuleTower::start()
@@ -64,4 +65,10 @@ const void CModuleTower::appearEntity(const std::string& name) {
 
 const void CModuleTower::setAmbientAdjustment(float ambient) {
 	cb_globals.global_ambient_adjustment = ambient;
+}
+
+const void CModuleTower::openDoor(const std::string& name) {
+    CEntity* entity = (CEntity*)getEntityByName(name);
+    TCompRigidAnim* h_rigid = entity->get< TCompRigidAnim >();
+    h_rigid->is_moving = true;
 }

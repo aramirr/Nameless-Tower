@@ -10,7 +10,7 @@ struct TCompRigidAnim : public TCompBase {
   RigidAnims::CController controller;
   float                   current_time = 0.f;
   bool                    loops = true;
-  bool                    is_moving = true;
+  bool                    is_moving = false;
   float                   speed_factor = 1.0f;
   void load(const json& j, TEntityParseContext& ctx);
   void update(float dt);
