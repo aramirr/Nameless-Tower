@@ -77,7 +77,7 @@ bool CMaterial::create(const json& j) {
         ts = TS_ROUGHNESS;
       else if (slot == "emissive")
         ts = TS_EMISSIVE;
-      else if (slot == "alpha")
+      else if (slot == "opacity")
         ts = TS_ALPHA;
       else if (slot == "height")
         ts = TS_HEIGHT;

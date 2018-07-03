@@ -150,6 +150,53 @@ void PS_GBuffer(
 }
 
 //--------------------------------------------------------------------------------------
+// GBuffer Catarata generation pass. Pixel shader
+//--------------------------------------------------------------------------------------
+void PS_GBuffer_Catarata(
+  float4 Pos : SV_POSITION
+, float3 iNormal : NORMAL0
+, float4 iTangent : NORMAL1
+, float2 iTex0 : TEXCOORD0
+, float2 iTex1 : TEXCOORD1
+, float3 iWorldPos : TEXCOORD2
+, out float4 o_albedo : SV_Target0
+, out float4 o_normal : SV_Target1
+, out float1 o_depth : SV_Target2
+, out float4 o_self_illum : SV_Target3
+, out float1 o_cell : SV_Target5
+)
+{
+    o_cell = (txCell.Sample(samLinear, iTex0)).x;
+    o_self_illum = txEmissive.Sample(samLinear, iTex0);
+  //o_self_illum.xyz *= self_color;
+  // Store in the Alpha channel of the albedo texture, the 'metallic' amount of
+  // the material
+    o_albedo = txAlbedo.Sample(samLinear, iTex0);
+    o_albedo.a = 0.5;
+
+    if (o_albedo.a < 0.3) 
+        discard;
+
+    float3 N = computeNormalMap(iNormal, iTangent, iTex0);
+  
+  // Save roughness in the alpha coord of the N render target
+    float roughness = 0.5f; //txRoughness.Sample(samLinear, iTex0).r;
+    o_normal = encodeNormal(N, roughness);
+
+    // Si el material lo pide, sobreescribir los valores de la textura
+	// por unos escalares uniformes. Only to playtesting...
+    //if (scalar_metallic >= 0.f)
+    //    o_albedo.a = scalar_metallic;
+    //if (scalar_roughness >= 0.f)
+    //    o_normal.a = scalar_roughness;
+
+  // Compute the Z in linear space, and normalize it in the range 0...1
+  // In the range z=0 to z=zFar of the camera (not zNear)
+    float3 camera2wpos = iWorldPos - camera_pos;
+    o_depth = dot(camera_front.xyz, camera2wpos) / camera_zfar;
+}
+
+//--------------------------------------------------------------------------------------
 // GBuffer Alpha generation pass. Pixel shader
 //--------------------------------------------------------------------------------------
 void PS_GBuffer_Alpha(
@@ -174,6 +221,9 @@ void PS_GBuffer_Alpha(
     o_albedo = txAlbedo.Sample(samLinear, iTex0);
     o_albedo.a = txAlpha.Sample(samLinear, iTex0).r;
 
+    if (o_albedo.a < 0.3) 
+        discard;
+
     float3 N = computeNormalMap(iNormal, iTangent, iTex0);
   
   // Save roughness in the alpha coord of the N render target
@@ -182,10 +232,10 @@ void PS_GBuffer_Alpha(
 
     // Si el material lo pide, sobreescribir los valores de la textura
 	// por unos escalares uniformes. Only to playtesting...
-    if (scalar_metallic >= 0.f)
-        o_albedo.a = scalar_metallic;
-    if (scalar_roughness >= 0.f)
-        o_normal.a = scalar_roughness;
+    //if (scalar_metallic >= 0.f)
+    //    o_albedo.a = scalar_metallic;
+    //if (scalar_roughness >= 0.f)
+    //    o_normal.a = scalar_roughness;
 
   // Compute the Z in linear space, and normalize it in the range 0...1
   // In the range z=0 to z=zFar of the camera (not zNear)
@@ -507,6 +557,7 @@ float4 PS_ambient(
 
     }
   
+   
     return final_color;
 
 }
