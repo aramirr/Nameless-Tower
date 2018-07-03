@@ -28,16 +28,16 @@ void TCompRigidAnim::debugInMenu() {
 }
 
 void TCompRigidAnim::update(float dt) {
-
+    
   if (!is_moving)
     return;
 
   // Sample the animation in the current time
   RigidAnims::TKey k;
-  bool has_finished = controller.sample(&k, current_time);
+  TCompTransform* c_trans = get< TCompTransform >();
+  bool has_finished = controller.sample(&k, current_time, *(CTransform*)c_trans);
 
   // Transfer the key data to the comp transform
-  TCompTransform* c_trans = get< TCompTransform >();
   c_trans->setPosition(k.pos);
   c_trans->setRotation(k.rot);
   c_trans->setScale(k.scale);

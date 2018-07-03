@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "rigid_anim.h"
 #include "utils/data_provider.h"
+#include "components/juan/comp_transform.h"
 
 // ----------------------------------------------
 class CRigidAnimResourceClass : public CResourceClass {
@@ -90,8 +91,8 @@ namespace RigidAnims {
         }
     }
 
-    bool CController::sample(TKey* out_key, float t) const {
-        return anims->sample(track_index, out_key, t);
+    bool CController::sample(TKey* out_key, float t, const CTransform& transform) const {
+        return anims->sample(track_index, out_key, t, transform);
     }
 
     uint32_t CRigidAnimResource::findTrackIndexByName(const std::string& name) const {
@@ -108,7 +109,10 @@ namespace RigidAnims {
         create(filename);
     }
 
-    bool CRigidAnimResource::sample(uint32_t track_index, TKey* out_key, float t) const {
+    bool CRigidAnimResource::sample(uint32_t track_index, TKey* out_key, float t, const CTransform& transform) const {
+        VEC3 position = transform.getPosition();
+        QUAT rotation = transform.getRotation();
+        float scale = transform.getScale();
 
         // asking for an invalid track, nothing to do.
         if (track_index >= tracks.size())
@@ -135,6 +139,9 @@ namespace RigidAnims {
         // Check time limits
         if (ut < 0) {
             *out_key = keys[track->first_key];
+            out_key->pos += position;
+            out_key->rot += rotation;
+            out_key->scale += scale;
             return false;
         }
 
@@ -155,9 +162,11 @@ namespace RigidAnims {
 
         auto prev_key = &keys[key_index];
         auto next_key = &keys[key_index + 1];
-        out_key->pos = lerp(prev_key->pos, next_key->pos, amount_of_next_key);
-        out_key->rot = lerp(prev_key->rot, next_key->rot, amount_of_next_key);
-        out_key->scale = lerp(prev_key->scale, next_key->scale, amount_of_next_key);
+        VEC3 lerping = lerp(prev_key->pos, next_key->pos, amount_of_next_key);
+        VEC3 direction = transform.getFront() * lerping.z - transform.getLeft() * lerping.x;
+        out_key->pos = position + direction;
+        out_key->rot = lerp(prev_key->rot, next_key->rot, amount_of_next_key) * rotation;
+        out_key->scale = scale * lerp(prev_key->scale, next_key->scale, amount_of_next_key);
         return false;
     }
 

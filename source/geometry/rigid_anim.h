@@ -19,7 +19,7 @@ namespace RigidAnims {
         const CRigidAnimResource* anims = nullptr;
         uint32_t                  track_index = invalid_track_index;
         std::string               track_name;
-        bool sample(TKey* out_key, float t) const;
+        bool sample(TKey* out_key, float t, const CTransform& transform) const;
     };
 
     // ----------------------------------------------
@@ -43,7 +43,7 @@ namespace RigidAnims {
     public:
         bool create(const std::string& name);
         void debugInMenu() override;
-        bool sample(uint32_t track_index, TKey* out_key, float t) const;
+        bool sample(uint32_t track_index, TKey* out_key, float t, const CTransform& transform) const;
         void onFileChanged(const std::string& filename) override;
         uint32_t findTrackIndexByName(const std::string& name) const;
     };
