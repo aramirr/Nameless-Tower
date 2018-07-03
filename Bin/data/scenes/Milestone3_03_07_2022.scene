@@ -5364,7 +5364,7 @@
   {
     "entity":
     {
-      "name": "Montana_Interior_01"
+      "name": "Montaña_Interior_01"
       ,
       "transform":
       {
@@ -5376,7 +5376,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Montana_Interior_01.mesh"
+          "mesh": "data/meshes/Montaña_Interior_01.mesh"
           ,
           "materials":
           [
@@ -5390,7 +5390,7 @@
   {
     "entity":
     {
-      "name": "Montana_Interior_00"
+      "name": "Montaña_Interior_00"
       ,
       "transform":
       {
@@ -5402,7 +5402,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Montana_Interior_00.mesh"
+          "mesh": "data/meshes/Montaña_Interior_00.mesh"
           ,
           "materials":
           [
@@ -5914,32 +5914,7 @@
   {
     "entity":
     {
-      "name": "Placas"
-      ,
-      "transform":
-      {
-        "pos": "-5.957 9.500 -30.932",
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Placas.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/BotellasMat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Relieve_Pequeno_01"
+      "name": "Relieve_Pequeño_01"
       ,
       "transform":
       {
@@ -5951,7 +5926,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Relieve_Pequeno_01.mesh"
+          "mesh": "data/meshes/Relieve_Pequeño_01.mesh"
           ,
           "materials":
           [

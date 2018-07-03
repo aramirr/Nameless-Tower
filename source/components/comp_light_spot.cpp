@@ -47,7 +47,7 @@ void TCompLightSpot::load(const json& j, TEntityParseContext& ctx) {
     std::string projector_name = j.value("projector", "");
     projector = Resources.get(projector_name)->as<CTexture>();
   } else {
-		projector = Resources.get("data/textures/default_white.dds")->as<CTexture>();
+		projector = Resources.get("data/textures/white.dds")->as<CTexture>();
 	}
 
   // Check if we need to allocate a shadow map

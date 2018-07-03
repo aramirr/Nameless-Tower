@@ -5,7 +5,19 @@
       		"skeleton": {
         		"skeleton": "data/skeletons/Naja/naja.skeleton"
       		},
-      		"render" : [        					
+      		"render" : [
+        		{
+					"mesh": "data/skeletons/NajaTest/NajaTest.mesh",
+					"materials" : [
+						"data/materials/madera_outline.material"
+					]
+				},
+				{
+					"mesh": "data/skeletons/NajaTest/PaiTest.mesh",
+					"materials" : [
+						"data/materials/madera_outline.material"
+					]
+				},
         		{
           			"mesh": "data/skeletons/NajaTest/NajaTest.mesh"
           			,
@@ -25,7 +37,7 @@
       		]		
 			,
 			"transform": {
-				"pos": "-5.957 9.500 -30.932",
+				"pos": "-26.406 9.5 -18.076",
 				"front": "1 0 0"
 			}
 			, 
