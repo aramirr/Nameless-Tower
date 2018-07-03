@@ -33,5 +33,7 @@ public:
 
 
 	float getTowerRadius();
+
+  float checkAngle(float alpha, VEC3 pos1);
 };
 

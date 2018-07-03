@@ -59,7 +59,10 @@ void CModuleBillboards::addGrass(VEC3 position, float width, float length, int t
 
 void CModuleBillboards::addGrassByAngle(VEC3 pos1, VEC3 pos2, int total) {
   float alpha = asin(pos1.z / EngineTower.getTowerRadius());
+  alpha = EngineTower.checkAngle(alpha, pos1);
   float beta = asin(pos2.z / EngineTower.getTowerRadius());
+  beta = EngineTower.checkAngle(beta, pos2);
+
   
   float radius = EngineTower.getTowerRadius();
 

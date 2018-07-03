@@ -79,3 +79,34 @@ const void CModuleTower::setPointLightIntensity(const std::string& name, float i
   TCompLightPoint* light_point = entity->get<TCompLightPoint>();
   light_point->setIntensity(intensity);
 }
+
+float CModuleTower::checkAngle(float alpha, VEC3 pos1) {
+  if (alpha < 0.f) alpha += deg2rad(360.f);
+
+  float cosa = cos(alpha);
+  float sina = sin(alpha);
+  float aux = rad2deg(alpha);
+
+  if (pos1.x > 0.f and pos1.z > 0.f) {
+    if (cos(alpha) < 0) {
+      alpha = deg2rad(180) - alpha;
+    }
+  }
+  else if (pos1.x < 0.f and pos1.z > 0.f) {
+    if (cos(alpha) > 0) {
+      alpha = deg2rad(180) - alpha;
+    }
+  }
+  else if (pos1.x < 0.f and pos1.z < 0.f) {
+    if (cos(alpha) > 0) {
+      alpha = deg2rad(180) + (deg2rad(360) - alpha);
+    }
+  }
+  else if (pos1.x > 0.f and pos1.z < 0.f) {
+    if (cos(alpha) < 0) {
+      alpha = deg2rad(270) + (deg2rad(270) - alpha);
+    }
+  }
+
+  return alpha;
+}
