@@ -1,0 +1,100 @@
+[
+	{
+		"entity": {
+			"name": "Runner",
+      		"render" : [
+		        {
+		          "mesh": "data/meshes/Teapot001.mesh",
+		          "materials" : [
+		            "data/materials/PuertaM.material"
+		          ]
+		        }
+		      ]	
+			,
+			"transform": {
+				"pos": "-8.426 0.258 30.011",
+				"front": "1 0 0"
+			}
+			,
+		    "collider": {
+				"shape": "capsule",
+				"is_character_controller": true
+				,
+				"radius": 0.22
+				,
+				"height": 0.7
+				,
+				"is_dynamic": false
+				,
+				"is_trigger": false
+		    },
+		    "bt_runner": {
+		    	"waypoints_map": [
+		    		{
+		    			"pos": "-2.527 9.000 -31.398",
+		    			"id": 0,
+		    			"type": "floor",
+		    			"neighbours": ["1"]
+		    		},
+		    		{
+		    			"pos": "-9.055 9.000 -30.171",
+		    			"id": 1,
+		    			"type": "edge",
+		    			"neighbours": ["2"]
+		    		},
+		    		{
+		    			"pos": "-13.556 9.000 -28.434",
+		    			"id": 2,
+		    			"type": "edge",
+		    			"neighbours": ["3"]
+		    		},
+		    		{
+		    			"pos": "-26.966 9.000 -16.281",
+		    			"id": 3,
+		    			"type": "floor",
+		    			"neighbours": ["0"]
+		    		}
+		    	]
+		    }		 	    	
+		}
+	},
+	{
+		"entity": {
+			"prefab" : "data/prefabs/cannon.prefab",
+			"name": "cannon_left",
+			"transform": {},
+			"comment" : "Enable hierarchy comp to move cannons when the teapot moves",
+			"hierarchy": {
+				"axis": "0 1 0", 
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "Runner"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "DebugTrigger",
+			"transform": {
+				"pos": "-9.055 9.000 -30.171"
+			},
+			"render" : [
+		        {
+		          "mesh": "data/meshes/UnitBox.mesh",
+		          "materials" : [
+		            "data/materials/PuertaM.material"
+		          ]
+		        }
+		      ],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "runner_appear",
+				"appearing_position": "-2.527 9.500 -31.398"
+			}
+		}
+	}
+]

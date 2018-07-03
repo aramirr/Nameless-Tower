@@ -54,6 +54,17 @@ void LogicManager::disactivateText(const char* name) {
 	EngineUI.desactivateWidget(s);
 }
 
+void LogicManager::setDirLightIntensity(const char* name, float value) {
+  EngineTower.setDirLightIntensity(name, value);
+}
+
+void LogicManager::setPointLightIntensity(const char* name, float value) {
+  EngineTower.setPointLightIntensity(name, value);
+}
+
+void LogicManager::openDoor(const char* name) {
+  EngineTower.openDoor(name);
+}
 
 LogicPlayer::LogicPlayer() {}
 

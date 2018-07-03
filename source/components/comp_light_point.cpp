@@ -53,5 +53,9 @@ void TCompLightPoint::activate() {
   cb_light.updateGPU();
 }
 
+void TCompLightPoint::setIntensity(float value) {
+  intensity = value;
+}
+
 
 

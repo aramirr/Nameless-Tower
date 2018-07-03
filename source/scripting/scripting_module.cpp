@@ -26,25 +26,49 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("set_ambient", &LogicManager::setAmbientAdjustment)
 		.set("play_last_cinematic", &LogicManager::playLastCinematic)
 		.set("activate_text", &LogicManager::activateText)
-		.set("disactivate_text", &LogicManager::disactivateText)
+    .set("disactivate_text", &LogicManager::disactivateText)
+    .set("set_dir_light_intensity", &LogicManager::setDirLightIntensity)
+    .set("set_point_light_intensity", &LogicManager::setPointLightIntensity)
+    .set("set_point_light_intensity", &LogicManager::setPointLightIntensity)
+    .set("open_door", &LogicManager::openDoor)
 		;
 }
 
 void ScriptingModule::ExecEvent(ScriptEvents e, vector<string> params) {
-	switch (e) {
-		case ScriptEvents::trigger_enter:
-			fTriggerEnter(params);
-	}
+	/*switch (e) {
+    case ScriptEvents::trigger_enter: {
+      fTriggerEnter(params);
+    }
+    case ScriptEvents::windstrike_activate: {
+      fWindstrikeActivate(params);
+    }
+	}*/
+  if (e == ScriptEvents::trigger_enter) {
+    fTriggerEnter(params);
+  }
+  else if (e == ScriptEvents::windstrike_activate) {
+    fWindstrikeActivate(params);
+  }
 		
 }
 
 
 void ScriptingModule::fTriggerEnter(vector<string> params) {
-	if (params.size() > 0) {
-		string name = params[0];
-		string func_name = "OnTriggerEnter" + name;
-		auto p = EngineScripting.script.exists(func_name);
-		if (p)
-			EngineScripting.script.doString(func_name + "()");
-	}
+  if (params.size() > 0) {
+    string name = params[0];
+    string func_name = "OnTriggerEnter" + name;
+    auto p = EngineScripting.script.exists(func_name);
+    if (p)
+      EngineScripting.script.doString(func_name + "()");
+  }
+}
+
+void ScriptingModule::fWindstrikeActivate(vector<string> params) {
+  if (params.size() > 0) {
+    string name = params[0];
+    string func_name = "OnWindstrikeActivate" + name;
+    auto p = EngineScripting.script.exists(func_name);
+    if (p)
+      EngineScripting.script.doString(func_name + "()");
+  }
 }

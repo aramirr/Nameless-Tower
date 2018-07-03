@@ -2,6 +2,8 @@
 #include "module_tower.h"
 #include "components/juan/comp_render.h"
 #include "render/render_objects.h"
+#include "components/comp_light_dir.h"
+#include "components/comp_light_point.h"
 #include "components/controllers/comp_rigid_anim.h"
 
 
@@ -65,6 +67,18 @@ const void CModuleTower::appearEntity(const std::string& name) {
 
 const void CModuleTower::setAmbientAdjustment(float ambient) {
 	cb_globals.global_ambient_adjustment = ambient;
+}
+
+const void CModuleTower::setDirLightIntensity(const std::string& name, float intensity) {
+  CEntity* entity = (CEntity*)getEntityByName(name);
+  TCompLightDir* light_dir = entity->get<TCompLightDir>();
+  light_dir->setIntensity(intensity);
+}
+
+const void CModuleTower::setPointLightIntensity(const std::string& name, float intensity) {
+  CEntity* entity = (CEntity*)getEntityByName(name);
+  TCompLightPoint* light_point = entity->get<TCompLightPoint>();
+  light_point->setIntensity(intensity);
 }
 
 const void CModuleTower::openDoor(const std::string& name) {
