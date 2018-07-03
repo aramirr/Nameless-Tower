@@ -12,12 +12,16 @@ void TCompGrass::load(const json& j, TEntityParseContext& ctx) {
 	width = j.value("width", 0.f);
 	length = j.value("length", 0.f);
 	total = j.value("total", 10);
+
+  pos1 = loadVEC3(j["pos1"]);
+  pos2 = loadVEC3(j["pos2"]);
 }
 
 void TCompGrass::insert_grass() {
 	CEntity* e = CHandle(this).getOwner();
 	TCompTransform* my_transform = e->get<TCompTransform>();
-	EngineBillboards.addGrass(my_transform->getPosition(), width, length, total);
+  //EngineBillboards.addGrass(my_transform->getPosition(), width, length, total);
+  EngineBillboards.addGrassByAngle(pos1, pos2, total);
 }
 
 

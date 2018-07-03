@@ -48,4 +48,6 @@ public:
   void update(float delta) override;
   void addFuegoTest(VEC3 position);
   void addGrass(VEC3 position, float width, float length, int total);
+  void addGrassByAngle(VEC3 pos1, VEC3 pos2, int total);
+  void calculateAngles(VEC3 pos1, VEC3 pos2, float& alpha, float& beta, float& charlie);
 };

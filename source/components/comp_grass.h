@@ -11,6 +11,9 @@ class TCompGrass : public TCompBase {
   float length = 0.f;
   int total = 100;
 
+  VEC3 pos1 = VEC3::Zero;
+  VEC3 pos2 = VEC3::Zero;
+
   bool carga = false;
 
 public:
