@@ -48,6 +48,16 @@ void CModuleBillboards::addFuegoTest(VEC3 position) {
     particles_instances.push_back(new_instance);
 }
 
+void CModuleBillboards::addGrass(VEC3 position, float width, float length, int total) {
+	for (int i = 0; i < total; ++i) {
+		TGrassParticle new_instance;
+		new_instance.pos = VEC3(position.x + randomFloat(-width, width), position.y, position.z + randomFloat(-length, length));
+		grass_instances.push_back(new_instance);
+	}
+	grass_instances_mesh->setInstancesData(grass_instances.data(), grass_instances.size(), sizeof(TGrassParticle));
+}
+
+
 void CModuleBillboards::update(float delta)
 {
 

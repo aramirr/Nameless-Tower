@@ -22,7 +22,7 @@ void VS(
   // iPos goes from 0...1
   // local_pos goes from -1 ... 1
   float3 local_pos = iPos.xyz * 2. - 1.;
-  local_pos.y += 1.0;
+  local_pos.y += 0.5;
 
   // At this point local_pos goes from 0..2
   float unit_rand_val = ( 1 + sin( iInstancedID ) ) * 0.5f;
@@ -31,7 +31,7 @@ void VS(
   float z_start_fadeout = 150; 
   float alpha = 1.0 - smoothstep( z_start_fadeout, z_start_fadeout + 50, length ( iCenter.xyz - camera_pos.xyz ) );
 
-  float scale_factor = 2.0f + 2.0f * unit_rand_val;
+  float scale_factor = 0.1f + 0.2f * unit_rand_val;
 
   local_pos *= scale_factor * alpha;
 

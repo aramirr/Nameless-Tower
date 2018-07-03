@@ -47,4 +47,5 @@ public:
   bool start() override;
   void update(float delta) override;
   void addFuegoTest(VEC3 position);
+  void addGrass(VEC3 position, float width, float length, int total);
 };

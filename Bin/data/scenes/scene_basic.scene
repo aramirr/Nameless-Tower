@@ -19,6 +19,22 @@
         "shape": "plane"
       }
     }
+  },
+  {
+    "entity": {
+      "name": "PlaneGrass",
+      "transform": {
+        "pos": "-15.400 9 -27.479",
+        "rotation": "0.0 0.0 0.0 -1.0"
+      },
+      "render": []
+      ,
+      "comp_grass": {
+        "width": 3.0,
+        "length": 1.0, 
+        "total": 0
+      }
+    }
   }
 	
 ]
