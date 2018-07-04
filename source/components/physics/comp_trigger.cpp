@@ -55,6 +55,11 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 			CEntity* e_collider_entity = (CEntity*)getEntityByName("Runner");
 			e_collider_entity->sendMsg(appear_msg);
 		}
+    else if (trigger_type == "compresora") {
+      CEntity* e = h_entity;
+      TMsgPlayerIn msg_in;
+      e->sendMsg(msg_in);
+    }
 	}
 	else if (other_entity_name == "windstrike") {
 		if (trigger_type == "activador" && other_entity_name == "windstrike") {
@@ -84,6 +89,11 @@ void TCompTrigger::onTriggerExit(const TMsgTriggerExit& msg) {
 		CEntity* camDER = (CEntity *)getEntityByName("camera_manager");
 		camDER->sendMsg(detach_msg);
 	}
+  else if (trigger_type == "compresora" && other_entity_name == "The Player") {
+    CEntity* e = h_entity;
+    TMsgPlayerOut msg_out;
+    e->sendMsg(msg_out);
+  }
 
 }
 

@@ -104,6 +104,7 @@
     <ClCompile Include="components\controllers\comp_player_input.cpp" />
     <ClCompile Include="components\controllers\comp_rigid_anim.cpp" />
     <ClCompile Include="components\fsm\comp_fsm.cpp" />
+    <ClCompile Include="components\ia\comp_compresora_kill.cpp" />
     <ClCompile Include="components\ia\puzzles\ai_torch.cpp" />
     <ClCompile Include="components\ia\ai_wind_current.cpp" />
     <ClCompile Include="components\ia\ai_cut_door.cpp" />
@@ -273,6 +274,7 @@
     <ClInclude Include="components\comp_grass.h" />
     <ClInclude Include="components\controllers\comp_projectile_controller.h" />
     <ClInclude Include="components\controllers\comp_rigid_anim.h" />
+    <ClInclude Include="components\ia\comp_compresora_kill.h" />
     <ClInclude Include="components\ia\puzzles\ai_torch.h" />
     <ClInclude Include="components\ia\ai_wind_current.h" />
     <ClInclude Include="components\comp_light_dir.h" />

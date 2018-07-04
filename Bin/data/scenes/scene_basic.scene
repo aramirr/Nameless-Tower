@@ -35,6 +35,52 @@
         "pos2": "-5.957 9 -30.93"
       }
     }
+  },
+  {
+    "entity": {
+      "name": "Compresora_down",
+      "transform": {
+        "pos": "-18.858 -9.5 -25.231",
+        "rotation": "0.0 0.0 0.0 -1.0"
+      },
+      "render": []
+      ,
+      "ia_compressora_kill": { 
+        "other_name": "Compresora_up"
+      }
+      ,
+      "collider": {
+        "shape": "box",
+        "halfExtent": "2 0.5 1",
+        "is_trigger": true
+      },
+      "trigger": {
+        "trigger_type": "compresora"
+      }
+    }
+  },
+  {
+    "entity": {
+      "name": "Compresora_up",
+      "transform": {
+        "pos": "-18.858 -9.5 -25.231",
+        "rotation": "0.0 0.0 0.0 -1.0"
+      },
+      "render": []
+      ,
+      "ia_compressora_kill": { 
+        "other_name": "Compresora_down"
+      }
+      ,
+      "collider": {
+        "shape": "box",
+        "halfExtent": "4 0.5 1",
+        "is_trigger": true
+      },
+      "trigger": {
+        "trigger_type": "compresora"
+      }
+    }
   }
 	
 ]
