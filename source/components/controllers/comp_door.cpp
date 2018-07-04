@@ -52,10 +52,7 @@ void TCompDoor::update(float DT) {
         if (current_radiants >= deg2rad(radiants)) {
             is_open = true;
         }
-    }
-	
-
-	
+    }	
 }
 
 
