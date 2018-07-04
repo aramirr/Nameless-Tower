@@ -172,6 +172,7 @@
     <ClCompile Include="particles\particle_parser.cpp" />
     <ClCompile Include="fsm\player_states\turn_around_state.cpp" />
     <ClCompile Include="modules\system\module_billboards.cpp" />
+    <ClCompile Include="components\controllers\comp_door.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera\camera.h" />
@@ -407,6 +408,7 @@
     <ClInclude Include="particles\particle_parser.h" />
     <ClInclude Include="fsm\player_states\turn_around_state.h" />
     <ClInclude Include="modules\system\module_billboards.h" />
+    <ClInclude Include="components\controllers\comp_door.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />

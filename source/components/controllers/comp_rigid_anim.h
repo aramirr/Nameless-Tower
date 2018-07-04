@@ -15,6 +15,8 @@ struct TCompRigidAnim : public TCompBase {
   void load(const json& j, TEntityParseContext& ctx);
   void update(float dt);
   void debugInMenu();
+  static void registerMsgs();
+  void onGroupCreated(const TMsgEntitiesGroupCreated& msg);
   DECL_SIBLING_ACCESS();
 };
 

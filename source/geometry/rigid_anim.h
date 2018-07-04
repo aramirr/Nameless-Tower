@@ -1,6 +1,7 @@
 #pragma once
 
 #include "resources/resource.h"
+#include "components/juan/comp_transform.h"
 
 namespace RigidAnims {
 
@@ -19,7 +20,9 @@ namespace RigidAnims {
         const CRigidAnimResource* anims = nullptr;
         uint32_t                  track_index = invalid_track_index;
         std::string               track_name;
-        bool sample(TKey* out_key, float t, const CTransform& transform) const;
+        bool sample(TKey* out_key, float t) const;
+        CTransform initialTransform;
+        void setInitialTransform(TCompTransform* transform);
     };
 
     // ----------------------------------------------
@@ -38,7 +41,7 @@ namespace RigidAnims {
 
         std::vector< TTrackInfo > tracks;
         std::vector< TKey > keys;
-        float total_duration = 0.f;
+        float total_duration = 0.f;        
 
     public:
         bool create(const std::string& name);

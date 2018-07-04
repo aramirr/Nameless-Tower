@@ -91,8 +91,14 @@ namespace RigidAnims {
         }
     }
 
-    bool CController::sample(TKey* out_key, float t, const CTransform& transform) const {
-        return anims->sample(track_index, out_key, t, transform);
+    bool CController::sample(TKey* out_key, float t) const {
+        return anims->sample(track_index, out_key, t, initialTransform);
+    }
+
+    void CController::setInitialTransform(TCompTransform* transform) {
+        initialTransform.setPosition(transform->getPosition());
+        initialTransform.setRotation(transform->getRotation());
+        initialTransform.setScale(transform->getScale());
     }
 
     uint32_t CRigidAnimResource::findTrackIndexByName(const std::string& name) const {
@@ -150,6 +156,10 @@ namespace RigidAnims {
         if (ut >= 1.0f) {
             // Copy my last key
             *out_key = keys[track->first_key + track->num_keys - 1];
+            VEC3 direction = transform.getFront() * out_key->pos.z - transform.getLeft() * out_key->pos.x;
+            out_key->pos = position + direction;
+            out_key->rot = out_key->rot * rotation;
+            out_key->scale = scale * out_key->scale;
             // Return true only when the whole animation has loop
             return t >= this->total_duration;
         }

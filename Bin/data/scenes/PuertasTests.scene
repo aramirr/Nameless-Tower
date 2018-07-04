@@ -33,12 +33,9 @@
         ,
         "mesh_src": "data/meshes/PuertaVisagrasSeparadaA.col_mesh"
       },
-      "rigid_anim" : 
-      {
-        "src" : "data/anims/PuertasTests.anims",
-        "speed_factor": 0.6,
-        "loops": false
-      }
+      "door": {
+        "left": false
+      }      
     }
   }
   ,
@@ -76,12 +73,9 @@
         ,
         "mesh_src": "data/meshes/PuertaVisagrasSeparadaB.col_mesh"
       },
-      "rigid_anim" : 
-      {
-        "src" : "data/anims/PuertasTests.anims",
-        "speed_factor": 0.6,
-        "loops": false
-      }
+      "door": {
+        "left": true
+      }          
     }
   }
 ]

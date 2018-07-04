@@ -4,7 +4,7 @@
 #include "render/render_objects.h"
 #include "components/comp_light_dir.h"
 #include "components/comp_light_point.h"
-#include "components/controllers/comp_rigid_anim.h"
+#include "components/controllers/comp_door.h"
 
 
 bool CModuleTower::start()
@@ -83,6 +83,6 @@ const void CModuleTower::setPointLightIntensity(const std::string& name, float i
 
 const void CModuleTower::openDoor(const std::string& name) {
     CEntity* entity = (CEntity*)getEntityByName(name);
-    TCompRigidAnim* h_rigid = entity->get< TCompRigidAnim >();
-    h_rigid->is_moving = true;
+    TMsgOpenDoor msg;
+    entity->sendMsg(msg);
 }
