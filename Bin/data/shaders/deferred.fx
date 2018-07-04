@@ -57,6 +57,7 @@ float4 PS(
   float3 gammaCorrectedColor = gammaCorrect( tmColor );
   gammaCorrectedColor = lerp( tmColor, gammaCorrectedColor.xyz, global_gamma_correction_enabled );
 
+    //QUITAR ESTO??????????????????
   if( global_render_output == RO_COMPLETE )
     return float4( gammaCorrectedColor, 1);
   else if( global_render_output == RO_ALBEDO )

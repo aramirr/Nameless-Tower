@@ -1,0 +1,22 @@
+{
+  "technique": "catarata_opacity.tech"
+  ,
+  "shadows": true
+  ,
+  "textures":
+  {
+    "albedo": "data/textures/Cascada_b.dds"
+    ,
+    "normal": "data/textures/Cascada_n.dds"
+    ,
+    "emissive": "data/textures/null_emissive.dds"
+    ,
+    "opacity": "data/textures/caustica_o.dds"
+    ,
+    "transparency": "data/textures/Cascada_o.dds"
+    ,
+    "height": "data/textures/null_height.dds"
+    ,
+    "ao": "data/textures/null_ambientOcclusion.dds"
+  }
+}

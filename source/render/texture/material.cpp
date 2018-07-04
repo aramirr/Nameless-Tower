@@ -19,7 +19,7 @@ public:
     if (mat_type == "std") {
       res = new CMaterial();
     }
-    else if( mat_type == "mix" ) {
+    else if (mat_type == "mix") {
       res = new CMaterialMixing();
     }
     else {
@@ -42,18 +42,28 @@ const CResourceClass* getResourceClassOf<CMaterial>() {
 // ----------------------------------------------------------
 CMaterial::CMaterial()
   : cb_material("Material")
-{}
+{
+	for (int i = 0; i<max_textures; ++i) {
+			textures[i] = nullptr;
+			srvs[i] = nullptr;
+	}
+}
 
 // ----------------------------------------------------------
 bool CMaterial::create(const json& j) {
 
   // If nothing is set, use 'pbr.tech'
   std::string technique_name = "pbr.tech";
-  if( j.count( "technique" ) )
+  if (j.count("technique"))
     technique_name = j.value("technique", "");
   tech = Resources.get(technique_name)->as<CRenderTechnique>();
 
-  cast_shadows = j.value( "shadows", true );
+  cast_shadows = j.value("shadows", true);
+
+	// Setting default textures
+	//textures[TS_EMISSIVE] = Resources.get("data/textures/default_emissive.dds")->as<CTexture>();
+	//textures[TS_HEIGHT] = Resources.get("data/textures/default_white.dds")->as<CTexture>();
+
 
   if (j.count("textures")) {
     auto& j_textures = j["textures"];
@@ -70,18 +80,27 @@ bool CMaterial::create(const json& j) {
         ts = TS_METALLIC;
       else if (slot == "roughness")
         ts = TS_ROUGHNESS;
-	  else if (slot == "emissive")
-		ts = TS_EMISSIVE;
-	  else if (slot == "alpha")
-		ts = TS_ALPHA;
-	  else if (slot == "height")
-		ts = TS_HEIGHT;
+      else if (slot == "emissive")
+        ts = TS_EMISSIVE;
+      else if (slot == "opacity")
+        ts = TS_ALPHA;
+      else if (slot == "height")
+        ts = TS_HEIGHT;
+      else if (slot == "transparency")
+        ts = TS_TRANSPARENCY;
+      else if (slot == "cell")
+        ts = TS_CELL;
+      else if (slot == "ao")
+        ts = TS_DEFERRED_AO;
+      /*else if (slot == "sublime")
+        ts = TS_SUBLIME;*/
 
       assert(ts != TS_NUM_MATERIALS_SLOTS || fatal("Material %s has an invalid texture slot %s\n", name.c_str(), slot.c_str()));
 
-      textures[ ts ] = Resources.get(texture_name)->as<CTexture>();
+      textures[ts] = Resources.get(texture_name)->as<CTexture>();
 
       // To update all textures in a single DX call
+			assert(ts != 9);
       srvs[ts] = textures[ts]->getShaderResourceView();
     }
   }
@@ -91,6 +110,16 @@ bool CMaterial::create(const json& j) {
   cb_material.scalar_metallic = -1.f;     // Initially disabled
   cb_material.scalar_roughness = 1.f;
   cb_material.scalar_irradiance_vs_mipmaps = 0.f;
+
+	/*cb_material.color_emission = VEC4(1, 1, 1, 1);
+	cb_material.scalar_emission = j.value("emission", 10.0f);
+
+	if (j.count("self_color"))
+		cb_material.color_emission = loadVEC4(j["self_color"]);
+
+	cb_material.color_material = VEC4(1, 1, 1, 1);
+	if (j.count("color"))
+		cb_material.color_material = loadVEC4(j["color"]);*/
 
   cb_material.mix_boost_r = 0;
   cb_material.mix_boost_g = 0;
@@ -124,6 +153,10 @@ void CMaterial::activate() const {
 }
 
 void CMaterial::activateTextures(int slot0) const {
+  assert(slot0 == 0);
+  assert(max_textures == TS_NUM_MATERIALS_SLOTS);
+	assert(this);
+	assert(srvs);
   Render.ctx->PSSetShaderResources(slot0, max_textures, (ID3D11ShaderResourceView**)srvs);
 }
 
@@ -133,7 +166,7 @@ void CMaterial::debugInMenu() {
   ImGui::Checkbox("Cast Shadows", &cast_shadows);
   for (int i = 0; i < max_textures; ++i)
     if (textures[i])
-      ((CTexture*) textures[i])->debugInMenu();
+      ((CTexture*)textures[i])->debugInMenu();
 
   // Allow overwrite the metallic and roughness of the material
   bool enabled;
@@ -173,7 +206,7 @@ void CMaterialMixing::activate() const {
 
 }
 
-bool CMaterialMixing::create(const json& j ) {
+bool CMaterialMixing::create(const json& j) {
   if (!CMaterial::create(j))
     return false;
   for (int i = 0; i < 3; ++i) {

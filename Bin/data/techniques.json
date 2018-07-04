@@ -159,6 +159,19 @@
     "rs_config": "reverse_culling",
     "blend": "additive"
   },
+  "cell_skin": {
+    "vs_file": "data/shaders/cell_shading.fx",
+    "ps_file": "data/shaders/cell_shading.fx",
+    "vs_entry_point": "VS_Skin",
+    "ps_entry_point": "PS",
+    "vertex_type": "PosNUvUvTanSkin",
+    "category" : "cell",
+    "textures" : { 
+      "environment" : "data/textures/cubemaps/env.dds", 
+      "irradiance" : "data/textures/cubemaps/irradiance.dds" 
+    },
+    "uses_skin" : true
+  },
   "water": {
     "vs_file": "data/shaders/water.fx",
     "ps_file": "data/shaders/water.fx",
@@ -166,6 +179,17 @@
     "ps_entry_point": "PS",
     "vertex_type": "PosNUvUvT",
     "category": "distorsions",
+    "textures": {
+      "noise": "data/textures/noise_cloud3.dds"
+    }
+  },
+  "catarata": {
+    "vs_file": "data/shaders/pbr.fx",
+    "ps_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_GBuffer_Catarata",
+    "ps_entry_point": "PS_GBuffer_Catarata",
+    "vertex_type": "PosNUvUvT",
+    "category": "gbuffer",
     "textures": {
       "noise": "data/textures/noise_cloud3.dds"
     }
@@ -296,13 +320,46 @@
     "comment" : "This needs to go after the pbr's solids, but just before the object to render"
   },
   "opacity": {
+    "vs_file": "data/shaders/opacity.fx",
+    "ps_file": "data/shaders/opacity.fx",
+    "vs_entry_point": "VS_Opacity",
+    "ps_entry_point": "PS_Opacity",
+    "vertex_type": "PosNUvUvT",
+    "category": "opacity",
+    "blend": "additive",
+    "priority" : 150,
+    "comment" : "This needs to go after the pbr's solids, but just before the object to render"
+  },
+  "catarata_opacity": {
     "vs_file": "data/shaders/pbr.fx",
     "ps_file": "data/shaders/pbr.fx",
-    "vs_entry_point": "VS_GBufferSkin",
-    "ps_entry_point": "PS_Opacity",
-    "vertex_type": "PosNUvUvTanSkin",
-    "category": "opacity",
-    "blend": "combinative",
+    "vs_entry_point": "VS_GBuffer_Catarata",
+    "ps_entry_point": "PS_GBuffer_Catarata",
+    "vertex_type": "PosNUvUvT",
+    "category": "gbuffer",
+    "blend": "alpha",
+    "priority" : 150,
+    "comment" : "This needs to go after the pbr's solids, but just before the object to render"
+  },
+  "alpha": {
+    "vs_file": "data/shaders/alpha.fx",
+    "ps_file": "data/shaders/alpha.fx",
+    "vs_entry_point": "VS_Alpha",
+    "ps_entry_point": "PS_Alpha",
+    "vertex_type": "PosNUvUvT",
+    "category": "alpha",
+    "blend": "alpha",
+    "priority" : 150,
+    "comment" : "This needs to go after the pbr's solids, but just before the object to render"
+  },
+  "viento": {
+    "vs_file": "data/shaders/viento.fx",
+    "ps_file": "data/shaders/viento.fx",
+    "vs_entry_point": "VS_Viento",
+    "ps_entry_point": "PS_Viento",
+    "vertex_type": "PosNUvUvT",
+    "category": "alpha",
+    "blend": "alpha",
     "priority" : 150,
     "comment" : "This needs to go after the pbr's solids, but just before the object to render"
   },

@@ -1,0 +1,22 @@
+{
+  "technique": "pbr.tech"
+  ,
+  "shadows": true
+  ,
+  "textures":
+  {
+    "albedo": "data/textures/hojas_Color.dds"
+    ,
+    "normal": "data/textures/hojas_Normal.dds"
+    ,
+    "emissive": "data/textures/null_emissive.dds"
+    ,
+    "opacity": "data/textures/hojas_Color.dds"
+    ,
+    "transparency": "data/textures/null_transparency.dds"
+    ,
+    "height": "data/textures/null_height.dds"
+    ,
+    "ao": "data/textures/null_ambientOcclusion.dds"
+  }
+}

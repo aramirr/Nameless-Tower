@@ -1,0 +1,79 @@
+[
+  {
+    "entity":
+    {
+      "name": "VientoWindstrike"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoWindstrike.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "-0.503 0.0 0.0"
+        ,
+        "halfExtent": "0.472048 0.471993 0.502841"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoVertical"
+      ,
+      "transform":
+      {
+        "pos": "-0.00554383 20.4977 0.00273555"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoVertical.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVertMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.76098 20.5103 1.7313"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+]

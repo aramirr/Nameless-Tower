@@ -34,7 +34,9 @@ void TCompLightDir::load(const json& j, TEntityParseContext& ctx) {
   if( j.count("projector")) {
     std::string projector_name = j.value("projector", "");
     projector = Resources.get(projector_name)->as<CTexture>();
-  }
+  } else {
+		projector = Resources.get("data/textures/white.dds")->as<CTexture>();
+	}
 
   // Check if we need to allocate a shadow map
   casts_shadows = j.value("casts_shadows", false);
@@ -87,6 +89,9 @@ void TCompLightDir::activate() {
   cb_light.light_pos = c->getPosition();
   cb_light.light_radius = getZFar();
   cb_light.light_view_proj_offset = getViewProjection() * mtx_offset;
+  cb_light.light_direction = VEC4(c->getFront().x, c->getFront().y, c->getFront().z, 1);
+  cb_light.light_point = 0;
+	cb_light.light_angle = 0;
   cb_light.updateGPU();
 
   // If we have a ZTexture, it's the time to activate it
@@ -95,7 +100,7 @@ void TCompLightDir::activate() {
     cb_light.light_shadows_inverse_resolution = 1.0f / (float)shadows_rt->getWidth();
     cb_light.light_shadows_step = shadows_step;
     cb_light.light_shadows_step_with_inv_res = shadows_step / (float)shadows_rt->getWidth();
-    cb_light.light_radius = 1.f;
+    //cb_light.light_radius = 1.f;
 
     assert(shadows_rt->getZTexture());
     shadows_rt->getZTexture()->activate(TS_LIGHT_SHADOW_MAP);
@@ -125,6 +130,7 @@ void TCompLightDir::generateShadowMap() {
     activateCamera(*this, shadows_rt->getWidth(), shadows_rt->getHeight());
   }
 
+	//¿?CRenderManager::get().setEntityCamera(CHandle(this).getOwner());
   CRenderManager::get().renderCategory("shadows");
 }
 

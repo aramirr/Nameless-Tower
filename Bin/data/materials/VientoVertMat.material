@@ -1,5 +1,5 @@
 {
-  "technique": "pbr.tech"
+  "technique": "viento.tech"
   ,
   "shadows": true
   ,
@@ -8,5 +8,15 @@
     "albedo": "data/textures/viento_d.dds"
     ,
     "normal": "data/textures/null_normal.dds"
+    ,
+    "emissive": "data/textures/null_emissive.dds"
+    ,
+    "opacity": "data/textures/viento_a.dds"
+    ,
+    "transparency": "data/textures/null_transparency.dds"
+    ,
+    "height": "data/textures/null_height.dds"
+    ,
+    "ao": "data/textures/null_ambientOcclusion.dds"
   }
 }
