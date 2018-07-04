@@ -53,7 +53,10 @@
 				,
 				"mask": "player_mask"
 		    },
-		    "arrow_ui":{}		 	    	
+		    "arrow_ui":{},
+		    "sound": {
+		    	"events": ["event:/Steps/footsteps"]
+		    }		 	    	
 		}
 	}
 ]
