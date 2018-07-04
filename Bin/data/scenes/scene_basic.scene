@@ -121,9 +121,7 @@
         "parent": "Cut_door_father"
       },
       "ai_cut_door":{
-          "distance": 3,
           "opened_position": 2,
-          "closed_position": 0,
           "up": true
         }
     }
@@ -169,32 +167,6 @@
       },
       "hierarchy": {
         "parent": "Cut_door_up",
-        "pos": "0 0 0"
-      },
-      "trigger":{
-        "trigger_type": "player_killer",
-          "render": false
-      },
-      "player_killer": {
-        "kill_enabled": true
-      }
-    }
-  },
-  {
-    "entity": {
-      "name": "Cut_door_trigger_down",
-      "render" : [],
-      "transform": {
-        "pos": "-24.769 10.95 -21.426"
-      }
-      ,
-      "collider": {
-        "shape": "box",
-        "halfExtent": "1.2675 0.0425 0.247",
-        "is_trigger": true
-      },
-      "hierarchy": {
-        "parent": "Cut_door_down",
         "pos": "0 0 0"
       },
       "trigger":{
