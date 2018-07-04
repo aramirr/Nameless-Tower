@@ -37,7 +37,9 @@ void CAICutDoor::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
 	distance = j.value("distance", 2.0f);
 	opening_speed = j.value("opening_speed", 0.5f);
-	closing_speed = j.value("closing_speed", 0.5f);
+  closing_speed = j.value("closing_speed", 0.5f);
+  opened_position = j.value("opened_position", 8.f);
+  closed_position = j.value("closed_position", 0.5f);
 	up = j.value("up", 2.0f);
 	Init();
 }
@@ -49,15 +51,16 @@ void CAICutDoor::ClosingState(float dt) {
 	CEntity* e = h_entity;
 	TCompHierarchy *my_hierarchy = e->get<TCompHierarchy>();
 	VEC3 my_pos = my_hierarchy->getPosition();
+  current_lerp_time += DT;
+
+  float perc = current_lerp_time * current_lerp_time*current_lerp_time * (current_lerp_time * (6.f*current_lerp_time - 15.f) + 10.f);
 	if (up) {
-		my_pos.y -= closing_speed * DT;
-		if (my_pos.y < 0.f)
-			my_pos.y = 0.f;
+
+    my_pos.y = lerp(opened_position, 0.f, perc);
 	}
 	else {
-		my_pos.y += closing_speed * DT;
-		if (my_pos.y > 0.f)
-			my_pos.y = 0.f;
+
+    my_pos.y = lerp(opened_position, 0.f, perc);
 	}
 	TCompTransform *parent_transform = my_hierarchy->h_parent_transform;
 	VEC3 new_world_pos = parent_transform->getPosition() + my_pos;
@@ -69,23 +72,34 @@ void CAICutDoor::ClosingState(float dt) {
 	rigidActor->setGlobalPose(tr);
 
 	my_hierarchy->setPosition(my_pos);
-	if (my_pos == VEC3(0, 0, 0)) 
-		ChangeState("closed_state");
+  if (my_pos.y <= 0.f) {
+    current_lerp_time = 0.f;
+    ChangeState("closed_state");
+  }
+
 };
 
 void CAICutDoor::OpeningState(float dt) {
 	CEntity* e = h_entity;
 	TCompHierarchy *my_hierarchy = e->get<TCompHierarchy>();
 	VEC3 my_pos = my_hierarchy->getPosition();
+  current_lerp_time += DT;
+  float perc = current_lerp_time * current_lerp_time*current_lerp_time * (current_lerp_time * (6.f*current_lerp_time - 15.f) + 10.f);
+
 	if (up) {
-		my_pos.y += opening_speed * DT;
+
+    my_pos.y = lerp(0.f, opened_position, perc);
+
+		/*my_pos.y += opening_speed * DT;
 		if (my_pos.y > distance)
-			my_pos.y = distance;
+			my_pos.y = distance;*/
 	}
 	else { 
-		my_pos.y -= opening_speed * DT;
+    
+    my_pos.y = lerp(opened_position, closed_position, perc);
+		/*my_pos.y -= opening_speed * DT;
 		if (my_pos.y < -distance)
-			my_pos.y = -distance;
+			my_pos.y = -distance;*/
 	}
 	
 	TCompTransform *parent_transform = my_hierarchy->h_parent_transform;
@@ -98,15 +112,27 @@ void CAICutDoor::OpeningState(float dt) {
 	rigidActor->setGlobalPose(tr);
 
 	my_hierarchy->setPosition(my_pos);
-	if ((my_pos == VEC3(0, distance, 0)) || (my_pos == VEC3(0, -distance, 0)))
-		ChangeState("open_state");
+  if (my_pos.y >= opened_position) {
+    current_lerp_time = 0.f;
+    ChangeState("open_state");
+  }
 
 };
 void CAICutDoor::OpenState(float dt) {
-	ChangeState("closing_state");
+  current_lerp_time += DT;
+
+  if (current_lerp_time >= 0.5f) {
+    current_lerp_time = 0.f;
+    ChangeState("closing_state");
+  }
 
 };
 
 void CAICutDoor::ClosedState(float dt) {
-	ChangeState("opening_state");
+  current_lerp_time += DT;
+
+  if (current_lerp_time >= 0.5f) {
+    current_lerp_time = 0.f;
+    ChangeState("opening_state");
+  }
 };
