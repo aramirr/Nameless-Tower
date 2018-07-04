@@ -42,7 +42,12 @@ const CResourceClass* getResourceClassOf<CMaterial>() {
 // ----------------------------------------------------------
 CMaterial::CMaterial()
   : cb_material("Material")
-{}
+{
+	for (int i = 0; i<max_textures; ++i) {
+			textures[i] = nullptr;
+			srvs[i] = nullptr;
+	}
+}
 
 // ----------------------------------------------------------
 bool CMaterial::create(const json& j) {
@@ -87,14 +92,15 @@ bool CMaterial::create(const json& j) {
         ts = TS_CELL;
       else if (slot == "ao")
         ts = TS_DEFERRED_AO;
-      /*else if (slot == "sublime")
-        ts = TS_SUBLIME;*/
+      else if (slot == "sublime")
+        ts = TS_SUBLIME;
 
       assert(ts != TS_NUM_MATERIALS_SLOTS || fatal("Material %s has an invalid texture slot %s\n", name.c_str(), slot.c_str()));
 
       textures[ts] = Resources.get(texture_name)->as<CTexture>();
 
       // To update all textures in a single DX call
+			assert(ts != 9);
       srvs[ts] = textures[ts]->getShaderResourceView();
     }
   }
@@ -149,7 +155,8 @@ void CMaterial::activate() const {
 void CMaterial::activateTextures(int slot0) const {
   assert(slot0 == 0);
   assert(max_textures == TS_NUM_MATERIALS_SLOTS);
-  //assert(srvs)
+	assert(this);
+	assert(srvs);
   Render.ctx->PSSetShaderResources(slot0, max_textures, (ID3D11ShaderResourceView**)srvs);
 }
 
