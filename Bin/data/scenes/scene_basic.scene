@@ -1,229 +1,170 @@
-[	
-	{
-    "entity": {
-      "name": "Room1",
-      "render" : [
-        {
-          "mesh": "data/meshes/Cut_door_up.mesh",
-          "materials" : [
-            "data/materials/PuertaM.material"
-          ]
-        }
-      ],
-      "transform": {
-        "pos": "-30.916 0.5 -8.259"
-      },
-      "collider": {
-        "shape": "box",
-        "halfExtent": "1 1 1",
-        "is_trigger": true
-      },
-      "trigger": {} 
-    }
-  },
+[
   {
-    "entity": {
-      "name": "wall_room_1",
-      "render" : [
-        {
-          "mesh": "data/meshes/Cut_door_up.mesh",
-          "materials" : [
-            "data/materials/PuertaM.material"
-          ]
-        }
-      ],
-      "transform": {
-        "pos": "-30.916 4.5 -8.259"
-      }
-    }
-  },  
-  {
-    "entity": {
-      "name": "rotora_activable",
-      "render" : [
-        {
-          "mesh": "data/meshes/Cut_door_up.mesh",
-          "materials" : [
-            "data/materials/PuertaM.material"
-          ]
-        }
-      ],
-      "transform": {
-        "pos": "-24.594 9.95 -19.251"
-      },
-      "ai_rotator": {
-        "configs":[
-          {
-            "axis": "X",
-            "increase": true,
-            "speed": 1.0,
-            "wait_time": -1.0,
-            "degrees": 90.0
-          }
-        ] 
-      },
-      "collider": {
-        "shape": "box",
-        "halfExtent": "1.2675 1.7335 0.247",
-        "is_dynamic": false,
-        "is_trigger": false,
-        "offset": "0 1.816 0"
-      }
-    }
-  },
-  {
-    "entity": {
-      "name": "activador_trigger",
-      "transform": {
-        "pos": "-24.769 10.95 -21.426"
-      }
+    "entity":
+    {
+      "name": "TorreCentro"
       ,
-      "collider": {
-        "shape": "box",
-        "halfExtent": "2 2 2",
-        "is_trigger": true
-      },
-      "hierarchy": {
-        "parent": "rotora_activable",
-        "pos": "0 0 0"
-      },
-      "trigger":{
-        "trigger_type": "activador",
-        "render": false,
-        "collider_entity": "rotora_activable"
-      }
-    }
-  },
-  {
-    "entity": {
-      "name": "Plane001",
-      "transform": {
-        "pos": "5.0 2.18557e-07 5.0",
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
         "rotation": "0.0 0.0 0.0 -1.0"
-      },
-      "render": 
-        {
-          "mesh": "data/meshes/Plane001.mesh",
-          "materials": [
-            "data/materials/piedras1.material"
-          ],
-          "is_active": true
-        }
+      }
       ,
-      "collider": {
-        "shape": "plane"
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TorreCentro.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Plataformas"
+      ,
+      "transform":
+      {
+        "pos": "-19.6942 218.25 -24.2169"
+        ,
+        "rotation": "0.0 -0.309017 0.0 -0.951056"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plataformas.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Plataformas.col_mesh"
+        ,
+        "group": "scenario"
       }
     }
-  },
-  { 
-    "entity": 
-    { 
-      "name": "Sierra" 
-      , 
-      "transform": 
-      { 
-        "pos": "-29.671 9.0 -9.985" 
-        , 
-        "rotation": "-0.707107 0.0 0.0 -0.707107" 
-      } 
-      , 
-      "render": 
-      [ 
-        { 
-          "mesh": "data/meshes/Sierra.mesh" 
-          , 
-          "materials": 
-          [ 
-           "data/materials/SierraM.material"
-          ] 
-        } 
-      ] 
-      , 
-       "trigger": 
-      { 
-        "trigger_type": "player_killer" 
-        , 
-        "collider_entity": "none" 
-        , 
-        "render": true 
-      } 
-      , 
-      "collider": 
-      { 
-        "shape": "box" 
-        , 
-        "halfExtent": "0.980154 0.164185 0.982231" 
-        , 
-        "is_dynamic": false 
-        , 
-        "is_trigger": true 
-      }, 
-      "circular_controller": 
-      { 
-        "speed": 3.0, 
-        "eje": "Y" 
-      } 
-      , 
-      "player_killer": 
-      { 
-        "kill_enabled": true 
-      } 
-    } 
-  } ,
-  { 
-    "entity": 
-    { 
-      "name": "Sierra" 
-      , 
-      "transform": 
-      { 
-        "pos": "-29.671 13.5 -9.985" 
-        , 
-        "rotation": "-0.707107 0.0 0.0 -0.707107" 
-      } 
-      , 
-      "render": 
-      [ 
-        { 
-          "mesh": "data/meshes/Sierra.mesh" 
-          , 
-          "materials": 
-          [ 
-            "data/materials/SierraM.material" 
-          ] 
-        } 
-      ] 
-      , 
-       "trigger": 
-      { 
-        "trigger_type": "player_killer" 
-        , 
-        "collider_entity": "none" 
-        , 
-        "render": true 
-      } 
-      , 
-      "collider": 
-      { 
-        "shape": "box" 
-        , 
-        "halfExtent": "0.980154 0.164185 0.982231" 
-        , 
-        "is_dynamic": false 
-        , 
-        "is_trigger": true 
-      }, 
-      "circular_controller": 
-      { 
-        "speed": 3.0, 
-        "eje": "Y" 
-      } 
-      , 
-      "player_killer": 
-      { 
-        "kill_enabled": true 
-      } 
-    } 
-  } 
-	
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Viento1"
+      ,
+      "transform":
+      {
+        "pos": "31.0927 80.9779 1.60434"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Viento1.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_fan":
+      {
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68865 22.5035 1.66299"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Viento2"
+      ,
+      "transform":
+      {
+        "pos": "-30.4155 125.953 -8.37745"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Viento2.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_fan":
+      {
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68865 22.5035 1.66299"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
 ]

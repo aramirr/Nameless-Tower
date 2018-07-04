@@ -172,7 +172,8 @@ void PS_GBuffer_Catarata(
   // Store in the Alpha channel of the albedo texture, the 'metallic' amount of
   // the material
     o_albedo = txAlbedo.Sample(samLinear, iTex0);
-    o_albedo.a = 0.5;
+    float4 alpha_color = txAlpha.Sample(samLinear, iTex0);
+    o_albedo.a = alpha_color.r;
 
     if (o_albedo.a < 0.3) 
         discard;
@@ -363,7 +364,7 @@ void decodeGBuffer(
      in float2 iPosition // Screen coords
    , out float3 wPos
    , out float3 N
-   , out float3 real_albedo
+   , out float4 real_albedo
    , out float3 real_specular_color
    , out float roughness
    , out float3 reflected_dir
@@ -398,7 +399,8 @@ void decodeGBuffer(
   // Lerp with metallic value to find the good diffuse and specular.
   // If metallic = 0, albedo is the albedo, if metallic = 1, the
   // used albedo is almost black
-    real_albedo = albedo.rgb * (1. - metallic);
+    real_albedo = float4(albedo.rgb * (1. - metallic), txGBufferAlpha.Load(ss_load_coords).r);
+    //real_albedo.a = txGBufferAlpha.Load(ss_load_coords);
 
   // 0.03 default specular value for dielectric.
     real_specular_color = lerp(0.03f, albedo.rgb, metallic);
@@ -472,7 +474,8 @@ float4 PS_ambient(
 {
 
   // Declare some float3 to store the values from the GBuffer
-    float3 wPos, N, albedo, specular_color, reflected_dir, view_dir;
+    float4 albedo;
+    float3 wPos, N, specular_color, reflected_dir, view_dir;
     float roughness;
     bool cell;
     decodeGBuffer(iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir, cell);
@@ -519,7 +522,7 @@ float4 PS_ambient(
     {
         final_color = float4(/*env_fresnel * env * g_ReflectionIntensity +*/
                               albedo.xyz * /*irradiance **/ g_AmbientLightIntensity
-                              , 1.0f) + self_illum;
+                              , albedo.a) + self_illum;
 
 
         final_color = final_color * global_ambient_adjustment /** ao*/;
@@ -549,7 +552,7 @@ float4 PS_ambient(
     {
         final_color = float4(env_fresnel * env * g_ReflectionIntensity +
                               albedo.xyz * irradiance * g_AmbientLightIntensity
-                              , 1.0f) + self_illum;
+                              , albedo.a) + self_illum;
 
 
         final_color = final_color * global_ambient_adjustment * ao;
@@ -591,7 +594,8 @@ float4 shade(
 )
 {
   // Decode GBuffer information
-    float3 wPos, N, albedo, specular_color, reflected_dir, view_dir;
+    float4 albedo;
+    float3 wPos, N, specular_color, reflected_dir, view_dir;
     float roughness;
     bool cell;
     decodeGBuffer(iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir, cell);
@@ -612,7 +616,7 @@ float4 shade(
     float VdH = saturate(dot(view_dir, h));
     float LdV = saturate(dot(light_dir, view_dir));
     float a = max(0.001f, roughness * roughness);
-    float3 cDiff = Diffuse(albedo);
+    float3 cDiff = Diffuse(albedo.xyz);
     float3 cSpec = Specular(specular_color, h, view_dir, light_dir, a, NdL, NdV, NdH, VdH, LdV);
 
     float att = (1. - smoothstep(0.90, 0.98, distance_to_light / light_radius));
