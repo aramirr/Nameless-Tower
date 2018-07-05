@@ -16,8 +16,8 @@ function OnLevel1Start()
 end
 
 function OnWindstrikeActivateTriggerDoor1()
-	lm:open_door("PuertaVisagrasSeparadaA")
-	lm:open_door("PuertaVisagrasSeparadaB")
+	--lm:open_door("PuertaVisagrasSeparadaA")
+	--lm:open_door("PuertaVisagrasSeparadaB")
 end
 
 function function_name( ... )
