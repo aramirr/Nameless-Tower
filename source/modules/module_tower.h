@@ -26,7 +26,8 @@ public:
 	const void setLastCheckpointLeft(bool checkpoint_left);
 	const void disappearEntity(const std::string& name);
 	const void appearEntity(const std::string& name);
-	const void setAmbientAdjustment(float ambient);
+    const void setAmbientAdjustment(float ambient);
+    const void openDoor(const std::string& name);
 
   const void setDirLightIntensity(const std::string& name, float intensity);
   const void setPointLightIntensity(const std::string& name, float intensity);

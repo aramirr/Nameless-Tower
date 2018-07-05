@@ -10,8 +10,10 @@ class CAITorchPuzzle : public IAIController
 
 	float timer = 0.f;
 	float timer_limit;
-    int activated_torchs = 0;
+  int activated_torchs = 0;
 	bool active = false;
+  std::string door_name1;
+  std::string door_name2;
 	std::vector<CEntity*> torchs;
 
 

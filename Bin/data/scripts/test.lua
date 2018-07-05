@@ -15,6 +15,11 @@ function OnLevel1Start()
 	lm:set_ambient(1)
 end
 
+function OnWindstrikeActivateTriggerDoor1()
+	--lm:open_door("PuertaVisagrasSeparadaA")
+	--lm:open_door("PuertaVisagrasSeparadaB")
+end
+
 function function_name( ... )
 	-- body
 end

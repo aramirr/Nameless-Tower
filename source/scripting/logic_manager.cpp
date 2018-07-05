@@ -62,6 +62,10 @@ void LogicManager::setPointLightIntensity(const char* name, float value) {
   EngineTower.setPointLightIntensity(name, value);
 }
 
+void LogicManager::openDoor(const char* name) {
+  EngineTower.openDoor(name);
+}
+
 LogicPlayer::LogicPlayer() {}
 
 void LogicPlayer::setPlayerPosition(float x, float y, float z) {
