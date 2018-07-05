@@ -1,5 +1,5 @@
 {
-  "technique": "alpha.tech"
+  "technique": "pbr.tech"
   ,
   "shadows": true
   ,
@@ -11,7 +11,7 @@
     ,
     "emissive": "data/textures/null_emissive.dds"
     ,
-    "opacity": "data/textures/Palmerita3_opacity.dds"
+    "alpha": "data/textures/Palmerita3_opacity.dds"
     ,
     "transparency": "data/textures/null_transparency.dds"
     ,
