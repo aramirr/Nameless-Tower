@@ -7,8 +7,12 @@ class CAICutDoor : public IAIController
 {
 	bool up;
 	float distance;
-	float opening_speed;
-	float closing_speed;
+  float opening_speed;
+  float closing_speed;
+
+  float opened_position;
+  float closed_position;
+  float current_lerp_time = 0.f;
 
   DECL_SIBLING_ACCESS();
 
