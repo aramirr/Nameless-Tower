@@ -108,7 +108,12 @@ void TCompSpiralController::update(float DT) {
 
 void TCompSpiralController::registerMsgs()
 {
-	DECL_MSG(TCompSpiralController, TMsgChangeDirection, setDirection);
+  DECL_MSG(TCompSpiralController, TMsgChangeDirection, setDirection);
+  DECL_MSG(TCompSpiralController, TMsgDestroy, destroyWindstrike);
+}
+
+void TCompSpiralController::destroyWindstrike(const TMsgDestroy& msg) {
+  life = -1.f;
 }
 
 void TCompSpiralController::setDirection(const TMsgChangeDirection& msg)

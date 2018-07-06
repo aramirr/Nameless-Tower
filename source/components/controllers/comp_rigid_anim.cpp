@@ -28,19 +28,21 @@ void TCompRigidAnim::debugInMenu() {
 }
 
 void TCompRigidAnim::update(float dt) {
-
+    
   if (!is_moving)
     return;
 
   // Sample the animation in the current time
   RigidAnims::TKey k;
+  TCompTransform* c_trans = get< TCompTransform >();
   bool has_finished = controller.sample(&k, current_time);
 
   // Transfer the key data to the comp transform
-  TCompTransform* c_trans = get< TCompTransform >();
   c_trans->setPosition(k.pos);
   c_trans->setRotation(k.rot);
   c_trans->setScale(k.scale);
+ 
+
 
   if (has_finished) {
     if( loops )
@@ -50,4 +52,13 @@ void TCompRigidAnim::update(float dt) {
 
   // Advance the time
   current_time += dt * speed_factor;
+}
+
+void TCompRigidAnim::onGroupCreated(const TMsgEntitiesGroupCreated& msg) {
+    TCompTransform* transform = get<TCompTransform>();
+    controller.setInitialTransform(transform);
+}
+
+void TCompRigidAnim::registerMsgs() {
+    DECL_MSG(TCompRigidAnim, TMsgEntitiesGroupCreated, onGroupCreated);
 }

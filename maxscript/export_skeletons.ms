@@ -8,7 +8,7 @@ struct  TSkeletonsExporter (
 	
 	fn isBone obj = ( 
 		-- Discard black bones
-		return classof obj == Biped_Object and obj.wireColor != Black
+		return (classof obj == Biped_Object or classof obj == Dummy or classof obj == BoneGeometry or classof obj == Point) and and obj.wireColor != Black
 	),
 	
 	-- Search the root bones in the scene to define the .csf

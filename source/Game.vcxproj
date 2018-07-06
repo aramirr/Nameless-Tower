@@ -95,6 +95,7 @@
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
     <ClCompile Include="components\comp_grass.cpp" />
+    <ClCompile Include="components\controllers\comp_door.cpp" />
     <ClCompile Include="components\controllers\comp_projectile_controller.cpp" />
     <ClCompile Include="components\comp_light_dir.cpp" />
     <ClCompile Include="components\comp_light_point.cpp" />
@@ -271,6 +272,7 @@
   <ItemGroup>
     <ClInclude Include="..\Bin\data\shaders\ctes.h" />
     <ClInclude Include="camera\camera.h" />
+    <ClInclude Include="components\controllers\comp_door.h" />
     <ClInclude Include="components\comp_grass.h" />
     <ClInclude Include="components\controllers\comp_projectile_controller.h" />
     <ClInclude Include="components\controllers\comp_rigid_anim.h" />

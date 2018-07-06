@@ -26,5 +26,6 @@ public:
   void update(float DT);
 	void destroy();
   void setEntity(CHandle new_entity);
-	void setDirection(const TMsgChangeDirection& msg);
+  void setDirection(const TMsgChangeDirection& msg);
+  void destroyWindstrike(const TMsgDestroy& msg);
 };

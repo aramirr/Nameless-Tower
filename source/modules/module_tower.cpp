@@ -4,6 +4,7 @@
 #include "render/render_objects.h"
 #include "components/comp_light_dir.h"
 #include "components/comp_light_point.h"
+#include "components/controllers/comp_door.h"
 
 
 bool CModuleTower::start()
@@ -109,4 +110,10 @@ float CModuleTower::checkAngle(float alpha, VEC3 pos1) {
   }
 
   return alpha;
+}
+
+const void CModuleTower::openDoor(const std::string& name) {
+    CEntity* entity = (CEntity*)getEntityByName(name);
+    TMsgOpenDoor msg;
+    entity->sendMsg(msg);
 }
