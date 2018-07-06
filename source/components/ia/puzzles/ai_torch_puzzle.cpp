@@ -26,7 +26,8 @@ void CAITorchPuzzle::debugInMenu() {
 
 void CAITorchPuzzle::load(const json& j, TEntityParseContext& ctx) {
     setEntity(ctx.current_entity);
-	timer_limit = j.value("time_limit", 5.0f);
+    timer_limit = j.value("time_limit", 5.0f);
+    door_name = j.value("door", "");
 	Init();
 }
 
@@ -47,7 +48,9 @@ void CAITorchPuzzle::ActiveState(float dt)
 
 void CAITorchPuzzle::CompleteState(float dt)
 {
-    
+    CEntity* entity = (CEntity*)getEntityByName(door_name);
+    TMsgOpenDoor msg;
+    entity->sendMsg(msg);
 }
 
 

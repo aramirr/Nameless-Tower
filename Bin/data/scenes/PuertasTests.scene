@@ -1,0 +1,81 @@
+[ 
+  {
+    "entity":
+    {
+      "name": "PuertaVisagrasSeparadaA"
+      ,
+      "transform":
+      {
+        "pos": "-10.546 4.5 -29.682"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PuertaVisagrasSeparadaA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/PuertaVisagrasSeparadaA.col_mesh"
+      },
+      "door": {
+        "left": false
+      }      
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PuertaVisagrasSeparadaB"
+      ,
+      "transform":
+      {
+        "pos": "-10.546 4.5 -29.682"
+        ,
+        "rotation": "0.0 -1.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PuertaVisagrasSeparadaB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/PuertaVisagrasSeparadaB.col_mesh"
+      },
+      "door": {
+        "left": true
+      }          
+    }
+  }
+]

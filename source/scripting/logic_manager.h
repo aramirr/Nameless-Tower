@@ -19,6 +19,7 @@ public:
   // Misc
 	void setAmbientAdjustment(float value);
 	void playLastCinematic();
+  void openDoor(const char* name);
 
   // UI
 	void activateText(const char* name);
@@ -27,6 +28,7 @@ public:
   //Lights
   void setDirLightIntensity(const char* name, float value);
   void setPointLightIntensity(const char* name, float value);
+
 
 };
 
