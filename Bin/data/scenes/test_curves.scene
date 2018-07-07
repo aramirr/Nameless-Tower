@@ -1,0 +1,20 @@
+[
+	{
+		"entity": {
+			"name": "test_camera_curve",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"
+			},
+			"curve_controller" :
+			{
+				"curve" : "data/curves/test_curve.curve",
+				"speed" : 0.25,
+				"target" : "The Player"
+			},
+			"render" : {}
+		}
+	}
+]
+
+

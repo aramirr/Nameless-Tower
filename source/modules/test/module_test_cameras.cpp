@@ -4,7 +4,7 @@
 #include "render/texture/material.h"
 #include "entity/entity_parser.h"
 #include "components/camera/comp_camera.h"
-#include "components/comp_transform.h"
+#include "components\juan\comp_transform.h"
 #include "components/controllers/comp_curve.h"
 
 extern void registerMesh(CRenderMesh* new_mesh, const char* name);

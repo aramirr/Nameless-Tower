@@ -23,6 +23,6 @@ private:
   float _speed = 0.f;
   CHandle _target;
   std::string _targetName;
-  bool _automove = false;
+  bool _automove = true;
 };
 
