@@ -62,6 +62,14 @@ struct TMsgWindstrike {
 	DECL_MSG_ID();
 }; 
 
+struct TMsgActivateProjectile{
+	DECL_MSG_ID();
+};
+
+struct TMsgDeactivateProjectile {
+	DECL_MSG_ID();
+};
+
 struct TMsgAttachTo {
 	CHandle h_attached;
 	CHandle h_attacher;
