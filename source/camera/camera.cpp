@@ -65,6 +65,19 @@ MAT44 loadOrtho(float x_min, float x_max, float y_min, float y_max, float z_min,
   return m;
 }
 
+void CCamera::setOrtho(float orto_width, float orto_height, float new_z_near, float new_z_far) {
+
+	is_ortho = true;
+
+	z_near = new_z_near;
+	z_far = new_z_far;
+	this->orto_width = orto_width;
+	this->orto_height = orto_height;
+
+	proj = MAT44::CreateOrthographic(orto_width, orto_width, new_z_near, new_z_far);
+	updateViewProj();
+}
+
 void CCamera::setOrthographic(float width, float height)
 {
   is_ortho = true;

@@ -13,6 +13,7 @@
         "z_near" : 2,
         "z_far" : 30,
         "fov" : 30,
+        "is_orthographic": true,
         "casts_shadows" : true,
         "shadows_step" : 3.0,
         "shadows_resolution" : 256,
