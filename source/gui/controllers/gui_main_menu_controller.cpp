@@ -20,7 +20,7 @@ namespace GUI
 
       auto newGameCB = []() {
         dbg("STARTING GAME\n");
-        Engine.getModules().changeGameState("test_axis");
+        //Engine.getModules().changeGameState("test_axis");
         EngineUI.desactivateWidget("pantallaInicio");
         EngineUI.desactiveMainMenu();
 
