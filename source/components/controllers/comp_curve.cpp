@@ -6,7 +6,17 @@
 DECL_OBJ_MANAGER("curve_controller", TCompCurve);
 
 void TCompCurve::debugInMenu() {
-  //ImGui::DragFloat("Sensitivity", &_sensitivity, 0.01f, 0.001f, 0.1f);
+	static const char* curve_modes_str =
+		"Linear\0"
+		"Bounce\0"
+		"Static\0"
+		"\0";
+
+	ImGui::DragFloat("Percent", &_percentage, 0.01f, 0.001f, 1.f);
+	ImGui::DragFloat("Speed", &_speed, 0.01f);
+	ImGui::Checkbox("Enabled", &_automove);
+	ImGui::Checkbox("Loop", &loop);
+	ImGui::Combo("CurveMode", &current_mode, curve_modes_str);
 }
 
 void TCompCurve::load(const json& j, TEntityParseContext& ctx) {
@@ -14,13 +24,19 @@ void TCompCurve::load(const json& j, TEntityParseContext& ctx) {
 
   std::string curve_name = j["curve"];
   _curve = Resources.get(curve_name)->as<CCurve>();
-
   _speed = j.value<float>("speed", 0.f);
-
-  _targetName = j["target"];
+  curve_mode = j.value("mode", "linear");
+  if (curve_mode == "linear")
+	  current_mode = 0;
+  if (curve_mode == "bounce")
+	  current_mode = 1;
+  if (curve_mode == "static")
+	  current_mode = 2;
+  _automove = j.value("automove", true);
+  loop = j.value("loop", true);
 }
 
-void TCompCurve::update(float dt)
+void TCompCurve::update(float DT)
 {
   if (!_curve)
     return;
@@ -28,20 +44,80 @@ void TCompCurve::update(float dt)
   // actualizar ratio
   if (_automove)
   {
-    _ratio += _speed * dt;
-    if (_ratio >= 1.f)
-      _ratio = 0.f;
+	  if (current_mode != 2)
+	  {
+		  _percentage += _speed * DT * direction;
+	  }
+
+	  if (current_mode == 1)
+	  {
+		  if (_percentage >= 1.0f)
+		  {
+			  if (loop == false)
+			  {
+				  _automove = false;
+			  }
+			  else
+			  {
+				  direction = -1;
+			  }
+		  }
+		  if (_percentage <= 0.0f)
+		  {
+			  if (loop == false)
+			  {
+				  _automove = false;
+			  }
+			  else
+			  {
+				  direction = 1;
+			  }
+		  }
+	  }
+	  else
+	  {
+		  if (_percentage >= 1.0f)
+		  {
+			  if (loop == false)
+			  {
+				  _automove = false;
+			  }
+			  else
+			  {
+				  _percentage = 0.0f;
+			  }
+		  }
+	  }
+
+
+	  // actualizar la transform con la nueva posicion
+	  // evaluar curva con dicho ratio
+	  VEC3 pos = _curve->evaluateAsCatmull(_percentage);
+	  TCompTransform* c_transform = get<TCompTransform>();
+	  c_transform->setPosition(pos);
+  }
+  else
+  {
+	  if (_percentage >= 1.0f)
+	  {
+		  if (loop == false)
+		  {
+			  _automove = false;
+		  }
+		  else
+		  {
+			  _percentage = 0.0f;
+		  }
+		
+	  }
   }
 
-  // evaluar curva con dicho ratio
-  VEC3 pos = _curve->evaluate(_ratio);
-
-  // obtener la posicion del target
-  VEC3 targetPos = getTargetPos();
 
   // actualizar la transform con la nueva posicion
+  // evaluar curva con dicho ratio
+  VEC3 pos = _curve->evaluateAsCatmull(_percentage);
   TCompTransform* c_transform = get<TCompTransform>();
-  c_transform->lookAt(pos, targetPos);
+  c_transform->setPosition(pos);
 }
 
 VEC3 TCompCurve::getTargetPos()
