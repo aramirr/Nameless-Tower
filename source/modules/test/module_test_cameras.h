@@ -14,5 +14,5 @@ public:
   void render() override;
 
 private:
-  CCurve _curve;
+  //CCurve _curve;
 };
