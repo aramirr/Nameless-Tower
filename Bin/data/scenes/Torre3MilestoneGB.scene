@@ -13053,6 +13053,24 @@
   {
     "entity":
     {
+      "name": "final_torch_puzzle"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      },
+      "ai_torch_puzzle": {
+        "time_limit": 15,
+        "door": "Puerta_Final001"
+      }      
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Caldero003"
       ,
       "transform":
@@ -13082,13 +13100,25 @@
       ,
       "collider":
       {
-        "shape": "tri_mesh"
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 1 1"
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
+        "is_trigger": true
+      },
+      "ai_torch": {
+        "puzzle": "final_torch_puzzle",
+        "time_limit": 10
+      },
+      "trigger":
+      {
+        "trigger_type": "torch"
         ,
-        "mesh_src": "data/meshes/Caldero003.col_mesh"
+        "render": true
       }
     }
   }
@@ -13282,7 +13312,29 @@
       ,
       "abs_aabb": true
       ,
-      "local_aabb": true
+      "local_aabb": true,
+      "ai_torch": {
+        "puzzle": "final_torch_puzzle",
+        "time_limit": 10
+      },
+      "trigger":
+      {
+        "trigger_type": "torch"
+        ,
+        "render": true
+      },
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 1 1"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
     }
   }
   ,
@@ -13314,7 +13366,25 @@
       ,
       "abs_aabb": true
       ,
-      "local_aabb": true
+      "local_aabb": true,
+      "trigger":
+      {
+        "trigger_type": "torch"
+        ,
+        "render": true
+      },
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 1 1"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
     }
   }
   ,
