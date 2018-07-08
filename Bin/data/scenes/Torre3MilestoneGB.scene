@@ -9462,17 +9462,36 @@
       ,
       "transform":
       {
-        "pos": "4.66681 86.0 -30.3653"
+        "pos": "4.66681 87.0 -30.3653"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
       "ai_torch": {
-        "time_limit": 2,
+        "time_limit": 5,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
-        "radius" : 3
-       }
+        "radius" : 3,
+        "scale": 1.4
+       },
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 1 1"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      },
+      "trigger":
+      {
+        "trigger_type": "torch"
+        ,
+        "render": true
+      }
     }
   }
   ,
@@ -13401,11 +13420,30 @@
       }
       ,
       "ai_torch": {
-        "time_limit": 2,
+        "time_limit": 5,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
-       }
+       },
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 1 1"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      },
+      "trigger":
+      {
+        "trigger_type": "torch"
+        ,
+        "render": true
+      }
+
     }
   }
   ,
@@ -13422,11 +13460,29 @@
       }
       ,
       "ai_torch": {
-        "time_limit": 2,
+        "time_limit": 5,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
-       }
+       },
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 1 1"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      },
+      "trigger":
+      {
+        "trigger_type": "torch"
+        ,
+        "render": true
+      }
     }
   }
   ,
