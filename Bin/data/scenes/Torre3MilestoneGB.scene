@@ -48,6 +48,8 @@
         "is_trigger": true
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -100,6 +102,8 @@
         ,
         "is_trigger": true
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -154,6 +158,8 @@
         "is_trigger": true
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -206,6 +212,8 @@
         ,
         "is_trigger": true
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -260,6 +268,8 @@
         "is_trigger": true
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -312,6 +322,8 @@
         ,
         "is_trigger": true
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -366,6 +378,8 @@
         "is_trigger": true
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -419,6 +433,8 @@
         "is_trigger": true
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -471,6 +487,8 @@
         ,
         "is_trigger": true
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -771,6 +789,8 @@
         "up": true
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -814,6 +834,8 @@
       {
         "parent": "PuertaCortante01"
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -919,6 +941,8 @@
         "mesh_src": "data/meshes/SierraE.col_mesh"
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -988,6 +1012,8 @@
         "up": true
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -1031,6 +1057,8 @@
       {
         "parent": "PuertaCortante002"
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -1152,6 +1180,8 @@
         "mesh_src": "data/meshes/Sierra006.col_mesh"
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -1226,6 +1256,8 @@
         "mesh_src": "data/meshes/Sierra006.col_mesh"
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -1261,6 +1293,8 @@
       "projectile_controller":
       {
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -1298,6 +1332,8 @@
       {
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -1333,6 +1369,8 @@
       "projectile_controller":
       {
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -1370,6 +1408,8 @@
       {
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -1405,6 +1445,8 @@
       "projectile_controller":
       {
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -1462,6 +1504,8 @@
         ,
         "is_trigger": false
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -1558,6 +1602,8 @@
         "is_trigger": false
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -1652,6 +1698,8 @@
         ,
         "is_trigger": false
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -1748,6 +1796,8 @@
         "is_trigger": false
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -1843,6 +1893,8 @@
         "is_trigger": false
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -1937,6 +1989,8 @@
         ,
         "is_trigger": false
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -2861,6 +2915,8 @@
         "is_trigger": false
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -2893,6 +2949,8 @@
         ,
         "rotation": "0.0 0.607 0.0 0.795"
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -2933,6 +2991,8 @@
         ,
         "eje": "X"
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -2992,6 +3052,8 @@
         "is_trigger": true
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -3033,6 +3095,8 @@
         "is_trigger": false
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -3065,6 +3129,8 @@
         ,
         "rotation": "0.0 0.607 0.0 0.795"
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -3105,6 +3171,8 @@
         ,
         "eje": "X"
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -3164,6 +3232,8 @@
         "is_trigger": true
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -3199,6 +3269,8 @@
       "projectile_controller":
       {
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -3236,6 +3308,8 @@
       {
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -3271,6 +3345,8 @@
       "projectile_controller":
       {
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -3308,6 +3384,8 @@
       {
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -3344,6 +3422,8 @@
       {
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -3379,6 +3459,8 @@
       "projectile_controller":
       {
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -3451,6 +3533,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -3478,6 +3562,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -3507,6 +3593,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -3534,6 +3622,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -3563,6 +3653,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -3590,6 +3682,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -3619,6 +3713,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -3646,6 +3742,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -3675,6 +3773,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -3702,6 +3802,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -3731,6 +3833,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -3758,6 +3862,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -3787,6 +3893,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -3814,6 +3922,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -3843,6 +3953,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -3870,6 +3982,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -3899,6 +4013,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -3926,6 +4042,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -3955,6 +4073,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -3982,6 +4102,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -4011,6 +4133,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4038,6 +4162,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -4067,6 +4193,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4094,6 +4222,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -4123,6 +4253,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4150,6 +4282,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -4179,6 +4313,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4206,6 +4342,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -4235,6 +4373,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4262,6 +4402,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -4291,6 +4433,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4318,6 +4462,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -4347,6 +4493,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4374,6 +4522,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -4403,6 +4553,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4430,6 +4582,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -4459,6 +4613,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4486,6 +4642,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -4515,6 +4673,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4543,6 +4703,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4570,6 +4732,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
       ,
@@ -4610,6 +4774,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4637,6 +4803,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -4666,6 +4834,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4693,6 +4863,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -4722,6 +4894,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4749,6 +4923,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -4778,6 +4954,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4805,6 +4983,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -4834,6 +5014,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4861,6 +5043,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -4890,6 +5074,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4917,6 +5103,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -4946,6 +5134,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -4973,6 +5163,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5002,6 +5194,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5029,6 +5223,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5058,6 +5254,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5085,6 +5283,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5114,6 +5314,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5141,6 +5343,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5172,6 +5376,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5199,6 +5405,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5228,6 +5436,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5255,6 +5465,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5284,6 +5496,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5311,6 +5525,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5340,6 +5556,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5367,6 +5585,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5396,6 +5616,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5423,6 +5645,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5452,6 +5676,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5479,6 +5705,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5508,6 +5736,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5535,6 +5765,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5564,6 +5796,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5591,6 +5825,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5620,6 +5856,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5647,6 +5885,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5676,6 +5916,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5703,6 +5945,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5732,6 +5976,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5759,6 +6005,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5788,6 +6036,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5815,6 +6065,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5844,6 +6096,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5871,6 +6125,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5900,6 +6156,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5927,6 +6185,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -5956,6 +6216,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -5983,6 +6245,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -6012,6 +6276,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -6039,6 +6305,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -6068,6 +6336,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -6095,6 +6365,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -6124,6 +6396,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -6152,6 +6426,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -6179,6 +6455,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
       ,
@@ -6219,6 +6497,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -6246,6 +6526,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -6275,6 +6557,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -6302,6 +6586,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -6331,6 +6617,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -6358,6 +6646,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -6673,6 +6963,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -6700,6 +6992,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -6729,6 +7023,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -6756,6 +7052,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -6785,6 +7083,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -6813,6 +7113,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -6824,7 +7126,7 @@
       ,
       "transform":
       {
-        "pos": "6.22655 33.4796 -29.2111"
+        "pos": "6.22655 33.4806 -29.2111"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -6840,6 +7142,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -6869,6 +7173,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -6897,6 +7203,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -6908,7 +7216,7 @@
       ,
       "transform":
       {
-        "pos": "-14.9189 28.9706 -25.8744"
+        "pos": "-14.9189 28.9902 -25.8744"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -6924,6 +7232,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -6953,6 +7263,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -6980,6 +7292,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7009,6 +7323,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7036,6 +7352,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7065,6 +7383,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7092,6 +7412,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7121,6 +7443,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7148,6 +7472,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7177,6 +7503,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7204,6 +7532,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7233,6 +7563,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7260,6 +7592,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7289,6 +7623,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7316,6 +7652,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7345,6 +7683,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7372,6 +7712,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7401,6 +7743,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7428,6 +7772,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7457,6 +7803,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7484,6 +7832,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7513,6 +7863,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7540,6 +7892,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7569,6 +7923,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7596,6 +7952,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7625,6 +7983,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7652,6 +8012,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7681,6 +8043,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7708,6 +8072,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7737,6 +8103,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7764,6 +8132,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7793,6 +8163,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7820,6 +8192,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7849,6 +8223,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7876,6 +8252,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7905,6 +8283,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7932,6 +8312,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -7961,6 +8343,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -7988,6 +8372,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -8017,6 +8403,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8045,6 +8433,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8072,6 +8462,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -8103,6 +8495,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8130,6 +8524,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -8159,6 +8555,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8186,6 +8584,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -8215,6 +8615,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8243,6 +8645,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8270,6 +8674,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -8325,6 +8731,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8352,6 +8760,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -8381,6 +8791,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8408,6 +8820,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -8437,6 +8851,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8464,6 +8880,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -8493,6 +8911,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8520,6 +8940,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -8549,6 +8971,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8576,6 +9000,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -8605,6 +9031,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8632,6 +9060,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -8661,6 +9091,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8688,6 +9120,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -8717,6 +9151,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8744,6 +9180,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -8773,6 +9211,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8800,6 +9240,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -8829,6 +9271,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8856,6 +9300,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -8885,6 +9331,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8912,6 +9360,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -8941,6 +9391,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -8968,6 +9420,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
       ,
@@ -9008,6 +9462,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -9035,6 +9491,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -9064,6 +9522,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -9091,6 +9551,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -9120,6 +9582,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -9147,6 +9611,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -9176,6 +9642,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -9204,6 +9672,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -9231,6 +9701,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -9286,6 +9758,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -9313,6 +9787,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -9342,6 +9818,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -9369,6 +9847,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -9502,6 +9982,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -9513,7 +9995,7 @@
       ,
       "transform":
       {
-        "pos": "-25.6845 24.3038 -13.178"
+        "pos": "-25.6804 23.5923 -13.1206"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -9536,7 +10018,7 @@
       ,
       "transform":
       {
-        "pos": "-14.8802 29.0857 -25.8075"
+        "pos": "-14.9296 28.9155 -25.8838"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -9559,7 +10041,7 @@
       ,
       "transform":
       {
-        "pos": "6.20056 33.6737 -29.1376"
+        "pos": "6.2235 33.3819 -29.2178"
         ,
         "rotation": "0.0 0.358209 0.0 -0.933641"
       }
@@ -9582,7 +10064,7 @@
       ,
       "transform":
       {
-        "pos": "14.9317 33.6737 -25.7778"
+        "pos": "14.9503 33.3834 -25.8658"
         ,
         "rotation": "0.0 0.500366 0.0 -0.865814"
       }
@@ -9605,7 +10087,7 @@
       ,
       "transform":
       {
-        "pos": "22.1949 33.6737 -19.8704"
+        "pos": "22.2033 33.3682 -19.9668"
         ,
         "rotation": "0.0 0.630201 0.0 -0.776432"
       }
@@ -9628,7 +10110,7 @@
       ,
       "transform":
       {
-        "pos": "27.2239 33.6737 -12.0956"
+        "pos": "27.3054 33.3837 -12.142"
         ,
         "rotation": "0.0 0.743212 0.0 -0.669056"
       }
@@ -9651,7 +10133,7 @@
       ,
       "transform":
       {
-        "pos": "22.3672 66.0263 10.0929"
+        "pos": "22.3672 64.9355 10.0929"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -9674,7 +10156,7 @@
       ,
       "transform":
       {
-        "pos": "4.66681 86.9281 -30.3653"
+        "pos": "4.66681 86.516 -30.3653"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -9714,6 +10196,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -9741,6 +10225,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -9770,6 +10256,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -9797,6 +10285,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -9826,6 +10316,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -9853,6 +10345,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -9882,6 +10376,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -9909,6 +10405,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -9938,6 +10436,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -9965,6 +10465,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -9994,6 +10496,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10021,6 +10525,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10050,6 +10556,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10077,6 +10585,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10106,6 +10616,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10133,6 +10645,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10162,6 +10676,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10189,6 +10705,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10218,6 +10736,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10245,6 +10765,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10274,6 +10796,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10301,6 +10825,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10330,6 +10856,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10357,6 +10885,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10386,6 +10916,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10413,6 +10945,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10442,6 +10976,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10469,6 +11005,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10498,6 +11036,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10525,6 +11065,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10554,6 +11096,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10581,6 +11125,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10610,6 +11156,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10637,6 +11185,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10666,6 +11216,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10693,6 +11245,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10722,6 +11276,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10749,6 +11305,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10778,6 +11336,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10805,6 +11365,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10834,6 +11396,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10861,6 +11425,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10890,6 +11456,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10917,6 +11485,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -10946,6 +11516,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -10973,6 +11545,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11002,6 +11576,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11029,6 +11605,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11058,6 +11636,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11085,6 +11665,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11114,6 +11696,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11141,6 +11725,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11196,6 +11782,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11223,6 +11811,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11252,6 +11842,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11279,6 +11871,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11310,6 +11904,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11337,6 +11933,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11368,6 +11966,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11395,6 +11995,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11424,6 +12026,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11451,6 +12055,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11480,6 +12086,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11507,6 +12115,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11536,6 +12146,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11563,6 +12175,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11592,6 +12206,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11619,6 +12235,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11648,6 +12266,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11675,6 +12295,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11704,6 +12326,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11731,6 +12355,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11760,6 +12386,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11787,6 +12415,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11816,6 +12446,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11843,6 +12475,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11872,6 +12506,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11899,6 +12535,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11928,6 +12566,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -11955,6 +12595,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -11984,6 +12626,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12011,6 +12655,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12040,6 +12686,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12067,6 +12715,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12096,6 +12746,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12123,6 +12775,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12152,6 +12806,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12179,6 +12835,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12208,6 +12866,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12235,6 +12895,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12264,6 +12926,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12291,6 +12955,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12320,6 +12986,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12347,6 +13015,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12376,6 +13046,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12403,6 +13075,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12432,6 +13106,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12459,6 +13135,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12488,6 +13166,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12515,6 +13195,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12544,6 +13226,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12572,6 +13256,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12599,6 +13285,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12630,6 +13318,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12657,6 +13347,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12686,6 +13378,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12713,6 +13407,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12742,6 +13438,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12769,6 +13467,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12798,6 +13498,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12825,6 +13527,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12854,6 +13558,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12881,6 +13587,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12910,6 +13618,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -12937,6 +13647,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -12966,7 +13678,27 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "final_torch_puzzle"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      },
+      "ai_torch_puzzle": {
+        "time_limit": 8,
+        "door": "Puerta_Final001"
+      }      
     }
   }
   ,
@@ -12996,6 +13728,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -13023,6 +13757,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -13054,6 +13790,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
       ,
       "collider":
@@ -13065,6 +13803,10 @@
         "is_trigger": false
         ,
         "mesh_src": "data/meshes/Caldero003.col_mesh"
+      },
+      "ai_torch": {
+        "puzzle": "final_torch_puzzle",
+        "time_limit": 10
       }
     }
   }
@@ -13095,6 +13837,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -13123,6 +13867,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -13150,6 +13896,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -13250,7 +13998,13 @@
         }
       ]
       ,
-      "local_aabb": true
+      "abs_aabb": true
+      ,
+      "local_aabb": true,
+      "ai_torch": {
+        "puzzle": "final_torch_puzzle",
+        "time_limit": 10
+      }
     }
   }
   ,
@@ -13280,9 +14034,15 @@
         }
       ]
       ,
-      "local_aabb": true
+      "abs_aabb": true
+      ,
+      "local_aabb": true,
+      "ai_torch": {
+        "puzzle": "final_torch_puzzle",
+        "time_limit": 10
+      }
     }
-  }
+  }  
   ,
   {
     "entity":
@@ -13291,7 +14051,7 @@
       ,
       "transform":
       {
-        "pos": "-1.7922 95.7365 -30.6328"
+        "pos": "-1.67132 95.5603 -30.8728"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -13314,7 +14074,7 @@
       ,
       "transform":
       {
-        "pos": "11.2754 95.7365 -28.6775"
+        "pos": "11.2303 95.5685 -28.9171"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -14489,15 +15249,6 @@
         }
       ]
       ,
-      "trigger":
-      {
-        "trigger_type": "none"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
       "collider":
       {
         "shape": "box"
@@ -14508,7 +15259,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": true
+        "is_trigger": false
       }
     }
   }
@@ -14576,15 +15327,6 @@
         }
       ]
       ,
-      "trigger":
-      {
-        "trigger_type": "none"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
       "collider":
       {
         "shape": "box"
@@ -14595,7 +15337,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": true
+        "is_trigger": false
       }
     }
   }
@@ -14663,15 +15405,6 @@
         }
       ]
       ,
-      "trigger":
-      {
-        "trigger_type": "none"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
       "collider":
       {
         "shape": "box"
@@ -14682,7 +15415,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": true
+        "is_trigger": false
       }
     }
   }
@@ -14750,15 +15483,6 @@
         }
       ]
       ,
-      "trigger":
-      {
-        "trigger_type": "none"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
       "collider":
       {
         "shape": "box"
@@ -14769,7 +15493,7 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": true
+        "is_trigger": false
       }
     }
   }
@@ -14914,6 +15638,8 @@
         "mesh_src": "data/meshes/Sierra004.col_mesh"
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -15018,6 +15744,8 @@
         ,
         "mesh_src": "data/meshes/Sierra004.col_mesh"
       }
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -15124,6 +15852,8 @@
         "mesh_src": "data/meshes/Sierra004.col_mesh"
       }
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -15151,6 +15881,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -15182,6 +15914,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -15209,6 +15943,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -15238,6 +15974,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -15265,6 +16003,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -15294,7 +16034,10 @@
         }
       ]
       ,
-      "local_aabb": true
+      "abs_aabb": true
+      ,
+      "local_aabb": true,
+      "door": {}
     }
   }
   ,
@@ -15321,6 +16064,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -15350,6 +16095,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -15377,6 +16124,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -15406,6 +16155,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -15434,7 +16185,10 @@
         }
       ]
       ,
-      "local_aabb": true
+      "abs_aabb": true
+      ,
+      "local_aabb": true,
+      "door": {}
     }
   }
   ,
@@ -15461,6 +16215,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -15490,6 +16246,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -15517,6 +16275,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -15546,6 +16306,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -15573,6 +16335,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -15602,7 +16366,10 @@
         }
       ]
       ,
-      "local_aabb": true
+      "abs_aabb": true
+      ,
+      "local_aabb": true,
+      "door": {}
     }
   }
   ,
@@ -15629,6 +16396,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -15658,6 +16427,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -15685,6 +16456,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -15714,6 +16487,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -15725,7 +16500,7 @@
       ,
       "transform":
       {
-        "pos": "12.078 33.6737 27.2317"
+        "pos": "12.1354 33.3791 27.2987"
         ,
         "rotation": "0.0 -0.998607 0.0 -0.0527577"
       }
@@ -15764,6 +16539,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
       ,
@@ -15804,6 +16581,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -15831,6 +16610,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -15860,6 +16641,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -15887,6 +16670,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -15916,6 +16701,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -15944,6 +16731,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -15955,7 +16744,7 @@
       ,
       "transform":
       {
-        "pos": "19.3308 64.6878 15.7302"
+        "pos": "19.2713 64.4257 15.6436"
         ,
         "rotation": "0.0 -0.986442 0.0 0.164108"
       }
@@ -15995,6 +16784,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -16022,6 +16813,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -16051,6 +16844,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -16078,6 +16873,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -16107,6 +16904,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -16118,7 +16917,7 @@
       ,
       "transform":
       {
-        "pos": "14.3593 62.9122 20.2643"
+        "pos": "14.3438 62.5053 20.2168"
         ,
         "rotation": "0.0 -0.986442 0.0 0.164108"
       }
@@ -16157,6 +16956,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
       ,
@@ -16199,6 +17000,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
       ,
       "collider":
@@ -16221,7 +17024,7 @@
       ,
       "transform":
       {
-        "pos": "31.0946 65.1839 0.587385"
+        "pos": "31.2772 65.1839 0.587385"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -16237,6 +17040,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
       ,
@@ -16279,7 +17084,10 @@
         }
       ]
       ,
-      "local_aabb": true
+      "abs_aabb": true
+      ,
+      "local_aabb": true,
+      "door": {}
     }
   }
   ,
@@ -16306,6 +17114,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -16335,6 +17145,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -16362,6 +17174,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
     }
@@ -16391,6 +17205,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -16419,6 +17235,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -16430,7 +17248,7 @@
       ,
       "transform":
       {
-        "pos": "21.0051 87.6751 -21.068"
+        "pos": "21.0592 87.3644 -21.0947"
         ,
         "rotation": "0.0 0.604705 0.0 -0.796449"
       }
@@ -16453,7 +17271,7 @@
       ,
       "transform":
       {
-        "pos": "13.481 87.6753 -26.5652"
+        "pos": "13.5308 87.3916 -26.6448"
         ,
         "rotation": "0.0 0.476187 0.0 -0.879344"
       }
@@ -16493,6 +17311,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -16520,6 +17340,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
       ,
@@ -16560,6 +17382,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
       ,
       "collider":
@@ -16598,6 +17422,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "local_aabb": true
       ,
@@ -16640,6 +17466,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -16668,6 +17496,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "local_aabb": true
     }
   }
@@ -16695,6 +17525,366 @@
           ]
         }
       ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TAPuertasArriba"
+      ,
+      "transform":
+      {
+        "pos": "11.5089 51.1964 28.7279"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.4863 0.489346 1.90929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TAPuertasAbajo"
+      ,
+      "transform":
+      {
+        "pos": "27.7312 37.7039 14.5425"
+        ,
+        "rotation": "0.0 -0.631735 0.0 -0.775184"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.4863 0.489346 1.90929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TAPuertasPrimera"
+      ,
+      "transform":
+      {
+        "pos": "30.4191 42.2095 -7.89638"
+        ,
+        "rotation": "0.0 -0.919786 0.0 -0.392419"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.4863 0.489346 1.90929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TARunner"
+      ,
+      "transform":
+      {
+        "pos": "11.2835 69.2025 29.1738"
+        ,
+        "rotation": "0.0 -0.0821496 0.0 -0.99662"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.4863 0.489346 1.90929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TDWindstrike"
+      ,
+      "transform":
+      {
+        "pos": "-29.9949 24.7638 -8.84543"
+        ,
+        "rotation": "0.415627 -0.415627 0.572061 -0.572061"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.307486 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TDTechos"
+      ,
+      "transform":
+      {
+        "pos": "30.5613 33.7604 -4.9645"
+        ,
+        "rotation": "-0.473147 0.473147 0.525483 -0.525483"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.302765 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TDEscaleras2"
+      ,
+      "transform":
+      {
+        "pos": "2.95733 33.7604 -31.0327"
+        ,
+        "rotation": "-0.0370072 0.0370072 0.706138 -0.706138"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.31425 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TFAntorchasArribaIzq"
+      ,
+      "transform":
+      {
+        "pos": "11.2308 96.4394 -29.1036"
+        ,
+        "rotation": "0.0 0.156435 0.0 -0.987688"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.914529 0.562595 1.17726"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TFAntorchasArribaDer"
+      ,
+      "transform":
+      {
+        "pos": "-1.62772 96.4394 -31.2419"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.914529 0.562595 1.17726"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TFAntorchasAbajo"
+      ,
+      "transform":
+      {
+        "pos": "4.65117 87.8239 -30.3962"
+        ,
+        "rotation": "0.0 -0.669131 0.0 -0.743145"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.914529 0.562595 1.17726"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
     }
   }
 ]

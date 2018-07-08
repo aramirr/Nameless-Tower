@@ -37,7 +37,7 @@
       		]		
 			,
 			"transform": {
-				"pos": "-5.957 9.5 -30.93",
+				"pos": "1.596 4.5 -31.460",
 				"front": "1 0 0"
 			}
 			, 
@@ -45,7 +45,9 @@
 				"file" : "data/fsm/character.fsm"
 			}
 			,
-			"player_controller" : {}
+			"player_controller" : {
+			"gravity": 45
+			}
 			,
 			"player_input": {}
 			,
