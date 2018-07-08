@@ -9995,7 +9995,7 @@
       ,
       "transform":
       {
-        "pos": "-25.6804 23.0 -13.1206"
+        "pos": "-25.6804 23.8 -13.1206"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       },
@@ -10003,7 +10003,8 @@
         "time_limit": 2,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
-        "radius" : 3
+        "radius" : 3,
+        "scale" : 1.4
       }
     }
   }
@@ -14236,7 +14237,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "checkpoint"
+        "trigger_type": "none"
         ,
         "collider_entity": "none"
         ,

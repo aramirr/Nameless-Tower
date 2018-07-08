@@ -34,9 +34,9 @@ bool CModuleBillboards::start()
   return true;
 }
 
-void CModuleBillboards::addFuegoTest(VEC3 position) {
+void CModuleBillboards::addFuegoTest(VEC3 position, float scale) {
     TRenderParticle new_instance;
-	new_instance.scale_x = 0.2f;
+	new_instance.scale_x = scale;
     new_instance.scale_y = new_instance.scale_x;
     new_instance.pos = position;
     new_instance.nframe = randomFloat(0.f, 16.f);

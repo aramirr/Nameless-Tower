@@ -58,7 +58,8 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
     if (j.count("color"))
         color = loadVEC4(j["color"]);
     intensity = j.value("intensity", intensity);
-    radius = j.value("radius", radius);
+	radius = j.value("radius", radius);
+	scale = j.value("scale", scale);
     initial_radius = radius;
 
     Init();
@@ -78,7 +79,7 @@ void CAITorch::ActiveState(float dt)
         on_start = false;
     }
     if (b_fuego) {
-        EngineBillboards.addFuegoTest(fire_position);
+        EngineBillboards.addFuegoTest(fire_position, scale);
         b_fuego = false;
     }
     
