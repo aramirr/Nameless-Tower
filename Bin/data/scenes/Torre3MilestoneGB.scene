@@ -9480,7 +9480,7 @@
       ,
       "transform":
       {
-        "pos": "4.66681 86.0 -30.3653"
+        "pos": "4.66681 87.0 -30.3653"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -9490,7 +9490,8 @@
         "time_limit": 10,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
-        "radius" : 3
+        "radius" : 3,
+        "scale": 1.4
        }
        ,
       "collider":
@@ -16249,7 +16250,8 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      }
+      },
+      "door": {}
     }
   }
   ,
@@ -16724,7 +16726,8 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      }
+      },
+      "door": {}
     }
   }
   ,
@@ -16841,7 +16844,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "0.4863 0.489346 1.90929"
+        "halfExtent": "1 3 1"
         ,
         "is_dynamic": false
         ,
@@ -16877,7 +16880,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "0.4863 0.489346 1.90929"
+        "halfExtent": "1 3 1"
         ,
         "is_dynamic": false
         ,
@@ -16913,7 +16916,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "0.4863 0.489346 1.90929"
+        "halfExtent": "1 3 1"
         ,
         "is_dynamic": false
         ,

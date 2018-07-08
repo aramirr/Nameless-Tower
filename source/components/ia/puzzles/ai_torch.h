@@ -27,6 +27,7 @@ class CAITorch : public IAIController
 	float scale = 0.2f;
     float initial_radius = 1.0f;
     bool b_increasing_radius = true;
+	int id = -1;
 
 public:
 	
