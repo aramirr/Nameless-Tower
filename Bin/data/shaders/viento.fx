@@ -27,7 +27,7 @@ void VS_Viento(
     oTangent.w = iTangent.w;
 
   // Las uv's se pasan directamente al ps
-    oTex0 = float2(iTex0.x, (iTex0.y - global_world_time * 1.6));
+    oTex0 = float2(iTex0.x, (iTex0.y + global_world_time * 1.6));
     oTex1 = iTex1;
     oWorldPos = world_pos.xyz;
  //   float4 world_pos = mul(iPos, obj_world);

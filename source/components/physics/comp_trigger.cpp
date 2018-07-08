@@ -62,7 +62,8 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
     }
 	}
 	else if (other_entity_name == "windstrike") {
-    EngineScripting.ExecEvent(ScriptEvents::windstrike_activate, params);
+		if (trigger_type != "checkpoint")
+			EngineScripting.ExecEvent(ScriptEvents::windstrike_activate, params);
 		if (trigger_type == "activador" && other_entity_name == "windstrike") {
 			TMsgRotate rotate_msg;
 			CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);

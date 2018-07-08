@@ -2,13 +2,12 @@
   "boot_scenes": [
     "data/scenes/player.scene",
     "data/scenes/skybox.scene", 
-    "data/scenes/cameras.scene", 
-    "data/scenes/checkpoints.scene", 
+    "data/scenes/cameras.scene",  
     "data/scenes/lua.scene",
     "data/scenes/test_instancing.scene",
-    "data/scenes/boss_runner.scene",
     "data/scenes/lights.scene",
-    "data/scenes/Torre3MilestoneGB.scene"
+    "data/scenes/Torre3MilestoneGB.scene",
+    "data/scenes/logic_doors.scene"
   ],
   "unused_scenes": [
     "data/scenes/unused_scenes/test_cameras.scene",

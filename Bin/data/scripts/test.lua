@@ -15,14 +15,34 @@ function OnLevel1Start()
 	lm:set_ambient(1)
 end
 
-function OnWindstrikeActivateTriggerDoor1()
-	lm:open_door("PuertaVisagrasSeparadaA")
-	lm:open_door("PuertaVisagrasSeparadaB")
+function OnWindstrikeActivateTDWindstrike()
+	lm:open_door("Puerta_Abatible_Madera_01")
 end
 
-function function_name( ... )
-	-- body
+function OnWindstrikeActivateTDEscaleras2()
+	lm:open_door("Puerta_Abatible_Madera_003")
 end
+
+function OnWindstrikeActivateTDTechos()
+	lm:open_door("Puerta_Abatible_Madera_002")
+end
+
+function OnWindstrikeActivateTAPuertasPrimera()
+	lm:open_door("Puerta_Reja_01")
+end
+
+function OnWindstrikeActivateTAPuertasAbajo()
+	lm:open_door("Puerta_Reja_005")
+end
+
+function OnWindstrikeActivateTAPuertasArriba()
+	lm:open_door("Puerta_Reja_04")
+end
+
+function OnWindstrikeActivateTARunner()
+	lm:open_door("Puerta_Reja_02")
+end
+
 
 -- Sala 1
 function OnTriggerEnterTSCabeza()
