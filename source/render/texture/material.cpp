@@ -91,16 +91,15 @@ bool CMaterial::create(const json& j) {
       else if (slot == "cell")
         ts = TS_CELL;
       else if (slot == "ao")
-        ts = TS_DEFERRED_AO;
+        ts = TS_AO;
       /*else if (slot == "sublime")
         ts = TS_SUBLIME;*/
 
-      assert(ts != TS_NUM_MATERIALS_SLOTS || fatal("Material %s has an invalid texture slot %s\n", name.c_str(), slot.c_str()));
+      assert(ts < TS_NUM_MATERIALS_SLOTS || fatal("Material %s has an invalid texture slot %s\n", name.c_str(), slot.c_str()));
 
       textures[ts] = Resources.get(texture_name)->as<CTexture>();
 
       // To update all textures in a single DX call
-			assert(ts != 9);
       srvs[ts] = textures[ts]->getShaderResourceView();
     }
   }
