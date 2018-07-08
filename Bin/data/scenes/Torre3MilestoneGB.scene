@@ -549,7 +549,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 6.0
+        "speed": 3.0
         ,
         "delay": 1.0
         ,
@@ -616,7 +616,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 6.0
+        "speed": 3.0
         ,
         "delay": 1.0
         ,
@@ -683,7 +683,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 6
+        "speed": 3.5
         ,
         "delay": 0.5
         ,
@@ -918,7 +918,7 @@
       ,
       "circular_controller":
       {
-        "speed": 20.0
+        "speed": 5.0
         ,
         "eje": "X"
       }
@@ -1157,7 +1157,7 @@
       ,
       "circular_controller":
       {
-        "speed": 20.0
+        "speed": 5.0
         ,
         "eje": "X"
       }
@@ -1233,7 +1233,7 @@
       ,
       "circular_controller":
       {
-        "speed": 20.0
+        "speed": 5.0
         ,
         "eje": "X"
       }
@@ -2257,546 +2257,6 @@
   {
     "entity":
     {
-      "name": "checkpoint01"
-      ,
-      "transform":
-      {
-        "pos": "-11.1455 5.72738 -29.2091"
-        ,
-        "rotation": "0.0 -0.207912 0.0 -0.978148"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "-11.1455 5.72738 -29.2091"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "checkpoint002"
-      ,
-      "transform":
-      {
-        "pos": "-29.1176 5.72738 -11.2462"
-        ,
-        "rotation": "0.0 -0.587785 0.0 -0.809017"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "-29.1176 5.72738 -11.2462"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "checkpoint003"
-      ,
-      "transform":
-      {
-        "pos": "-31.1677 5.72738 -1.69791"
-        ,
-        "rotation": "0.0 -0.707107 0.0 -0.707107"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "-31.1677 5.72738 -1.69791"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "checkpoint004"
-      ,
-      "transform":
-      {
-        "pos": "-30.8195 23.7274 -4.94653"
-        ,
-        "rotation": "0.0 -0.669131 0.0 -0.743145"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "-30.8195 23.7274 -4.94653"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "checkpoint005"
-      ,
-      "transform":
-      {
-        "pos": "-14.1134 28.2274 -27.841"
-        ,
-        "rotation": "0.0 -0.258819 0.0 -0.965926"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "-14.1134 28.2274 -27.841"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "checkpoint006"
-      ,
-      "transform":
-      {
-        "pos": "1.69792 32.7274 -31.1677"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "1.69792 32.7274 -31.1677"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "checkpoint007"
-      ,
-      "transform":
-      {
-        "pos": "30.8397 32.7274 -4.81932"
-        ,
-        "rotation": "0.0 0.62932 0.0 -0.777146"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "30.8397 32.7274 -4.81932"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "checkpoint008"
-      ,
-      "transform":
-      {
-        "pos": "26.1431 50.7274 17.0543"
-        ,
-        "rotation": "0.0 -0.866025 0.0 0.5"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "26.1431 50.7274 17.0543"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "checkpoint009"
-      ,
-      "transform":
-      {
-        "pos": "8.01654 32.7274 30.167"
-        ,
-        "rotation": "0.0 -0.987688 0.0 0.156434"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "8.01654 32.7274 30.167"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "checkpoint010"
-      ,
-      "transform":
-      {
-        "pos": "8.01654 59.7274 30.167"
-        ,
-        "rotation": "0.0 -0.987688 0.0 0.156434"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "8.01654 59.7274 30.167"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "checkpoint011"
-      ,
-      "transform":
-      {
-        "pos": "30.8397 64.2274 -4.81932"
-        ,
-        "rotation": "0.0 0.62932 0.0 -0.777146"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "30.8397 64.2274 -4.81932"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "checkpoint012"
-      ,
-      "transform":
-      {
-        "pos": "30.8397 77.7274 -4.81932"
-        ,
-        "rotation": "0.0 0.62932 0.0 -0.777146"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "30.8397 77.7274 -4.81932"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "checkpoint013"
-      ,
-      "transform":
-      {
-        "pos": "14.2282 86.7274 -27.7825"
-        ,
-        "rotation": "0.0 0.207912 0.0 -0.978148"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "14.2282 86.7274 -27.7825"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "checkpoint014"
-      ,
-      "transform":
-      {
-        "pos": "-8.01654 86.7274 -30.167"
-        ,
-        "rotation": "0.0 -0.156434 0.0 -0.987688"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "-8.01654 86.7274 -30.167"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "checkpoint015"
-      ,
-      "transform":
-      {
-        "pos": "-14.1134 119.384 -27.841"
-        ,
-        "rotation": "0.0 -0.258819 0.0 -0.965926"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "-14.1134 119.384 -27.841"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "PlatZ004"
       ,
       "transform":
@@ -2874,6 +2334,8 @@
         "is_trigger": false
         ,
         "mesh_src": "data/meshes/Paredes.col_mesh"
+        ,
+        "group": "scenario"
       }
     }
   }
@@ -2892,14 +2354,6 @@
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/Ventilador.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/VientoMat.material"
-          ]
-        }
       ]
       ,
       "collider":
@@ -2913,83 +2367,6 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      }
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Vientos01Reja"
-      ,
-      "transform":
-      {
-        "pos": "0 0 0"
-      }
-      ,
-      "render":
-      {
-        "mesh": "data/meshes/Reja.mesh"
-        ,
-        "materials":
-        [
-          "data/materials/VallaMat.material"
-        ]
-      }
-      ,
-      "hierarchy":
-      {
-        "parent": "Vientos01"
-        ,
-        "pos": "0.0 1.375 0.0"
-        ,
-        "rotation": "0.0 0.607 0.0 0.795"
-      }
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Vientos01Aspas"
-      ,
-      "transform":
-      {
-        "pos": "0 0 0"
-      }
-      ,
-      "render":
-      {
-        "mesh": "data/meshes/VentiladorAspas004.mesh"
-        ,
-        "materials":
-        [
-          "data/materials/VentiladorPaloMat.material"
-          ,
-          "data/materials/VentiladorAspasMat.material"
-        ]
-      }
-      ,
-      "hierarchy":
-      {
-        "parent": "Vientos01"
-        ,
-        "pos": "0.0 0.0 0.0"
-      }
-      ,
-      "circular_controller":
-      {
-        "speed": 1.0
-        ,
-        "eje": "X"
       }
       ,
       "abs_aabb": true
@@ -3014,7 +2391,7 @@
         ,
         "materials":
         [
-          "data/materials/VientoMat.material"
+          "data/materials/VientoVertMat.material"
         ]
       }
       ,
@@ -3027,7 +2404,7 @@
       ,
       "ai_fan":
       {
-        "force": 0.2
+        "force": 2.0
       }
       ,
       "trigger":
@@ -3045,7 +2422,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "3.6 16.1 1.7"
+        "halfExtent": "3.4 16.5 1.7"
         ,
         "is_dynamic": false
         ,
@@ -3065,21 +2442,13 @@
       ,
       "transform":
       {
-        "pos": "-14.1865 104.625 -27.5901"
+        "pos": "-14.0071 104.625 -27.6199"
         ,
         "rotation": "0.0 -0.258819 0.0 -0.965926"
       }
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/Ventilador.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Seccion4Mat.material"
-          ]
-        }
       ]
       ,
       "collider":
@@ -3104,83 +2473,6 @@
   {
     "entity":
     {
-      "name": "Vientos02Reja"
-      ,
-      "transform":
-      {
-        "pos": "0 0 0"
-      }
-      ,
-      "render":
-      {
-        "mesh": "data/meshes/Reja.mesh"
-        ,
-        "materials":
-        [
-          "data/materials/VallaMat.material"
-        ]
-      }
-      ,
-      "hierarchy":
-      {
-        "parent": "Vientos02"
-        ,
-        "pos": "0.0 1.375 0.0"
-        ,
-        "rotation": "0.0 0.607 0.0 0.795"
-      }
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Vientos02Aspas"
-      ,
-      "transform":
-      {
-        "pos": "0 0 0"
-      }
-      ,
-      "render":
-      {
-        "mesh": "data/meshes/VentiladorAspas004.mesh"
-        ,
-        "materials":
-        [
-          "data/materials/VentiladorPaloMat.material"
-          ,
-          "data/materials/VentiladorAspasMat.material"
-        ]
-      }
-      ,
-      "hierarchy":
-      {
-        "parent": "Vientos02"
-        ,
-        "pos": "0.0 0.0 0.0"
-      }
-      ,
-      "circular_controller":
-      {
-        "speed": 1.0
-        ,
-        "eje": "X"
-      }
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Vientos02Trigger"
       ,
       "transform":
@@ -3194,7 +2486,7 @@
         ,
         "materials":
         [
-          "data/materials/VientoMat.material"
+          "data/materials/VientoVertMat.material"
         ]
       }
       ,
@@ -3202,12 +2494,12 @@
       {
         "parent": "Vientos02"
         ,
-        "pos": "0.0 0.0 3.8147e-06"
+        "pos": "-0.17021 0.0 0.063841"
       }
       ,
       "ai_fan":
       {
-        "force": 0.5
+        "force": 5.0
       }
       ,
       "trigger":
@@ -3225,7 +2517,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "5.4 26.7 5.8"
+        "halfExtent": "5.5 27.0 1.6"
         ,
         "is_dynamic": false
         ,
@@ -9935,6 +9227,32 @@
   {
     "entity":
     {
+      "name": "ParedTapada10"
+      ,
+      "transform":
+      {
+        "pos": "-21.9036 53.1747 -41.7956"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedTapada10.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pared_Gorda_01.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "ParedTapada12"
       ,
       "transform":
@@ -9995,17 +9313,18 @@
       ,
       "transform":
       {
-        "pos": "-25.6804 23.8 -13.1206"
+        "pos": "-25.6804 23.0 -13.1206"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
-      },
+      }
+      ,
       "ai_torch": {
         "time_limit": 2,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3,
         "scale" : 1.4
-      }
+       }
     }
   }
   ,
@@ -10019,13 +9338,14 @@
         "pos": "-14.9296 28.4 -25.8838"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
-      },
+      }
+      ,
       "ai_torch": {
         "time_limit": 2,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
-      }
+       }
     }
   }
   ,
@@ -10036,16 +9356,17 @@
       ,
       "transform":
       {
-        "pos": "6.2235  32.85 -29.2178"
+        "pos": "6.2235 32.85 -29.2178"
         ,
         "rotation": "0.0 0.358209 0.0 -0.933641"
-      },
+      }
+      ,
       "ai_torch": {
         "time_limit": 2,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
-      }
+       }
     }
   }
   ,
@@ -10059,14 +9380,14 @@
         "pos": "14.9503 32.85 -25.8658"
         ,
         "rotation": "0.0 0.500366 0.0 -0.865814"
-
-      },
+      }
+      ,
       "ai_torch": {
         "time_limit": 2,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
-      }
+       }
     }
   }
   ,
@@ -10077,16 +9398,17 @@
       ,
       "transform":
       {
-        "pos": "22.2033  32.85 -19.9668"
+        "pos": "22.2033 32.85 -19.9668"
         ,
         "rotation": "0.0 0.630201 0.0 -0.776432"
-      },
+      }
+      ,
       "ai_torch": {
         "time_limit": 2,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
-      }
+       }
     }
   }
   ,
@@ -10097,16 +9419,17 @@
       ,
       "transform":
       {
-        "pos": "27.3054  32.85 -12.142"
+        "pos": "27.3054 32.85 -12.142"
         ,
         "rotation": "0.0 0.743212 0.0 -0.669056"
-      },
+      }
+      ,
       "ai_torch": {
         "time_limit": 2,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
-      }
+       }
     }
   }
   ,
@@ -10120,14 +9443,15 @@
         "pos": "22.3672 65.3 10.0929"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
-      },
+      }
+      ,
       "ai_torch": {
         "time_limit": 2,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3,
         "scale": 1.4
-      }
+       }
     }
   }
   ,
@@ -10141,13 +9465,14 @@
         "pos": "4.66681 86.0 -30.3653"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
-      },
+      }
+      ,
       "ai_torch": {
         "time_limit": 2,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
-      }
+       }
     }
   }
   ,
@@ -13666,24 +12991,6 @@
   {
     "entity":
     {
-      "name": "final_torch_puzzle"
-      ,
-      "transform":
-      {
-        "pos": "0 0 0"
-        ,
-        "rotation": "0.0 0.0 0.0 0.0"
-      },
-      "ai_torch_puzzle": {
-        "time_limit": 15,
-        "door": "Puerta_Final001"
-      }      
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Caldero001"
       ,
       "transform":
@@ -13775,25 +13082,13 @@
       ,
       "collider":
       {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1 1 1"
+        "shape": "tri_mesh"
         ,
         "is_dynamic": false
         ,
-        "is_trigger": true
-      },
-      "ai_torch": {
-        "puzzle": "final_torch_puzzle",
-        "time_limit": 10
-      },
-      "trigger":
-      {
-        "trigger_type": "torch"
+        "is_trigger": false
         ,
-        "render": true
+        "mesh_src": "data/meshes/Caldero003.col_mesh"
       }
     }
   }
@@ -13987,29 +13282,7 @@
       ,
       "abs_aabb": true
       ,
-      "local_aabb": true,
-      "ai_torch": {
-        "puzzle": "final_torch_puzzle",
-        "time_limit": 10
-      },
-      "trigger":
-      {
-        "trigger_type": "torch"
-        ,
-        "render": true
-      },
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
+      "local_aabb": true
     }
   }
   ,
@@ -14041,31 +13314,9 @@
       ,
       "abs_aabb": true
       ,
-      "local_aabb": true,
-      "ai_torch": {
-        "puzzle": "final_torch_puzzle",
-        "time_limit": 10
-      },
-      "trigger":
-      {
-        "trigger_type": "torch"
-        ,
-        "render": true
-      },
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
+      "local_aabb": true
     }
-  }  
+  }
   ,
   {
     "entity":
@@ -14084,7 +13335,7 @@
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
-      }      
+       }
     }
   }
   ,
@@ -14098,13 +13349,14 @@
         "pos": "11.2303 95.03 -28.9171"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
-      },
+      }
+      ,
       "ai_torch": {
         "time_limit": 2,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
-      }
+       }
     }
   }
   ,
@@ -14282,7 +13534,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-12.9913 5.99632 -28.3666"
         ,
         "collider_entity": "none"
         ,
@@ -14318,7 +13572,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-12.9913 5.99632 -28.3666"
         ,
         "collider_entity": "none"
         ,
@@ -14354,7 +13610,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-31.1214 6.76337 -0.334956"
         ,
         "collider_entity": "none"
         ,
@@ -14390,7 +13648,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -14426,7 +13686,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -14462,7 +13724,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -14498,7 +13762,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -14534,7 +13800,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -14570,7 +13838,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -14606,7 +13876,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -14642,7 +13914,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -14678,7 +13952,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -14714,7 +13990,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -14750,7 +14028,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -14786,7 +14066,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "11.4724 33.7604 29.028"
         ,
         "collider_entity": "none"
         ,
@@ -14822,7 +14104,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -14858,7 +14142,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -14889,12 +14175,14 @@
       {
         "pos": "6.3252 60.7138 30.5157"
         ,
-        "rotation": "0.703233 -0.703233 -0.0739127 0.0739127"
+        "rotation": "0.703233 -0.703233 -0.0739126 0.0739127"
       }
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -14930,7 +14218,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -14966,7 +14256,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -15002,7 +14294,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -15038,7 +14332,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -15074,7 +14370,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -15110,7 +14408,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -15146,7 +14446,9 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -15175,14 +14477,16 @@
       ,
       "transform":
       {
-        "pos": "-14.3835 117.463 -26.7452"
+        "pos": "-14.3835 116.878 -26.7452"
         ,
-        "rotation": "-0.258819 0.0 -0.965926 0.0"
+        "rotation": "-0.258819 2.61203e-07 -0.965926 -1.26556e-07"
       }
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-14.3835 116.878 -26.7452"
         ,
         "collider_entity": "none"
         ,
@@ -15195,7 +14499,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "5.9804 0.136177 6.22661"
+        "halfExtent": "5.98039 0.720924 6.22661"
         ,
         "is_dynamic": false
         ,
@@ -15581,7 +14885,7 @@
       ,
       "circular_controller":
       {
-        "speed": 20.0
+        "speed": 5.0
         ,
         "eje": "X"
       }
@@ -15688,7 +14992,7 @@
       ,
       "circular_controller":
       {
-        "speed": 20.0
+        "speed": 5.0
         ,
         "eje": "X"
       }
@@ -15738,113 +15042,6 @@
         "center": "0.0 4.48199 -1.95914e-07"
         ,
         "radius": 31.435
-      }
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "convex_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-        ,
-        "mesh_src": "data/meshes/Sierra004.col_mesh"
-      }
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sierra004"
-      ,
-      "transform":
-      {
-        "pos": "0.0 0.0 0.0"
-        ,
-        "rotation": "0.0 0.0 0.0 0.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sierra003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
-      ]
-      ,
-      "circular_controller":
-      {
-        "speed": 20.0
-        ,
-        "eje": "X"
-      }
-      ,
-      "hierarchy":
-      {
-        "parent": "Sierra004_parent"
-        ,
-        "pos": "0.0 0.0 0.0"
-        ,
-        "rotation": "0.0 0.0 0.0 0.0"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sierra004_parent"
-      ,
-      "transform":
-      {
-        "pos": "-17.6465 8.99426 -26.1143"
-        ,
-        "rotation": "0.0 -0.94788 0.0 0.318629"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "ai_orbit_patrol":
-      {
-        "speed": 0.05
-        ,
-        "delay": 1.0
-        ,
-        "wake": 0.0
-        ,
-        "waypoints":
-        [
-          "-17.6465 8.99426 -26.1143"
-          ,
-          "-23.4002 8.99426 -21.1137"
-        ]
-        ,
-        "center": "0.0 8.99426 -3.93152e-07"
-        ,
-        "radius": 31.5175
       }
       ,
       "player_killer":
@@ -16440,7 +15637,7 @@
           ,
           "materials":
           [
-            "data/materials/Arco_Grande_01.material"
+            "data/materials/ArcoMate.material"
           ]
         }
       ]
@@ -16470,7 +15667,7 @@
           ,
           "materials":
           [
-            "data/materials/Arco_Grande_01.material"
+            "data/materials/ArcoMate.material"
           ]
         }
       ]
@@ -16521,13 +15718,14 @@
         "pos": "12.1354 32.85 27.2987"
         ,
         "rotation": "0.0 -0.998607 0.0 -0.0527577"
-      },
+      }
+      ,
       "ai_torch": {
         "time_limit": 2,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
-      }
+       }
     }
   }
   ,
@@ -16652,7 +15850,7 @@
           ,
           "materials":
           [
-            "data/materials/Arco_Grande_01.material"
+            "data/materials/Gris_01_Mat.material"
           ]
         }
       ]
@@ -16763,13 +15961,14 @@
         "pos": "19.2713 63.9 15.6436"
         ,
         "rotation": "0.0 -0.986442 0.0 0.164108"
-      },
+      }
+      ,
       "ai_torch": {
         "time_limit": 2,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
-      }
+       }
     }
   }
   ,
@@ -16933,13 +16132,14 @@
         "pos": "14.3438 62.2 20.2168"
         ,
         "rotation": "0.0 -0.986442 0.0 0.164108"
-      },
+      }
+      ,
       "ai_torch": {
         "time_limit": 2,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
-      }
+       }
     }
   }
   ,
@@ -16982,8 +16182,7 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      },
-      "door":{}
+      }
     }
   }
   ,
@@ -17025,7 +16224,7 @@
         ,
         "mesh_src": "data/meshes/Puerta_Reja_01.col_mesh"
       },
-      "door":{}
+      "door": {}
     }
   }
   ,
@@ -17068,8 +16267,7 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      },
-      "door":{}
+      }
     }
   }
   ,
@@ -17264,13 +16462,14 @@
         "pos": "21.0592 86.85 -21.0947"
         ,
         "rotation": "0.0 0.604705 0.0 -0.796449"
-      },
+      }
+      ,
       "ai_torch": {
         "time_limit": 2,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
-      }
+       }
     }
   }
   ,
@@ -17284,13 +16483,14 @@
         "pos": "13.5308 86.85 -26.6448"
         ,
         "rotation": "0.0 0.476187 0.0 -0.879344"
-      },
+      }
+      ,
       "ai_torch": {
         "time_limit": 2,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
-      }
+       }
     }
   }
   ,
@@ -17403,7 +16603,7 @@
         "is_trigger": false
         ,
         "mesh_src": "data/meshes/Puerta_Abatible_Madera_003.col_mesh"
-      }, 
+      },
       "door": {}
     }
   }
@@ -17447,8 +16647,7 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      },
-      "door":{}
+      }
     }
   }
   ,
@@ -17545,7 +16744,7 @@
       ,
       "transform":
       {
-        "pos": "11.5089 51.1964 28.7279"
+        "pos": "11.4585 51.2029 28.7279"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -17895,6 +17094,113 @@
         ,
         "is_trigger": true
       }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sierra004"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sierra003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "circular_controller":
+      {
+        "speed": 5.0
+        ,
+        "eje": "X"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Sierra004_parent"
+        ,
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sierra004_parent"
+      ,
+      "transform":
+      {
+        "pos": "-17.6465 8.99426 -26.1143"
+        ,
+        "rotation": "0.0 -0.94788 0.0 0.318629"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ai_orbit_patrol":
+      {
+        "speed": 0.05
+        ,
+        "delay": 1.0
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "-17.6465 8.99426 -26.1143"
+          ,
+          "-23.4002 8.99426 -21.1137"
+        ]
+        ,
+        "center": "0.0 8.99426 -3.93152e-07"
+        ,
+        "radius": 31.5175
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "mesh_src": "data/meshes/Sierra004.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
     }
   }
 ]
