@@ -549,7 +549,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 3.0
+        "speed": 6.0
         ,
         "delay": 1.0
         ,
@@ -616,7 +616,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 3.0
+        "speed": 6.0
         ,
         "delay": 1.0
         ,
@@ -683,7 +683,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 3.5
+        "speed": 6
         ,
         "delay": 0.5
         ,
@@ -918,7 +918,7 @@
       ,
       "circular_controller":
       {
-        "speed": 5.0
+        "speed": 20.0
         ,
         "eje": "X"
       }
@@ -1157,7 +1157,7 @@
       ,
       "circular_controller":
       {
-        "speed": 5.0
+        "speed": 20.0
         ,
         "eje": "X"
       }
@@ -1233,7 +1233,7 @@
       ,
       "circular_controller":
       {
-        "speed": 5.0
+        "speed": 20.0
         ,
         "eje": "X"
       }
@@ -2897,7 +2897,7 @@
           ,
           "materials":
           [
-            "data/materials/Seccion4Mat.material"
+            "data/materials/VientoMat.material"
           ]
         }
       ]
@@ -3014,7 +3014,7 @@
         ,
         "materials":
         [
-          "data/materials/Seccion4Mat.material"
+          "data/materials/VientoMat.material"
         ]
       }
       ,
@@ -3194,7 +3194,7 @@
         ,
         "materials":
         [
-          "data/materials/Seccion4Mat.material"
+          "data/materials/VientoMat.material"
         ]
       }
       ,
@@ -15563,7 +15563,7 @@
       ,
       "circular_controller":
       {
-        "speed": 5.0
+        "speed": 20.0
         ,
         "eje": "X"
       }
@@ -15670,7 +15670,7 @@
       ,
       "circular_controller":
       {
-        "speed": 5.0
+        "speed": 20.0
         ,
         "eje": "X"
       }
@@ -15777,7 +15777,7 @@
       ,
       "circular_controller":
       {
-        "speed": 5.0
+        "speed": 20.0
         ,
         "eje": "X"
       }
