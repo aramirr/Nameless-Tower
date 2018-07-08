@@ -113,7 +113,7 @@ void bt_runner::create(string s)
 
 //----- ACTIONS -----
 int bt_runner::actionStop() {
-	dbg("stop\n");
+	//dbg("stop\n");
     change_color(VEC4(0.5f, 0.0f, 0.0f, 1.0f));
     debug_timer += DT;
     if (debug_timer >= 1.f) {
@@ -124,7 +124,7 @@ int bt_runner::actionStop() {
 };
 
 int bt_runner::actionScream() {
-	dbg("scream\n");
+	//dbg("scream\n");
     change_color(VEC4(1.0f, 0.0f, 0.0f, 1.0f));
     debug_timer += DT;
     if (debug_timer >= 1.f) {
@@ -135,7 +135,7 @@ int bt_runner::actionScream() {
 };
 
 int bt_runner::actionDisappear() {
-	dbg("disappear\n");
+	//dbg("disappear\n");
 	EngineTower.disappearEntity("Runner");
     TCompCollider *comp_collider = getMyCollider();
     comp_collider->controller->setPosition(physx::PxExtendedVec3(tower_center.x, tower_center.y, tower_center.z));
@@ -144,7 +144,7 @@ int bt_runner::actionDisappear() {
 };
 
 int bt_runner::actionRecular() {
-	dbg("recular\n");
+	//dbg("recular\n");
     change_color(VEC4(0.0f, 0.5f, 0.0f, 1.0f));
     debug_timer += DT;
     if (debug_timer >= 1.f) {
@@ -156,7 +156,7 @@ int bt_runner::actionRecular() {
 };
 
 int bt_runner::actionRecover() {
-	dbg("recover\n");
+	//dbg("recover\n");
     change_color(VEC4(0.0f, 1.0f, 0.0f, 1.0f));
     debug_timer += DT;
     if (debug_timer >= 1.f) {
@@ -168,7 +168,7 @@ int bt_runner::actionRecover() {
 };
 
 int bt_runner::actionAttackWall1() {
-	dbg("attackwall1\n");
+	//dbg("attackwall1\n");
     debug_timer += DT;
     if (debug_timer >= 1.f) {
         debug_timer = 0.f;
@@ -179,7 +179,7 @@ int bt_runner::actionAttackWall1() {
 };
 
 int bt_runner::actionAttackWall2() {
-	dbg("attackwall2\n");
+	//dbg("attackwall2\n");
     debug_timer += DT;
     if (debug_timer >= 1.f) {
         debug_timer = 0.f;
@@ -190,7 +190,7 @@ int bt_runner::actionAttackWall2() {
 };
 
 int bt_runner::actionAttackFloor1() {
-	dbg("attackfloor1\n");
+	//dbg("attackfloor1\n");
     change_color(VEC4(0.0f, 0.0f, 1.0f, 1.0f));
     debug_timer += DT;
     if (debug_timer >= 1.f) {
@@ -202,7 +202,7 @@ int bt_runner::actionAttackFloor1() {
 };
 
 int bt_runner::actionAttackFloor2() {
-	dbg("attackfloor2\n");
+	//dbg("attackfloor2\n");
     change_color(VEC4(0.0f, 0.0f, 0.5f, 1.0f));
     debug_timer += DT;
     if (debug_timer >= 1.f) {
@@ -214,7 +214,7 @@ int bt_runner::actionAttackFloor2() {
 };
 
 int bt_runner::actionChase() {
-	dbg("chase\n");
+	//dbg("chase\n");
 
 	//getPath();
 	/*if (b_chase_player)
@@ -226,7 +226,7 @@ int bt_runner::actionChase() {
 };
 
 int bt_runner::actionAppear() {
-	dbg("appear\n");
+	//dbg("appear\n");
   TCompCollider* my_collider = getMyCollider();
   my_collider->controller->setPosition(physx::PxExtendedVec3(appearing_position.x, appearing_position.y, appearing_position.z));
   TCompTransform* my_transform = getMyTransform();
@@ -245,7 +245,7 @@ int bt_runner::actionAppear() {
 
 int bt_runner::actionHide() {
 
-	dbg("hide\n");
+	//dbg("hide\n");
 	return LEAVE;
 };
 
