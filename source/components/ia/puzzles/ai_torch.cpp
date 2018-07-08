@@ -124,6 +124,8 @@ void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
 
 void CAITorch::simulateLight() {
     float r = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX))*DT;
+	if (r > 0.1f) r = 0.1f;
+
     TCompTransform* my_transform = getMyTransform();
 
     int aux1 = rand() % 2;

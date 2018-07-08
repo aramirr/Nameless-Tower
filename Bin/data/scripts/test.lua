@@ -158,7 +158,7 @@ end
 
 function OnTriggerEnterTSArbolArriba()
 	lm:hide_mesh("ParedDestapada10")
-	lm:unhide_mesh("ParedTapada10")
+	--lm:unhide_mesh("ParedTapada10")
 	lm:set_ambient(1)
 	lm:set_dir_light_intensity("LightDir00", 10)
 end
@@ -166,7 +166,7 @@ end
 -- Sala 10
 function OnTriggerEnterTSRunnerIzq()
 	lm:unhide_mesh("ParedDestapada10")
-	lm:hide_mesh("ParedTapada10")
+	--lm:hide_mesh("ParedTapada10")
 	lm:set_ambient(0.2)
 	lm:set_dir_light_intensity("LightDir00", 0)
 end
@@ -181,7 +181,7 @@ end
 -- Sala 11
 function OnTriggerEnterTSCascadaAbajo()
 	lm:hide_mesh("ParedDestapada10")
-	lm:unhide_mesh("ParedTapada10")
+	--lm:unhide_mesh("ParedTapada10")
 	lm:set_ambient(1)
 	lm:set_dir_light_intensity("LightDir00", 10)
 end
