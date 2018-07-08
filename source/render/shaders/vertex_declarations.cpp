@@ -163,6 +163,8 @@ bool CVertexDeclManager::create() {
     { "TEXCOORD", 2, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 16, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world1
     // scale_x, scale_y, nframe
     { "TEXCOORD", 3, DXGI_FORMAT_R32G32B32_FLOAT, 0, 32, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world1
+	// id
+	{ "TEXCOORD", 4, DXGI_FORMAT_R32G32B32_FLOAT, 0, 48, D3D11_INPUT_PER_VERTEX_DATA, 0 },    // world2
     };
     createNew("RenderParticle", layout, ARRAYSIZE(layout));
   }

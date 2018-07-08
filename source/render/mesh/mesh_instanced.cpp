@@ -61,7 +61,7 @@ void CRenderMeshInstanced::setInstancesData(
 , size_t bytes_per_instance
 ) {
   assert(bytes_per_instance > 0);
-  //assert(bytes_per_instance == getVertexDecl()->bytes_per_vertex);
+  assert(bytes_per_instance <= getVertexDecl()->bytes_per_vertex);
   reserveGPUInstances( total_instances );
   if( data )
     updateFromCPU(data, total_instances * bytes_per_instance);
