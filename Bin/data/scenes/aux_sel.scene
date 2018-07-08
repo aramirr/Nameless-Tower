@@ -1,0 +1,171 @@
+[
+  {
+    "entity":
+    {
+      "name": "Puerta_Reja_01"
+      ,
+      "transform":
+      {
+        "pos": "25.8283 49.4987 15.2122"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Reja_01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puerta_reja_00.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Puerta_Reja_01.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Puerta_Reja_005"
+      ,
+      "transform":
+      {
+        "pos": "11.3017 31.5458 27.7067"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Reja_005.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puerta_reja_00.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.599702 2.31665 1.125"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Puerta_Reja_04"
+      ,
+      "transform":
+      {
+        "pos": "8.33141 31.5458 28.7294"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Reja_04.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puerta_reja_00.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.490147 2.31665 1.14723"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Puerta_Reja_02"
+      ,
+      "transform":
+      {
+        "pos": "30.1672 63.048 0.69244"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Reja_02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puerta_reja_00.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.16967 2.31665 0.185844"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+]
