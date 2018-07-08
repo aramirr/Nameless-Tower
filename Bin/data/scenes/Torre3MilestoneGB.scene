@@ -908,229 +908,6 @@
   {
     "entity":
     {
-      "name": "Sierra002"
-      ,
-      "transform":
-      {
-        "pos": "15.5961 31.5 -27.0059"
-        ,
-        "rotation": "0.0 0.249028 0.0 -0.968496"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/SierraJ.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/SierraM.material"
-          ]
-        }
-      ]
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "circular_controller":
-      {
-        "speed": 20.0
-        ,
-        "eje": "X"
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": true
-      }
-      ,
-      "collider":
-      {
-        "shape": "convex_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/SierraE.col_mesh"
-      }
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "PuertaCortante002"
-      ,
-      "transform":
-      {
-        "pos": "23.1824 32.4529 -20.8719"
-        ,
-        "rotation": "0.0 -0.358279 0.0 -0.933615"
-      }
-      ,
-      "render":
-      {
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "PuertaCortante002_up"
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Cut_door_up.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/PuertaM.material"
-          ]
-        }
-      ]
-      ,
-      "transform":
-      {
-        "pos": "23.1824 32.4529 20.8719"
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.2675 1.7335 0.247"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "offset": "0 1.816 0"
-      }
-      ,
-      "hierarchy":
-      {
-        "parent": "PuertaCortante002"
-      }
-      ,
-      "ai_cut_door":
-      {
-        "opened_position": 3.0
-        ,
-        "up": true
-      }
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "PuertaCortante002_down"
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Cut_door_down.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/PuertaM.material"
-          ]
-        }
-      ]
-      ,
-      "transform":
-      {
-        "pos": "23.1824 32.4529 20.8719"
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.2675 0.475 0.247"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "offset": "0 -0.5175 0"
-      }
-      ,
-      "hierarchy":
-      {
-        "parent": "PuertaCortante002"
-      }
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "PuertaCortante002_trigger_up"
-      ,
-      "render":
-      [
-      ]
-      ,
-      "transform":
-      {
-        "pos": "23.1824 32.4529 20.8719"
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.2675 0.0825 0.247"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "hierarchy":
-      {
-        "parent": "PuertaCortante002_up"
-        ,
-        "pos": "0 0 0"
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": false
-      }
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Sierra005"
       ,
       "transform":
@@ -16211,6 +15988,89 @@
         "radius" : 3
        }
     }
+  },
+  {
+    "entity":
+    {
+      "name": "Puerta_Reja_01"
+      ,
+      "transform":
+      {
+        "pos": "25.8283 49.4987 15.2122"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Reja_01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puerta_reja_00.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Puerta_Reja_01.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Puerta_Reja_005"
+      ,
+      "transform":
+      {
+        "pos": "11.3017 31.5458 27.7067"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Reja_005.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puerta_reja_00.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.599702 2.31665 1.125"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
   }
   ,
   {
@@ -16220,7 +16080,7 @@
       ,
       "transform":
       {
-        "pos": "8.43416 33.6817 29.9346"
+        "pos": "8.33141 31.5458 28.7294"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -16252,50 +16112,7 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      },
-      "door": {}
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Puerta_Reja_01"
-      ,
-      "transform":
-      {
-        "pos": "26.8535 51.6346 15.6878"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
       }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Puerta_Reja_01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Puerta_reja_00.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-      ,
-      "collider":
-      {
-        "shape": "convex_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/Puerta_Reja_01.col_mesh"
-      },
-      "door": {}
     }
   }
   ,
@@ -16306,7 +16123,7 @@
       ,
       "transform":
       {
-        "pos": "31.2772 65.1839 0.587385"
+        "pos": "30.1672 63.048 0.69244"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -16688,50 +16505,7 @@
       "door": {}
     }
   }
-  ,
-  {
-    "entity":
-    {
-      "name": "Puerta_Reja_005"
-      ,
-      "transform":
-      {
-        "pos": "11.517 33.6817 28.8891"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Puerta_Reja_005.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Puerta_reja_00.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.599702 2.31665 1.125"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      },
-      "door": {}
-    }
-  }
+  
   ,
   {
     "entity":
