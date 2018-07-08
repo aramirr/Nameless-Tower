@@ -1,4 +1,22 @@
 [
+{
+    "entity":
+    {
+      "name": "final_torch_puzzle"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      },
+      "ai_torch_puzzle": {
+        "time_limit": 15,
+        "door": "Puerta_Final001"
+      }      
+    }
+  }
+  ,
   {
     "entity":
     {
@@ -9468,11 +9486,31 @@
       }
       ,
       "ai_torch": {
-        "time_limit": 2,
+        "puzzle": "final_torch_puzzle",
+        "time_limit": 10,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
        }
+       ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 1 1"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      },
+      "trigger":
+      {
+        "trigger_type": "torch"
+        ,
+        "render": true
+      }
     }
   }
   ,
@@ -13049,25 +13087,7 @@
       "local_aabb": true
     }
   }
-  ,
-  {
-    "entity":
-    {
-      "name": "final_torch_puzzle"
-      ,
-      "transform":
-      {
-        "pos": "0 0 0"
-        ,
-        "rotation": "0.0 0.0 0.0 0.0"
-      },
-      "ai_torch_puzzle": {
-        "time_limit": 15,
-        "door": "Puerta_Final001"
-      }      
-    }
-  }
-  ,
+  ,  
   {
     "entity":
     {
@@ -13096,30 +13116,7 @@
       ,
       "abs_aabb": true
       ,
-      "local_aabb": true
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      },
-      "ai_torch": {
-        "puzzle": "final_torch_puzzle",
-        "time_limit": 10
-      },
-      "trigger":
-      {
-        "trigger_type": "torch"
-        ,
-        "render": true
-      }
+      "local_aabb": true      
     }
   }
   ,
@@ -13312,29 +13309,7 @@
       ,
       "abs_aabb": true
       ,
-      "local_aabb": true,
-      "ai_torch": {
-        "puzzle": "final_torch_puzzle",
-        "time_limit": 10
-      },
-      "trigger":
-      {
-        "trigger_type": "torch"
-        ,
-        "render": true
-      },
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
+      "local_aabb": true
     }
   }
   ,
@@ -13366,25 +13341,7 @@
       ,
       "abs_aabb": true
       ,
-      "local_aabb": true,
-      "trigger":
-      {
-        "trigger_type": "torch"
-        ,
-        "render": true
-      },
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1 1 1"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
+      "local_aabb": true
     }
   }
   ,
@@ -13401,11 +13358,31 @@
       }
       ,
       "ai_torch": {
-        "time_limit": 2,
+        "puzzle": "final_torch_puzzle",
+        "time_limit": 10,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
        }
+       ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 1 1"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      },
+      "trigger":
+      {
+        "trigger_type": "torch"
+        ,
+        "render": true
+      }
     }
   }
   ,
@@ -13422,11 +13399,31 @@
       }
       ,
       "ai_torch": {
-        "time_limit": 2,
+        "puzzle": "final_torch_puzzle",
+        "time_limit": 10,
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
        }
+       ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 1 1"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      },
+      "trigger":
+      {
+        "trigger_type": "torch"
+        ,
+        "render": true
+      }
     }
   }
   ,
@@ -16368,7 +16365,17 @@
       "abs_aabb": true
       ,
       "local_aabb": true,
-      "door": {}
+      "door": {},
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Puerta_Abatible_Madera_002.col_mesh"
+      }
     }
   }
   ,
