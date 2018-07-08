@@ -98,8 +98,8 @@ void CAITorch::InactiveState(float dt)
 
 void CAITorch::activate() {
 	active = true;
-	TCompRender *my_render = getMyRender();
-	my_render->self_illumination = 1;
+	//TCompRender *my_render = getMyRender();
+	//my_render->self_illumination = 1;
     
 	ChangeState("active");
 }
@@ -108,8 +108,8 @@ void CAITorch::activate() {
 void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
 	if (active) {
 		active = false;
-		TCompRender *my_render = getMyRender();
-		my_render->self_illumination = 1;
+		//TCompRender *my_render = getMyRender();
+		//my_render->self_illumination = 1;
 		timer = 0;
 		ChangeState("inactive");
 		if (in_puzzle) {

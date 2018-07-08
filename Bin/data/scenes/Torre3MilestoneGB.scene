@@ -13675,7 +13675,7 @@
         "rotation": "0.0 0.0 0.0 0.0"
       },
       "ai_torch_puzzle": {
-        "time_limit": 8,
+        "time_limit": 15,
         "door": "Puerta_Final001"
       }      
     }
@@ -13775,17 +13775,25 @@
       ,
       "collider":
       {
-        "shape": "tri_mesh"
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 1 1"
         ,
         "is_dynamic": false
         ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/Caldero003.col_mesh"
+        "is_trigger": true
       },
       "ai_torch": {
         "puzzle": "final_torch_puzzle",
         "time_limit": 10
+      },
+      "trigger":
+      {
+        "trigger_type": "torch"
+        ,
+        "render": true
       }
     }
   }
@@ -13983,6 +13991,24 @@
       "ai_torch": {
         "puzzle": "final_torch_puzzle",
         "time_limit": 10
+      },
+      "trigger":
+      {
+        "trigger_type": "torch"
+        ,
+        "render": true
+      },
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 1 1"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
       }
     }
   }
@@ -14019,6 +14045,24 @@
       "ai_torch": {
         "puzzle": "final_torch_puzzle",
         "time_limit": 10
+      },
+      "trigger":
+      {
+        "trigger_type": "torch"
+        ,
+        "render": true
+      },
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1 1 1"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
       }
     }
   }  
@@ -14040,7 +14084,7 @@
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3
-      }
+      }      
     }
   }
   ,

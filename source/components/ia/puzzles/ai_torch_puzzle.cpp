@@ -60,8 +60,8 @@ void CAITorchPuzzle::InactiveState(float dt)
 
 void CAITorchPuzzle::deactivate() {
 	active = false;
-	TCompRender *my_render = getMyRender();
-	my_render->self_illumination = 1;
+	//TCompRender *my_render = getMyRender();
+	//my_render->self_illumination = 1;
 	ChangeState("inactive");
     for (auto torch : torchs) {
 		CAITorch* t = torch->get<CAITorch>();
