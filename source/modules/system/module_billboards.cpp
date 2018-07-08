@@ -35,19 +35,19 @@ bool CModuleBillboards::start()
 }
 
 void CModuleBillboards::apagarFuego(int id) {
-	for (auto& p : particles_instances) {
-		if (p.id == id) {
-			p.scale_x = 0.f;
-			p.scale_y = 0.f;
+	for (int i = 0; i < particles_instances.size(); ++i) {
+		if (particles_ids[i] == id) {
+			particles_instances[i].scale_x = 0.f;
+			particles_instances[i].scale_y = 0.f;
 		}
 	}
 }
 
 void CModuleBillboards::encenderFuego(int id, float scale) {
-	for (auto& p : particles_instances) {
-		if (p.id == id) {
-			p.scale_x = scale;
-			p.scale_y = scale;
+	for (int i = 0; i < particles_instances.size(); ++i) {
+		if (particles_ids[i] == id) {
+			particles_instances[i].scale_x = scale;
+			particles_instances[i].scale_y = scale;
 		}
 	}
 }
@@ -56,7 +56,7 @@ int CModuleBillboards::addFuegoTest(VEC3 position, float scale) {
 	int new_id = max_id;
 	++max_id;
     TRenderParticle new_instance;
-	new_instance.id = new_id;
+	//new_instance.id = new_id;
 	new_instance.scale_x = scale;
     new_instance.scale_y = new_instance.scale_x;
     new_instance.pos = position;
@@ -66,7 +66,8 @@ int CModuleBillboards::addFuegoTest(VEC3 position, float scale) {
     new_instance.color.y = unitRandom();
     new_instance.color.z = 1 - new_instance.color.x - new_instance.color.y;
     new_instance.color.w = 1;
-    particles_instances.push_back(new_instance);
+	particles_instances.push_back(new_instance);
+	particles_ids.push_back(new_id);
 
 	return new_id;
 }

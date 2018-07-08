@@ -29,10 +29,10 @@ class CModuleBillboards : public IModule
     float scale_x;
     float scale_y;
     float nframe;
-	int id;
   };
   CRenderMeshInstanced* particles_instances_mesh = nullptr;
   std::vector< TRenderParticle > particles_instances;
+  std::vector< int > particles_ids;
 
 
   // -------------------------------------------------------------------
