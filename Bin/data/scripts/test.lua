@@ -66,12 +66,14 @@ end
 function OnTriggerEnterTSEstatuaArriba()
 	lm:unhide_mesh("ParedTapada4")
 	lm:hide_mesh("ParedDestapada4")
+	lm:set_ambient(1)
 end
 
 -- Sala 4
 function OnTriggerEnterTSWindstrikeDer()
 	lm:hide_mesh("ParedTapada4")
 	lm:unhide_mesh("ParedDestapada4")
+	lm:set_ambient(0.2)
 end
 
 function OnTriggerEnterTSWindstrikeIzq()
@@ -80,6 +82,7 @@ function OnTriggerEnterTSWindstrikeIzq()
 
 	lm:hide_mesh("ParedDestapada5")
 	lm:unhide_mesh("ParedTapada5")
+	lm:set_ambient(0.2)
 end
 
 -- Sala 5
@@ -89,39 +92,46 @@ function OnTriggerEnterTSEscaleras1Izq()
 
 	lm:unhide_mesh("ParedDestapada5")
 	lm:hide_mesh("ParedTapada5")
+	lm:set_ambient(0.2)
 end
 
 function OnTriggerEnterTSEscaleras1Der()
 	lm:unhide_mesh("ParedDestapada5")
 	lm:hide_mesh("ParedTapada5")
+	lm:set_ambient(0.2)
 end
 
 -- Sala 6
 function OnTriggerEnterTSEscaleras2Izq()
 	lm:hide_mesh("ParedDestapada5")
 	lm:unhide_mesh("ParedTapada5")
+	lm:set_ambient(1)
 end
 
 function OnTriggerEnterTSEscaleras2Der()
 	lm:hide_mesh("ParedDestapada7")
 	lm:unhide_mesh("ParedTapada7")
+	lm:set_ambient(1)
 end
 
 -- Sala 7
 function OnTriggerEnterTPTechosIzq()
 	lm:unhide_mesh("ParedDestapada7")
 	lm:hide_mesh("ParedTapada7")
+	lm:set_ambient(0.2)
 end
 
 function OnTriggerEnterTPTechosDer()
 	lm:unhide_mesh("ParedDestapada7")
 	lm:hide_mesh("ParedTapada7")
+	lm:set_ambient(0.2)
 end
 
 -- Sala 8
 function OnTriggerEnterTSPuertasIzq()
 	lm:hide_mesh("ParedDestapada7")
 	lm:unhide_mesh("ParedTapada7")
+	lm:set_ambient(1)
 end
 
 function OnTriggerEnterTSPuertasZoom()
@@ -140,39 +150,46 @@ end
 function OnTriggerEnterTSArbolArriba()
 	lm:hide_mesh("ParedDestapada10")
 	lm:unhide_mesh("ParedTapada10")
+	lm:set_ambient(1)
 end
 
 -- Sala 10
 function OnTriggerEnterTSRunnerIzq()
 	lm:unhide_mesh("ParedDestapada10")
 	lm:hide_mesh("ParedTapada10")
+	lm:set_ambient(0.2)
 end
 
 function OnTriggerEnterTSRunnerDer()
 	lm:unhide_mesh("ParedDestapada10")
 	lm:hide_mesh("ParedTapada10")
+	lm:set_ambient(0.2)
 end
 
 -- Sala 11
 function OnTriggerEnterTSCascadaAbajo()
 	lm:hide_mesh("ParedDestapada10")
 	lm:unhide_mesh("ParedTapada10")
+	lm:set_ambient(1)
 end
 
 function OnTriggerEnterTSCascadaArriba()
 	lm:hide_mesh("ParedDestapada12")
 	lm:unhide_mesh("ParedTapada12")
+	lm:set_ambient(1)
 end
 
 -- Sala 12
 function OnTriggerEnterTSAntorchasIzq()
 	lm:unhide_mesh("ParedDestapada12")
 	lm:hide_mesh("ParedTapada12")
+	lm:set_ambient(0.2)
 end
 
 function OnTriggerEnterTSAntorchasDer()
 	lm:unhide_mesh("ParedDestapada12")
 	lm:hide_mesh("ParedTapada12")
+	lm:set_ambient(0.2)
 
 	lm:hide_mesh("ParedDestapada13")
 	lm:unhide_mesh("ParedTapada13")
@@ -182,6 +199,7 @@ end
 function OnTriggerEnterTTSalidaAbajo()
 	lm:hide_mesh("ParedDestapada12")
 	lm:unhide_mesh("ParedTapada12")
+	lm:set_ambient(0.2)
 
 	lm:unhide_mesh("ParedDestapada13")
 	lm:hide_mesh("ParedTapada13")

@@ -36,7 +36,7 @@ bool CModuleBillboards::start()
 
 void CModuleBillboards::addFuegoTest(VEC3 position) {
     TRenderParticle new_instance;
-    new_instance.scale_x = randomFloat(0.3f, 0.5f);
+	new_instance.scale_x = 0.2f;
     new_instance.scale_y = new_instance.scale_x;
     new_instance.pos = position;
     new_instance.nframe = randomFloat(0.f, 16.f);
