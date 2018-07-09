@@ -18,7 +18,7 @@ void TCompProjectileController::setEntity(CHandle new_entity) {
 void TCompProjectileController::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
   time_interval = j.value("time_interval", 2.0f);
-	is_active = false;
+	is_active = true;
 	current_interval = 0;
 }
 
