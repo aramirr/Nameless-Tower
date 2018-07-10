@@ -14427,7 +14427,13 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      }
+      },
+      "rigid_anim" : 
+      {
+        "src" : "data/anims/Torre3MilestoneGB.anims",
+        "loops": false,
+        "speed_factor": 0.15
+      } 
     }
   }
   ,
@@ -14505,7 +14511,13 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      }
+      },
+      "rigid_anim" : 
+      {
+        "src" : "data/anims/Torre3MilestoneGB.anims",
+        "loops": false,
+        "speed_factor": 0.15
+      } 
     }
   }
   ,
@@ -14583,7 +14595,13 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      }
+      },
+      "rigid_anim" : 
+      {
+        "src" : "data/anims/Torre3MilestoneGB.anims",
+        "loops": false,
+        "speed_factor": 0.15
+      } 
     }
   }
   ,
@@ -14661,7 +14679,13 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      }
+      },
+      "rigid_anim" : 
+      {
+        "src" : "data/anims/Torre3MilestoneGB.anims",
+        "loops": false,
+        "speed_factor": 0.15
+      } 
     }
   }
   ,
@@ -16615,7 +16639,7 @@
       ,
       "transform":
       {
-        "pos": "11.4585 51.2029 28.7279"
+        "pos": "11.4585 50.7529 28.7279"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -16651,7 +16675,7 @@
       ,
       "transform":
       {
-        "pos": "27.7312 37.7039 14.5425"
+        "pos": "27.7312 37.2039 14.5425"
         ,
         "rotation": "0.0 -0.631735 0.0 -0.775184"
       }
@@ -16687,7 +16711,7 @@
       ,
       "transform":
       {
-        "pos": "30.4191 42.2095 -7.89638"
+        "pos": "30.4191 40.7595 -7.89638"
         ,
         "rotation": "0.0 -0.919786 0.0 -0.392419"
       }

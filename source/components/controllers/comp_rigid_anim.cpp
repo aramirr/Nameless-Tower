@@ -59,6 +59,11 @@ void TCompRigidAnim::onGroupCreated(const TMsgEntitiesGroupCreated& msg) {
     controller.setInitialTransform(transform);
 }
 
+void TCompRigidAnim::activate(const TMsgActivateAnim& msg) {
+	is_moving = true;
+}
+
 void TCompRigidAnim::registerMsgs() {
-    DECL_MSG(TCompRigidAnim, TMsgEntitiesGroupCreated, onGroupCreated);
+	DECL_MSG(TCompRigidAnim, TMsgEntitiesGroupCreated, onGroupCreated);
+	DECL_MSG(TCompRigidAnim, TMsgActivateAnim, activate);
 }

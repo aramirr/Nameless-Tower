@@ -118,3 +118,10 @@ const void CModuleTower::openDoor(const std::string& name) {
     TMsgOpenDoor msg;
     entity->sendMsg(msg);
 }
+
+
+const void CModuleTower::activateAnim(const std::string& name) {
+	CEntity* entity = (CEntity*)getEntityByName(name);
+	TMsgActivateAnim msg;
+	entity->sendMsg(msg);
+}

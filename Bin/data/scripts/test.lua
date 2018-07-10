@@ -29,14 +29,17 @@ end
 
 function OnWindstrikeActivateTAPuertasPrimera()
 	lm:open_door("Puerta_Reja_01")
+	lm:activate_anim("Activador_Movil03")
 end
 
 function OnWindstrikeActivateTAPuertasAbajo()
 	lm:open_door("Puerta_Reja_005")
+	lm:activate_anim("Activador_Movil02")
 end
 
 function OnWindstrikeActivateTAPuertasArriba()
 	lm:open_door("Puerta_Reja_04")
+	lm:activate_anim("Activador_Movil04")
 end
 
 function OnWindstrikeActivateTARunner()

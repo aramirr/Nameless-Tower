@@ -66,6 +66,10 @@ void LogicManager::openDoor(const char* name) {
   EngineTower.openDoor(name);
 }
 
+void LogicManager::activateAnim(const char* name) {
+	EngineTower.activateAnim(name);
+}
+
 LogicPlayer::LogicPlayer() {}
 
 void LogicPlayer::setPlayerPosition(float x, float y, float z) {

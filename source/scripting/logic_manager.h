@@ -19,7 +19,8 @@ public:
   // Misc
 	void setAmbientAdjustment(float value);
 	void playLastCinematic();
-  void openDoor(const char* name);
+	void openDoor(const char* name);
+	void activateAnim(const char* name);
 
   // UI
 	void activateText(const char* name);

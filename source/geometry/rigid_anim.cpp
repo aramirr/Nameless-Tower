@@ -116,68 +116,55 @@ namespace RigidAnims {
     }
 
     bool CRigidAnimResource::sample(uint32_t track_index, TKey* out_key, float t, const CTransform& transform) const {
-        VEC3 position = transform.getPosition();
-        QUAT rotation = transform.getRotation();
-        float scale = transform.getScale();
+			// asking for an invalid track, nothing to do.
+			if (track_index >= tracks.size())
+				return true;
 
-        // asking for an invalid track, nothing to do.
-        if (track_index >= tracks.size())
-            return true;
+			auto track = &tracks[track_index];
 
-        auto track = &tracks[track_index];
+			float ut = 1.f;
 
-        float ut = 1.f;
+			// If we only have one key, we are not really animated
+			if (track->num_keys > 1) {
 
-        // If we only have one key, we are not really animated
-        if (track->num_keys > 1) {
+				float st = t;
+				// Here enter the animated objects.
+				if (t < track->min_time)
+					st = track->min_time;
+				else if (t > track->max_time)
+					st = track->max_time;
 
-            float st = t;
-            // Here enter the animated objects.
-            if (t < track->min_time)
-                st = track->min_time;
-            else if (t > track->max_time)
-                st = track->max_time;
+				assert(track->max_time > track->min_time);
+				ut = (st - track->min_time) / (track->max_time - track->min_time);
+			}
 
-            assert(track->max_time > track->min_time);
-            ut = (st - track->min_time) / (track->max_time - track->min_time);
-        }
+			// Check time limits
+			if (ut < 0) {
+				*out_key = keys[track->first_key];
+				return false;
+			}
 
-        // Check time limits
-        if (ut < 0) {
-            *out_key = keys[track->first_key];
-            out_key->pos += position;
-            out_key->rot += rotation;
-            out_key->scale += scale;
-            return false;
-        }
+			// I want single key object to enter this if, because we don't have two
+			// keys to interpolate
+			if (ut >= 1.0f) {
+				// Copy my last key
+				*out_key = keys[track->first_key + track->num_keys - 1];
+				// Return true only when the whole animation has loop
+				return t >= this->total_duration;
+			}
 
-        // I want single key object to enter this if, because we don't have two
-        // keys to interpolate
-        if (ut >= 1.0f) {
-            // Copy my last key
-            *out_key = keys[track->first_key + track->num_keys - 1];
-            VEC3 direction = transform.getFront() * out_key->pos.z - transform.getLeft() * out_key->pos.x;
-            out_key->pos = position + direction;
-            out_key->rot = out_key->rot * rotation;
-            out_key->scale = scale * out_key->scale;
-            // Return true only when the whole animation has loop
-            return t >= this->total_duration;
-        }
+			float key_float_idx = (track->num_keys - 1) * ut;
+			int key_index = (int)key_float_idx;
+			float amount_of_next_key = key_float_idx - key_index;
 
-        float key_float_idx = (track->num_keys - 1) * ut;
-        int key_index = (int)key_float_idx;
-        float amount_of_next_key = key_float_idx - key_index;
+			key_index += track->first_key;
 
-        key_index += track->first_key;
-
-        auto prev_key = &keys[key_index];
-        auto next_key = &keys[key_index + 1];
-        VEC3 lerping = lerp(prev_key->pos, next_key->pos, amount_of_next_key);
-        VEC3 direction = transform.getFront() * lerping.z - transform.getLeft() * lerping.x;
-        out_key->pos = position + direction;
-        out_key->rot = lerp(prev_key->rot, next_key->rot, amount_of_next_key) * rotation;
-        out_key->scale = scale * lerp(prev_key->scale, next_key->scale, amount_of_next_key);
-        return false;
+			auto prev_key = &keys[key_index];
+			auto next_key = &keys[key_index + 1];
+			out_key->pos = lerp(prev_key->pos, next_key->pos, amount_of_next_key);
+			out_key->rot = lerp(prev_key->rot, next_key->rot, amount_of_next_key);
+			out_key->scale = lerp(prev_key->scale, next_key->scale, amount_of_next_key);
+			return false;
     }
 
 }

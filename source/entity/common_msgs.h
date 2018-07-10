@@ -58,6 +58,10 @@ struct TMsgOpenDoor{
     DECL_MSG_ID();
 };
 
+struct TMsgActivateAnim{
+	DECL_MSG_ID();
+};
+
 struct TMsgWindstrike {
 	DECL_MSG_ID();
 }; 
