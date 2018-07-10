@@ -14723,7 +14723,7 @@
           ,
           "materials":
           [
-            "data/materials/TorreMat.material"
+            "data/materials/SierraLinealMat.material"
           ]
         }
       ]
@@ -14830,7 +14830,7 @@
           ,
           "materials":
           [
-            "data/materials/TorreMat.material"
+            "data/materials/SierraLinealMat.material"
           ]
         }
       ]
@@ -16027,7 +16027,9 @@
         ,
         "mesh_src": "data/meshes/Puerta_Reja_01.col_mesh"
       },
-      "door":{}
+      "door":{
+        "up": true
+      }
     }
   }
   ,
@@ -16071,7 +16073,9 @@
         ,
         "is_trigger": false
       },
-      "door":{}
+      "door":{
+        "up": true
+      }
     }
   }
   ,
@@ -16115,7 +16119,9 @@
         ,
         "is_trigger": false
       },
-      "door":{}
+      "door":{
+        "up": true
+      }
     }
   }
   ,
@@ -16159,7 +16165,9 @@
         ,
         "is_trigger": false
       },
-      "door":{}
+      "door":{
+        "up": true
+      }
     }
   }
   ,
@@ -16979,7 +16987,7 @@
           ,
           "materials":
           [
-            "data/materials/TorreMat.material"
+            "data/materials/SierraLinealMat.material"
           ]
         }
       ]
