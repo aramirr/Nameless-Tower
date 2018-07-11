@@ -6,6 +6,7 @@
 #include "render/render_utils.h"
 #include "components/juan/comp_transform.h"
 #include "render/render_objects.h"
+#include "render/texture/material.h"
 
 DECL_OBJ_MANAGER("skeleton", TCompSkeleton);
 
@@ -223,6 +224,9 @@ void TCompSkeleton::clearActions(float out_delay) {
 
 void TCompSkeleton::renderDebug() {
   assert(model);
+
+  auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
+  solid->activate();
 
   VEC3 lines[MAX_SUPPORTED_BONES][2];
   int nrLines = model->getSkeleton()->getBoneLines(&lines[0][0].x);
