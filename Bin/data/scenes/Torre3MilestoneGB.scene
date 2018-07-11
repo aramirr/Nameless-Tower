@@ -9108,7 +9108,7 @@
       ,
       "transform":
       {
-        "pos": "-25.6804 23.0 -13.1206"
+        "pos": "-25.6804 24.0 -13.1206"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -9118,7 +9118,7 @@
         "intensity": 10,
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3,
-        "scale" : 1.4
+        "scale" : 1.3
        }
     }
   }
@@ -13926,7 +13926,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "11.4724 33.7604 29.028"
+        "halfExtent": "2.28488 0.136176 1.13929"
         ,
         "is_dynamic": false
         ,
@@ -14065,7 +14065,7 @@
       {
         "trigger_type": "checkpoint"
         ,
-        "appearing_position": "6.3252 60.7138 30.5157"
+        "appearing_position": "6.73075 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -16085,17 +16085,14 @@
       ,
       "local_aabb": true
       ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.599702 2.31665 1.125"
+      "collider":{
+        "shape": "convex_mesh"
         ,
         "is_dynamic": false
         ,
         "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Puerta_Reja_01.col_mesh"
       },
       "door":{
         "up": true
@@ -16131,17 +16128,14 @@
       ,
       "local_aabb": true
       ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.490147 2.31665 1.14723"
+      "collider":{
+        "shape": "convex_mesh"
         ,
         "is_dynamic": false
         ,
         "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Puerta_Reja_01.col_mesh"
       },
       "door":{
         "up": true

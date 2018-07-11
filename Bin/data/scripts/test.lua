@@ -44,6 +44,7 @@ end
 
 function OnWindstrikeActivateTARunner()
 	lm:open_door("Puerta_Reja_02")
+	lm:activate_anim("Activador_Movil01")
 end
 
 
