@@ -23,19 +23,18 @@ void CDeferredRenderer::renderGBuffer() {
 	CTexture::setNullTexture(TS_DEFERRED_LINEAR_DEPTH);
 	CTexture::setNullTexture(TS_DEFERRED_ALPHA);
 	CTexture::setNullTexture(TS_DEFERRED_CELL);
-  //CTexture::setNullTexture(TS_DEFERRED_SUBLIME);
+  CTexture::setNullTexture(TS_DEFERRED_SUBLIME);
 
   // Activate el multi-render-target MRT
-  const int nrender_targets = 6;
+  const int nrender_targets = 7;
   ID3D11RenderTargetView* rts[nrender_targets] = {
     rt_albedos->getRenderTargetView(),
     rt_normals->getRenderTargetView(),
 	rt_depth->getRenderTargetView(),
 	rt_alpha->getRenderTargetView(),
 		rt_self_illum->getRenderTargetView(),
-		rt_cell->getRenderTargetView()
-   /* ,
-    rt_sublime->getRenderTargetView()*/
+		rt_cell->getRenderTargetView(),
+    rt_sublime->getRenderTargetView()
   };
 
   // We use our 3 rt's and the Zbuffer of the backbuffer
@@ -50,7 +49,7 @@ void CDeferredRenderer::renderGBuffer() {
 	rt_self_illum->clear(VEC4(0, 0, 0, 1));
 	rt_alpha->clear(VEC4(0, 0, 0, 1));
 	rt_cell->clear(VEC4(0, 0, 0, 1));
- // rt_sublime->clear(VEC4(0, 0, 0, 1));
+  rt_sublime->clear(VEC4(0, 0, 0, 1));
 
   // Clear ZBuffer with the value 1.0 (far)
   Render.ctx->ClearDepthStencilView(Render.depthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
@@ -70,7 +69,7 @@ void CDeferredRenderer::renderGBuffer() {
 	rt_depth->activate(TS_DEFERRED_LINEAR_DEPTH);
 	rt_alpha->activate(TS_DEFERRED_ALPHA);
 	rt_cell->activate(TS_DEFERRED_CELL);
-  //rt_sublime->activate(TS_DEFERRED_SUBLIME);
+  rt_sublime->activate(TS_DEFERRED_SUBLIME);
 }
 
 // --------------------------------------------------------------
@@ -80,13 +79,13 @@ void CDeferredRenderer::renderGBufferDecals() {
   // Disable the gbuffer textures as we are going to update them
   // Can't render to those textures and have them active in some slot...
   CTexture::setNullTexture(TS_DEFERRED_ALBEDOS);
-  //CTexture::setNullTexture(TS_DEFERRED_NORMALS);
+  CTexture::setNullTexture(TS_DEFERRED_NORMALS);
 
   // Activate el multi-render-target MRT
   const int nrender_targets = 2;
   ID3D11RenderTargetView* rts[nrender_targets] = {
     rt_albedos->getRenderTargetView(),
-    //rt_normals->getRenderTargetView()
+    rt_normals->getRenderTargetView()
     // No Z as we need to read to reconstruct the position
   };
 
@@ -103,7 +102,7 @@ void CDeferredRenderer::renderGBufferDecals() {
   Render.ctx->OMSetRenderTargets(nrender_targets, rt_nulls, nullptr);
 
   // Activate the gbuffer textures to other shaders
-  //rt_normals->activate(TS_DEFERRED_NORMALS);
+  rt_normals->activate(TS_DEFERRED_NORMALS);
   rt_albedos->activate(TS_DEFERRED_ALBEDOS);
 }
 
@@ -140,9 +139,9 @@ bool CDeferredRenderer::create(int xres, int yres) {
 	if (!rt_cell->createRT("g_cell.dds", xres, yres, DXGI_FORMAT_R8_UNORM))
 		return false;
 
- /* rt_sublime = new CRenderToTexture;
+  rt_sublime = new CRenderToTexture;
   if (!rt_sublime->createRT("g_sublime.dds", xres, yres, DXGI_FORMAT_R8G8B8A8_UNORM))
-    return false;*/
+    return false;
 
   return true;
 }
