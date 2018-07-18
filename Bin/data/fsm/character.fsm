@@ -27,7 +27,7 @@
 			"x_speed" : 2,
 			"is_action": false,
 			"delay_in": 0,
-			"delay_out": 0.1
+			"delay_out": 0
 		},
 		{
 			"name" : "jump",
@@ -81,7 +81,7 @@
 		{
 			"name" : "omnidash",
 			"type" : "OmnidashState",
-			"is_action": true,
+			"is_action": false,
 			"delay_in": 0,
 			"delay_out": 0
 		},

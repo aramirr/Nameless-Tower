@@ -10,7 +10,8 @@ namespace FSM
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->clear_animations(0.1f);
-		player->change_animation(player->EAnimations::NajaRun, _is_action, _delay_in, _delay_out);
+        if (EngineInput["left"].isPressed() || EngineInput["right"].isPressed())
+		    player->change_animation(player->EAnimations::NajaRun, _is_action, _delay_in, _delay_out);
 		EngineSound.res = _sound->start();
 	}
 

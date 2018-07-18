@@ -11,7 +11,8 @@ namespace FSM
 		ctx.setVariable("can_omni", false);
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_animation(player->EAnimations::NajaOmniUp, _is_action, _delay_in, _delay_out);
+        player->clear_animations(0.1f);
+		player->change_animation(player->EAnimations::NajaOmniPrepUp, _is_action, _delay_in, _delay_out);
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		player->jumping_start_height = c_my_transform->getPosition().y;
 		EngineTimer.setTimeSlower(0.25f);

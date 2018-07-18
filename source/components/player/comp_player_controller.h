@@ -37,7 +37,7 @@ public:
 		, NajaJumpLoop
 		, NajaJumpLand
 		, NajaOmniPrepDn
-		, NajaOmniUp
+		, NajaOmniPrepUp
 		, NajaOmniAb
 		, NajaOmniAr
 		, NajaOmniDe
@@ -46,7 +46,7 @@ public:
 		, NajaDashLand
 		, NajaWalk
 		, NajaWindstrikeA
-		, NajaDying
+		, NajaDeath
 		, NajaDead
 		, NajaBreak,
 		EAnimations

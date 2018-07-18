@@ -147,7 +147,7 @@ namespace FSM
 		ctx.setVariable("jump", false);
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_animation(player->EAnimations::NajaJumpLand, true, _delay_in, _delay_out);
+		player->change_animation(player->EAnimations::NajaJumpLand, true, _delay_in, 0.3);
 	}
 
 }
