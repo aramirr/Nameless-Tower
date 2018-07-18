@@ -15,7 +15,6 @@ namespace FSM
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		//player->change_mesh(player->EAnimations::EIdle);		
 		// Pongo la animacion solo si no se esta moviendo
-		dbg("idle\n");
 		ctx.setVariable("run", false);
 		if (!EngineInput["left"].isPressed() & !EngineInput["right"].isPressed()) {			
 			player->change_animation(player->EAnimations::NajaIdle, _is_action, _delay_in, _delay_out);

@@ -31,20 +31,24 @@ public:
 	enum EAnimations {
 		NajaRun = 0
 		, NajaIdle
-		, NajaGlide
+		, NajaGlideStrike
+		, NajaGlideLoop
 		, NajaJumpUp
-		, NajaJumpFall
-		, NajaJumpFallLand
-		, NajaOmniPrep
+		, NajaJumpLoop
+		, NajaJumpLand
+		, NajaOmniPrepDn
+		, NajaOmniUp
 		, NajaOmniAb
 		, NajaOmniAr
 		, NajaOmniDe
 		, NajaOmniFr
-		, NajaDash
+		, NajaDashStrike
+		, NajaDashLand
 		, NajaWalk
-		, NajaWindstrike
+		, NajaWindstrikeA
 		, NajaDying
-		, NajaDead,
+		, NajaDead
+		, NajaBreak,
 		EAnimations
 	};
 

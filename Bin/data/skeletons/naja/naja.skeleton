@@ -4,19 +4,23 @@
 	"anims" : [
 		{ "name" : "NajaRun"},
 		{ "name" : "NajaIdle"},
-		{ "name" : "NajaGlide"},
+		{ "name" : "NajaGlideStrike"},
+		{ "name" : "NajaGlideLoop"},
 		{ "name" : "NajaJumpUp"},
-		{ "name" : "NajaJumpFall"},
-		{ "name" : "NajaJumpFallLand"},
-		{ "name" : "NajaOmniPrep"},
+		{ "name" : "NajaJumpLoop"},
+		{ "name" : "NajaJumpLand"},
+		{ "name" : "NajaOmniPrepDn"},
+		{ "name" : "NajaOmniUp"},
 		{ "name" : "NajaOmniAb"},
 		{ "name" : "NajaOmniAr"},
 		{ "name" : "NajaOmniDe"},
 		{ "name" : "NajaOmniFr"},
-		{ "name" : "NajaDash"},
+		{ "name" : "NajaDashStrike"},
+		{ "name" : "NajaDashLand"},
 		{ "name" : "NajaWalk"},
-		{ "name" : "NajaWindstrike"},
+		{ "name" : "NajaWindstrikeA"},
 		{ "name" : "NajaDying"},
-		{ "name" : "NajaDead"}
+		{ "name" : "NajaDead"},
+		{ "name" : "NajaBreak"}
 	]
 }

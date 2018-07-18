@@ -16,8 +16,9 @@ namespace FSM
 		ctx.setVariable("run", false);
 		player->is_grounded = false;
 		player->jumping_start_height = c_my_transform->getPosition().y;
-		player->change_animation(player->EAnimations::NajaJumpFall, false, _delay_in, _delay_out);
+		//player->change_animation(player->EAnimations::NajaJumpFall, false, _delay_in, _delay_out);
 		player->change_animation(player->EAnimations::NajaJumpUp, _is_action, _delay_in, _delay_out);
+		player->change_animation(player->EAnimations::NajaJumpLoop, false, _delay_in, _delay_out);
 		player->y_speed_factor = _y_speed;
 		player->is_falling = false;
 	}
@@ -92,7 +93,7 @@ namespace FSM
 			// Cambio a falling
 			//ctx.setVariable("is_falling", true);
 			if (!player->is_falling) {
-				player->change_animation(player->EAnimations::NajaJumpFall, _is_action, _delay_in, _delay_out);
+				player->change_animation(player->EAnimations::NajaJumpLoop, false, _delay_in, _delay_out);
 				player->is_falling = true;
 			}
 			y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt * 2);
@@ -144,6 +145,9 @@ namespace FSM
 
 	void JumpState::onFinish(CContext& ctx) const {	
 		ctx.setVariable("jump", false);
+		CEntity* e = ctx.getOwner();
+		TCompPlayerController* player = e->get<TCompPlayerController>();
+		player->change_animation(player->EAnimations::NajaJumpLand, true, _delay_in, _delay_out);
 	}
 
 }
