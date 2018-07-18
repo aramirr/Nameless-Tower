@@ -120,6 +120,7 @@ void PS_GBuffer(
 , out float1 o_depth : SV_Target2
 , out float4 o_self_illum : SV_Target3
 , out float1 o_cell : SV_Target5
+, out float4 o_sublime : SV_Target6
 )
 {
     o_cell = (txCell.Sample(samLinear, iTex0)).x;
@@ -128,20 +129,22 @@ void PS_GBuffer(
   // Store in the Alpha channel of the albedo texture, the 'metallic' amount of
   // the material
     o_albedo = txAlbedo.Sample(samLinear, iTex0);
-    o_albedo.a = txMetallic.Sample(samLinear, iTex0).r;
+    //o_albedo.a = txMetallic.Sample(samLinear, iTex0).r;
 
     float3 N = computeNormalMap(iNormal, iTangent, iTex0);
   
   // Save roughness in the alpha coord of the N render target
-    float roughness = 0.5f;//txRoughness.Sample(samLinear, iTex0).r;
+    float roughness = txSublime.Sample(samLinear, iTex0).g; //txRoughness.Sample(samLinear, iTex0).r;
     o_normal = encodeNormal(N, roughness);
 
     // Si el material lo pide, sobreescribir los valores de la textura
 	// por unos escalares uniformes. Only to playtesting...
-    if (scalar_metallic >= 0.f)
-        o_albedo.a = scalar_metallic;
-    if (scalar_roughness >= 0.f)
-        o_normal.a = scalar_roughness;
+    //if (scalar_metallic >= 0.f)
+    //    o_albedo.a = scalar_metallic;
+    //if (scalar_roughness >= 0.f)
+    //    o_normal.a = scalar_roughness;
+
+    o_sublime = txSublime.Sample(samLinear, iTex0);
 
   // Compute the Z in linear space, and normalize it in the range 0...1
   // In the range z=0 to z=zFar of the camera (not zNear)
@@ -181,7 +184,7 @@ void PS_GBuffer_Catarata(
     float3 N = computeNormalMap(iNormal, iTangent, iTex0);
   
   // Save roughness in the alpha coord of the N render target
-    float roughness = 0.5f; //txRoughness.Sample(samLinear, iTex0).r;
+    float roughness = txSublime.Sample(samLinear, iTex0).g; //txRoughness.Sample(samLinear, iTex0).r;
     o_normal = encodeNormal(N, roughness);
 
     // Si el material lo pide, sobreescribir los valores de la textura
@@ -228,7 +231,7 @@ void PS_GBuffer_Alpha(
     float3 N = computeNormalMap(iNormal, iTangent, iTex0);
   
   // Save roughness in the alpha coord of the N render target
-    float roughness = 0.5f; //txRoughness.Sample(samLinear, iTex0).r;
+    float roughness = txSublime.Sample(samLinear, iTex0).g; //txRoughness.Sample(samLinear, iTex0).r;
     o_normal = encodeNormal(N, roughness);
 
     // Si el material lo pide, sobreescribir los valores de la textura
@@ -274,7 +277,7 @@ void PS_GBuffer_Parallax(
     //o_selfIllum.xyz *= self_color;
 
   // Save roughness in the alpha coord of the N render target
-    float roughness = txRoughness.Sample(samLinear, iTex0).r;
+    float roughness = txSublime.Sample(samLinear, iTex0).g;
     float3 N = computeNormalMap(iNormal, iTangent, iTex0);
     o_normal = encodeNormal(N, roughness);
 
@@ -370,6 +373,7 @@ void decodeGBuffer(
    , out float3 reflected_dir
    , out float3 view_dir
    , out bool cell_shading
+   , out float ao
    )
 {
 
@@ -386,12 +390,22 @@ void decodeGBuffer(
     N = decodeNormal(N_rt.xyz);
     N = normalize(N);
 
+    float4 sublime = txGBufferSublime.Load(ss_load_coords);
+
+    //R = Oclussion
+    //G = Roughness
+    //B = Metallic
+
+
   // Get other inputs from the GBuffer
     float4 albedo = txGBufferAlbedos.Load(ss_load_coords);
   // In the alpha of the albedo, we stored the metallic value
   // and in the alpha of the normal, we stored the roughness
-    float metallic = albedo.a;
-    roughness = N_rt.a;
+    //sublime.rgb = pow(abs(sublime.rgb), 2.2f);
+    
+    float metallic = sublime.b;
+    roughness = sublime.g;
+    ao = sublime.r;
  
   // Apply gamma correction to albedo to bring it back to linear.
     albedo.rgb = pow(abs(albedo.rgb), 2.2f);
@@ -403,7 +417,7 @@ void decodeGBuffer(
     //real_albedo.a = txGBufferAlpha.Load(ss_load_coords);
 
   // 0.03 default specular value for dielectric.
-    real_specular_color = lerp(0.03f, albedo.rgb, metallic);
+    real_specular_color = lerp(0.03f, real_albedo.rgb, metallic);
 
   // Eye to object
     float3 incident_dir = normalize(wPos - camera_pos.xyz);
@@ -476,9 +490,9 @@ float4 PS_ambient(
   // Declare some float3 to store the values from the GBuffer
     float4 albedo;
     float3 wPos, N, specular_color, reflected_dir, view_dir;
-    float roughness;
+    float roughness, ao;
     bool cell;
-    decodeGBuffer(iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir, cell);
+    decodeGBuffer(iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir, cell, ao);
 
   // if roughness = 0 -> I want to use the miplevel 0, the all-detailed image
   // if roughness = 1 -> I will use the most blurred image, the 8-th mipmap, If image was 256x256 => 1x1
@@ -502,7 +516,7 @@ float4 PS_ambient(
     float g_ReflectionIntensity = 1.0;
     float g_AmbientLightIntensity = 1.0;
 
-    float ao = txAO.Sample(samLinear, iUV).x;
+     //ao = txAO.Sample(samLinear, iUV).x;
 
     float4 self_illum = txSelfIllum.Load(uint3(iPosition.xy, 0));
 
@@ -596,9 +610,9 @@ float4 shade(
   // Decode GBuffer information
     float4 albedo;
     float3 wPos, N, specular_color, reflected_dir, view_dir;
-    float roughness;
+    float roughness, ao;
     bool cell;
-    decodeGBuffer(iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir, cell);
+    decodeGBuffer(iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir, cell, ao);
     N = normalize(N);
   // Shadow factor entre 0 (totalmente en sombra) y 1 (no ocluido)
     //float shadow_factor = use_shadows ? computeShadowFactor(wPos) : 1.;

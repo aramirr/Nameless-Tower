@@ -65,17 +65,17 @@ void TCompCameraFlyover::update(float scaled_dt)
 			deltaSpeed *= 5.f;
 
 		if (EngineInput["front"].value)
-			_ispeed.z = 0.25f;
+			_ispeed.z = 0.1f;
 		if (EngineInput["back"].value)
-			_ispeed.z = -0.25f;
+			_ispeed.z = -0.1f;
 		if (EngineInput["left"].value)
-			_ispeed.x = 0.25f;
+			_ispeed.x = 0.1f;
 		if (EngineInput["right"].value)
-			_ispeed.x = -0.25f;
+			_ispeed.x = -0.1f;
 		if (EngineInput["up"].value)
-			_ispeed.y = 0.25f;
+			_ispeed.y = 0.1f;
 		if (EngineInput["down"].value)
-			_ispeed.y = -0.25f;
+			_ispeed.y = -0.1f;
 	}
 	
   // Amount in each direction
