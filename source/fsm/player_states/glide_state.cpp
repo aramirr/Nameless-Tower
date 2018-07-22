@@ -17,8 +17,8 @@ namespace FSM
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		ctx.setVariable("is_grounded", false);
 		player->is_grounded = false;
-		player->change_animation(player->EAnimations::NajaGlideStrike, true, _delay_in, _delay_out);
-		player->change_animation(player->EAnimations::NajaGlideLoop, _is_action, 0.1f, _delay_out);
+		player->change_animation(player->EAnimations::NajaGlideStrike, true, _delay_in, _delay_out, true);
+		player->change_animation(player->EAnimations::NajaGlideLoop, _is_action, 0.1f, _delay_out, true);
 	}
 
 	bool GlideState::load(const json& jData)

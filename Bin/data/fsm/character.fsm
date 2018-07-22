@@ -82,7 +82,7 @@
 			"name" : "omnidash",
 			"type" : "OmnidashState",
 			"is_action": false,
-			"delay_in": 0,
+			"delay_in": 0.1,
 			"delay_out": 0
 		},
 		{
@@ -549,13 +549,13 @@
 			"type" : "TimeTransition",
 			"source" : "omnidash",
 			"target" : "omnijump",			
-			"time" : 0.3
+			"time" : 10
 		},
 		{
 			"type" : "TimeTransition",
 			"source" : "omnijump",
 			"target" : "falling_omni",			
-			"time" : 0.3
+			"time" : 1
 		},
 		{
 			"type" : "LogicTransition",

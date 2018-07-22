@@ -13,7 +13,7 @@ namespace FSM
 		TCompTransform* c_my_transform = e->get<TCompTransform>();
 		player->jumping_start_height = c_my_transform->getPosition().y;
         player->clear_animations(0.1f);
-		player->change_animation(player->EAnimations::NajaDashStrike, _is_action, _delay_in, _delay_out);
+		player->change_animation(player->EAnimations::NajaDashStrike, _is_action, _delay_in, _delay_out, true);
 	}
 
 	bool DashState::load(const json& jData)
@@ -40,6 +40,6 @@ namespace FSM
 		ctx.setVariable("dash", false);
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_animation(player->EAnimations::NajaDashLand, _is_action, 0.3f, 0.3f);
+		player->change_animation(player->EAnimations::NajaDashLand, _is_action, 0.3f, 0.3f, true);
 	}
 }
