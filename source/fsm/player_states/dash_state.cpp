@@ -40,6 +40,5 @@ namespace FSM
 		ctx.setVariable("dash", false);
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_animation(player->EAnimations::NajaDashLand, _is_action, 0.3f, 0.3f, true);
 	}
 }

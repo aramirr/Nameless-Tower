@@ -97,6 +97,9 @@ namespace FSM
 
 	void FallingDashState::onFinish(CContext& ctx) const {
 		ctx.setVariable("is_falling", false);
+        CEntity* e = ctx.getOwner();
+        TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->change_animation(player->EAnimations::NajaDashLand, true, _delay_in, 0.5, true);
 	}
 
 }

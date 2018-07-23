@@ -549,13 +549,13 @@
 			"type" : "TimeTransition",
 			"source" : "omnidash",
 			"target" : "omnijump",			
-			"time" : 10
+			"time" : 2
 		},
 		{
 			"type" : "TimeTransition",
 			"source" : "omnijump",
 			"target" : "falling_omni",			
-			"time" : 1
+			"time" : 0.3
 		},
 		{
 			"type" : "LogicTransition",
