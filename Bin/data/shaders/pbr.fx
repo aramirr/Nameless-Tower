@@ -516,7 +516,7 @@ float4 PS_ambient(
     float g_ReflectionIntensity = 1.0;
     float g_AmbientLightIntensity = 1.0;
 
-     //ao = txAO.Sample(samLinear, iUV).x;
+     ao = txAO.Sample(samLinear, iUV).x;
 
     float4 self_illum = txSelfIllum.Load(uint3(iPosition.xy, 0));
 
