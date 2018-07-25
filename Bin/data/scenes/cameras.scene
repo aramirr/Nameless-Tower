@@ -62,7 +62,10 @@
 			"render_outlines" : {
 		        "enabled" : false
 		    },
-		    "culling":true
+		    "culling":true,
+      		"render_ao" : {
+        		"enabled" :  true
+      		}
 		}
 	},
 	{
