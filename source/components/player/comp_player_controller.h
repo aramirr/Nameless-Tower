@@ -20,6 +20,7 @@ public:
 	bool    looking_left;
 	bool    is_grounded;
 	bool    is_falling;
+	bool    is_running = false;
 	int anim1 = -1;
 	int anim2 = -1;
 

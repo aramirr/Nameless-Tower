@@ -5,7 +5,7 @@
 			"name" : "idle",
 			"type" : "IdleState",
 			"is_action": false,
-			"delay_in": 0.5,
+			"delay_in": 0.3,
 			"delay_out": 0
 		},
 		{
@@ -283,17 +283,6 @@
 			"target" : "jump",
 			"variable" : {
 				"name" : "jump",
-				"type" : "bool",
-				"value" : true
-			},
-			"operation" : "equal"
-		},
-		{
-			"type" : "VariableTransition",
-			"source" : "run",
-			"target" : "turn_around",
-			"variable" : {
-				"name" : "turn_around",
 				"type" : "bool",
 				"value" : true
 			},
