@@ -8,7 +8,7 @@
         "lookat": "0.0 0.0 0.0"
       },
       "light_dir": {
-        "intensity": 3,
+        "intensity": 6,
         "color" :  "0.8 0.8 1.0 1",
         "z_near" : 2,
         "z_far" : 300,
@@ -16,8 +16,8 @@
         "is_orthographic": true,
         "ortho_width": 200,
         "casts_shadows" : true,
-        "shadows_step" : 3.0,
-        "shadows_resolution" : 256,
+        "shadows_step" : 6.0,
+        "shadows_resolution" : 8192,
         "shadows_fmt" : "R32_TYPELESS"
       },
       "camera_flyover" : {
@@ -35,7 +35,7 @@
         "lookat": "20.0 10.0 15.0"
       },
       "light_dir": {
-        "intensity": 3,
+        "intensity": 6,
         "color" :  "0.8 0.8 1.0 1",
         "z_near" : 2,
         "z_far" : 300,
@@ -43,8 +43,8 @@
         "is_orthographic": true,
         "ortho_width": 200,
         "casts_shadows" : true,
-        "shadows_step" : 3.0,
-        "shadows_resolution" : 256,
+        "shadows_step" : 6.0,
+        "shadows_resolution" : 8192,
         "shadows_fmt" : "R32_TYPELESS"
       },
       "camera_flyover" : {
