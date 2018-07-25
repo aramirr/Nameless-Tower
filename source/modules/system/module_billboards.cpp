@@ -31,6 +31,10 @@ bool CModuleBillboards::start()
     auto rmesh = Resources.get("data/meshes/grass.instanced_mesh")->as<CRenderMesh>();
     grass_instances_mesh = (CRenderMeshInstanced*)rmesh;
   }
+  {
+	  auto rmesh = Resources.get("data/meshes/windstrike.instanced_mesh")->as<CRenderMesh>();
+	  windstrike_instances_mesh = (CRenderMeshInstanced*)rmesh;
+  }
   return true;
 }
 
@@ -53,24 +57,63 @@ void CModuleBillboards::encenderFuego(int id, float scale) {
 }
 
 int CModuleBillboards::addFuegoTest(VEC3 position, float scale) {
-	int new_id = max_id;
-	++max_id;
-    TRenderParticle new_instance;
-	//new_instance.id = new_id;
+	int new_id = fuego_max_id;
+	++fuego_max_id;
+	TRenderParticle new_instance;
 	new_instance.scale_x = scale;
-    new_instance.scale_y = new_instance.scale_x;
-    new_instance.pos = position;
-    new_instance.nframe = randomFloat(0.f, 16.f);
-    new_instance.angle = deg2rad(randomFloat(0, 360));
-    new_instance.color.x = unitRandom();
-    new_instance.color.y = unitRandom();
-    new_instance.color.z = 1 - new_instance.color.x - new_instance.color.y;
-    new_instance.color.w = 1;
+	new_instance.scale_y = new_instance.scale_x;
+	new_instance.pos = position;
+	new_instance.nframe = randomFloat(0.f, 16.f);
+	new_instance.angle = deg2rad(randomFloat(0, 360));
+	new_instance.color.x = unitRandom();
+	new_instance.color.y = unitRandom();
+	new_instance.color.z = 1 - new_instance.color.x - new_instance.color.y;
+	new_instance.color.w = 1;
 	particles_instances.push_back(new_instance);
 	particles_ids.push_back(new_id);
 
 	return new_id;
 }
+
+
+int CModuleBillboards::addWindstrike(VEC3 position) {
+	int new_id = windstrike_max_id;
+	++windstrike_max_id;
+	TWindstrikeParticle new_instance;
+	new_instance.scale_x = 1.0f;
+	new_instance.scale_y = new_instance.scale_x;
+	new_instance.pos = position;
+	new_instance.nframe = randomFloat(0.f, 16.f);
+	new_instance.angle = deg2rad(randomFloat(0, 360));
+	new_instance.color.x = unitRandom();
+	new_instance.color.y = unitRandom();
+	new_instance.color.z = 1 - new_instance.color.x - new_instance.color.y;
+	new_instance.color.w = 1;
+
+
+	windstrike_instances.push_back(new_instance);
+	windstrike_ids.push_back(new_id);
+
+	return new_id;
+}
+
+void CModuleBillboards::moveWindstrike(VEC3 position, int id) {
+	for (int i = 0; i < windstrike_instances.size(); ++i) {
+		if (windstrike_ids[i] == id) {
+			windstrike_instances[i].pos = position;
+		}
+	}
+}
+
+void CModuleBillboards::deleteWindstrike(int id) {
+	for (int i = 0; i < windstrike_instances.size(); ++i) {
+		if (windstrike_ids[i] == id) {
+			windstrike_instances.erase(windstrike_instances.begin() + i);
+			windstrike_ids.erase(windstrike_ids.begin() + i);
+		}
+	}
+}
+
 
 void CModuleBillboards::addGrass(VEC3 position, float width, float length, int total) {
 	for (int i = 0; i < total; ++i) {
@@ -105,9 +148,8 @@ void CModuleBillboards::addGrassByAngle(VEC3 pos1, VEC3 pos2, int total) {
     grass_instances.push_back(new_instance);
   }
   grass_instances_mesh->setInstancesData(grass_instances.data(), grass_instances.size(), sizeof(TGrassParticle));
-
-  
 }
+
 
 
 void CModuleBillboards::update(float delta)
@@ -251,10 +293,10 @@ void CModuleBillboards::update(float delta)
   }
 
   // Rotate the particles
-  for (auto& p : particles_instances) {
+  //for (auto& p : particles_instances) {
       //p.angle += delta;
       
-  }
+  //}
 
   // Move the instances in the cpu
   static float t = 0;
@@ -266,4 +308,7 @@ void CModuleBillboards::update(float delta)
   blood_instances_mesh->setInstancesData(blood_instances.data(), blood_instances.size(), sizeof(TInstanceBlood));
   
   particles_instances_mesh->setInstancesData(particles_instances.data(), particles_instances.size(), sizeof(TRenderParticle));
+
+  windstrike_instances_mesh->setInstancesData(windstrike_instances.data(), windstrike_instances.size(), sizeof(TWindstrikeParticle));
+
 }

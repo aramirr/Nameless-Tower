@@ -66,4 +66,21 @@
       ]
     }
   }
+  ,
+  {
+    "entity": {
+      "name": "Instanced Windstrike",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/windstrike.instanced_mesh",
+          "materials": [
+            "data/materials/windstrike_instanced.material"
+          ]
+        }
+      ]
+    }
+  }
 ]

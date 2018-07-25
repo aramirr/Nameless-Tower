@@ -100,6 +100,7 @@
     <ClCompile Include="components\comp_grass.cpp" />
     <ClCompile Include="components\comp_emission_controller.cpp" />
     <ClCompile Include="components\comp_light_spot.cpp" />
+    <ClCompile Include="components\comp_render_windstrike.cpp" />
     <ClCompile Include="components\controllers\comp_door.cpp" />
     <ClCompile Include="components\controllers\comp_projectile_controller.cpp" />
     <ClCompile Include="components\comp_light_dir.cpp" />
@@ -280,6 +281,7 @@
     <ClInclude Include="components\comp_grass.h" />
     <ClInclude Include="components\comp_emission_controller.h" />
     <ClInclude Include="components\comp_light_spot.h" />
+    <ClInclude Include="components\comp_render_windstrike.h" />
     <ClInclude Include="components\controllers\comp_door.h" />
     <ClInclude Include="components\controllers\comp_projectile_controller.h" />
     <ClInclude Include="components\controllers\comp_rigid_anim.h" />
