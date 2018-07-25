@@ -44,7 +44,7 @@ namespace FSM
 		VEC3 new_pos = my_pos;
 		float y_speed;
 		if (player->y_speed_factor > 0) {
-			y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt * 2);
+			y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt / 2);
 			if (player->y_speed_factor > -9) {
 				player->y_speed_factor -= player->gravity * dt / 3;
 			}
@@ -71,7 +71,7 @@ namespace FSM
 			}
 			else {				
 				VEC3 delta_move = new_pos - my_pos;
-
+				dbg("%f\n", delta_move.y);
 				PxShape* player_shape;
 				comp_collider->controller->getActor()->getShapes(&player_shape, 1);
 				PxFilterData filter_data = player_shape->getSimulationFilterData();
@@ -96,7 +96,7 @@ namespace FSM
 				player->change_animation(player->EAnimations::NajaJumpLoop, false, _delay_in, _delay_out, true);
 				player->is_falling = true;
 			}
-			y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt * 2);
+			y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt / 2);
 			if (player->y_speed_factor > -9) {
 				player->y_speed_factor -= player->gravity * dt / 3;
 			}
@@ -147,7 +147,7 @@ namespace FSM
 		ctx.setVariable("jump", false);
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_animation(player->EAnimations::NajaJumpLand, true, _delay_in, 0.3, true);
+		player->change_animation(player->EAnimations::NajaJumpLand, true, _delay_in, 0.5, true);
 	}
 
 }

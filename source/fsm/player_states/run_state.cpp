@@ -7,8 +7,7 @@ namespace FSM
 {
 	void RunState::onStart(CContext& ctx) const
 	{		
-		CEntity* e = ctx.getOwner();
-		TCompPlayerController* player = e->get<TCompPlayerController>();    
+		  
 		EngineSound.res = _sound->start();
 	}
 
@@ -73,6 +72,8 @@ namespace FSM
 	void RunState::onFinish(CContext& ctx) const {
 		EngineSound.res = _sound->stop(FMOD_STUDIO_STOP_IMMEDIATE);
 		ctx.setVariable("run", false);		
-
+		CEntity* e = ctx.getOwner();
+		TCompPlayerController* player = e->get<TCompPlayerController>();
+		player->is_running = false;
 	}
 }
