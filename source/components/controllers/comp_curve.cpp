@@ -20,7 +20,6 @@ void TCompCurve::debugInMenu() {
 }
 
 void TCompCurve::load(const json& j, TEntityParseContext& ctx) {
-  /*_sensitivity = j.value("sensitivity", _sensitivity);*/
 
   std::string curve_name = j["curve"];
   _curve = Resources.get(curve_name)->as<CCurve>();
@@ -34,8 +33,10 @@ void TCompCurve::load(const json& j, TEntityParseContext& ctx) {
 	  current_mode = 2;
   _automove = j.value("automove", true);
   loop = j.value("loop", true);
+  _targetName = j.value("target", "");
+  _target = getEntityByName(_targetName);
 }
-
+ 
 void TCompCurve::update(float DT)
 {
   if (!_curve)
@@ -95,6 +96,12 @@ void TCompCurve::update(float DT)
 	  VEC3 pos = _curve->evaluateAsCatmull(_percentage);
 	  TCompTransform* c_transform = get<TCompTransform>();
 	  c_transform->setPosition(pos);
+
+	  _target = getEntityByName(_targetName);
+ 	  if (_target.isValid())
+	  {
+		  c_transform->lookAt(pos, getTargetPos());
+	  }
   }
   else
   {
@@ -118,13 +125,16 @@ void TCompCurve::update(float DT)
   VEC3 pos = _curve->evaluateAsCatmull(_percentage);
   TCompTransform* c_transform = get<TCompTransform>();
   c_transform->setPosition(pos);
+  _target = getEntityByName(_targetName);
+
+  if (_target.isValid())
+  {	  
+	  c_transform->lookAt(pos, getTargetPos());
+  }
 }
 
 VEC3 TCompCurve::getTargetPos()
 {
-  if (!_target.isValid())
-    _target = getEntityByName(_targetName);
- 
   if (_target.isValid())
   {
     CEntity* e_target = _target;
@@ -133,3 +143,4 @@ VEC3 TCompCurve::getTargetPos()
   }
   return VEC3::Zero;
 }
+

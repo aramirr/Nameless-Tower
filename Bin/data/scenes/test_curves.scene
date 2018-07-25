@@ -9,8 +9,20 @@
 			"curve_controller" :
 			{
 				"curve" : "data/curves/test_curve.curve",
-				"speed" : 0.25
+				"speed" : 0.25,
+				"target": "dummy_locator"
 			},
+			"render" : {}
+		}
+	}
+	,
+	{
+		"entity": {
+			"name": "dummy_locator",
+			"transform": {
+				"pos": "0 0 0"
+			}
+			,
 			"render" : {}
 		}
 	}
