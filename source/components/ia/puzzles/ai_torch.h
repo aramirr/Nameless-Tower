@@ -21,10 +21,11 @@ class CAITorch : public IAIController
 
     // Light params
     VEC3 fire_position = VEC3::Zero;
-    VEC4 color = VEC4(1, 1, 1, 1);
+	VEC4 color = VEC4(1, 1, 1, 1);
     float intensity = 1.0f;
     float radius = 1.0f;
 	float scale = 0.2f;
+	VEC4 initial_color = VEC4(1, 1, 1, 1);
     float initial_radius = 1.0f;
     bool b_increasing_radius = true;
 	int id = -1;
