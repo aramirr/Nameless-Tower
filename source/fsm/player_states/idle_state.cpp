@@ -16,11 +16,7 @@ namespace FSM
 		//player->change_mesh(player->EAnimations::EIdle);		
 		// Pongo la animacion solo si no se esta moviendo
 		ctx.setVariable("run", false);
-		if (!EngineInput["left"].isPressed() & !EngineInput["right"].isPressed()) {			
-			player->change_animation(player->EAnimations::NajaIdle, _is_action, _delay_in, _delay_out, true);
-		}
-		else
-			player->change_animation(player->EAnimations::NajaRun, _is_action, _delay_in, _delay_out, true);
+		player->change_animation(player->EAnimations::NajaIdle, _is_action, _delay_in, _delay_out, true);
 		ctx.setVariable("initial", false);
 	}
 

@@ -65,22 +65,22 @@ namespace FSM
 		if (omnidash_arrow.x >= 0.75) {
 			return player->EAnimations::NajaOmniPrepFr;
 		}
-		else if (omnidash_arrow.x <= -0.75){
+		else if (omnidash_arrow.x <= -0.80){
 			return player->EAnimations::NajaOmniPrepBk;
 		}
-		else if (omnidash_arrow.y <= -0.75) {
+		else if (omnidash_arrow.y <= -0.80) {
 			return player->EAnimations::NajaOmniPrepUp;
 		} 
-		else if (omnidash_arrow.y >= 0.75) {
+		else if (omnidash_arrow.y >= 0.80) {
 			return player->EAnimations::NajaOmniPrepDn;
 		} 
-		else if (omnidash_arrow.x >= 0.25 && omnidash_arrow.y >= 0.25) {
+		else if (omnidash_arrow.x >= 0.20 && omnidash_arrow.y >= 0.20) {
 			return player->EAnimations::NajaOmniPrepFrDn;
 		}
-		else if (omnidash_arrow.x <= -0.25 && omnidash_arrow.y <= -0.25) {
+		else if (omnidash_arrow.x <= -0.20 && omnidash_arrow.y <= -0.20) {
 			return player->EAnimations::NajaOmniPrepFrBk;
 		}
-		else if (omnidash_arrow.x <= -0.25 && omnidash_arrow.y >= 0.25) {
+		else if (omnidash_arrow.x <= -0.20 && omnidash_arrow.y >= 0.20) {
 			return player->EAnimations::NajaOmniPrepBkDn;
 		}
 		else {
