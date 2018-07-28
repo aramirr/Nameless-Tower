@@ -90,7 +90,7 @@ void CAITorch::ActiveState(float dt)
 
 void CAITorch::InactiveState(float dt)
 {	
-	if (!in_puzzle) {
+	if (in_puzzle) {
 		timer += dt;
 		if (timer > timer_limit) {
 			activate();
@@ -121,9 +121,9 @@ void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
 		if (in_puzzle) {
 			TMsgActivateTorchPuzzle activate_msg;
 			CEntity* e_collider_entity = (CEntity*)getEntityByName(puzzle_name);
-            CEntity* e = h_entity;
+      CEntity* e = h_entity;
 			e_collider_entity->sendMsg(activate_msg);
-            attached = true;
+      attached = true;
 		}
 	}	
 }
