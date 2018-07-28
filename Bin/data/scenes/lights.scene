@@ -4,15 +4,17 @@
     {
       "name": "LightDir00",
       "transform": {
-        "pos": "-34.454 13.032 -21.511",
+        "pos": "-45.704 70.032 -70.986",
         "lookat": "0.0 0.0 0.0"
       },
       "light_dir": {
-        "intensity": 10,
+        "intensity": 3,
         "color" :  "0.8 0.8 1.0 1",
         "z_near" : 2,
-        "z_far" : 30,
+        "z_far" : 300,
         "fov" : 30,
+        "is_orthographic": true,
+        "ortho_width": 200,
         "casts_shadows" : true,
         "shadows_step" : 3.0,
         "shadows_resolution" : 256,
@@ -23,19 +25,5 @@
         "enabled" : false
       }      
     }
-  },
-  {
-    "entity":
-    {
-      "name": "LightPoint00",
-      "transform": {
-        "pos": "-15.850 13.425 -20.069"
-      },
-      "light_point": {
-        "intensity": 1,
-        "color" :  "229 54 9 1",
-        "radius" : 3.960
-      }
-    }
-  }  
+  }
 ]

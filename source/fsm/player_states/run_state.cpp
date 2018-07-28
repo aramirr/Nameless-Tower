@@ -7,9 +7,7 @@ namespace FSM
 {
 	void RunState::onStart(CContext& ctx) const
 	{		
-		CEntity* e = ctx.getOwner();
-		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_animation(player->EAnimations::NajaRun, _is_action, _delay_in, _delay_out);
+		  
 		EngineSound.res = _sound->start();
 	}
 
@@ -39,6 +37,10 @@ namespace FSM
 		if (!player->is_grounded)
 			player->y_speed_factor -= player->gravity * dt;
 		
+		if (!player->is_running && (EngineInput["left"].isPressed() || EngineInput["right"].isPressed())){
+			player->change_animation(player->EAnimations::NajaRun, _is_action, _delay_in, _delay_out, true);
+			player->is_running = true;
+		}
 		if (EngineInput["left"].isPressed()) {
 			if (!player->looking_left) {
 				player->looking_left = true;
@@ -57,15 +59,21 @@ namespace FSM
 				player->move_player(true, true, dt, y_speed, _x_speed);
 			}
 		}
-		// Si no sigue corriendo pasa a estado idle
-		if (!EngineInput["left"].isPressed() && !EngineInput["right"].isPressed()) {
-      ctx.setVariable("idle", true);
+		else {
+			// Si no sigue corriendo pasa a estado idle
+			if (!EngineInput["left"].isPressed() && !EngineInput["right"].isPressed()) {
+				ctx.setVariable("idle", true);
+			}
 		}
+		
 		return false;
 	}
 
 	void RunState::onFinish(CContext& ctx) const {
 		EngineSound.res = _sound->stop(FMOD_STUDIO_STOP_IMMEDIATE);
 		ctx.setVariable("run", false);		
+		CEntity* e = ctx.getOwner();
+		TCompPlayerController* player = e->get<TCompPlayerController>();
+		player->is_running = false;
 	}
 }

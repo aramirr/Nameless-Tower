@@ -172,9 +172,11 @@
     <ClCompile Include="particles\particle_parser.cpp" />
     <ClCompile Include="fsm\player_states\turn_around_state.cpp" />
     <ClCompile Include="modules\system\module_billboards.cpp" />
-    <ClCompile Include="components\controllers\comp_door.cpp" />
     <ClCompile Include="components\comp_grass.cpp" />
     <ClCompile Include="components\ia\comp_compresora_kill.cpp" />
+    <ClCompile Include="components\comp_light_spot.cpp" />
+    <ClCompile Include="components\comp_emission_controller.cpp" />
+    <ClCompile Include="components\controllers\comp_door.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera\camera.h" />
@@ -412,6 +414,8 @@
     <ClInclude Include="modules\system\module_billboards.h" />
     <ClInclude Include="components\comp_grass.h" />
     <ClInclude Include="components\ia\comp_compresora_kill.h" />
+    <ClInclude Include="components\comp_light_spot.h" />
+    <ClInclude Include="components\comp_emission_controller.h" />
     <ClInclude Include="components\controllers\comp_door.h" />
   </ItemGroup>
   <ItemGroup>

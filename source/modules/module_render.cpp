@@ -211,6 +211,10 @@ void CModuleRender::generateFrame() {
 
     deferred.render(rt_main, h_e_camera);
 
+		//CRenderManager::get().renderCategory("cell");
+
+    CRenderManager::get().renderCategory("alpha");
+
     CRenderManager::get().renderCategory("opacity");
 
     CRenderManager::get().renderCategory("particles");

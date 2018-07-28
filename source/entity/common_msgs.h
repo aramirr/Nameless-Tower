@@ -39,6 +39,10 @@ struct TMsgRunnerAppear {
 struct TMsgRunnerDisappear {
     DECL_MSG_ID();
 };
+//-------------------------------------!
+struct TMsgSceneCreated {
+	DECL_MSG_ID();
+};
 
 struct TMsgRunnerStop {
 	DECL_MSG_ID();
@@ -54,9 +58,21 @@ struct TMsgOpenDoor{
     DECL_MSG_ID();
 };
 
+struct TMsgActivateAnim{
+	DECL_MSG_ID();
+};
+
 struct TMsgWindstrike {
 	DECL_MSG_ID();
 }; 
+
+struct TMsgActivateProjectile{
+	DECL_MSG_ID();
+};
+
+struct TMsgDeactivateProjectile {
+	DECL_MSG_ID();
+};
 
 struct TMsgAttachTo {
 	CHandle h_attached;

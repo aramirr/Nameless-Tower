@@ -1,0 +1,18 @@
+{
+  "technique": "pbr.tech"
+  ,
+  "shadows": true
+  ,
+  "textures":
+  {
+    "albedo": "data/textures/SierraDifusse.dds"
+    ,
+    "normal": "data/textures/LowSierraNormal.dds"
+    ,
+    "emissive": "data/textures/null_emissive.dds"
+    ,
+
+    "height": "data/textures/null_height.dds"
+
+  }
+}

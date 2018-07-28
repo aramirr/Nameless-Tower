@@ -26,8 +26,8 @@ namespace GUI
       angle = (float)(atan2(mouse._position.y - player_position.y, mouse._position.x - player_position.x));
 
       //Sacamos la otra esquina de la imagen
-      float x = (od->getSize().x) * cos(angle);
-      float y = (od->getSize().x) * sin(angle);
+      float x = (od->getSize().x) * cos(angle - 0.5f);
+      float y = (od->getSize().x) * sin(angle - 0.5f);
 
       /*if (angle < 0) {
         angle += 360;

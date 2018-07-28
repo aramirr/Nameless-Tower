@@ -16,10 +16,13 @@ void TCompDoor::debugInMenu() {
 void TCompDoor::load(const json& j, TEntityParseContext& ctx) {
   setEntity(ctx.current_entity);
   speed = j.value("speed", 1.0f);
-  left = j.value("left", false);
+	left = j.value("left", false);
+	up = j.value("up", false);
+	height = j.value("height", 4.0f);
   is_open = false;
   opening = false;
-  radiants = 90.f;
+	radiants = 90.f;
+	current_height = 0.f;
   current_radiants = 0.f;
 }
 
@@ -35,12 +38,25 @@ void TCompDoor::update(float DT) {
         TCompTransform *my_transform = e->get<TCompTransform>();
         TCompCollider *my_collider = e->get<TCompCollider>();
         VEC3 my_pos = my_transform->getPosition();
-        float y, p, r;
-        my_transform->getYawPitchRoll(&y, &p, &r);
-        float current_rotation = speed * DT;
-        y += left ? current_rotation : -current_rotation;
-        current_radiants += current_rotation;
-        my_transform->setYawPitchRoll(y, p, r);
+				if (!up) {
+					float y, p, r;
+					my_transform->getYawPitchRoll(&y, &p, &r);
+					float current_rotation = speed * DT;
+					y += left ? current_rotation : -current_rotation;
+					current_radiants += current_rotation;
+					my_transform->setYawPitchRoll(y, p, r);
+					if (current_radiants >= deg2rad(radiants)) {
+						is_open = true;
+					}
+				}
+				else {
+					current_height += DT;
+					if (current_height >= height)
+						is_open = true;
+					my_pos.y += DT;					
+					my_transform->setPosition(my_pos);
+				}
+        
         QUAT newRot = my_transform->getRotation();
 
         PxRigidActor* rigidActor = ((PxRigidActor*)my_collider->actor);
@@ -49,9 +65,7 @@ void TCompDoor::update(float DT) {
         tr.q = PxQuat(newRot.x, newRot.y, newRot.z, newRot.w);
         rigidActor->setGlobalPose(tr);
 
-        if (current_radiants >= deg2rad(radiants)) {
-            is_open = true;
-        }
+        
     }	
 }
 

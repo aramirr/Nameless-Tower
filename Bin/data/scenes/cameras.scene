@@ -41,7 +41,9 @@
 			"camera" : {
 				"fov" : 80 
 			},
-			"camera_flyover" : {}
+			"camera_flyover" : {
+				"speed": 45
+			}
 		}
 	},
 	{

@@ -17,9 +17,12 @@ class TCompDoor: public TCompBase {
 
 public:
   bool  is_open;
-  bool  left;
-  float radiants;
-  float current_radiants;
+	bool  left;
+	bool  up;
+	float radiants;
+	float height;
+	float current_height;
+	float current_radiants;
   bool opening;
   void debugInMenu();
   void load(const json& j, TEntityParseContext& ctx);

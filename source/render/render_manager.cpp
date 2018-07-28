@@ -214,6 +214,8 @@ void CRenderManager::renderCategory(const char* category_name) {
     const TCompRender* c_render = it->h_render_owner;
 
     cb_object.obj_color = c_render->color;
+		//cb_object.self_color = c_render->self_color;
+		//cb_object.self_intensity = c_render->self_intensity;
     cb_object.updateGPU();
 
     // Do we have to change the material wrt the prev draw call?

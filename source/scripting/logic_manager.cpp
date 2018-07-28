@@ -16,11 +16,11 @@ void LogicManager::printDbg(const char* msg) {
 }
 
 void LogicManager::disappearEntity(const char* name) {
-//	EngineTower.disappearEntity(name);
+	EngineTower.disappearEntity(name);
 }
 
 void LogicManager::appearEntity(const char* name) {
-	//EngineTower.appearEntity(name);
+	EngineTower.appearEntity(name);
 }
 
 void LogicManager::activateCamera(const char* name) {
@@ -64,6 +64,10 @@ void LogicManager::setPointLightIntensity(const char* name, float value) {
 
 void LogicManager::openDoor(const char* name) {
   EngineTower.openDoor(name);
+}
+
+void LogicManager::activateAnim(const char* name) {
+	EngineTower.activateAnim(name);
 }
 
 LogicPlayer::LogicPlayer() {}

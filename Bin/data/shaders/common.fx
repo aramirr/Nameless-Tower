@@ -7,8 +7,12 @@ Texture2D    txAlbedo         SLOT( TS_ALBEDO );
 Texture2D    txNormal         SLOT( TS_NORMAL );
 Texture2D    txMetallic       SLOT( TS_METALLIC );
 Texture2D    txRoughness      SLOT( TS_ROUGHNESS );
-Texture2D    txEmissive       SLOT(TS_EMISSIVE);
-Texture2D    txHeight         SLOT(TS_HEIGHT);
+Texture2D    txEmissive       SLOT( TS_EMISSIVE );
+Texture2D    txHeight         SLOT( TS_HEIGHT );
+Texture2D    txAlpha          SLOT( TS_ALPHA );
+Texture2D    txTransparency   SLOT( TS_TRANSPARENCY );
+Texture2D    txCell           SLOT( TS_CELL );
+//Texture2D    txSublime        SLOT( TS_SUBLIME );
 
 // from the light and env
 Texture2D    txLightProjector SLOT( TS_LIGHT_PROJECTOR );
@@ -25,7 +29,9 @@ Texture2D    txGBufferLinearDepth SLOT( TS_DEFERRED_LINEAR_DEPTH );
 Texture2D    txAccLights          SLOT( TS_DEFERRED_ACC_LIGHTS );
 Texture2D    txAO                 SLOT( TS_DEFERRED_AO );
 Texture2D    txSelfIllum          SLOT( TS_DEFERRED_SELF_ILLUM );
-Texture2D    txAlpha              SLOT( TS_DEFERRED_ALPHA );
+Texture2D    txGBufferAlpha       SLOT( TS_DEFERRED_ALPHA );
+Texture2D    txGBufferCell        SLOT( TS_DEFERRED_CELL );
+//Texture2D    txGBufferSublime     SLOT( TS_DEFERRED_SUBLIME );
 
 // 2nd material
 Texture2D    txAlbedo1         SLOT( TS_ALBEDO1 );
@@ -52,6 +58,12 @@ SamplerState samLinear        : register(s0);
 SamplerState samBorderLinear  : register(s1);
 SamplerComparisonState samPCF : register(s2);
 SamplerState samClampLinear   : register(s3);
+
+float3 Specular_F_Roughness(float3 specularColor, float gloss, float3 h, float3 v)
+{
+  // Sclick using roughness to attenuate fresnel.
+    return (specularColor + (max(gloss, specularColor) - specularColor) * pow((1 - saturate(dot(v, h))), 5));
+}
 
 //--------------------------------------------------------------------------------------
 // 

@@ -17,6 +17,10 @@ class CCamera {
   float z_far = 1000.f;
   float aspect_ratio = 1.f;
 
+  // Orto params
+  float orto_width = 10.f;
+  float orto_height = 10.f;
+
   // Matrix
   MAT44 view;
   MAT44 proj;
@@ -64,8 +68,13 @@ public:
   float getFov() const { return fov_vertical; }
   float getZNear() const { return z_near; }
   float getZFar() const { return z_far; }
+  float getOrthoWidth() const { return orto_width; }
+  float getOrthoHeight() const { return orto_height; }
   float getAspectRatio() const { return aspect_ratio; }
   TViewport getViewport() const { return viewport; }
+
+  float isOrtho() const { return is_ortho; }
+
 
   // 
   void lookAt(VEC3 new_pos, VEC3 new_target, VEC3 new_up_aux = VEC3(0, 1, 0));
@@ -73,6 +82,8 @@ public:
   void setOrthographic(float width, float height);
   void setViewport(int x0, int y0, int width, int height);
   bool getScreenCoordsOfWorldCoord(VEC3 world_pos, VEC3 *screen_coords) const;
+
+  void setOrtho(float ortosize, float orto_height, float new_z_near, float new_z_far);
 
   //bool getActive() { return active; }
   //void setActive(bool _active) { active = _active; }

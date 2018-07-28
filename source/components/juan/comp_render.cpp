@@ -30,7 +30,10 @@ void TCompRender::registerMsgs() {
 // --------------------------------------------
 void TCompRender::debugInMenu() {
   ImGui::ColorEdit4("Color", &color.x);
+	//ImGui::ColorEdit4("Self Color", &self_color.x);
+	//ImGui::DragFloat("Self Intensity", &self_intensity, 0.01f, 0.f, 50.f);
 
+	//?¿?¿?
   bool changed = false;
   for (auto& mwm : meshes) {
     ImGui::PushID(&mwm);
@@ -50,6 +53,8 @@ void TCompRender::debugInMenu() {
 }
 
 void TCompRender::renderDebug() {
+
+	//?¿¿?¿
   activateRSConfig(RSCFG_WIREFRAME);
   TCompTransform* transform = get<TCompTransform>();
   assert(transform);
@@ -131,6 +136,7 @@ void TCompRender::loadMesh(const json& j, TEntityParseContext& ctx) {
   if (j.count("color"))
     color = loadVEC4(j["color"]);
 
+	//self_intensity = j.value("self_intensity", 1.0f);
   AABB::CreateMerged(aabb, aabb, mwm.mesh->getAABB());
 
   meshes.push_back(mwm);
@@ -155,6 +161,11 @@ void TCompRender::load(const json& j, TEntityParseContext& ctx) {
   }
 
   refreshMeshesInRenderManager();
+
+	/*if (j.count("COLOR"))
+		color = loadVEC4(j["color"]);
+
+	self_color = j.count("self_color") ? loadVEC4(j["self_color"]) : VEC4(1, 1, 1, 1);*/
 }
 
 // --------------------------------------------

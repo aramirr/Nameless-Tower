@@ -5,27 +5,28 @@
       		"skeleton": {
         		"skeleton": "data/skeletons/Naja/naja.skeleton"
       		},
-      		"render" : [        					
+      		"render" : [        	
         		{
-          			"mesh": "data/skeletons/NajaTest/NajaTest.mesh"
+          			"mesh": "data/skeletons/Naja/Naja.mesh"
           			,
           			"materials":
           				[
-           		 			"data/materials/NajaMaterial.material"
+           		 			"data/materials/NajaMat.material"
           				]
-        		},
-        		{
-          			"mesh": "data/skeletons/NajaTest/PaiTest.mesh"
+        		}
+        	,	
+        		{ 
+          			"mesh": "data/skeletons/Naja/PaiPai.mesh"
           			,
           			"materials":
           				[
-           					"data/materials/PaipaiMaterial.material"
+           					"data/materials/PaipaiMat.material"
           				]
         		}
       		]		
 			,
 			"transform": {
-				"pos": "-5.957 9.5 -30.93",
+				"pos": "1.596 4.5 -31.460",
 				"front": "1 0 0"
 			}
 			, 
@@ -33,7 +34,9 @@
 				"file" : "data/fsm/character.fsm"
 			}
 			,
-			"player_controller" : {}
+			"player_controller" : {
+			"gravity": 75
+			}
 			,
 			"player_input": {}
 			,
@@ -53,7 +56,10 @@
 				,
 				"mask": "player_mask"
 		    },
-		    "arrow_ui":{}		 	    	
+		    "arrow_ui":{},
+		    "sound": {
+		    	"events": ["event:/Steps/footsteps"]
+		    }		 	    	
 		}
 	}
 ]

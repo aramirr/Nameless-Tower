@@ -55,10 +55,13 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
         puzzle_entity->sendMsg(activate_msg);
 	}
 
-    if (j.count("color"))
-        color = loadVEC4(j["color"]);
+	if (j.count("color")) {
+		color = loadVEC4(j["color"]);
+		initial_color = color;
+	}
     intensity = j.value("intensity", intensity);
-    radius = j.value("radius", radius);
+	radius = j.value("radius", radius);
+	scale = j.value("scale", scale);
     initial_radius = radius;
 
     Init();
@@ -78,7 +81,7 @@ void CAITorch::ActiveState(float dt)
         on_start = false;
     }
     if (b_fuego) {
-        EngineBillboards.addFuegoTest(fire_position);
+        id = EngineBillboards.addFuegoTest(fire_position, scale);
         b_fuego = false;
     }
     
@@ -97,8 +100,10 @@ void CAITorch::InactiveState(float dt)
 
 void CAITorch::activate() {
 	active = true;
-	TCompRender *my_render = getMyRender();
-	my_render->self_illumination = 1;
+	//TCompRender *my_render = getMyRender();
+	//my_render->self_illumination = 1;
+	TCompTransform* my_transform = getMyTransform();
+	EngineBillboards.encenderFuego(id, scale);
     
 	ChangeState("active");
 }
@@ -107,8 +112,10 @@ void CAITorch::activate() {
 void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
 	if (active) {
 		active = false;
-		TCompRender *my_render = getMyRender();
-		my_render->self_illumination = 1;
+		TCompTransform* my_transform = getMyTransform();
+		EngineBillboards.apagarFuego(id);
+		//TCompRender *my_render = getMyRender();
+		//my_render->self_illumination = 1;
 		timer = 0;
 		ChangeState("inactive");
 		if (in_puzzle) {
@@ -122,36 +129,44 @@ void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
 }
 
 void CAITorch::simulateLight() {
-    float r = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX))*DT;
-    TCompTransform* my_transform = getMyTransform();
+	if (active) {
+		float r = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX))*DT;
+		if (r > 0.1f) r = 0.1f;
 
-    int aux1 = rand() % 2;
-    if (aux1 == 0) {
-        color.x += r;
-    }
-    else {
-        color.x -= r;
-    }
-    cb_light.light_color = color;
+		TCompTransform* my_transform = getMyTransform();
 
-    cb_light.light_pos = fire_position;
-    if (b_increasing_radius) {
-        radius += r;
-        intensity += r;
-        int aux = rand() % 2;
-        if (aux == 0 || radius > initial_radius + 0.2f)
-            b_increasing_radius = false;
-    }
-    else {
-        radius -= r;
-        if (intensity -r > 0)
-            intensity -= r;
-        int aux = rand() % 2;
-        if (aux == 0 || radius < initial_radius - 0.2f)
-            b_increasing_radius = true;
-    }
-    cb_light.light_intensity = intensity;
-    cb_light.light_radius = radius * my_transform->getScale();
-    cb_light.light_view_proj_offset = MAT44::Identity;
-    cb_light.updateGPU();
+		int aux1 = rand() % 2;
+		if (aux1 == 0 && color.x < initial_color.x + 0.2f) {
+			color.x += r;
+		}
+		else if (aux1 == 1 && color.x > initial_color.x - 0.2f){
+			color.x -= r;
+		}
+		cb_light.light_color = color;
+
+		cb_light.light_pos = fire_position;
+		if (b_increasing_radius) {
+			radius += r;
+			intensity += r;
+			int aux = rand() % 2;
+			if (aux == 0 || radius > initial_radius + 0.2f)
+				b_increasing_radius = false;
+		}
+		else {
+			radius -= r;
+			if (intensity - r > 0)
+				intensity -= r;
+			int aux = rand() % 2;
+			if (aux == 0 || radius < initial_radius - 0.2f)
+				b_increasing_radius = true;
+		}
+		cb_light.light_intensity = intensity;
+		cb_light.light_radius = radius * my_transform->getScale();
+		cb_light.light_view_proj_offset = MAT44::Identity;
+		cb_light.updateGPU();
+	}
+	else {
+		cb_light.light_intensity = 0.f;
+		cb_light.updateGPU();
+	}
 }

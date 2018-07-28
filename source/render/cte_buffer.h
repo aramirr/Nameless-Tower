@@ -35,6 +35,7 @@ public:
 
   void updateGPU() {
     const TPOD* pod = this;
+		assert(cb != nullptr);
     Render.ctx->UpdateSubresource(cb, 0, NULL, pod, 0, 0);
   }
 };

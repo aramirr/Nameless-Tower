@@ -30,7 +30,8 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
     .set("set_dir_light_intensity", &LogicManager::setDirLightIntensity)
     .set("set_point_light_intensity", &LogicManager::setPointLightIntensity)
     .set("set_point_light_intensity", &LogicManager::setPointLightIntensity)
-    .set("open_door", &LogicManager::openDoor)
+		.set("open_door", &LogicManager::openDoor)
+		.set("activate_anim", &LogicManager::activateAnim)
 		;
 }
 

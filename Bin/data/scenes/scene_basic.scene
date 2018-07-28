@@ -1,84 +1,169 @@
-[	
+[
   {
-    "entity": {
-      "name": "Plane001",
-      "transform": {
-        "pos": "5.0 2.18557e-07 5.0",
+    "entity":
+    {
+      "name": "TorreCentro"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
         "rotation": "0.0 0.0 0.0 -1.0"
-      },
-      "render": 
+      }
+      ,
+      "render":
+      [
         {
-          "mesh": "data/meshes/Plane001.mesh",
-          "materials": [
-            "data/materials/piedras1.material"
-          ],
-          "is_active": true
+          "mesh": "data/meshes/TorreCentro.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
         }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Plataformas"
       ,
-      "collider": {
-        "shape": "plane"
+      "transform":
+      {
+        "pos": "-19.6942 218.25 -24.2169"
+        ,
+        "rotation": "0.0 -0.309017 0.0 -0.951056"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plataformas.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Plataformas.col_mesh"
+        ,
+        "group": "scenario"
       }
     }
-  },
+  }
+  ,
   {
-    "entity": {
-      "name": "PlaneGrass",
-      "transform": {
-        "pos": "-15.400 9 -27.479",
-        "rotation": "0.0 0.0 0.0 -1.0"
-      },
-      "render": []
+    "entity":
+    {
+      "name": "Viento1"
       ,
-      "comp_grass": { 
-        "total": 400,
-        "pos1": "-15.400 9 -27.479",
-        "pos2": "-5.957 9 -30.93"
-      }
-    }
-  },
-  {
-    "entity": {
-      "name": "Compresora_down",
-      "transform": {
-        "pos": "-18.858 -9.5 -25.231",
+      "transform":
+      {
+        "pos": "31.0927 80.9779 1.60434"
+        ,
         "rotation": "0.0 0.0 0.0 -1.0"
-      },
-      "render": []
-      ,
-      "ia_compressora_kill": { 
-        "other_name": "Compresora_up"
       }
       ,
-      "collider": {
-        "shape": "box",
-        "halfExtent": "2 0.5 1",
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Viento1.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_fan":
+      {
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68865 22.5035 1.66299"
+        ,
+        "is_dynamic": false
+        ,
         "is_trigger": true
-      },
-      "trigger": {
-        "trigger_type": "compresora"
       }
     }
-  },
+  }
+  ,
   {
-    "entity": {
-      "name": "Compresora_up",
-      "transform": {
-        "pos": "-18.858 -9.5 -25.231",
-        "rotation": "0.0 0.0 0.0 -1.0"
-      },
-      "render": []
+    "entity":
+    {
+      "name": "Viento2"
       ,
-      "ia_compressora_kill": { 
-        "other_name": "Compresora_down"
+      "transform":
+      {
+        "pos": "-30.4155 125.953 -8.37745"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
-      "collider": {
-        "shape": "box",
-        "halfExtent": "4 0.5 1",
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Viento2.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_fan":
+      {
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68865 22.5035 1.66299"
+        ,
+        "is_dynamic": false
+        ,
         "is_trigger": true
-      },
-      "trigger": {
-        "trigger_type": "compresora"
       }
     }
   },
@@ -178,5 +263,4 @@
       }
     }
   }
-	
 ]
