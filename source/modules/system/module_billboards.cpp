@@ -27,6 +27,14 @@ bool CModuleBillboards::start()
     auto rmesh = Resources.get("data/meshes/particles.instanced_mesh")->as<CRenderMesh>();
     particles_instances_mesh = (CRenderMeshInstanced*)rmesh;
   }
+	{
+		auto rmesh = Resources.get("data/meshes/particles_15.instanced_mesh")->as<CRenderMesh>();
+		fire_particles_instances_mesh = (CRenderMeshInstanced*)rmesh;
+	}
+	{
+		auto rmesh = Resources.get("data/meshes/particles_14.instanced_mesh")->as<CRenderMesh>();
+		smoke_particles_instances_mesh = (CRenderMeshInstanced*)rmesh;
+	}
   {
     auto rmesh = Resources.get("data/meshes/grass.instanced_mesh")->as<CRenderMesh>();
     grass_instances_mesh = (CRenderMeshInstanced*)rmesh;
@@ -34,42 +42,59 @@ bool CModuleBillboards::start()
   return true;
 }
 
-void CModuleBillboards::apagarFuego(int id) {
-	for (int i = 0; i < particles_instances.size(); ++i) {
-		if (particles_ids[i] == id) {
-			particles_instances[i].scale_x = 0.f;
-			particles_instances[i].scale_y = 0.f;
+void CModuleBillboards::apagarFuego(int id, float scale) {
+	for (int i = 0; i < fire_particles_instances.size(); ++i) {
+		if (fire_particles_ids[i] == id) {
+			fire_particles_instances[i].scale_x = 0.f;
+			fire_particles_instances[i].scale_y = 0.f;
+			smoke_particles_instances[i].scale_x = scale;
+			smoke_particles_instances[i].scale_y = scale;
 		}
 	}
 }
 
 void CModuleBillboards::encenderFuego(int id, float scale) {
-	for (int i = 0; i < particles_instances.size(); ++i) {
-		if (particles_ids[i] == id) {
-			particles_instances[i].scale_x = scale;
-			particles_instances[i].scale_y = scale;
+	for (int i = 0; i < fire_particles_instances.size(); ++i) {
+		if (fire_particles_ids[i] == id) {
+			fire_particles_instances[i].scale_x = scale;
+			fire_particles_instances[i].scale_y = scale;
+			smoke_particles_instances[i].scale_x = 0.f;
+			smoke_particles_instances[i].scale_y = 0.f;
 		}
 	}
 }
 
 int CModuleBillboards::addFuegoTest(VEC3 position, float scale) {
-	int new_id = max_id;
+	int fire_new_id = max_id;
 	++max_id;
-    TRenderParticle new_instance;
+	TRenderParticle new_instance;
 	//new_instance.id = new_id;
 	new_instance.scale_x = scale;
-    new_instance.scale_y = new_instance.scale_x;
-    new_instance.pos = position;
-    new_instance.nframe = randomFloat(0.f, 16.f);
-    new_instance.angle = deg2rad(randomFloat(0, 360));
-    new_instance.color.x = unitRandom();
-    new_instance.color.y = unitRandom();
-    new_instance.color.z = 1 - new_instance.color.x - new_instance.color.y;
-    new_instance.color.w = 1;
-	particles_instances.push_back(new_instance);
-	particles_ids.push_back(new_id);
+  new_instance.scale_y = new_instance.scale_x;
+  new_instance.pos = position;
+  new_instance.nframe = randomFloat(0.f, 16.f);
+  new_instance.angle = deg2rad(randomFloat(0, 360));
+  new_instance.color.x = unitRandom();
+  new_instance.color.y = unitRandom();
+  new_instance.color.z = 1 - new_instance.color.x - new_instance.color.y;
+  new_instance.color.w = 1;
+	TRenderParticle smoke_instance;
+	//new_instance.id = new_id;
+	smoke_instance.scale_x = 0.f;
+	smoke_instance.scale_y = smoke_instance.scale_x;
+	smoke_instance.pos = position;
+	smoke_instance.nframe = randomFloat(0.f, 16.f);
+	smoke_instance.angle = deg2rad(randomFloat(0, 360));
+	smoke_instance.color.x = unitRandom();
+	smoke_instance.color.y = unitRandom();
+	smoke_instance.color.z = 1 - smoke_instance.color.x - smoke_instance.color.y;
+	smoke_instance.color.w = 1;
+	fire_particles_instances.push_back(new_instance);
+	fire_particles_ids.push_back(fire_new_id);
+	smoke_particles_instances.push_back(smoke_instance);
+	smoke_particles_ids.push_back(fire_new_id);
 
-	return new_id;
+	return fire_new_id;
 }
 
 void CModuleBillboards::addGrass(VEC3 position, float width, float length, int total) {
@@ -265,5 +290,7 @@ void CModuleBillboards::update(float delta)
 
   blood_instances_mesh->setInstancesData(blood_instances.data(), blood_instances.size(), sizeof(TInstanceBlood));
   
-  particles_instances_mesh->setInstancesData(particles_instances.data(), particles_instances.size(), sizeof(TRenderParticle));
+	particles_instances_mesh->setInstancesData(particles_instances.data(), particles_instances.size(), sizeof(TRenderParticle));
+	fire_particles_instances_mesh->setInstancesData(fire_particles_instances.data(), fire_particles_instances.size(), sizeof(TRenderParticle));
+	smoke_particles_instances_mesh->setInstancesData(smoke_particles_instances.data(), smoke_particles_instances.size(), sizeof(TRenderParticle));
 }

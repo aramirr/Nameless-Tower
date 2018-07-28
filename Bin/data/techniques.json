@@ -271,6 +271,20 @@
     "blend": "combinative",
     "z": "test_but_no_write"
   },
+  "particles_14": {
+    "vs_file": "data/shaders/particles_14.fx",
+    "vertex_type": "Pos_x_RenderParticle",
+    "category": "particles",
+    "blend": "combinative",
+    "z": "test_but_no_write"
+  },
+    "particles_15": {
+    "vs_file": "data/shaders/particles_15.fx",
+    "vertex_type": "Pos_x_RenderParticle",
+    "category": "particles",
+    "blend": "combinative",
+    "z": "test_but_no_write"
+  },
   
   "grass": {
     "vs_file": "data/shaders/grass.fx",

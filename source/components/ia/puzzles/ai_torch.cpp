@@ -113,7 +113,7 @@ void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
 	if (active) {
 		active = false;
 		TCompTransform* my_transform = getMyTransform();
-		EngineBillboards.apagarFuego(id);
+		EngineBillboards.apagarFuego(id, scale);
 		//TCompRender *my_render = getMyRender();
 		//my_render->self_illumination = 1;
 		timer = 0;

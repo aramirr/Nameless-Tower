@@ -24,7 +24,7 @@ class CAITorch : public IAIController
 	VEC4 color = VEC4(1, 1, 1, 1);
     float intensity = 1.0f;
     float radius = 1.0f;
-	float scale = 0.2f;
+	float scale = 1.f;
 	VEC4 initial_color = VEC4(1, 1, 1, 1);
     float initial_radius = 1.0f;
     bool b_increasing_radius = true;
