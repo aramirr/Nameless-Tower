@@ -20,6 +20,9 @@ public:
 	bool    looking_left;
 	bool    is_grounded;
 	bool    is_falling;
+	bool    is_running = false;
+	int anim1 = -1;
+	int anim2 = -1;
 
 	VEC3	  center;
 	float	  tower_radius;
@@ -31,27 +34,38 @@ public:
 	enum EAnimations {
 		NajaRun = 0
 		, NajaIdle
-		, NajaGlide
+		, NajaGlideStrike
+		, NajaGlideLoop
 		, NajaJumpUp
-		, NajaJumpFall
-		, NajaJumpFallLand
-		, NajaOmniPrep
+		, NajaJumpLoop
+		, NajaJumpLand
+		, NajaOmniPrepDn
+		, NajaOmniPrepUp
+		, NajaOmniPrepBk
+		, NajaOmniPrepFr
+		, NajaOmniPrepFrDn
+		, NajaOmniPrepFrUp
+		, NajaOmniPrepFrBk
+		, NajaOmniPrepBkDn
 		, NajaOmniAb
 		, NajaOmniAr
 		, NajaOmniDe
 		, NajaOmniFr
-		, NajaDash
+		, NajaDashStrike
+		, NajaDashLand
 		, NajaWalk
-		, NajaWindstrike
-		, NajaDying
-		, NajaDead,
+		, NajaWindstrikeA
+		, NajaDeath
+		, NajaDead
+		, NajaBreak,
 		EAnimations
 	};
 
   void debugInMenu();
   void load(const json& j, TEntityParseContext& ctx);
-	void change_animation(int animation_id, bool is_action, float in_delay, float out_delay);
+	void change_animation(int animation_id, bool is_action, float in_delay, float out_delay, bool clear);
 	void clear_animations(float out_delay);
+	void remove_animation(int animation_id);
 
 
 	void move_player(bool left, bool change_orientation, float dt, float y_speed, float x_speed);

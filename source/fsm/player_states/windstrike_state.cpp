@@ -16,7 +16,7 @@ namespace FSM
 			assert(!ctx_w.entities_loaded.empty());
 		}
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_animation(player->EAnimations::NajaWindstrike, _is_action, _delay_in, _delay_out);
+		player->change_animation(player->EAnimations::NajaWindstrikeA, _is_action, _delay_in, _delay_out, true);
 	}
 	
 	bool WindstrikeState::load(const json& jData)

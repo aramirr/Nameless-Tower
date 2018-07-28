@@ -9,11 +9,11 @@ namespace FSM
 	{
 		ctx.setVariable("can_dash", false);
 		CEntity* e = ctx.getOwner();
-		dbg("dash\n");
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		TCompTransform* c_my_transform = e->get<TCompTransform>();
 		player->jumping_start_height = c_my_transform->getPosition().y;
-		player->change_animation(player->EAnimations::NajaDash, _is_action, _delay_in, _delay_out);
+        player->clear_animations(0.1f);
+		player->change_animation(player->EAnimations::NajaDashStrike, _is_action, _delay_in, _delay_out, true);
 	}
 
 	bool DashState::load(const json& jData)
@@ -39,5 +39,6 @@ namespace FSM
 	void DashState::onFinish(CContext& ctx) const {
 		ctx.setVariable("dash", false);
 		CEntity* e = ctx.getOwner();
+		TCompPlayerController* player = e->get<TCompPlayerController>();
 	}
 }

@@ -11,7 +11,9 @@ namespace FSM
 		ctx.setVariable("can_omni", false);
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_animation(player->EAnimations::NajaOmniPrep, _is_action, _delay_in, _delay_out);
+		player->anim1 = calculateAnimation(e);
+		player->clear_animations(0.3f);
+		player->change_animation(player->anim1, _is_action, _delay_in, _delay_out, true);
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		player->jumping_start_height = c_my_transform->getPosition().y;
 		EngineTimer.setTimeSlower(0.25f);
@@ -38,7 +40,52 @@ namespace FSM
 			ctx.setVariable("omnijump", true);
 		}
 
+		int anim = calculateAnimation(e);
+		if (player->anim2 != anim) {
+			if (player->anim2 != -1)
+				player->remove_animation(player->anim2);
+			player->anim2 = player->anim1;
+			player->anim1 = anim;
+			player->change_animation(player->anim1, _is_action, _delay_in, _delay_out, false);
+		}
 		return false;
+	}
+
+	int OmnidashState::calculateAnimation(CEntity* e) {
+		CEntity* e_camera = EngineCameras.getActiveCamera();
+		TCompCamera* c_camera = e_camera->get< TCompCamera >();
+		TCompTransform *c_my_transform = e->get<TCompTransform>();
+		const Input::TInterface_Mouse& mouse = EngineInput.mouse();
+		VEC3 my_pos = c_my_transform->getPosition();
+		VEC3 player_position;
+		c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
+		VEC3 omnidash_arrow = mouse._position - VEC2(player_position.x, player_position.y);
+		omnidash_arrow.Normalize();
+		TCompPlayerController* player = e->get<TCompPlayerController>();
+		if (omnidash_arrow.x >= 0.75) {
+			return player->EAnimations::NajaOmniPrepFr;
+		}
+		else if (omnidash_arrow.x <= -0.80){
+			return player->EAnimations::NajaOmniPrepBk;
+		}
+		else if (omnidash_arrow.y <= -0.80) {
+			return player->EAnimations::NajaOmniPrepUp;
+		} 
+		else if (omnidash_arrow.y >= 0.80) {
+			return player->EAnimations::NajaOmniPrepDn;
+		} 
+		else if (omnidash_arrow.x >= 0.20 && omnidash_arrow.y >= 0.20) {
+			return player->EAnimations::NajaOmniPrepFrDn;
+		}
+		else if (omnidash_arrow.x <= -0.20 && omnidash_arrow.y <= -0.20) {
+			return player->EAnimations::NajaOmniPrepFrBk;
+		}
+		else if (omnidash_arrow.x <= -0.20 && omnidash_arrow.y >= 0.20) {
+			return player->EAnimations::NajaOmniPrepBkDn;
+		}
+		else {
+			return player->EAnimations::NajaOmniPrepFrUp;
+		}
 	}
 
 	void OmnidashState::onFinish(CContext& ctx) const {

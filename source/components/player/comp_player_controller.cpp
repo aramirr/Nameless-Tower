@@ -74,12 +74,20 @@ void TCompPlayerController::setEntity(CHandle new_entity) {
 	assert(h_entity.isValid());
 }
 
-void TCompPlayerController::change_animation(int animation_id, bool is_action, float in_delay, float out_delay) {
+void TCompPlayerController::change_animation(int animation_id, bool is_action, float in_delay, float out_delay, bool clear = true) {
   CEntity* e = h_entity;
   TCompSkeleton* skeleton = e->get<TCompSkeleton>();
   assert(skeleton);
   
-  skeleton->playAnimation(animation_id, is_action, in_delay, out_delay);
+  skeleton->playAnimation(animation_id, is_action, in_delay, out_delay, clear);
+}
+
+void TCompPlayerController::remove_animation(int animation_id) {
+	CEntity* e = h_entity;
+	TCompSkeleton* skeleton = e->get<TCompSkeleton>();
+	assert(skeleton);
+
+	skeleton->removeAnimation(animation_id);
 }
 
 void TCompPlayerController::clear_animations(float out_delay) {

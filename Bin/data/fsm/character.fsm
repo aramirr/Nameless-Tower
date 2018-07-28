@@ -5,7 +5,7 @@
 			"name" : "idle",
 			"type" : "IdleState",
 			"is_action": false,
-			"delay_in": 0,
+			"delay_in": 0.3,
 			"delay_out": 0
 		},
 		{
@@ -36,7 +36,7 @@
 			"x_speed" : 1.6,
 			"is_action": true,
 			"delay_in": 0,
-			"delay_out": 0
+			"delay_out": 0.1
 		},
 		{
 			"name" : "falling",
@@ -75,14 +75,14 @@
 			"name" : "windstrike",
 			"type" : "WindstrikeState",
 			"is_action": true,
-			"delay_in": 0,
-			"delay_out": 0
+			"delay_in": 0.05,
+			"delay_out": 0.2
 		},
 		{
 			"name" : "omnidash",
 			"type" : "OmnidashState",
-			"is_action": true,
-			"delay_in": 0,
+			"is_action": false,
+			"delay_in": 0.1,
 			"delay_out": 0
 		},
 		{
@@ -283,17 +283,6 @@
 			"target" : "jump",
 			"variable" : {
 				"name" : "jump",
-				"type" : "bool",
-				"value" : true
-			},
-			"operation" : "equal"
-		},
-		{
-			"type" : "VariableTransition",
-			"source" : "run",
-			"target" : "turn_around",
-			"variable" : {
-				"name" : "turn_around",
 				"type" : "bool",
 				"value" : true
 			},
@@ -549,7 +538,7 @@
 			"type" : "TimeTransition",
 			"source" : "omnidash",
 			"target" : "omnijump",			
-			"time" : 0.3
+			"time" : 2
 		},
 		{
 			"type" : "TimeTransition",

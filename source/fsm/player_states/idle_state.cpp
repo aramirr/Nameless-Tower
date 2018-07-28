@@ -13,15 +13,9 @@ namespace FSM
 	{
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		//player->change_mesh(player->EAnimations::EIdle);		
-		// Pongo la animacion solo si no se esta moviendo
-		dbg("idle\n");
+ 		// Pongo la animacion solo si no se esta moviendo
 		ctx.setVariable("run", false);
-		if (!EngineInput["left"].isPressed() & !EngineInput["right"].isPressed()) {			
-			player->change_animation(player->EAnimations::NajaIdle, _is_action, _delay_in, _delay_out);
-		}
-		else
-			player->change_animation(player->EAnimations::NajaRun, _is_action, _delay_in, _delay_out);
+		player->change_animation(player->EAnimations::NajaIdle, _is_action, _delay_in, _delay_out, true);
 		ctx.setVariable("initial", false);
 	}
 

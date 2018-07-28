@@ -10,7 +10,7 @@ namespace FSM
 	{					
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_animation(player->EAnimations::NajaRun, _is_action, _delay_in, _delay_out);
+		//player->change_animation(player->EAnimations::NajaBreak, _is_action, _delay_in, _delay_out);
 	}
 	
 	bool TurnAroundState::load(const json& jData)
@@ -22,9 +22,17 @@ namespace FSM
 	}
 
 	bool TurnAroundState::update(float dt, CContext& ctx) const
-	{			
+	{		
+        /*CEntity* e = ctx.getOwner();
+        TCompTransform *c_my_transform = e->get<TCompTransform>();
+        float current_yaw;
+        float current_pitch;
+        c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
-		return false;
+        VEC3 myPos = c_my_transform->getPosition();
+        current_yaw = current_yaw - 0.1f * dt;
+        c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+		*/return false;
 	}
 
 	void TurnAroundState::onFinish(CContext& ctx) const {
