@@ -8,6 +8,9 @@ namespace FSM
 	void RunState::onStart(CContext& ctx) const
 	{		
 		  
+        CEntity* e = ctx.getOwner();
+        TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->clear_animations(0.5f);
 		EngineSound.res = _sound->start();
 	}
 

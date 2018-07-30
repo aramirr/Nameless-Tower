@@ -18,6 +18,7 @@ class CAITorch : public IAIController
 
     bool b_fuego = true;
     bool on_start = true;
+    bool thin = true;
 
     // Light params
     VEC3 fire_position = VEC3::Zero;
