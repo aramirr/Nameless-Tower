@@ -2,11 +2,11 @@
   {
     "entity":
     {
-      "name": "Puerta_Reja_01"
+      "name": "CascadaGrandeCaustica"
       ,
       "transform":
       {
-        "pos": "25.8283 49.4987 15.2122"
+        "pos": "33.944 30.9018 -17.1214"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -14,40 +14,25 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Reja_01.mesh"
+          "mesh": "data/meshes/CascadaGrandeCaustica.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_reja_00.material"
+            "data/materials/AguaCausticaMat.material"
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-      ,
-      "collider":
-      {
-        "shape": "convex_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/Puerta_Reja_01.col_mesh"
-      }
     }
   }
   ,
   {
     "entity":
     {
-      "name": "Puerta_Reja_005"
+      "name": "CascadaChicaCaustica"
       ,
       "transform":
       {
-        "pos": "11.3017 31.5458 27.7067"
+        "pos": "21.9075 78.0152 -11.3315"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -55,42 +40,25 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Reja_005.mesh"
+          "mesh": "data/meshes/CascadaChicaCaustica.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_reja_00.material"
+            "data/materials/AguaCausticaMat.material"
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.599702 2.31665 1.125"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
     }
   }
   ,
   {
     "entity":
     {
-      "name": "Puerta_Reja_04"
+      "name": "CascadaFlujoCaustica"
       ,
       "transform":
       {
-        "pos": "8.33141 31.5458 28.7294"
+        "pos": "27.0446 61.6479 -14.2546"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -98,42 +66,25 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Reja_04.mesh"
+          "mesh": "data/meshes/CascadaFlujoCaustica.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_reja_00.material"
+            "data/materials/AguaCausticaMat.material"
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.490147 2.31665 1.14723"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
     }
   }
   ,
   {
     "entity":
     {
-      "name": "Puerta_Reja_02"
+      "name": "FlujoChico"
       ,
       "transform":
       {
-        "pos": "30.1672 63.048 0.69244"
+        "pos": "22.3202 92.9113 -11.2925"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -141,31 +92,326 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Reja_02.mesh"
+          "mesh": "data/meshes/FlujoChico.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_reja_00.material"
+            "data/materials/EspumaFlujoMat.material"
           ]
         }
       ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "FlujoGrande"
       ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-      ,
-      "collider":
+      "transform":
       {
-        "shape": "box"
+        "pos": "31.5383 58.905 -15.9281"
         ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1.16967 2.31665 0.185844"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
+        "rotation": "0.0 0.0 0.0 -1.0"
       }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/FlujoGrande.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaFlujoMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EspumaCascada"
+      ,
+      "transform":
+      {
+        "pos": "24.4663 64.8056 -12.0531"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EspumaCascada.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaFlujoMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EspumaCaidaChicaDe"
+      ,
+      "transform":
+      {
+        "pos": "26.1299 77.2304 -6.5609"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EspumaCaidaChicaDe.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EspumaCaidaChicaIz"
+      ,
+      "transform":
+      {
+        "pos": "20.7636 77.2216 -17.6609"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EspumaCaidaChicaIz.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EspumaCaidaFlujoDe"
+      ,
+      "transform":
+      {
+        "pos": "30.0792 61.5939 -7.6907"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EspumaCaidaFlujoDe.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EspumaCaidaFlujoIz"
+      ,
+      "transform":
+      {
+        "pos": "24.02 61.8456 -19.6952"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EspumaCaidaFlujoIz.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EspumaCaidaGrandeDe"
+      ,
+      "transform":
+      {
+        "pos": "37.3394 30.9191 -11.8976"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EspumaCaidaGrandeDe.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EspumaCaidaGrandeIz"
+      ,
+      "transform":
+      {
+        "pos": "31.5151 30.9421 -23.0847"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EspumaCaidaGrandeIz.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EspumaCascadaRipples"
+      ,
+      "transform":
+      {
+        "pos": "27.0446 61.758 -14.2546"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EspumaCascadaRipples.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RipplesMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CascadaChicaAgua"
+      ,
+      "transform":
+      {
+        "pos": "21.9058 78.01 -11.3312"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CascadaChicaAgua.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/AguaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CascadaFlujoAgua"
+      ,
+      "transform":
+      {
+        "pos": "27.0445 61.6387 -14.2536"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CascadaFlujoAgua.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/AguaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CascadaGrandeAgua"
+      ,
+      "transform":
+      {
+        "pos": "33.9427 30.8985 -17.1214"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CascadaGrandeAgua.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/AguaMat.material"
+          ]
+        }
+      ]
     }
   }
 ]

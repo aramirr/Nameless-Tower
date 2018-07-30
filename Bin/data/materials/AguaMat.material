@@ -5,8 +5,18 @@
   ,
   "textures":
   {
-    "albedo": "data/textures/null_albedo.dds"
+    "albedo": "data/textures/agua_b.dds"
     ,
-    "normal": "data/textures/agua_n.dds"
+    "normal": "data/textures/clouds_n.dds"
+    ,
+    "emissive": "data/textures/null_emissive.dds"
+    ,
+    "alpha": "data/textures/null_opacity.dds"
+    ,
+    "transparency": "data/textures/null_transparency.dds"
+    ,
+    "height": "data/textures/null_height.dds"
+    ,
+    "ao": "data/textures/null_ambientOcclusion.dds"
   }
 }
