@@ -1,0 +1,79 @@
+[
+  {
+    "entity":
+    {
+      "name": "ParedModelo"
+      ,
+      "transform":
+      {
+        "pos": "-3.4293 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedModelo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedPlana"
+      ,
+      "transform":
+      {
+        "pos": "3.38856 0.0 0.0"
+        ,
+        "rotation": "0.0 -0.32603 0.0 -0.945359"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedPlana.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedSola.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedBit2Map"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 -0.32603 0.0 -0.945359"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedBit2Map.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBit2Map.material"
+          ]
+        }
+      ]
+    }
+  }
+]
