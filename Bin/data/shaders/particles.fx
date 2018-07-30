@@ -24,10 +24,10 @@ void VS(
 
   // Compute uv's in base of the frame number
   float nframe = iXtras.z + global_world_time * 20;
-  int   nframes_per_axis = 8;
+  int   nframes_per_axis = 15;
   int   iframe = (int)nframe;
-  int   ifx = iframe % 8;
-  int   ify = (int) (iframe / 8);
+  int   ifx = iframe % 15;
+  int   ify = (int) (iframe / 15);
   float2 uv = float2(ifx, ify) / nframes_per_axis;
   // Add the local coord to get the uv's for each vertex of the quad
   uv += iPos.xy * ( 1.0 / nframes_per_axis);
