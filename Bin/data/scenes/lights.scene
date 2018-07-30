@@ -14,7 +14,7 @@
         "z_far" : 300,
         "fov" : 30,
         "casts_shadows" : true,
-        "shadows_step" : 1.0,
+        "shadows_step" : 5.0,
         "shadows_resolution" : 8192,
         "shadows_fmt" : "R32_TYPELESS"
       },
@@ -39,7 +39,7 @@
         "z_far" : 300,
         "fov" : 30,
         "casts_shadows" : true,
-        "shadows_step" : 1.0,
+        "shadows_step" : 5.0,
         "shadows_resolution" : 8192,
         "shadows_fmt" : "R32_TYPELESS"
       },
