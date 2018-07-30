@@ -62,7 +62,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)fmod\inc;.;../bin/data/shaders</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>mcv_platform.h</PrecompiledHeaderFile>
-      <AdditionalOptions>-Zm120 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zm150 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
