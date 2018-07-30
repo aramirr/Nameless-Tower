@@ -55,8 +55,10 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
         puzzle_entity->sendMsg(activate_msg);
 	}
 
-    if (j.count("color"))
-        color = loadVEC4(j["color"]);
+	if (j.count("color")) {
+		color = loadVEC4(j["color"]);
+		initial_color = color;
+	}
     intensity = j.value("intensity", intensity);
 	radius = j.value("radius", radius);
 	scale = j.value("scale", scale);
@@ -134,10 +136,10 @@ void CAITorch::simulateLight() {
 		TCompTransform* my_transform = getMyTransform();
 
 		int aux1 = rand() % 2;
-		if (aux1 == 0) {
+		if (aux1 == 0 && color.x < initial_color.x + 0.2f) {
 			color.x += r;
 		}
-		else {
+		else if (aux1 == 1 && color.x > initial_color.x - 0.2f){
 			color.x -= r;
 		}
 		cb_light.light_color = color;

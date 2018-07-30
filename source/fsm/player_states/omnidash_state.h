@@ -11,6 +11,7 @@ namespace FSM
 		bool load(const json& jData) override;
 		bool update(float dt, CContext& ctx) const override;
 		void onFinish(CContext& ctx) const override;
+		static int calculateAnimation(CEntity* e);
 
 	private:
 		float _omnidash_max_time;

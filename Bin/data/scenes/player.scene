@@ -5,21 +5,22 @@
       		"skeleton": {
         		"skeleton": "data/skeletons/Naja/naja.skeleton"
       		},
-      		"render" : [
+      		"render" : [        	
         		{
-          			"mesh": "data/skeletons/NajaTest/NajaTest.mesh"
+          			"mesh": "data/skeletons/Naja/Naja.mesh"
           			,
           			"materials":
           				[
-           		 			"data/materials/NajaMaterial.material"
+           		 			"data/materials/NajaMat.material"
           				]
-        		},
-        		{
-          			"mesh": "data/skeletons/NajaTest/PaiTest.mesh"
+        		}
+        	,	
+        		{ 
+          			"mesh": "data/skeletons/Naja/PaiPai.mesh"
           			,
           			"materials":
           				[
-           					"data/materials/PaipaiMaterial.material"
+           					"data/materials/PaipaiMat.material"
           				]
         		}
       		]		
@@ -34,7 +35,7 @@
 			}
 			,
 			"player_controller" : {
-			"gravity": 70
+			"gravity": 75
 			}
 			,
 			"player_input": {}

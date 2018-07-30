@@ -1,0 +1,24 @@
+{
+  "technique": "pbr_skin.tech"
+  ,
+  "shadows": true
+  ,
+  "textures":
+  {
+    "albedo": "data/textures/Paipai_bm.dds"
+    ,
+    "normal": "data/textures/Paipai_nr.dds"
+    ,
+    "emissive": "data/textures/null_emissive.dds"
+    ,
+    "alpha": "data/textures/null_opacity.dds"
+    ,
+    "transparency": "data/textures/null_transparency.dds"
+    ,
+    "height": "data/textures/null_height.dds"
+    ,
+    "ao": "data/textures/Paipai_o.dds"
+    ,
+    "cell": "data/textures/white.dds"
+  }
+}
