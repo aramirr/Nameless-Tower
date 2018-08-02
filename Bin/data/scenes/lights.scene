@@ -15,7 +15,7 @@
         "fov" : 30,
         "casts_shadows" : true,
         "shadows_step" : 5.0,
-        "shadows_resolution" : 8192,
+        "shadows_resolution" : 2048,
         "shadows_fmt" : "R32_TYPELESS"
       },
       "camera_flyover" : {
@@ -40,7 +40,7 @@
         "fov" : 30,
         "casts_shadows" : true,
         "shadows_step" : 5.0,
-        "shadows_resolution" : 8192,
+        "shadows_resolution" : 2048,
         "shadows_fmt" : "R32_TYPELESS"
       },
       "camera_flyover" : {

@@ -1,0 +1,866 @@
+[
+  {
+    "entity":
+    {
+      "name": "TFAntorchasArribaIzq"
+      ,
+      "transform":
+      {
+        "pos": "11.2308 96.4394 -29.1036"
+        ,
+        "rotation": "0.0 0.156435 0.0 -0.987688"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.914529 0.562595 1.17726"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TFAntorchasArribaDer"
+      ,
+      "transform":
+      {
+        "pos": "-1.62772 96.4394 -31.2419"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.914529 0.562595 1.17726"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TFAntorchasAbajo"
+      ,
+      "transform":
+      {
+        "pos": "4.65117 87.8239 -30.3962"
+        ,
+        "rotation": "0.0 -0.669131 0.0 -0.743145"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.914529 0.562595 1.17726"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sierra004"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sierra003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "circular_controller":
+      {
+        "speed": 5.0
+        ,
+        "eje": "X"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Sierra004_parent"
+        ,
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sierra004_parent"
+      ,
+      "transform":
+      {
+        "pos": "-17.6465 8.99426 -26.1143"
+        ,
+        "rotation": "0.0 -0.94788 0.0 0.318629"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ai_orbit_patrol":
+      {
+        "speed": 0.05
+        ,
+        "delay": 1.0
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "-17.6465 8.99426 -26.1143"
+          ,
+          "-23.4002 8.99426 -21.1137"
+        ]
+        ,
+        "center": "0.0 8.99426 -3.93152e-07"
+        ,
+        "radius": 31.5175
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "mesh_src": "data/meshes/Sierra004.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_00"
+      ,
+      "transform":
+      {
+        "pos": "8.09315 31.8949 -30.0656"
+        ,
+        "rotation": "0.0 0.129435 0.0 -0.991588"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_00trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_002"
+      ,
+      "transform":
+      {
+        "pos": "14.1672 31.8949 -27.7612"
+        ,
+        "rotation": "0.0 0.232375 0.0 -0.972626"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_02trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_003"
+      ,
+      "transform":
+      {
+        "pos": "16.9864 31.8949 -26.0861"
+        ,
+        "rotation": "0.0 0.28296 0.0 -0.959132"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_03trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_005"
+      ,
+      "transform":
+      {
+        "pos": "22.0215 31.8949 -22.0993"
+        ,
+        "rotation": "0.0 0.381666 0.0 -0.9243"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_05trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_006"
+      ,
+      "transform":
+      {
+        "pos": "24.2424 31.8949 -19.6479"
+        ,
+        "rotation": "0.0 0.429518 0.0 -0.903059"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_06trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_008"
+      ,
+      "transform":
+      {
+        "pos": "27.7925 31.8949 -14.1362"
+        ,
+        "rotation": "0.0 0.52156 0.0 -0.853215"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_08trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_009"
+      ,
+      "transform":
+      {
+        "pos": "29.1443 31.8949 -11.1584"
+        ,
+        "rotation": "0.0 0.565499 0.0 -0.824749"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_09trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_010"
+      ,
+      "transform":
+      {
+        "pos": "30.161 31.8949 -8.01698"
+        ,
+        "rotation": "0.0 0.607888 0.0 -0.794023"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_10trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CascadaGrandeCaustica"
+      ,
+      "transform":
+      {
+        "pos": "25.5475 47.8099 -13.6772"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CascadaGrandeCaustica.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CausticaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CascadaChicaCaustica"
+      ,
+      "transform":
+      {
+        "pos": "22.1608 79.1655 -11.6549"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CascadaChicaCaustica.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CausticaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CascadaFlujoCaustica"
+      ,
+      "transform":
+      {
+        "pos": "25.5475 47.8099 -13.6772"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CascadaFlujoCaustica.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CausticaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EspumaCaidaChicaDe"
+      ,
+      "transform":
+      {
+        "pos": "27.1508 76.1445 -6.46831"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EspumaCaidaChicaDe.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaAgua.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EspumaCaidaChicaIz"
+      ,
+      "transform":
+      {
+        "pos": "20.2619 76.1445 -28.9598"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EspumaCaidaChicaIz.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaAgua.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EspumaCaidaFlujoDe"
+      ,
+      "transform":
+      {
+        "pos": "29.919 61.4705 -8.48046"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EspumaCaidaFlujoDe.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaAgua.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EspumaCaidaFlujoIz"
+      ,
+      "transform":
+      {
+        "pos": "24.2915 61.6479 -19.2803"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EspumaCaidaFlujoIz.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaAgua.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EspumaCaidaGrandeDe"
+      ,
+      "transform":
+      {
+        "pos": "25.5475 47.8099 -13.6772"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EspumaCaidaGrandeDe.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaAgua.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EspumaCaidaGrandeIz"
+      ,
+      "transform":
+      {
+        "pos": "25.5475 47.8099 -13.6772"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EspumaCaidaGrandeIz.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaAgua.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EspumaCascadaRipples"
+      ,
+      "transform":
+      {
+        "pos": "27.0446 61.758 -14.2546"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EspumaCascadaRipples.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CascadaRipples.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CascadaChicaAgua"
+      ,
+      "transform":
+      {
+        "pos": "22.1608 79.1655 -11.6549"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CascadaChicaAgua.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CascadaCausticaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CascadaFlujoAgua"
+      ,
+      "transform":
+      {
+        "pos": "25.5475 47.8099 -13.6772"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CascadaFlujoAgua.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CascadaCausticaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CascadaGrandeAgua"
+      ,
+      "transform":
+      {
+        "pos": "25.5475 47.8099 -13.6772"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CascadaGrandeAgua.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CascadaCausticaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+]
