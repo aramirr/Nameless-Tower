@@ -2087,181 +2087,6 @@
         "is_trigger": false
       }
     }
-  },
-  {
-    "entity":
-    {
-      "name": "ParedDestapada4"
-      ,
-      "transform":
-      {
-        "pos": "-31.6103 24.7485 -5.02165"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedDestapada4.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "ParedDestapada5"
-      ,
-      "transform":
-      {
-        "pos": "-21.9499 27.0001 -19.7712"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedDestapada5.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  },
-   {
-    "entity":
-    {
-      "name": "ParedDestapada7"
-      ,
-      "transform":
-      {
-        "pos": "17.753 31.4999 -17.7595"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedDestapada7.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  },
-  {
-    "entity":
-    {
-      "name": "ParedDestapada12"
-      ,
-      "transform":
-      {
-        "pos": "7.05464 92.2499 -27.0174"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedDestapada12.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  },
-  {
-    "entity":
-    {
-      "name": "ParedDestapada10"
-      ,
-      "transform":
-      {
-        "pos": "19.2277 67.4999 19.2443"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedDestapada10.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  },
-  {
-    "entity":
-    {
-      "name": "ParedDestapada13"
-      ,
-      "transform":
-      {
-        "pos": "-15.252 98.9915 -29.0135"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedDestapada13.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
   }
   ,
   {
@@ -3039,7 +2864,7 @@
   {
     "entity":
     {
-      "name": "4_Paredes_Exteriores"
+      "name": "MeshesEstaticos"
       ,
       "transform":
       {
@@ -3051,7 +2876,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/4_Paredes_Exteriores.mesh"
+          "mesh": "data/meshes/MeshesEstaticos.mesh"
           ,
           "materials":
           [
@@ -3859,10 +3684,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -8338,6 +8159,7 @@
     }
   }
   ,
+  
   {
     "entity":
     {
