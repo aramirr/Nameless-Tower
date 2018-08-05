@@ -1,0 +1,22 @@
+{
+  "technique": "pbr.tech"
+  ,
+  "shadows": true
+  ,
+  "textures":
+  {
+    "albedo": "data/textures/caustica_b.dds"
+    ,
+    "normal": "data/textures/caustica_n.dds"
+    ,
+    "emissive": "data/textures/null_emissive.dds"
+    ,
+    "alpha": "data/textures/Espuma.dds"
+    ,
+    "transparency": "data/textures/null_transparency.dds"
+    ,
+    "height": "data/textures/null_height.dds"
+    ,
+    "ao": "data/textures/null_ambientOcclusion.dds"
+  }
+}
