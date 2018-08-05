@@ -2387,12 +2387,7 @@
       ,
       "render":
       {
-        "mesh": "data/meshes/VientoVertical004.mesh"
-        ,
-        "materials":
-        [
-          "data/materials/VientoVertMat.material"
-        ]
+        
       }
       ,
       "hierarchy":
@@ -2468,6 +2463,69 @@
       ,
       "local_aabb": true
     }
+  },
+  {
+    "entity":
+    {
+      "name": "VientoVerticalIntB"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"        
+      },
+      "hierarchy":
+      {
+        "parent": "Vientos02"
+        ,
+        "pos": "-1.42491 -0.160171 0.556038"
+        ,
+        "rotation": "0.0 -2.78142e-07 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoVerticalIntB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVerticalMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoVerticalExtB"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      },
+      "hierarchy":
+      {
+        "parent": "Vientos02"
+        ,
+         "pos": "-1.45568 -0.0856178 0.487108"
+        ,
+        "rotation": "0.0 -2.78142e-07 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoVerticalExtB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVerticalMat.material"
+          ]
+        }
+      ]
+    }
   }
   ,
   {
@@ -2482,12 +2540,7 @@
       ,
       "render":
       {
-        "mesh": "data/meshes/VientoVertical004.mesh"
-        ,
-        "materials":
-        [
-          "data/materials/VientoVertMat.material"
-        ]
+        
       }
       ,
       "hierarchy":
@@ -3525,66 +3578,6 @@
       [
         {
           "mesh": "data/meshes/ParedDestapada5.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Muro_salido_02"
-      ,
-      "transform":
-      {
-        "pos": "-29.7387 34.5579 -12.6626"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Muro_salido_02.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Muro_Salido_03"
-      ,
-      "transform":
-      {
-        "pos": "-32.1041 17.4013 -5.30462"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Muro_Salido_03.mesh"
           ,
           "materials":
           [
@@ -4740,366 +4733,6 @@
           "materials":
           [
             "data/materials/Suelo_Pasillo_02.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Muro_Salido_01"
-      ,
-      "transform":
-      {
-        "pos": "-19.4191 34.5579 -25.8331"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Muro_Salido_01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_10"
-      ,
-      "transform":
-      {
-        "pos": "-13.6505 11.25 -28.9704"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_10.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_09"
-      ,
-      "transform":
-      {
-        "pos": "-13.6505 15.75 -28.9704"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_09.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_08"
-      ,
-      "transform":
-      {
-        "pos": "-13.6505 20.25 -28.9704"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_08.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_07"
-      ,
-      "transform":
-      {
-        "pos": "-13.6505 24.75 -28.9704"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_07.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_06"
-      ,
-      "transform":
-      {
-        "pos": "-13.6504 33.7499 -28.9704"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_06.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_05"
-      ,
-      "transform":
-      {
-        "pos": "-28.9706 11.25 13.6507"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_05.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_04"
-      ,
-      "transform":
-      {
-        "pos": "-28.9706 15.75 13.6507"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_04.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_03"
-      ,
-      "transform":
-      {
-        "pos": "-28.9706 20.25 13.6507"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_03.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_02"
-      ,
-      "transform":
-      {
-        "pos": "-28.9706 6.74997 13.6506"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_02.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_01"
-      ,
-      "transform":
-      {
-        "pos": "-28.9706 24.75 13.6507"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_00"
-      ,
-      "transform":
-      {
-        "pos": "23.3354 101.25 -21.9401"
-        ,
-        "rotation": "0.0 -0.976806 0.0 0.214124"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_00.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
           ]
         }
       ]
@@ -7144,66 +6777,6 @@
       [
         {
           "mesh": "data/meshes/ParedDestapada7.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Muro_Salido_009"
-      ,
-      "transform":
-      {
-        "pos": "8.63135 39.8544 -31.3737"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Muro_Salido_009.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Muro_salido_003"
-      ,
-      "transform":
-      {
-        "pos": "21.3159 25.5459 -24.2916"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Muro_salido_003.mesh"
           ,
           "materials":
           [
@@ -9287,186 +8860,6 @@
           "materials":
           [
             "data/materials/Palmerita_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_011"
-      ,
-      "transform":
-      {
-        "pos": "23.3354 96.7499 -21.94"
-        ,
-        "rotation": "0.0 -0.976806 0.0 0.214124"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_011.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_012"
-      ,
-      "transform":
-      {
-        "pos": "23.3354 92.2499 -21.94"
-        ,
-        "rotation": "0.0 -0.976806 0.0 0.214124"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_012.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_013"
-      ,
-      "transform":
-      {
-        "pos": "23.3354 83.2726 -21.9401"
-        ,
-        "rotation": "0.0 -0.976806 0.0 0.214124"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_013.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_014"
-      ,
-      "transform":
-      {
-        "pos": "23.3354 78.7726 -21.94"
-        ,
-        "rotation": "0.0 -0.976806 0.0 0.214124"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_014.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_015"
-      ,
-      "transform":
-      {
-        "pos": "15.4166 74.25 -28.0465"
-        ,
-        "rotation": "0.0 -0.924416 0.0 0.381385"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_015.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_016"
-      ,
-      "transform":
-      {
-        "pos": "15.4166 69.75 -28.0464"
-        ,
-        "rotation": "0.0 -0.924416 0.0 0.381385"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_016.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
           ]
         }
       ]
@@ -11890,996 +11283,6 @@
   {
     "entity":
     {
-      "name": "Borde_017"
-      ,
-      "transform":
-      {
-        "pos": "-29.1625 29.25 13.5816"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_017.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_019"
-      ,
-      "transform":
-      {
-        "pos": "7.32886 42.7499 31.1753"
-        ,
-        "rotation": "0.0 -0.62932 0.0 -0.777146"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_019.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_020"
-      ,
-      "transform":
-      {
-        "pos": "7.32858 47.2499 31.1754"
-        ,
-        "rotation": "0.0 -0.62932 0.0 -0.777146"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_020.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_021"
-      ,
-      "transform":
-      {
-        "pos": "7.32831 51.7499 31.1755"
-        ,
-        "rotation": "0.0 -0.62932 0.0 -0.777146"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_021.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_022"
-      ,
-      "transform":
-      {
-        "pos": "7.32803 56.2499 31.1755"
-        ,
-        "rotation": "0.0 -0.62932 0.0 -0.777146"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_022.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_023"
-      ,
-      "transform":
-      {
-        "pos": "31.2142 69.75 -6.14637"
-        ,
-        "rotation": "0.0 0.738877 0.0 -0.67384"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_023.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_024"
-      ,
-      "transform":
-      {
-        "pos": "31.2141 92.25 -6.14637"
-        ,
-        "rotation": "0.0 0.738877 0.0 -0.67384"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_024.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_025"
-      ,
-      "transform":
-      {
-        "pos": "31.2141 96.7499 -6.14636"
-        ,
-        "rotation": "0.0 0.738877 0.0 -0.67384"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_025.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_026"
-      ,
-      "transform":
-      {
-        "pos": "31.2142 101.25 -6.14636"
-        ,
-        "rotation": "0.0 0.738877 0.0 -0.67384"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_026.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_027"
-      ,
-      "transform":
-      {
-        "pos": "31.599 87.7499 3.82365"
-        ,
-        "rotation": "0.0 0.826274 0.0 -0.563268"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_027.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_028"
-      ,
-      "transform":
-      {
-        "pos": "31.7516 83.2499 3.68765"
-        ,
-        "rotation": "0.0 0.826274 0.0 -0.563268"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_028.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_029"
-      ,
-      "transform":
-      {
-        "pos": "31.2142 74.25 -6.14637"
-        ,
-        "rotation": "0.0 0.738877 0.0 -0.67384"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_029.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_030"
-      ,
-      "transform":
-      {
-        "pos": "-0.489873 38.25 31.8182"
-        ,
-        "rotation": "0.0 -0.98995 0.0 -0.141419"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_030.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_031"
-      ,
-      "transform":
-      {
-        "pos": "-0.489883 33.75 31.8182"
-        ,
-        "rotation": "0.0 -0.98995 0.0 -0.141419"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_031.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_032"
-      ,
-      "transform":
-      {
-        "pos": "-0.489871 42.75 31.8182"
-        ,
-        "rotation": "0.0 -0.98995 0.0 -0.141419"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_032.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_033"
-      ,
-      "transform":
-      {
-        "pos": "-0.48987 47.25 31.8182"
-        ,
-        "rotation": "0.0 -0.98995 0.0 -0.141419"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_033.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_034"
-      ,
-      "transform":
-      {
-        "pos": "-0.489868 51.75 31.8182"
-        ,
-        "rotation": "0.0 -0.98995 0.0 -0.141419"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_034.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_035"
-      ,
-      "transform":
-      {
-        "pos": "-0.489853 56.25 31.8182"
-        ,
-        "rotation": "0.0 -0.98995 0.0 -0.141419"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_035.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_036"
-      ,
-      "transform":
-      {
-        "pos": "-0.638658 60.75 31.6788"
-        ,
-        "rotation": "0.0 -0.98995 0.0 -0.141419"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_036.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_037"
-      ,
-      "transform":
-      {
-        "pos": "15.4849 47.2499 27.8004"
-        ,
-        "rotation": "0.0 -0.99282 0.0 0.119618"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_037.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_038"
-      ,
-      "transform":
-      {
-        "pos": "15.4849 42.7499 27.8004"
-        ,
-        "rotation": "0.0 -0.99282 0.0 0.119618"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_038.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_039"
-      ,
-      "transform":
-      {
-        "pos": "15.4849 38.2499 27.8004"
-        ,
-        "rotation": "0.0 -0.99282 0.0 0.119618"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_039.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_040"
-      ,
-      "transform":
-      {
-        "pos": "13.3894 15.75 -28.8684"
-        ,
-        "rotation": "0.0 0.344151 0.0 -0.938914"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_040.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_041"
-      ,
-      "transform":
-      {
-        "pos": "13.3894 11.25 -28.8684"
-        ,
-        "rotation": "0.0 0.344151 0.0 -0.938914"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_041.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_042"
-      ,
-      "transform":
-      {
-        "pos": "13.3894 6.74999 -28.8684"
-        ,
-        "rotation": "0.0 0.344151 0.0 -0.938914"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_042.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_043"
-      ,
-      "transform":
-      {
-        "pos": "0.487998 20.2498 -31.8185"
-        ,
-        "rotation": "0.0 0.141419 0.0 -0.98995"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_043.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_044"
-      ,
-      "transform":
-      {
-        "pos": "0.487975 24.7499 -31.8185"
-        ,
-        "rotation": "0.0 0.141419 0.0 -0.98995"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_044.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_045"
-      ,
-      "transform":
-      {
-        "pos": "0.487961 29.2499 -31.8184"
-        ,
-        "rotation": "0.0 0.141419 0.0 -0.98995"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_045.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_046"
-      ,
-      "transform":
-      {
-        "pos": "-31.8187 11.25 -0.490118"
-        ,
-        "rotation": "0.0 -0.600002 0.0 -0.799998"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_046.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_047"
-      ,
-      "transform":
-      {
-        "pos": "-31.8186 15.75 -0.490057"
-        ,
-        "rotation": "0.0 -0.600002 0.0 -0.799998"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_047.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_048"
-      ,
-      "transform":
-      {
-        "pos": "-31.8185 20.25 -0.489996"
-        ,
-        "rotation": "0.0 -0.600002 0.0 -0.799998"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_048.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Borde_049"
-      ,
-      "transform":
-      {
-        "pos": "-32.2105 29.25 -0.410736"
-        ,
-        "rotation": "0.0 -0.600002 0.0 -0.799998"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Borde_049.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "borde01"
-      ,
-      "transform":
-      {
-        "pos": "7.37943 38.2499 30.8348"
-        ,
-        "rotation": "0.0 -0.994522 0.0 -0.104529"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/borde01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Viga_02"
       ,
       "transform":
@@ -12893,66 +11296,6 @@
       [
         {
           "mesh": "data/meshes/Viga_02.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "borde02"
-      ,
-      "transform":
-      {
-        "pos": "31.4375 51.7499 -4.11597"
-        ,
-        "rotation": "0.0 0.809017 0.0 -0.587785"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/borde02.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "borde03"
-      ,
-      "transform":
-      {
-        "pos": "31.4375 38.2499 -4.11596"
-        ,
-        "rotation": "0.0 0.809017 0.0 -0.587785"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/borde03.mesh"
           ,
           "materials":
           [
@@ -17972,7 +16315,7 @@
           ,
           "materials":
           [
-            "data/materials/CascadaAguaMat.material"
+            "data/materials/CascadaCausticaMat.material"
           ]
         }
       ]
@@ -17998,7 +16341,7 @@
           ,
           "materials":
           [
-            "data/materials/CascadaAguaMat.material"
+            "data/materials/CascadaCausticaMat.material"
           ]
         }
       ]
@@ -18024,7 +16367,7 @@
           ,
           "materials":
           [
-            "data/materials/CascadaAguaMat.material"
+            "data/materials/CascadaCausticaMat.material"
           ]
         }
       ]
@@ -18478,6 +16821,36 @@
   {
     "entity":
     {
+      "name": "ParedExterior"
+      ,
+      "transform":
+      {
+        "pos": "0.093895 67.5 -0.183771"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExterior.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Agua_01Caustica"
       ,
       "transform":
@@ -18656,6 +17029,66 @@
           ]
         }
       ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedBordes"
+      ,
+      "transform":
+      {
+        "pos": "1.90735e-06 4.5 1.71065e-06"
+        ,
+        "rotation": "0.0 -0.941915 0.0 -0.335851"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedBordes.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Borde"
+      ,
+      "transform":
+      {
+        "pos": "14.8561 7.45475 -29.4672"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Borde.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
     }
   }
 ]

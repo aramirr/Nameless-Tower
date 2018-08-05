@@ -1,0 +1,53 @@
+[
+  {
+    "entity":
+    {
+      "name": "VientoVerticalIntC"
+      ,
+      "transform":
+      {
+        "pos": "-0.066753 -0.0928059 0.120082"
+        ,
+        "rotation": "0.0 -2.78142e-07 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoVerticalIntC.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVerticalMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoVerticalExtC"
+      ,
+      "transform":
+      {
+        "pos": "-1.78814e-07 0.0 -1.19209e-07"
+        ,
+        "rotation": "0.0 -2.78142e-07 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoVerticalExtC.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVerticalMat.material"
+          ]
+        }
+      ]
+    }
+  }
+]
