@@ -62,41 +62,10 @@
 			"render_outlines" : {
 		        "enabled" : false
 		    },
-		    "culling":true
-		}
-	},
-	{
-		"entity": {
-			"name": "camera_platform",
-			"transform": {
-				"pos": "-14 16 12",
-				"lookat": "-1 0 -1"
-			},
-			"platformCamera" : {},
-			"camera" : {
-				"fov" : 80
-			},
-			"render_outlines" : {
-		        "enabled" : false
-		      }
-		}
-	},
-	{
-		"entity": {
-			"name": "camera_orbit_DER",
-			"transform": {
-				"pos": "-14 16 12",
-				"lookat": "-1 0 -1"
-			},
-			"orbitCamera" : {
-				"izq" : false
-			},
-			"camera" : {
-				"fov" : 80
-			},
-			"render_outlines" : {
-		        "enabled" : false
-		      }
+		    "culling":true,
+      		"render_ao" : {
+        		"enabled" :  true
+      		}
 		}
 	}
 ]

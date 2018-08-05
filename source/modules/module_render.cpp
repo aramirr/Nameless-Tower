@@ -271,18 +271,10 @@ void CModuleRender::generateFrame() {
   }
 
 	{
-		CEntity* e_camera1 = getEntityByName("camera_orbit_IZQ");
-		TCompCamera* c_camera1 = e_camera1->get< TCompCamera >();
-		CCamera* cam1 = c_camera1;
-		activateCamera(*cam1, Render.width, Render.height);
-		CEntity* e_camera2 = getEntityByName("camera_platform");
-		TCompCamera* c_camera2 = e_camera2->get< TCompCamera >();
-		CCamera* cam2 = c_camera2;
-		activateCamera(*cam2, Render.width, Render.height);
-		CEntity* e_camera3 = getEntityByName("camera_orbit_DER");
-		TCompCamera* c_camera3 = e_camera3->get< TCompCamera >();
-		CCamera* cam3 = c_camera3;
-		activateCamera(*cam3, Render.width, Render.height);
+		CEntity* e_camera = getEntityByName("camera_orbit_IZQ");
+		TCompCamera* c_camera = e_camera->get< TCompCamera >();
+		CCamera* cam = c_camera;
+		activateCamera(*cam, Render.width, Render.height);
 	}
 
   {
