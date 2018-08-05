@@ -31,14 +31,20 @@ class CModuleBillboards : public IModule
     float nframe;
   };
 	CRenderMeshInstanced* particles_instances_mesh = nullptr;
-	CRenderMeshInstanced* fire_particles_instances_mesh = nullptr;
+    CRenderMeshInstanced* fire_particles_instances_mesh = nullptr;
+    CRenderMeshInstanced* thin_fire_particles_instances_mesh = nullptr;
 	CRenderMeshInstanced* smoke_particles_instances_mesh = nullptr;
+	CRenderMeshInstanced* thin_smoke_particles_instances_mesh = nullptr;
 	std::vector< TRenderParticle > particles_instances;
-	std::vector< TRenderParticle > fire_particles_instances;
-	std::vector< TRenderParticle > smoke_particles_instances;
+    std::vector< TRenderParticle > fire_particles_instances;
+    std::vector< TRenderParticle > thin_fire_particles_instances;
+    std::vector< TRenderParticle > smoke_particles_instances;
+    std::vector< TRenderParticle > thin_smoke_particles_instances;
 	std::vector< int > particles_ids;
-	std::vector< int > fire_particles_ids;
-	std::vector< int > smoke_particles_ids;
+    std::vector< int > fire_particles_ids;
+    std::vector< int > thin_fire_particles_ids;
+    std::vector< int > smoke_particles_ids;
+    std::vector< int > thin_smoke_particles_ids;
 
 
   // -------------------------------------------------------------------
@@ -56,9 +62,9 @@ public:
 	{}
   bool start() override;
   void update(float delta) override;
-  int addFuegoTest(VEC3 position, float scale);
-  void apagarFuego(int id, float scale);
-  void encenderFuego(int id, float scale);
+  int addFuegoTest(VEC3 position, float scale, bool thin);
+  void apagarFuego(int id, float scale, bool thin);
+  void encenderFuego(int id, float scale, bool thin);
   void addGrass(VEC3 position, float width, float length, int total);
   void addGrassByAngle(VEC3 pos1, VEC3 pos2, int total);
   void calculateAngles(VEC3 pos1, VEC3 pos2, float& alpha, float& beta, float& charlie);

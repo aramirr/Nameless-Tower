@@ -49,6 +49,22 @@
       ]
     }
   }
+  , {
+    "entity": {
+      "name": "Instanced Thin Fire",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_thin_15.instanced_mesh",
+          "materials": [
+            "data/materials/particles_thin_fire_instanced_15.material"
+          ]
+        }
+      ]
+    }
+  }
   , 
   {
     "entity": {
