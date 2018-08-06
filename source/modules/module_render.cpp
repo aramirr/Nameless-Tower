@@ -177,7 +177,7 @@ void CModuleRender::activateMainCamera() {
   CCamera* cam = &camera;
 
   // Find the entity with name 'the_camera'
-  h_e_camera = getEntityByName("the_camera");
+  h_e_camera = getEntityByName("camera_orbit_IZQ");
   if (h_e_camera.isValid()) {
     CEntity* e_camera = h_e_camera;
     TCompCamera* c_camera = e_camera->get< TCompCamera >();
