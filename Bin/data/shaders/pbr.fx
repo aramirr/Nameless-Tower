@@ -214,7 +214,7 @@ void PS_GBuffer_Alpha(
 , out float1 o_cell : SV_Target5
 )
 {
-    o_cell = (txCell.Sample(samLinear, iTex0)).x;
+    //o_cell = (txCell.Sample(samLinear, iTex0)).x;
     o_self_illum = txEmissive.Sample(samLinear, iTex0);
   //o_self_illum.xyz *= self_color;
   // Store in the Alpha channel of the albedo texture, the 'metallic' amount of
@@ -228,7 +228,7 @@ void PS_GBuffer_Alpha(
     float3 N = computeNormalMap(iNormal, iTangent, iTex0);
   
   // Save roughness in the alpha coord of the N render target
-    float roughness = 0.5f; //txRoughness.Sample(samLinear, iTex0).r;
+    float roughness = 1.0f; //txRoughness.Sample(samLinear, iTex0).r;
     o_normal = encodeNormal(N, roughness);
 
     // Si el material lo pide, sobreescribir los valores de la textura
