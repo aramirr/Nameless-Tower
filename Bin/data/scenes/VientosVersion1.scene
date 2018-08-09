@@ -1,0 +1,105 @@
+[
+  {
+    "entity":
+    {
+      "name": "VientoVerticalIntB"
+      ,
+      "transform":
+      {
+        "pos": "-1.42491 -0.160171 0.556038"
+        ,
+        "rotation": "0.0 -2.78142e-07 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoVerticalIntB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVerticalMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoVerticalIntA"
+      ,
+      "transform":
+      {
+        "pos": "1.50053 -0.0745484 0.299194"
+        ,
+        "rotation": "0.0 6.75532e-07 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoVerticalIntA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVerticalMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoVerticalExtB"
+      ,
+      "transform":
+      {
+        "pos": "-1.45568 -0.0856178 0.487108"
+        ,
+        "rotation": "0.0 -2.78142e-07 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoVerticalExtB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVerticalMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoVerticalExtA"
+      ,
+      "transform":
+      {
+        "pos": "1.61387 0.0 0.0"
+        ,
+        "rotation": "0.0 6.75532e-07 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VientoVerticalExtA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/VientoVerticalMat.material"
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -177,7 +177,7 @@ void CModuleRender::activateMainCamera() {
   CCamera* cam = &camera;
 
   // Find the entity with name 'the_camera'
-  h_e_camera = getEntityByName("camera_orbit_IZQ");
+  h_e_camera = getEntityByName("the_camera");
   if (h_e_camera.isValid()) {
     CEntity* e_camera = h_e_camera;
     TCompCamera* c_camera = e_camera->get< TCompCamera >();
@@ -217,9 +217,9 @@ void CModuleRender::generateFrame() {
 
     CRenderManager::get().renderCategory("opacity");
 
-    CRenderManager::get().renderCategory("particles");
+    //CRenderManager::get().renderCategory("particles");
 
-    CRenderManager::get().renderCategory("distorsions");
+    //CRenderManager::get().renderCategory("distorsions");
 
     // Apply postFX
     CTexture* curr_rt = rt_main;
@@ -276,22 +276,6 @@ void CModuleRender::generateFrame() {
 		CCamera* cam = c_camera;
 		activateCamera(*cam, Render.width, Render.height);
 	}
-
-  {
-    PROFILE_FUNCTION("GUI");
-    CTraceScoped gpu_scope("GUI");
-
-    activateRSConfig(RSCFG_CULL_NONE);
-    activateZConfig(ZCFG_DISABLE_ALL);
-    activateBlendConfig(BLEND_CFG_COMBINATIVE);
-
-    activateCamera(CEngine::get().getGUI().getCamera(), Render.width, Render.height);
-    CEngine::get().getModules().renderGUI();
-
-    activateRSConfig(RSCFG_DEFAULT);
-    activateZConfig(ZCFG_DEFAULT);
-    activateBlendConfig(BLEND_CFG_DEFAULT);
-  }
 
   {
     PROFILE_FUNCTION("GUI");
