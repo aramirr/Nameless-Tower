@@ -24,6 +24,7 @@ void TCompCinematic::update(float dt) {
 		if (current_time > time) {
 			deactivate();
 			active = false;
+			current_time = 0;
 		}
 	} 
 }

@@ -237,12 +237,8 @@ void TCompCameraManager::update(float dt) {
   }
   else {																						// MANAGER DE CAMARAS POR DEFECTO
     if (godMode) {
-      //CHandle h_camera = getEntityByName("camera_god");
-      //Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
-			CEntity* camera_manager = (CEntity*)getEntityByName("cinematic_1");
-			TMsgActivateCinematic activate_camera;
-			camera_manager->sendMsg(activate_camera);
-			godMode = false;
+      CHandle h_camera = getEntityByName("camera_god");
+      Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
     }
     else{  
       CHandle h_camera = getEntityByName("camera_orbit_IZQ");
