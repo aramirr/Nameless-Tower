@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
@@ -177,6 +177,8 @@
     <ClCompile Include="components\comp_light_spot.cpp" />
     <ClCompile Include="components\comp_emission_controller.cpp" />
     <ClCompile Include="components\controllers\comp_door.cpp" />
+    <ClCompile Include="components\controllers\comp_curve.cpp" />
+    <ClCompile Include="components\camera\comp_cinematic.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera\camera.h" />
@@ -417,6 +419,8 @@
     <ClInclude Include="components\comp_light_spot.h" />
     <ClInclude Include="components\comp_emission_controller.h" />
     <ClInclude Include="components\controllers\comp_door.h" />
+    <ClInclude Include="components\controllers\comp_curve.h" />
+    <ClInclude Include="components\camera\comp_cinematic.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />

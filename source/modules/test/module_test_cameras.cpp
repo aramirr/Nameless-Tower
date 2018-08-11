@@ -4,6 +4,8 @@
 #include "render/texture/material.h"
 #include "entity/entity_parser.h"
 #include "components/camera/comp_camera.h"
+#include "components\juan\comp_transform.h"
+#include "components/controllers/comp_curve.h"
 
 extern void registerMesh(CRenderMesh* new_mesh, const char* name);
 
@@ -46,19 +48,8 @@ bool CModuleTestCameras::start()
   h_camera = getEntityByName("the_camera");
   Engine.getCameras().setOutputCamera(h_camera);
 
-  _curve.addKnot(VEC3(-10, -3, 5));
-  _curve.addKnot(VEC3(-8, 3, 5));
-  _curve.addKnot(VEC3(-6, 3, 5));
-  _curve.addKnot(VEC3(-4, -3, 5));
-  _curve.addKnot(VEC3(-2, -3, 5));
-  _curve.addKnot(VEC3(0, 3, 5));
-  _curve.addKnot(VEC3(2, 3, 5));
-  _curve.addKnot(VEC3(4, -3, 5));
-  _curve.addKnot(VEC3(6, -3, 5));
-  _curve.addKnot(VEC3(8, 3, 5));
-  _curve.addKnot(VEC3(10, 3, 5));
-
-  registerMesh(createCurveMesh(_curve, 100), "curve.mesh");
+  const CCurve* curve = Resources.get("data/curves/test_curve.curve")->as<CCurve>();
+  registerMesh(createCurveMesh(*curve, 100), "curve.mesh");
 
   return true;
 }
