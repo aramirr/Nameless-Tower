@@ -4,15 +4,16 @@
     {
       "name": "LightDir00",
       "transform": {
-        "pos": "-45.704 70.032 -70.986",
-        "lookat": "0.0 0.0 0.0"
+        "pos": "-45.704 140.000 -80.986",
+        "lookat": "0.0 0.0 0.0",
+        "pitch": "-51.607"
       },
       "light_dir": {
         "intensity": 6,
         "color" :  "0.84 0.78 0.56 1",
         "z_near" : 2,
-        "z_far" : 100,
-        "fov" : 30,
+        "z_far" : 160,
+        "fov" : 37.300,
         "casts_shadows" : true,
         "shadows_step" : 5.0,
         "shadows_resolution" : 2048,
@@ -29,14 +30,16 @@
     {
       "name": "LightDir01",
       "transform": {
-        "pos": "17.500 120.000 70.000",
-        "lookat": "20.0 10.0 15.0"
+        "pos": "29.925 150.000 80.000",
+        "lookat": "20.0 10.0 15.0",
+        "yaw": "-156.600",
+        "pitch": "-53.842"
       },
       "light_dir": {
         "intensity": 6,
         "color" :  "0.84 0.78 0.56 1",
         "z_near" : 2,
-        "z_far" : 100,
+        "z_far" : 150,
         "fov" : 30,
         "casts_shadows" : true,
         "shadows_step" : 5.0,
