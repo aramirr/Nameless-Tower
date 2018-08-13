@@ -111,6 +111,7 @@ function OnTriggerEnterTSEscaleras1Der()
 	lm:hide_mesh("ParedTapada5")
 	lm:set_ambient(0.2)
 	lm:set_dir_light_intensity("LightDir00", 0)
+	lm:deactivate_cinematic("cinematic_sala_escaleras_2")
 end
 
 -- Sala 6
@@ -119,6 +120,7 @@ function OnTriggerEnterTSEscaleras2Izq()
 	lm:unhide_mesh("ParedTapada5")
 	lm:set_ambient(1)
 	lm:set_dir_light_intensity("LightDir00", 10)
+	lm:activate_cinematic("cinematic_sala_escaleras_2")
 end
 
 function OnTriggerEnterTSEscaleras2Der()
@@ -126,6 +128,7 @@ function OnTriggerEnterTSEscaleras2Der()
 	lm:unhide_mesh("ParedTapada7")
 	lm:set_ambient(1)
 	lm:set_dir_light_intensity("LightDir00", 10)
+	lm:activate_cinematic("cinematic_sala_escaleras_2")
 end
 
 -- Sala 7
@@ -134,6 +137,7 @@ function OnTriggerEnterTPTechosIzq()
 	lm:hide_mesh("ParedTapada7")
 	lm:set_ambient(0.2)
 	lm:set_dir_light_intensity("LightDir00", 0)
+	lm:deactivate_cinematic("cinematic_sala_escaleras_2")
 end
 
 function OnTriggerEnterTPTechosDer()

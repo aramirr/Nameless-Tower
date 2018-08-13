@@ -74,7 +74,7 @@ const void CModuleTower::activateCinematic(const std::string& name) {
 
 const void CModuleTower::deactivateCinematic(const std::string& name) {
     CEntity* cinematic = (CEntity*)getEntityByName(name);
-    TMsgActivateCinematic deactivate_cinematic;
+    TMsgDeactivateCinematic deactivate_cinematic;
     cinematic->sendMsg(deactivate_cinematic);
 }
 

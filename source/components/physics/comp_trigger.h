@@ -11,6 +11,7 @@ class TCompTrigger : public IAIController {
 	CHandle h_entity;
 	CHandle h_other_entity;
 	VEC3 appearing_position;
+  bool appear_on_transform_position;
 
 	void onTriggerEnter(const TMsgTriggerEnter& msg);
 	void onTriggerExit(const TMsgTriggerExit& msg);
