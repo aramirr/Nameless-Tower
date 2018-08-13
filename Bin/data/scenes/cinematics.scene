@@ -1,0 +1,145 @@
+[
+	{
+		"entity": {
+			"name": "test_camera_curve",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"
+			},
+			"curve_controller" :
+			{
+				"curve" : "data/curves/test_curve.curve",
+				"speed" : 0.25,
+				"target": "The Player",
+				"loop": false,
+				"automove": false
+			},
+			"render" : {}
+		}
+	}
+	,
+	{
+		"entity": {
+			"name": "dummy_locator",
+			"transform": {
+				"pos": "0 0 0"
+			}
+			,
+			"render" : {}
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_cine",
+			"transform": {
+				"pos": "0 0 0"
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "test_camera_curve"
+		      }		
+		}
+	},
+	{
+		"entity": {
+			"name": "cinematic_1",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"
+			},
+			"cinematic" :
+			{
+				"camera_name" : "camera_cine",
+				"spline_name" : "test_camera_curve",
+				"time": 5,
+				"blend_time": 2
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_first_door",
+			"transform": {
+				"pos": "-35.922 24.001 -3.536",
+				"lookat": "-31.231 24.000 -4.108"				
+			},
+			"camera" : {
+				"fov" : 80 
+			}			
+		}
+	},
+	{
+		"entity": {
+			"name": "cinematic_first_door",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"
+			},
+			"cinematic" :
+			{
+				"camera_name" : "camera_first_door",
+				"time": 0,
+				"blend_time": 2
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_sala_escaleras_2",
+			"transform": {
+				"pos": "-7.045 32.716 -39.335",
+				"lookat": "-5.043 31.646 -30.952"				
+			},
+			"camera" : {
+				"fov" : 80 
+			}			
+		}
+	},
+	{
+		"entity": {
+			"name": "cinematic_sala_escaleras_2",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"
+			},
+			"cinematic" :
+			{
+				"camera_name" : "camera_sala_escaleras_2",
+				"time": 0,
+				"blend_time": 2
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_sala_puertas_abajo",
+			"transform": {
+				"pos": "29.429 37.990 18.592",
+				"lookat": "24.893 36.000 19.303"				
+			},
+			"camera" : {
+				"fov" : 80 
+			}			
+		}
+	},
+	{
+		"entity": {
+			"name": "cinematic_sala_puertas_abajo",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"
+			},
+			"cinematic" :
+			{
+				"camera_name" : "camera_sala_puertas_abajo",
+				"time": 0,
+				"blend_time": 2
+			}
+		}
+	}
+]
+
+
