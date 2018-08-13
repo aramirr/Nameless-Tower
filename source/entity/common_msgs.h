@@ -141,6 +141,10 @@ struct TMsgActivateCinematic {
 	DECL_MSG_ID();
 };
 
+struct TMsgDeactivateCinematic {
+    DECL_MSG_ID();
+};
+
 struct TMsgDeactiveCamera {
   DECL_MSG_ID();
 };

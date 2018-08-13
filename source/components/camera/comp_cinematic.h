@@ -12,12 +12,13 @@ struct TCompCinematic: public TCompBase {
 	bool										active = false;
 	std::string							spline_name;
 	std::string							camera_name;
-  void load(const json& j, TEntityParseContext& ctx);
-  void update(float dt);
-  static void registerMsgs();
-	void activate(const TMsgActivateCinematic& msg);
-	void deactivate();
-  DECL_SIBLING_ACCESS();
+    void load(const json& j, TEntityParseContext& ctx);
+    void update(float dt);
+    static void registerMsgs();
+    void activate(const TMsgActivateCinematic& msg);
+    void deactivate_msg(const TMsgDeactivateCinematic& msg);
+    void deactivate();
+    DECL_SIBLING_ACCESS();
 };
 
 #endif

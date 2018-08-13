@@ -65,6 +65,19 @@ const void CModuleTower::appearEntity(const std::string& name) {
 	h_render->refreshMeshesInRenderManager();
 }
 
+
+const void CModuleTower::activateCinematic(const std::string& name) {
+    CEntity* cinematic = (CEntity*)getEntityByName(name);
+    TMsgActivateCinematic activate_cinematic;
+    cinematic->sendMsg(activate_cinematic);
+}
+
+const void CModuleTower::deactivateCinematic(const std::string& name) {
+    CEntity* cinematic = (CEntity*)getEntityByName(name);
+    TMsgActivateCinematic deactivate_cinematic;
+    cinematic->sendMsg(deactivate_cinematic);
+}
+
 const void CModuleTower::setAmbientAdjustment(float ambient) {
 	cb_globals.global_ambient_adjustment = ambient;
 }

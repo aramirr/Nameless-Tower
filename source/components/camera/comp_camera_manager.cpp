@@ -242,7 +242,7 @@ void TCompCameraManager::update(float dt) {
     }
     else{  
       CHandle h_camera = getEntityByName("camera_orbit_IZQ");
-      Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
+      //Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
     }
   }
 }

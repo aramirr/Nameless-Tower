@@ -31,6 +31,14 @@ void LogicManager::disactivateCamera(const char* name) {
 	dbg("JOHAN");
 }
 
+void LogicManager::activateCinematic(const char* name) {
+    EngineTower.activateCinematic(name);    
+}
+
+void LogicManager::deactivateCinematic(const char* name) {
+    EngineTower.deactivateCinematic(name);    
+}
+
 void LogicManager::setAmbientAdjustment(float value) {
 	EngineTower.setAmbientAdjustment(value);
 };

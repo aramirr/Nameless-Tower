@@ -9,7 +9,7 @@ DECL_OBJ_MANAGER("cinematic", TCompCinematic);
 
 void TCompCinematic::load(const json& j, TEntityParseContext& ctx) {
   CEntity* e = ctx.current_entity;
-	time = j.value("time", 2.0f);
+	time = j.value("time", 0.0f);
 	blend_time = j.value("time", 2.0f);
 	blend_time = j.value("time", 2.0f);
 	spline_name = j.value("spline_name", "");
@@ -21,7 +21,7 @@ void TCompCinematic::update(float dt) {
   // Advance the time
 	if (active) {
 		current_time += dt;
-		if (current_time > time) {
+		if (time != 0 && current_time > time) {
 			deactivate();
 			active = false;
 			current_time = 0;
@@ -30,31 +30,40 @@ void TCompCinematic::update(float dt) {
 }
 
 void TCompCinematic::activate(const TMsgActivateCinematic& msg) {
-	CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
-	TMsgActiveCamera activate_camera;
-	activate_camera.camera_name = camera_name;
-	camera_manager->sendMsg(activate_camera);
-	if (spline_name != "") {
-		CEntity* h_spline = (CEntity*)getEntityByName(spline_name);
-		TCompCurve* c = h_spline->get<TCompCurve>();
-		c->activate();
-	}	
-	active = true;
+    if (!active) {
+        CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
+        TMsgActiveCamera activate_camera;
+        activate_camera.camera_name = camera_name;
+        camera_manager->sendMsg(activate_camera);
+        if (spline_name != "") {
+            CEntity* h_spline = (CEntity*)getEntityByName(spline_name);
+            TCompCurve* c = h_spline->get<TCompCurve>();
+            c->activate();
+        }
+        active = true;
+    }	
 }
 
+void TCompCinematic::deactivate_msg(const TMsgDeactivateCinematic& msg) {
+    deactivate();
+}
 
 void TCompCinematic::deactivate() {
-	CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
-	TMsgActiveCamera activate_camera;
-	activate_camera.camera_name = "camera_orbit_IZQ";
-	camera_manager->sendMsg(activate_camera);
-	if (spline_name != "") {
-		CEntity* h_spline = (CEntity*)getEntityByName(spline_name);
-		TCompCurve* c = h_spline->get<TCompCurve>();
-		c->deactivate();
-	}
+    if (active){
+        CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
+        TMsgActiveCamera activate_camera;
+        activate_camera.camera_name = "camera_orbit_IZQ";
+        camera_manager->sendMsg(activate_camera);
+        if (spline_name != "") {
+            CEntity* h_spline = (CEntity*)getEntityByName(spline_name);
+            TCompCurve* c = h_spline->get<TCompCurve>();
+            c->deactivate();
+        }
+        active = false;
+    }	
 }
 
 void TCompCinematic::registerMsgs() {
-	DECL_MSG(TCompCinematic, TMsgActivateCinematic, activate);
+    DECL_MSG(TCompCinematic, TMsgActivateCinematic, activate);
+    DECL_MSG(TCompCinematic, TMsgDeactivateCinematic, deactivate_msg);
 }

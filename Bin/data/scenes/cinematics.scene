@@ -58,6 +58,35 @@
 				"blend_time": 2
 			}
 		}
+	},
+	{
+		"entity": {
+			"name": "camera_first_door",
+			"transform": {
+				"pos": "-35.922 24.001 -3.536",
+				"lookat": "0.0 0.0 0.0",
+				"yaw": "89.000",
+				"pitch": "-0.700"
+			},
+			"camera" : {
+				"fov" : 80 
+			}			
+		}
+	},
+	{
+		"entity": {
+			"name": "cinematic_first_door",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"
+			},
+			"cinematic" :
+			{
+				"camera_name" : "camera_first_door",
+				"time": 0,
+				"blend_time": 2
+			}
+		}
 	}
 ]
 
