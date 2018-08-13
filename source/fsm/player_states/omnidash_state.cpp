@@ -97,16 +97,14 @@ namespace FSM
 		EngineUI.setOmindash(false);
 
 		CEntity* e_camera = EngineCameras.getActiveCamera();
-		/*CEntity* render_camera = EngineCameras.getOutputCamera();
-		TCompCamera* c_render_camera = render_camera->get< TCompCamera >();*/
+
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		const Input::TInterface_Mouse& mouse = EngineInput.mouse();
 		VEC3 my_pos = c_my_transform->getPosition();
 		VEC3 player_position;
 		c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
-		/*player_position.x *= c_render_camera->getViewport().width / c_camera->getViewport().width;
-		player_position.y *= c_render_camera->getViewport().height / c_camera->getViewport().height;*/
+
 		player->omnidash_arrow = mouse._position - VEC2(player_position.x /*+ 400*/, player_position.y /*+ 300*/);
 		player->omnidash_arrow.Normalize();
 
@@ -116,19 +114,6 @@ namespace FSM
 		dbg(str2.c_str());
 
 		player->y_speed_factor = 0;
-
-		/*float angle = (float)(atan2(mouse._position.y - player_position.y, mouse._position.x - player_position.x));
-		dbg((std::to_string(rad2deg(angle))).c_str());
-		dbg("\n");
-		float y, p, r;
-		c_my_transform->getYawPitchRoll(&y, &p, &r);
-		player->omnidash_vector = getVectorFromYawPitch(y, angle + M_PI);
-
-		VEC2 mouseDir = player_position - EngineInput.mouse()._position;
-		mouseDir.Normalize();
-		player->omnidash_vector = c_my_transform->getFront() * mouseDir.x + c_my_transform->getUp() * -mouseDir.y;
-		player->omnidash_vector.Normalize();*/
-
 
 		TEntityParseContext ctx1;
 		ctx1.entity_starting_the_parse = e;
@@ -144,5 +129,31 @@ namespace FSM
 		if (parseScene("data/prefabs/windstrike.prefab", ctx1)) {
 			assert(!ctx1.entities_loaded.empty());			
 		}
+        int anim;
+        if (player->omnidash_arrow.x >= 0.75) {
+            anim = player->EAnimations::NajaOmniFr;
+        }
+        else if (player->omnidash_arrow.x <= -0.80) {
+            anim = player->EAnimations::NajaOmniBk;
+        }
+        else if (player->omnidash_arrow.y <= -0.80) {
+            anim = player->EAnimations::NajaOmniAr;
+        }
+        else if (player->omnidash_arrow.y >= 0.80) {
+            anim = player->EAnimations::NajaOmniAb;
+        }
+        else if (player->omnidash_arrow.x >= 0.20 && player->omnidash_arrow.y >= 0.20) {
+            anim = player->EAnimations::NajaOmniFrDn;
+        }
+        else if (player->omnidash_arrow.x <= -0.20 && player->omnidash_arrow.y <= -0.20) {
+            anim = player->EAnimations::NajaOmniBkUp;
+        }
+        else if (player->omnidash_arrow.x <= -0.20 && player->omnidash_arrow.y >= 0.20) {
+            anim = player->EAnimations::NajaOmniBkDn;
+        }
+        else {
+            anim = player->EAnimations::NajaOmniFrUp;
+        }
+        player->change_animation(anim, true, 0, 0, true);
 	}
 }

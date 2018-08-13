@@ -47,10 +47,14 @@ public:
 		, NajaOmniPrepFrUp
 		, NajaOmniPrepFrBk
 		, NajaOmniPrepBkDn
-		, NajaOmniAb
-		, NajaOmniAr
-		, NajaOmniDe
-		, NajaOmniFr
+        , NajaOmniAb
+        , NajaOmniAr
+        , NajaOmniBk
+        , NajaOmniFr
+        , NajaOmniFrDn
+        , NajaOmniFrUp
+        , NajaOmniBkUp
+        , NajaOmniBkDn
 		, NajaDashStrike
 		, NajaDashLand
 		, NajaWalk
