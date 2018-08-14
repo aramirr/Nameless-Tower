@@ -5,7 +5,7 @@
 #include "render/render_objects.h"
 #include "render/render_utils.h"
 #include "render/render_manager.h"
-#include "components/comp_light_dir.h"
+#include "components/lights/comp_light_dir.h"
 #include "render/texture/material.h"
 #include "render/texture/texture.h"
 #include "resources/json_resource.h"

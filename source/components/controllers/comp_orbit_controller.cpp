@@ -1,7 +1,7 @@
 #include "mcv_platform.h"
 #include "entity/entity_parser.h"
 #include "comp_orbit_controller.h"
-#include "juan/comp_transform.h"
+#include "../juan/comp_transform.h"
 
 DECL_OBJ_MANAGER("orbit_controller", TCompOrbitController);
 

@@ -2,8 +2,8 @@
 #include "module_tower.h"
 #include "components/juan/comp_render.h"
 #include "render/render_objects.h"
-#include "components/comp_light_dir.h"
-#include "components/comp_light_point.h"
+#include "components/lights/comp_light_dir.h"
+#include "components/lights/comp_light_point.h"
 #include "components/controllers/comp_door.h"
 
 

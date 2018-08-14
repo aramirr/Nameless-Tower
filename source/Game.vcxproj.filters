@@ -2,9 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
-    <ClCompile Include="components\comp_light_dir.cpp" />
-    <ClCompile Include="components\comp_light_point.cpp" />
-    <ClCompile Include="components\comp_orbit_controller.cpp" />
     <ClCompile Include="components\fsm\comp_fsm.cpp" />
     <ClCompile Include="components\ia\ai_wind_current.cpp" />
     <ClCompile Include="components\ia\ai_cut_door.cpp" />
@@ -128,7 +125,6 @@
     <ClCompile Include="modules\test\module_test_cameras.cpp" />
     <ClCompile Include="components\physics\controller_filter.cpp" />
     <ClCompile Include="components\physics\query_filter.cpp" />
-    <ClCompile Include="components\comp_player_killer.cpp" />
     <ClCompile Include="fsm\player_states\landing_state.cpp" />
     <ClCompile Include="fsm\player_states\dying_state.cpp" />
     <ClCompile Include="components\juan\comp_father.cpp" />
@@ -174,18 +170,19 @@
     <ClCompile Include="modules\system\module_billboards.cpp" />
     <ClCompile Include="components\comp_grass.cpp" />
     <ClCompile Include="components\ia\comp_compresora_kill.cpp" />
-    <ClCompile Include="components\comp_light_spot.cpp" />
     <ClCompile Include="components\comp_emission_controller.cpp" />
     <ClCompile Include="components\controllers\comp_door.cpp" />
     <ClCompile Include="components\controllers\comp_curve.cpp" />
     <ClCompile Include="components\camera\comp_cinematic.cpp" />
+    <ClCompile Include="components\player\comp_player_killer.cpp" />
+    <ClCompile Include="components\lights\comp_light_dir.cpp" />
+    <ClCompile Include="components\lights\comp_light_point.cpp" />
+    <ClCompile Include="components\lights\comp_light_spot.cpp" />
+    <ClCompile Include="components\controllers\comp_orbit_controller.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera\camera.h" />
     <ClInclude Include="components\ia\ai_wind_current.h" />
-    <ClInclude Include="components\comp_light_dir.h" />
-    <ClInclude Include="components\comp_light_point.h" />
-    <ClInclude Include="components\comp_orbit_controller.h" />
     <ClInclude Include="components\fsm\comp_fsm.h" />
     <ClInclude Include="components\ia\ai_cut_door.h" />
     <ClInclude Include="components\ia\ai_rotation.h" />
@@ -360,7 +357,6 @@
     <ClInclude Include="render\blur_step.h" />
     <ClInclude Include="components\physics\controller_filter.h" />
     <ClInclude Include="components\physics\query_filter.h" />
-    <ClInclude Include="components\comp_player_killer.h" />
     <ClInclude Include="windows\app.h" />
     <ClInclude Include="render\mesh\mesh_instanced.h" />
     <ClInclude Include="modules\test\module_test_instancing.h" />
@@ -416,11 +412,15 @@
     <ClInclude Include="modules\system\module_billboards.h" />
     <ClInclude Include="components\comp_grass.h" />
     <ClInclude Include="components\ia\comp_compresora_kill.h" />
-    <ClInclude Include="components\comp_light_spot.h" />
     <ClInclude Include="components\comp_emission_controller.h" />
     <ClInclude Include="components\controllers\comp_door.h" />
     <ClInclude Include="components\controllers\comp_curve.h" />
     <ClInclude Include="components\camera\comp_cinematic.h" />
+    <ClInclude Include="components\player\comp_player_killer.h" />
+    <ClInclude Include="components\lights\comp_light_dir.h" />
+    <ClInclude Include="components\lights\comp_light_point.h" />
+    <ClInclude Include="components\lights\comp_light_spot.h" />
+    <ClInclude Include="components\controllers\comp_orbit_controller.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />
