@@ -30,17 +30,15 @@
     {
       "name": "LightDir01",
       "transform": {
-        "pos": "29.925 150.000 80.000",
-        "lookat": "20.0 10.0 15.0",
-        "yaw": "-156.600",
-        "pitch": "-53.842"
+        "pos": "42.200 150.000 80.000",
+        "lookat": "0.0 50.0 0.0"
       },
       "light_dir": {
         "intensity": 6,
         "color" :  "0.84 0.78 0.56 1",
         "z_near" : 2,
         "z_far" : 150,
-        "fov" : 30,
+        "fov" : 37.200,
         "casts_shadows" : true,
         "shadows_step" : 5.0,
         "shadows_resolution" : 2048,
