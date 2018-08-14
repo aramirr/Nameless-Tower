@@ -210,8 +210,8 @@ function OnTriggerEnterTSAntorchasDer()
 	lm:hide_mesh("ParedTapada12")
 	lm:set_ambient(0.2)
 
-	--lm:hide_mesh("ParedDestapada13")
-	--lm:unhide_mesh("ParedTapada13")
+	lm:hide_mesh("ParedDestapada13")
+	lm:unhide_mesh("ParedTapada13")
 end
 
 -- Sala 13
@@ -220,8 +220,8 @@ function OnTriggerEnterTTSalidaAbajo()
 	lm:unhide_mesh("ParedTapada12")
 	lm:set_ambient(0.2)
 
-	--lm:unhide_mesh("ParedDestapada13")
-	--lm:hide_mesh("ParedTapada13")
+	lm:unhide_mesh("ParedDestapada13")
+	lm:hide_mesh("ParedTapada13")
 end
 
 function OnTriggerEnterTTSalidaArriba()
