@@ -5,7 +5,7 @@
 #include "juan/comp_transform.h"
 #include "juan/comp_render.h"
 #include "juan/comp_group.h"
-#include "comp_light_spot.h"
+#include "lights/comp_light_spot.h"
 #include "render/texture/material.h"
 #include "ctes.h" 
 

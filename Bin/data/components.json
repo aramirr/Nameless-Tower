@@ -13,6 +13,7 @@
 		"skeleton",
 	    "flyover_controller",
 	    "camera_flyover",
+	    "curve_controller",
 	    "hierarchy",
 		"camera",
 		"bullet_controller",
@@ -48,7 +49,9 @@
 		"rigid_anim",
 		"collider",
 		"door",
-		"comp_grass"
+		"comp_grass",
+		"curve_controller",
+		"cinematic"
 	],
  
 	"render_debug" : 

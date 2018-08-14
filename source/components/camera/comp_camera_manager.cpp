@@ -64,7 +64,7 @@ void TCompCameraManager::loadCinematics()
 }
 
 void TCompCameraManager::registerMsgs() {
- // DECL_MSG(TCompCameraManager, TMsgActiveCamera, activateCamera);
+	DECL_MSG(TCompCameraManager, TMsgActiveCamera, activateCamera);
   //DECL_MSG(TCompCameraManager, TMsgDeactiveCamera, deactivateCamera);
 }
 
@@ -242,7 +242,13 @@ void TCompCameraManager::update(float dt) {
     }
     else{  
       CHandle h_camera = getEntityByName("camera_orbit_IZQ");
-      Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
+      //Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
     }
   }
+}
+
+
+void TCompCameraManager::activateCamera(const TMsgActiveCamera &msg) {
+	CHandle h_camera = getEntityByName(msg.camera_name);
+	Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 }
