@@ -7,11 +7,11 @@ bool CTransform::load(const json& j) {
     pos = loadVEC3(j["pos"]);
 
   if (j.count("rotation"))
-    setRotation(loadQUAT(j["rotation"]));
+    setRotation(loadQUAT(j["rotation"]));  
 
   if (j.count("lookat"))
     lookAt(getPosition(), loadVEC3(j["lookat"]));
-
+  
   if (j.count("axis")) {
     VEC3 axis = loadVEC3(j["axis"]);
     float angle_deg = j.value("angle", 0.f);
@@ -58,6 +58,7 @@ void CTransform::setYawPitchRoll(float new_yaw, float new_pitch, float new_roll 
 
 void CTransform::lookAt(VEC3 new_pos, VEC3 new_target) {
   pos = new_pos;
+  target = new_target;
   VEC3 front = new_target - new_pos;
   float yaw, pitch;
   getYawPitchFromVector(front, &yaw, &pitch);
@@ -67,8 +68,15 @@ void CTransform::lookAt(VEC3 new_pos, VEC3 new_target) {
 bool CTransform::debugInMenu() {
   bool changed = false;
 
-  changed |= ImGui::DragFloat3("Pos", &pos.x, 0.025f, -50.f, 50.f);
+  changed |= ImGui::DragFloat3("Pos", &pos.x, 0.025f, -500.f, 500.f);
   changed |= ImGui::DragFloat("Scale", &scale, 0.01f, -10.f, 10.f);
+  changed |= ImGui::DragFloat3("Target", &target.x, 0.025f, -500.f, 500.f);
+  
+  VEC3 a_front = target - pos;
+  float yaw1, pitch1;
+  getYawPitchFromVector(a_front, &yaw1, &pitch1);
+  //EDU: Descomentar para poder setear el target pero dejara de funcionar el setear del yaw, pitch y roll
+  //setYawPitchRoll(yaw1, pitch1, 0.f);
 
   // Angulos
   float yaw, pitch, roll;
@@ -85,13 +93,14 @@ bool CTransform::debugInMenu() {
   roll = deg2rad(roll);
   setYawPitchRoll(yaw, pitch, roll);
 
+
   // 
   VEC3 left = getLeft();
   VEC3 up = getUp();
-  VEC3 front = getFront();
+  VEC3 front = getFront();  
+  ImGui::Text("Front: %f %f %f", front.x, front.y, front.z);
   ImGui::Text("Left: %f %f %f", left.x, left.y, left.z);
   ImGui::Text("Up: %f %f %f", up.x, up.y, up.z);
-  ImGui::Text("Front: %f %f %f", front.x, front.y, front.z);
 
   return changed;
 }
