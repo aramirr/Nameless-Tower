@@ -31,6 +31,8 @@ namespace GUI
         pauseMsg.variant.setBool(true);
 
         player->sendMsg(pauseMsg);
+
+        EngineTimer.setTimeSlower(1.f);
       };
       auto exitCB = []() {
         dbg("LOADING GAME\n");
