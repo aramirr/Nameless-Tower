@@ -7,6 +7,7 @@
     "transform" : 90
   },
 	"update" : [
+		"player_input",
 		"circular_controller",
 		"player_controller",
 		"bullet_controller",
@@ -42,8 +43,7 @@
 		"culling",
 		"light_dir",
 		"fsm",
-		"fake_animation",
-		"player_input",
+		"fake_animation",		
 		"father",
 		"sound",
 		"rigid_anim",
