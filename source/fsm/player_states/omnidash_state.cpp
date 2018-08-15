@@ -52,7 +52,7 @@ namespace FSM
 	}
 
 	int OmnidashState::calculateAnimation(CEntity* e) {
-		CEntity* e_camera = EngineCameras.getActiveCamera();
+		CEntity* e_camera = EngineCameras.getOutputCamera();
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		const Input::TInterface_Mouse& mouse = EngineInput.mouse();
