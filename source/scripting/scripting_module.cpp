@@ -10,7 +10,7 @@ ScriptingModule::ScriptingModule(const string& name): logic_manager(), script(&l
 	this->name = name;
 	BootLuaSLB(&logic_manager);
 	script.mcvSetManager(&logic_manager);
-	script.doFile("data/scripts/test.lua");
+    script.doFile("data/scripts/scripts.lua");
 }
 
 void ScriptingModule::BootLuaSLB(SLB::Manager *m)
@@ -23,13 +23,15 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("unhide_mesh", &LogicManager::appearEntity)
 		.set("activate_camera", &LogicManager::activateCamera)
 		.set("disactivate_camera", &LogicManager::disactivateCamera)
+        .set("activate_cinematic", &LogicManager::activateCinematic)
+        .set("deactivate_cinematic", &LogicManager::deactivateCinematic)
 		.set("set_ambient", &LogicManager::setAmbientAdjustment)
 		.set("play_last_cinematic", &LogicManager::playLastCinematic)
 		.set("activate_text", &LogicManager::activateText)
-    .set("disactivate_text", &LogicManager::disactivateText)
-    .set("set_dir_light_intensity", &LogicManager::setDirLightIntensity)
-    .set("set_point_light_intensity", &LogicManager::setPointLightIntensity)
-    .set("set_point_light_intensity", &LogicManager::setPointLightIntensity)
+        .set("disactivate_text", &LogicManager::disactivateText)
+        .set("set_dir_light_intensity", &LogicManager::setDirLightIntensity)
+        .set("set_point_light_intensity", &LogicManager::setPointLightIntensity)
+        .set("set_point_light_intensity", &LogicManager::setPointLightIntensity)
 		.set("open_door", &LogicManager::openDoor)
 		.set("activate_anim", &LogicManager::activateAnim)
 		;

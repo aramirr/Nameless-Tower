@@ -879,226 +879,6 @@
   {
     "entity":
     {
-      "name": "Sierra002"
-      ,
-      "transform":
-      {
-        "pos": "15.5961 31.5 -27.0059"
-        ,
-        "rotation": "0.0 0.249028 0.0 -0.968496"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/SierraJ.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/SierraM.material"
-          ]
-        }
-      ]
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "circular_controller":
-      {
-        "speed": 5.0
-        ,
-        "eje": "X"
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": true
-      }
-      ,
-      "collider":
-      {
-        "shape": "convex_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/SierraE.col_mesh"
-      }
-      ,
-      "abs_aabb": true
-      
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "PuertaCortante002"
-      ,
-      "transform":
-      {
-        "pos": "23.1824 32.4529 -20.8719"
-        ,
-        "rotation": "0.0 -0.358279 0.0 -0.933615"
-      }
-      ,
-      "render":
-      {
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "PuertaCortante002_up"
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Cut_door_up.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/PuertaM.material"
-          ]
-        }
-      ]
-      ,
-      "transform":
-      {
-        "pos": "23.1824 32.4529 20.8719"
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.2675 1.7335 0.247"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "offset": "0 1.816 0"
-      }
-      ,
-      "hierarchy":
-      {
-        "parent": "PuertaCortante002"
-      }
-      ,
-      "ai_cut_door":
-      {
-        "opened_position": 3.0
-        ,
-        "up": true
-      }
-      ,
-      "abs_aabb": true
-      
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "PuertaCortante002_down"
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Cut_door_down.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/PuertaM.material"
-          ]
-        }
-      ]
-      ,
-      "transform":
-      {
-        "pos": "23.1824 32.4529 20.8719"
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.2675 0.475 0.247"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "offset": "0 -0.5175 0"
-      }
-      ,
-      "hierarchy":
-      {
-        "parent": "PuertaCortante002"
-      }
-      ,
-      "abs_aabb": true
-      
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "PuertaCortante002_trigger_up"
-      ,
-      "render":
-      [
-      ]
-      ,
-      "transform":
-      {
-        "pos": "23.1824 32.4529 20.8719"
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.2675 0.0825 0.247"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "hierarchy":
-      {
-        "parent": "PuertaCortante002_up"
-        ,
-        "pos": "0 0 0"
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": false
-      }
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Sierra005"
       ,
       "transform":
@@ -12137,7 +11917,7 @@
       {
         "trigger_type": "checkpoint"
         ,
-        "appearing_position": "-12.9913 5.99632 -28.3666"
+        "appearing_position": "-10.859 5.99632 -29.569"
         ,
         "collider_entity": "none"
         ,
@@ -12175,7 +11955,7 @@
       {
         "trigger_type": "checkpoint"
         ,
-        "appearing_position": "-12.9913 5.99632 -28.3666"
+        "appearing_position": "-10.859 5.99632 -29.569"
         ,
         "collider_entity": "none"
         ,
@@ -12213,8 +11993,6 @@
       {
         "trigger_type": "checkpoint"
         ,
-        "appearing_position": "-31.1214 6.76337 -0.334956"
-        ,
         "collider_entity": "none"
         ,
         "render": false
@@ -12250,8 +12028,6 @@
       "trigger":
       {
         "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -12289,8 +12065,6 @@
       {
         "trigger_type": "checkpoint"
         ,
-        "appearing_position": "6.3252 60.7138 30.5157"
-        ,
         "collider_entity": "none"
         ,
         "render": false
@@ -12326,8 +12100,6 @@
       "trigger":
       {
         "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -12365,8 +12137,6 @@
       {
         "trigger_type": "checkpoint"
         ,
-        "appearing_position": "6.3252 60.7138 30.5157"
-        ,
         "collider_entity": "none"
         ,
         "render": false
@@ -12402,8 +12172,6 @@
       "trigger":
       {
         "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -12441,8 +12209,6 @@
       {
         "trigger_type": "checkpoint"
         ,
-        "appearing_position": "6.3252 60.7138 30.5157"
-        ,
         "collider_entity": "none"
         ,
         "render": false
@@ -12478,8 +12244,6 @@
       "trigger":
       {
         "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -12517,8 +12281,6 @@
       {
         "trigger_type": "checkpoint"
         ,
-        "appearing_position": "6.3252 60.7138 30.5157"
-        ,
         "collider_entity": "none"
         ,
         "render": false
@@ -12555,8 +12317,6 @@
       {
         "trigger_type": "checkpoint"
         ,
-        "appearing_position": "6.3252 60.7138 30.5157"
-        ,
         "collider_entity": "none"
         ,
         "render": false
@@ -12592,8 +12352,6 @@
       "trigger":
       {
         "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "6.3252 60.7138 30.5157"
         ,
         "collider_entity": "none"
         ,
@@ -14255,7 +14013,8 @@
         "is_trigger": false
         ,
         "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
-      }
+      },
+      "door": {}
     }
   }
   ,
@@ -15033,7 +14792,8 @@
         "is_trigger": false
         ,
         "mesh_src": "data/meshes/Puerta_Abatible_Madera_002.col_mesh"
-      }
+      },
+      "door": {}
     }
   }
   ,
@@ -15073,7 +14833,8 @@
         "is_trigger": false
         ,
         "mesh_src": "data/meshes/Puerta_Abatible_Madera_003.col_mesh"
-      }
+      },
+      "door": {}
     }
   }
   ,

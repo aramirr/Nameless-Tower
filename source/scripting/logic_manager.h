@@ -16,6 +16,9 @@ public:
 	void activateCamera(const char* name);
 	void disactivateCamera(const char* name);
 
+    void activateCinematic(const char* name);
+    void deactivateCinematic(const char* name);
+
   // Misc
 	void setAmbientAdjustment(float value);
 	void playLastCinematic();

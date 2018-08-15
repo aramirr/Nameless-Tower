@@ -167,7 +167,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
         }
         
 			}
-      else if(rayWall && !EnginePhysics.gScene->raycast(originb, unitDirb, maxDistance, hit)) {
+      else if(rayWall && !EnginePhysics.gScene->raycast(originb, unitDirb, maxDistance / 2, hit)) {
         CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
         rayWall = false;
         TMsgActiveCamera msg;

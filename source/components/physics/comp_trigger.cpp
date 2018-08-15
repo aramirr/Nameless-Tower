@@ -28,7 +28,12 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		EngineScripting.ExecEvent(ScriptEvents::trigger_enter, params);
 
 		if (trigger_type == "checkpoint") {
-			Engine.getTower().setLastCheckpoint(appearing_position);
+      if (!appear_on_transform_position)
+			  Engine.getTower().setLastCheckpoint(appearing_position);
+      else {
+        TCompTransform *entity_transform = entity->get<TCompTransform>();
+        Engine.getTower().setLastCheckpoint(entity_transform->getPosition());
+      }
 		}
 		else if (trigger_type == "plattform") {
 			CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
@@ -111,7 +116,13 @@ void TCompTrigger::load(const json& j, TEntityParseContext& ctx) {
 	trigger_type = j.value("trigger_type", "none");
 
 	if (trigger_type == "checkpoint" or trigger_type == "runner_appear") {
-		appearing_position = loadVEC3(j["appearing_position"]);
+    if (j.count("appearing_position")) {
+      appearing_position = loadVEC3(j["appearing_position"]);
+      appear_on_transform_position = false;
+    }
+    else {
+      appear_on_transform_position = true;
+    }
 	}
 
 	collider_entity = j.value("collider_entity", "none");

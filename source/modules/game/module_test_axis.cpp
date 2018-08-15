@@ -19,6 +19,7 @@
 
 bool CModuleTestAxis::start()
 {
+  EngineTimer.setTimeSlower(0.f);
 	CCamera        camera;
 	json jboot = loadJson("data/boot.json");
 
@@ -65,10 +66,8 @@ bool CModuleTestAxis::start()
 	cb_globals.activate();
 	cb_camera.activate();
 	cb_blur.activate();
-    cb_gui.activate();
+  cb_gui.activate();
 	cb_particles.activate();
-
-    EngineTower.setAmbientAdjustment(0.1);
 
 	auto p = EngineScripting.script.exists("OnLevel1Start");
 	if (p)
@@ -84,7 +83,7 @@ bool CModuleTestAxis::stop()
 	cb_object.destroy();
 	cb_globals.destroy();
 	cb_blur.destroy();
-    cb_gui.destroy();
+  cb_gui.destroy();
 	Engine.getEntities().destroyAllEntities();
 	Engine.getCameras().destroyAllCameras();
 	return true;

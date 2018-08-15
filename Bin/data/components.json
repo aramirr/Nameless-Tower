@@ -7,12 +7,14 @@
     "transform" : 90
   },
 	"update" : [
+		"player_input",
 		"circular_controller",
 		"player_controller",
 		"bullet_controller",
 		"skeleton",
 	    "flyover_controller",
 	    "camera_flyover",
+	    "curve_controller",
 	    "hierarchy",
 		"camera",
 		"bullet_controller",
@@ -41,14 +43,15 @@
 		"culling",
 		"light_dir",
 		"fsm",
-		"fake_animation",
-		"player_input",
+		"fake_animation",		
 		"father",
 		"sound",
 		"rigid_anim",
 		"collider",
 		"door",
-		"comp_grass"
+		"comp_grass",
+		"curve_controller",
+		"cinematic"
 	],
  
 	"render_debug" : 

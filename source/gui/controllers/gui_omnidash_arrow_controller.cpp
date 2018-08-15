@@ -14,7 +14,7 @@ namespace GUI
       CWidget* od = EngineUI.getWidget("OmnidashImage", true);
 
       CEntity* player = (CEntity*)getEntityByName("The Player");
-      CEntity* e_camera = EngineCameras.getActiveCamera();
+      CEntity* e_camera = EngineCameras.getOutputCamera();
       TCompCamera* c_camera = e_camera->get< TCompCamera >();
       TCompTransform *c_my_transform = player->get<TCompTransform>();
       const Input::TInterface_Mouse& mouse = EngineInput.mouse();

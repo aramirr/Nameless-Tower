@@ -2,8 +2,8 @@
 #include "module_tower.h"
 #include "components/juan/comp_render.h"
 #include "render/render_objects.h"
-#include "components/comp_light_dir.h"
-#include "components/comp_light_point.h"
+#include "components/lights/comp_light_dir.h"
+#include "components/lights/comp_light_point.h"
 #include "components/controllers/comp_door.h"
 
 
@@ -63,6 +63,19 @@ const void CModuleTower::appearEntity(const std::string& name) {
 	TCompRender* h_render = entity->get< TCompRender >();
 	h_render->is_active = true;
 	h_render->refreshMeshesInRenderManager();
+}
+
+
+const void CModuleTower::activateCinematic(const std::string& name) {
+    CEntity* cinematic = (CEntity*)getEntityByName(name);
+    TMsgActivateCinematic activate_cinematic;
+    cinematic->sendMsg(activate_cinematic);
+}
+
+const void CModuleTower::deactivateCinematic(const std::string& name) {
+    CEntity* cinematic = (CEntity*)getEntityByName(name);
+    TMsgDeactivateCinematic deactivate_cinematic;
+    cinematic->sendMsg(deactivate_cinematic);
 }
 
 const void CModuleTower::setAmbientAdjustment(float ambient) {

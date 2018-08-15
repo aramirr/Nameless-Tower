@@ -133,7 +133,16 @@ struct TMsgSetFSMVariable {
 };
 
 struct TMsgActiveCamera {
+	std::string camera_name;
   DECL_MSG_ID();
+};
+
+struct TMsgActivateCinematic {
+	DECL_MSG_ID();
+};
+
+struct TMsgDeactivateCinematic {
+    DECL_MSG_ID();
 };
 
 struct TMsgDeactiveCamera {

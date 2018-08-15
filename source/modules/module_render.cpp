@@ -5,7 +5,7 @@
 #include "render/render_objects.h"
 #include "render/render_utils.h"
 #include "render/render_manager.h"
-#include "components/comp_light_dir.h"
+#include "components/lights/comp_light_dir.h"
 #include "render/texture/material.h"
 #include "render/texture/texture.h"
 #include "resources/json_resource.h"
@@ -19,6 +19,8 @@
 #include "render/mesh/collision_mesh.h"
 #include "components/postfx/comp_render_bloom.h"
 #include "geometry/rigid_anim.h"
+#include "geometry/curve.h"
+
 
 //--------------------------------------------------------------------------------------
 CModuleRender::CModuleRender(const std::string& name)
@@ -62,6 +64,7 @@ bool CModuleRender::start()
   Resources.registerResourceClass(getResourceClassOf<CGameCoreSkeleton>());
   Resources.registerResourceClass(getResourceClassOf<CCollisionMesh>());
   Resources.registerResourceClass(getResourceClassOf<RigidAnims::CRigidAnimResource>());
+  Resources.registerResourceClass(getResourceClassOf<CCurve>());
 
   if (!createRenderObjects())
     return false;
@@ -177,7 +180,7 @@ void CModuleRender::activateMainCamera() {
   CCamera* cam = &camera;
 
   // Find the entity with name 'the_camera'
-  h_e_camera = getEntityByName("the_camera");
+  h_e_camera = getEntityByName("camera_orbit_IZQ");
   if (h_e_camera.isValid()) {
     CEntity* e_camera = h_e_camera;
     TCompCamera* c_camera = e_camera->get< TCompCamera >();
