@@ -139,7 +139,7 @@ void TCompCameraManager::update(float dt) {
 
     Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 
-    h_camera = getEntityByName("the_camera");
+    //h_camera = getEntityByName("the_camera");
     Engine.getCameras().setOutputCamera(h_camera);
 
     carga = false;
