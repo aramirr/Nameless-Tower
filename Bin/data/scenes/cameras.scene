@@ -21,7 +21,9 @@
 				"fov" : 80 
 			},
 			"render_ao" : {
-		        "enabled" :  false
+		        "enabled" :  true,
+		        "radius": 0.6,
+		        "amount_spreading": 0.95
 		      },
 		      "render_outlines" : {
 		        "enabled" : false
