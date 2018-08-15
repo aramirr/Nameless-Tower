@@ -21,11 +21,7 @@
 				"fov" : 80 
 			},
 			"render_ao" : {
-		        "enabled" :  true
-		      },		    
-		      "color_grading" : {
-		        "enabled" :  true,
-		        "lut": "data/textures/lut/lut1.dds"
+		        "enabled" :  false
 		      },
 		      "render_outlines" : {
 		        "enabled" : false
@@ -61,7 +57,7 @@
 			},
 		    "culling":true,
       		"render_ao" : {
-        		"enabled" :  true
+        		"enabled" :  false
       		}
 		}
 	}
