@@ -14,7 +14,7 @@ DXGI_FORMAT readFormat(const json& j, const std::string& label);
 // -------------------------------------------------
 void TCompLightDir::debugInMenu() {
 	TCompCamera::debugInMenu();
-	ImGui::DragFloat("Intensity", &intensity, 0.01f, 0.f, 10.f);
+	ImGui::DragFloat("Intensity", &intensity, 0.01f, 0.f, 75.f);
 	ImGui::ColorEdit3("Color", &color.x);
 	ImGui::DragFloat("Step Size", &shadows_step, 0.01f, 0.f, 5.f);
 }

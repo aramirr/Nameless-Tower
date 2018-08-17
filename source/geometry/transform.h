@@ -4,6 +4,7 @@
 class CTransform {
   QUAT rot;
   VEC3 pos;
+  VEC3 target;
   float scale = 1.0f;
 
 public:

@@ -4,25 +4,22 @@
     {
       "name": "LightDir00",
       "transform": {
-        "pos": "-45.704 140.000 -80.986",
-        "lookat": "0.0 0.0 0.0",
-        "pitch": "-51.607"
+        "pos": "16 40 -89",
+        "lookat": "-15.8 15.0 0.0"
       },
       "light_dir": {
-        "intensity": 6,
+        "intensity": 11,
         "color" :  "0.84 0.78 0.56 1",
         "z_near" : 2,
-        "z_far" : 160,
+        "z_far" : 110,
         "fov" : 37.300,
         "casts_shadows" : true,
         "shadows_step" : 5.0,
         "shadows_resolution" : 2048,
-        "shadows_fmt" : "R32_TYPELESS"
-      },
-      "camera_flyover" : {
-        "key" : "Q",
-        "enabled" : false
-      }      
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 45.0
+      }   
     }
   },
   {
@@ -30,24 +27,69 @@
     {
       "name": "LightDir01",
       "transform": {
-        "pos": "42.200 150.000 80.000",
-        "lookat": "0.0 50.0 0.0"
+        "pos": "-78.05 53.175 -16.8",
+        "lookat": "0 4.8 16.325"
       },
       "light_dir": {
-        "intensity": 6,
+        "intensity": 11,
         "color" :  "0.84 0.78 0.56 1",
         "z_near" : 2,
-        "z_far" : 150,
-        "fov" : 37.200,
+        "z_far" : 160,
+        "fov" : 37.300,
         "casts_shadows" : true,
         "shadows_step" : 5.0,
         "shadows_resolution" : 2048,
-        "shadows_fmt" : "R32_TYPELESS"
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 45.0
+      }    
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightDir02",
+      "transform": {
+        "pos": "57.575 73.45 80",
+        "lookat": "11.1 49.1 6.325"
       },
-      "camera_flyover" : {
-        "key" : "Q",
-        "enabled" : false
-      }      
+      "light_dir": {
+        "intensity": 11,
+        "color" :  "0.84 0.78 0.56 1",
+        "z_near" : 2,
+        "z_far" : 160,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 50,
+        "ortho_height": 40
+      }    
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightDir03",
+      "transform": {
+        "pos": "76.950 107.750 -9.575",
+        "lookat": "0 70 -12.375"
+      },
+      "light_dir": {
+        "intensity": 11,
+        "color" :  "0.84 0.78 0.56 1",
+        "z_near" : 2,
+        "z_far" : 160,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 42
+      }    
     }
   }
 ]

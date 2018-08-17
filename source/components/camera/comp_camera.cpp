@@ -69,7 +69,7 @@ void TCompCamera::load(const json& j, TEntityParseContext& ctx) {
 
 	if (is_orthographic) {
 		float ortho_width = j.value("ortho_width", 10.f);
-		float ortho_height = j.value("ortho_height", 10.f);
+		float ortho_height = j.value("ortho_height", ortho_width);
 		setOrtho(ortho_width, ortho_height, z_near, z_far);
 	}
 	else setPerspective(deg2rad(fov_deg), z_near, z_far);
