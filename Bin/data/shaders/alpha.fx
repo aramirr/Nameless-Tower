@@ -99,7 +99,7 @@ float4 PS_Alpha(
     final_color.a = alpha_color.r;
     if (final_color.a < 0.3) 
         discard;
-    return final_color;
+    return final_color * global_exposure_adjustment;
  // float4 o_self_illum = txEmissive.Sample(samLinear, iTex0);
 
 

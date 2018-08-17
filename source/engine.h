@@ -40,8 +40,8 @@ public:
 	CModuleEntities& getEntities() { return _module_entities; }
 	CModuleFSM& getFSM() { return _module_fsm; }
 	CModuleGUI& getGUI() { return _module_gui; }
-  CModuleSound& getSound() { return _module_sound; }
-  CModuleBillboards& getBillboards() { return _module_billboards; }
+    CModuleSound& getSound() { return _module_sound; }
+    CModuleBillboards& getBillboards() { return _module_billboards; }
 	ScriptingModule& getScriptingModule() { return _module_scripting; }
     CModuleParticles& getParticles() { return _module_particles; }
 
@@ -59,8 +59,8 @@ private:
 	CModuleCameras  _module_cameras;
 	CModuleFSM      _module_fsm;
 	CModuleGUI      _module_gui;
-  CModuleSound	_module_sound;
-  CModuleBillboards _module_billboards;
+    CModuleSound	_module_sound;
+    CModuleBillboards _module_billboards;
 	ScriptingModule _module_scripting;
 
 	float           current_unscaled_delta_time = 0.f;

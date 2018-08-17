@@ -2,7 +2,6 @@
 #include "comp_player_input.h"
 #include "components/fsm/comp_fsm.h"
 
-
 DECL_OBJ_MANAGER("player_input", TCompPlayerInput);
 
 void TCompPlayerInput::debugInMenu() {
@@ -92,6 +91,12 @@ void TCompPlayerInput::update(float dt)
 	{
 		e->sendMsg(glideMsg);
 	}
+
+    if (EngineInput["level_2"].getsPressed())
+    {       
+        EngineTower.setExposureAdjustment(0);
+        CEngine::get().getModules().changeGameState("level_2");
+    }
 	/*
 	TMsgSetFSMVariable pauseMsg;
 	pauseMsg.variant.setName("pause");
