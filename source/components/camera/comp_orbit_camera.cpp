@@ -91,7 +91,6 @@ void TCompOrbitCamera::update(float dt) {
 
   VEC3 newPos;
 
-
   bool b_caida = false;
 
   TCompTransform* p = player->get<TCompTransform>();
@@ -101,6 +100,7 @@ void TCompOrbitCamera::update(float dt) {
   float dY = abs(oldPos.y - pPos.y);
 
   if (currentPlayerY < pPos.y - 0.1f) {
+	  //b_caida = false;
     if (dY > height + height + 1.5f) {
       currentPlayerY += 1.5f;
       speedCaida = 40.f;
@@ -111,7 +111,7 @@ void TCompOrbitCamera::update(float dt) {
     }
     else if (dY > height + (height / 3) + 1.5f) {
       currentPlayerY += 0.75f;
-      speedCaida = 10.f;
+      speedCaida = 20.f;
     }
     else if (dY > height + (height / 4) + 1.5f) {
       currentPlayerY += 0.375f;
@@ -123,14 +123,16 @@ void TCompOrbitCamera::update(float dt) {
     }
   }
   else if (currentPlayerY > pPos.y + 0.1f) {
-    b_caida = true;
-    currentPlayerY = pPos.y;
-
     if (dY > height + height + 1.5f) speedCaida = 40.f;
     else if (dY > height + (height / 2) + 1.5f) speedCaida = 30.f;
     else if (dY > height + (height / 3) + 1.5f) speedCaida = 20.f;
     else if (dY > height + (height / 4) + 1.5f) speedCaida = 10.f;
     else speedCaida = 0.f;
+
+	b_caida = true;
+	currentPlayerY = pPos.y;
+
+
   }
 
   VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
@@ -167,13 +169,15 @@ void TCompOrbitCamera::update(float dt) {
 
   if (!carga) {
     actualPos = VEC3::Lerp(oldPos, newPos, dt *(10 + speedCaida));
-    if (!b_caida) {
-      pesoOldPosition = 0.75f;
-    }
-    else {
+    if (b_caida == true) {
       pesoOldPosition = 0.1f;
     }
-    newPos = pesoOldPosition * oldPos + (1 - pesoOldPosition) * actualPos;
+    else {
+      pesoOldPosition = 0.75f;
+    }
+	float pesoNewPosition = (1 - pesoOldPosition);
+    //newPos = pesoOldPosition * oldPos + (1 - pesoOldPosition) * actualPos;
+	newPos = VEC3(0.75f * oldPos.x, pesoOldPosition * oldPos.y, 0.75f * oldPos.z) + VEC3(0.25f * actualPos.x, pesoNewPosition * actualPos.y, 0.25f * actualPos.z);
   }
   else carga = false;
 
