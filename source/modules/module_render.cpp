@@ -6,6 +6,7 @@
 #include "render/render_utils.h"
 #include "render/render_manager.h"
 #include "components/lights/comp_light_dir.h"
+#include "components/lights/comp_light_point.h"
 #include "render/texture/material.h"
 #include "render/texture/texture.h"
 #include "resources/json_resource.h"
@@ -199,9 +200,14 @@ void CModuleRender::generateFrame() {
     PROFILE_FUNCTION("CModuleRender::shadowsMapsGeneration");
     CTraceScoped gpu_scope("shadowsMapsGeneration");
     // Generate the shadow map for each active light
-    getObjectManager<TCompLightDir>()->forEach([](TCompLightDir* c) {
+		getObjectManager<TCompLightPoint>()->forEach([](TCompLightPoint* c) {
+			for (int i = 0; i < 6; i++) {
+				c->generateShadowMap(i);
+			}
+		});
+    /*getObjectManager<TCompLightDir>()->forEach([](TCompLightDir* c) {
       c->generateShadowMap();
-    });
+    });*/
   }
 
 

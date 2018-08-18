@@ -683,14 +683,14 @@ float4 shade(
         final_color2.a = 1;
 
         float intensity;
-        if (light_point == 1)
-        {
-            intensity = dot(normalize(iPosition.xyz - light_pos), N);
-        }
-        else
-        {
+        //if (light_point == 1)
+        //{
+        //    intensity = dot(normalize(iPosition.xyz - light_pos), N);
+        //}
+        //else
+        //{
             intensity = dot(normalize(light_direction.xyz), N);
-        }
+        //}
  
     // Discretize the intensity, based on a few cutoff points
         if (intensity > 0.8)
@@ -713,7 +713,7 @@ float4 shade(
 float4 PS_point_lights(in float4 iPosition : SV_Position) : SV_Target
 {
     float3 out_lightdir;
-    return shade(iPosition, out_lightdir, false);
+    return shade(iPosition, out_lightdir, true);
 }
 
 float4 PS_dir_lights(in float4 iPosition : SV_Position) : SV_Target
