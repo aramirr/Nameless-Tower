@@ -17,8 +17,8 @@
 			"type" : "RunState",
 			"x_speed" : 2,
 			"is_action": false,
-			"delay_in": 0,
-			"delay_out": 0
+			"delay_in": 0.02,
+			"delay_out": 0.05
 			
 		},
 		{
@@ -549,6 +549,22 @@
 		{
 			"type" : "LogicTransition",
 			"source" : "jump",
+			"target" : "omnidash",
+			"variables" : [{
+				"name" : "omnidash",
+				"type" : "bool",
+				"value" : true
+			},
+			{
+				"name" : "can_omni",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "dash",
 			"target" : "omnidash",
 			"variables" : [{
 				"name" : "omnidash",

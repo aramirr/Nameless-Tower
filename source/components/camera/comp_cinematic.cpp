@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "components/juan/comp_transform.h"
 #include "components/controllers/comp_curve.h"
+#include "components/player/comp_player_controller.h"
 #include "comp_camera_manager.h"
 #include "entity/entity_parser.h"
 #include "comp_cinematic.h"
@@ -32,6 +33,9 @@ void TCompCinematic::update(float dt) {
 void TCompCinematic::activate(const TMsgActivateCinematic& msg) {
     if (!active) {
         CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
+        CEntity* e_player = (CEntity*)getEntityByName("The Player");
+        TCompPlayerController* player = e_player->get<TCompPlayerController>();
+        player->on_cinematic = true;
         TMsgActiveCamera activate_camera;
         activate_camera.camera_name = camera_name;
         activate_camera.blend_time = 2.f;
@@ -51,6 +55,9 @@ void TCompCinematic::deactivate_msg(const TMsgDeactivateCinematic& msg) {
 
 void TCompCinematic::deactivate() {
     if (active){
+        CEntity* e_player = (CEntity*)getEntityByName("The Player");
+        TCompPlayerController* player = e_player->get<TCompPlayerController>();
+        player->on_cinematic = false;
         CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
         TMsgActiveCamera activate_camera;
         activate_camera.camera_name = "camera_orbit_IZQ";
