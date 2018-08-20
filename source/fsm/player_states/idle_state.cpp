@@ -70,7 +70,7 @@ namespace FSM
 			}
 		}
 
-        if (player->idle_time > player->idle_max_time && !player->camera_idle) {
+        if (player->idle_time > player->idle_max_time && !player->camera_idle && !player->on_cinematic) {
             CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
             TMsgActiveCamera activate_camera;
             activate_camera.camera_name = "camera_idle";
