@@ -67,6 +67,7 @@ void TCompLightPoint::update(float dt) {
 	TCompTransform* c = get<TCompTransform>();
 	if (!c)
 		return;
+	shadows_rt->setPosition(c->getPosition());
 	//this->lookAt(c->getPosition(), c->getPosition() + c->getFront(), c->getUp());
 }
 
@@ -123,19 +124,20 @@ void TCompLightPoint::generateShadowMap() {
 	};*/
 
 	CTexture::setNullTexture(TS_LIGHT_SHADOW_MAP);
-	
+	shadows_rt->clearDepthBuffer();
+	CTraceScoped gpu_scope(shadows_rt->getName().c_str());
 	for (int i = 0; i < 6; i++) {
 
 		// In this slot is where we activate the render targets that we are going
 		// to update now. You can't be active as texture and render target at the
 		// same time
 
-		CTraceScoped gpu_scope(shadows_rt->getName().c_str());
+		
 		//shadows_rt->activateViewport();
 
 		{
 			PROFILE_FUNCTION("Clear&SetCommonCtes");
-			//shadows_rt->clearDepthBuffer();
+			
 			// We are going to render the scene from the light position & orientation
 			/*this->lookAt(c->getPosition(), c->getPosition() + shadowcubemap[i], c->getUp());
 			cb_light.light_direction = VEC4(shadowcubemap[i].x, shadowcubemap[i].y, shadowcubemap[i].z, 1);
