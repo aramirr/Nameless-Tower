@@ -74,7 +74,7 @@ void CCamera::setOrtho(float orto_width, float orto_height, float new_z_near, fl
 	this->orto_width = orto_width;
 	this->orto_height = orto_height;
 
-	proj = MAT44::CreateOrthographic(orto_width, orto_width, new_z_near, new_z_far);
+	proj = MAT44::CreateOrthographic(orto_width, orto_height, new_z_near, new_z_far);
 	updateViewProj();
 }
 
