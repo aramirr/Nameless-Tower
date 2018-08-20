@@ -18,7 +18,7 @@ class TCompLightPoint : public TCompCamera {
 	bool              casts_shadows = false;      // Static
 	int               shadows_resolution = 256;
 	float             shadows_step = 1.f;
-	CRenderToTexture* shadows_rt = nullptr;
+	CRenderToCube* shadows_rt = nullptr;
 
 
 public:
@@ -28,7 +28,7 @@ public:
 	void update(float dt);
   DECL_SIBLING_ACCESS();
 
-	void generateShadowMap(int i);
+	void generateShadowMap();
 
   void activate();
   MAT44 getWorld();

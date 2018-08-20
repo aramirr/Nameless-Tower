@@ -17,6 +17,11 @@ void CRenderToTexture::destroy() {
   CTexture::destroy();
 }
 
+void CRenderToTexture::setNullRT() {
+	ID3D11RenderTargetView* null_rt = nullptr;
+	Render.ctx->OMSetRenderTargets(1, &null_rt, nullptr);
+}
+
 void CRenderToTexture::debugInMenu() {
   // If we have a color buffer...
   if(render_target_view)

@@ -93,17 +93,21 @@
     "z": "disable_all",
     "category": "helper"
   },
+  "gbuffer_resolve_face": {
+    "vs_file": "data/shaders/screen_quad.fx",
+    "vertex_type": "PosClr",
+    "ps_file": "data/shaders/deferred.fx",
+    "ps_entry_point": "PS_face",
+    "z": "disable_all",
+    "category": "helper"
+  },
   "pbr": {
     "vs_file": "data/shaders/pbr.fx",
     "ps_file": "data/shaders/pbr.fx",
     "vs_entry_point": "VS_GBuffer",
     "ps_entry_point": "PS_GBuffer",
     "vertex_type": "PosNUvUvT",
-    "category": "gbuffer",
-    "textures": {
-      "environment": "data/textures/cubemaps/env.dds",
-      "irradiance": "data/textures/cubemaps/irradiance.dds"
-    }
+    "category": "gbuffer"
   },
    "pbr_parallax": {
     "vs_file": "data/shaders/pbr.fx",
@@ -111,11 +115,7 @@
     "vs_entry_point": "VS_GBuffer",
     "ps_entry_point": "PS_GBuffer_Parallax",
     "vertex_type": "PosNUvUvT",
-    "category" : "gbuffer",
-    "textures" : { 
-      "environment" : "data/textures/cubemaps/env.dds", 
-      "irradiance" : "data/textures/cubemaps/irradiance.dds" 
-    }
+    "category" : "gbuffer"
   },
 "pbr_skin": {
     "vs_file": "data/shaders/pbr.fx",
@@ -124,10 +124,6 @@
     "ps_entry_point": "PS_GBuffer",
     "vertex_type": "PosNUvUvTanSkin",
     "category" : "gbuffer",
-    "textures" : { 
-      "environment" : "data/textures/cubemaps/env.dds", 
-      "irradiance" : "data/textures/cubemaps/irradiance.dds" 
-    },
     "uses_skin" : true
   },
   "pbr_ambient": {
@@ -136,7 +132,11 @@
     "ps_entry_point": "PS_ambient",
     "vertex_type": "PosClr",
     "category": "pbr_proc",
-    "z": "disable_all"
+    "z": "disable_all",
+    "textures": {
+      "environment": "data/textures/cubemaps/env.dds",
+      "irradiance": "data/textures/cubemaps/irradiance.dds"
+    }
   },
   "pbr_dir_lights": {
     "vs_file": "data/shaders/pbr.fx",
@@ -146,7 +146,11 @@
     "vertex_type": "PosNUvUvT",
     "category": "pbr_proc",
     "z": "inverse_test_no_write",
-    "blend": "additive"
+    "blend": "additive",
+    "textures": {
+      "environment": "data/textures/cubemaps/env.dds",
+      "irradiance": "data/textures/cubemaps/irradiance.dds"
+    }
   },
   "pbr_point_lights": {
     "vs_file": "data/shaders/pbr.fx",
@@ -157,7 +161,11 @@
     "category": "pbr_proc",
     "z": "inverse_test_no_write",
     "rs_config": "reverse_culling",
-    "blend": "additive"
+    "blend": "additive",
+    "textures": {
+      "environment": "data/textures/cubemaps/env.dds",
+      "irradiance": "data/textures/cubemaps/irradiance.dds"
+    }
   },
   "cell_skin": {
     "vs_file": "data/shaders/cell_shading.fx",
@@ -166,10 +174,6 @@
     "ps_entry_point": "PS",
     "vertex_type": "PosNUvUvTanSkin",
     "category" : "cell",
-    "textures" : { 
-      "environment" : "data/textures/cubemaps/env.dds", 
-      "irradiance" : "data/textures/cubemaps/irradiance.dds" 
-    },
     "uses_skin" : true
   },
   "water": {

@@ -4,6 +4,7 @@
 #include "ctes.h"                     // texture slots
 #include "render/render_manager.h" 
 #include "render/render_objects.h" 
+#include "render/texture/render_to_cube.h"
 
 DECL_OBJ_MANAGER("light_point", TCompLightPoint);
 
@@ -44,14 +45,15 @@ void TCompLightPoint::load(const json& j, TEntityParseContext& ctx) {
 			shadows_resolution = j.value("shadows_resolution", shadows_resolution);
 			auto shadowmap_fmt = readFormat(j, "shadows_fmt");
 			assert(shadows_resolution > 0);
-			shadows_rt = new CRenderToTexture;
+			shadows_rt = new CRenderToCube;
 			// Make a unique name to have the Resource Manager happy with the unique names for each resource
 			char my_name[64];
 			sprintf(my_name, "shadow_map_%08x", CHandle(this).asUnsigned());
 
 			// Added a placeholder Color Render Target to be able to do a alpha test when rendering
 			// the grass
-			bool is_ok = shadows_rt->createRT(my_name, shadows_resolution, shadows_resolution, DXGI_FORMAT_R8G8B8A8_UNORM, shadowmap_fmt);
+			bool is_ok = shadows_rt->create(my_name, shadows_resolution, DXGI_FORMAT_R8G8B8A8_UNORM, shadowmap_fmt);
+			//bool is_ok = shadows_rt->createRT(my_name, shadows_resolution, shadows_resolution, DXGI_FORMAT_R8G8B8A8_UNORM, shadowmap_fmt);
 			assert(is_ok);
 		}
 
@@ -103,11 +105,11 @@ void TCompLightPoint::activate() {
 }
 
 // ------------------------------------------------------
-void TCompLightPoint::generateShadowMap(int i) {
+void TCompLightPoint::generateShadowMap() {
 	if (!shadows_rt || !shadows_enabled)
 		return;
 
-	TCompTransform* c = get<TCompTransform>();
+	/*TCompTransform* c = get<TCompTransform>();
 	if (!c)
 		return;
 
@@ -118,32 +120,33 @@ void TCompLightPoint::generateShadowMap(int i) {
 		c->getUp() * -1,
 		c->getLeft(),
 		c->getLeft() * -1
-	};
+	};*/
 
 	CTexture::setNullTexture(TS_LIGHT_SHADOW_MAP);
 	
-	//for (int i = 0; i < 6; i++) {
+	for (int i = 0; i < 6; i++) {
 
 		// In this slot is where we activate the render targets that we are going
 		// to update now. You can't be active as texture and render target at the
 		// same time
 
 		CTraceScoped gpu_scope(shadows_rt->getName().c_str());
-		shadows_rt->activateRT();
+		//shadows_rt->activateViewport();
 
 		{
 			PROFILE_FUNCTION("Clear&SetCommonCtes");
-			shadows_rt->clearZ();
+			//shadows_rt->clearDepthBuffer();
 			// We are going to render the scene from the light position & orientation
-			this->lookAt(c->getPosition(), c->getPosition() + shadowcubemap[i], c->getUp());
+			/*this->lookAt(c->getPosition(), c->getPosition() + shadowcubemap[i], c->getUp());
 			cb_light.light_direction = VEC4(shadowcubemap[i].x, shadowcubemap[i].y, shadowcubemap[i].z, 1);
-			activateCamera(*this, shadows_rt->getWidth(), shadows_rt->getHeight());
+			activateCamera(*this, shadows_rt->getWidth(), shadows_rt->getHeight());*/
+			shadows_rt->activateFace(i, this);
 		}
 
 		//¿?CRenderManager::get().setEntityCamera(CHandle(this).getOwner());
 		CRenderManager::get().renderCategory("shadows");
 
-	//}
+	}
 }
 
 void TCompLightPoint::setIntensity(float value) {
