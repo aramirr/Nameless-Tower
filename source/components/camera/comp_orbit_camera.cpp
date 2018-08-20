@@ -105,19 +105,19 @@ void TCompOrbitCamera::update(float dt) {
       speedCaida = 40.f;
     }
     else if (dY > height + (height / 2) + 1.5f) {
-      currentPlayerY += 1.125f;
-      speedCaida = 30.f;
+      currentPlayerY += 1.5f;
+      speedCaida = 40.f;
     }
     else if (dY > height + (height / 3) + 1.5f) {
-      currentPlayerY += 0.75f;
-      speedCaida = 20.f;
+      currentPlayerY += 1.5f;
+      speedCaida = 40.f;
     }
     else if (dY > height + (height / 4) + 1.5f) {
-      currentPlayerY += 0.375f;
-      speedCaida = 10.f;
+      currentPlayerY += 1.5f;
+      speedCaida = 40.f;
     }
     else {
-      currentPlayerY += 0.05f;
+      currentPlayerY = pPos.y;
       speedCaida = 0.f;
     }
   }
