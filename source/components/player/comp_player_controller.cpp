@@ -22,7 +22,8 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	gravity = j.value("gravity", 75.f);	
 	center = VEC3(0.f, 0.f, 0.f);
 	tower_radius = j.value("tower_radius", 31.5f);
-	jumping_death_height = j.value("jumping_death_height", 9.f);
+    jumping_death_height = j.value("jumping_death_height", 9.f);
+    idle_max_time = j.value("idle_max_time", 5.f);
 	is_grounded = true;
 	looking_left = true;
 
@@ -171,6 +172,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
         CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
         rayWall = false;
         TMsgActiveCamera msg;
+        msg.blend_time = 2.f;
         e->sendMsg(msg);
       }
 

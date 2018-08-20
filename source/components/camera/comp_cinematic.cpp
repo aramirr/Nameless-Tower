@@ -34,6 +34,7 @@ void TCompCinematic::activate(const TMsgActivateCinematic& msg) {
         CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
         TMsgActiveCamera activate_camera;
         activate_camera.camera_name = camera_name;
+        activate_camera.blend_time = 2.f;
         camera_manager->sendMsg(activate_camera);
         if (spline_name != "") {
             CEntity* h_spline = (CEntity*)getEntityByName(spline_name);
@@ -53,6 +54,7 @@ void TCompCinematic::deactivate() {
         CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
         TMsgActiveCamera activate_camera;
         activate_camera.camera_name = "camera_orbit_IZQ";
+        activate_camera.blend_time = 2.f;
         camera_manager->sendMsg(activate_camera);
         if (spline_name != "") {
             CEntity* h_spline = (CEntity*)getEntityByName(spline_name);

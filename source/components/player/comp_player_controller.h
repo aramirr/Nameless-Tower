@@ -16,6 +16,8 @@ public:
 	float   y_speed_factor = 0.f;
 	float	jumping_start_height;
 	float	jumping_death_height;
+    float   idle_time = 0;
+    float   idle_max_time;
 	VEC3 checkpoint;
 	bool    looking_left;
 	bool    is_grounded;
