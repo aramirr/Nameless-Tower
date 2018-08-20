@@ -252,3 +252,8 @@ void TCompCameraManager::activateCamera(const TMsgActiveCamera &msg) {
 	CHandle h_camera = getEntityByName(msg.camera_name);
 	Engine.getCameras().blendInCamera(h_camera, msg.blend_time, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 }
+
+void TCompCameraManager::deactivateCamera(const TMsgDeactivateCamera &msg) {
+	CHandle h_camera = getEntityByName(msg.camera_name);
+	Engine.getCameras().blendOutCamera(h_camera, msg.blend_time);
+}

@@ -70,12 +70,13 @@ namespace FSM
 			}
 		}
 
-        if (player->idle_time > player->idle_max_time) {
+        if (player->idle_time > player->idle_max_time && !player->camera_idle) {
             CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
             TMsgActiveCamera activate_camera;
             activate_camera.camera_name = "camera_idle";
             activate_camera.blend_time = 4.f;
             camera_manager->sendMsg(activate_camera);
+            player->camera_idle = true;
         }
 		return false;
 	}
@@ -84,12 +85,17 @@ namespace FSM
 		ctx.setVariable("idle", false);
         CEntity* e = ctx.getOwner();
         TCompPlayerController* player = e->get<TCompPlayerController>();
-        if (player->idle_time > player->idle_max_time) {
+        if (player->camera_idle) {
             CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
             TMsgActiveCamera activate_camera;
             activate_camera.camera_name = "camera_orbit_IZQ";
             activate_camera.blend_time = 2.f;
             camera_manager->sendMsg(activate_camera);
+            TMsgDeactivateCamera deactivate_camera;
+            deactivate_camera.camera_name = "camera_idle";
+            deactivate_camera.blend_time = 2.f;
+            camera_manager->sendMsg(deactivate_camera);
+            player->camera_idle = false;
         }
 	}
 }
