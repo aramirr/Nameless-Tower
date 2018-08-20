@@ -1266,5 +1266,37 @@
         "trigger_type": "compresora"
       }
     }
+  },
+  {
+    "entity": {
+      "name": "PlaneGrass1",
+      "transform": {
+        "pos": "-15.400 9 -27.479",
+        "rotation": "0.0 0.0 0.0 -1.0"
+      },
+      "render": []
+      ,
+      "comp_grass": { 
+        "total": 4000,
+        "pos2": "12.520 4.5 -28.906",
+        "pos1": "-5.640 4.5 -30.991"
+      }
+    }
+  },
+  {
+    "entity": {
+      "name": "PlaneGrass3",
+      "transform": {
+        "pos": "-15.400 9 -27.479",
+        "rotation": "0.0 0.0 0.0 -1.0"
+      },
+      "render": []
+      ,
+      "comp_grass": { 
+        "total": 4000,
+        "pos1": "31.351 31.5 -3.063",
+        "pos2": "30.877 31.5 6.236"
+      }
+    }
   }
 ]
