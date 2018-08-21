@@ -23,7 +23,11 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	center = VEC3(0.f, 0.f, 0.f);
 	tower_radius = j.value("tower_radius", 31.5f);
     jumping_death_height = j.value("jumping_death_height", 9.f);
-    idle_max_time = j.value("idle_max_time", 10.f);
+<<<<<<< HEAD
+    idle_max_time = j.value("idle_max_time", 8.f);
+=======
+    idle_max_time = j.value("idle_max_time", 50.f);
+>>>>>>> 284fd3481ccd90ede9314fe14d1d02f0a6718f3f
 	is_grounded = true;
 	looking_left = true;
 
