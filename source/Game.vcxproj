@@ -100,6 +100,7 @@
     <ClCompile Include="components\camera\comp_cinematic.cpp" />
     <ClCompile Include="components\comp_grass.cpp" />
     <ClCompile Include="components\comp_emission_controller.cpp" />
+    <ClCompile Include="components\ia\ai_compresora.cpp" />
     <ClCompile Include="components\lights\comp_light_spot.cpp" />
     <ClCompile Include="components\controllers\comp_curve.cpp" />
     <ClCompile Include="components\controllers\comp_door.cpp" />
@@ -282,6 +283,7 @@
     <ClInclude Include="components\camera\comp_cinematic.h" />
     <ClInclude Include="components\comp_grass.h" />
     <ClInclude Include="components\comp_emission_controller.h" />
+    <ClInclude Include="components\ia\ai_compresora.h" />
     <ClInclude Include="components\lights\comp_light_spot.h" />
     <ClInclude Include="components\controllers\comp_curve.h" />
     <ClInclude Include="components\controllers\comp_door.h" />

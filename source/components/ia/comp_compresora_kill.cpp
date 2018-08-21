@@ -3,7 +3,7 @@
 #include "comp_compresora_kill.h"
 #include "entity/common_msgs.h"
 
-DECL_OBJ_MANAGER("ia_compressora_kill", TCompCompresoraKill);
+DECL_OBJ_MANAGER("comp_compressora_kill", TCompCompresoraKill);
 
 void TCompCompresoraKill::debugInMenu() {}
 
