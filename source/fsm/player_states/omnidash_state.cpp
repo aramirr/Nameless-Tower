@@ -21,10 +21,10 @@ namespace FSM
 		EngineUI.setOmindash(true);
 
 		//CEntity* e_camera = EngineCameras.getActiveCamera();
-		CEntity* e_camera = EngineCameras.getOutputCamera();
+		CEntity* o_camera = EngineCameras.getOutputCamera();
 
 		//////////////////////////////////////
-		TCompCamera* c_camera = e_camera->get< TCompCamera >();
+		TCompCamera* c_camera = o_camera->get< TCompCamera >();
 		VEC3 my_pos = c_my_transform->getPosition();
 		VEC3 player_position;
 		c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
@@ -33,9 +33,10 @@ namespace FSM
 		VEC2 screen_projected_pos;
 		screen_projected_pos.x = position.x/Render.width;
 		screen_projected_pos.y = position.y/Render.height;
+
 		///////////////////////////////////////////
 
-		TCompRenderBlurRadial* c_render_blur_radial = e_camera->get< TCompRenderBlurRadial >();
+		TCompRenderBlurRadial* c_render_blur_radial = o_camera->get< TCompRenderBlurRadial >();
 		if (c_render_blur_radial)
 		{
 			c_render_blur_radial->setCenter(screen_projected_pos);
@@ -60,9 +61,9 @@ namespace FSM
 
 		///////////////////////////////////////////
 		//CEntity* e_camera = EngineCameras.getActiveCamera();
-		CEntity* e_camera = EngineCameras.getOutputCamera();
+		CEntity* o_camera = EngineCameras.getOutputCamera();
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
-		TCompCamera* c_camera = e_camera->get< TCompCamera >();
+		TCompCamera* c_camera = o_camera->get< TCompCamera >();
 		VEC3 my_pos = c_my_transform->getPosition();
 		VEC3 player_position;
 		c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
@@ -70,10 +71,11 @@ namespace FSM
 		position = VEC2(player_position.x, player_position.y); 
 		VEC2 screen_projected_pos;
 		screen_projected_pos.x = position.x / Render.width;
-		screen_projected_pos.y = position.y / Render.height; 
+		screen_projected_pos.y = position.y / Render.height;
+
 		///////////////////////////////////////////
 
-		TCompRenderBlurRadial* c_render_blur_radial = e_camera->get< TCompRenderBlurRadial >();
+		TCompRenderBlurRadial* c_render_blur_radial = o_camera->get< TCompRenderBlurRadial >();
 		if (c_render_blur_radial)
 		{
 			c_render_blur_radial->setCenter(screen_projected_pos);
@@ -142,17 +144,16 @@ namespace FSM
 		EngineUI.setOmindash(false);
 
 		//CEntity* e_camera = EngineCameras.getActiveCamera();
-		CEntity* e_camera = EngineCameras.getOutputCamera();
+		CEntity* o_camera = EngineCameras.getOutputCamera();
 
-		TCompRenderBlurRadial* c_render_blur_radial = e_camera->get< TCompRenderBlurRadial >();
+		TCompRenderBlurRadial* c_render_blur_radial = o_camera->get< TCompRenderBlurRadial >();
 		if (c_render_blur_radial)
 		{
 			c_render_blur_radial->setActive(false);
 			//c_render_blur_radial->setCenter(VEC2(0.0, 0.0));
 		}
 			
-		
-
+		CEntity* e_camera = EngineCameras.getActiveCamera();
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		const Input::TInterface_Mouse& mouse = EngineInput.mouse();
