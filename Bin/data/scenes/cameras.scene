@@ -55,7 +55,8 @@
 			"render_ao" : {
 		        "enabled" :  true,
 		        "radius": 0.6,
-		        "amount_spreading": 0.95
+		        "amount_spreading": 0.95,
+		        "zrange_discard": 0.009
 		      },
 		    "culling":true
 		}
