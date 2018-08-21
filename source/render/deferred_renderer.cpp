@@ -231,13 +231,16 @@ void CDeferredRenderer::renderDirectionalLights() {
 
     // subir las contantes de la posicion/dir
     // activar el shadow map...
-    c->activate();
+      if (c->intensity != 0) {
+          c->activate();
 
-    setWorldTransform(c->getViewProjection().Invert());
+          setWorldTransform(c->getViewProjection().Invert());
 
-    // mandar a pintar una geometria que refleje los pixeles que potencialmente
-    // puede iluminar esta luz.... El Frustum solido
-    mesh->render();
+          // mandar a pintar una geometria que refleje los pixeles que potencialmente
+          // puede iluminar esta luz.... El Frustum solido
+          mesh->render();
+      }
+    
   });
 }
 
