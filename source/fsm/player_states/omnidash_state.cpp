@@ -3,6 +3,7 @@
 #include "components/player/comp_player_controller.h"
 #include "entity/entity_parser.h"
 #include "fsm/context.h"
+#include "components/postfx/comp_render_blur_radial.h"
 
 namespace FSM
 {
@@ -19,6 +20,28 @@ namespace FSM
 		EngineTimer.setTimeSlower(0.25f);
 		EngineUI.setOmindash(true);
 
+		//CEntity* e_camera = EngineCameras.getActiveCamera();
+		CEntity* e_camera = EngineCameras.getOutputCamera();
+
+		//////////////////////////////////////
+		TCompCamera* c_camera = e_camera->get< TCompCamera >();
+		VEC3 my_pos = c_my_transform->getPosition();
+		VEC3 player_position;
+		c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
+		VEC2 position;
+		position = VEC2(player_position.x, player_position.y);
+		VEC2 screen_projected_pos;
+		screen_projected_pos.x = position.x/Render.width;
+		screen_projected_pos.y = position.y/Render.height;
+		///////////////////////////////////////////
+
+		TCompRenderBlurRadial* c_render_blur_radial = e_camera->get< TCompRenderBlurRadial >();
+		if (c_render_blur_radial)
+		{
+			c_render_blur_radial->setCenter(screen_projected_pos);
+			c_render_blur_radial->setActive(true);
+		}
+
 		_mouseStartPosition = EngineInput.mouse()._position;
 	}
 
@@ -33,7 +56,29 @@ namespace FSM
 	bool OmnidashState::update(float dt, CContext& ctx) const
 	{
 		CEntity* e = ctx.getOwner();
-		TCompPlayerController* player = e->get<TCompPlayerController>();
+		TCompPlayerController* player = e->get<TCompPlayerController>(); 
+
+		///////////////////////////////////////////
+		//CEntity* e_camera = EngineCameras.getActiveCamera();
+		CEntity* e_camera = EngineCameras.getOutputCamera();
+		TCompTransform *c_my_transform = e->get<TCompTransform>();
+		TCompCamera* c_camera = e_camera->get< TCompCamera >();
+		VEC3 my_pos = c_my_transform->getPosition();
+		VEC3 player_position;
+		c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
+		VEC2 position;
+		position = VEC2(player_position.x, player_position.y); 
+		VEC2 screen_projected_pos;
+		screen_projected_pos.x = position.x / Render.width;
+		screen_projected_pos.y = position.y / Render.height; 
+		///////////////////////////////////////////
+
+		TCompRenderBlurRadial* c_render_blur_radial = e_camera->get< TCompRenderBlurRadial >();
+		if (c_render_blur_radial)
+		{
+			c_render_blur_radial->setCenter(screen_projected_pos);
+		}
+
 
 		// Chequea si hay que realizar el salto
 		if (!EngineInput["omnidash"].isPressed()) {
@@ -96,7 +141,17 @@ namespace FSM
 		EngineTimer.setTimeSlower(1.f);
 		EngineUI.setOmindash(false);
 
-		CEntity* e_camera = EngineCameras.getActiveCamera();
+		//CEntity* e_camera = EngineCameras.getActiveCamera();
+		CEntity* e_camera = EngineCameras.getOutputCamera();
+
+		TCompRenderBlurRadial* c_render_blur_radial = e_camera->get< TCompRenderBlurRadial >();
+		if (c_render_blur_radial)
+		{
+			c_render_blur_radial->setActive(false);
+			//c_render_blur_radial->setCenter(VEC2(0.0, 0.0));
+		}
+			
+		
 
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
 		TCompTransform *c_my_transform = e->get<TCompTransform>();

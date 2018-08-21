@@ -59,6 +59,10 @@
 		        "zrange_discard": 0.009
 		      },
 		    "culling":true
+		    ,
+		    "render_blur_radial" : {
+		      "enabled" :  false
+		    }
 		}
 	}
 ]
