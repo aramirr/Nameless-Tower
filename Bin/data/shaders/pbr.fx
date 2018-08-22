@@ -567,12 +567,12 @@ float4 PS_ambient(
 
     if (cell)
     {
-        final_color = float4(/*env_fresnel * env * g_ReflectionIntensity +*/
-                              albedo.xyz * /*irradiance **/ g_AmbientLightIntensity
+        final_color = float4(env_fresnel * env * g_ReflectionIntensity +
+                              albedo.xyz * irradiance * g_AmbientLightIntensity
                               , albedo.a) + self_illum;
 
 
-        final_color = final_color * global_ambient_adjustment /** ao*/;
+        final_color = final_color * global_ambient_adjustment * ao;
         final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
 
         final_color.a = 1;
@@ -676,21 +676,21 @@ float4 shade(
 
     if (cell)
     {
-        float3 final_color = light_color.xyz * NdL * (cDiff * (1.0f - cSpec) + cSpec) * att * light_intensity * shadow_factor;
+        float3 final_color = light_color.xyz /** NdL*/ * (cDiff * (1.0f - cSpec) + cSpec) * att * light_intensity * shadow_factor;
 
         final_color2 = float4(final_color, 1);
 
         final_color2.a = 1;
 
         float intensity;
-        //if (light_point == 1)
-        //{
-        //    intensity = dot(normalize(iPosition.xyz - light_pos), N);
-        //}
-        //else
-        //{
+        if (light_point == 1)
+        {
+            intensity = dot(normalize(iPosition.xyz - light_pos), N);
+        }
+        else
+        {
             intensity = dot(normalize(light_direction.xyz), N);
-        //}
+        }
  
     // Discretize the intensity, based on a few cutoff points
         if (intensity > 0.8)

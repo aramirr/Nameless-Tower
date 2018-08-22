@@ -58,6 +58,8 @@ void TCompLightPoint::load(const json& j, TEntityParseContext& ctx) {
 		}
 
 		shadows_enabled = casts_shadows;
+
+		this->setPerspective(deg2rad(90.f), 1.0f, 1000.f);
 }
 
 void TCompLightPoint::update(float dt) {
@@ -89,7 +91,7 @@ void TCompLightPoint::activate() {
     cb_light.light_radius = radius * c->getScale();
     cb_light.light_view_proj_offset = getViewProjection() * mtx_offset;
     cb_light.light_point = 1;
-		cb_light.light_angle = 0;
+		cb_light.light_angle = 90;
     cb_light.updateGPU();
 
 		// If we have a ZTexture, it's the time to activate it
@@ -102,6 +104,7 @@ void TCompLightPoint::activate() {
 
 			assert(shadows_rt->getZTexture());
 			shadows_rt->getZTexture()->activate(TS_LIGHT_SHADOW_MAP);
+			
 		}
 }
 
@@ -110,44 +113,27 @@ void TCompLightPoint::generateShadowMap() {
 	if (!shadows_rt || !shadows_enabled)
 		return;
 
-	/*TCompTransform* c = get<TCompTransform>();
+	TCompTransform* c = get<TCompTransform>();
 	if (!c)
 		return;
+	shadows_rt->setPosition(c->getPosition());
 
-	VEC3 shadowcubemap[6] = {
-		c->getFront(),
-		c->getFront() * -1,
-		c->getUp(),
-		c->getUp() * -1,
-		c->getLeft(),
-		c->getLeft() * -1
-	};*/
-
+	// In this slot is where we activate the render targets that we are going
+	// to update now. You can't be active as texture and render target at the
+	// same time
 	CTexture::setNullTexture(TS_LIGHT_SHADOW_MAP);
-	shadows_rt->clearDepthBuffer();
-	CTraceScoped gpu_scope(shadows_rt->getName().c_str());
+
 	for (int i = 0; i < 6; i++) {
-
-		// In this slot is where we activate the render targets that we are going
-		// to update now. You can't be active as texture and render target at the
-		// same time
-
-		
-		//shadows_rt->activateViewport();
-
+		CTraceScoped gpu_scope(shadows_rt->getName().c_str());
+		shadows_rt->activateFace(i, this);
 		{
 			PROFILE_FUNCTION("Clear&SetCommonCtes");
-			
+			shadows_rt->clearDepthBuffer();
 			// We are going to render the scene from the light position & orientation
-			/*this->lookAt(c->getPosition(), c->getPosition() + shadowcubemap[i], c->getUp());
-			cb_light.light_direction = VEC4(shadowcubemap[i].x, shadowcubemap[i].y, shadowcubemap[i].z, 1);
-			activateCamera(*this, shadows_rt->getWidth(), shadows_rt->getHeight());*/
-			shadows_rt->activateFace(i, this);
+			activateCamera(*this, shadows_rt->getWidth(), shadows_rt->getHeight());
 		}
-
-		//¿?CRenderManager::get().setEntityCamera(CHandle(this).getOwner());
+		//CRenderManager::get().setEntityCamera(CHandle(this).getOwner());
 		CRenderManager::get().renderCategory("shadows");
-
 	}
 }
 
