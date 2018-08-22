@@ -119,6 +119,13 @@
 			"is_action": false,
 			"delay_in": 0,
 			"delay_out": 0			
+		},
+		{
+			"name" : "look_up",
+			"type" : "LookUpState",
+			"is_action": false,
+			"delay_in": 0,
+			"delay_out": 0			
 		}
 	],
 	"transitions" : [
@@ -128,6 +135,26 @@
 			"target" : "idle",
 			"variable" : {
 				"name" : "is_grounded",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},{
+			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "look_up",
+			"variable" : {
+				"name" : "look_up",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},{
+			"type" : "VariableTransition",
+			"source" : "look_up",
+			"target" : "idle",
+			"variable" : {
+				"name" : "idle",
 				"type" : "bool",
 				"value" : true
 			},
@@ -959,6 +986,11 @@
 		},
 			{
 			"name" : "turn_around",
+			"type" : "bool",
+			"value" : false
+		},
+			{
+			"name" : "look_up",
 			"type" : "bool",
 			"value" : false
 		}

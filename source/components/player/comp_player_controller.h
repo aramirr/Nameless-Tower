@@ -65,7 +65,9 @@ public:
 		, NajaWindstrikeA
 		, NajaDeath
 		, NajaDead
-		, NajaBreak,
+		, NajaBreak
+        , NajaLookDown
+        , NajaLookUp,
 		EAnimations
 	};
 
