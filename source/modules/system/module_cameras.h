@@ -29,7 +29,7 @@ private:
 
   struct TMixedCamera
   {
-    enum EState {ST_BLENDING_IN, ST_IDLE, ST_BLENDING_OUT};
+    enum EState {ST_BLENDING_IN, ST_IDLE, ST_BLENDING_OUT, ST_STOP_BLENDING};
 
     CHandle camera;
     EState state = EState::ST_IDLE;
@@ -42,6 +42,7 @@ private:
 
     void blendIn(float duration);
     void blendOut(float duration);
+    void stopBlend();
   };
 
   using VMixedCameras = std::vector<TMixedCamera>;

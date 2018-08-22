@@ -96,7 +96,7 @@ namespace FSM
 		EngineTimer.setTimeSlower(1.f);
 		EngineUI.setOmindash(false);
 
-		CEntity* e_camera = EngineCameras.getActiveCamera();
+		CEntity* e_camera = EngineCameras.getOutputCamera();
 
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
 		TCompTransform *c_my_transform = e->get<TCompTransform>();

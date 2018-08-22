@@ -89,9 +89,9 @@ namespace FSM
             CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
             TMsgActiveCamera activate_camera;
             activate_camera.camera_name = "camera_orbit_IZQ";
-            activate_camera.blend_time = 2.f;
+            activate_camera.blend_time = 3.f;
             camera_manager->sendMsg(activate_camera);
-            TMsgDeactivateCamera deactivate_camera;
+            TMsgRemoveCamera deactivate_camera;
             deactivate_camera.camera_name = "camera_idle";
             deactivate_camera.blend_time = 2.f;
             camera_manager->sendMsg(deactivate_camera);

@@ -66,7 +66,7 @@ public:
 		, NajaDeath
 		, NajaDead
 		, NajaBreak
-        , NajaLookDown
+        , NajaLookDn
         , NajaLookUp,
 		EAnimations
 	};

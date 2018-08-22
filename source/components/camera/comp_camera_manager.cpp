@@ -63,11 +63,6 @@ void TCompCameraManager::loadCinematics()
   }
 }
 
-void TCompCameraManager::registerMsgs() {
-	DECL_MSG(TCompCameraManager, TMsgActiveCamera, activateCamera);
-  //DECL_MSG(TCompCameraManager, TMsgDeactiveCamera, deactivateCamera);
-}
-
 void TCompCameraManager::activateCinematic(std::string name)
 {
   if (!godMode & cinematics.find(name) != cinematics.end()) {
@@ -253,7 +248,12 @@ void TCompCameraManager::activateCamera(const TMsgActiveCamera &msg) {
 	Engine.getCameras().blendInCamera(h_camera, msg.blend_time, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 }
 
-void TCompCameraManager::deactivateCamera(const TMsgDeactivateCamera &msg) {
-	CHandle h_camera = getEntityByName(msg.camera_name);
-	Engine.getCameras().blendOutCamera(h_camera, msg.blend_time);
+void TCompCameraManager::deactivateCamera(const TMsgRemoveCamera &msg) {
+    CHandle h_camera = getEntityByName(msg.camera_name);
+    Engine.getCameras().blendOutCamera(h_camera, msg.blend_time);
+}
+
+void TCompCameraManager::registerMsgs() {
+    DECL_MSG(TCompCameraManager, TMsgActiveCamera, activateCamera);
+    DECL_MSG(TCompCameraManager, TMsgRemoveCamera, deactivateCamera);
 }
