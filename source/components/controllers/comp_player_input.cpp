@@ -18,14 +18,23 @@ void TCompPlayerInput::update(float dt)
 	windstrike_time += dt;
 	dash_time += dt;
 
-  TMsgSetFSMVariable jumpMsg;
-  jumpMsg.variant.setName("jump");
-  jumpMsg.variant.setBool(EngineInput["jump"].isPressed());
-  if (EngineInput["jump"].hasChanged())
-  {
+
+    TMsgSetFSMVariable glideMsg;
+    glideMsg.variant.setName("glide");
+    glideMsg.variant.setBool(EngineInput["glide"].isPressed());
+    if (EngineInput["glide"].hasChanged())
+    {
+        e->sendMsg(glideMsg);
+    }
+
+    TMsgSetFSMVariable jumpMsg;
+    jumpMsg.variant.setName("jump");
+    jumpMsg.variant.setBool(EngineInput["jump"].isPressed());
+    if (EngineInput["jump"].hasChanged())
+    {
     
     e->sendMsg(jumpMsg);
-  }
+    }
 
 	TMsgSetFSMVariable dashMsg;
 	dashMsg.variant.setName("dash");
@@ -100,13 +109,6 @@ void TCompPlayerInput::update(float dt)
 		e->sendMsg(deadMsg);
 	}
 
-	TMsgSetFSMVariable glideMsg;
-	glideMsg.variant.setName("glide");
-	glideMsg.variant.setBool(EngineInput["glide"].isPressed());
-	if (EngineInput["glide"].hasChanged())
-	{
-		e->sendMsg(glideMsg);
-	}
 	/*
 	TMsgSetFSMVariable pauseMsg;
 	pauseMsg.variant.setName("pause");

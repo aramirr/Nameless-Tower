@@ -140,15 +140,21 @@
 			},
 			"operation" : "equal"
 		},{
-			"type" : "VariableTransition",
+			"type" : "LogicTransition",
 			"source" : "idle",
 			"target" : "look_up",
-			"variable" : {
+			"variables" : [{
 				"name" : "look_up",
 				"type" : "bool",
 				"value" : true
 			},
-			"operation" : "equal"
+			{
+				"name" : "in_wind",
+				"type" : "bool",
+				"value" : false
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
 		},{
 			"type" : "VariableTransition",
 			"source" : "look_up",
