@@ -2,6 +2,150 @@
   {
     "entity":
     {
+      "name": "TFAntorchasAbajo"
+      ,
+      "transform":
+      {
+        "pos": "4.65117 87.8239 -30.3962"
+        ,
+        "rotation": "0.0 -0.669131 0.0 -0.743145"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TFAntorchasAbajo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.914529 0.562595 1.17726"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TFAntorchasArribaDer"
+      ,
+      "transform":
+      {
+        "pos": "-1.62772 96.4394 -31.2419"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TFAntorchasArribaDer.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.914529 0.562595 1.17726"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TFAntorchasArribaIzq"
+      ,
+      "transform":
+      {
+        "pos": "11.2308 96.4394 -29.1036"
+        ,
+        "rotation": "0.0 0.156435 0.0 -0.987688"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TFAntorchasArribaIzq.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.914529 0.562595 1.17726"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "ParedTapada12"
       ,
       "transform":

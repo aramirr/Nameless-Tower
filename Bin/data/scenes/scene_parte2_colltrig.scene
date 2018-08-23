@@ -302,206 +302,6 @@
   {
     "entity":
     {
-      "name": "TSArbolAbajo"
-      ,
-      "transform":
-      {
-        "pos": "6.29372 33.7604 30.3676"
-        ,
-        "rotation": "0.703233 -0.703233 -0.0739127 0.0739127"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TSArbolAbajo.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "-29.7982 24.7638 -9.28279"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "2.28488 0.136176 1.13929"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TSPuertasDer"
-      ,
-      "transform":
-      {
-        "pos": "6.70732 33.7604 30.2797"
-        ,
-        "rotation": "0.703233 -0.703233 -0.0739127 0.0739127"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TSPuertasDer.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "-29.7982 24.7638 -9.28279"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "2.28488 0.136176 1.13929"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TSPuertasZoom"
-      ,
-      "transform":
-      {
-        "pos": "11.4724 33.7604 29.028"
-        ,
-        "rotation": "0.0 -0.125838 0.0 -0.992051"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TSPuertasZoom.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "11.4724 33.7604 29.028"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "4.59462 2.28488 1.66647"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TSPuertasIzq"
-      ,
-      "transform":
-      {
-        "pos": "30.7747 33.7604 -2.94791"
-        ,
-        "rotation": "-0.473147 0.473147 0.525483 -0.525483"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TSPuertasIzq.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "-29.7982 24.7638 -9.28279"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "2.28488 0.136176 1.13929"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "TPTechosDer"
       ,
       "transform":
@@ -513,21 +313,13 @@
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/TPTechosDer.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
       ]
       ,
       "trigger":
       {
         "trigger_type": "checkpoint"
         ,
-        "appearing_position": "-29.7982 24.7638 -9.28279"
+        "appearing_position": "6.70732 33.7604 30.2797"
         ,
         "collider_entity": "none"
         ,
@@ -544,7 +336,9 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": true
+        "is_trigger": false
+        ,
+        "group": "scenario"
       }
     }
   }
@@ -563,21 +357,13 @@
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/TPTechosIzq.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
       ]
       ,
       "trigger":
       {
         "trigger_type": "checkpoint"
         ,
-        "appearing_position": "-29.7982 24.7638 -9.28279"
+        "appearing_position": "6.70732 33.7604 30.2797"
         ,
         "collider_entity": "none"
         ,
@@ -594,57 +380,9 @@
         ,
         "is_dynamic": false
         ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TSEscaleras2Der"
-      ,
-      "transform":
-      {
-        "pos": "3.22449 33.7604 -31.012"
+        "is_trigger": false
         ,
-        "rotation": "-0.0370071 0.0370072 0.706138 -0.706138"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TSEscaleras2Der.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "-29.7982 24.7638 -9.28279"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "2.28488 0.136176 1.13929"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
+        "group": "scenario"
       }
     }
   }

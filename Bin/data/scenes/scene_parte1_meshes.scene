@@ -2,6 +2,32 @@
   {
     "entity":
     {
+      "name": "2_Techos001"
+      ,
+      "transform":
+      {
+        "pos": "1.34783 17.8256 -25.2619"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/2_Techos001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_sala_1.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Desague02"
       ,
       "transform":
@@ -97,32 +123,6 @@
           "materials":
           [
             "data/materials/Pared_Interior_01.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TechosEscena01"
-      ,
-      "transform":
-      {
-        "pos": "-14.5512 27.0 -9.64069"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TechosEscena01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
           ]
         }
       ]
@@ -1881,32 +1881,6 @@
           "materials":
           [
             "data/materials/ParedLadrillosMat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "2_Techos001"
-      ,
-      "transform":
-      {
-        "pos": "1.34783 17.8256 -25.2619"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/2_Techos001.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Techo_sala_1.material"
           ]
         }
       ]
