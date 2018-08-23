@@ -1,0 +1,609 @@
+[
+  {
+    "entity":
+    {
+      "name": "Solidos_Escena01"
+      ,
+      "transform":
+      {
+        "pos": "-9.1611 24.75 -11.5136"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Solidos_Escena01.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Paredes_Escena01"
+      ,
+      "transform":
+      {
+        "pos": "-10.0095 24.75 -12.9845"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Paredes_Escena01.col_mesh"
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TDWindstrike"
+      ,
+      "transform":
+      {
+        "pos": "-29.9949 24.7638 -8.84543"
+        ,
+        "rotation": "0.415627 -0.415627 0.572061 -0.572061"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TDWindstrike.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "runner_appear"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.307486 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSEscaleras2Izq"
+      ,
+      "transform":
+      {
+        "pos": "-12.3917 29.2509 -28.8715"
+        ,
+        "rotation": "0.147016 -0.147016 0.691655 -0.691655"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TSEscaleras2Izq.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-29.7982 24.7638 -9.28279"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSEscaleras1Der"
+      ,
+      "transform":
+      {
+        "pos": "-12.8592 29.2509 -28.6633"
+        ,
+        "rotation": "0.147016 -0.147016 0.691655 -0.691655"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TSEscaleras1Der.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-29.7982 24.7638 -9.28279"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSEscaleras1Izq"
+      ,
+      "transform":
+      {
+        "pos": "-29.5805 24.7638 -9.9531"
+        ,
+        "rotation": "0.415627 -0.415627 0.572061 -0.572061"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TSEscaleras1Izq.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-29.7982 24.7638 -9.28279"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSWindstrikeIzq"
+      ,
+      "transform":
+      {
+        "pos": "-29.7982 24.7638 -9.28279"
+        ,
+        "rotation": "0.415627 -0.415627 0.572061 -0.572061"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TSWindstrikeIzq.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-29.7982 24.7638 -9.28279"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSWindstrikeDer"
+      ,
+      "transform":
+      {
+        "pos": "-31.1214 24.7638 -0.422847"
+        ,
+        "rotation": "-0.5 0.5 -0.5 0.5"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TSWindstrikeDer.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-29.7982 24.7638 -9.28279"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSEstatuaArriba"
+      ,
+      "transform":
+      {
+        "pos": "-31.1214 24.7638 0.156435"
+        ,
+        "rotation": "-0.5 0.5 -0.5 0.5"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TSEstatuaArriba.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-29.7982 24.7638 -9.28279"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSEstatuaAbajo"
+      ,
+      "transform":
+      {
+        "pos": "-31.1214 6.74531 0.156436"
+        ,
+        "rotation": "-0.5 0.5 -0.5 0.5"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TSEstatuaAbajo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-29.7982 24.7638 -9.28279"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TPTutorialDer"
+      ,
+      "transform":
+      {
+        "pos": "-31.1214 6.76337 -0.334956"
+        ,
+        "rotation": "-0.5 0.5 -0.5 0.5"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TPTutorialDer.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-31.1214 6.76337 -0.334956"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.30294 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TPTutorialIzq"
+      ,
+      "transform":
+      {
+        "pos": "-12.9913 5.99632 -28.3666"
+        ,
+        "rotation": "0.147016 -0.147016 0.691655 -0.691655"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TPTutorialIzq.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-12.9913 5.99632 -28.3666"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.53589 0.136175 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSCabeza"
+      ,
+      "transform":
+      {
+        "pos": "-12.5209 5.99632 -28.576"
+        ,
+        "rotation": "0.147016 -0.147016 0.691655 -0.691655"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TSCabeza.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-12.9913 5.99632 -28.3666"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.53589 0.136175 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+]

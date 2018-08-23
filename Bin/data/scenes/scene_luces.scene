@@ -1,0 +1,401 @@
+[
+  {
+    "entity":
+    {
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_013"
+      ,
+      "transform":
+      {
+        "pos": "13.5308 87.3916 -26.6448"
+        ,
+        "rotation": "0.0 0.476187 0.0 -0.879344"
+      }
+      ,
+      "light_point":
+      {
+        "intensity": 10.0
+        ,
+        "color": "1.0 0.0509804 0.0509804 1.0"
+        ,
+        "radius": 3.0
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_012"
+      ,
+      "transform":
+      {
+        "pos": "21.0592 87.3644 -21.0947"
+        ,
+        "rotation": "0.0 0.604705 0.0 -0.796449"
+      }
+      ,
+      "light_point":
+      {
+        "intensity": 10.0
+        ,
+        "color": "1.0 0.0509804 0.0509804 1.0"
+        ,
+        "radius": 3.0
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_020"
+      ,
+      "transform":
+      {
+        "pos": "14.3438 62.5053 20.2168"
+        ,
+        "rotation": "0.0 -0.986442 0.0 0.164108"
+      }
+      ,
+      "light_point":
+      {
+        "intensity": 10.0
+        ,
+        "color": "1.0 0.0509804 0.0509804 1.0"
+        ,
+        "radius": 3.0
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_009"
+      ,
+      "transform":
+      {
+        "pos": "19.2713 64.4257 15.6436"
+        ,
+        "rotation": "0.0 -0.986442 0.0 0.164108"
+      }
+      ,
+      "light_point":
+      {
+        "intensity": 10.0
+        ,
+        "color": "1.0 0.0509804 0.0509804 1.0"
+        ,
+        "radius": 3.0
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_015"
+      ,
+      "transform":
+      {
+        "pos": "12.1354 33.3791 27.2987"
+        ,
+        "rotation": "0.0 -0.998607 0.0 -0.0527577"
+      }
+      ,
+      "light_point":
+      {
+        "intensity": 10.0
+        ,
+        "color": "1.0 0.0509804 0.0509804 1.0"
+        ,
+        "radius": 3.0
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_011"
+      ,
+      "transform":
+      {
+        "pos": "11.2303 95.5685 -28.9171"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "light_point":
+      {
+        "intensity": 10.0
+        ,
+        "color": "1.0 0.0509804 0.0509804 1.0"
+        ,
+        "radius": 3.0
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_010"
+      ,
+      "transform":
+      {
+        "pos": "-1.67132 95.5603 -30.8728"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "light_point":
+      {
+        "intensity": 10.0
+        ,
+        "color": "1.0 0.0509804 0.0509804 1.0"
+        ,
+        "radius": 3.0
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "MuerteFuego"
+      ,
+      "transform":
+      {
+        "pos": "4.6723 87.1342 -30.3899"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.734946 0.373058 0.710097"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_08"
+      ,
+      "transform":
+      {
+        "pos": "4.66681 86.516 -30.3653"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "light_point":
+      {
+        "intensity": 10.0
+        ,
+        "color": "1.0 0.0509804 0.0509804 1.0"
+        ,
+        "radius": 3.0
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_07"
+      ,
+      "transform":
+      {
+        "pos": "22.3672 64.9355 10.0929"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "light_point":
+      {
+        "intensity": 10.0
+        ,
+        "color": "1.0 0.0509804 0.0509804 1.0"
+        ,
+        "radius": 3.0
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_06"
+      ,
+      "transform":
+      {
+        "pos": "27.3054 33.3837 -12.142"
+        ,
+        "rotation": "0.0 0.743212 0.0 -0.669056"
+      }
+      ,
+      "light_point":
+      {
+        "intensity": 10.0
+        ,
+        "color": "1.0 0.0509804 0.0509804 1.0"
+        ,
+        "radius": 3.0
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_05"
+      ,
+      "transform":
+      {
+        "pos": "22.2033 33.3682 -19.9668"
+        ,
+        "rotation": "0.0 0.630201 0.0 -0.776432"
+      }
+      ,
+      "light_point":
+      {
+        "intensity": 10.0
+        ,
+        "color": "1.0 0.0509804 0.0509804 1.0"
+        ,
+        "radius": 3.0
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_04"
+      ,
+      "transform":
+      {
+        "pos": "14.9503 33.3834 -25.8658"
+        ,
+        "rotation": "0.0 0.500366 0.0 -0.865814"
+      }
+      ,
+      "light_point":
+      {
+        "intensity": 10.0
+        ,
+        "color": "1.0 0.0509804 0.0509804 1.0"
+        ,
+        "radius": 3.0
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_03"
+      ,
+      "transform":
+      {
+        "pos": "6.2235 33.3819 -29.2178"
+        ,
+        "rotation": "0.0 0.358209 0.0 -0.933641"
+      }
+      ,
+      "light_point":
+      {
+        "intensity": 10.0
+        ,
+        "color": "1.0 0.0509804 0.0509804 1.0"
+        ,
+        "radius": 3.0
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_02"
+      ,
+      "transform":
+      {
+        "pos": "-14.9296 28.9155 -25.8838"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "light_point":
+      {
+        "intensity": 10.0
+        ,
+        "color": "1.0 0.0509804 0.0509804 1.0"
+        ,
+        "radius": 3.0
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_01"
+      ,
+      "transform":
+      {
+        "pos": "-25.6804 23.5923 -13.1206"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "light_point":
+      {
+        "intensity": 10.0
+        ,
+        "color": "1.0 0.0509804 0.0509804 1.0"
+        ,
+        "radius": 3.0
+      }
+    }
+  }
+]

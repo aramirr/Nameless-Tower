@@ -1,0 +1,112 @@
+[
+  {
+    "entity":
+    {
+      "name": "ParedTapada12"
+      ,
+      "transform":
+      {
+        "pos": "1.90735e-06 67.5 -1.99684e-06"
+        ,
+        "rotation": "0.0 -0.852341 0.0 -0.522987"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedTapada12.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Puerta_Final001"
+      ,
+      "transform":
+      {
+        "pos": "-3.34953 85.3333 -30.0448"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Final001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puerta_Final_00.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PlatZ004"
+      ,
+      "transform":
+      {
+        "pos": "4.65545 89.2432 -29.2593"
+        ,
+        "rotation": "0.0 0.0523361 0.0 -0.99863"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PlatZ004.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pared_Gorda_01.material"
+          ]
+        }
+      ]
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 3.0
+        ,
+        "delay": 2.0
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "3.99073 89.2432 -24.9735"
+          ,
+          "4.65545 89.2432 -29.2593"
+        ]
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.833976 0.234089 2.55082"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+]

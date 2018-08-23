@@ -5,8 +5,18 @@
   ,
   "textures":
   {
-    "albedo": "data/textures/arbol.dds"
+    "albedo": "data/textures/tree_color.dds"
     ,
-    "normal": "data/textures/null_normal.dds"
+    "normal": "data/textures/tree_normal.dds"
+    ,
+    "emissive": "data/textures/null_emissive.dds"
+    ,
+    "alpha": "data/textures/null_opacity.dds"
+    ,
+    "transparency": "data/textures/null_transparency.dds"
+    ,
+    "height": "data/textures/null_height.dds"
+    ,
+    "ao": "data/textures/null_ambientOcclusion.dds"
   }
 }
