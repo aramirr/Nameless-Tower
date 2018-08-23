@@ -170,7 +170,8 @@
         "curve" : "data/curves/test_curve.curve",
         "speed" : 0.05,
         "loop": true,
-        "automove": true
+        "automove": true,
+        "mode": "static"
       },
       "render" : {}
     }
