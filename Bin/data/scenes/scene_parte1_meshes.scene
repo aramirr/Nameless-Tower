@@ -2,11 +2,17 @@
   {
     "entity":
     {
-      "name": "2_Techos001"
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_Estatua"
       ,
       "transform":
       {
-        "pos": "1.34783 17.8256 -25.2619"
+        "pos": "0.000169754 65.25 -0.000140181"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -14,11 +20,37 @@
       "render":
       [
         {
-          "mesh": "data/meshes/2_Techos001.mesh"
+          "mesh": "data/meshes/Techo_Estatua.mesh"
           ,
           "materials":
           [
-            "data/materials/Techo_sala_1.material"
+            "data/materials/Techo_Estatua_Fuera.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_parte_1"
+      ,
+      "transform":
+      {
+        "pos": "0.000169754 65.25 -0.000140181"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte_1.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Normal.material"
           ]
         }
       ]
@@ -1881,6 +1913,32 @@
           "materials":
           [
             "data/materials/ParedLadrillosMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "2_Techos001"
+      ,
+      "transform":
+      {
+        "pos": "1.34783 17.8256 -25.2619"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/2_Techos001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_sala_1.material"
           ]
         }
       ]

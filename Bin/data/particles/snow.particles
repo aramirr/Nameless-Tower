@@ -1,7 +1,7 @@
 {
   "life" : {
       "duration" : 15.0,
-      "max_particles" : 500,
+      "max_particles" : 50,
       "time_factor" : 1.0
   },
   "emission" : {
@@ -12,30 +12,30 @@
       "cyclic" : true
   },
   "movement" : {
-      "velocity" : 0.0,
+      "velocity" : -0.4,
       "acceleration" : 0.0,
       "spin" : 10.0,
-      "wind" : 0.0,
+      "wind" : 0.5,
       "gravity" : 0.0,
       "ground" : false
   },
   "render" : {
-      "texture" : "data/textures/grass/grass.dds"
+      "texture" : "data/textures/Hojita01.dds"
   },
   "size" : {
-    "scale" : 0.5,
-    "scale_variation" : 0.1,
+    "scale" : 0.2,
+    "scale_variation" : 0.5,
     "sizes" : [
-      [0.0, 1.0],
-      [0.8, 1.0],
+      [0.0, 0.2],
+      [0.8, 0.2],
       [1.0, 0.0]
     ]
   },
   "color" : {
     "opacity" : 0.0,
     "colors" : [
-      [0.0, "1 0 0 1"],
-      [1.0, "1 0 0 1"]
+      [0.0, "1 1 1 1"],
+      [1.0, "1 1 1"]
     ] 
   }
 }

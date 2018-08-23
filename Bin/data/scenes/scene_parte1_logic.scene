@@ -70,7 +70,7 @@
           ,
           "materials":
           [
-            "data/materials/TorreMat.material"
+            "data/materials/SierraLinealMat.material"
           ]
         }
       ]
@@ -182,10 +182,6 @@
         }
       ]
       ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-      ,
       "collider":
       {
         "shape": "convex_mesh"
@@ -195,6 +191,14 @@
         "is_trigger": false
         ,
         "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+      ,
+      "door":
+      {
       }
     }
   }
@@ -218,7 +222,7 @@
           ,
           "materials":
           [
-            "data/materials/TorreMat.material"
+            "data/materials/SierraLinealMat.material"
           ]
         }
       ]
@@ -325,7 +329,7 @@
           ,
           "materials":
           [
-            "data/materials/TorreMat.material"
+            "data/materials/SierraLinealMat.material"
           ]
         }
       ]
@@ -523,7 +527,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Sierra006.mesh"
+          "mesh": "data/meshes/Sierra003.mesh"
           ,
           "materials":
           [
@@ -575,7 +579,7 @@
         ,
         "is_trigger": true
         ,
-        "mesh_src": "data/meshes/Sierra006.col_mesh"
+        "mesh_src": "data/meshes/Sierra004.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -599,7 +603,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Sierra006.mesh"
+          "mesh": "data/meshes/Sierra003.mesh"
           ,
           "materials":
           [
@@ -651,7 +655,7 @@
         ,
         "is_trigger": true
         ,
-        "mesh_src": "data/meshes/Sierra006.col_mesh"
+        "mesh_src": "data/meshes/Sierra004.col_mesh"
       }
       ,
       "abs_aabb": true
