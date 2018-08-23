@@ -71,6 +71,7 @@ namespace FSM
 		}
 
         if (player->idle_time > player->idle_max_time && !player->camera_idle && !player->on_cinematic) {
+            ctx.setVariable("camera_idle", true);
             CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
             TMsgActiveCamera activate_camera;
             activate_camera.camera_name = "camera_idle";
@@ -86,10 +87,11 @@ namespace FSM
         CEntity* e = ctx.getOwner();
         TCompPlayerController* player = e->get<TCompPlayerController>();
         if (player->camera_idle) {
+            ctx.setVariable("camera_idle", false);
             CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
             TMsgActiveCamera activate_camera;
             activate_camera.camera_name = "camera_orbit_IZQ";
-            activate_camera.blend_time = 3.f;
+            activate_camera.blend_time = 4.f;
             camera_manager->sendMsg(activate_camera);
             TMsgRemoveCamera deactivate_camera;
             deactivate_camera.camera_name = "camera_idle";

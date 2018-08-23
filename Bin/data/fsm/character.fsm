@@ -123,7 +123,14 @@
 		{
 			"name" : "look_up",
 			"type" : "LookUpState",
-			"is_action": true,
+			"is_action": false,
+			"delay_in": 0,
+			"delay_out": 0			
+		},
+		{
+			"name" : "look_down",
+			"type" : "LookDownState",
+			"is_action": false,
 			"delay_in": 0,
 			"delay_out": 0			
 		}
@@ -152,12 +159,53 @@
 				"name" : "in_wind",
 				"type" : "bool",
 				"value" : false
+			},
+			{
+				"name" : "camera_idle",
+				"type" : "bool",
+				"value" : false
+			},
+			{
+				"name" : "on_cinematic",
+				"type" : "bool",
+				"value" : false
 			}],
 			"operation" : "equal",
 			"logic_operation" : "and"
 		},{
 			"type" : "VariableTransition",
 			"source" : "look_up",
+			"target" : "idle",
+			"variable" : {
+				"name" : "idle",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},{
+			"type" : "LogicTransition",
+			"source" : "idle",
+			"target" : "look_down",
+			"variables" : [{
+				"name" : "look_down",
+				"type" : "bool",
+				"value" : true
+			},
+			{
+				"name" : "camera_idle",
+				"type" : "bool",
+				"value" : false
+			},
+			{
+				"name" : "on_cinematic",
+				"type" : "bool",
+				"value" : false
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},{
+			"type" : "VariableTransition",
+			"source" : "look_down",
 			"target" : "idle",
 			"variable" : {
 				"name" : "idle",
@@ -997,6 +1045,21 @@
 		},
 			{
 			"name" : "look_up",
+			"type" : "bool",
+			"value" : false
+		},
+			{
+			"name" : "look_down",
+			"type" : "bool",
+			"value" : false
+		},
+			{
+			"name" : "camera_idle",
+			"type" : "bool",
+			"value" : false
+		},
+			{
+			"name" : "on_cinematic",
 			"type" : "bool",
 			"value" : false
 		}

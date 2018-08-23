@@ -27,7 +27,7 @@ public:
 	bool    is_running = false;
 	int anim1 = -1;
 	int anim2 = -1;
-
+    std::string previous_camera;
 	VEC3	  center;
 	float	  tower_radius;
 	CHandle         h_entity;
