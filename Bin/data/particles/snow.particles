@@ -1,0 +1,41 @@
+{
+  "life" : {
+      "duration" : 15.0,
+      "max_particles" : 500,
+      "time_factor" : 1.0
+  },
+  "emission" : {
+      "type" : "box",
+      "size" : 3,
+      "interval" : 0.1,
+      "count" : 1,
+      "cyclic" : true
+  },
+  "movement" : {
+      "velocity" : 0.0,
+      "acceleration" : 0.0,
+      "spin" : 10.0,
+      "wind" : 0.0,
+      "gravity" : 0.0,
+      "ground" : false
+  },
+  "render" : {
+      "texture" : "data/textures/grass/grass.dds"
+  },
+  "size" : {
+    "scale" : 0.5,
+    "scale_variation" : 0.1,
+    "sizes" : [
+      [0.0, 1.0],
+      [0.8, 1.0],
+      [1.0, 0.0]
+    ]
+  },
+  "color" : {
+    "opacity" : 0.0,
+    "colors" : [
+      [0.0, "1 0 0 1"],
+      [1.0, "1 0 0 1"]
+    ] 
+  }
+}

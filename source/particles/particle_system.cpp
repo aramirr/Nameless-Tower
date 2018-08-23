@@ -101,7 +101,7 @@ namespace Particles
         
         float life_ratio = p.max_lifetime > 0.f ? clamp(p.lifetime / p.max_lifetime, 0.f, 1.f) : 1.f;
         p.color = _core->color.colors.get(life_ratio) * fadeRatio;
-        p.color.z *= _core->color.opacity;
+        p.color.w = 255.0;
         p.size = _core->size.sizes.get(life_ratio);
 
         int frame_idx = (int)(p.lifetime * _core->render.frameSpeed);
@@ -125,7 +125,7 @@ namespace Particles
 
   void CSystem::render()
   {
-    const CRenderTechnique* technique = Resources.get("particles.tech")->as<CRenderTechnique>();
+    const CRenderTechnique* technique = Resources.get("particles_albert.tech")->as<CRenderTechnique>();
     const CRenderMesh* quadMesh = Resources.get("unit_quad_xy.mesh")->as<CRenderMesh>();
     CEntity* eCurrentCamera = Engine.getCameras().getOutputCamera();
     assert(technique && quadMesh && eCurrentCamera);

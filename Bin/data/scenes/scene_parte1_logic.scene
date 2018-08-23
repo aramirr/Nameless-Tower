@@ -1,0 +1,1112 @@
+[
+  {
+    "entity":
+    {
+      "name": "ParedTapada5"
+      ,
+      "transform":
+      {
+        "pos": "1.90735e-06 9.0 5.60272e-07"
+        ,
+        "rotation": "0.0 -0.99152 0.0 0.129958"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedTapada5.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedTapada4"
+      ,
+      "transform":
+      {
+        "pos": "1.90735e-06 4.5 7.56973e-07"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedTapada4.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sierra004"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sierra003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "circular_controller":
+      {
+        "speed": 5.0
+        ,
+        "eje": "X"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Sierra004_parent"
+        ,
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sierra004_parent"
+      ,
+      "transform":
+      {
+        "pos": "-17.6465 8.99426 -26.1143"
+        ,
+        "rotation": "0.0 -0.94788 0.0 0.318629"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ai_orbit_patrol":
+      {
+        "speed": 0.05
+        ,
+        "delay": 1.0
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "-17.6465 8.99426 -26.1143"
+          ,
+          "-23.4002 8.99426 -21.1137"
+        ]
+        ,
+        "center": "0.0 8.99426 -3.93152e-07"
+        ,
+        "radius": 31.5175
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "mesh_src": "data/meshes/Sierra004.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Puerta_Abatible_Madera_01"
+      ,
+      "transform":
+      {
+        "pos": "-28.8879 22.5 -8.97963"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puerta_Cerrada_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sierra01"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sierra003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "circular_controller":
+      {
+        "speed": 5.0
+        ,
+        "eje": "X"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Sierra01_parent"
+        ,
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sierra01_parent"
+      ,
+      "transform":
+      {
+        "pos": "-23.96 4.48199 -20.3489"
+        ,
+        "rotation": "0.0 -0.909381 0.0 0.415963"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ai_orbit_patrol":
+      {
+        "speed": 0.05
+        ,
+        "delay": 1.0
+        ,
+        "wake": 1.0
+        ,
+        "waypoints":
+        [
+          "-23.96 4.48199 -20.3489"
+          ,
+          "-21.4424 4.48199 -22.9866"
+        ]
+        ,
+        "center": "0.0 4.48199 -1.95914e-07"
+        ,
+        "radius": 31.435
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "mesh_src": "data/meshes/Sierra004.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sierra003"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sierra003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "circular_controller":
+      {
+        "speed": 5.0
+        ,
+        "eje": "X"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Sierra003_parent"
+        ,
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sierra003_parent"
+      ,
+      "transform":
+      {
+        "pos": "-17.2654 4.48199 -26.4641"
+        ,
+        "rotation": "0.0 -0.963256 0.0 0.268584"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ai_orbit_patrol":
+      {
+        "speed": 0.05
+        ,
+        "delay": 1.0
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "-17.2654 4.48199 -26.4641"
+          ,
+          "-20.3618 4.48199 -24.1627"
+        ]
+        ,
+        "center": "0.0 4.48199 -1.95914e-07"
+        ,
+        "radius": 31.5981
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "mesh_src": "data/meshes/Sierra004.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "AguaMuerte001"
+      ,
+      "transform":
+      {
+        "pos": "-6.76662 21.506 -29.5998"
+        ,
+        "rotation": "0.0 -0.797485 0.0 -0.603339"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.98433 1.6875 8.40013"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pinchos_Prefab"
+      ,
+      "transform":
+      {
+        "pos": "-30.2949 3.35503 -6.19233"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Pinchos_Prefab.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Gris_01_Mat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pinchos_001"
+      ,
+      "transform":
+      {
+        "pos": "-28.3559 7.5237 10.3979"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Pinchos_001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pinchos_salaEstatuaFEa_00.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sierra006"
+      ,
+      "transform":
+      {
+        "pos": "-29.55 11.2862 -6.69738"
+        ,
+        "rotation": "0.0 -0.995529 0.0 -0.0944558"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sierra006.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SierraLinealMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 1.5
+        ,
+        "delay": 0.1
+        ,
+        "wake": 1.1
+        ,
+        "waypoints":
+        [
+          "-29.55 11.2862 -6.69738"
+          ,
+          "-29.55 6.2601 -6.69738"
+        ]
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "circular_controller":
+      {
+        "speed": 5.0
+        ,
+        "eje": "X"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "mesh_src": "data/meshes/Sierra006.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sierra005"
+      ,
+      "transform":
+      {
+        "pos": "-28.8666 11.2862 -8.97217"
+        ,
+        "rotation": "0.0 -0.989221 0.0 -0.146428"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sierra006.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SierraLinealMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 1.5
+        ,
+        "delay": 0.5
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "-28.8666 11.2862 -8.97217"
+          ,
+          "-28.8666 6.68916 -8.97217"
+        ]
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "circular_controller":
+      {
+        "speed": 5.0
+        ,
+        "eje": "X"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "mesh_src": "data/meshes/Sierra006.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PuertaCortante01"
+      ,
+      "transform":
+      {
+        "pos": "-31.2001 23.46 -0.255647"
+        ,
+        "rotation": "0.0 9.55686e-05 0.0 -1.0"
+      }
+      ,
+      "render":
+      {
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PuertaCortante01_up"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_up.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-31.2001 23.46 0.255646"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 1.7335 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 1.816 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "PuertaCortante01"
+      }
+      ,
+      "ai_cut_door":
+      {
+        "opened_position": 3.0
+        ,
+        "up": true
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PuertaCortante01_down"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_down.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-31.2001 23.46 0.255646"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.475 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 -0.5175 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "PuertaCortante01"
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PuertaCortante01_trigger_up"
+      ,
+      "render":
+      [
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-31.2001 23.46 0.255646"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.0825 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "PuertaCortante01_up"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Lanzas01"
+      ,
+      "transform":
+      {
+        "pos": "-14.0451 10.0574 -27.6313"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Lanzas01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LanzasMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 3.0
+        ,
+        "delay": 1.0
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "-14.0451 10.0574 -27.6313"
+          ,
+          "-14.0451 6.93206 -27.6313"
+        ]
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.28151 2.40304 1.06284"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pinchos008"
+      ,
+      "transform":
+      {
+        "pos": "-29.2152 7.42794 11.128"
+        ,
+        "rotation": "0.0 -0.809017 0.0 -0.587785"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PinchosM.material"
+            ,
+            "data/materials/PinchosSangreM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pinchos003"
+      ,
+      "transform":
+      {
+        "pos": "-29.9721 2.91952 -8.098"
+        ,
+        "rotation": "0.0 -0.62932 0.0 -0.777146"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PinchosM.material"
+            ,
+            "data/materials/PinchosSangreM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pinchos002"
+      ,
+      "transform":
+      {
+        "pos": "-26.1203 2.91951 -16.962"
+        ,
+        "rotation": "0.0 -0.453991 0.0 -0.891007"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PinchosM.material"
+            ,
+            "data/materials/PinchosSangreM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pinchos01"
+      ,
+      "transform":
+      {
+        "pos": "-7.95995 2.91951 -30.0446"
+        ,
+        "rotation": "0.0 -0.104528 0.0 -0.994522"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PinchosM.material"
+            ,
+            "data/materials/PinchosSangreM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+]
