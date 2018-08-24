@@ -4,13 +4,13 @@
 			"name": "Runner",
       		"render" : [
 		        {
-		          "mesh": "data/meshes/Teapot001.mesh",
+		          "mesh": "data/skeletons/Naja/Naja.mesh",
 		          "materials" : [
 		            "data/materials/PuertaM.material"
 		          ]
 		        }
 		      ]	
-			,
+			, 
 			"transform": {
 				"pos": "-8.426 0.258 30.011",
 				"front": "1 0 0"
@@ -31,28 +31,88 @@
 		    "bt_runner": {
 		    	"waypoints_map": [
 		    		{
-		    			"pos": "-2.527 9.000 -31.398",
+		    			"pos": "7.844 4.500 -30.508",
 		    			"id": 0,
 		    			"type": "floor",
 		    			"neighbours": ["1"]
 		    		},
 		    		{
-		    			"pos": "-9.055 9.000 -30.171",
+		    			"pos": "-6.194 4.5 -30.885",
 		    			"id": 1,
 		    			"type": "edge",
-		    			"neighbours": ["2"]
+		    			"neighbours": ["2","3","0"]
 		    		},
 		    		{
-		    			"pos": "-13.556 9.000 -28.434",
+		    			"pos": "-11.302 4.5 -29.403",
 		    			"id": 2,
 		    			"type": "edge",
-		    			"neighbours": ["3"]
+		    			"neighbours": ["3","4","1"]
 		    		},
 		    		{
-		    			"pos": "-26.966 9.000 -16.281",
+		    			"pos": "-12.298 4.5 -29.0",
 		    			"id": 3,
 		    			"type": "floor",
-		    			"neighbours": ["0"]
+		    			"neighbours": ["5","1","2"]
+		    		},
+		    		{
+		    			"pos": "-25.156 4.5 -18.958",
+		    			"id": 4,
+		    			"type": "edge",
+		    			"neighbours": ["5","2","6","8"]
+		    		},
+		    		{
+		    			"pos": "-27.717 4.5 -14.967",
+		    			"id": 5,
+		    			"type": "edge",
+		    			"neighbours": ["3","7","4"]
+		    		},
+		    		{
+		    			"pos": "-28.935 4.5 -12.451",
+		    			"id": 6,
+		    			"type": "floor",
+		    			"neighbours": ["4","10"]
+		    		},
+		    		{
+		    			"pos": "-29.657 4.5 -10.681",
+		    			"id": 7,
+		    			"type": "edge",
+		    			"neighbours": ["8","5","9"]
+		    		},
+		    		{
+		    			"pos": "-31.099 4.5 -5.011",
+		    			"id": 8,
+		    			"type": "edge",
+		    			"neighbours": ["4","7"]
+		    		},
+		    		{
+		    			"pos": "-31.495 4.5 -0.571",
+		    			"id": 9,
+		    			"type": "floor",
+		    			 "neighbours": ["10","7"]
+		    		},
+		    		{
+		    			"pos": "-31.498 4.5 0.334",
+		    			"id": 10,
+		    			"type": "edge",
+		    			"neighbours": ["6","9"]
+		    		},
+		    		{
+		    			"pos": "-31.188 6.75 4.421",
+		    			"id": 11,
+		    			"type": "edge",
+		    			"neighbours": ["12"]
+		    		},
+		    		{ 
+		    			"pos": "-30.376 9 8.341",
+		    			"id": 12,
+		    			"type": "edge",
+		    			"neighbours": ["13"]
+		    		},
+		    		{
+		    			"pos": "-29.575 13.5 10.842",
+		    			"id": 13,
+		    			"type": "edge",
+		    			"neighbours": ["12"]
 		    		}
 		    	]
 		    }		 	    	
@@ -74,9 +134,9 @@
 	},
 	{
 		"entity": {
-			"name": "DebugTrigger",
+			"name": "BossTrigger1",
 			"transform": {
-				"pos": "-9.055 9.000 -30.171"
+				"pos": "-4.521 4.5 -31.174"
 			},
 			"render" : [
 		        {
@@ -93,7 +153,7 @@
 			},
 			"trigger": {
 				"trigger_type": "runner_appear",
-				"appearing_position": "-2.527 9.500 -31.398"
+				"appearing_position": "7.844 4.500 -30.508"
 			}
 		}
 	}

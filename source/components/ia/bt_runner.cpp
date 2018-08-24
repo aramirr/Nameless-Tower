@@ -31,7 +31,10 @@ void bt_runner::load_waypoint(const json& j) {
   auto& j_neighbours = j["neighbours"];
   for (auto it = j_neighbours.begin(); it != j_neighbours.end(); ++it) {
     std::string id = it.value().get< std::string >();
-    w.neighbours.push_back(atoi(id.c_str()));
+	Warc a;
+	a.first = 1.0f;
+	a.second = atoi(id.c_str());
+    w.neighbours.push_back(a);
   }
 
   waypoints_map.push_back(w);
@@ -75,7 +78,7 @@ void bt_runner::debugInMenu() {
 }
 
 void bt_runner::get_next_waypoint() {
-  next_waypoint = waypoints_map[actual_waypoint.neighbours[0]];
+  next_waypoint = waypoints_map[actual_waypoint.neighbours[0].second];
 }
 
 void bt_runner::create(string s)
@@ -308,9 +311,61 @@ int bt_runner::findClosestWaypoint(VEC3 position) {
 	return closest_waypoint;
 }
 
-void bt_runner::findPath(int origin, int destiny, std::vector<int>& path){
+void bt_runner::calculate_distances_graph() {
+	float perimeter = 2 * 3.1415 * EngineTower.getTowerRadius();
+	for (waypoint &w : waypoints_map) {
+		float alpha = asin(w.position.z / EngineTower.getTowerRadius());
 
+		for (Warc &w2 : w.neighbours) {
+			float beta = asin(waypoints_map[w2.second].position.z / EngineTower.getTowerRadius());
+			float charlie = abs(alpha - beta);
 
+			float dist = (rad2deg(charlie)*perimeter) / 360;
+			dist += abs(w.position.y - waypoints_map[w2.second].position.y);
+			w2.first = dist;
+		}
+	}
+}
+
+void bt_runner::findPath(int origin, int destiny){
+	calculate_distances_graph();
+	int n = waypoints_map.size();
+	vector<float> d (n, INFINITE);
+	d[origin] = 0;
+	vector<int> p (n, -1);
+	vector<bool> visited(n, false);
+	std::priority_queue<Warc, vector<Warc>, greater<Warc>> Q;
+	Q.push(Warc(0, origin));
+
+	while (not Q.empty()) {
+		int u = Q.top().second;
+		Q.pop();
+		
+		if (not visited[u]) {
+			visited[u] = true;
+			for (Warc a : waypoints_map[u].neighbours) {
+				int v = a.second;
+				float c = a.first;
+
+				if (d[v] > d[u] + c) {
+					d[v] = d[u] + c;
+					p[v] = u;
+					Q.push(Warc(d[v], v));
+				}
+			}
+		}
+	}
+
+	while (path.size() > 0) {
+		path.pop_back();
+	}
+
+	int u = destiny;
+	path.push_back(u);
+	while (u != origin) {
+		path.push_back(p[u]);
+		u = p[u];
+	}
 }
 
 void bt_runner::chase_waypoint() {
@@ -323,13 +378,13 @@ void bt_runner::chase_waypoint() {
 		}
 		else walk();
 	}
-	else if (actual_waypoint.type == "wall") {
-		
-	}
     TCompTransform* my_transform = getMyTransform();
     if (VEC3::Distance(my_transform->getPosition(), next_waypoint.position) <= 1.f) {
+	  going_up = true;
       actual_waypoint = next_waypoint;
       get_next_waypoint();
+
+	  findPath(0, 7);
     }
 }
 
@@ -497,7 +552,7 @@ void bt_runner::calculate_top_jump_position() {
   }
 
 
-
+/*
   
   // Cosinus positivo entre 270-90 grados. Negativo entre 90-270 grados.
   if (charlie < deg2rad(90) and charlie > deg2rad(270) and top_jump_position.z < 0)
@@ -505,7 +560,7 @@ void bt_runner::calculate_top_jump_position() {
 
   // Cosinus positivo entre 270-90 grados. Negativo entre 90-270 grados.
   if (charlie > deg2rad(0) and charlie < deg2rad(180) and top_jump_position.x < 0)
-    top_jump_position.x = -top_jump_position.x;
+    top_jump_position.x = -top_jump_position.x;*/
 }
 
 float bt_runner::distance_x_z(VEC3 v1, VEC3 v2) {

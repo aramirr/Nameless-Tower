@@ -8,17 +8,18 @@
 
 class bt_runner:public bt
 	{
-
+	typedef pair<float, int> Warc;
 	struct waypoint {
 		int id;
 		VEC3 position;
 		std::string type;
-		std::vector<int> neighbours;
+		std::vector<Warc> neighbours;
 	};
+
 	
 	float attack_distance;
     float debug_timer = 0.f;
-	float speed = 2.0f;
+	float speed = 1.0f;
 
     bool b_disappear = false;
     bool b_appear = false;
@@ -30,10 +31,11 @@ class bt_runner:public bt
 	bool going_right = false;
 	bool going_up = true;
 
-	std::vector<waypoint> path;
+	std::vector<int> path;
 	std::vector<waypoint> waypoints_map;
 	waypoint actual_waypoint;
 	waypoint next_waypoint;
+
 
     VEC3 appearing_position;
 	VEC3 tower_center = VEC3::Zero;
@@ -44,6 +46,8 @@ class bt_runner:public bt
     void get_next_waypoint();
 	void calculate_top_jump_position();
 	float distance_x_z(VEC3 v1, VEC3 v2);
+
+	void calculate_distances_graph();
 
 	DECL_SIBLING_ACCESS();
 
@@ -86,7 +90,7 @@ class bt_runner:public bt
     void killPlayer();
 
 	void chase();
-	void findPath(int origin, int destiny, std::vector<int>& path);
+	void findPath(int origin, int destiny);
 	int findClosestWaypoint(VEC3 position);
 	void chase_waypoint();
 	void chase_player();
