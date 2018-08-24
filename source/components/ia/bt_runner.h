@@ -33,8 +33,9 @@ class bt_runner:public bt
 
 	std::vector<int> path;
 	std::vector<waypoint> waypoints_map;
-	waypoint actual_waypoint;
-	waypoint next_waypoint;
+	int actual_waypoint;
+	int next_waypoint;
+	bool chase_started = false;
 
 
     VEC3 appearing_position;
@@ -43,7 +44,7 @@ class bt_runner:public bt
 
 	VEC3 top_jump_position = VEC3::Zero;
 
-    void get_next_waypoint();
+	void recalculate_path();
 	void calculate_top_jump_position();
 	float distance_x_z(VEC3 v1, VEC3 v2);
 

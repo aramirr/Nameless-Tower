@@ -40,61 +40,61 @@
 		    			"pos": "-6.194 4.5 -30.885",
 		    			"id": 1,
 		    			"type": "edge",
-		    			"neighbours": ["2","3","0"]
+		    			"neighbours": ["2","0"]
 		    		},
 		    		{
 		    			"pos": "-11.302 4.5 -29.403",
 		    			"id": 2,
 		    			"type": "edge",
-		    			"neighbours": ["3","4","1"]
+		    			"neighbours": ["3", "1"]
 		    		},
 		    		{
 		    			"pos": "-12.298 4.5 -29.0",
 		    			"id": 3,
 		    			"type": "floor",
-		    			"neighbours": ["5","1","2"]
+		    			"neighbours": ["4","2"]
 		    		},
 		    		{
 		    			"pos": "-25.156 4.5 -18.958",
 		    			"id": 4,
 		    			"type": "edge",
-		    			"neighbours": ["5","2","6","8"]
+		    			"neighbours": ["5","3"]
 		    		},
 		    		{
 		    			"pos": "-27.717 4.5 -14.967",
 		    			"id": 5,
 		    			"type": "edge",
-		    			"neighbours": ["3","7","4"]
+		    			"neighbours": ["6","4"]
 		    		},
 		    		{
 		    			"pos": "-28.935 4.5 -12.451",
 		    			"id": 6,
 		    			"type": "floor",
-		    			"neighbours": ["4","10"]
+		    			"neighbours": ["5","7"]
 		    		},
 		    		{
 		    			"pos": "-29.657 4.5 -10.681",
 		    			"id": 7,
 		    			"type": "edge",
-		    			"neighbours": ["8","5","9"]
+		    			"neighbours": ["6","8"]
 		    		},
 		    		{
 		    			"pos": "-31.099 4.5 -5.011",
 		    			"id": 8,
 		    			"type": "edge",
-		    			"neighbours": ["4","7"]
+		    			"neighbours": ["7","9"]
 		    		},
 		    		{
 		    			"pos": "-31.495 4.5 -0.571",
 		    			"id": 9,
 		    			"type": "floor",
-		    			 "neighbours": ["10","7"]
+		    			 "neighbours": ["10","8"]
 		    		},
 		    		{
 		    			"pos": "-31.498 4.5 0.334",
 		    			"id": 10,
 		    			"type": "edge",
-		    			"neighbours": ["6","9"]
+		    			"neighbours": ["11","9"]
 		    		},
 		    		{
 		    			"pos": "-31.188 6.75 4.421",

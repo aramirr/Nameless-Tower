@@ -49,9 +49,8 @@ void bt_runner::load(const json& j, TEntityParseContext& ctx) {
   for (size_t i = 0; i < j_waypoints.size(); ++i) {
     load_waypoint(j_waypoints[i]);
   }
-  actual_waypoint = waypoints_map[0];
+  actual_waypoint = 0;
 
-  get_next_waypoint();
   create("runner");
 }
 
@@ -77,9 +76,6 @@ void bt_runner::debugInMenu() {
 
 }
 
-void bt_runner::get_next_waypoint() {
-  next_waypoint = waypoints_map[actual_waypoint.neighbours[0].second];
-}
 
 void bt_runner::create(string s)
 {
@@ -217,12 +213,11 @@ int bt_runner::actionAttackFloor2() {
 };
 
 int bt_runner::actionChase() {
-	//dbg("chase\n");
-
+	
 	//getPath();
-	/*if (b_chase_player)
+	if (b_chase_player)
 		chase_player();
-	else */chase_waypoint();
+	else chase_waypoint();
 
 	//Cambiar a STAY y poner interrupciones que reinicien el BT
     return LEAVE;
@@ -243,6 +238,9 @@ int bt_runner::actionAppear() {
 	EngineTower.appearEntity("Runner");
 	b_appear = false;
 	b_chase = true;
+
+	recalculate_path();
+
     return LEAVE;
 };
 
@@ -368,23 +366,32 @@ void bt_runner::findPath(int origin, int destiny){
 	}
 }
 
+void bt_runner::chase_player() {
+	int a = 1;
+}
+
 void bt_runner::chase_waypoint() {
-	if (actual_waypoint.type == "floor") {
+	if (waypoints_map[path[actual_waypoint]].type == "floor") {
 		walk();
 	}
-	else if (actual_waypoint.type == "edge") {
-		if (next_waypoint.type == "edge") {
+	else if (waypoints_map[path[actual_waypoint]].type == "edge") {
+		if (waypoints_map[path[next_waypoint]].type == "edge") {
 			jump();
 		}
 		else walk();
 	}
     TCompTransform* my_transform = getMyTransform();
-    if (VEC3::Distance(my_transform->getPosition(), next_waypoint.position) <= 1.f) {
+    if (VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position) <= 1.0f) {
 	  going_up = true;
       actual_waypoint = next_waypoint;
-      get_next_waypoint();
+	  --next_waypoint;
+	  if (next_waypoint < 0) {
+		  recalculate_path();
+	  }
 
-	  findPath(0, 7);
+      //get_next_waypoint();
+
+	  //findPath(0, 7);
     }
 }
 
@@ -401,22 +408,22 @@ void bt_runner::walk() {
 	tower_center.y = myPos.y;
 
   TCompCollider* comp_collider = get<TCompCollider>();
-	if (!c_my_transform->isInFront(next_waypoint.position)) {
+	if (!c_my_transform->isInFront(waypoints_map[path[next_waypoint]].position)) {
 		current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
 		float debug = rad2deg(current_yaw);
 		going_right = !going_right;
 
-    PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
-    PxTransform tr = rigidActor->getGlobalPose();
-    auto& rot2 = c_my_transform->getRotation();
+		PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
+		PxTransform tr = rigidActor->getGlobalPose();
+		auto& rot2 = c_my_transform->getRotation();
 
 
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 
    
-    auto& rot = c_my_transform->getRotation();
-    tr.q = PxQuat(rot.x, rot.y, rot.z, rot.w);
-    rigidActor->setGlobalPose(tr);
+		auto& rot = c_my_transform->getRotation();
+		tr.q = PxQuat(rot.x, rot.y, rot.z, rot.w);
+		rigidActor->setGlobalPose(tr);
 
 	}
 	else {
@@ -465,7 +472,7 @@ void bt_runner::jump() {
 	tower_center.y = myPos.y;
 
 	TCompCollider* comp_collider = get<TCompCollider>();
-	if (!c_my_transform->isInFront(next_waypoint.position)) {
+	if (!c_my_transform->isInFront(waypoints_map[path[next_waypoint]].position)) {
 		current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
 		float debug = rad2deg(current_yaw);
 		going_right = !going_right;
@@ -490,7 +497,7 @@ void bt_runner::jump() {
 			if (going_up) {
 				float d1 = distance_x_z(newPos, top_jump_position);
 
-				float d2 = distance_x_z(actual_waypoint.position, top_jump_position);
+				float d2 = distance_x_z(waypoints_map[path[actual_waypoint]].position, top_jump_position);
 				float perc = 1 - (d1 / d2);
 				if (perc < 0) perc = 0;
 				if (perc >= 0.99) {
@@ -499,18 +506,18 @@ void bt_runner::jump() {
 				//perc = perc * perc*perc * (perc * (6.f*perc - 15.f) + 10.f);
 				perc = sin(perc * 3.1415 * 0.5f);
 
-				float aux = lerp(actual_waypoint.position.y, top_jump_position.y, perc);
+				float aux = lerp(waypoints_map[path[actual_waypoint]].position.y, top_jump_position.y, perc);
 				newPos.y = aux;
 			}
 			else {
-				float d1 = distance_x_z(newPos, next_waypoint.position);
-				float d2 = distance_x_z(top_jump_position, next_waypoint.position);
+				float d1 = distance_x_z(newPos, waypoints_map[path[next_waypoint]].position);
+				float d2 = distance_x_z(top_jump_position, waypoints_map[path[next_waypoint]].position);
 				float perc = 1 - (d1 / d2);
 				if (perc < 0) perc = 0;
 				//perc = perc * perc*perc * (perc * (6.f*perc - 15.f) + 10.f);
 				perc = sin(perc * 3.1415 * 0.5f);
 
-				float aux = lerp(top_jump_position.y, next_waypoint.position.y, perc);
+				float aux = lerp(top_jump_position.y, waypoints_map[path[next_waypoint]].position.y, perc);
 				newPos.y = aux;
 
 			}
@@ -534,20 +541,20 @@ void bt_runner::jump() {
 }
 
 void bt_runner::calculate_top_jump_position() {
-	float alpha = asin(actual_waypoint.position.z / EngineTower.getTowerRadius());
-	float beta = asin(next_waypoint.position.z / EngineTower.getTowerRadius());
+	float alpha = asin(waypoints_map[path[actual_waypoint]].position.z / EngineTower.getTowerRadius());
+	float beta = asin(waypoints_map[path[next_waypoint]].position.z / EngineTower.getTowerRadius());
   	float charlie = (alpha + beta) / 2.f;
-	float top_y = max(actual_waypoint.position.y, next_waypoint.position.y) + 2.0f;
+	float top_y = max(waypoints_map[path[actual_waypoint]].position.y, waypoints_map[path[next_waypoint]].position.y) + 2.0f;
 
 	top_jump_position = VEC3(EngineTower.getTowerRadius()*cos(charlie), top_y, EngineTower.getTowerRadius()*sin(charlie));
 
-  if (not ((top_jump_position.x > actual_waypoint.position.x and top_jump_position.x < next_waypoint.position.x) or
-    (top_jump_position.x < actual_waypoint.position.x and top_jump_position.x > next_waypoint.position.x))) {
+  if (not ((top_jump_position.x > waypoints_map[path[actual_waypoint]].position.x and top_jump_position.x < waypoints_map[path[next_waypoint]].position.x) or
+    (top_jump_position.x < waypoints_map[path[actual_waypoint]].position.x and top_jump_position.x > waypoints_map[path[next_waypoint]].position.x))) {
     top_jump_position.x = -top_jump_position.x;
   }
 
-  if (not ((top_jump_position.z > actual_waypoint.position.z and top_jump_position.z < next_waypoint.position.z) or
-    (top_jump_position.z < actual_waypoint.position.z and top_jump_position.z > next_waypoint.position.z))) {
+  if (not ((top_jump_position.z > waypoints_map[path[actual_waypoint]].position.z and top_jump_position.z < waypoints_map[path[next_waypoint]].position.z) or
+    (top_jump_position.z < waypoints_map[path[actual_waypoint]].position.z and top_jump_position.z > waypoints_map[path[next_waypoint]].position.z))) {
     top_jump_position.z = -top_jump_position.z;
   }
 
@@ -567,6 +574,22 @@ float bt_runner::distance_x_z(VEC3 v1, VEC3 v2) {
 	v1.y = 0.f;
 	v2.y = 0.f;
 	return VEC3::Distance(v1, v2);
+}
+
+
+void bt_runner::recalculate_path() {
+	TCompTransform* my_transform = getMyTransform();
+	int origin = findClosestWaypoint(my_transform->getPosition());
+
+	CEntity *player = (CEntity *)getEntityByName("The Player");
+	TCompTransform *c_p_transform = player->get<TCompTransform>();
+	int target = findClosestWaypoint(c_p_transform->getPosition());
+
+	findPath(origin, target);
+	actual_waypoint = path.size() -1;
+	next_waypoint = actual_waypoint -1;
+	if (path.size() < 2) b_chase_player = true;
+	else b_chase_player = false;
 }
 
 
