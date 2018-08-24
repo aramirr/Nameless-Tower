@@ -8822,16 +8822,17 @@
       ,
       "light_point":
       {
-        "intensity": 10.0
-        ,
-        "color": "1.0 0.0509804 1.0509804 1.0"
-        ,
-        "radius": 4.490
-        ,
+         "intensity": 11,
+        "color" :  "0.84 0.78 0.56 1",
+        "z_near" : 2,
+        "z_far" : 160,
+        "fov" : 37.300,
         "casts_shadows" : true,
         "shadows_step" : 5.0,
         "shadows_resolution" : 1024,
-        "shadows_fmt" : "R32_TYPELESS"
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 45.0
       }
     }
   }

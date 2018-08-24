@@ -198,15 +198,29 @@ void CDeferredRenderer::renderPointLights() {
 	// Para todas las luces... pintala
 	getObjectManager<TCompLightPoint>()->forEach([mesh](TCompLightPoint* c) {
 
+		if (c->have_shadows()) {
+			for (int i = 0; i < 6; i++) {
+				c->activate(i);
+
+				setWorldTransform(c->getWorld());
+
+				// mandar a pintar una geometria que refleje los pixeles que potencialmente
+				// puede iluminar esta luz.... El Frustum solido
+				mesh->render();
+			}
+		}
+		else {
+			c->activate(0);
+
+			setWorldTransform(c->getWorld());
+
+			// mandar a pintar una geometria que refleje los pixeles que potencialmente
+			// puede iluminar esta luz.... El Frustum solido
+			mesh->render();
+		}
 		// subir las contantes de la posicion/dir
 		// activar el shadow map...
-		c->activate();
-
-		setWorldTransform(c->getWorld());
-
-		// mandar a pintar una geometria que refleje los pixeles que potencialmente
-		// puede iluminar esta luz.... El Frustum solido
-		mesh->render();
+		
 	});
 
 	//Pintar luz de las antorchas

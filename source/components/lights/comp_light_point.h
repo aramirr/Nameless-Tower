@@ -28,9 +28,13 @@ public:
 	void update(float dt);
   DECL_SIBLING_ACCESS();
 
+	bool have_shadows() {
+		if (shadows_rt)return true;
+		return false;
+	};
 	void generateShadowMap();
 
-  void activate();
+  void activate(int i);
   MAT44 getWorld();
   void setIntensity(float value);
 };

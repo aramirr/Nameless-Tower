@@ -12,54 +12,54 @@ DXGI_FORMAT readFormat(const json& j, const std::string& label);
 
 // -------------------------------------------------
 void TCompLightPoint::debugInMenu() {
-    ImGui::DragFloat("Intensity", &intensity, 0.01f, 0.f, 10.f);
-    ImGui::ColorEdit3("Color", &color.x);
-    ImGui::DragFloat("Radius", &radius, 0.01f, 0.f, 100.f);
+	ImGui::DragFloat("Intensity", &intensity, 0.01f, 0.f, 10.f);
+	ImGui::ColorEdit3("Color", &color.x);
+	ImGui::DragFloat("Radius", &radius, 0.01f, 0.f, 100.f);
 }
 
 MAT44 TCompLightPoint::getWorld() {
-    TCompTransform* c = get<TCompTransform>();
-    if (!c)
-        return MAT44::Identity;
-    return MAT44::CreateScale(radius) * c->asMatrix();
+	TCompTransform* c = get<TCompTransform>();
+	if (!c)
+		return MAT44::Identity;
+	return MAT44::CreateScale(radius) * c->asMatrix();
 }
 
 // -------------------------------------------------
 void TCompLightPoint::renderDebug() {
-    // Render a wire sphere
-    auto mesh = Resources.get("data/meshes/UnitSphere.mesh")->as<CRenderMesh>();
-    renderMesh(mesh, getWorld(), VEC4(1, 1, 1, 1));
+	// Render a wire sphere
+	auto mesh = Resources.get("data/meshes/UnitSphere.mesh")->as<CRenderMesh>();
+	renderMesh(mesh, getWorld(), VEC4(1, 1, 1, 1));
 }
 
 // -------------------------------------------------
 void TCompLightPoint::load(const json& j, TEntityParseContext& ctx) {
-    if (j.count("color"))
-        color = loadVEC4(j["color"]);
-    intensity = j.value("intensity", intensity);
-    radius = j.value("radius", radius);
-	
-		// Check if we need to allocate a shadow map
-		casts_shadows = j.value("casts_shadows", false);
-		if (casts_shadows) {
-			shadows_step = j.value("shadows_step", shadows_step);
-			shadows_resolution = j.value("shadows_resolution", shadows_resolution);
-			auto shadowmap_fmt = readFormat(j, "shadows_fmt");
-			assert(shadows_resolution > 0);
-			shadows_rt = new CRenderToCube;
-			// Make a unique name to have the Resource Manager happy with the unique names for each resource
-			char my_name[64];
-			sprintf(my_name, "shadow_map_%08x", CHandle(this).asUnsigned());
+	if (j.count("color"))
+		color = loadVEC4(j["color"]);
+	intensity = j.value("intensity", intensity);
+	radius = j.value("radius", radius);
 
-			// Added a placeholder Color Render Target to be able to do a alpha test when rendering
-			// the grass
-			bool is_ok = shadows_rt->create(my_name, shadows_resolution, DXGI_FORMAT_R8G8B8A8_UNORM, shadowmap_fmt);
-			//bool is_ok = shadows_rt->createRT(my_name, shadows_resolution, shadows_resolution, DXGI_FORMAT_R8G8B8A8_UNORM, shadowmap_fmt);
-			assert(is_ok);
-		}
+	// Check if we need to allocate a shadow map
+	casts_shadows = j.value("casts_shadows", false);
+	if (casts_shadows) {
+		shadows_step = j.value("shadows_step", shadows_step);
+		shadows_resolution = j.value("shadows_resolution", shadows_resolution);
+		auto shadowmap_fmt = readFormat(j, "shadows_fmt");
+		assert(shadows_resolution > 0);
+		shadows_rt = new CRenderToCube;
+		// Make a unique name to have the Resource Manager happy with the unique names for each resource
+		char my_name[64];
+		sprintf(my_name, "shadow_map_%08x", CHandle(this).asUnsigned());
 
-		shadows_enabled = casts_shadows;
+		// Added a placeholder Color Render Target to be able to do a alpha test when rendering
+		// the grass
+		bool is_ok = shadows_rt->create(my_name, shadows_resolution, DXGI_FORMAT_R8G8B8A8_UNORM, shadowmap_fmt);
+		//bool is_ok = shadows_rt->createRT(my_name, shadows_resolution, shadows_resolution, DXGI_FORMAT_R8G8B8A8_UNORM, shadowmap_fmt);
+		assert(is_ok);
+	}
 
-		this->setPerspective(deg2rad(90.f), 1.0f, 1000.f);
+	shadows_enabled = casts_shadows;
+
+	this->setPerspective(deg2rad(90.f), 1.0f, 1000.f);
 }
 
 void TCompLightPoint::update(float dt) {
@@ -75,37 +75,41 @@ void TCompLightPoint::update(float dt) {
 
 // -------------------------------------------------
 // Updates the Shader Cte Light with MY information
-void TCompLightPoint::activate() {
-    TCompTransform* c = get<TCompTransform>();
-    if (!c)
-        return;
+void TCompLightPoint::activate(int i) {
 
-		// To avoid converting the range -1..1 to 0..1 in the shader
-		// we concatenate the view_proj with a matrix to apply this offset
-		MAT44 mtx_offset = MAT44::CreateScale(VEC3(0.5f, -0.5f, 1.0f))
-			* MAT44::CreateTranslation(VEC3(0.5f, 0.5f, 0.0f));
+	// To avoid converting the range -1..1 to 0..1 in the shader
+	// we concatenate the view_proj with a matrix to apply this offset
+	if (shadows_rt)shadows_rt->getCamera(i, this);
+	TCompTransform* c = get<TCompTransform>();
+	if (!c)
+		return;
 
-    cb_light.light_color = color;
-    cb_light.light_intensity = intensity;
-    cb_light.light_pos = c->getPosition();
-    cb_light.light_radius = radius * c->getScale();
-    cb_light.light_view_proj_offset = getViewProjection() * mtx_offset;
-    cb_light.light_point = 1;
-		cb_light.light_angle = 90;
-    cb_light.updateGPU();
 
-		// If we have a ZTexture, it's the time to activate it
-		if (shadows_rt) {
+	MAT44 mtx_offset = MAT44::CreateScale(VEC3(0.5f, -0.5f, 1.0f))
+		* MAT44::CreateTranslation(VEC3(0.5f, 0.5f, 0.0f));
 
-			cb_light.light_shadows_inverse_resolution = 1.0f / (float)shadows_rt->getWidth();
-			cb_light.light_shadows_step = shadows_step;
-			cb_light.light_shadows_step_with_inv_res = shadows_step / (float)shadows_rt->getWidth();
-			//cb_light.light_radius = 1.f;
+	cb_light.light_color = color;
+	cb_light.light_intensity = intensity;
+	cb_light.light_pos = c->getPosition();
+	cb_light.light_radius = getZFar();
+	cb_light.light_view_proj_offset = getViewProjection() * mtx_offset;
+	//cb_light.light_direction = VEC4(c->getFront().x, c->getFront().y, c->getFront().z, 1);
+	cb_light.light_point = 1;
+	cb_light.light_angle = 90;
+	cb_light.updateGPU();
 
-			assert(shadows_rt->getZTexture());
-			shadows_rt->getZTexture()->activate(TS_LIGHT_SHADOW_MAP);
-			
-		}
+	// If we have a ZTexture, it's the time to activate it
+	if (shadows_rt) {
+
+		cb_light.light_shadows_inverse_resolution = 1.0f / (float)shadows_rt->getWidth();
+		cb_light.light_shadows_step = shadows_step;
+		cb_light.light_shadows_step_with_inv_res = shadows_step / (float)shadows_rt->getWidth();
+		//cb_light.light_radius = 1.f;
+
+		assert(shadows_rt->getZTexture());
+		shadows_rt->getZTexture()->activate(TS_LIGHT_SHADOW_MAP);
+
+	}
 }
 
 // ------------------------------------------------------
@@ -121,9 +125,10 @@ void TCompLightPoint::generateShadowMap() {
 	// In this slot is where we activate the render targets that we are going
 	// to update now. You can't be active as texture and render target at the
 	// same time
-	CTexture::setNullTexture(TS_LIGHT_SHADOW_MAP);
+	
 
 	for (int i = 0; i < 6; i++) {
+		CTexture::setNullTexture(TS_LIGHT_SHADOW_MAP);
 		CTraceScoped gpu_scope(shadows_rt->getName().c_str());
 		shadows_rt->activateFace(i, this);
 		{
@@ -138,6 +143,6 @@ void TCompLightPoint::generateShadowMap() {
 }
 
 void TCompLightPoint::setIntensity(float value) {
-    intensity = value;
+	intensity = value;
 }
 
