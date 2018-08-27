@@ -1,12 +1,12 @@
 {
   "life" : {
       "duration" : 15.0,
-      "max_particles" : 50,
+      "max_particles" : 500,
       "time_factor" : 1.0
   },
   "emission" : {
-      "type" : "box",
-      "size" : 3,
+      "type" : "square",
+      "size" : 4,
       "interval" : 0.1,
       "count" : 1,
       "cyclic" : true
@@ -35,7 +35,7 @@
     "opacity" : 0.0,
     "colors" : [
       [0.0, "1 1 1 1"],
-      [1.0, "1 1 1"]
+      [1.0, "1 1 1 1"]
     ] 
   }
 }
