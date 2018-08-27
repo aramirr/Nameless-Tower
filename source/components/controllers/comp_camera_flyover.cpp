@@ -17,7 +17,6 @@ void TCompCameraFlyover::load(const json& j, TEntityParseContext& ctx) {
   _sensitivity = j.value("sensitivity", _sensitivity);
   _ispeed_reduction_factor = j.value("speed_reduction_factor", _ispeed_reduction_factor);
   _enabled = j.value("enabled", _enabled);
-
   if (j.count("key")) {
     std::string k = j["key"];
     _key_toggle_enabled = k[0];

@@ -61,6 +61,11 @@ namespace Particles
     TRender       render;
     TSize         size;
     TColor        color;
+
+  public:
+    const int getEmission() {
+      return 1;
+    }
   };
 
   using TParticlesHandle = int;

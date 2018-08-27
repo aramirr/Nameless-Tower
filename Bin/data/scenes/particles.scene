@@ -2,16 +2,27 @@
 	
 	{
 		"entity": {
-			"name": "particles_snow",
-			"transform": {
-				"pos": "-5 3 0"
-			},
+			"name": "particulas_hojitas",
+			"transform": {},
 			"hierarchy": {
 				"parent": "The Player",
 				"pos": "0 4 0"
 			},
 			"particles" : {
-				"core" : "data/particles/snow.particles"
+				"core" : "data/particles/hojitas.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"prefab" : "data/prefabs/cannon.prefab",
+			"name": "cannon_left",
+			"transform": {},
+			"hierarchy": {
+				"axis": "0 1 0", 
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "particulas_hojitas"
 			}
 		}
 	}

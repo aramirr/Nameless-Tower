@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "comp_particles.h"
 #include "resources/resources_manager.h"
+#include "particles/particle_system.h"
 
 DECL_OBJ_MANAGER("particles", TCompParticles);
 
@@ -10,7 +11,7 @@ void TCompParticles::registerMsgs()
   DECL_MSG(TCompParticles, TMsgEntityDestroyed, onDestroyed);
 }
 
-void TCompParticles::renderInMenu()
+void TCompParticles::debugInMenu()
 {
   if (_core)
   {
