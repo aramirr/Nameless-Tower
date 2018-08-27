@@ -59,7 +59,7 @@ void TCompLightPoint::load(const json& j, TEntityParseContext& ctx) {
 
 	shadows_enabled = casts_shadows;
 
-	this->setPerspective(deg2rad(90.f), 1.0f, 1000.f);
+	this->setPerspective(deg2rad(37.3f), 2.0f, 160.0f);
 }
 
 void TCompLightPoint::update(float dt) {
@@ -69,7 +69,7 @@ void TCompLightPoint::update(float dt) {
 	TCompTransform* c = get<TCompTransform>();
 	if (!c)
 		return;
-	shadows_rt->setPosition(c->getPosition());
+	//shadows_rt->setPosition(c->getPosition());
 	//this->lookAt(c->getPosition(), c->getPosition() + c->getFront(), c->getUp());
 }
 
@@ -91,9 +91,9 @@ void TCompLightPoint::activate(int i) {
 	cb_light.light_color = color;
 	cb_light.light_intensity = intensity;
 	cb_light.light_pos = c->getPosition();
-	cb_light.light_radius = getZFar();
+	cb_light.light_radius = radius * c->getScale();
 	cb_light.light_view_proj_offset = getViewProjection() * mtx_offset;
-	//cb_light.light_direction = VEC4(c->getFront().x, c->getFront().y, c->getFront().z, 1);
+	cb_light.light_direction = VEC4(c->getFront().x, c->getFront().y, c->getFront().z, 1);
 	cb_light.light_point = 1;
 	cb_light.light_angle = 90;
 	cb_light.updateGPU();
@@ -120,7 +120,7 @@ void TCompLightPoint::generateShadowMap() {
 	TCompTransform* c = get<TCompTransform>();
 	if (!c)
 		return;
-	shadows_rt->setPosition(c->getPosition());
+	this->lookAt(c->getPosition(), VEC3(0,0,0), VEC3(0,1,0));
 
 	// In this slot is where we activate the render targets that we are going
 	// to update now. You can't be active as texture and render target at the
