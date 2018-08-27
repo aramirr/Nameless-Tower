@@ -25,7 +25,7 @@ void TCompCameraManager::loadCinematics()
       auto& j_cinematic = j_item["cinematic"];
 
       std::string cinematic_name = j_cinematic["name"];
-      dbg(cinematic_name.c_str());
+      //dbg(cinematic_name.c_str());
 
       std::vector<std::pair<Camera, float>> cameras;
 
@@ -236,7 +236,7 @@ void TCompCameraManager::update(float dt) {
       Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
     }
     else{  
-      CHandle h_camera = getEntityByName("camera_orbit_IZQ");
+      //CHandle h_camera = getEntityByName("camera_orbit_IZQ");
       //Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
     }
   }

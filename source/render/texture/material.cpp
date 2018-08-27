@@ -10,7 +10,7 @@ public:
     extensions = { ".material" };
   }
   IResource* create(const std::string& name) const override {
-    dbg("Creating material %s\n", name.c_str());
+   // dbg("Creating material %s\n", name.c_str());
 
     auto j = loadJson(name);
     std::string mat_type = j.value("type", "std");

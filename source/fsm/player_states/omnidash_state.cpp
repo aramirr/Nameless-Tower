@@ -52,7 +52,7 @@ namespace FSM
 	}
 
 	int OmnidashState::calculateAnimation(CEntity* e) {
-		CEntity* e_camera = EngineCameras.getOutputCamera();
+		CEntity* e_camera = EngineCameras.getActiveCamera();
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		const Input::TInterface_Mouse& mouse = EngineInput.mouse();
@@ -90,40 +90,42 @@ namespace FSM
 
 	void OmnidashState::onFinish(CContext& ctx) const {
 		ctx.setVariable("omnidash", false);
-		CEntity* e = ctx.getOwner();
-		TCompPlayerController* player = e->get<TCompPlayerController>();
+        CEntity* e_player = (CEntity*)getEntityByName("The Player");
+		TCompPlayerController* player = e_player->get<TCompPlayerController>();
 		player->y_speed_factor = 0;
 		EngineTimer.setTimeSlower(1.f);
 		EngineUI.setOmindash(false);
 
-		CEntity* e_camera = EngineCameras.getOutputCamera();
-
-		TCompCamera* c_camera = e_camera->get< TCompCamera >();
-		TCompTransform *c_my_transform = e->get<TCompTransform>();
+        CEntity* e_camera = EngineCameras.getOutputCamera();
+        //dbg(e_camera->getName());
+        //dbg("\n");
+        
+        //TCompCamera* c_camera = e_camera->get< TCompCamera >();
+        TCompTransform *c_my_transform = e_player->get<TCompTransform>();
 		const Input::TInterface_Mouse& mouse = EngineInput.mouse();
-		VEC3 my_pos = c_my_transform->getPosition();
-		VEC3 player_position;
-		c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
+		//VEC3 player_position;
+        //VEC3 my_pos = c_my_transform->getPosition();
+		//c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
 
-		player->omnidash_arrow = mouse._position - VEC2(player_position.x /*+ 400*/, player_position.y /*+ 300*/);
+		player->omnidash_arrow = mouse._position - VEC2(player->player_position.x, player->player_position.y);
 		player->omnidash_arrow.Normalize();
 
-		std::string str = std::to_string(/*player->omnidash_arrow*/player_position.x) + ", " + std::to_string(/*player->omnidash_arrow*/player_position.y) + "\n";
-		dbg(str.c_str());
-		std::string str2 = std::to_string(/*player->omnidash_arrow*/mouse._position.x) + ", " + std::to_string(/*player->omnidash_arrow*/mouse._position.y) + "\n";
-		dbg(str2.c_str());
+        //std::string str1 = std::to_string(my_pos.x) + ", " + std::to_string(my_pos.y) + " OMNI \n";
+        std::string str2 = std::to_string(player->player_position.x) + ", " + std::to_string(player->player_position.y) + " OMNI \n";
 
 		player->y_speed_factor = 0;
 
 		TEntityParseContext ctx1;
-		ctx1.entity_starting_the_parse = e;
-		ctx1.root_transform = *(TCompTransform*)e->get<TCompTransform>();
+		ctx1.entity_starting_the_parse = e_player;
+		ctx1.root_transform = *(TCompTransform*)e_player->get<TCompTransform>();
 		VEC3 omni_vector = c_my_transform->getFront();
 		if (player->looking_left)
 			omni_vector *= player->omnidash_arrow.x;
 		else
 			omni_vector *= player->omnidash_arrow.x * -1;
-
+        
+        //dbg(str1.c_str());
+        dbg(str2.c_str());
 		omni_vector.y += player->omnidash_arrow.y;
 		ctx1.front = -omni_vector;
 		if (parseScene("data/prefabs/windstrike.prefab", ctx1)) {

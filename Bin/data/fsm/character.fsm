@@ -98,15 +98,15 @@
 			"name" : "dying",
 			"type" : "DyingState",
 			"is_action": true,
-			"delay_in": 0,
-			"delay_out": 0
+			"delay_in": 0.1,
+			"delay_out": 0.1
 		},
 		{
 			"name" : "dead",
 			"type" : "DeadState",
 			"is_action": false,
-			"delay_in": 0,
-			"delay_out": 0
+			"delay_in": 0.1,
+			"delay_out": 0.1
 		},
 		{
 			"name" : "pause",
@@ -117,8 +117,8 @@
 			"type" : "GlideState",
 			"x_speed" : 2,
 			"is_action": false,
-			"delay_in": 0,
-			"delay_out": 0			
+			"delay_in": 0.01,
+			"delay_out": 0.01			
 		},
 		{
 			"name" : "look_up",
@@ -839,7 +839,7 @@
 			"type" : "TimeTransition",
 			"source" : "dead",
 			"target" : "initial",
-			"time" : 1.2
+			"time" : 2
 		},		
 		{
 			"type" : "VariableTransition",
