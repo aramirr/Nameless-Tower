@@ -435,12 +435,9 @@ void bt_runner::walk() {
 		if (comp_collider && comp_collider->controller)
 		{
 			VEC3 delta_move = newPos - myPos;
-			if (!going_up)
-				delta_move.y += -10 * DT;
-			else {
-
-			}
-
+			
+			delta_move.y += -10 * DT;
+			
 
 			PxShape* player_shape;
 			comp_collider->controller->getActor()->getShapes(&player_shape, 1);

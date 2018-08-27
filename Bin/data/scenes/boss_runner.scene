@@ -4,12 +4,16 @@
 			"name": "Runner",
       		"render" : [
 		        {
-		          "mesh": "data/skeletons/Naja/Naja.mesh",
-		          "materials" : [
-		            "data/materials/PuertaM.material"
+		          "mesh": "data/meshes/Cuerpo.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/RunnerCuerpoMat.material"
+		            ,
+		            "data/materials/RunnerCabezaMat.material"
 		          ]
 		        }
-		      ]	
+      		]
 			, 
 			"transform": {
 				"pos": "-8.426 0.258 30.011",
