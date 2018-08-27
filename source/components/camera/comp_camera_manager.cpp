@@ -25,7 +25,7 @@ void TCompCameraManager::loadCinematics()
       auto& j_cinematic = j_item["cinematic"];
 
       std::string cinematic_name = j_cinematic["name"];
-      dbg(cinematic_name.c_str());
+      //dbg(cinematic_name.c_str());
 
       std::vector<std::pair<Camera, float>> cameras;
 
@@ -61,11 +61,6 @@ void TCompCameraManager::loadCinematics()
     }
 
   }
-}
-
-void TCompCameraManager::registerMsgs() {
-	DECL_MSG(TCompCameraManager, TMsgActiveCamera, activateCamera);
-  //DECL_MSG(TCompCameraManager, TMsgDeactiveCamera, deactivateCamera);
 }
 
 void TCompCameraManager::activateCinematic(std::string name)
@@ -241,7 +236,7 @@ void TCompCameraManager::update(float dt) {
       Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
     }
     else{  
-      CHandle h_camera = getEntityByName("camera_orbit_IZQ");
+      //CHandle h_camera = getEntityByName("camera_orbit_IZQ");
       //Engine.getCameras().blendInCamera(h_camera, 2.f, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
     }
   }
@@ -253,7 +248,12 @@ void TCompCameraManager::activateCamera(const TMsgActiveCamera &msg) {
 	Engine.getCameras().blendInCamera(h_camera, msg.blend_time, CModuleCameras::EPriority::GAMEPLAY, &interpolator);
 }
 
-void TCompCameraManager::deactivateCamera(const TMsgDeactivateCamera &msg) {
-	CHandle h_camera = getEntityByName(msg.camera_name);
-	Engine.getCameras().blendOutCamera(h_camera, msg.blend_time);
+void TCompCameraManager::deactivateCamera(const TMsgRemoveCamera &msg) {
+    CHandle h_camera = getEntityByName(msg.camera_name);
+    Engine.getCameras().blendOutCamera(h_camera, msg.blend_time);
+}
+
+void TCompCameraManager::registerMsgs() {
+    DECL_MSG(TCompCameraManager, TMsgActiveCamera, activateCamera);
+    DECL_MSG(TCompCameraManager, TMsgRemoveCamera, deactivateCamera);
 }

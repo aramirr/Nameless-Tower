@@ -175,12 +175,12 @@ bool CRenderTechnique::usesInstancing() const {
 void CRenderTechnique::onFileChanged(const std::string& filename) {
 
   if (filename == vs_file) {
-    dbg("Reloading vs of tech %s\n", this->getName().c_str());
+   // dbg("Reloading vs of tech %s\n", this->getName().c_str());
     reloadVS();
   }
 
   if (filename == ps_file) {
-    dbg("Reloading ps of tech %s\n", this->getName().c_str());
+  //  dbg("Reloading ps of tech %s\n", this->getName().c_str());
     reloadPS();
   }
 }

@@ -9,7 +9,7 @@ public:
     extensions = { ".curve" };
   }
   IResource* create(const std::string& name) const override {
-    dbg("Creating curve %s\n", name.c_str());
+   // dbg("Creating curve %s\n", name.c_str());
     CCurve* res = new CCurve();
     bool is_ok = res->load(name);
     assert(is_ok);

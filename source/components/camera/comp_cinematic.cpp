@@ -36,6 +36,7 @@ void TCompCinematic::activate(const TMsgActivateCinematic& msg) {
         CEntity* e_player = (CEntity*)getEntityByName("The Player");
         TCompPlayerController* player = e_player->get<TCompPlayerController>();
         player->on_cinematic = true;
+        player->previous_camera = camera_name;
         TMsgActiveCamera activate_camera;
         activate_camera.camera_name = camera_name;
         activate_camera.blend_time = 2.f;
@@ -46,6 +47,10 @@ void TCompCinematic::activate(const TMsgActivateCinematic& msg) {
             c->activate();
         }
         active = true;
+        TMsgSetFSMVariable cinematicMsg;
+        cinematicMsg.variant.setName("on_cinematic");
+        cinematicMsg.variant.setBool(true);
+        e_player->sendMsg(cinematicMsg);
     }	
 }
 
@@ -69,6 +74,10 @@ void TCompCinematic::deactivate() {
             c->deactivate();
         }
         active = false;
+        TMsgSetFSMVariable cinematicMsg;
+        cinematicMsg.variant.setName("on_cinematic");
+        cinematicMsg.variant.setBool(false);
+        e_player->sendMsg(cinematicMsg);
     }	
 }
 
