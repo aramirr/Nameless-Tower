@@ -5,7 +5,7 @@
 
 struct TCompParticles : public TCompBase
 {
-  const Particles::TCoreSystem* _core = nullptr;
+  Particles::TCoreSystem* _core = nullptr;
   Particles::TParticlesHandle   _particles = 0;
   bool                          _launched = false;
   float                         _fadeOut = 0.f;

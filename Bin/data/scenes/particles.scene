@@ -3,10 +3,8 @@
 	{
 		"entity": {
 			"name": "particulas_hojitas",
-			"transform": {},
-			"hierarchy": {
-				"parent": "The Player",
-				"pos": "0 4 0"
+			"transform": {
+				"pos": "-0.703 14.25 -26.465"
 			},
 			"particles" : {
 				"core" : "data/particles/hojitas.particles"
