@@ -3,6 +3,7 @@
 #include "entity/entity_parser.h"
 #include "components/physics/controller_filter.h"
 #include "components/physics/query_filter.h"
+#include "skeleton/comp_skeleton.h"
 
 DECL_OBJ_MANAGER("bt_runner", bt_runner);
 
@@ -238,7 +239,11 @@ int bt_runner::actionAppear() {
 	EngineTower.appearEntity("Runner");
 	b_appear = false;
 	b_chase = true;
+  CEntity* e = h_entity;
+  TCompSkeleton* skeleton = e->get<TCompSkeleton>();
+  assert(skeleton);
 
+  skeleton->playAnimation(0, false, 0.f, 0.f, true);
 	recalculate_path();
 
     return LEAVE;
@@ -367,7 +372,7 @@ void bt_runner::findPath(int origin, int destiny){
 }
 
 void bt_runner::chase_player() {
-	int a = 1;
+  
 }
 
 void bt_runner::chase_waypoint() {

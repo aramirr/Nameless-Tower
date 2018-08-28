@@ -2,6 +2,9 @@
 	{
 		"entity": {
 			"name": "Runner",
+			"skeleton": {
+        		"skeleton": "data/skeletons/Runner/runner.skeleton"
+      		},
       		"render" : [
 		        {
 		          "mesh": "data/meshes/Cuerpo.mesh"
