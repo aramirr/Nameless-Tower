@@ -70,7 +70,7 @@ void TCompLightPoint::update(float dt) {
 	if (!c)
 		return;
 	//shadows_rt->setPosition(c->getPosition());
-	//this->lookAt(c->getPosition(), c->getPosition() + c->getFront(), c->getUp());
+	this->lookAt(c->getPosition(), c->getPosition() + c->getFront(), c->getUp());
 }
 
 // -------------------------------------------------
@@ -120,7 +120,7 @@ void TCompLightPoint::generateShadowMap() {
 	TCompTransform* c = get<TCompTransform>();
 	if (!c)
 		return;
-	this->lookAt(c->getPosition(), VEC3(0,0,0), VEC3(0,1,0));
+	this->lookAt(c->getPosition(), c->getPosition() + c->getFront(), c->getUp());
 
 	// In this slot is where we activate the render targets that we are going
 	// to update now. You can't be active as texture and render target at the
