@@ -61,7 +61,7 @@ void TCompCameraFlyover::update(float scaled_dt)
 		
 
 	if (activo) {
-		if (EngineInput["turbo"])
+		if (!EngineInput["turbo"])
 			deltaSpeed *= 25.f;
 
 		if (EngineInput["front"].value)

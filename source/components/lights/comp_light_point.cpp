@@ -15,6 +15,7 @@ void TCompLightPoint::debugInMenu() {
 	ImGui::DragFloat("Intensity", &intensity, 0.01f, 0.f, 10.f);
 	ImGui::ColorEdit3("Color", &color.x);
 	ImGui::DragFloat("Radius", &radius, 0.01f, 0.f, 100.f);
+  ImGui::DragInt("Face", &face, 0, 0, 5);
 }
 
 MAT44 TCompLightPoint::getWorld() {
@@ -123,12 +124,14 @@ void TCompLightPoint::generateShadowMap() {
   shadows_rt->setPosition(c->getPosition());
 	this->lookAt(c->getPosition(), c->getPosition() + c->getFront(), c->getUp());
 
+
 	// In this slot is where we activate the render targets that we are going
 	// to update now. You can't be active as texture and render target at the
 	// same time
 	
 
-	for (int i = 0; i < 6; i++) {
+  // EDU: descomentar para renderizar las 6 caras
+	/*for (int i = 0; i < 6; i++) {
 		CTexture::setNullTexture(TS_LIGHT_SHADOW_MAP);
 		CTraceScoped gpu_scope(shadows_rt->getName().c_str());
 		shadows_rt->activateFace(i, this);
@@ -140,7 +143,22 @@ void TCompLightPoint::generateShadowMap() {
 		}
 		//CRenderManager::get().setEntityCamera(CHandle(this).getOwner());
 		CRenderManager::get().renderCategory("shadows");
-	}
+	}//*/
+
+  //EDU: Descomentar para renderizar una sola cara
+  CTexture::setNullTexture(TS_LIGHT_SHADOW_MAP);
+  CTraceScoped gpu_scope(shadows_rt->getName().c_str());
+  shadows_rt->activateFace(face, this);
+  {
+    PROFILE_FUNCTION("Clear&SetCommonCtes");
+    shadows_rt->clearDepthBuffer();
+    // We are going to render the scene from the light position & orientation
+    activateCamera(*this, shadows_rt->getWidth(), shadows_rt->getHeight());
+  }//*/
+
+
+  //CRenderManager::get().setEntityCamera(CHandle(this).getOwner());
+  CRenderManager::get().renderCategory("shadows");
 }
 
 void TCompLightPoint::setIntensity(float value) {

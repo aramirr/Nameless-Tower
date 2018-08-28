@@ -20,6 +20,8 @@ class TCompLightPoint : public TCompCamera {
 	float             shadows_step = 1.f;
 	CRenderToCube* shadows_rt = nullptr;
 
+  int face = 0;
+
 
 public:
   void debugInMenu();
