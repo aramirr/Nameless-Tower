@@ -120,6 +120,7 @@ void TCompLightPoint::generateShadowMap() {
 	TCompTransform* c = get<TCompTransform>();
 	if (!c)
 		return;
+  shadows_rt->setPosition(c->getPosition());
 	this->lookAt(c->getPosition(), c->getPosition() + c->getFront(), c->getUp());
 
 	// In this slot is where we activate the render targets that we are going
