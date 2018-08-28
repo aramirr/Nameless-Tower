@@ -382,6 +382,29 @@
     "blend": "alpha",
     "priority" : 150,
     "comment" : "This needs to go after the pbr's solids, but just before the object to render"
+  }
+  ,
+  "fog_left": {
+    "vs_file": "data/shaders/fog_left.fx",
+    "ps_file": "data/shaders/fog_left.fx",
+    "vs_entry_point": "VS_FogLeft",
+    "ps_entry_point": "PS_FogLeft",
+    "vertex_type": "PosNUvUvT",
+    "category": "alpha",
+    "blend": "alpha",
+    "priority" : 150,
+    "comment" : "This needs to go after the pbr's solids, but just before the object to render"
+  },
+  "fog_right": {
+    "vs_file": "data/shaders/fog_right.fx",
+    "ps_file": "data/shaders/fog_right.fx",
+    "vs_entry_point": "VS_FogRight",
+    "ps_entry_point": "PS_FogRight",
+    "vertex_type": "PosNUvUvT",
+    "category": "alpha",
+    "blend": "alpha",
+    "priority" : 150,
+    "comment" : "This needs to go after the pbr's solids, but just before the object to render"
   },
   "pbr_post_outline": {
     "vs_file": "data/shaders/pbr.fx",
