@@ -30,7 +30,9 @@ void TCompParticles::debugInMenu()
 		ImGui::DragFloat("Interval", &_core->emission.interval, 0.1f, 0.f, 10.f);
 		ImGui::DragInt("Count", &_core->emission.count, 0.1f, 0, 100);
 		ImGui::DragFloat("Size", &_core->emission.size, 0.1f, 0.f, 20.f);
-		ImGui::DragFloat("Angle", &_core->emission.angle, 0.1f, 0.f, 360.f);
+    float aux_angle = rad2deg(_core->emission.angle);
+		ImGui::DragFloat("Angle", &aux_angle, 0.1f, 0.f, 360.f);
+    _core->emission.angle = deg2rad(aux_angle);
 
 		ImGui::TreePop();
 	}
@@ -88,5 +90,12 @@ void TCompParticles::onDestroyed(const TMsgEntityDestroyed&)
   if (_particles)
   {
     Engine.getParticles().kill(_particles, _fadeOut);
+  }
+}
+
+void TCompParticles::emit() {
+  if (_core)
+  {
+    _particles = Engine.getParticles().launchSystem(_core, CHandle(this).getOwner());
   }
 }
