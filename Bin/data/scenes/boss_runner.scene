@@ -7,13 +7,11 @@
       		},
       		"render" : [
 		        {
-		          "mesh": "data/meshes/Cuerpo.mesh"
+		          "mesh": "data/skeletons/Runner/Runner.mesh"
 		          ,
 		          "materials":
 		          [
 		            "data/materials/RunnerCuerpoMat.material"
-		            ,
-		            "data/materials/RunnerCabezaMat.material"
 		          ]
 		        }
       		]
