@@ -14,7 +14,7 @@ public:
     extensions = { ".particles" };
   }
   IResource* create(const std::string& name) const override {
-    dbg("Creating particles %s\n", name.c_str());
+    //dbg("Creating particles %s\n", name.c_str());
     Particles::CParser parser;
     Particles::TCoreSystem* res = parser.parseParticlesFile(name);
     assert(res);

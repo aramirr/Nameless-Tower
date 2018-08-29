@@ -15,7 +15,7 @@ public:
     extensions = { ".fsm" };
   }
   IResource* create(const std::string& name) const override {
-    dbg("Creating fsm %s\n", name.c_str());
+    //dbg("Creating fsm %s\n", name.c_str());
     FSM::CMachine* res = new FSM::CMachine();
     bool is_ok = res->load(name);
     assert(is_ok);

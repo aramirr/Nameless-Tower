@@ -20,6 +20,8 @@
 #include "fsm/player_states/falling_omni_state.h"
 #include "fsm/player_states/falling_dash_state.h"
 #include "fsm/player_states/turn_around_state.h"
+#include "fsm/player_states/look_up_state.h"
+#include "fsm/player_states/look_down_state.h"
 #include "fsm/custom_transitions.h"
 
 CModuleFSM::CModuleFSM(const std::string& name)
@@ -46,7 +48,9 @@ bool CModuleFSM::start()
 	_factory.registerInstancer("DyingState", new FSM::StateInstancer<FSM::DyingState>());
 	_factory.registerInstancer("FallingOmniState", new FSM::StateInstancer<FSM::FallingOmniState>());
 	_factory.registerInstancer("FallingDashState", new FSM::StateInstancer<FSM::FallingDashState>());
-	_factory.registerInstancer("TurnAroundState", new FSM::StateInstancer<FSM::TurnAroundState>());
+    _factory.registerInstancer("TurnAroundState", new FSM::StateInstancer<FSM::TurnAroundState>());
+    _factory.registerInstancer("LookUpState", new FSM::StateInstancer<FSM::LookUpState>());
+    _factory.registerInstancer("LookDownState", new FSM::StateInstancer<FSM::LookDownState>());
   
 	_factory.registerInstancer("VariableTransition", new FSM::TransitionInstancer<FSM::VariableTransition>());
 	_factory.registerInstancer("LogicTransition", new FSM::TransitionInstancer<FSM::LogicTransition>());

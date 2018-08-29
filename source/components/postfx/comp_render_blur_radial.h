@@ -25,6 +25,8 @@ public:
   void  load(const json& j, TEntityParseContext& ctx);
   void  debugInMenu();
   CTexture* apply(CTexture* in_texture);
+  void setActive(bool active);
+  void setCenter(VEC2 new_center);
 };
 
 #endif

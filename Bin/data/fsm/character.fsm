@@ -46,7 +46,7 @@
 			"delay_in": 0,
 			"delay_out": 0
 		},
-				{
+		{
 			"name" : "falling_dash",
 			"type" : "FallingDashState",
 			"x_speed" : 2.5,
@@ -98,15 +98,15 @@
 			"name" : "dying",
 			"type" : "DyingState",
 			"is_action": true,
-			"delay_in": 0,
-			"delay_out": 0
+			"delay_in": 0.1,
+			"delay_out": 0.1
 		},
 		{
 			"name" : "dead",
 			"type" : "DeadState",
 			"is_action": false,
-			"delay_in": 0,
-			"delay_out": 0
+			"delay_in": 0.1,
+			"delay_out": 0.1
 		},
 		{
 			"name" : "pause",
@@ -116,6 +116,20 @@
 			"name" : "glide",
 			"type" : "GlideState",
 			"x_speed" : 2,
+			"is_action": false,
+			"delay_in": 0.01,
+			"delay_out": 0.01			
+		},
+		{
+			"name" : "look_up",
+			"type" : "LookUpState",
+			"is_action": false,
+			"delay_in": 0,
+			"delay_out": 0			
+		},
+		{
+			"name" : "look_down",
+			"type" : "LookDownState",
 			"is_action": false,
 			"delay_in": 0,
 			"delay_out": 0			
@@ -128,6 +142,73 @@
 			"target" : "idle",
 			"variable" : {
 				"name" : "is_grounded",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},{
+			"type" : "LogicTransition",
+			"source" : "idle",
+			"target" : "look_up",
+			"variables" : [{
+				"name" : "look_up",
+				"type" : "bool",
+				"value" : true
+			},
+			{
+				"name" : "in_wind",
+				"type" : "bool",
+				"value" : false
+			},
+			{
+				"name" : "camera_idle",
+				"type" : "bool",
+				"value" : false
+			},
+			{
+				"name" : "on_cinematic",
+				"type" : "bool",
+				"value" : false
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},{
+			"type" : "VariableTransition",
+			"source" : "look_up",
+			"target" : "idle",
+			"variable" : {
+				"name" : "idle",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},{
+			"type" : "LogicTransition",
+			"source" : "idle",
+			"target" : "look_down",
+			"variables" : [{
+				"name" : "look_down",
+				"type" : "bool",
+				"value" : true
+			},
+			{
+				"name" : "camera_idle",
+				"type" : "bool",
+				"value" : false
+			},
+			{
+				"name" : "on_cinematic",
+				"type" : "bool",
+				"value" : false
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},{
+			"type" : "VariableTransition",
+			"source" : "look_down",
+			"target" : "idle",
+			"variable" : {
+				"name" : "idle",
 				"type" : "bool",
 				"value" : true
 			},
@@ -564,6 +645,22 @@
 		},
 		{
 			"type" : "LogicTransition",
+			"source" : "falling_dash",
+			"target" : "omnidash",
+			"variables" : [{
+				"name" : "omnidash",
+				"type" : "bool",
+				"value" : true
+			},
+			{
+				"name" : "can_omni",
+				"type" : "bool",
+				"value" : true
+			}],
+			"operation" : "equal"
+		},
+		{
+			"type" : "LogicTransition",
 			"source" : "dash",
 			"target" : "omnidash",
 			"variables" : [{
@@ -758,7 +855,7 @@
 			"type" : "TimeTransition",
 			"source" : "dead",
 			"target" : "initial",
-			"time" : 1.2
+			"time" : 2
 		},		
 		{
 			"type" : "VariableTransition",
@@ -959,6 +1056,26 @@
 		},
 			{
 			"name" : "turn_around",
+			"type" : "bool",
+			"value" : false
+		},
+			{
+			"name" : "look_up",
+			"type" : "bool",
+			"value" : false
+		},
+			{
+			"name" : "look_down",
+			"type" : "bool",
+			"value" : false
+		},
+			{
+			"name" : "camera_idle",
+			"type" : "bool",
+			"value" : false
+		},
+			{
+			"name" : "on_cinematic",
 			"type" : "bool",
 			"value" : false
 		}
