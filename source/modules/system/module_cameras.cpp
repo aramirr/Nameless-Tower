@@ -70,7 +70,7 @@ void CModuleCameras::update(float delta)
         mc.weight = 1.f - clamp(mc.time / mc.blendOutTime, 0.f, 1.f);
       }
       else if (mc.state == TMixedCamera::ST_STOP_BLENDING) {
-          mc.weight = mc.weight - (clamp(mc.time / mc.blendOutTime, 0.f, 1.f) / 15);
+          mc.weight = mc.weight - (clamp(mc.time / mc.blendOutTime, 0.f, 1.f) / 30);
       }
 
       if (mc.weight > 0.f)
