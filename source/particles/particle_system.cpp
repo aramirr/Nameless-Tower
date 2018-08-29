@@ -91,13 +91,17 @@ namespace Particles
         dir.Normalize();
         p.velocity += dir * _core->movement.acceleration * delta;
         p.velocity += kGravity * _core->movement.gravity * delta;
-        p.position += p.velocity * delta;
-        p.position += kWindVelocity * _core->movement.wind * delta;
-        p.rotation += _core->movement.spin * delta;
+        if (!_core->movement.ground  || _core->movement.on_ground_move || p.position.y > _core->movement.ground_y) {
+          p.position += p.velocity * delta;
+          p.position += kWindVelocity * _core->movement.wind * delta;
+          p.rotation += _core->movement.spin * delta;
+        }
         if (_core->movement.ground)
         {
-          p.position.y = std::max(0.f, p.position.y);
+          p.position.y = std::max(_core->movement.ground_y, p.position.y);
         }
+        
+
         
         float life_ratio = p.max_lifetime > 0.f ? clamp(p.lifetime / p.max_lifetime, 0.f, 1.f) : 1.f;
         p.color = _core->color.colors.get(life_ratio) * fadeRatio;
@@ -184,7 +188,9 @@ namespace Particles
       particle.size = _core->size.sizes.get(0.f);
       particle.scale = _core->size.scale + random(-_core->size.scale_variation, _core->size.scale_variation);
       particle.frame = _core->render.initialFrame;
-      particle.rotation = 0.f;
+      if (_core->emission.random_rotation)
+        particle.rotation = random(deg2rad(0), deg2rad(360));
+      else particle.rotation = 0.f;
       particle.lifetime = 0.f;
       particle.max_lifetime = _core->life.duration + random(-_core->life.durationVariation, _core->life.durationVariation);
 

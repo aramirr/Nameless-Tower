@@ -19,21 +19,24 @@ namespace Particles
     {
       enum EType {Point = 0, Line, Square, Box, Sphere};
 
-      EType type = Point;       // type of emissor
-      float interval = 0.f;     // generation interval
-      int count = 1;            // number of particles each generation
-      bool cyclic = false;      // system re-emits after the interval time
-      float size = 0.f;         // emissor size
-      float angle = 0.f;        // emission angle
+      EType type = Point;           // type of emissor
+      float interval = 0.f;         // generation interval
+      int count = 1;                // number of particles each generation
+      bool cyclic = false;          // system re-emits after the interval time
+      float size = 0.f;             // emissor size
+      float angle = 0.f;            // emission angle
+      bool random_rotation = false; // if true: particles appear in a random position
     };
     struct TMovement
     {
-      float velocity = 0.f;     // initial speed
-      float acceleration = 0.f; // acceleration
-      float spin = 0.f;         // rotation speed (radians)
-      float gravity = 0.f;      // gravity factor
-      float wind = 0.f;         // wind factor
-      bool ground = false;      // limit by ground
+      float velocity = 0.f;         // initial speed
+      float acceleration = 0.f;     // acceleration
+      float spin = 0.f;             // rotation speed (radians)
+      float gravity = 0.f;          // gravity factor
+      float wind = 0.f;             // wind factor
+      bool ground = false;          // limit by ground
+      float ground_y = 0.f;         // ground Y position
+      bool on_ground_move = false;  // if true: will still move on the ground. If false: will stay
     };
     struct TRender
     {
