@@ -91,12 +91,13 @@ void TCompLightPoint::activate(int i) {
 
 	cb_light.light_color = color;
 	cb_light.light_intensity = intensity;
-	cb_light.light_pos = c->getPosition();
+	cb_light.light_pos = this->getPosition();
 	cb_light.light_radius = radius * c->getScale();
 	cb_light.light_view_proj_offset = getViewProjection() * mtx_offset;
-	cb_light.light_direction = VEC4(c->getFront().x, c->getFront().y, c->getFront().z, 1);
+	cb_light.light_direction = VEC4(this->getFront().x, this->getFront().y, this->getFront().z, 1);
 	cb_light.light_point = 1;
 	cb_light.light_angle = 90;
+	cb_light.light_face = i;
 	cb_light.updateGPU();
 
 	// If we have a ZTexture, it's the time to activate it
@@ -108,7 +109,7 @@ void TCompLightPoint::activate(int i) {
 		//cb_light.light_radius = 1.f;
 
 		assert(shadows_rt->getZTexture());
-		shadows_rt->getZTexture()->activate(TS_LIGHT_SHADOW_MAP);
+		shadows_rt->getZTexture()->activate(TS_LIGHT_SHADOW_CUBEMAP0 + i);
 
 	}
 }
@@ -131,8 +132,8 @@ void TCompLightPoint::generateShadowMap() {
 	
 
   // EDU: descomentar para renderizar las 6 caras
-	/*for (int i = 0; i < 6; i++) {
-		CTexture::setNullTexture(TS_LIGHT_SHADOW_MAP);
+	for (int i = 0; i < 6; i++) {
+		CTexture::setNullTexture(TS_LIGHT_SHADOW_CUBEMAP0 + i);
 		CTraceScoped gpu_scope(shadows_rt->getName().c_str());
 		shadows_rt->activateFace(i, this);
 		{
@@ -143,22 +144,22 @@ void TCompLightPoint::generateShadowMap() {
 		}
 		//CRenderManager::get().setEntityCamera(CHandle(this).getOwner());
 		CRenderManager::get().renderCategory("shadows");
-	}//*/
+	}//
 
   //EDU: Descomentar para renderizar una sola cara
-  CTexture::setNullTexture(TS_LIGHT_SHADOW_MAP);
-  CTraceScoped gpu_scope(shadows_rt->getName().c_str());
-  shadows_rt->activateFace(face, this);
-  {
-    PROFILE_FUNCTION("Clear&SetCommonCtes");
-    shadows_rt->clearDepthBuffer();
-    // We are going to render the scene from the light position & orientation
-    activateCamera(*this, shadows_rt->getWidth(), shadows_rt->getHeight());
-  }//*/
+  //CTexture::setNullTexture(TS_LIGHT_SHADOW_MAP);
+  //CTraceScoped gpu_scope(shadows_rt->getName().c_str());
+  //shadows_rt->activateFace(face, this);
+  //{
+  //  PROFILE_FUNCTION("Clear&SetCommonCtes");
+  //  shadows_rt->clearDepthBuffer();
+  //  // We are going to render the scene from the light position & orientation
+  //  activateCamera(*this, shadows_rt->getWidth(), shadows_rt->getHeight());
+  //}//*/
 
 
-  //CRenderManager::get().setEntityCamera(CHandle(this).getOwner());
-  CRenderManager::get().renderCategory("shadows");
+  ////CRenderManager::get().setEntityCamera(CHandle(this).getOwner());
+  //CRenderManager::get().renderCategory("shadows");
 }
 
 void TCompLightPoint::setIntensity(float value) {
