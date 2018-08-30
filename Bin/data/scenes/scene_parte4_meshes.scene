@@ -2,11 +2,11 @@
   {
     "entity":
     {
-      "name": "Arco_sala_Final"
+      "name": "Ropita_Colgada_007"
       ,
       "transform":
       {
-        "pos": "5.03966 92.797 -31.5855"
+        "pos": "5.08027 97.1779 -31.6749"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -14,37 +14,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Arco_sala_Final.mesh"
+          "mesh": "data/meshes/Ropita_Colgada_007.mesh"
           ,
           "materials":
           [
-            "data/materials/Arco_Sala_FinalGrande.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Estatua_Columna_015"
-      ,
-      "transform":
-      {
-        "pos": "12.2278 87.7723 -31.2694"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Estatua_Columna_015.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
+            "data/materials/Ropa_Colgada_Mat.material"
           ]
         }
       ]
@@ -70,7 +44,7 @@
           ,
           "materials":
           [
-            "data/materials/Gris_01_Mat.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
@@ -80,11 +54,11 @@
   {
     "entity":
     {
-      "name": "Ropita_Colgada_007"
+      "name": "Estatua_Columna_015"
       ,
       "transform":
       {
-        "pos": "5.08027 97.1779 -31.6749"
+        "pos": "12.2278 87.7723 -31.2694"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -92,11 +66,37 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Ropita_Colgada_007.mesh"
+          "mesh": "data/meshes/Estatua_Columna_015.mesh"
           ,
           "materials":
           [
-            "data/materials/Ropa_Colgada_Mat.material"
+            "data/materials/RocaGris.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Valla001"
+      ,
+      "transform":
+      {
+        "pos": "0.0860993 85.8712 -34.6347"
+        ,
+        "rotation": "0.0 0.0517399 0.0 -0.998661"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Valla001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMat.material"
           ]
         }
       ]
@@ -132,23 +132,23 @@
   {
     "entity":
     {
-      "name": "Valla001"
+      "name": "Arco_sala_Final"
       ,
       "transform":
       {
-        "pos": "0.0860993 85.8712 -34.6347"
+        "pos": "5.03966 92.797 -31.5855"
         ,
-        "rotation": "0.0 0.0517399 0.0 -0.998661"
+        "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Valla001.mesh"
+          "mesh": "data/meshes/Arco_sala_Final.mesh"
           ,
           "materials":
           [
-            "data/materials/MaderaMat.material"
+            "data/materials/Arco_Sala_FinalGrande.material"
           ]
         }
       ]
@@ -206,10 +206,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -870,7 +866,7 @@
       ,
       "transform":
       {
-        "pos": "5.77447 94.5 -27.0458"
+        "pos": "5.77448 94.5 -27.0458"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -892,6 +888,26 @@
   {
     "entity":
     {
+      "name": "Puerta_Abierta_Madera_029"
+      ,
+      "transform":
+      {
+        "pos": "23.5194 87.5373 -20.9534"
+        ,
+        "rotation": "0.0 -0.93358 0.0 0.358368"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Abierta_Madera_029.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puerta_Abierta_Madera_01.material"
+          ]
+        }
+      ]
     }
   }
   ,
@@ -918,10 +934,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -948,10 +960,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -978,10 +986,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -1008,10 +1012,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -1038,10 +1038,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -1068,10 +1064,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
 ]
