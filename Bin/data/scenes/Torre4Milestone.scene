@@ -8830,7 +8830,8 @@
         "casts_shadows" : true,
         "shadows_step" : 5.0,
         "shadows_resolution" : 1024,
-        "shadows_fmt" : "R32_TYPELESS"
+        "shadows_fmt" : "R32_TYPELESS",
+        "radius": 8.0
       }
     }
   }

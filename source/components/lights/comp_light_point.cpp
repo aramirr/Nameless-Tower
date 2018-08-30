@@ -131,7 +131,7 @@ void TCompLightPoint::generateShadowMap() {
 	
 
   // EDU: descomentar para renderizar las 6 caras
-	/*for (int i = 0; i < 6; i++) {
+	for (int i = 0; i < 6; i++) {
 		CTexture::setNullTexture(TS_LIGHT_SHADOW_MAP);
 		CTraceScoped gpu_scope(shadows_rt->getName().c_str());
 		shadows_rt->activateFace(i, this);
@@ -146,7 +146,7 @@ void TCompLightPoint::generateShadowMap() {
 	}//*/
 
   //EDU: Descomentar para renderizar una sola cara
-  CTexture::setNullTexture(TS_LIGHT_SHADOW_MAP);
+  /*CTexture::setNullTexture(TS_LIGHT_SHADOW_MAP);
   CTraceScoped gpu_scope(shadows_rt->getName().c_str());
   shadows_rt->activateFace(face, this);
   {

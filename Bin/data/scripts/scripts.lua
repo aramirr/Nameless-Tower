@@ -13,6 +13,8 @@ end
 
 function OnLevel1Start()
 	lm:set_ambient(1)
+	lm:hide_mesh("ParedTapada5")
+	lm:hide_mesh("ParedDestapada5")
 end
 
 function OnWindstrikeActivateTDWindstrike()
