@@ -144,12 +144,12 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			VEC3 player_front = c_my_transform->getFront();
 			
       //FRONT
-      VEC3 posef = player_position + player_front * 0.5f;
+      VEC3 posef = player_position + player_front * 0.3f;
 			PxVec3 originf = PxVec3(posef.x, posef.y +0.5f, posef.z);
       PxVec3 unitDirf = PxVec3(player_front.x, player_front.y, player_front.z);
       
       //BACK
-      VEC3 poseb = player_position - player_front * 0.5f;
+      VEC3 poseb = player_position - player_front * 0.3f;
       PxVec3 originb = PxVec3(poseb.x, poseb.y + 0.5f, poseb.z);
       PxVec3 unitDirb = PxVec3(-player_front.x, -player_front.y, -player_front.z);
 
