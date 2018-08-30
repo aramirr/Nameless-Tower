@@ -670,7 +670,9 @@ float4 shade(
   // att *= 1 / distance_to_light;
 
     // Spotlight attenuation
-    float shadow_factor = use_shadows ? computeShadowFactor(wPos) : 1.; // shadow factor
+    float shadow_factor;
+    if (light_point == 1) shadow_factor = use_shadows ? computeShadowFactor(wPos, light_face) : 1.;
+    else shadow_factor = use_shadows ? computeShadowFactor(wPos) : 1.; // shadow factor
 
     float4 final_color2;
 

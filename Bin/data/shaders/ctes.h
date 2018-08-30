@@ -81,33 +81,43 @@
 // Here goes the slots NOT associated to a material
 #define TS_LIGHT_PROJECTOR     11
 #define TS_LIGHT_SHADOW_MAP    12 
-#define TS_ENVIRONMENT_MAP     13
-#define TS_IRRADIANCE_MAP      14
-#define TS_NOISE_MAP           15
+#define TS_LIGHT_SHADOW_CUBEMAP0   13 
+#define TS_LIGHT_SHADOW_CUBEMAP1   14 
+#define TS_LIGHT_SHADOW_CUBEMAP2   15 
+#define TS_LIGHT_SHADOW_CUBEMAP3   16 
+#define TS_LIGHT_SHADOW_CUBEMAP4   17 
+#define TS_LIGHT_SHADOW_CUBEMAP5   18 
+//#define TS_LIGHTS_SHADOW_MAP ( TS_LIGHT_SHADOW_MAP | TS_LIGHT_SHADOW_CUBEMAP0 |\
+//                               TS_LIGHT_SHADOW_CUBEMAP1 | TS_LIGHT_SHADOW_CUBEMAP2 |\
+//                               TS_LIGHT_SHADOW_CUBEMAP3 | TS_LIGHT_SHADOW_CUBEMAP4 |\
+//															 TS_LIGHT_SHADOW_CUBEMAP5 ) 
+#define TS_ENVIRONMENT_MAP     19
+#define TS_IRRADIANCE_MAP      20
+#define TS_NOISE_MAP           21
 
-#define TS_DEFERRED_ALBEDOS           16
-#define TS_DEFERRED_NORMALS           17
-#define TS_DEFERRED_LINEAR_DEPTH      18
-#define TS_DEFERRED_ACC_LIGHTS        19
-#define TS_DEFERRED_AO                20
-#define TS_DEFERRED_SELF_ILLUM        21
-#define TS_DEFERRED_ALPHA             22
-#define TS_DEFERRED_CELL              23
+#define TS_DEFERRED_ALBEDOS           22
+#define TS_DEFERRED_NORMALS           23
+#define TS_DEFERRED_LINEAR_DEPTH      24
+#define TS_DEFERRED_ACC_LIGHTS        25
+#define TS_DEFERRED_AO                26
+#define TS_DEFERRED_SELF_ILLUM        27
+#define TS_DEFERRED_ALPHA             28
+#define TS_DEFERRED_CELL              29
 
 // LookUpTable for the color grading
-#define TS_LUT_COLOR_GRADING          24
+#define TS_LUT_COLOR_GRADING          30
 
-#define TS_MIX_BLEND_WEIGHTS          25
+#define TS_MIX_BLEND_WEIGHTS          31
 
 #define TS_FIRST_SLOT_MATERIAL_0      TS_ALBEDO
 #define TS_FIRST_SLOT_MATERIAL_1      TS_ALBEDO1
 // 17,18,19 goes for extra textures of second material
 #define TS_FIRST_SLOT_MATERIAL_2      TS_ALBEDO2
 
-#define TS_ALBEDO1 26
-#define TS_NORMAL1 27
-#define TS_ALBEDO2 28
-#define TS_NORMAL2 29
+#define TS_ALBEDO1 32
+#define TS_NORMAL1 33
+#define TS_ALBEDO2 34
+#define TS_NORMAL2 35
 
 // -------------------------------------------------
 #define RO_COMPLETE     0
@@ -193,7 +203,7 @@ CB_DEF(CCteLight, CB_LIGHT)
 	VEC4  light_direction;
 
   int light_point;
-	int dummy1;
+	int light_face;
 	int dummy2;
 	int dummy3;
 
