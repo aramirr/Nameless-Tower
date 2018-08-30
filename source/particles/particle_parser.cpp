@@ -49,6 +49,7 @@ namespace Particles
     else                              cps->emission.type = TCoreSystem::TEmission::Point;
     cps->emission.size = emission.value("size", cps->emission.size);
     cps->emission.angle = deg2rad(emission.value("angle", rad2deg(cps->emission.angle)));
+    cps->emission.random_rotation = emission.value("random_rotation", cps->emission.random_rotation);
     // movement
     const json& movement = data["movement"];
     cps->movement.velocity = movement.value("velocity", cps->movement.velocity);
@@ -57,6 +58,8 @@ namespace Particles
     cps->movement.wind = movement.value("wind", cps->movement.wind);
     cps->movement.gravity = movement.value("gravity", cps->movement.gravity);
     cps->movement.ground = movement.value("ground", cps->movement.ground);
+    cps->movement.ground_y = movement.value("ground_y", cps->movement.ground_y);
+    cps->movement.on_ground_move = movement.value("on_ground_move", cps->movement.on_ground_move);
     // render
     const json& render = data["render"];
     cps->render.initialFrame = render.value("initial_frame", cps->render.initialFrame);

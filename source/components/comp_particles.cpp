@@ -18,7 +18,7 @@ void TCompParticles::debugInMenu()
   {
     ImGui::Text("Core: %s", _core->getName().c_str());
 	if (ImGui::TreeNode("Life")) {
-		ImGui::DragFloat("Duration", &_core->life.duration, 0.1f, 0.f, 20.f);
+		ImGui::DragFloat("Duration", &_core->life.duration, 0.1f, 0.f, 100.f);
 		ImGui::DragFloat("Duration Variation", &_core->life.durationVariation, 0.1f, 0.f, 5.f);
 		ImGui::DragInt("Max Particles", &_core->life.maxParticles, 0.1f, 0, 500);
 		ImGui::DragFloat("Time Factor", &_core->life.timeFactor, 0.1f, 0.f, 2.f);
@@ -29,8 +29,10 @@ void TCompParticles::debugInMenu()
 	if (ImGui::TreeNode("Emission")) {
 		ImGui::DragFloat("Interval", &_core->emission.interval, 0.1f, 0.f, 10.f);
 		ImGui::DragInt("Count", &_core->emission.count, 0.1f, 0, 100);
-		ImGui::DragFloat("Size", &_core->emission.size, 0.1f, 0.f, 2.f);
-		ImGui::DragFloat("Angle", &_core->emission.angle, 0.1f, 0.f, 360.f);
+		ImGui::DragFloat("Size", &_core->emission.size, 0.1f, 0.f, 20.f);
+    float aux_angle = rad2deg(_core->emission.angle);
+		ImGui::DragFloat("Angle", &aux_angle, 0.1f, 0.f, 360.f);
+    _core->emission.angle = deg2rad(aux_angle);
 
 		ImGui::TreePop();
 	}
@@ -40,7 +42,8 @@ void TCompParticles::debugInMenu()
 		ImGui::DragFloat("Acceleration", &_core->movement.acceleration, 0.1f, -10.f, 10.f);
 		ImGui::DragFloat("Spin", &_core->movement.spin, 0.1f, -50.f, 50.f);
 		ImGui::DragFloat("Gravity", &_core->movement.gravity, 0.1f, 0.f, 1.f);
-		ImGui::DragFloat("Wind", &_core->movement.wind, 0.1f, 0.f, 1.f);
+    ImGui::DragFloat("Wind", &_core->movement.wind, 0.1f, 0.f, 1.f);
+    ImGui::DragFloat("Ground_y", &_core->movement.ground_y, 0.1f, 0.f, 100.f);
 
 		ImGui::TreePop();
 	}
@@ -87,5 +90,12 @@ void TCompParticles::onDestroyed(const TMsgEntityDestroyed&)
   if (_particles)
   {
     Engine.getParticles().kill(_particles, _fadeOut);
+  }
+}
+
+void TCompParticles::emit() {
+  if (_core)
+  {
+    _particles = Engine.getParticles().launchSystem(_core, CHandle(this).getOwner());
   }
 }
