@@ -38,7 +38,7 @@ void TCompParticles::debugInMenu()
 	}
 
 	if (ImGui::TreeNode("Movement")) {
-		ImGui::DragFloat("Velocity", &_core->movement.velocity, 0.1f, 0.f, 10.f);
+		ImGui::DragFloat("Velocity", &_core->movement.velocity, 0.1f, -11.f, 10.f);
 		ImGui::DragFloat("Acceleration", &_core->movement.acceleration, 0.1f, -10.f, 10.f);
 		ImGui::DragFloat("Spin", &_core->movement.spin, 0.1f, -50.f, 50.f);
 		ImGui::DragFloat("Gravity", &_core->movement.gravity, 0.1f, 0.f, 1.f);

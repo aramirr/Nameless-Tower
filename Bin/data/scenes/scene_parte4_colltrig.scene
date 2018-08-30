@@ -2,11 +2,40 @@
   {
     "entity":
     {
+      "name": "Solidos_Escena04"
+      ,
+      "transform":
+      {
+        "pos": "7.35443 92.1386 -27.4429"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Solidos_Escena04.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Paredes_Escena04"
       ,
       "transform":
       {
-        "pos": "-2.56901 103.5 -25.8385"
+        "pos": "4.72534 92.25 -29.2333"
         ,
         "rotation": "0.0 -0.258819 0.0 -0.965926"
       }
@@ -26,35 +55,6 @@
         "mesh_src": "data/meshes/Paredes_Escena04.col_mesh"
         ,
         "group": "scenario"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Solidos_Escena04"
-      ,
-      "transform":
-      {
-        "pos": "0.0159683 98.9985 -24.1248"
-        ,
-        "rotation": "0.0 -0.258819 0.0 -0.965926"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "tri_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/Solidos_Escena04.col_mesh"
       }
     }
   }

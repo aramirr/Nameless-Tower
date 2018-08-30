@@ -9,6 +9,7 @@
 #include "components/physics/controller_filter.h"
 #include "components/physics/query_filter.h"
 #include "skeleton/comp_skeleton.h"
+#include "components/comp_particles.h"
 
 DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
@@ -186,6 +187,9 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 					CEntity* e = CHandle(this).getOwner();
 					e->sendMsg(deadMsg);
 				}
+                CEntity* particles_emiter = (CEntity*)getEntityByName("humo_suelo");
+                TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+                c_particles->emit();
 				is_grounded = true;				
 				TMsgSetFSMVariable groundMsg;
 				groundMsg.variant.setName("is_grounded");

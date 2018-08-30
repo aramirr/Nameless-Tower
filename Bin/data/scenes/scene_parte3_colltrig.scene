@@ -31,54 +31,6 @@
   {
     "entity":
     {
-      "name": "TARunner"
-      ,
-      "transform":
-      {
-        "pos": "11.2207 69.2193 29.1045"
-        ,
-        "rotation": "0.0 -0.0821496 0.0 -0.99662"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TARunner.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "none"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.4863 0.489346 1.90929"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Paredes_Escena03"
       ,
       "transform":
@@ -103,6 +55,46 @@
         "mesh_src": "data/meshes/Paredes_Escena03.col_mesh"
         ,
         "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TARunner"
+      ,
+      "transform":
+      {
+        "pos": "11.2207 69.2193 29.1045"
+        ,
+        "rotation": "0.0 -0.0821496 0.0 -0.99662"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "runner_appear"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.656078 0.456476 0.66096"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
       }
     }
   }

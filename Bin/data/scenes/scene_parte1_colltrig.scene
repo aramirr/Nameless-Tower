@@ -2,6 +2,37 @@
   {
     "entity":
     {
+      "name": "PodiumCollider"
+      ,
+      "transform":
+      {
+        "pos": "-29.6353 6.45591 5.75808"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/PodiumCollider.col_mesh"
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Solidos_Escena01"
       ,
       "transform":
@@ -73,14 +104,6 @@
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/TDWindstrike.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
       ]
       ,
       "trigger":

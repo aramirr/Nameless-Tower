@@ -227,61 +227,6 @@
   {
     "entity":
     {
-      "name": "PlatZ003"
-      ,
-      "transform":
-      {
-        "pos": "31.2047 84.938 0.10335"
-        ,
-        "rotation": "0.0 0.690843 0.0 -0.723005"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/PlatZ003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Gorda_01.material"
-          ]
-        }
-      ]
-      ,
-      "ai_linear_patrol":
-      {
-        "speed": 2.0
-        ,
-        "delay": 0.25
-        ,
-        "wake": 0.0
-        ,
-        "waypoints":
-        [
-          "31.2047 84.938 0.10335"
-          ,
-          "28.8527 84.938 0.210406"
-        ]
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1.69864 0.5625 1.33116"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "PlatZ002"
       ,
       "transform":
@@ -298,7 +243,7 @@
           ,
           "materials":
           [
-            "data/materials/Pared_Gorda_01.material"
+            "data/materials/Pared_Ladrillo_01.material"
           ]
         }
       ]
@@ -353,7 +298,7 @@
           ,
           "materials":
           [
-            "data/materials/Pared_Gorda_01.material"
+            "data/materials/Pared_Ladrillo_01.material"
           ]
         }
       ]
@@ -408,7 +353,7 @@
           ,
           "materials":
           [
-            "data/materials/Pared_Gorda_01.material"
+            "data/materials/Pared_Ladrillo_01.material"
           ]
         }
       ]

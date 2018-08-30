@@ -73,19 +73,11 @@
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/TDEscaleras2.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
       ]
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "runner_appear"
         ,
         "collider_entity": "none"
         ,
@@ -133,7 +125,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "runner_appear"
         ,
         "collider_entity": "none"
         ,
@@ -162,26 +154,18 @@
       ,
       "transform":
       {
-        "pos": "30.3973 42.2263 -7.80545"
+        "pos": "30.7037 42.2263 -7.72111"
         ,
         "rotation": "0.0 -0.919786 0.0 -0.392419"
       }
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/TAPuertasPrimera.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
       ]
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "runner_appear"
         ,
         "collider_entity": "none"
         ,
@@ -194,7 +178,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "0.4863 0.489346 1.90929"
+        "halfExtent": "0.656078 0.456476 0.66096"
         ,
         "is_dynamic": false
         ,
@@ -210,26 +194,18 @@
       ,
       "transform":
       {
-        "pos": "27.6439 37.7207 14.5761"
+        "pos": "27.7154 37.7207 14.679"
         ,
         "rotation": "0.0 -0.631735 0.0 -0.775184"
       }
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/TAPuertasAbajo.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
       ]
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "runner_appear"
         ,
         "collider_entity": "none"
         ,
@@ -242,7 +218,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "0.4863 0.489346 1.90929"
+        "halfExtent": "0.656078 0.456476 0.66096"
         ,
         "is_dynamic": false
         ,
@@ -258,26 +234,18 @@
       ,
       "transform":
       {
-        "pos": "11.408 51.2197 28.6493"
+        "pos": "11.9531 51.2197 29.1764"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/TAPuertasArriba.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
       ]
       ,
       "trigger":
       {
-        "trigger_type": "none"
+        "trigger_type": "runner_appear"
         ,
         "collider_entity": "none"
         ,
@@ -290,99 +258,11 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "0.4863 0.489346 1.90929"
+        "halfExtent": "0.656078 0.456476 0.66096"
         ,
         "is_dynamic": false
         ,
         "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TPTechosDer"
-      ,
-      "transform":
-      {
-        "pos": "30.7256 33.7604 -3.4151"
-        ,
-        "rotation": "-0.473147 0.473147 0.525483 -0.525483"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "6.70732 33.7604 30.2797"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "2.28488 0.136176 1.13929"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "group": "scenario"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TPTechosIzq"
-      ,
-      "transform":
-      {
-        "pos": "3.89774 33.7604 -30.9412"
-        ,
-        "rotation": "-0.0370071 0.0370072 0.706138 -0.706138"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "6.70732 33.7604 30.2797"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "2.28488 0.136176 1.13929"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "group": "scenario"
       }
     }
   }

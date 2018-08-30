@@ -108,6 +108,9 @@ namespace FSM
 
 	void FallingOmniState::onFinish(CContext& ctx) const {
 		ctx.setVariable("is_falling", false);
+        CEntity* e = ctx.getOwner();
+        TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->change_animation(player->EAnimations::NajaJumpLand, true, 0.01, 0.1, false);
 	}
 
 }
