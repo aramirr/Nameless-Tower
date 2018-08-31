@@ -101,6 +101,7 @@
     <ClCompile Include="components\comp_grass.cpp" />
     <ClCompile Include="components\comp_emission_controller.cpp" />
     <ClCompile Include="components\comp_particles.cpp" />
+    <ClCompile Include="components\juan\comp_render_cube.cpp" />
     <ClCompile Include="components\lights\comp_light_spot.cpp" />
     <ClCompile Include="components\controllers\comp_curve.cpp" />
     <ClCompile Include="components\controllers\comp_door.cpp" />
@@ -263,6 +264,7 @@
     <ClCompile Include="render\shaders\vertex_shader.cpp" />
     <ClCompile Include="render\texture\DDSTextureLoader.cpp" />
     <ClCompile Include="render\texture\material.cpp" />
+    <ClCompile Include="render\texture\render_to_cube.cpp" />
     <ClCompile Include="render\texture\render_to_texture.cpp" />
     <ClCompile Include="render\texture\texture.cpp" />
     <ClCompile Include="resources\json_resource.cpp" />
@@ -286,6 +288,7 @@
     <ClInclude Include="components\comp_grass.h" />
     <ClInclude Include="components\comp_emission_controller.h" />
     <ClInclude Include="components\comp_particles.h" />
+    <ClInclude Include="components\juan\comp_render_cube.h" />
     <ClInclude Include="components\lights\comp_light_spot.h" />
     <ClInclude Include="components\controllers\comp_curve.h" />
     <ClInclude Include="components\controllers\comp_door.h" />
@@ -471,6 +474,7 @@
     <ClInclude Include="render\shaders\vertex_shader.h" />
     <ClInclude Include="render\texture\DDSTextureLoader.h" />
     <ClInclude Include="render\texture\material.h" />
+    <ClInclude Include="render\texture\render_to_cube.h" />
     <ClInclude Include="render\texture\render_to_texture.h" />
     <ClInclude Include="render\texture\texture.h" />
     <ClInclude Include="render\texture\texture_slots.h" />
@@ -505,6 +509,9 @@
     <ProjectReference Include="lua\LuaLib.vcxproj">
       <Project>{9ed7c695-9ec5-46c2-8b7a-6d9ac59a09c3}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="..\Bin\DPIaware.manifest" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
