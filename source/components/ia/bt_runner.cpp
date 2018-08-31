@@ -74,6 +74,7 @@ void bt_runner::debugInMenu() {
 	ImGui::Text("b_recular %s", foo(b_recular));
 	ImGui::Text("on_wall %s", foo(on_wall));
 	ImGui::Text("timer %f", debug_timer);
+  anim_debug_changed = ImGui::DragInt("ANIM", &anim_id, 0.1f, 0, 8);
 
 }
 
@@ -214,11 +215,19 @@ int bt_runner::actionAttackFloor2() {
 };
 
 int bt_runner::actionChase() {
+
+  if (anim_debug_changed) {
+    anim_debug_changed = false;
+    CEntity* e = h_entity;
+    TCompSkeleton* skeleton = e->get<TCompSkeleton>();
+    assert(skeleton);
+    skeleton->playAnimation(anim_id, false, 0.f, 0.f, true);
+  }
 	
 	//getPath();
-	if (b_chase_player)
+	/*if (b_chase_player)
 		chase_player();
-	else chase_waypoint();
+	else chase_waypoint();*/
 
 	//Cambiar a STAY y poner interrupciones que reinicien el BT
     return LEAVE;
@@ -239,11 +248,8 @@ int bt_runner::actionAppear() {
 	EngineTower.appearEntity("Runner");
 	b_appear = false;
 	b_chase = true;
-  CEntity* e = h_entity;
-  TCompSkeleton* skeleton = e->get<TCompSkeleton>();
-  assert(skeleton);
-
-  skeleton->playAnimation(0, false, 0.f, 0.f, true);
+  
+ 
 	recalculate_path();
 
     return LEAVE;

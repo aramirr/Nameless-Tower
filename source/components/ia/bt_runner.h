@@ -8,6 +8,8 @@
 
 class bt_runner:public bt
 	{
+  int anim_id;
+
 	typedef pair<float, int> Warc;
 	struct waypoint {
 		int id;
@@ -30,6 +32,7 @@ class bt_runner:public bt
 
 	bool going_right = false;
 	bool going_up = true;
+  bool anim_debug_changed = false;
 
 	std::vector<int> path;
 	std::vector<waypoint> waypoints_map;

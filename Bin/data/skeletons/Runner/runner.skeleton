@@ -2,6 +2,15 @@
 	"name":"Runner",
     "meshes": [ "Runner" ],
 	"anims" : [
-		{ "name" : "RunnerIdle"}
+		{ "name" : "RunnerIdle"},
+		{ "name" : "RunnerAtacando"},
+		{ "name" : "RunnerJumpLand"},
+		{ "name" : "RunnerJumpLoop"},
+		{ "name" : "RunnerJumpShort"},
+		{ "name" : "RunnerJumpUp"},
+		{ "name" : "RunnerOjeando"},
+		{ "name" : "RunnerRun"},
+		{ "name" : "RunnerRunClose"}
+
 	]
 }
