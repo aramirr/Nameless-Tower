@@ -2,6 +2,162 @@
   {
     "entity":
     {
+      "name": "Niebla002"
+      ,
+      "transform":
+      {
+        "pos": "0.493729 12.8788 -20.1406"
+        ,
+        "rotation": "0.707107 0.0 0.0 -0.707107"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla01"
+      ,
+      "transform":
+      {
+        "pos": "0.493729 11.2154 -23.3799"
+        ,
+        "rotation": "0.707107 0.0 0.0 -0.707107"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arbol02"
+      ,
+      "transform":
+      {
+        "pos": "8.97197 15.2359 -24.0167"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arbol02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ArbolMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arbol03"
+      ,
+      "transform":
+      {
+        "pos": "9.68712 12.5931 -31.075"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arbol03.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ArbolMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Arbol01"
+      ,
+      "transform":
+      {
+        "pos": "-8.17225 17.1607 -27.4756"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Arbol01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ArbolMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arbolesFondo"
+      ,
+      "transform":
+      {
+        "pos": "0.135055 10.9758 -21.9409"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arbolesFondo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ArbolMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "RocaTipoC009"
       ,
       "transform":
@@ -1242,7 +1398,7 @@
           ,
           "materials":
           [
-            "data/materials/Caldero_01.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
@@ -1294,7 +1450,7 @@
           ,
           "materials":
           [
-            "data/materials/Caldero_01.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
@@ -1580,7 +1736,7 @@
           ,
           "materials":
           [
-            "data/materials/Caldero_01.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
@@ -2246,37 +2402,11 @@
   {
     "entity":
     {
-      "name": "Arbolito_004"
-      ,
-      "transform":
-      {
-        "pos": "8.97197 15.2359 -24.0167"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Arbolito_004.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "hojas005"
       ,
       "transform":
       {
-        "pos": "-9.13099 16.3616 -33.8792"
+        "pos": "-6.99645 16.3616 -30.1146"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -2289,32 +2419,6 @@
           "materials":
           [
             "data/materials/HojaMat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Arbolito_003"
-      ,
-      "transform":
-      {
-        "pos": "-10.3068 17.1607 -31.2403"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Arbolito_003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMat.material"
           ]
         }
       ]
@@ -2350,32 +2454,6 @@
   {
     "entity":
     {
-      "name": "arbol003"
-      ,
-      "transform":
-      {
-        "pos": "1.04077 12.1925 -23.0094"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/arbol003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "hojas003"
       ,
       "transform":
@@ -2402,32 +2480,6 @@
   {
     "entity":
     {
-      "name": "arbol002"
-      ,
-      "transform":
-      {
-        "pos": "6.08844 10.2164 -22.7456"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/arbol002.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "hojas002"
       ,
       "transform":
@@ -2445,32 +2497,6 @@
           "materials":
           [
             "data/materials/HojaMat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "arbol001"
-      ,
-      "transform":
-      {
-        "pos": "-5.16235 11.5594 -19.9362"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/arbol001.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMat.material"
           ]
         }
       ]
@@ -2731,32 +2757,6 @@
           "materials":
           [
             "data/materials/Pared_Sala1_Cen.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Arbolito_003"
-      ,
-      "transform":
-      {
-        "pos": "9.68712 12.5931 -31.075"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Arbolito_003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMat.material"
           ]
         }
       ]
