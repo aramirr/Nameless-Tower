@@ -237,8 +237,10 @@ namespace Particles
         CEntity* parent = (CEntity *)getEntityByName(_core->parent_name);
         TCompTransform* parent_transform = parent->get<TCompTransform>();
 
-        VEC3 delta_pos_rotated = VEC3::Transform(pos, parent_transform->getRotation());
-        pos = delta_pos_rotated;
+        CTransform new_pos;
+        new_pos.setPosition(pos);
+        CTransform t = parent_transform->combineWith(new_pos);
+        pos = t.getPosition();
       }
 
       pos.Normalize();

@@ -10,7 +10,7 @@ namespace FSM
 		  
         CEntity* e = ctx.getOwner();
         TCompPlayerController* player = e->get<TCompPlayerController>();
-        player->clear_animations(0.5f);
+        player->clear_animations(0.005f);
 		EngineSound.res = _sound->start();
 	}
 

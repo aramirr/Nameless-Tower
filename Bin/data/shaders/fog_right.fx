@@ -72,6 +72,7 @@ float4 PS_FogRight(
 	if (iTex1.x > 0.85)
 		final_color.w = final_color.w * ((1-iTex1.x) /0.15);
 		
+    final_color.w *= 0.3;
 		
     return final_color;
  

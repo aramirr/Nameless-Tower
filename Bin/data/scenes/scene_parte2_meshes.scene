@@ -2,6 +2,32 @@
   {
     "entity":
     {
+      "name": "Relieves"
+      ,
+      "transform":
+      {
+        "pos": "2.87993 49.8054 27.3971"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Relieves.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Relieve_01.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "RocaTipoD005"
       ,
       "transform":
@@ -1441,58 +1467,6 @@
           "materials":
           [
             "data/materials/Puerta_Abierta_Madera_01.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Relieve_03"
-      ,
-      "transform":
-      {
-        "pos": "2.88022 56.3609 27.397"
-        ,
-        "rotation": "0.0 -0.978148 0.0 -0.207912"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Relieve_03.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Relieve_01.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Relieve_02"
-      ,
-      "transform":
-      {
-        "pos": "2.87965 43.2499 27.3971"
-        ,
-        "rotation": "0.0 -0.978148 0.0 -0.207912"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Relieve_02.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Relieve_01.material"
           ]
         }
       ]
