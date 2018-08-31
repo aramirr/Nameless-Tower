@@ -1,16 +1,16 @@
 {
   "life" : {
-      "duration" : 0.5,
+      "duration" : 5,
       "duration_variation" : 0.1,
       "max_particles" : 20,
       "time_factor" : 1.0
   },
   "emission" : {
       "type" : "point",
-      "angle" : 80.0,
       "interval" : 2,
       "count" : 9,
-      "cyclic" : false
+      "cyclic" : true,
+      "direction": "1 0 0"
   },
   "movement" : {
       "velocity" : 0.3,
@@ -34,12 +34,12 @@
     ]
   },
   "color" : {
-    "opacity" : 0.5,
+    "opacity" : 1,
     "colors" : [
-      [0.0, "0.45 0.45 0.45 0"],
-      [0.3, "0.45 0.45 0.45 1"],
-      [0.7, "0.45 0.45 0.45 1"],
-      [1.0, "0.45 0.45 0.45 0"]
+      [0.0, "1 0 0 0"],
+      [0.3, "1 0 0 1"],
+      [0.7, "1 0 0 1"],
+      [1.0, "1 0 0 0"]
     ] 
   }
 }

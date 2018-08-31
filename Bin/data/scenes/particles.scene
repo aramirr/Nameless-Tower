@@ -1,6 +1,33 @@
 [	
 	{
 		"entity": {
+			"name": "humo_dash",
+			"transform": {},
+			"hierarchy": {
+				"angle" : 0,
+				"pos": "0 0.5 0",
+				"parent" : "The Player"
+			},
+			"particles" : {
+				"core" : "data/particles/humo_dash.particles",
+				"parent": "The Player"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "cannon_left",
+			"transform": {},
+			"hierarchy": {
+				"axis": "0 1 0", 
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "humo_dash"
+			}
+		}
+	},
+	{
+		"entity": {
 			"name": "humo_suelo",
 			"transform": {},
 			"hierarchy": {

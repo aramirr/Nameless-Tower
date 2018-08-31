@@ -26,6 +26,7 @@ namespace Particles
       float size = 0.f;             // emissor size
       float angle = 0.f;            // emission angle
       bool random_rotation = false; // if true: particles appear in a random position
+      VEC3 direction = VEC3::Zero;
     };
     struct TMovement
     {
@@ -64,6 +65,8 @@ namespace Particles
     TRender       render;
     TSize         size;
     TColor        color;
+
+    std::string parent_name = "";
   };
 
   using TParticlesHandle = int;

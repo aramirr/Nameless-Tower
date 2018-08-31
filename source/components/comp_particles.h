@@ -9,6 +9,7 @@ struct TCompParticles : public TCompBase
   Particles::TParticlesHandle   _particles = 0;
   bool                          _launched = false;
   float                         _fadeOut = 0.f;
+  std::string parent_name;
 
   TCompParticles() = default;
   static void registerMsgs();
