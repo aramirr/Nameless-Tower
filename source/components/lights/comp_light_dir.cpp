@@ -95,7 +95,7 @@ void TCompLightDir::activate() {
   cb_light.updateGPU();
 
   // If we have a ZTexture, it's the time to activate it
-  if (shadows_rt) {
+  if (shadows_rt && intensity != 0) {
 
     cb_light.light_shadows_inverse_resolution = 1.0f / (float)shadows_rt->getWidth();
     cb_light.light_shadows_step = shadows_step;
@@ -112,7 +112,7 @@ void TCompLightDir::activate() {
 
 // ------------------------------------------------------
 void TCompLightDir::generateShadowMap() {
-  if (!shadows_rt || !shadows_enabled )
+  if (!shadows_rt || !shadows_enabled || intensity == 0)
     return;
 
   // In this slot is where we activate the render targets that we are going

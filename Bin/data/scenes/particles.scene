@@ -1,0 +1,189 @@
+[	
+	{
+		"entity": {
+			"name": "humo_suelo",
+			"transform": {},
+			"hierarchy": {
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "The Player"
+			},
+			"particles" : {
+				"core" : "data/particles/humo_salto.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "cannon_left",
+			"transform": {},
+			"hierarchy": {
+				"axis": "0 1 0", 
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "humo_suelo"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "particulas_inicio",
+			"transform": {
+				"pos": "-0.703 19.175 -26.465"
+			},
+			"particles" : {
+				"core" : "data/particles/hojitas.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "cannon_left",
+			"transform": {},
+			"hierarchy": {
+				"axis": "0 1 0", 
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "particulas_inicio"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "particulas_puente_roto",
+			"transform": {
+				"pos": "-9.103 40.925 -25.915"
+			},
+			"particles" : {
+				"core" : "data/particles/hojitas.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "cannon_left1",
+			"transform": {},
+			"hierarchy": {
+				"axis": "0 1 0", 
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "particulas_puente_roto"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "particulas_estatua_gigante",
+			"transform": {
+				"pos": "-30.414 30.545 5.318"
+			},
+			"particles" : {
+				"core" : "data/particles/hojitas.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "cannon_left1",
+			"transform": {},
+			"hierarchy": {
+				"axis": "0 1 0", 
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "particulas_estatua_gigante"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "particulas_primer_activable",
+			"transform": {
+				"pos": "26.732 53.495 3.178"
+			},
+			"particles" : {
+				"core" : "data/particles/hojitas.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "cannon_left1",
+			"transform": {},
+			"hierarchy": {
+				"axis": "0 1 0", 
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "particulas_primer_activable"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "particulas_segundo_activable",
+			"transform": {
+				"pos": "17.239 52.357 19.702"
+			},
+			"particles" : {
+				"core" : "data/particles/hojitas.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "cannon_left1",
+			"transform": {},
+			"hierarchy": {
+				"axis": "0 1 0", 
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "particulas_segundo_activable"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "particulas_base_cascada",
+			"transform": {
+				"pos": "25.714 81.349 -14.055"
+			},
+			"particles" : {
+				"core" : "data/particles/hojitas.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "cannon_left1",
+			"transform": {},
+			"hierarchy": {
+				"axis": "0 1 0", 
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "particulas_base_cascada"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "particulas_top_cascada",
+			"transform": {
+				"pos": "25.714 101.967 -12.289"
+			},
+			"particles" : {
+				"core" : "data/particles/hojitas.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "cannon_left1",
+			"transform": {},
+			"hierarchy": {
+				"axis": "0 1 0", 
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "particulas_top_cascada"
+			}
+		}
+	}
+]

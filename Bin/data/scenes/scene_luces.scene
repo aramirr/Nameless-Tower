@@ -129,118 +129,6 @@
   {
     "entity":
     {
-      "name": "Luces_Fuego_011"
-      ,
-      "transform":
-      {
-        "pos": "11.2303 95.5685 -28.9171"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "light_point":
-      {
-        "intensity": 10.0
-        ,
-        "color": "1.0 0.0509804 0.0509804 1.0"
-        ,
-        "radius": 3.0
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Luces_Fuego_010"
-      ,
-      "transform":
-      {
-        "pos": "-1.67132 95.5603 -30.8728"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "light_point":
-      {
-        "intensity": 10.0
-        ,
-        "color": "1.0 0.0509804 0.0509804 1.0"
-        ,
-        "radius": 3.0
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "MuerteFuego"
-      ,
-      "transform":
-      {
-        "pos": "4.6723 87.1342 -30.3899"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.734946 0.373058 0.710097"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Luces_Fuego_08"
-      ,
-      "transform":
-      {
-        "pos": "4.66681 86.516 -30.3653"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "light_point":
-      {
-        "intensity": 10.0
-        ,
-        "color": "1.0 0.0509804 0.0509804 1.0"
-        ,
-        "radius": 3.0
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Luces_Fuego_07"
       ,
       "transform":
@@ -390,17 +278,11 @@
       ,
       "light_point":
       {
-        "intensity": 11,
-        "color" :  "0.84 0.78 0.56 1",
-        "z_near" : 2,
-        "z_far" : 160,
-        "fov" : 37.300,
-        "casts_shadows" : true,
-        "shadows_step" : 5.0,
-        "shadows_resolution" : 1024,
-        "shadows_fmt" : "R32_TYPELESS",
-        "is_orthographic": true,
-        "ortho_width": 45.0
+        "intensity": 10.0
+        ,
+        "color": "1.0 0.0509804 0.0509804 1.0"
+        ,
+        "radius": 3.0
       }
     }
   }

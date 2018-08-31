@@ -2,11 +2,40 @@
   {
     "entity":
     {
+      "name": "Solidos_Escena04"
+      ,
+      "transform":
+      {
+        "pos": "7.35443 92.1386 -27.4429"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Solidos_Escena04.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Paredes_Escena04"
       ,
       "transform":
       {
-        "pos": "-2.56901 103.5 -25.8385"
+        "pos": "4.72534 92.25 -29.2333"
         ,
         "rotation": "0.0 -0.258819 0.0 -0.965926"
       }
@@ -26,429 +55,6 @@
         "mesh_src": "data/meshes/Paredes_Escena04.col_mesh"
         ,
         "group": "scenario"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TFAntorchasAbajo"
-      ,
-      "transform":
-      {
-        "pos": "4.65117 87.8239 -30.3962"
-        ,
-        "rotation": "0.0 -0.669131 0.0 -0.743145"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TFAntorchasAbajo.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "none"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.914529 0.562595 1.17726"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TFAntorchasArribaDer"
-      ,
-      "transform":
-      {
-        "pos": "-1.62772 96.4394 -31.2419"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TFAntorchasArribaDer.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "none"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.914529 0.562595 1.17726"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TFAntorchasArribaIzq"
-      ,
-      "transform":
-      {
-        "pos": "11.2308 96.4394 -29.1036"
-        ,
-        "rotation": "0.0 0.156435 0.0 -0.987688"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TFAntorchasArribaIzq.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "none"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.914529 0.562595 1.17726"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TTSalidaArriba"
-      ,
-      "transform":
-      {
-        "pos": "-14.3835 116.878 -26.7452"
-        ,
-        "rotation": "-0.258819 2.61203e-07 -0.965926 -1.26556e-07"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TTSalidaArriba.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "-14.3835 116.878 -26.7452"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "5.98039 0.720924 6.22661"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TTSalidaAbajo"
-      ,
-      "transform":
-      {
-        "pos": "-9.89438 87.7776 -29.6502"
-        ,
-        "rotation": "0.147016 -0.147016 0.691655 -0.691655"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TTSalidaAbajo.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "-29.7982 24.7638 -9.28279"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "2.28488 0.136176 1.13929"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TSAntorchasDer"
-      ,
-      "transform":
-      {
-        "pos": "-9.38346 87.7776 -29.8162"
-        ,
-        "rotation": "0.110616 -0.110616 0.698401 -0.698401"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TSAntorchasDer.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "-29.7982 24.7638 -9.28279"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "2.28488 0.136176 1.13929"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TSAntorchasIzq"
-      ,
-      "transform":
-      {
-        "pos": "23.0236 87.7776 -21.0606"
-        ,
-        "rotation": "-0.287606 0.287606 0.645974 -0.645974"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TSAntorchasIzq.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "-29.7982 24.7638 -9.28279"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "2.28488 0.136176 1.13929"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TSCascadaArriba"
-      ,
-      "transform":
-      {
-        "pos": "23.2444 87.7776 -20.8154"
-        ,
-        "rotation": "-0.287606 0.287606 0.645974 -0.645974"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TSCascadaArriba.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TorreMat.material"
-          ]
-        }
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "checkpoint"
-        ,
-        "appearing_position": "-29.7982 24.7638 -9.28279"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "2.28488 0.136176 1.13929"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Solidos_Escena04"
-      ,
-      "transform":
-      {
-        "pos": "0.0159683 98.9985 -24.1248"
-        ,
-        "rotation": "0.0 -0.258819 0.0 -0.965926"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "tri_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/Solidos_Escena04.col_mesh"
       }
     }
   }

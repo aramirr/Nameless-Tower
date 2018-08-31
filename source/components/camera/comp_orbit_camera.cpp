@@ -40,8 +40,8 @@ void TCompOrbitCamera::debugInMenu() {
   ImGui::DragFloat("Altura", &height, 0.1f, -20.f, 20.f);
   ImGui::DragFloat("Fov", &fov_deg, 0.1f, -1000.f, 1000.f);
   ImGui::DragFloat("Look_X", &X, 0.1f, -100.f, 100.f);
-  ImGui::DragFloat("Look_Y", &Z, 0.1f, -100.f, 100.f);
-  ImGui::DragFloat("Look_Z", &Y, 0.1f, -100.f, 100.f);
+  ImGui::DragFloat("Look_Y", &Y, 0.1f, -100.f, 100.f);
+  ImGui::DragFloat("Look_Z", &Z, 0.1f, -100.f, 100.f);
   ImGui::DragFloat("Radio", &radio, 0.1f, -100.f, 100.f);
 
 }
@@ -57,12 +57,11 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
   distance = j.value("distance", 25.5f);
   height = j.value("height", 2.7f);
   radio = j.value("radio", 20.f);
+  apertura = j.value("apertura", -278.f);
 
-  X = 0;
-  Y = 0;
-  Z = 0;
-
-  apertura = -278.f;
+  X = j.value("x", 0);
+  Y = j.value("y", 0);
+  Z = j.value("z", 0);
 
   TCompTransform* p = player->get<TCompTransform>();
   assert(p);
@@ -91,7 +90,6 @@ void TCompOrbitCamera::update(float dt) {
 
   VEC3 newPos;
 
-
   bool b_caida = false;
 
   TCompTransform* p = player->get<TCompTransform>();
@@ -101,36 +99,39 @@ void TCompOrbitCamera::update(float dt) {
   float dY = abs(oldPos.y - pPos.y);
 
   if (currentPlayerY < pPos.y - 0.1f) {
+	  //b_caida = false;
     if (dY > height + height + 1.5f) {
       currentPlayerY += 1.5f;
       speedCaida = 40.f;
     }
     else if (dY > height + (height / 2) + 1.5f) {
-      currentPlayerY += 1.125f;
-      speedCaida = 30.f;
+      currentPlayerY += 1.5f;
+      speedCaida = 40.f;
     }
     else if (dY > height + (height / 3) + 1.5f) {
-      currentPlayerY += 0.75f;
-      speedCaida = 10.f;
+      currentPlayerY += 1.5f;
+      speedCaida = 40.f;
     }
     else if (dY > height + (height / 4) + 1.5f) {
-      currentPlayerY += 0.375f;
-      speedCaida = 10.f;
+      currentPlayerY += 1.5f;
+      speedCaida = 40.f;
     }
     else {
-      currentPlayerY += 0.05f;
+      currentPlayerY = pPos.y;
       speedCaida = 0.f;
     }
   }
   else if (currentPlayerY > pPos.y + 0.1f) {
-    b_caida = true;
-    currentPlayerY = pPos.y;
-
     if (dY > height + height + 1.5f) speedCaida = 40.f;
     else if (dY > height + (height / 2) + 1.5f) speedCaida = 30.f;
     else if (dY > height + (height / 3) + 1.5f) speedCaida = 20.f;
     else if (dY > height + (height / 4) + 1.5f) speedCaida = 10.f;
     else speedCaida = 0.f;
+
+	b_caida = true;
+	currentPlayerY = pPos.y;
+
+
   }
 
   VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
@@ -167,13 +168,15 @@ void TCompOrbitCamera::update(float dt) {
 
   if (!carga) {
     actualPos = VEC3::Lerp(oldPos, newPos, dt *(10 + speedCaida));
-    if (!b_caida) {
-      pesoOldPosition = 0.75f;
-    }
-    else {
+    if (b_caida == true) {
       pesoOldPosition = 0.1f;
     }
-    newPos = pesoOldPosition * oldPos + (1 - pesoOldPosition) * actualPos;
+    else {
+      pesoOldPosition = 0.75f;
+    }
+	float pesoNewPosition = (1 - pesoOldPosition);
+    //newPos = pesoOldPosition * oldPos + (1 - pesoOldPosition) * actualPos;
+	newPos = VEC3(0.75f * oldPos.x, pesoOldPosition * oldPos.y, 0.75f * oldPos.z) + VEC3(0.25f * actualPos.x, pesoNewPosition * actualPos.y, 0.25f * actualPos.z);
   }
   else carga = false;
 

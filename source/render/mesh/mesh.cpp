@@ -16,7 +16,7 @@ public:
   IResource* create(const std::string& name) const override {
     if (name.find(".instanced_mesh") != std::string::npos )
       return loadMeshInstanced(name);
-    dbg("Creating mesh %s\n", name.c_str());
+   // dbg("Creating mesh %s\n", name.c_str());
     return loadMesh(name.c_str());
   }
 };

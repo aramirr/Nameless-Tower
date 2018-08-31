@@ -68,7 +68,7 @@
 			},
 			"camera" : {
 				"fov" : 80 
-			}			
+			}		
 		}
 	},
 	{
@@ -138,6 +138,30 @@
 				"time": 0,
 				"blend_time": 2
 			}
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_idle",
+			"transform": {
+				"pos": "-14 16 12",
+				"lookat": "-1 0 -1"
+			},
+			"orbitCamera" : {
+				"izq" : true,
+				"distance": 29.300,
+				"height": 1.200,
+				"apertura": -263.700
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"render_ao" : {
+		        "enabled" :  true,
+		        "radius": 0.6,
+		        "amount_spreading": 0.95
+		      },
+		    "culling":true
 		}
 	}
 ]

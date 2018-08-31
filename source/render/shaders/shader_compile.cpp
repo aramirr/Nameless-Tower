@@ -44,12 +44,7 @@ HRESULT CompileShaderFromFile(
   );
 
   // Always dump output of the compiler
-  if (pErrorBlob != NULL)
-    dbg("Compiling shader %s in file %s\n%s\n",
-      szEntryPoint, szFileName,
-      (char*)pErrorBlob->GetBufferPointer()
-    );
-
+ 
   if (FAILED(hr))
   {
     // In case the file does not exists, we get this special error code

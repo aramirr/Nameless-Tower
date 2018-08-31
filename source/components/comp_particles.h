@@ -5,7 +5,7 @@
 
 struct TCompParticles : public TCompBase
 {
-  const Particles::TCoreSystem* _core = nullptr;
+  Particles::TCoreSystem* _core = nullptr;
   Particles::TParticlesHandle   _particles = 0;
   bool                          _launched = false;
   float                         _fadeOut = 0.f;
@@ -16,6 +16,7 @@ struct TCompParticles : public TCompBase
   void load(const json& j, TEntityParseContext& ctx);
   void onCreated(const TMsgEntityCreated&);
   void onDestroyed(const TMsgEntityDestroyed&);
-  void renderInMenu();
+  void emit();
+  void debugInMenu();
 };
 

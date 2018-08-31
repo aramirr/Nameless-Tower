@@ -60,7 +60,7 @@ bool CRender::createDevice(int new_width, int new_height) {
   if (FAILED(hr))
     return false;
 
-  dbg("Render.Device created at %dx%d\n", width, height);
+  //dbg("Render.Device created at %dx%d\n", width, height);
 
   // Crear un ZBuffer de la resolucion de mi backbuffer
   D3D11_TEXTURE2D_DESC desc;

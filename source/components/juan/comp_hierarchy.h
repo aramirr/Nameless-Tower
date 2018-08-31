@@ -14,6 +14,8 @@ struct TCompHierarchy : public CTransform, public TCompBase {
   CHandle     h_my_transform;
   std::string parent_name;          // entity name as search in the ctx
 
+  bool add_rand_number = false;
+
   void setParentEntity(CHandle new_h_parent);
 
   void onGroupCreated(const TMsgEntitiesGroupCreated& msg);

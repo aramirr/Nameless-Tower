@@ -91,5 +91,111 @@
         "ortho_width": 42
       }    
     }
+  },
+  {
+    "entity":
+    {
+      "name": "LightInteriorS4L",
+      "transform": {
+        "pos": "-31.687 32.35 9.959",
+        "lookat": "-28.888 19.95 -8.988"
+      },
+      "light_dir": {
+        "intensity": 11,
+        "color" :  "0.84 0.78 0.56 1",
+        "z_near" : 5,
+        "z_far" : 20,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 4,
+        "ortho_height": 5
+      }    
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightInteriorS4",
+      "transform": {
+        "pos": "-36.587 24.8 -5.441",
+        "lookat": "0 25.250 0"
+      },
+      "light_dir": {
+        "intensity": 1,
+        "color" :  "0.18 0.23 0.43 1",
+        "z_near" : 5,
+        "z_far" : 20,
+        "fov" : 37.300,
+        "casts_shadows" : false,
+        "is_orthographic": true,
+        "ortho_width": 10,
+        "ortho_height": 5
+      }    
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightInteriorS5",
+      "transform": {
+        "pos": "-32.562 25 -22.816",
+        "lookat": "0 33.825 0"
+      },
+      "light_dir": {
+        "intensity": 1,
+        "color" :  "0.18 0.23 0.43 1",
+        "z_near" : 7,
+        "z_far" : 60,
+        "fov" : 37.300,
+        "casts_shadows" : false,
+        "is_orthographic": true,
+        "ortho_width": 30,
+        "ortho_height": 8
+      }    
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_loro",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0"
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/test_curve.curve",
+        "speed" : 0.05,
+        "loop": true,
+        "automove": true,
+        "mode": "static"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "loro",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_loro"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/sprites_test.material"
+          ]
+        }
+      ]
+    }
   }
 ]

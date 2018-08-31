@@ -55,3 +55,11 @@ CTexture* TCompRenderBlurRadial::apply( CTexture* in_texture) {
 
   return rt_output;
 }
+
+void TCompRenderBlurRadial::setActive(bool active) {
+	enabled = active;
+}
+
+void TCompRenderBlurRadial::setCenter(VEC2 new_center) {
+	normalized_center = new_center;
+}

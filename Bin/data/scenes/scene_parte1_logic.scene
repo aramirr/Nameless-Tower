@@ -70,7 +70,7 @@
           ,
           "materials":
           [
-            "data/materials/TorreMat.material"
+            "data/materials/SierraLinealMat.material"
           ]
         }
       ]
@@ -182,10 +182,6 @@
         }
       ]
       ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-      ,
       "collider":
       {
         "shape": "convex_mesh"
@@ -195,6 +191,14 @@
         "is_trigger": false
         ,
         "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+      ,
+      "door":
+      {
       }
     }
   }
@@ -218,7 +222,7 @@
           ,
           "materials":
           [
-            "data/materials/TorreMat.material"
+            "data/materials/SierraLinealMat.material"
           ]
         }
       ]
@@ -325,7 +329,7 @@
           ,
           "materials":
           [
-            "data/materials/TorreMat.material"
+            "data/materials/SierraLinealMat.material"
           ]
         }
       ]
@@ -475,33 +479,7 @@
           ,
           "materials":
           [
-            "data/materials/Gris_01_Mat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Pinchos_001"
-      ,
-      "transform":
-      {
-        "pos": "-28.3559 7.5237 10.3979"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Pinchos_001.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pinchos_salaEstatuaFEa_00.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
@@ -887,61 +865,6 @@
         ,
         "is_trigger": true
       }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Pinchos008"
-      ,
-      "transform":
-      {
-        "pos": "-29.2152 7.42794 11.128"
-        ,
-        "rotation": "0.0 -0.809017 0.0 -0.587785"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/PinchosA.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/PinchosM.material"
-            ,
-            "data/materials/PinchosSangreM.material"
-          ]
-        }
-      ]
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": true
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.2417 0.804776 1.58385"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,

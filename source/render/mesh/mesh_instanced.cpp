@@ -2,7 +2,7 @@
 #include "mesh_instanced.h"
 
 CRenderMesh* loadMeshInstanced(const std::string& name) {
-  dbg("Creating instanced mesh %s\n", name.c_str());
+ // dbg("Creating instanced mesh %s\n", name.c_str());
   auto mesh = new CRenderMeshInstanced();
   json j = loadJson(name);
   mesh->configure(j);
@@ -36,7 +36,7 @@ void CRenderMeshInstanced::reserveGPUInstances(size_t new_max_instances) {
     if (isValid())
       destroy();
 
-    dbg("Reallocating %ld GPU instances for mesh %s\n", num_instances_allocated_in_gpu, getName().c_str());
+   // dbg("Reallocating %ld GPU instances for mesh %s\n", num_instances_allocated_in_gpu, getName().c_str());
 
     // Create the VB as a dynamic buffer to hold a maximum of N instances
     bool is_ok = create(

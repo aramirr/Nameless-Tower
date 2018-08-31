@@ -9,6 +9,7 @@
 #include "components/physics/controller_filter.h"
 #include "components/physics/query_filter.h"
 #include "skeleton/comp_skeleton.h"
+#include "components/comp_particles.h"
 
 DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
@@ -22,7 +23,8 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	gravity = j.value("gravity", 75.f);	
 	center = VEC3(0.f, 0.f, 0.f);
 	tower_radius = j.value("tower_radius", 31.5f);
-	jumping_death_height = j.value("jumping_death_height", 9.f);
+    jumping_death_height = j.value("jumping_death_height", 9.f);
+    idle_max_time = j.value("idle_max_time", 10.f);
 	is_grounded = true;
 	looking_left = true;
 
@@ -143,12 +145,12 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			VEC3 player_front = c_my_transform->getFront();
 			
       //FRONT
-      VEC3 posef = player_position + player_front * 0.5f;
+      VEC3 posef = player_position + player_front * 0.3f;
 			PxVec3 originf = PxVec3(posef.x, posef.y +0.5f, posef.z);
       PxVec3 unitDirf = PxVec3(player_front.x, player_front.y, player_front.z);
       
       //BACK
-      VEC3 poseb = player_position - player_front * 0.5f;
+      VEC3 poseb = player_position - player_front * 0.3f;
       PxVec3 originb = PxVec3(poseb.x, poseb.y + 0.5f, poseb.z);
       PxVec3 unitDirb = PxVec3(-player_front.x, -player_front.y, -player_front.z);
 
@@ -171,6 +173,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
         CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
         rayWall = false;
         TMsgActiveCamera msg;
+        msg.blend_time = 2.f;
         e->sendMsg(msg);
       }
 
@@ -184,6 +187,9 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 					CEntity* e = CHandle(this).getOwner();
 					e->sendMsg(deadMsg);
 				}
+                CEntity* particles_emiter = (CEntity*)getEntityByName("humo_suelo");
+                TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+                c_particles->emit();
 				is_grounded = true;				
 				TMsgSetFSMVariable groundMsg;
 				groundMsg.variant.setName("is_grounded");

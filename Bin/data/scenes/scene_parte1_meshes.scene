@@ -2,11 +2,975 @@
   {
     "entity":
     {
+      "name": "RocaTipoC009"
+      ,
+      "transform":
+      {
+        "pos": "-20.1611 22.2319 -17.9053"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoC009.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoC008"
+      ,
+      "transform":
+      {
+        "pos": "-17.0549 23.5693 -20.8213"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoC008.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoC005"
+      ,
+      "transform":
+      {
+        "pos": "-20.8027 22.9475 -14.9603"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoC005.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoC004"
+      ,
+      "transform":
+      {
+        "pos": "-5.15259 6.5076 -23.0148"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoC004.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoD003"
+      ,
+      "transform":
+      {
+        "pos": "-21.8239 22.8083 -15.9649"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoD003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoC003"
+      ,
+      "transform":
+      {
+        "pos": "-3.89176 6.99535 -22.4981"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoC003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoC002"
+      ,
+      "transform":
+      {
+        "pos": "1.95962 4.71265 -29.2852"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoC002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoB002"
+      ,
+      "transform":
+      {
+        "pos": "-3.3428 5.28155 -27.7586"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoB002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoA003"
+      ,
+      "transform":
+      {
+        "pos": "-18.8561 23.5693 -17.4793"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoA003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoA002"
+      ,
+      "transform":
+      {
+        "pos": "-21.6879 22.0374 -17.1544"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoA002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoD001"
+      ,
+      "transform":
+      {
+        "pos": "4.80087 4.7935 -29.3552"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoD001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoC001"
+      ,
+      "transform":
+      {
+        "pos": "3.79959 5.00545 -29.608"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoC001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoB001"
+      ,
+      "transform":
+      {
+        "pos": "-8.59222 6.62537 -20.3702"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoB001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoA001"
+      ,
+      "transform":
+      {
+        "pos": "-7.60057 7.0984 -19.303"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoA001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoD"
+      ,
+      "transform":
+      {
+        "pos": "10.4354 4.4745 -28.2743"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoD.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoC"
+      ,
+      "transform":
+      {
+        "pos": "11.4024 4.54705 -29.5171"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoC.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoB"
+      ,
+      "transform":
+      {
+        "pos": "11.2034 6.5076 -26.8112"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoA"
+      ,
+      "transform":
+      {
+        "pos": "4.74098 5.46493 -28.2421"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PinchosDesague003"
+      ,
+      "transform":
+      {
+        "pos": "-30.663 3.88301 -8.22896"
+        ,
+        "rotation": "0.0 -0.271197 0.0 -0.962524"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosDesague003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocaVerde.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Dragones"
+      ,
+      "transform":
+      {
+        "pos": "-5.24385 31.3979 -23.9549"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Dragones.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Dragones_Color.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Relieve_Marco_01"
+      ,
+      "transform":
+      {
+        "pos": "-5.20031 31.4999 -23.1893"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Relieve_Marco_01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MArco_Relieve.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Relieve_Grande_01"
+      ,
+      "transform":
+      {
+        "pos": "-5.21554 31.2515 -23.9021"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Relieve_Grande_01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Relieve_02.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Estatua"
+      ,
+      "transform":
+      {
+        "pos": "-26.2589 17.6646 5.37249"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Estatua.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EstatuaGrandeMate.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "techo_bajo_piedra"
+      ,
+      "transform":
+      {
+        "pos": "-14.2378 6.78125 -27.7144"
+        ,
+        "rotation": "0.0 -0.999929 0.0 -0.0118891"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/techo_bajo_piedra.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TechoBajoMate.material"
+            ,
+            "data/materials/ColumnaTechoMater.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "puerta piedra001"
+      ,
+      "transform":
+      {
+        "pos": "-28.5859 6.76287 -12.4452"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/puerta piedra001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaAbiertaRockMate.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "puerta piedra"
+      ,
+      "transform":
+      {
+        "pos": "-31.1091 6.78386 -3.1777"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/puerta piedra.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaAbiertaRockMate.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "roto"
+      ,
+      "transform":
+      {
+        "pos": "-29.9288 5.27992 11.8636"
+        ,
+        "rotation": "-0.0120149 -0.11495 0.40769 -0.905776"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/roto.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/rotoMate.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BaseLow"
+      ,
+      "transform":
+      {
+        "pos": "-27.3844 6.3889 5.72231"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BaseLow.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/BaseMate.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Almena_low001"
+      ,
+      "transform":
+      {
+        "pos": "-13.0221 4.73513 -9.93237"
+        ,
+        "rotation": "0.0 0.17839 0.0 -0.98396"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Almena_low001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Almena_01.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Rio_Espuma"
+      ,
+      "transform":
+      {
+        "pos": "-22.2449 22.1151 -16.3626"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Rio_Espuma.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaAgua.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Rio_Caustica"
+      ,
+      "transform":
+      {
+        "pos": "-22.2449 22.1126 -16.3626"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Rio_Caustica.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CascadaCaustica.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Object055"
+      ,
+      "transform":
+      {
+        "pos": "-27.3645 22.6097 -8.82272"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Object055.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pared_Ladrillo_01.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Suelo_SalaCabeza_04"
+      ,
+      "transform":
+      {
+        "pos": "-27.5945 4.49998 3.40749"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Suelo_SalaCabeza_04.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Suelo_SalaCabeza_04.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_Estatua"
+      ,
+      "transform":
+      {
+        "pos": "-26.43 31.2488 6.35581"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_Estatua.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Estatua_Fuera.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_parte_1"
+      ,
+      "transform":
+      {
+        "pos": "-14.5512 27.025 -16.2502"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte_1.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Normal.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Estatua002"
+      ,
+      "transform":
+      {
+        "pos": "-17.1515 26.1037 -23.0828"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Estatua002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EstatuaGrandeMate.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Estatua001"
+      ,
+      "transform":
+      {
+        "pos": "-18.0692 25.6471 -16.2004"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Estatua001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EstatuaGrandeMate.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Desague02"
       ,
       "transform":
       {
-        "pos": "-25.726 5.68189 -16.9729"
+        "pos": "-25.726 5.68189 -16.93"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -18,7 +982,7 @@
           ,
           "materials":
           [
-            "data/materials/Gris_01_Mat.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
@@ -44,7 +1008,7 @@
           ,
           "materials":
           [
-            "data/materials/Gris_01_Mat.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
@@ -97,32 +1061,6 @@
           "materials":
           [
             "data/materials/Pared_Interior_01.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TechosEscena01"
-      ,
-      "transform":
-      {
-        "pos": "-14.5512 27.0 -9.64069"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/TechosEscena01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
           ]
         }
       ]
@@ -230,62 +1168,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_033"
-      ,
-      "transform":
-      {
-        "pos": "-18.8561 23.5693 -17.4793"
-        ,
-        "rotation": "0.0 1.74846e-07 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_033.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Caldero_01.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_032"
-      ,
-      "transform":
-      {
-        "pos": "-17.0549 23.5693 -20.8213"
-        ,
-        "rotation": "0.0 1.74846e-07 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_032.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Caldero_01.material"
-          ]
-        }
-      ]
     }
   }
   ,
@@ -386,33 +1268,7 @@
           ,
           "materials":
           [
-            "data/materials/Caldero_01.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Estatua_005"
-      ,
-      "transform":
-      {
-        "pos": "-18.1474 25.4203 -16.2948"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Estatua_005.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Caldero_01.material"
+            "data/materials/CalderoMate.material"
           ]
         }
       ]
@@ -786,11 +1642,11 @@
   {
     "entity":
     {
-      "name": "Rio"
+      "name": "Rio_Agua"
       ,
       "transform":
       {
-        "pos": "-22.2449 22.6097 -16.3626"
+        "pos": "-22.2449 22.1101 -16.3626"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -798,11 +1654,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Rio.mesh"
+          "mesh": "data/meshes/Rio_Agua.mesh"
           ,
           "materials":
           [
-            "data/materials/Aguas_01_Mat.material"
+            "data/materials/CascadaAguaMat.material"
           ]
         }
       ]
@@ -932,7 +1788,7 @@
           ,
           "materials":
           [
-            "data/materials/Arco_Grande.material"
+            "data/materials/Arco_Templo_00.material"
           ]
         }
       ]
@@ -1098,143 +1954,13 @@
   {
     "entity":
     {
-      "name": "Roca_031"
-      ,
-      "transform":
-      {
-        "pos": "-21.6879 22.0374 -17.1544"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_031.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Caldero_01.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_030"
-      ,
-      "transform":
-      {
-        "pos": "-21.8239 22.8083 -15.9649"
-        ,
-        "rotation": "0.0 1.74846e-07 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_030.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Caldero_01.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_029"
-      ,
-      "transform":
-      {
-        "pos": "-20.8027 22.9475 -14.9603"
-        ,
-        "rotation": "0.0 1.74846e-07 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_029.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Caldero_01.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_028"
-      ,
-      "transform":
-      {
-        "pos": "-20.1611 22.2319 -17.9053"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_028.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Caldero_01.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Estatua_004"
-      ,
-      "transform":
-      {
-        "pos": "-17.156 26.0948 -23.0801"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Estatua_004.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Caldero_01.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Caldero"
       ,
       "transform":
       {
         "pos": "-18.0758 25.32 -22.2375"
         ,
-        "rotation": "0.0 0.0 0.0 -1.0"
+        "rotation": "-0.0522642 -0.00273905 -0.0522642 -0.997261"
       }
       ,
       "render":
@@ -1244,7 +1970,7 @@
           ,
           "materials":
           [
-            "data/materials/Caldero_01.material"
+            "data/materials/CalderoMate.material"
           ]
         }
       ]
@@ -1308,6 +2034,26 @@
   {
     "entity":
     {
+      "name": "Puerta_Abierta_Madera_027"
+      ,
+      "transform":
+      {
+        "pos": "-12.6599 29.0373 -28.8432"
+        ,
+        "rotation": "0.0 0.544639 0.0 -0.838671"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Abierta_Madera_027.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puerta_Abierta_Madera_01.material"
+          ]
+        }
+      ]
     }
   }
   ,
@@ -1383,32 +2129,6 @@
       [
         {
           "mesh": "data/meshes/Object012.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedLadrillosMat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Object011"
-      ,
-      "transform":
-      {
-        "pos": "-11.8363 20.2503 -26.286"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Object011.mesh"
           ,
           "materials":
           [
@@ -1890,7 +2610,7 @@
   {
     "entity":
     {
-      "name": "2_Techos001"
+      "name": "TechoCabeza"
       ,
       "transform":
       {
@@ -1902,7 +2622,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/2_Techos001.mesh"
+          "mesh": "data/meshes/TechoCabeza.mesh"
           ,
           "materials":
           [
@@ -2037,32 +2757,6 @@
           "materials":
           [
             "data/materials/ArbolMat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Almena_low"
-      ,
-      "transform":
-      {
-        "pos": "-12.4301 3.97346 -9.84937"
-        ,
-        "rotation": "0.0 0.156177 0.0 -0.987729"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Almena_low.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/AlmenaMat.material"
           ]
         }
       ]
@@ -2256,84 +2950,6 @@
   {
     "entity":
     {
-      "name": "Puerta_Abierta_Piedra001"
-      ,
-      "transform":
-      {
-        "pos": "-31.0942 6.74898 -3.02797"
-        ,
-        "rotation": "-0.706138 0.0370071 -0.0370071 -0.706138"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Puerta_Abierta_Piedra001.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Puerta_Abierta_Piedra"
-      ,
-      "transform":
-      {
-        "pos": "-28.6423 6.74898 -12.4871"
-        ,
-        "rotation": "-0.691655 0.147016 -0.147016 -0.691655"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Puerta_Abierta_Piedra.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "podium"
-      ,
-      "transform":
-      {
-        "pos": "-29.055 6.74997 8.12432"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/podium.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CubeMate.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Puerta_Abierta_Madera_026"
       ,
       "transform":
@@ -2354,10 +2970,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -2384,10 +2996,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -2414,10 +3022,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -2444,21 +3048,17 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
   {
     "entity":
     {
-      "name": "Puerta_Cerrada_004"
+      "name": "Puerta_Abierta_Madera_019"
       ,
       "transform":
       {
-        "pos": "-22.8116 24.75 -8.76791"
+        "pos": "-31.4988 24.5214 -0.166149"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -2466,54 +3066,14 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Cerrada_004.mesh"
+          "mesh": "data/meshes/Puerta_Abierta_Madera_019.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_Cerrada_01.material"
+            "data/materials/Puerta_Abierta_Madera_01.material"
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Puerta_Cerrada_003"
-      ,
-      "transform":
-      {
-        "pos": "-20.5179 24.75 -13.3251"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Puerta_Cerrada_003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Puerta_Cerrada_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
     }
   }
   ,
@@ -2537,15 +3097,9 @@
           "materials":
           [
             "data/materials/Palmerita_03.material"
-            ,
-            "data/materials/EstatuaGrandeMate.material"
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -2572,10 +3126,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -2602,10 +3152,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -2632,10 +3178,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -2662,10 +3204,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -2692,21 +3230,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-      ,
-      "collider":
-      {
-        "shape": "tri_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/Escalera_05.col_mesh"
-      }
     }
   }
   ,
@@ -2733,10 +3256,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -2763,10 +3282,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -2793,10 +3308,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -2823,10 +3334,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -2853,10 +3360,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -2883,10 +3386,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -2909,164 +3408,10 @@
           ,
           "materials":
           [
-            "data/materials/Gris_01_Mat.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_05"
-      ,
-      "transform":
-      {
-        "pos": "-3.3428 5.28155 -27.7586"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_05.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_04"
-      ,
-      "transform":
-      {
-        "pos": "1.95962 4.71265 -29.2852"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_04.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_03"
-      ,
-      "transform":
-      {
-        "pos": "4.74098 5.46493 -28.2421"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_03.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_02"
-      ,
-      "transform":
-      {
-        "pos": "4.80087 4.7935 -29.3552"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_02.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_01"
-      ,
-      "transform":
-      {
-        "pos": "3.79959 5.00545 -29.608"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3093,10 +3438,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3123,40 +3464,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Relieve_Marco_01"
-      ,
-      "transform":
-      {
-        "pos": "-5.20031 31.4999 -23.1893"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Relieve_Marco_01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3183,10 +3490,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3213,10 +3516,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3243,40 +3542,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Relieve_Grande_01"
-      ,
-      "transform":
-      {
-        "pos": "-5.21554 31.4999 -23.9021"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Relieve_Grande_01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Relieve_02.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3303,21 +3568,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-      ,
-      "collider":
-      {
-        "shape": "tri_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/Escalera_04.col_mesh"
-      }
     }
   }
   ,
@@ -3344,10 +3594,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3370,14 +3616,10 @@
           ,
           "materials":
           [
-            "data/materials/Gris_01_Mat.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3404,10 +3646,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3434,10 +3672,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3464,10 +3698,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3494,10 +3724,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3524,10 +3750,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3554,10 +3776,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3584,10 +3802,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3614,10 +3828,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3644,10 +3854,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3674,10 +3880,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3704,10 +3906,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3734,10 +3932,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3764,10 +3958,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3794,10 +3984,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3824,10 +4010,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3854,10 +4036,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3884,10 +4062,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3914,10 +4088,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3944,10 +4114,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -3974,10 +4140,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -4004,220 +4166,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_12"
-      ,
-      "transform":
-      {
-        "pos": "11.4351 4.4745 -29.496"
-        ,
-        "rotation": "0.0 1.74846e-07 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_12.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_13"
-      ,
-      "transform":
-      {
-        "pos": "10.4354 4.4745 -28.2743"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_13.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_15"
-      ,
-      "transform":
-      {
-        "pos": "11.2034 6.5076 -26.8112"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_15.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_16"
-      ,
-      "transform":
-      {
-        "pos": "-5.15259 6.5076 -23.0148"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_16.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_17"
-      ,
-      "transform":
-      {
-        "pos": "-3.89176 6.99535 -22.4981"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_17.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_18"
-      ,
-      "transform":
-      {
-        "pos": "-8.59222 6.62537 -20.3702"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_18.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Roca_19"
-      ,
-      "transform":
-      {
-        "pos": "-7.60057 7.0984 -19.303"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Roca_19.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Gris_01_Mat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -4244,10 +4192,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -4274,10 +4218,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -4288,9 +4228,9 @@
       ,
       "transform":
       {
-        "pos": "-16.641 15.979 -28.4446"
+        "pos": "-11.806 37.6131 -26.2397"
         ,
-        "rotation": "0.0 0.0 0.0 -1.0"
+        "rotation": "0.0 0.755768 0.0 -0.654839"
       }
       ,
       "render":
@@ -4304,10 +4244,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -4356,14 +4292,10 @@
           ,
           "materials":
           [
-            "data/materials/Gris_01_Mat.material"
+            "data/materials/RocaVerde.material"
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -4442,40 +4374,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Techo_Bajo_01"
-      ,
-      "transform":
-      {
-        "pos": "-14.2315 6.75007 -27.8408"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Techo_Bajo_01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Techo_Bajo_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -4486,7 +4384,7 @@
       ,
       "transform":
       {
-        "pos": "-29.3863 7.93449 -8.17592"
+        "pos": "-29.3863 7.93449 -8.28612"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -4498,14 +4396,10 @@
           ,
           "materials":
           [
-            "data/materials/Gris_01_Mat.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -4528,14 +4422,10 @@
           ,
           "materials":
           [
-            "data/materials/Gris_01_Mat.material"
+            "data/materials/RocaVerde.material"
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
   ,
@@ -4562,10 +4452,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
     }
   }
 ]
