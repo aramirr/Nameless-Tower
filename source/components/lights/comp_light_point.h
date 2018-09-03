@@ -17,4 +17,6 @@ public:
 
   void activate();
   MAT44 getWorld();
+
+	void setIntensity(float value);
 };
