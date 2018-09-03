@@ -118,6 +118,7 @@ namespace FSM
 		ctx.setVariable("omnidash", false);
         CEntity* e_player = (CEntity*)getEntityByName("The Player");
 		TCompPlayerController* player = e_player->get<TCompPlayerController>();
+        player->previous_state = "omnidash";
 		player->y_speed_factor = 0;
 		EngineTimer.setTimeSlower(1.f);
 		EngineUI.setOmindash(false);

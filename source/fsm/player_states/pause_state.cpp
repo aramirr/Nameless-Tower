@@ -22,6 +22,9 @@ namespace FSM
 
 	void PauseState::onFinish(CContext& ctx) const {
 		ctx.setVariable("pause", false);
+        CEntity* e = ctx.getOwner();
+        TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->previous_state = "pause";
 	}
 }
 

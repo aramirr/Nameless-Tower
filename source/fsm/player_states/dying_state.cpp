@@ -46,6 +46,9 @@ namespace FSM
 		return false;
 	}
 	
-	void DyingState::onFinish(CContext& ctx) const {		
+	void DyingState::onFinish(CContext& ctx) const {	
+        CEntity* e = ctx.getOwner();
+        TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->previous_state = "dying";
 	}
 }

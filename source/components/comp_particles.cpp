@@ -75,6 +75,8 @@ void TCompParticles::load(const json& j, TEntityParseContext& ctx)
   Particles::CParser parser;
   _core = parser.parseParticlesFile(particlesName);
   assert(_core);
+  parent_name = j.value("parent_name", "");
+  _core->parent_name = parent_name;
 }
 
 void TCompParticles::onCreated(const TMsgEntityCreated&)

@@ -16,7 +16,10 @@ namespace FSM
 		TCompPlayerController* player = e->get<TCompPlayerController>();
  		// Pongo la animacion solo si no se esta moviendo
 		ctx.setVariable("run", false);
-		player->change_animation(player->EAnimations::NajaIdle, _is_action, _delay_in, _delay_out, true);
+        if (player->previous_state == "look_up" || player->previous_state == "look_down")
+            player->change_animation(player->EAnimations::NajaIdle, _is_action, 0.5, _delay_out, true);
+        else
+		    player->change_animation(player->EAnimations::NajaIdle, _is_action, _delay_in, _delay_out, true);
 		ctx.setVariable("initial", false);
         player->idle_time = 0;
 	}
@@ -91,6 +94,7 @@ namespace FSM
 		ctx.setVariable("idle", false);
         CEntity* e = ctx.getOwner();
         TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->previous_state = "idle";
         if (player->camera_idle) {
             ctx.setVariable("camera_idle", false);
             CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");

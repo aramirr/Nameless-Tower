@@ -2,6 +2,90 @@
   {
     "entity":
     {
+      "name": "Suelo_Roto_005"
+      ,
+      "transform":
+      {
+        "pos": "19.6824 30.745 -24.2542"
+        ,
+        "rotation": "0.0 0.156434 0.0 -0.987688"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Suelo_Roto_005.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Suelo_Roto_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Suelo_Roto_005"
+      ,
+      "transform":
+      {
+        "pos": "11.2241 30.745 -29.1493"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Suelo_Roto_005.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Suelo_Roto_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Relieves"
+      ,
+      "transform":
+      {
+        "pos": "2.87993 49.8054 27.3971"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Relieves.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Relieve_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "RocaTipoD005"
       ,
       "transform":
@@ -22,6 +106,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -48,6 +134,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -58,7 +146,7 @@
       ,
       "transform":
       {
-        "pos": "3.95527 31.0276 32.094"
+        "pos": "3.95469 31.7451 32.0941"
         ,
         "rotation": "0.0 -0.996603 0.0 0.0823557"
       }
@@ -74,6 +162,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -100,6 +190,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -126,6 +218,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -152,6 +246,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -178,6 +274,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -204,6 +302,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -232,6 +332,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -258,6 +360,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -284,6 +388,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -310,6 +416,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -336,6 +444,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -362,6 +472,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -388,6 +500,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -414,6 +528,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -440,6 +556,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -466,6 +584,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -492,6 +612,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -518,6 +640,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -544,6 +668,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -570,6 +696,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -596,6 +724,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -624,6 +754,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -652,6 +784,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -678,6 +812,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -704,6 +840,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -732,6 +870,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -758,6 +898,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -784,6 +926,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -812,6 +956,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -840,6 +986,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -866,32 +1014,8 @@
           ]
         }
       ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Puente_01"
       ,
-      "transform":
-      {
-        "pos": "34.4653 36.4 17.1836"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Puente_01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/puenteMate.material"
-          ]
-        }
-      ]
+      "abs_aabb": true
     }
   }
   ,
@@ -918,6 +1042,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -944,6 +1070,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -970,6 +1098,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -996,6 +1126,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1022,58 +1154,8 @@
           ]
         }
       ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Suelo_Roto_004"
       ,
-      "transform":
-      {
-        "pos": "11.2241 30.745 -29.1493"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Suelo_Roto_004.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Suelo_Roto_01.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Suelo_Roto_003"
-      ,
-      "transform":
-      {
-        "pos": "19.6728 30.7604 -24.2794"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Suelo_Roto_003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Suelo_Roto_01.material"
-          ]
-        }
-      ]
+      "abs_aabb": true
     }
   }
   ,
@@ -1100,6 +1182,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1126,6 +1210,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1154,6 +1240,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1182,6 +1270,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1208,6 +1298,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1236,6 +1328,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1262,6 +1356,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1288,6 +1384,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1310,10 +1408,12 @@
           ,
           "materials":
           [
-            "data/materials/HojaMate.material"
+            "data/materials/HojaMat.material"
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1340,6 +1440,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1366,6 +1468,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1392,6 +1496,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1418,6 +1524,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1444,84 +1552,8 @@
           ]
         }
       ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Relieve_03"
       ,
-      "transform":
-      {
-        "pos": "2.88022 56.3609 27.397"
-        ,
-        "rotation": "0.0 -0.978148 0.0 -0.207912"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Relieve_03.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Relieve_01.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Relieve_02"
-      ,
-      "transform":
-      {
-        "pos": "2.87965 43.2499 27.3971"
-        ,
-        "rotation": "0.0 -0.978148 0.0 -0.207912"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Relieve_02.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Relieve_01.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Planta022"
-      ,
-      "transform":
-      {
-        "pos": "33.4299 46.6033 18.7463"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Planta022.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Palmerita_03.material"
-          ]
-        }
-      ]
+      "abs_aabb": true
     }
   }
   ,
@@ -1548,6 +1580,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1574,6 +1608,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1600,6 +1636,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1626,6 +1664,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1648,10 +1688,12 @@
           ,
           "materials":
           [
-            "data/materials/Arco_Grande_01.material"
+            "data/materials/Arco_Templo_00.material"
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1674,10 +1716,12 @@
           ,
           "materials":
           [
-            "data/materials/Arco_Grande_01.material"
+            "data/materials/Arco_Templo_00.material"
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1704,6 +1748,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1730,6 +1776,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1756,6 +1804,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1782,6 +1832,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1808,6 +1860,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1834,6 +1888,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1860,6 +1916,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1886,6 +1944,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1912,6 +1972,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1938,6 +2000,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1964,6 +2028,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1990,6 +2056,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -2016,6 +2084,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -2042,6 +2112,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -2068,6 +2140,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
 ]

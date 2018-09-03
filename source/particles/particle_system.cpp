@@ -231,6 +231,21 @@ namespace Particles
   {
     const float& angle = _core->emission.angle;
     const float velocity = _core->movement.velocity;
+    if (_core->emission.direction != VEC3::Zero) {
+      VEC3 pos = _core->emission.direction;
+      if (_core->parent_name != "") {
+        CEntity* parent = (CEntity *)getEntityByName(_core->parent_name);
+        TCompTransform* parent_transform = parent->get<TCompTransform>();
+
+        CTransform new_pos;
+        new_pos.setPosition(pos);
+        CTransform t = parent_transform->combineWith(new_pos);
+        pos = t.getPosition();
+      }
+
+      pos.Normalize();
+      return pos * velocity;
+    }
 
     if (angle != 0.f)
     {

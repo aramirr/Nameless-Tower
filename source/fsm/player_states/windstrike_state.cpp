@@ -34,6 +34,9 @@ namespace FSM
 
 	void WindstrikeState::onFinish(CContext& ctx) const {
 		ctx.setVariable("windstrike", false);
+        CEntity* e = ctx.getOwner();
+        TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->previous_state = "windstrike";
 	}
 }
 

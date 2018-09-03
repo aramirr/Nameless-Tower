@@ -78,5 +78,6 @@ namespace FSM
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->is_running = false;
+        player->previous_state = "run";
 	}
 }

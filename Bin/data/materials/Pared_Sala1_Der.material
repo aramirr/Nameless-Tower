@@ -5,9 +5,9 @@
   ,
   "textures":
   {
-    "albedo": "data/textures/Pared_Der_Friso.dds"
+    "albedo": "data/textures/Pared_Der_Friso_b.dds"
     ,
-    "normal": "data/textures/Pared_Derecha_B.dds"
+    "normal": "data/textures/Pared_Der_Friso_n.dds"
     ,
     "emissive": "data/textures/null_emissive.dds"
     ,
@@ -17,6 +17,6 @@
     ,
     "height": "data/textures/null_height.dds"
     ,
-    "ao": "data/textures/null_ambientOcclusion.dds"
+    "ao": "data/textures/Pared_Der_Friso_orm.dds"
   }
 }
