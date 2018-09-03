@@ -12,10 +12,13 @@ DECL_OBJ_MANAGER("bt_runner", bt_runner);
 void bt_runner::appear(const TMsgRunnerAppear& msg) {
     b_appear = true;
     appearing_position = msg.appearing_position;
+
+    setCurrent(NULL);
 }
 
 void bt_runner::disappear(const TMsgRunnerDisappear& msg) {
     b_disappear = true;
+    setCurrent(NULL);
 }
 
 void bt_runner::registerMsgs() {
@@ -55,24 +58,18 @@ void bt_runner::load(const json& j, TEntityParseContext& ctx) {
   create("runner");
 }
 
-std::string foo(bool b) {
-	if (b)
-		return "True";
-	else return "False";
-}
 
 void bt_runner::debugInMenu() {
 	bt::debugInMenu();
-	string state;
+	std::string state_s;
 	if (current == NULL)
-		state = "null";
-	else state = current->getName();
-	ImGui::Text("State %s", state);
-	ImGui::Text("b_disappear %s", foo(b_disappear));
-	ImGui::Text("b_appear %s", foo(b_appear));
-	ImGui::Text("b_chase %s", foo(b_chase));
-	ImGui::Text("b_recular %s", foo(b_recular));
-	ImGui::Text("on_wall %s", foo(on_wall));
+		state_s = "null";
+	else state_s = current->getName();
+	ImGui::Text("State %s", state_s.c_str());
+  ImGui::Text("b_disappear: %s", b_disappear ? "Si" : "No");
+  ImGui::Text("b_appear: %s", b_appear ? "Si" : "No");
+  ImGui::Text("b_chase: %s", b_chase ? "Si" : "No");
+  ImGui::Text("b_recular: %s", b_recular ? "Si" : "No");
 	ImGui::Text("timer %f", debug_timer);
   anim_debug_changed = ImGui::DragInt("ANIM", &anim_id, 0.1f, 0, 8);
 
@@ -94,20 +91,13 @@ void bt_runner::create(string s)
     addChild("recular_s", "recular", ACTION, NULL, (btaction)&bt_runner::actionRecular);
     addChild("recular_s", "recover", ACTION, NULL, (btaction)&bt_runner::actionRecover);
 
-    addChild("chase_p", "attack_p", PRIORITY, (btcondition)&bt_runner::conditionAttack, NULL);
-    addChild("attack_p", "attack_wall_r", RANDOM, (btcondition)&bt_runner::conditionAttackWall, NULL);
-    addChild("attack_wall_r", "attack_wall_1", ACTION, NULL, (btaction)&bt_runner::actionAttackWall1);
-    addChild("attack_wall_r", "attack_wall_2", ACTION, NULL, (btaction)&bt_runner::actionAttackWall2);
-
-    addChild("attack_p", "attack_floor_r", RANDOM, (btcondition)&bt_runner::conditionAttackFloor, NULL);
-    addChild("attack_floor_r", "attack_floor_1", ACTION, NULL, (btaction)&bt_runner::actionAttackFloor1);
-    addChild("attack_floor_r", "attack_floor_2", ACTION, NULL, (btaction)&bt_runner::actionAttackFloor2);
+    addChild("chase_p", "attack", ACTION, (btcondition)&bt_runner::conditionAttack, (btaction)&bt_runner::actionAttack);
 
     addChild("chase_p", "chase", ACTION, NULL, (btaction)&bt_runner::actionChase);
 
     addChild("runner_p", "appear_s", SEQUENCE, (btcondition)&bt_runner::conditionAppear, NULL);
     addChild("appear_s", "appear", ACTION, NULL, (btaction)&bt_runner::actionAppear);
-    //addChild("appear_s", "scream_2", ACTION, NULL, (btaction)&bt_runner::actionScream);
+    addChild("appear_s", "scream_2", ACTION, NULL, (btaction)&bt_runner::actionScream);
 
     addChild("runner_p", "hide", ACTION, NULL, (btaction)&bt_runner::actionHide);
 }
@@ -168,29 +158,7 @@ int bt_runner::actionRecover() {
     return STAY;
 };
 
-int bt_runner::actionAttackWall1() {
-	//dbg("attackwall1\n");
-    debug_timer += DT;
-    if (debug_timer >= 1.f) {
-        debug_timer = 0.f;
-        killPlayer();
-        return LEAVE;
-    }
-    return STAY;
-};
-
-int bt_runner::actionAttackWall2() {
-	//dbg("attackwall2\n");
-    debug_timer += DT;
-    if (debug_timer >= 1.f) {
-        debug_timer = 0.f;
-        killPlayer();
-        return LEAVE;
-    }
-    return STAY;
-};
-
-int bt_runner::actionAttackFloor1() {
+int bt_runner::actionAttack() {
 	//dbg("attackfloor1\n");
     change_color(VEC4(0.0f, 0.0f, 1.0f, 1.0f));
     debug_timer += DT;
@@ -202,35 +170,33 @@ int bt_runner::actionAttackFloor1() {
     return STAY;
 };
 
-int bt_runner::actionAttackFloor2() {
-	//dbg("attackfloor2\n");
-    change_color(VEC4(0.0f, 0.0f, 0.5f, 1.0f));
-    debug_timer += DT;
-    if (debug_timer >= 1.f) {
-        debug_timer = 0.f;
-        killPlayer();
-        return LEAVE;
-    }
-    return STAY;
-};
-
 int bt_runner::actionChase() {
+  TCompTransform *c_my_transform = getMyTransform();
+  VEC3 my_position = c_my_transform->getPosition();
 
-  if (anim_debug_changed) {
-    anim_debug_changed = false;
-    CEntity* e = h_entity;
-    TCompSkeleton* skeleton = e->get<TCompSkeleton>();
-    assert(skeleton);
-    skeleton->playAnimation(anim_id, false, 0.f, 0.f, true);
+  CEntity *player = (CEntity *)getEntityByName("The Player");
+  TCompTransform *c_p_transform = player->get<TCompTransform>();
+  VEC3 player_position = c_p_transform->getPosition();
+
+  float distance_to_player = distance_x_z(my_position, player_position);
+  float distance_to_waypoint = distance_x_z(my_position, waypoints_map[path[actual_waypoint]].position);
+
+  if (b_chase_player) {
+    if (distance_to_player < distance_to_waypoint) {
+      chase_player();
+    }
+    else if (distance_to_player > distance_to_waypoint) {
+      chase_player();
+    }
   }
-	
-	//getPath();
-	/*if (b_chase_player)
-		chase_player();
-	else chase_waypoint();*/
+	else chase_waypoint();
+
+  if (conditionAttack()) {
+    return LEAVE;
+  }
 
 	//Cambiar a STAY y poner interrupciones que reinicien el BT
-    return LEAVE;
+    return STAY;
 };
 
 int bt_runner::actionAppear() {
@@ -258,7 +224,7 @@ int bt_runner::actionAppear() {
 int bt_runner::actionHide() {
 
 	//dbg("hide\n");
-	return LEAVE;
+	return STAY;
 };
 
 //----- CONDITIONS -----
@@ -272,14 +238,6 @@ bool bt_runner::conditionChase() {
 
 bool bt_runner::conditionRecular() {
     return b_recular;
-};
-
-bool bt_runner::conditionAttackWall() {
-    return on_wall;
-};
-
-bool bt_runner::conditionAttackFloor() {
-    return !on_wall;
 };
 
 bool bt_runner::conditionAppear() {
@@ -378,6 +336,71 @@ void bt_runner::findPath(int origin, int destiny){
 }
 
 void bt_runner::chase_player() {
+
+  if (anim_state != "chase_player") {
+    anim_state = "chase_player";
+    change_animation(ERunnerAnimations::RunnerRunClose, false, 0.f, 0.f, true);
+  }
+
+  TCompTransform *c_my_transform = getMyTransform();
+  VEC3 myPos = c_my_transform->getPosition();
+
+  float current_yaw;
+  float current_pitch;
+  float amount_moved = speed * DT;
+  c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
+
+  tower_center.y = myPos.y;
+
+  CEntity* player = (CEntity*)getEntityByName("The Player");
+  TCompTransform* player_transform = player->get<TCompTransform>();
+
+  TCompCollider* comp_collider = get<TCompCollider>();
+  if (!c_my_transform->isInFront(player_transform->getPosition())) {
+    current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
+    float debug = rad2deg(current_yaw);
+    going_right = !going_right;
+
+    PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
+    PxTransform tr = rigidActor->getGlobalPose();
+    auto& rot2 = c_my_transform->getRotation();
+
+
+    c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+
+
+    auto& rot = c_my_transform->getRotation();
+    tr.q = PxQuat(rot.x, rot.y, rot.z, rot.w);
+    rigidActor->setGlobalPose(tr);
+
+  }
+  else {
+    current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
+    c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+    VEC3 aux_vector = going_right ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
+    VEC3 newPos = tower_center + (aux_vector * EngineTower.getTowerRadius());
+    c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+    if (comp_collider && comp_collider->controller)
+    {
+      VEC3 delta_move = newPos - myPos;
+
+      delta_move.y += -10 * DT;
+
+
+      PxShape* player_shape;
+      comp_collider->controller->getActor()->getShapes(&player_shape, 1);
+      PxFilterData filter_data = player_shape->getSimulationFilterData();
+      ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
+      BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
+      PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, PxControllerFilters(&filter_data, query_filter, filter_controller));
+      VEC3 myPos2 = c_my_transform->getPosition();
+
+      if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
+        current_yaw = going_right ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
+        c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+      }
+    }
+  }
   
 }
 
@@ -391,25 +414,27 @@ void bt_runner::chase_waypoint() {
 		}
 		else walk();
 	}
-    TCompTransform* my_transform = getMyTransform();
-    if (VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position) <= 1.0f) {
+
+  TCompTransform* my_transform = getMyTransform();
+  if (VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position) <= 1.0f) {
+    on_jump = false;
 	  going_up = true;
-      actual_waypoint = next_waypoint;
+    actual_waypoint = next_waypoint;
 	  --next_waypoint;
 	  if (next_waypoint < 0) {
 		  recalculate_path();
 	  }
-
-      //get_next_waypoint();
-
-	  //findPath(0, 7);
-    }
+  }
 }
 
 void bt_runner::walk() {
+  if (anim_state != "walk") {
+    anim_state = "walk";
+    change_animation(ERunnerAnimations::RunnerRun, false, 0.f, 0.f, true);
+  }
+
 	TCompTransform *c_my_transform = getMyTransform();
 	VEC3 myPos = c_my_transform->getPosition();
-	//dbg("pos: %f %f %f", myPos.x, myPos.y, myPos.z);
 
 	float current_yaw;
 	float current_pitch;
@@ -446,9 +471,7 @@ void bt_runner::walk() {
 		if (comp_collider && comp_collider->controller)
 		{
 			VEC3 delta_move = newPos - myPos;
-			
 			delta_move.y += -10 * DT;
-			
 
 			PxShape* player_shape;
 			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
@@ -467,6 +490,11 @@ void bt_runner::walk() {
 }
 
 void bt_runner::jump() {
+  on_jump = true;
+  if (anim_state != "jump_up") {
+    anim_state = "jump_up";
+    change_animation(ERunnerAnimations::RunnerJumpUp, false, 0.f, 0.f, true);
+  }
 	calculate_top_jump_position();
 
 	TCompTransform *c_my_transform = getMyTransform();
@@ -474,7 +502,7 @@ void bt_runner::jump() {
 
 	float current_yaw;
 	float current_pitch;
-	float amount_moved = speed * DT * 1.5f;
+	float amount_moved = speed * DT;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	tower_center.y = myPos.y;
@@ -518,6 +546,10 @@ void bt_runner::jump() {
 				newPos.y = aux;
 			}
 			else {
+        if (anim_state != "jump_loop") {
+          anim_state = "jump_loop";
+          change_animation(ERunnerAnimations::RunnerJumpLoop, false, 0.f, 0.f, true);
+        }
 				float d1 = distance_x_z(newPos, waypoints_map[path[next_waypoint]].position);
 				float d2 = distance_x_z(top_jump_position, waypoints_map[path[next_waypoint]].position);
 				float perc = 1 - (d1 / d2);
@@ -596,99 +628,35 @@ void bt_runner::recalculate_path() {
 	findPath(origin, target);
 	actual_waypoint = path.size() -1;
 	next_waypoint = actual_waypoint -1;
-	if (path.size() < 2) b_chase_player = true;
-	else b_chase_player = false;
+  if (path.size() < 2) {
+    b_chase_player = true;
+  }
+  else {
+    b_chase_player = false;
+  }
 }
 
+// Animation functions
+void bt_runner::change_animation(int animation_id, bool is_action, float in_delay, float out_delay, bool clear = true) {
+  CEntity* e = h_entity;
+  TCompSkeleton* skeleton = e->get<TCompSkeleton>();
+  assert(skeleton);
 
-/*int bt_runner::jumping_state() {
-	TCompTransform *c_my_transform = get<TCompTransform>();
-	VEC3 my_pos = c_my_transform->getPosition();
-	VEC3 new_pos = my_pos;
-	float y_speed;
-	if (y_speed_factor > 0)
-		y_speed = (y_speed_factor * DT) - (gravity * DT * DT / 2);
-	else
-		y_speed = (y_speed_factor * DT) - (gravity * DT * DT * 3);
-	y_speed_factor -= gravity * DT / 2;
-	new_pos.y += y_speed;
-
-	tower_center.y = my_pos.y;
-
-	if (new_pos.y < jump_end) {
-		float current_yaw, current_pitch;
-		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-		float amount_moved = speed_factor * DT;
-		current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
-		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-		VEC3 aux_vector = going_right ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
-		new_pos = tower_center + (aux_vector * tower_radius);
-		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-		TCompCollider* comp_collider = get<TCompCollider>();
-		if (comp_collider && comp_collider->controller)
-		{
-			VEC3 delta_move = new_pos - my_pos;
-			delta_move.y += -(-(jump_speed - gravity * DT)) * DT;
-
-			PxShape* player_shape;
-			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
-			PxFilterData filter_data = player_shape->getSimulationFilterData();
-			ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
-			BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
-			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, PxControllerFilters(&filter_data, query_filter, filter_controller));
-
-			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
-				current_yaw = going_right ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
-				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-			}
-			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
-				jumping = false;
-			}
-		}
-	}
-	else {
-		jumping = false;
-	}
-	change_mesh(3);
-	return STAY;
+  skeleton->playAnimation(animation_id, is_action, in_delay, out_delay, clear);
 }
-int bt_runner::actionDisappear() {
-    TCompRender *my_render = getMyRender();
-    my_render->is_active = false;
-    TCompTransform *my_transform = getMyTransform();
-    TCompCollider *comp_collider = getMyCollider();
-    comp_collider->controller->setPosition(physx::PxExtendedVec3(tower_center.x, tower_center.y, tower_center.z));
-    run = false;
-    freeze = false;
-    return LEAVE;
-};
 
-int bt_runner::actionIdle() {
-    change_mesh(1);
-    return LEAVE;
-};
+void bt_runner::remove_animation(int animation_id) {
+  CEntity* e = h_entity;
+  TCompSkeleton* skeleton = e->get<TCompSkeleton>();
+  assert(skeleton);
 
-int bt_runner::actionAppear() {
-    TCompTransform* my_transform = getMyTransform();
-    TCompCollider* my_collider = getMyCollider();
-    my_collider->controller->setPosition(physx::PxExtendedVec3(appearing_position.x, appearing_position.y, appearing_position.z));
-    tower_center.y = appearing_position.y;
-    my_transform->lookAt(appearing_position, tower_center);
-    float y, p, r;
-    my_transform->getYawPitchRoll(&y, &p, &r);
-    y -= deg2rad(90);
-    my_transform->setYawPitchRoll(y, p, r);
-    going_right = my_transform->isInLeft(tower_center);
-    TCompRender *my_render = getMyRender();
-    my_render->is_active = true;
-    return LEAVE;
-};
+  skeleton->removeAnimation(animation_id);
+}
 
-int bt_runner::actionAttack() {
-    CEntity *player = (CEntity *)getEntityByName("The Player");
-    TMsgKillPlayer kill;
-    player->sendMsg(kill);
-    change_mesh(0);
-    return LEAVE;
-};*/
+void bt_runner::clear_animations(float out_delay) {
+  CEntity* e = h_entity;
+  TCompSkeleton* skeleton = e->get<TCompSkeleton>();
+  assert(skeleton);
 
+  skeleton->clearActions(out_delay);
+}
