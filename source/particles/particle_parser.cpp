@@ -50,6 +50,10 @@ namespace Particles
     cps->emission.size = emission.value("size", cps->emission.size);
     cps->emission.angle = deg2rad(emission.value("angle", rad2deg(cps->emission.angle)));
     cps->emission.random_rotation = emission.value("random_rotation", cps->emission.random_rotation);
+    
+    if (emission.count("direction")) 
+      cps->emission.direction = loadVEC3(emission["direction"]);
+
     // movement
     const json& movement = data["movement"];
     cps->movement.velocity = movement.value("velocity", cps->movement.velocity);
