@@ -16,10 +16,17 @@ namespace FSM
 		TCompPlayerController* player = e->get<TCompPlayerController>();
  		// Pongo la animacion solo si no se esta moviendo
 		ctx.setVariable("run", false);
-        if (player->previous_state == "look_up" || player->previous_state == "look_down")
+        if (player->previous_state == "look_up" || player->previous_state == "look_down") {
             player->change_animation(player->EAnimations::NajaIdle, _is_action, 0.5, _delay_out, true);
-        else
-		    player->change_animation(player->EAnimations::NajaIdle, _is_action, _delay_in, _delay_out, true);
+        }            
+        else {
+            if (player->previous_state == "run") {
+                player->change_animation(player->EAnimations::NajaIdle, _is_action, 0.01, _delay_out, true);
+            }
+            else {
+                player->change_animation(player->EAnimations::NajaIdle, _is_action, _delay_in, _delay_out, true);
+            }
+        }		    
 		ctx.setVariable("initial", false);
         player->idle_time = 0;
 	}
