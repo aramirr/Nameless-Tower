@@ -18,6 +18,11 @@ bool CTransform::load(const json& j) {
     float angle_rad = deg2rad(angle_deg);
     setRotation(QUAT::CreateFromAxisAngle(axis, angle_rad));
   }
+	if (j.count("eulers")) {
+		VEC3 euler_deg = loadVEC3(j["eulers"]);
+		VEC3 euler_rads = VEC3(deg2rad(euler_deg.x), deg2rad(euler_deg.y), deg2rad(euler_deg.z));
+		setYawPitchRoll(euler_rads.x, euler_rads.y, euler_rads.z);
+	}
   if (j.count("scale"))
     scale = j.value("scale", 1.0f);
   return true;

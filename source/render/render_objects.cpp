@@ -348,6 +348,14 @@ void renderLine(VEC3 src, VEC3 dst, VEC4 color) {
 }
 
 // ---------------------------------------------
+void renderCameraVolume(const CCamera& camera, VEC4 color) {
+	MAT44 inv_view_proj = camera.getViewProjection().Invert();
+	auto mesh = Resources.get("unit_frustum.mesh")->as<CRenderMesh>();
+	setWorldTransform(inv_view_proj, color);
+	mesh->activateAndRender();
+}
+
+// ---------------------------------------------
 bool createDepthStencil(
 	const std::string& aname,
 	int width, int height,
