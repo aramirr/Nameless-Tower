@@ -47,6 +47,9 @@ namespace FSM
 	}
 	
 	void DeadState::onFinish(CContext& ctx) const {
-		ctx.setVariable("dead", false);				
+		ctx.setVariable("dead", false);			
+        CEntity* e = ctx.getOwner();
+        TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->previous_state = "dead";
 	}
 }

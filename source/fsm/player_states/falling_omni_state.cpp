@@ -111,6 +111,7 @@ namespace FSM
         CEntity* e = ctx.getOwner();
         TCompPlayerController* player = e->get<TCompPlayerController>();
         player->change_animation(player->EAnimations::NajaJumpLand, true, 0.01, 0.1, false);
+        player->previous_state = "falling_omni";
 	}
 
 }

@@ -52,6 +52,6 @@ namespace FSM
         activate_camera.camera_name = "camera_orbit_IZQ";
         activate_camera.blend_time = 4.f;
         camera_manager->sendMsg(activate_camera);
-        
+        player->previous_state = "look_down";
 	}
 }
