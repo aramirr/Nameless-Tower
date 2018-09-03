@@ -41,7 +41,12 @@ namespace FSM
 			player->y_speed_factor -= player->gravity * dt;
 		
 		if (!player->is_running && (EngineInput["left"].isPressed() || EngineInput["right"].isPressed())){
-			player->change_animation(player->EAnimations::NajaRun, _is_action, _delay_in, _delay_out, true);
+            if (player->previous_state == "idle") {
+                player->change_animation(player->EAnimations::NajaRun, _is_action, 0.005, _delay_out, true);
+            }
+            else {
+                player->change_animation(player->EAnimations::NajaRun, _is_action, _delay_in, _delay_out, true);
+            }
 			player->is_running = true;
 		}
 		if (EngineInput["left"].isPressed()) {
