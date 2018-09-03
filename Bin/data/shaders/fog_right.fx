@@ -61,18 +61,14 @@ float4 PS_FogRight(
 
   //// Convert world coords to camera space in the range 0..1 to access the rt_main texture
     float4 final_color = txAlbedo.Sample(samLinear, iTex0);
-    float4 alpha_color = txAlpha.Sample(samLinear, iTex0); // * txAlpha.Sample(samLinear, iTex0) + float4(0, 0, 0, 0) * (1. - txAlpha.Sample(samLinear, iTex0)); /** (1. - txTransparency.Sample(samLinear, iTex0))*/; //obj_color.a;
-
+    float4 alpha_color = txAlpha.Sample(samLinear, iTex0);// * txAlpha.Sample(samLinear, iTex0) + float4(0, 0, 0, 0) * (1. - txAlpha.Sample(samLinear, iTex0)); /** (1. - txTransparency.Sample(samLinear, iTex0))*/; //obj_color.a;
+	
     final_color.a = alpha_color.r;
-    if (final_color.a < 0.3) 
-        discard;
 		
 	if (iTex1.x < 0.15)
 		final_color.w = final_color.w * (iTex1.x /0.15);
 	if (iTex1.x > 0.85)
 		final_color.w = final_color.w * ((1-iTex1.x) /0.15);
-		
-    final_color.w *= 0.3;
 		
     return final_color;
  

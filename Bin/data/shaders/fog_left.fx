@@ -45,17 +45,10 @@ float4 PS_FogLeft(
 , float3 iWorldPos : TEXCOORD2
 ) : SV_Target0
 {
-
-  //// Convert world coords to camera space in the range 0..1 to access the rt_main texture
-    //float4 pos_proj_space = mul(float4(iWorldPos, 1), camera_view_proj);
-    //float3 pos_homo_space = pos_proj_space.xyz / pos_proj_space.w; // -1..1
-  //  float2 pos_camera_unit_space = float2((1 + pos_homo_space.x) * 0.5, (1 - pos_homo_space.y) * 0.5);
     float4 final_color = txAlbedo.Sample(samLinear, iTex0);
-    float4 alpha_color = txAlpha.Sample(samLinear, iTex0); // * txAlpha.Sample(samLinear, iTex0) + float4(0, 0, 0, 0) * (1. - txAlpha.Sample(samLinear, iTex0)); /** (1. - txTransparency.Sample(samLinear, iTex0))*/; //obj_color.a;
+    float4 alpha_color = txAlpha.Sample(samLinear, iTex0);// * txAlpha.Sample(samLinear, iTex0) + float4(0, 0, 0, 0) * (1. - txAlpha.Sample(samLinear, iTex0)); /** (1. - txTransparency.Sample(samLinear, iTex0))*/; //obj_color.a;
 	
     final_color.a = alpha_color.r;
-    if (final_color.a < 0.3) 
-        discard;
 	
 	if (iTex1.x < 0.15)
 		final_color.w = final_color.w * (iTex1.x /0.15);
