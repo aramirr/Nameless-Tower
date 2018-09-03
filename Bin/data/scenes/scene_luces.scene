@@ -2,18 +2,6 @@
   {
     "entity":
     {
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Luces_Fuego_013"
       ,
       "transform":
@@ -230,13 +218,15 @@
         "rotation": "0.0 0.358209 0.0 -0.933641"
       }
       ,
-      "light_point":
-      {
-        "intensity": 10.0
-        ,
-        "color": "1.0 0.0509804 0.0509804 1.0"
-        ,
-        "radius": 3.0
+       "light_point_shadows": {
+        "intensity": 10,
+        "color" :  "0.8 0.8 1.0 1",
+        "z_near" : 1,
+        "z_far" : 10,
+        "shadows_step" : 3.0,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none"
       }
     }
   }
@@ -253,7 +243,7 @@
         "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
-      "light_point":
+        "light_point":
       {
         "intensity": 10.0
         ,

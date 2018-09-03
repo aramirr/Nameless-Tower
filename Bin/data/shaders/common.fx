@@ -17,15 +17,7 @@ Texture2D    txCell           SLOT( TS_CELL );
 // from the light and env
 Texture2D    txLightProjector SLOT( TS_LIGHT_PROJECTOR );
 Texture2D    txLightShadowMap SLOT(TS_LIGHT_SHADOW_MAP);
-
-//SHADOWS CUBE MAP (POINT LIGHT)
-Texture2D txLightShadowCubeMap0 SLOT(TS_LIGHT_SHADOW_CUBEMAP0);
-Texture2D txLightShadowCubeMap1 SLOT(TS_LIGHT_SHADOW_CUBEMAP1);
-Texture2D txLightShadowCubeMap2 SLOT(TS_LIGHT_SHADOW_CUBEMAP2);
-Texture2D txLightShadowCubeMap3 SLOT(TS_LIGHT_SHADOW_CUBEMAP3);
-Texture2D txLightShadowCubeMap4 SLOT(TS_LIGHT_SHADOW_CUBEMAP4);
-Texture2D txLightShadowCubeMap5 SLOT(TS_LIGHT_SHADOW_CUBEMAP5);
-
+TextureCube  txCubeShadowMap  SLOT(TS_LIGHT_SHADOW_MAP);
 TextureCube  txEnvironmentMap SLOT( TS_ENVIRONMENT_MAP );
 TextureCube  txIrradianceMap  SLOT( TS_IRRADIANCE_MAP );
 Texture2D    txNoiseMap       SLOT( TS_NOISE_MAP );
@@ -114,36 +106,6 @@ float shadowsTap( float2 homo_coord, float coord_z ) {
 }
 
 //--------------------------------------------------------------------------------------
-float shadowsTap(float2 homo_coord, float coord_z, int face)
-{
-    switch (face)
-    {
-        case 0:
-            return txLightShadowCubeMap0.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
-            break;
-        case 1:
-            return txLightShadowCubeMap1.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
-            break;
-        case 2:
-            return txLightShadowCubeMap2.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
-            break;
-        case 3:
-            return txLightShadowCubeMap3.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
-            break;
-        case 4:
-            return txLightShadowCubeMap4.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
-            break;
-        case 5:
-            return txLightShadowCubeMap5.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
-            break;
-        default:
-            return txLightShadowMap.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
-            break;
-    }
-    return txLightShadowMap.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
-}
-
-//--------------------------------------------------------------------------------------
 float computeShadowFactor( float3 wPos ) {
 
   // Convert pixel position in world space to light space
@@ -201,17 +163,48 @@ float computeShadowFactor( float3 wPos ) {
   return shadow_factor / 12.f;
 }
 
-//--------------------------------------------------------------------------------------
-float computeShadowFactor(float3 wPos, int face)
+// -------------------------------------------------
+// L is the delta vector from the wPos to the light_view_proj_offset
+// It's weirds but I found the L needs to be swapped only in xy
+// As the hw renders and stores the z in projective space we have
+// to reconsutrcut the zProj of the wPos, each cube stores the z
+// in each face of the cube (hence the max(x,y,z))
+// Displaying the (zProj - (int)zProj) helps visualizing the data 
+// stored in the txCubeShadowMap
+// Finally, we use the SampleCmpLevelZero to have the PCW on the HW
+float tapCubeShadowAt(float3 L)
 {
 
-  // Convert pixel position in world space to light space
-    float4 pos_in_light_proj_space = mul(float4(wPos, 1), light_view_proj_offset);
-    float3 homo_space = pos_in_light_proj_space.xyz / pos_in_light_proj_space.w; // -1..1
+  // Might be removed in changing faces layout...
+    L = float3(-L.x, -L.y, L.z);
 
-  // Avoid the white band in the back side of the light
-    if (pos_in_light_proj_space.z < 0.)
-        return 0.f;
+  // Hardcoded for testing only
+    float zn = 1;
+    float zf = 200;
+
+  // Get zLinear in view space
+    float3 LAbs = abs(L);
+    float zLinear = max(LAbs.x, max(LAbs.y, LAbs.z));
+
+  // get zProj as stored in the depth buffer
+    float zProj = zf / (zf - zn) * (1.0 - zn / zLinear);
+
+  // Use PCF sampling
+    return txCubeShadowMap.SampleCmpLevelZero(samPCF, L, zProj);
+}
+
+//--------------------------------------------------------------------------------------
+// Multiple samples rotated using a random angle based on the direction, are taken as the
+// regular 2D
+// Random values are added to the full vector L, so the bigger it is, the more we have to move (*d2l)
+float computeCubeShadowFactor(float3 L)
+{
+
+  // Value to tweak, fixes some shadow acne if a value of shadows_steps is too big/
+    L *= 0.99f;
+  
+  // Simple shadow with PCF
+  //return tapCubeShadowAt(L);
 
   // Poisson distribution random points around a circle
     const float2 offsets[] =
@@ -231,12 +224,20 @@ float computeShadowFactor(float3 wPos, int face)
     };
 
   // 1./ resolution * custom scale factor
-    float coords_scale = light_shadows_step_with_inv_res;
+    float coords_scale = light_shadows_step_with_inv_res * 2;
 
-  // Find a random rotation angle based on the world coords
-    float angle = 2 * 3.14159268f * hash2(wPos.x + wPos.y).x;
+  // Find a random rotation angle based on the world light dir coords
+    float angle = 2 * 3.14159268f * hash2(L.x + L.y + L.z).x;
     float cos_angle = cos(angle);
     float sin_angle = sin(angle);
+
+  // Find two perp axis
+    float d2l = length(L);
+    float3 left = normalize(cross(float3(0, 1, 0), L));
+    float3 up = normalize(cross(L, left));
+
+    left *= coords_scale * d2l;
+    up *= coords_scale * d2l;
 
   // Accumulate shadow taps
     float shadow_factor = 0;
@@ -244,7 +245,7 @@ float computeShadowFactor(float3 wPos, int face)
     for (int i = 0; i < 12; ++i)
     {
 
-  	// Get the random offset
+    // Get the random offset
         float2 coords = offsets[i];
 
     // Rotate the offset
@@ -252,8 +253,12 @@ float computeShadowFactor(float3 wPos, int face)
                               coords.x * cos_angle - coords.y * sin_angle,
                               coords.y * cos_angle + coords.x * sin_angle
                               );
-    // Scane and Translate
-        float tap_sample = shadowsTap(homo_space.xy + rotated_coord * coords_scale, homo_space.z, face);
+
+    // Rotate around the L direction
+        float3 deltaDir = left * rotated_coord.x + up * rotated_coord.y;
+
+    // Tap on a point perp to the original L
+        float tap_sample = tapCubeShadowAt(L + deltaDir);
 
         shadow_factor += tap_sample;
     }

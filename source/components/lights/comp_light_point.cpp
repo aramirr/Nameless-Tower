@@ -1,6 +1,6 @@
 #include "mcv_platform.h"
 #include "comp_light_point.h"
-#include "comp_transform.h"
+#include "../juan/comp_transform.h"
 #include "ctes.h"                     // texture slots
 #include "render/render_manager.h" 
 #include "render/render_objects.h" 
@@ -52,6 +52,4 @@ void TCompLightPoint::activate() {
   cb_light.light_view_proj_offset = MAT44::Identity;
   cb_light.updateGPU();
 }
-
-
 

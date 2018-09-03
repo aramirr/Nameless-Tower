@@ -182,7 +182,6 @@
     <ClCompile Include="components\comp_particles.cpp" />
     <ClCompile Include="fsm\player_states\look_up_state.cpp" />
     <ClCompile Include="fsm\player_states\look_down_state.cpp" />
-    <ClCompile Include="components\juan\comp_render_cube.cpp" />
     <ClCompile Include="render\texture\render_to_cube.cpp" />
     <ClCompile Include="components\lights\comp_light_point_shadows.cpp" />
   </ItemGroup>
@@ -427,7 +426,6 @@
     <ClInclude Include="components\comp_particles.h" />
     <ClInclude Include="fsm\player_states\look_up_state.h" />
     <ClInclude Include="fsm\player_states\look_down_state.h" />
-    <ClInclude Include="components\juan\comp_render_cube.h" />
     <ClInclude Include="render\texture\render_to_cube.h" />
     <ClInclude Include="components\lights\comp_light_point_shadows.h" />
   </ItemGroup>

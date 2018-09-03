@@ -101,7 +101,6 @@
     <ClCompile Include="components\comp_grass.cpp" />
     <ClCompile Include="components\comp_emission_controller.cpp" />
     <ClCompile Include="components\comp_particles.cpp" />
-    <ClCompile Include="components\juan\comp_render_cube.cpp" />
     <ClCompile Include="components\lights\comp_light_point_shadows.cpp" />
     <ClCompile Include="components\lights\comp_light_spot.cpp" />
     <ClCompile Include="components\controllers\comp_curve.cpp" />
@@ -289,7 +288,6 @@
     <ClInclude Include="components\comp_grass.h" />
     <ClInclude Include="components\comp_emission_controller.h" />
     <ClInclude Include="components\comp_particles.h" />
-    <ClInclude Include="components\juan\comp_render_cube.h" />
     <ClInclude Include="components\lights\comp_light_point_shadows.h" />
     <ClInclude Include="components\lights\comp_light_spot.h" />
     <ClInclude Include="components\controllers\comp_curve.h" />

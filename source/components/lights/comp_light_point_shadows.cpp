@@ -1,6 +1,6 @@
 #include "mcv_platform.h"
 #include "comp_light_point_shadows.h"
-#include "comp_transform.h"
+#include "../juan/comp_transform.h"
 #include "render/render_objects.h"    // cb_light
 #include "render/texture/texture.h" 
 #include "ctes.h"                     // texture slots
@@ -91,7 +91,7 @@ void TCompLightPointShadows::activate() {
   cb_light.light_shadows_inverse_resolution = 1.0f / (float)shadows_cube_rt->getWidth();
   cb_light.light_shadows_step = shadows_step;
   cb_light.light_shadows_step_with_inv_res = shadows_step / (float)shadows_cube_rt->getWidth();
-  cb_light.light_radius = 1.f;
+  //cb_light.light_radius = 1.f;
 
   shadows_cube_rt->activateCubeShadowMap(TS_LIGHT_SHADOW_MAP);
 }

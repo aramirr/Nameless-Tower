@@ -209,6 +209,8 @@ void CDeferredRenderer::renderPointLights() {
 		// puede iluminar esta luz.... El Frustum solido
 		mesh->render();
 
+	});
+
 	//Pintar luz de las antorchas
 	getObjectManager<CAITorch>()->forEach([mesh](CAITorch* c) {
 

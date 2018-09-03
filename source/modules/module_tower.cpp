@@ -91,7 +91,7 @@ const void CModuleTower::setDirLightIntensity(const std::string& name, float int
 const void CModuleTower::setPointLightIntensity(const std::string& name, float intensity) {
   CEntity* entity = (CEntity*)getEntityByName(name);
   TCompLightPoint* light_point = entity->get<TCompLightPoint>();
-  light_point->setIntensity(intensity);
+  //light_point->setIntensity(intensity);
 }
 
 float CModuleTower::checkAngle(float alpha, VEC3 pos1) {
