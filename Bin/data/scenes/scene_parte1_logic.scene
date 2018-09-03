@@ -153,7 +153,6 @@
       }
       ,
       "abs_aabb": true
-      
     }
   }
   ,
@@ -193,7 +192,6 @@
       }
       ,
       "abs_aabb": true
-      
       ,
       "door":
       {
@@ -303,7 +301,6 @@
       }
       ,
       "abs_aabb": true
-      
     }
   }
   ,
@@ -409,7 +406,6 @@
       }
       ,
       "abs_aabb": true
-      
     }
   }
   ,
@@ -453,32 +449,6 @@
         ,
         "is_trigger": true
       }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Pinchos_Prefab"
-      ,
-      "transform":
-      {
-        "pos": "-30.2949 3.35503 -6.19233"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Pinchos_Prefab.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RocaGris.material"
-          ]
-        }
-      ]
     }
   }
   ,
@@ -553,7 +523,6 @@
       }
       ,
       "abs_aabb": true
-      
     }
   }
   ,
@@ -628,7 +597,6 @@
       }
       ,
       "abs_aabb": true
-      
     }
   }
   ,
@@ -698,7 +666,6 @@
       }
       ,
       "abs_aabb": true
-      
     }
   }
   ,
@@ -743,7 +710,6 @@
       }
       ,
       "abs_aabb": true
-      
     }
   }
   ,
@@ -910,7 +876,6 @@
       }
       ,
       "abs_aabb": true
-      
     }
   }
   ,
@@ -964,7 +929,6 @@
       }
       ,
       "abs_aabb": true
-      
     }
   }
   ,
@@ -1018,7 +982,6 @@
       }
       ,
       "abs_aabb": true
-      
     }
   }
 ]
