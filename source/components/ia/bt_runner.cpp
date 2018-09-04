@@ -179,17 +179,13 @@ int bt_runner::actionChase() {
   VEC3 player_position = c_p_transform->getPosition();
 
   float distance_to_player = distance_x_z(my_position, player_position);
-  float distance_to_waypoint = distance_x_z(my_position, waypoints_map[path[actual_waypoint]].position);
+	float distance_to_waypoint;
+	if (next_waypoint >= 0) distance_to_waypoint = distance_x_z(my_position, waypoints_map[path[next_waypoint]].position);
+	else distance_to_waypoint = distance_x_z(my_position, waypoints_map[path[actual_waypoint]].position);
 
-  if (b_chase_player) {
-    if (distance_to_player < distance_to_waypoint) {
-      chase_player();
-    }
-    else if (distance_to_player > distance_to_waypoint) {
-      chase_player();
-    }
-  }
-	else chase_waypoint();
+  if (on_jump) chase_waypoint();
+	else if (distance_to_waypoint <= distance_to_player) chase_waypoint();
+	else chase_player();
 
   if (conditionAttack()) {
     return LEAVE;
@@ -198,6 +194,7 @@ int bt_runner::actionChase() {
 	//Cambiar a STAY y poner interrupciones que reinicien el BT
     return STAY;
 };
+
 
 int bt_runner::actionAppear() {
 	//dbg("appear\n");
@@ -278,6 +275,21 @@ int bt_runner::findClosestWaypoint(VEC3 position) {
 	return closest_waypoint;
 }
 
+int bt_runner::findSecondClosestWaypoint(VEC3 position, int closest_waypoint_id) {
+	float min_dist = INFINITE;
+	int closest_waypoint;
+	for (auto wp : waypoints_map) {
+		if (wp.id != closest_waypoint_id) {
+			float d = VEC3::Distance(position, wp.position);
+			if (d < min_dist) {
+				min_dist = d;
+				closest_waypoint = wp.id;
+			}
+		}
+	}
+	return closest_waypoint;
+}
+
 void bt_runner::calculate_distances_graph() {
 	float perimeter = 2 * 3.1415 * EngineTower.getTowerRadius();
 	for (waypoint &w : waypoints_map) {
@@ -337,101 +349,78 @@ void bt_runner::findPath(int origin, int destiny){
 
 void bt_runner::chase_player() {
 
-  if (anim_state != "chase_player") {
-    anim_state = "chase_player";
-    change_animation(ERunnerAnimations::RunnerRunClose, false, 0.f, 0.f, true);
-  }
+  
+	if (waypoints_map[path[actual_waypoint]].type == "edge") {
+		CEntity* e_player = (CEntity*)getEntityByName("The Player");
+		TCompTransform* player_transform = e_player->get<TCompTransform>();
+		next_waypoint = findSecondClosestWaypoint(player_transform->getPosition(), actual_waypoint);
+		if (waypoints_map[path[next_waypoint]].type == "edge") {
+			jump();
+		}
+		else {
+			if (anim_state != "chase_player") {
+				anim_state = "chase_player";
+				change_animation(ERunnerAnimations::RunnerRunClose, false, 0.f, 0.f, true);
+			}
+			walk("player");
+		}
 
-  TCompTransform *c_my_transform = getMyTransform();
-  VEC3 myPos = c_my_transform->getPosition();
-
-  float current_yaw;
-  float current_pitch;
-  float amount_moved = speed * DT;
-  c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-
-  tower_center.y = myPos.y;
-
-  CEntity* player = (CEntity*)getEntityByName("The Player");
-  TCompTransform* player_transform = player->get<TCompTransform>();
-
-  TCompCollider* comp_collider = get<TCompCollider>();
-  if (!c_my_transform->isInFront(player_transform->getPosition())) {
-    current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
-    float debug = rad2deg(current_yaw);
-    going_right = !going_right;
-
-    PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
-    PxTransform tr = rigidActor->getGlobalPose();
-    auto& rot2 = c_my_transform->getRotation();
-
-
-    c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-
-
-    auto& rot = c_my_transform->getRotation();
-    tr.q = PxQuat(rot.x, rot.y, rot.z, rot.w);
-    rigidActor->setGlobalPose(tr);
-
-  }
-  else {
-    current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
-    c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-    VEC3 aux_vector = going_right ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
-    VEC3 newPos = tower_center + (aux_vector * EngineTower.getTowerRadius());
-    c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-    if (comp_collider && comp_collider->controller)
-    {
-      VEC3 delta_move = newPos - myPos;
-
-      delta_move.y += -10 * DT;
-
-
-      PxShape* player_shape;
-      comp_collider->controller->getActor()->getShapes(&player_shape, 1);
-      PxFilterData filter_data = player_shape->getSimulationFilterData();
-      ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
-      BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
-      PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, PxControllerFilters(&filter_data, query_filter, filter_controller));
-      VEC3 myPos2 = c_my_transform->getPosition();
-
-      if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
-        current_yaw = going_right ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
-        c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-      }
-    }
-  }
+	}
+	else {
+		if (anim_state != "chase_player") {
+			anim_state = "chase_player";
+			change_animation(ERunnerAnimations::RunnerRunClose, false, 0.f, 0.f, true);
+		}
+		walk("player");
+	}
+	
   
 }
 
 void bt_runner::chase_waypoint() {
-	if (waypoints_map[path[actual_waypoint]].type == "floor") {
-		walk();
-	}
-	else if (waypoints_map[path[actual_waypoint]].type == "edge") {
-		if (waypoints_map[path[next_waypoint]].type == "edge") {
-			jump();
+	if (next_waypoint >= 0) {
+		if (waypoints_map[path[actual_waypoint]].type == "floor") {
+			walk("waypoint");
 		}
-		else walk();
+		else if (waypoints_map[path[actual_waypoint]].type == "edge") {
+			if (waypoints_map[path[next_waypoint]].type == "edge") {
+				jump();
+			}
+			else walk("waypoint");
+		}
 	}
 
-  TCompTransform* my_transform = getMyTransform();
-  if (VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position) <= 1.0f) {
-    on_jump = false;
-	  going_up = true;
-    actual_waypoint = next_waypoint;
-	  --next_waypoint;
-	  if (next_waypoint < 0) {
-		  recalculate_path();
-	  }
-  }
+	TCompTransform* my_transform = getMyTransform();
+	if (next_waypoint < 0 || VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position) <= 1.0f) {
+		on_jump = false;
+		going_up = true;
+		actual_waypoint = next_waypoint;
+		--next_waypoint;
+		if (next_waypoint < 0) {
+			recalculate_path();
+		}
+	}
 }
 
-void bt_runner::walk() {
-  if (anim_state != "walk") {
-    anim_state = "walk";
-    change_animation(ERunnerAnimations::RunnerRun, false, 0.f, 0.f, true);
-  }
+void bt_runner::walk(std::string target = "waypoint") {
+	VEC3 target_position;
+	if (target == "player") {
+		if (anim_state != "chase_player") {
+			anim_state = "chase_player";
+			change_animation(ERunnerAnimations::RunnerRunClose, false, 0.f, 0.f, true);
+		}
+		CEntity* e_player = (CEntity*)getEntityByName("The Player");
+		TCompTransform* player_transform = e_player->get<TCompTransform>();
+		target_position = player_transform->getPosition();
+	}
+	else {
+		if (anim_state != "walk") {
+			anim_state = "walk";
+			change_animation(ERunnerAnimations::RunnerRun, false, 0.f, 0.f, true);
+		}
+		if (next_waypoint >= 0) target_position = waypoints_map[path[next_waypoint]].position; 
+		else target_position = waypoints_map[path[actual_waypoint]].position;
+	}
 
 	TCompTransform *c_my_transform = getMyTransform();
 	VEC3 myPos = c_my_transform->getPosition();
@@ -444,7 +433,7 @@ void bt_runner::walk() {
 	tower_center.y = myPos.y;
 
   TCompCollider* comp_collider = get<TCompCollider>();
-	if (!c_my_transform->isInFront(waypoints_map[path[next_waypoint]].position)) {
+	if (!c_my_transform->isInFront(target_position)) {
 		current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
 		float debug = rad2deg(current_yaw);
 		going_right = !going_right;

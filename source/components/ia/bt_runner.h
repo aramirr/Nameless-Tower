@@ -75,7 +75,8 @@ class bt_runner:public bt
 	float distance_x_z(VEC3 v1, VEC3 v2);
 	void calculate_distances_graph();
   void findPath(int origin, int destiny);
-  int findClosestWaypoint(VEC3 position);
+	int findClosestWaypoint(VEC3 position);
+	int findSecondClosestWaypoint(VEC3 position, int closest_waypoint_id);
 
   // BT
   void create(string);
@@ -102,7 +103,7 @@ class bt_runner:public bt
   void killPlayer();
   void chase_waypoint();
   void chase_player();
-  void walk();
+  void walk(std::string target);
   void jump();
 
 	DECL_SIBLING_ACCESS();
