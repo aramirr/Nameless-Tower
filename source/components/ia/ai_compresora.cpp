@@ -125,12 +125,14 @@ void CAICompresora::WaitState()
 {
   acum_delay += DT;
   if (delay < acum_delay) {
-    TMsgChangeDirectionUp msg;
-    msg.b_up = going_up;
-    CEntity* e1 = getEntityByName(trigger1);
-    CEntity* e2 = getEntityByName(trigger2);
-    e1->sendMsg(msg);
-    e2->sendMsg(msg);
+	if (trigger1 != "" && trigger2 != "") {
+		TMsgChangeDirectionUp msg;
+		msg.b_up = going_up;
+		CEntity* e1 = getEntityByName(trigger1);
+		CEntity* e2 = getEntityByName(trigger2);
+		e1->sendMsg(msg);
+		e2->sendMsg(msg);
+	}
     if (going_up) {
       ChangeState("move_up");
     }
