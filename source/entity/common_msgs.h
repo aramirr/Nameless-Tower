@@ -138,7 +138,7 @@ struct TMsgActiveCamera {
   DECL_MSG_ID();
 };
 
-struct TMsgDeactivateCamera {
+struct TMsgRemoveCamera {
     std::string camera_name;
     float blend_time;
     DECL_MSG_ID();

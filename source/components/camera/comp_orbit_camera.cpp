@@ -40,8 +40,8 @@ void TCompOrbitCamera::debugInMenu() {
   ImGui::DragFloat("Altura", &height, 0.1f, -20.f, 20.f);
   ImGui::DragFloat("Fov", &fov_deg, 0.1f, -1000.f, 1000.f);
   ImGui::DragFloat("Look_X", &X, 0.1f, -100.f, 100.f);
-  ImGui::DragFloat("Look_Y", &Z, 0.1f, -100.f, 100.f);
-  ImGui::DragFloat("Look_Z", &Y, 0.1f, -100.f, 100.f);
+  ImGui::DragFloat("Look_Y", &Y, 0.1f, -100.f, 100.f);
+  ImGui::DragFloat("Look_Z", &Z, 0.1f, -100.f, 100.f);
   ImGui::DragFloat("Radio", &radio, 0.1f, -100.f, 100.f);
 
 }
@@ -59,9 +59,9 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
   radio = j.value("radio", 20.f);
   apertura = j.value("apertura", -278.f);
 
-  X = 0;
-  Y = 0;
-  Z = 0;
+  X = j.value("x", 0);
+  Y = j.value("y", 0);
+  Z = j.value("z", 0);
 
   TCompTransform* p = player->get<TCompTransform>();
   assert(p);

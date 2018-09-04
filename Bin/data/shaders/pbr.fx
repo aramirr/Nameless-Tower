@@ -214,7 +214,7 @@ void PS_GBuffer_Alpha(
 , out float1 o_cell : SV_Target5
 )
 {
-    o_cell = (txCell.Sample(samLinear, iTex0)).x;
+    //o_cell = (txCell.Sample(samLinear, iTex0)).x;
     o_self_illum = txEmissive.Sample(samLinear, iTex0);
   //o_self_illum.xyz *= self_color;
   // Store in the Alpha channel of the albedo texture, the 'metallic' amount of
@@ -228,7 +228,54 @@ void PS_GBuffer_Alpha(
     float3 N = computeNormalMap(iNormal, iTangent, iTex0);
   
   // Save roughness in the alpha coord of the N render target
-    float roughness = 0.5f; //txRoughness.Sample(samLinear, iTex0).r;
+    float roughness = 1.0f; //txRoughness.Sample(samLinear, iTex0).r;
+    o_normal = encodeNormal(N, roughness);
+
+    // Si el material lo pide, sobreescribir los valores de la textura
+	// por unos escalares uniformes. Only to playtesting...
+    //if (scalar_metallic >= 0.f)
+    //    o_albedo.a = scalar_metallic;
+    //if (scalar_roughness >= 0.f)
+    //    o_normal.a = scalar_roughness;
+
+  // Compute the Z in linear space, and normalize it in the range 0...1
+  // In the range z=0 to z=zFar of the camera (not zNear)
+    float3 camera2wpos = iWorldPos - camera_pos;
+    o_depth = dot(camera_front.xyz, camera2wpos) / camera_zfar;
+}
+
+//--------------------------------------------------------------------------------------
+// GBuffer Viento generation pass. Pixel shader
+//--------------------------------------------------------------------------------------
+void PS_GBuffer_Viento(
+  float4 Pos : SV_POSITION
+, float3 iNormal : NORMAL0
+, float4 iTangent : NORMAL1
+, float2 iTex0 : TEXCOORD0
+, float2 iTex1 : TEXCOORD1
+, float3 iWorldPos : TEXCOORD2
+, out float4 o_albedo : SV_Target0
+, out float4 o_normal : SV_Target1
+, out float1 o_depth : SV_Target2
+, out float4 o_self_illum : SV_Target3
+, out float1 o_cell : SV_Target5
+)
+{
+    //o_cell = (txCell.Sample(samLinear, iTex0)).x;
+    o_self_illum = txEmissive.Sample(samLinear, iTex0);
+  //o_self_illum.xyz *= self_color;
+  // Store in the Alpha channel of the albedo texture, the 'metallic' amount of
+  // the material
+    o_albedo = txAlbedo.Sample(samLinear, iTex0);
+    o_albedo.a = txAlpha.Sample(samLinear, iTex0).r;
+
+    //if (o_albedo.a < 0.3) 
+    //    discard;
+
+    float3 N = computeNormalMap(iNormal, iTangent, iTex0);
+  
+  // Save roughness in the alpha coord of the N render target
+    float roughness = 1.0f; //txRoughness.Sample(samLinear, iTex0).r;
     o_normal = encodeNormal(N, roughness);
 
     // Si el material lo pide, sobreescribir los valores de la textura
@@ -520,12 +567,12 @@ float4 PS_ambient(
 
     if (cell)
     {
-        final_color = float4(/*env_fresnel * env * g_ReflectionIntensity +*/
-                              albedo.xyz * /*irradiance **/ g_AmbientLightIntensity
+        final_color = float4(env_fresnel * env * g_ReflectionIntensity +
+                              albedo.xyz * irradiance * g_AmbientLightIntensity
                               , albedo.a) + self_illum;
 
 
-        final_color = final_color * global_ambient_adjustment /** ao*/;
+        final_color = final_color * global_ambient_adjustment * ao;
         final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
 
         final_color.a = 1;
@@ -623,13 +670,15 @@ float4 shade(
   // att *= 1 / distance_to_light;
 
     // Spotlight attenuation
-    float shadow_factor = use_shadows ? computeShadowFactor(wPos) : 1.; // shadow factor
+    float shadow_factor;
+    if (light_point == 1) shadow_factor = use_shadows ? computeShadowFactor(wPos, light_face) : 1.;
+    else shadow_factor = use_shadows ? computeShadowFactor(wPos) : 1.; // shadow factor
 
     float4 final_color2;
 
     if (cell)
     {
-        float3 final_color = light_color.xyz * /*NdL * (*/cDiff /** (1.0f - cSpec) + cSpec)*/ * att * light_intensity * shadow_factor;
+        float3 final_color = light_color.xyz /** NdL*/ * (cDiff * (1.0f - cSpec) + cSpec) * att * light_intensity * shadow_factor;
 
         final_color2 = float4(final_color, 1);
 
@@ -666,7 +715,7 @@ float4 shade(
 float4 PS_point_lights(in float4 iPosition : SV_Position) : SV_Target
 {
     float3 out_lightdir;
-    return shade(iPosition, out_lightdir, false);
+    return shade(iPosition, out_lightdir, true);
 }
 
 float4 PS_dir_lights(in float4 iPosition : SV_Position) : SV_Target

@@ -14,7 +14,7 @@ public:
     extensions = { ".particles" };
   }
   IResource* create(const std::string& name) const override {
-    dbg("Creating particles %s\n", name.c_str());
+    //dbg("Creating particles %s\n", name.c_str());
     Particles::CParser parser;
     Particles::TCoreSystem* res = parser.parseParticlesFile(name);
     assert(res);
@@ -91,17 +91,21 @@ namespace Particles
         dir.Normalize();
         p.velocity += dir * _core->movement.acceleration * delta;
         p.velocity += kGravity * _core->movement.gravity * delta;
-        p.position += p.velocity * delta;
-        p.position += kWindVelocity * _core->movement.wind * delta;
-        p.rotation += _core->movement.spin * delta;
+        if (!_core->movement.ground  || _core->movement.on_ground_move || p.position.y > _core->movement.ground_y) {
+          p.position += p.velocity * delta;
+          p.position += kWindVelocity * _core->movement.wind * delta;
+          p.rotation += _core->movement.spin * delta;
+        }
         if (_core->movement.ground)
         {
-          p.position.y = std::max(0.f, p.position.y);
+          p.position.y = std::max(_core->movement.ground_y, p.position.y);
         }
+        
+
         
         float life_ratio = p.max_lifetime > 0.f ? clamp(p.lifetime / p.max_lifetime, 0.f, 1.f) : 1.f;
         p.color = _core->color.colors.get(life_ratio) * fadeRatio;
-        p.color.z *= _core->color.opacity;
+        p.color.w *= _core->color.opacity;
         p.size = _core->size.sizes.get(life_ratio);
 
         int frame_idx = (int)(p.lifetime * _core->render.frameSpeed);
@@ -125,7 +129,7 @@ namespace Particles
 
   void CSystem::render()
   {
-    const CRenderTechnique* technique = Resources.get("particles.tech")->as<CRenderTechnique>();
+    const CRenderTechnique* technique = Resources.get("particles_albert.tech")->as<CRenderTechnique>();
     const CRenderMesh* quadMesh = Resources.get("unit_quad_xy.mesh")->as<CRenderMesh>();
     CEntity* eCurrentCamera = Engine.getCameras().getOutputCamera();
     assert(technique && quadMesh && eCurrentCamera);
@@ -184,7 +188,9 @@ namespace Particles
       particle.size = _core->size.sizes.get(0.f);
       particle.scale = _core->size.scale + random(-_core->size.scale_variation, _core->size.scale_variation);
       particle.frame = _core->render.initialFrame;
-      particle.rotation = 0.f;
+      if (_core->emission.random_rotation)
+        particle.rotation = random(deg2rad(0), deg2rad(360));
+      else particle.rotation = 0.f;
       particle.lifetime = 0.f;
       particle.max_lifetime = _core->life.duration + random(-_core->life.durationVariation, _core->life.durationVariation);
 
@@ -225,6 +231,21 @@ namespace Particles
   {
     const float& angle = _core->emission.angle;
     const float velocity = _core->movement.velocity;
+    if (_core->emission.direction != VEC3::Zero) {
+      VEC3 pos = _core->emission.direction;
+      if (_core->parent_name != "") {
+        CEntity* parent = (CEntity *)getEntityByName(_core->parent_name);
+        TCompTransform* parent_transform = parent->get<TCompTransform>();
+
+        CTransform new_pos;
+        new_pos.setPosition(pos);
+        CTransform t = parent_transform->combineWith(new_pos);
+        pos = t.getPosition();
+      }
+
+      pos.Normalize();
+      return pos * velocity;
+    }
 
     if (angle != 0.f)
     {

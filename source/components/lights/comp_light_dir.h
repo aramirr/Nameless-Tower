@@ -10,7 +10,7 @@ class TCompLightDir : public TCompCamera {
 
   // Light params
   VEC4            color = VEC4(1, 1, 1, 1);
-  float           intensity = 1.0f;
+  
   const CTexture* projector = nullptr;
 
   // Shadows params
@@ -21,6 +21,7 @@ class TCompLightDir : public TCompCamera {
   CRenderToTexture* shadows_rt = nullptr;
 
 public:
+  float           intensity = 1.0f;
   void debugInMenu();
   void renderDebug();
   void load(const json& j, TEntityParseContext& ctx);

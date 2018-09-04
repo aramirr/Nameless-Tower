@@ -29,6 +29,9 @@ namespace FSM
 	}
 
 	void LandingState::onFinish(CContext& ctx) const {
+        CEntity* e = ctx.getOwner();
+        TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->previous_state = "landing";
 	}
 
 }

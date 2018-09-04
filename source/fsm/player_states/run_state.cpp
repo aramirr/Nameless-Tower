@@ -10,7 +10,7 @@ namespace FSM
 		  
         CEntity* e = ctx.getOwner();
         TCompPlayerController* player = e->get<TCompPlayerController>();
-        player->clear_animations(0.5f);
+        player->clear_animations(0.005f);
 		EngineSound.res = _sound->start();
 	}
 
@@ -41,7 +41,12 @@ namespace FSM
 			player->y_speed_factor -= player->gravity * dt;
 		
 		if (!player->is_running && (EngineInput["left"].isPressed() || EngineInput["right"].isPressed())){
-			player->change_animation(player->EAnimations::NajaRun, _is_action, _delay_in, _delay_out, true);
+            if (player->previous_state == "idle") {
+                player->change_animation(player->EAnimations::NajaRun, _is_action, 0.005, _delay_out, true);
+            }
+            else {
+                player->change_animation(player->EAnimations::NajaRun, _is_action, _delay_in, _delay_out, true);
+            }
 			player->is_running = true;
 		}
 		if (EngineInput["left"].isPressed()) {
@@ -78,5 +83,6 @@ namespace FSM
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->is_running = false;
+        player->previous_state = "run";
 	}
 }

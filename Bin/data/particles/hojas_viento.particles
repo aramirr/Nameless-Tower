@@ -1,0 +1,42 @@
+{
+  "life" : {
+      "duration" : 10,
+      "duration_variation" : 0.25,
+      "max_particles" : 4000,
+      "time_factor" : 1.0
+  },
+  "emission" : {
+      "type" : "point",
+      "angle" : 0.400,
+      "interval" : 0.2,
+      "count" : 2,
+      "cyclic" : true
+  },
+  "movement" : {
+      "velocity" : 4.0,
+      "acceleration" : 0.0,
+      "spin" : 0.175,
+      "wind" : 0.0,
+      "gravity" : 0,
+      "ground" : true
+  },
+  "render" : {
+      "texture" : "data/textures/Hojita01.dds"
+  },
+  "size" : {
+    "scale" : 0.08,
+    "scale_variation" : 0.0,
+    "sizes" : [
+      [0.0, 1.0],
+      [0.8, 1.0],
+      [1.0, 0.0]
+    ]
+  },
+  "color" : {
+    "opacity" : 1.0,
+    "colors" : [
+      [0.0, "1 1 1 1"],
+      [1.0, "1 1 1 1"]
+    ] 
+  }
+}

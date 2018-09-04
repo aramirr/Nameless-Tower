@@ -170,10 +170,12 @@ void CRenderManager::renderCategory(const char* category_name) {
     return;
 
   // Check if we have culling information from the camera source
-  CEntity* e_camera = h_camera;
+  CEntity* e_camera = EngineCameras.getOutputCamera();
   const TCompCulling* culling = nullptr;
-  if( e_camera )
-    culling = e_camera->get<TCompCulling>();
+  std::string camera_name = EngineCameras.getActiveCamera()->getName();
+  if (e_camera && camera_name != "camera_idle") {
+      culling = e_camera->get<TCompCulling>();
+  }
   const TCompCulling::TCullingBits* culling_bits = culling ? &culling->bits : nullptr;
 
   //cte_object.activate();

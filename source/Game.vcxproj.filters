@@ -179,6 +179,11 @@
     <ClCompile Include="components\lights\comp_light_point.cpp" />
     <ClCompile Include="components\lights\comp_light_spot.cpp" />
     <ClCompile Include="components\controllers\comp_orbit_controller.cpp" />
+    <ClCompile Include="components\comp_particles.cpp" />
+    <ClCompile Include="fsm\player_states\look_up_state.cpp" />
+    <ClCompile Include="fsm\player_states\look_down_state.cpp" />
+    <ClCompile Include="components\juan\comp_render_cube.cpp" />
+    <ClCompile Include="render\texture\render_to_cube.cpp" />
     <ClCompile Include="components\ia\ai_compresora.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -419,9 +424,17 @@
     <ClInclude Include="components\lights\comp_light_point.h" />
     <ClInclude Include="components\lights\comp_light_spot.h" />
     <ClInclude Include="components\controllers\comp_orbit_controller.h" />
+    <ClInclude Include="components\comp_particles.h" />
+    <ClInclude Include="fsm\player_states\look_up_state.h" />
+    <ClInclude Include="fsm\player_states\look_down_state.h" />
+    <ClInclude Include="components\juan\comp_render_cube.h" />
+    <ClInclude Include="render\texture\render_to_cube.h" />
     <ClInclude Include="components\ia\ai_compresora.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="..\Bin\DPIaware.manifest" />
   </ItemGroup>
 </Project>

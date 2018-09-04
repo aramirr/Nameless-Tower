@@ -17,7 +17,6 @@ void TCompCameraFlyover::load(const json& j, TEntityParseContext& ctx) {
   _sensitivity = j.value("sensitivity", _sensitivity);
   _ispeed_reduction_factor = j.value("speed_reduction_factor", _ispeed_reduction_factor);
   _enabled = j.value("enabled", _enabled);
-
   if (j.count("key")) {
     std::string k = j["key"];
     _key_toggle_enabled = k[0];
@@ -61,21 +60,21 @@ void TCompCameraFlyover::update(float scaled_dt)
 		
 
 	if (activo) {
-		if (EngineInput["turbo"])
-			deltaSpeed *= 5.f;
+		if (!EngineInput["turbo"])
+			deltaSpeed *= 25.f;
 
 		if (EngineInput["front"].value)
-			_ispeed.z = 0.25f;
+			_ispeed.z = 0.01f;
 		if (EngineInput["back"].value)
-			_ispeed.z = -0.25f;
+			_ispeed.z = -0.01f;
 		if (EngineInput["left"].value)
-			_ispeed.x = 0.25f;
+			_ispeed.x = 0.01f;
 		if (EngineInput["right"].value)
-			_ispeed.x = -0.25f;
+			_ispeed.x = -0.01f;
 		if (EngineInput["up"].value)
-			_ispeed.y = 0.25f;
+			_ispeed.y = 0.01f;
 		if (EngineInput["down"].value)
-			_ispeed.y = -0.25f;
+			_ispeed.y = -0.01f;
 	}
 	
   // Amount in each direction

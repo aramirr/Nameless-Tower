@@ -5,10 +5,7 @@
 			"transform": {
 				"pos": "0 3 3"
 			},
-			"cameraManager" : {},
-			"render_outlines" : {
-		        "enabled" : false
-		      }
+			"cameraManager" : {}
 		}
 	},
 	{
@@ -19,10 +16,7 @@
 			},
 			"camera" : {
 				"fov" : 80 
-			},
-		      "render_outlines" : {
-		        "enabled" : false
-		      }
+			}
 		}
 	},
 	{
@@ -55,7 +49,60 @@
 			"render_ao" : {
 		        "enabled" :  true,
 		        "radius": 0.6,
-		        "amount_spreading": 0.95
+		        "amount_spreading": 0.95,
+		        "zrange_discard": 0.009
+		      },
+		    "culling":true
+		    ,
+		    "render_blur_radial" : {
+		      "enabled" :  false
+		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_look_up",
+			"transform": {
+				"pos": "-14 16 12",
+				"lookat": "-1 0 -1"
+			},
+			"orbitCamera" : {
+				"izq" : true,
+				"height": 4.9,
+				"y": 2.9
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"render_ao" : {
+		        "enabled" :  true,
+		        "radius": 0.6,
+		        "amount_spreading": 0.95,
+		        "zrange_discard": 0.009
+		      },
+		    "culling":true
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_look_down",
+			"transform": {
+				"pos": "-14 16 12",
+				"lookat": "-1 0 -1"
+			},
+			"orbitCamera" : {
+				"izq" : true,
+				"height": 1,
+				"y": -2.9
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"render_ao" : {
+		        "enabled" :  true,
+		        "radius": 0.6,
+		        "amount_spreading": 0.95,
+		        "zrange_discard": 0.009
 		      },
 		    "culling":true
 		}
