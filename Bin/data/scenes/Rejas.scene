@@ -36,6 +36,9 @@
         "is_trigger": false
         ,
         "mesh_src": "data/meshes/Puerta_Reja_01.col_mesh"
+      },
+      "door":{
+        "up": true
       }
     }
   }
@@ -79,6 +82,9 @@
         "is_dynamic": false
         ,
         "is_trigger": false
+      },
+      "door":{
+        "up": true
       }
     }
   }
@@ -122,6 +128,9 @@
         "is_dynamic": false
         ,
         "is_trigger": false
+      },
+      "door":{
+        "up": true
       }
     }
   }

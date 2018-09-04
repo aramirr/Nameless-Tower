@@ -583,6 +583,9 @@
         "is_dynamic": false
         ,
         "is_trigger": false
+      },
+      "door":{
+        "up": true
       }
     }
   }
@@ -708,6 +711,9 @@
         "is_dynamic": false
         ,
         "is_trigger": false
+      },
+      "door":{
+        "up": true
       }
     }
   }
@@ -747,6 +753,9 @@
         "is_dynamic": false
         ,
         "is_trigger": false
+      },
+      "door":{
+        "up": true
       }
     }
   }
@@ -786,7 +795,13 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      }
+      },
+      "rigid_anim" : 
+      {
+        "src" : "data/anims/Torre3MilestoneGB.anims",
+        "loops": false,
+        "speed_factor": 0.15
+      } 
     }
   }
   ,
@@ -864,7 +879,13 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      }
+      },
+      "rigid_anim" : 
+      {
+        "src" : "data/anims/Torre3MilestoneGB.anims",
+        "loops": false,
+        "speed_factor": 0.15
+      } 
     }
   }
   ,
@@ -903,7 +924,13 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      }
+      },
+      "rigid_anim" : 
+      {
+        "src" : "data/anims/Torre3MilestoneGB.anims",
+        "loops": false,
+        "speed_factor": 0.15
+      } 
     }
   }
   ,
