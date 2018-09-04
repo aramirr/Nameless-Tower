@@ -142,35 +142,12 @@
 	},
 	{
 		"entity": {
-			"name": "particulas_base_cascada",
-			"transform": {
-				"pos": "25.714 81.349 -14.055"
-			},
-			"particles" : {
-				"core" : "data/particles/hojitas.particles"
-			}
-		}
-	},
-	{
-		"entity": {
-			"name": "cannon_left1",
-			"transform": {},
-			"hierarchy": {
-				"axis": "0 1 0", 
-				"angle" : 0,
-				"pos": "0 0 0",
-				"parent" : "particulas_base_cascada"
-			}
-		}
-	},
-	{
-		"entity": {
 			"name": "particulas_top_cascada",
 			"transform": {
-				"pos": "25.714 101.967 -12.289"
+				"pos": "22.443 95.288 -11.200"
 			},
 			"particles" : {
-				"core" : "data/particles/hojitas.particles"
+				"core" : "data/particles/gotas_cascada.particles"
 			}
 		}
 	},
