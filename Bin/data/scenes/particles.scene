@@ -153,13 +153,47 @@
 	},
 	{
 		"entity": {
-			"name": "cannon_left1",
+			"name": "cannon_left2",
 			"transform": {},
 			"hierarchy": {
 				"axis": "0 1 0", 
 				"angle" : 0,
 				"pos": "0 0 0",
 				"parent" : "particulas_top_cascada"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "hojas_viento",
+			"transform": {
+				"pos": "2.395 28.0 31.266"
+			},
+			"particles" : {
+				"core" : "data/particles/hojas_viento.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "hojas_viento2",
+			"transform": {
+				"pos": "4.470 28.0 31.266"
+			},
+			"particles" : {
+				"core" : "data/particles/hojas_viento.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "cannon_left2",
+			"transform": {},
+			"hierarchy": {
+				"axis": "0 1 0", 
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "hojas_viento"
 			}
 		}
 	}
