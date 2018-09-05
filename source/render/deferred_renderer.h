@@ -16,7 +16,7 @@ public:
 	CRenderToTexture* rt_cell = nullptr;;
 	CRenderToTexture* rt_acc_light = nullptr;;
 	CRenderToTexture* rt_alpha= nullptr;;
-//  CRenderToTexture* rt_sublime = nullptr;;
+  CRenderToTexture* rt_sublime = nullptr;;
 
   void renderGBuffer();
   void renderGBufferDecals();
