@@ -13,7 +13,7 @@ class bt_runner:public bt
   enum ERunnerAnimations {
     RunnerIdle = 0
     , RunnerAttack
-    , RunnerJumPLand
+    , RunnerJumpLand
     , RunnerJumpLoop
     , RunnerJumpShort
     , RunnerJumpUp
@@ -71,7 +71,7 @@ class bt_runner:public bt
 
   // Pathfinding functions
 	void recalculate_path();
-	void calculate_top_jump_position();
+	void calculate_top_jump_position(VEC3 target_position);
 	float distance_x_z(VEC3 v1, VEC3 v2);
 	void calculate_distances_graph();
   void findPath(int origin, int destiny);
@@ -104,7 +104,7 @@ class bt_runner:public bt
   void chase_waypoint();
   void chase_player();
   void walk(std::string target);
-  void jump();
+  void jump(std::string target);
 
 	DECL_SIBLING_ACCESS();
 
