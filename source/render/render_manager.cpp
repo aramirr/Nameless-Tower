@@ -173,7 +173,7 @@ void CRenderManager::renderCategory(const char* category_name) {
   CEntity* e_camera = EngineCameras.getOutputCamera();
   const TCompCulling* culling = nullptr;
   std::string camera_name = EngineCameras.getActiveCamera()->getName();
-  if (e_camera && camera_name != "camera_idle") {
+  if (e_camera && camera_name != "camera_idle" && camera_name != "camera_look_up" && camera_name != "camera_look_down") {
       culling = e_camera->get<TCompCulling>();
   }
   const TCompCulling::TCullingBits* culling_bits = culling ? &culling->bits : nullptr;

@@ -62,19 +62,6 @@
 	},
 	{
 		"entity": {
-			"name": "camera_first_door",
-			"transform": {
-				"pos": "-35.922 24.001 -3.536",
-				"lookat": "-31.231 24.000 -4.108"				
-			},
-			"camera" : {
-				"fov" : 80 
-			},
-		    "culling":true	
-		}
-	},
-	{
-		"entity": {
 			"name": "cinematic_first_door",
 			"transform": {
 				"pos": "0 0 0",
@@ -87,19 +74,6 @@
 				"blend_time": 2
 			},
 		    "culling":true
-		}
-	},
-	{
-		"entity": {
-			"name": "camera_sala_escaleras_2",
-			"transform": {
-				"pos": "-7.045 32.716 -39.335",
-				"lookat": "-5.043 31.646 -30.952"				
-			},
-			"camera" : {
-				"fov" : 80 
-			},
-		    "culling":true			
 		}
 	},
 	{
@@ -117,20 +91,7 @@
 			},
 		    "culling":true
 		}
-	},
-	{
-		"entity": {
-			"name": "camera_sala_puertas_abajo",
-			"transform": {
-				"pos": "29.429 37.990 18.592",
-				"lookat": "24.893 36.000 19.303"				
-			},
-			"camera" : {
-				"fov" : 80 
-			},
-		    "culling":true			
-		}
-	},
+	},	
 	{
 		"entity": {
 			"name": "cinematic_sala_puertas_abajo",
@@ -146,28 +107,20 @@
 			},
 		    "culling":true
 		}
-	},
+	},	
 	{
 		"entity": {
-			"name": "camera_idle",
+			"name": "cinematic_vientos",
 			"transform": {
-				"pos": "-14 16 12",
-				"lookat": "-1 0 -1"
+				"pos": "0 0 0",
+				"lookat": "0 0 0"
 			},
-			"orbitCamera" : {
-				"izq" : true,
-				"distance": 29.300,
-				"height": 1.200,
-				"apertura": -263.700
+			"cinematic" :
+			{
+				"camera_name" : "camera_vientos",
+				"time": 0,
+				"blend_time": 2
 			},
-			"camera" : {
-				"fov" : 80 
-			},
-			"render_ao" : {
-		        "enabled" :  true,
-		        "radius": 0.6,
-		        "amount_spreading": 0.95
-		      },
 		    "culling":true
 		}
 	}
