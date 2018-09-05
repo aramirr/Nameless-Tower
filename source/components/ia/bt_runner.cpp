@@ -47,7 +47,7 @@ void bt_runner::load_waypoint(const json& j) {
 
 void bt_runner::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
-	attack_distance = j.value("attack_distance", 1.0f);
+	attack_distance = j.value("attack_distance", 1.5f);
 
   auto& j_waypoints = j["waypoints_map"];
   for (size_t i = 0; i < j_waypoints.size(); ++i) {
@@ -97,7 +97,6 @@ void bt_runner::create(string s)
 
     addChild("runner_p", "appear_s", SEQUENCE, (btcondition)&bt_runner::conditionAppear, NULL);
     addChild("appear_s", "appear", ACTION, NULL, (btaction)&bt_runner::actionAppear);
-    addChild("appear_s", "scream_2", ACTION, NULL, (btaction)&bt_runner::actionScream);
 
     addChild("runner_p", "hide", ACTION, NULL, (btaction)&bt_runner::actionHide);
 }
@@ -128,10 +127,13 @@ int bt_runner::actionScream() {
 int bt_runner::actionDisappear() {
 	//dbg("disappear\n");
 	EngineTower.disappearEntity("Runner");
-    TCompCollider *comp_collider = getMyCollider();
-    comp_collider->controller->setPosition(physx::PxExtendedVec3(tower_center.x, tower_center.y, tower_center.z));
-    b_disappear = false;
-    return LEAVE;
+	TCompTransform* my_transform = getMyTransform();
+	my_transform->setPosition(VEC3::Zero);
+  TCompCollider *comp_collider = getMyCollider();
+  comp_collider->controller->setPosition(physx::PxExtendedVec3(tower_center.x, tower_center.y, tower_center.z)); 
+	b_disappear = false;
+	b_chase = false;
+  return LEAVE;
 };
 
 int bt_runner::actionRecular() {
@@ -159,11 +161,15 @@ int bt_runner::actionRecover() {
 };
 
 int bt_runner::actionAttack() {
-	//dbg("attackfloor1\n");
-    change_color(VEC4(0.0f, 0.0f, 1.0f, 1.0f));
+		if (anim_state != "attack") {
+			anim_state = "attack";
+			change_animation(ERunnerAnimations::RunnerIdle, false, 0.f, 0.f, true);
+			change_animation(ERunnerAnimations::RunnerAttack, true, 0.f, 0.f, true);
+		}
     debug_timer += DT;
-    if (debug_timer >= 1.f) {
+    if (debug_timer >= 0.2f) {
         debug_timer = 0.f;
+				b_disappear = true;
         killPlayer();
         return LEAVE;
     }
@@ -211,8 +217,10 @@ int bt_runner::actionAppear() {
 	EngineTower.appearEntity("Runner");
 	b_appear = false;
 	b_chase = true;
+	going_right = false;
+	going_up = true;
+	on_jump = false;
   
- 
 	recalculate_path();
 
     return LEAVE;
@@ -460,7 +468,7 @@ void bt_runner::walk(std::string target = "waypoint") {
 		if (comp_collider && comp_collider->controller)
 		{
 			VEC3 delta_move = newPos - myPos;
-			delta_move.y += -10 * DT;
+			delta_move.y += -0.5 * DT;
 
 			PxShape* player_shape;
 			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
