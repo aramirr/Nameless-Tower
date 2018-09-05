@@ -80,6 +80,7 @@ function OnTriggerEnterTSEstatuaArriba()
 	lm:set_dir_light_intensity("LightDir01", 10)
 	lm:set_dir_light_intensity("LightInteriorS4", 0)
 	lm:set_dir_light_intensity("LightInteriorS4L", 0)
+	lm:set_dir_light_intensity("LightInteriorS5", 0)
 	lm:deactivate_cinematic("cinematic_first_door")
 end
 
@@ -91,7 +92,8 @@ function OnTriggerEnterTSWindstrikeDer()
 	lm:set_dir_light_intensity("LightDir00", 0)
 	lm:set_dir_light_intensity("LightDir01", 0)
 	lm:set_dir_light_intensity("LightInteriorS4", 1)
-	lm:set_dir_light_intensity("LightInteriorS4L", 10)
+	lm:set_dir_light_intensity("LightInteriorS4L", 1)
+	lm:set_dir_light_intensity("LightInteriorS5", 1)
 	lm:activate_cinematic("cinematic_first_door")
 end
 
@@ -121,6 +123,9 @@ function OnTriggerEnterTSEscaleras1Der()
 	lm:hide_mesh("ParedTapada5")
 	lm:set_ambient(0.2)
 	lm:set_dir_light_intensity("LightDir00", 0)
+	lm:set_dir_light_intensity("LightInteriorS4", 1)
+	lm:set_dir_light_intensity("LightInteriorS4L", 1)
+	lm:set_dir_light_intensity("LightInteriorS5", 1)
 	lm:deactivate_cinematic("cinematic_sala_escaleras_2")
 end
 
@@ -133,6 +138,7 @@ function OnTriggerEnterTSEscaleras2Izq()
 	lm:set_dir_light_intensity("LightDir01", 0)
 	lm:set_dir_light_intensity("LightInteriorS4", 0)
 	lm:set_dir_light_intensity("LightInteriorS4L", 0)
+	lm:set_dir_light_intensity("LightInteriorS5", 0)
 	lm:activate_cinematic("cinematic_sala_escaleras_2")
 end
 
@@ -141,6 +147,7 @@ function OnTriggerEnterTSEscaleras2Der()
 	lm:unhide_mesh("ParedTapada7")
 	lm:set_ambient(1)
 	lm:set_dir_light_intensity("LightDir00", 10)
+	lm:set_dir_light_intensity("LightInteriorSCompresoras", 0)
 	lm:activate_cinematic("cinematic_sala_escaleras_2")
 end
 
@@ -150,6 +157,7 @@ function OnTriggerEnterTPTechosIzq()
 	lm:hide_mesh("ParedTapada7")
 	lm:set_ambient(0.2)
 	lm:set_dir_light_intensity("LightDir00", 0)
+	lm:set_dir_light_intensity("LightInteriorSCompresoras", 1)
 	lm:deactivate_cinematic("cinematic_sala_escaleras_2")
 end
 
@@ -160,6 +168,7 @@ function OnTriggerEnterTPTechosDer()
 	lm:set_dir_light_intensity("LightDir00", 0)
 	lm:set_dir_light_intensity("LightDir03", 0)
 	lm:set_dir_light_intensity("LightDir02", 0)
+	lm:set_dir_light_intensity("LightInteriorSCompresoras", 1)
 end
 
 -- Sala 8
@@ -169,6 +178,7 @@ function OnTriggerEnterTSPuertasIzq()
 	lm:set_ambient(1)
 	lm:deactivate_cinematic("cinematic_vientos")
 	lm:set_dir_light_intensity("LightDir00", 0)
+	lm:set_dir_light_intensity("LightInteriorSCompresoras", 0)
 	lm:set_dir_light_intensity("LightDir02", 10)
 end
 
