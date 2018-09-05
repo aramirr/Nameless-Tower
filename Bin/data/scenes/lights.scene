@@ -8,7 +8,7 @@
         "lookat": "-15.8 15.0 0.0"
       },
       "light_dir": {
-        "intensity": 11,
+        "intensity": 10,
         "color" :  "0.84 0.78 0.56 1",
         "z_near" : 2,
         "z_far" : 72.000,
@@ -31,7 +31,7 @@
         "lookat": "0 4.8 16.325"
       },
       "light_dir": {
-        "intensity": 11,
+        "intensity": 10,
         "color" :  "0.84 0.78 0.56 1",
         "z_near" : 2,
         "z_far" : 50,
@@ -54,7 +54,7 @@
         "lookat": "11.1 49.1 6.325"
       },
       "light_dir": {
-        "intensity": 11,
+        "intensity": 0,
         "color" :  "0.84 0.78 0.56 1",
         "z_near" : 2,
         "z_far" : 67.000,
@@ -78,7 +78,7 @@
         "lookat": "0 70 -12.375"
       },
       "light_dir": {
-        "intensity": 11,
+        "intensity": 0,
         "color" :  "0.84 0.78 0.56 1",
         "z_near" : 2,
         "z_far" : 58,
@@ -101,7 +101,7 @@
         "lookat": "-28.888 19.95 -8.988"
       },
       "light_dir": {
-        "intensity": 11,
+        "intensity": 0,
         "color" :  "0.84 0.78 0.56 1",
         "z_near" : 5,
         "z_far" : 20,
@@ -125,7 +125,7 @@
         "lookat": "0 25.250 0"
       },
       "light_dir": {
-        "intensity": 1,
+        "intensity": 0,
         "color" :  "0.18 0.23 0.43 1",
         "z_near" : 5,
         "z_far" : 20,
@@ -143,13 +143,33 @@
       "name": "LightInteriorS5",
       "transform": {
         "pos": "-32.562 25 -22.816",
-        "lookat": "0 33.825 0"
+        "lookat": "0 25 0"
       },
       "light_dir": {
-        "intensity": 1,
+        "intensity": 0,
         "color" :  "0.18 0.23 0.43 1",
         "z_near" : 7,
         "z_far" : 25,
+        "fov" : 37.300,
+        "casts_shadows" : false,
+        "is_orthographic": true,
+        "ortho_width": 30,
+        "ortho_height": 8
+      }    
+    }
+  },  {
+    "entity":
+    {
+      "name": "LightInteriorSCompresoras",
+      "transform": {
+        "pos": "2.338 34.000 -40.591",
+        "lookat": "25.643 34 10"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.18 0.23 0.43 1",
+        "z_near" : 7,
+        "z_far" : 60,
         "fov" : 37.300,
         "casts_shadows" : false,
         "is_orthographic": true,
