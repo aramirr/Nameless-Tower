@@ -164,7 +164,7 @@ namespace FSM
             anim = player->EAnimations::NajaOmniAr;
         }
         else if (player->omnidash_arrow.y >= 0.80) {
-            anim = player->EAnimations::NajaOmniAb;
+            anim = player->EAnimations::NajaOmniDn;
         }
         else if (player->omnidash_arrow.x >= 0.20 && player->omnidash_arrow.y >= 0.20) {
             anim = player->EAnimations::NajaOmniFrDn;

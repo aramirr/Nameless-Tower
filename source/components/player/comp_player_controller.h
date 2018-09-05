@@ -17,6 +17,7 @@ public:
 	float   y_speed_factor = 0.f;
 	float	jumping_start_height;
 	float	jumping_death_height;
+    float   run_time = 0;
     float   idle_time = 0;
     float   idle_max_time;
 	VEC3 checkpoint;
@@ -53,7 +54,7 @@ public:
 		, NajaOmniPrepFrUp
 		, NajaOmniPrepFrBk
 		, NajaOmniPrepBkDn
-        , NajaOmniAb
+        , NajaOmniDn
         , NajaOmniAr
         , NajaOmniBk
         , NajaOmniFr
