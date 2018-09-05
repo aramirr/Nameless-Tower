@@ -19,12 +19,12 @@ Texture2D    txLightProjector SLOT( TS_LIGHT_PROJECTOR );
 Texture2D    txLightShadowMap SLOT(TS_LIGHT_SHADOW_MAP);
 
 //SHADOWS CUBE MAP (POINT LIGHT)
-Texture2D txLightShadowCubeMap0 SLOT(TS_LIGHT_SHADOW_CUBEMAP0);
-Texture2D txLightShadowCubeMap1 SLOT(TS_LIGHT_SHADOW_CUBEMAP1);
-Texture2D txLightShadowCubeMap2 SLOT(TS_LIGHT_SHADOW_CUBEMAP2);
-Texture2D txLightShadowCubeMap3 SLOT(TS_LIGHT_SHADOW_CUBEMAP3);
-Texture2D txLightShadowCubeMap4 SLOT(TS_LIGHT_SHADOW_CUBEMAP4);
-Texture2D txLightShadowCubeMap5 SLOT(TS_LIGHT_SHADOW_CUBEMAP5);
+//Texture2D txLightShadowCubeMap0 SLOT(TS_LIGHT_SHADOW_CUBEMAP0);
+//Texture2D txLightShadowCubeMap1 SLOT(TS_LIGHT_SHADOW_CUBEMAP1);
+//Texture2D txLightShadowCubeMap2 SLOT(TS_LIGHT_SHADOW_CUBEMAP2);
+//Texture2D txLightShadowCubeMap3 SLOT(TS_LIGHT_SHADOW_CUBEMAP3);
+//Texture2D txLightShadowCubeMap4 SLOT(TS_LIGHT_SHADOW_CUBEMAP4);
+//Texture2D txLightShadowCubeMap5 SLOT(TS_LIGHT_SHADOW_CUBEMAP5);
 
 TextureCube  txEnvironmentMap SLOT( TS_ENVIRONMENT_MAP );
 TextureCube  txIrradianceMap  SLOT( TS_IRRADIANCE_MAP );
@@ -116,30 +116,30 @@ float shadowsTap( float2 homo_coord, float coord_z ) {
 //--------------------------------------------------------------------------------------
 float shadowsTap(float2 homo_coord, float coord_z, int face)
 {
-    switch (face)
-    {
-        case 0:
-            return txLightShadowCubeMap0.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
-            break;
-        case 1:
-            return txLightShadowCubeMap1.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
-            break;
-        case 2:
-            return txLightShadowCubeMap2.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
-            break;
-        case 3:
-            return txLightShadowCubeMap3.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
-            break;
-        case 4:
-            return txLightShadowCubeMap4.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
-            break;
-        case 5:
-            return txLightShadowCubeMap5.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
-            break;
-        default:
-            return txLightShadowMap.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
-            break;
-    }
+    //switch (face)
+    //{
+    //    case 0:
+    //        return txLightShadowCubeMap0.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
+    //        break;
+    //    case 1:
+    //        return txLightShadowCubeMap1.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
+    //        break;
+    //    case 2:
+    //        return txLightShadowCubeMap2.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
+    //        break;
+    //    case 3:
+    //        return txLightShadowCubeMap3.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
+    //        break;
+    //    case 4:
+    //        return txLightShadowCubeMap4.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
+    //        break;
+    //    case 5:
+    //        return txLightShadowCubeMap5.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
+    //        break;
+    //    default:
+    //        return txLightShadowMap.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
+    //        break;
+    //}
     return txLightShadowMap.SampleCmp(samPCF, homo_coord, coord_z, 0).x;
 }
 

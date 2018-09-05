@@ -97,7 +97,7 @@ void TCompLightPoint::activate(int i) {
 	cb_light.light_direction = VEC4(this->getFront().x, this->getFront().y, this->getFront().z, 1);
 	cb_light.light_point = 1;
 	cb_light.light_angle = 90;
-	cb_light.light_face = i;
+//	cb_light.light_face = i;
 	cb_light.updateGPU();
 
 	// If we have a ZTexture, it's the time to activate it
@@ -109,7 +109,7 @@ void TCompLightPoint::activate(int i) {
 		//cb_light.light_radius = 1.f;
 
 		assert(shadows_rt->getZTexture());
-		shadows_rt->getZTexture()->activate(TS_LIGHT_SHADOW_CUBEMAP0 + i);
+		//shadows_rt->getZTexture()->activate(TS_LIGHT_SHADOW_CUBEMAP0 + i);
 
 	}
 }
@@ -133,7 +133,7 @@ void TCompLightPoint::generateShadowMap() {
 
   // EDU: descomentar para renderizar las 6 caras
 	for (int i = 0; i < 6; i++) {
-		CTexture::setNullTexture(TS_LIGHT_SHADOW_CUBEMAP0 + i);
+		//CTexture::setNullTexture(TS_LIGHT_SHADOW_CUBEMAP0 + i);
 		CTraceScoped gpu_scope(shadows_rt->getName().c_str());
 		shadows_rt->activateFace(i, this);
 		{
