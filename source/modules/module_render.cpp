@@ -201,9 +201,9 @@ void CModuleRender::generateFrame() {
 		PROFILE_FUNCTION("CModuleRender::shadowsMapsGeneration");
 		CTraceScoped gpu_scope("shadowsMapsGeneration");
 		// Generate the shadow map for each active light
-		/*getObjectManager<TCompLightDir>()->forEach([](TCompLightDir* c) {
+		getObjectManager<TCompLightDir>()->forEach([](TCompLightDir* c) {
 			c->generateShadowMap();
-		});*/
+		});
 	}
 
 	{
