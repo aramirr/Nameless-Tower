@@ -86,6 +86,8 @@ void TCompLightPointShadows::activate() {
   cb_light.light_intensity = intensity;
   cb_light.light_pos = c->getPosition();
   cb_light.light_radius = camera.getZFar();
+	cb_light.light_zfar = camera.getZFar();
+	cb_light.light_znear = camera.getZNear();
   cb_light.updateGPU();
 
   cb_light.light_shadows_inverse_resolution = 1.0f / (float)shadows_cube_rt->getWidth();

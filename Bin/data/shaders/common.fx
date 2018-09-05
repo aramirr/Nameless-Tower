@@ -179,8 +179,8 @@ float tapCubeShadowAt(float3 L)
     L = float3(-L.x, -L.y, L.z);
 
   // Hardcoded for testing only
-    float zn = 1;
-    float zf = 200;
+    float zn = light_znear;
+    float zf = light_zfar;
 
   // Get zLinear in view space
     float3 LAbs = abs(L);

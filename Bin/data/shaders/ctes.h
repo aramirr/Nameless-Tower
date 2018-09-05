@@ -194,8 +194,8 @@ CB_DEF(CCteLight, CB_LIGHT)
 	VEC4  light_direction;
 
   int light_point;
-	int dummy1;
-	int dummy2;
+	float light_zfar;
+	float light_znear;
 	int dummy3;
 
 	// Align x4
