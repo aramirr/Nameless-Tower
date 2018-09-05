@@ -24,6 +24,7 @@ public:
   void renderAmbientPass();
   void renderDirectionalLights();
   void renderPointLights();
+	void renderPointLightsShadows();
   void renderSkyBox() const;
   void renderAO(CHandle h_camera) const;
 

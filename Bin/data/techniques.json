@@ -167,6 +167,17 @@
       "irradiance": "data/textures/cubemaps/irradiance.dds"
     }
   },
+  "pbr_point_lights_shadow": {
+    "vs_file": "data/shaders/pbr.fx",
+    "ps_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_pass",
+    "ps_entry_point": "PS_point_lights_shadow",
+    "vertex_type": "PosNUvUvT",
+    "category": "pbr_proc",
+    "z": "inverse_test_no_write",
+    "rs_config": "reverse_culling",
+    "blend": "additive"
+  },
   "cell_skin": {
     "vs_file": "data/shaders/cell_shading.fx",
     "ps_file": "data/shaders/cell_shading.fx",

@@ -652,6 +652,7 @@ float4 shade(
   float4 iPosition
 , out float3 light_dir
 , bool use_shadows
+, bool use_cube_shadows
 )
 {
   // Decode GBuffer information
@@ -662,12 +663,15 @@ float4 shade(
     decodeGBuffer(iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir, cell, ao);
     N = normalize(N);
   // Shadow factor entre 0 (totalmente en sombra) y 1 (no ocluido)
-    //float shadow_factor = use_shadows ? computeShadowFactor(wPos) : 1.;
+    float shadow_factor = use_shadows ? computeShadowFactor(wPos) : 1.; // shadow factor
 
   // From wPos to Light
     float3 light_dir_full = light_pos.xyz - wPos;
     float distance_to_light = length(light_dir_full);
     light_dir = light_dir_full / distance_to_light;
+
+    // Cube uses the light dir to access the shadowMap, not the wPos
+    shadow_factor *= use_cube_shadows ? computeCubeShadowFactor(light_dir_full) : 1.;
 
     float NdL = saturate(dot(N, light_dir));
     float NdV = saturate(dot(N, view_dir));
@@ -682,9 +686,7 @@ float4 shade(
 
     float att = (1. - smoothstep(0.90, 0.98, distance_to_light / light_radius));
   // att *= 1 / distance_to_light;
-
-    // Spotlight attenuation
-    float shadow_factor = use_shadows ? computeShadowFactor(wPos) : 1.; // shadow factor
+   
 
     float4 final_color2;
 
@@ -727,19 +729,25 @@ float4 shade(
 float4 PS_point_lights(in float4 iPosition : SV_Position) : SV_Target
 {
     float3 out_lightdir;
-    return shade(iPosition, out_lightdir, false);
+    return shade(iPosition, out_lightdir, false, false);
+}
+
+float4 PS_point_lights_shadow(in float4 iPosition : SV_Position) : SV_Target
+{
+    float3 out_lightdir;
+    return shade(iPosition, out_lightdir, false, true);
 }
 
 float4 PS_dir_lights(in float4 iPosition : SV_Position) : SV_Target
 {
     float3 out_lightdir;
-    return shade(iPosition, out_lightdir, true);
+    return shade(iPosition, out_lightdir, true, false);
 }
 
 float4 PS_spot_lights(in float4 iPosition : SV_Position) : SV_Target
 {
     float3 out_lightdir;
-    float4 light_color = shade(iPosition, out_lightdir, true);
+    float4 light_color = shade(iPosition, out_lightdir, true, false);
 
     float theta = dot(out_lightdir, -light_direction.xyz);
     float att_spot = clamp((theta - light_outer_cut) / (light_inner_cut - light_outer_cut), 0, 1);

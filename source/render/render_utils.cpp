@@ -16,6 +16,8 @@ DXGI_FORMAT readFormat(const json& j, const std::string& label) {
     return DXGI_FORMAT_R32_TYPELESS;
 	if (format == "R16_FLOAT")
 		return DXGI_FORMAT_R16_FLOAT;
+	if (format == "R16_UNORM")
+		return DXGI_FORMAT_R16_UNORM;
 
   return DXGI_FORMAT_UNKNOWN;
 }

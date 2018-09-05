@@ -7,6 +7,7 @@
 #include "components/lights/comp_light_dir.h"
 #include "components/juan/comp_transform.h"
 #include "components/lights/comp_light_point.h"
+#include "components/lights/comp_light_point_shadows.h"
 #include "components/juan/comp_transform.h"
 #include "components/postfx/comp_render_ao.h"
 #include "ctes.h"
@@ -177,8 +178,8 @@ void CDeferredRenderer::renderAccLight() {
 	rt_acc_light->clear(VEC4(0, 0, 0, 0));
 	renderAmbientPass();
 	renderPointLights();
+	renderPointLightsShadows();
 	renderDirectionalLights();
-
 	renderSkyBox();
 }
 
@@ -197,29 +198,16 @@ void CDeferredRenderer::renderPointLights() {
 	// Para todas las luces... pintala
 	getObjectManager<TCompLightPoint>()->forEach([mesh](TCompLightPoint* c) {
 
-		if (c->have_shadows()) {
-			for (int i = 0; i < 6; i++) {
-				c->activate(i);
-
-				setWorldTransform(c->getWorld());
-
-				// mandar a pintar una geometria que refleje los pixeles que potencialmente
-				// puede iluminar esta luz.... El Frustum solido
-				mesh->render();
-			}
-		}
-		else {
-			c->activate(0);
-
-			setWorldTransform(c->getWorld());
-
-			// mandar a pintar una geometria que refleje los pixeles que potencialmente
-			// puede iluminar esta luz.... El Frustum solido
-			mesh->render();
-		}
 		// subir las contantes de la posicion/dir
 		// activar el shadow map...
-		
+		c->activate();
+
+		setWorldTransform(c->getWorld());
+
+		// mandar a pintar una geometria que refleje los pixeles que potencialmente
+		// puede iluminar esta luz.... El Frustum solido
+		mesh->render();
+
 	});
 
 	//Pintar luz de las antorchas
@@ -262,6 +250,15 @@ void CDeferredRenderer::renderDirectionalLights() {
 		// mandar a pintar una geometria que refleje los pixeles que potencialmente
 		// puede iluminar esta luz.... El Frustum solido
 		mesh->render();
+	});
+}
+
+// -------------------------------------------------------------------------
+void CDeferredRenderer::renderPointLightsShadows() {
+	CTraceScoped gpu_scope("renderPointLightsShadows");
+	Resources.get("pbr_point_lights_shadow.tech")->as<CRenderTechnique>()->activate();
+	getObjectManager<TCompLightPointShadows>()->forEach([](TCompLightPointShadows* c) {
+		c->render();
 	});
 }
 
