@@ -101,16 +101,16 @@ namespace FSM
 			return player->EAnimations::NajaOmniPrepDn;
 		} 
 		else if (omnidash_arrow.x >= 0.20 && omnidash_arrow.y >= 0.20) {
-			return player->EAnimations::NajaOmniPrepFrDn;
+			return player->EAnimations::NajaOmniPrepDnFr;
 		}
 		else if (omnidash_arrow.x <= -0.20 && omnidash_arrow.y <= -0.20) {
-			return player->EAnimations::NajaOmniPrepFrBk;
+			return player->EAnimations::NajaOmniPrepUpBk;
 		}
 		else if (omnidash_arrow.x <= -0.20 && omnidash_arrow.y >= 0.20) {
-			return player->EAnimations::NajaOmniPrepBkDn;
+			return player->EAnimations::NajaOmniPrepDnBk;
 		}
 		else {
-			return player->EAnimations::NajaOmniPrepFrUp;
+			return player->EAnimations::NajaOmniPrepUpFr;
 		}
 	}
 

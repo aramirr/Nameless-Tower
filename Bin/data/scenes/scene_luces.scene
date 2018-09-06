@@ -18,6 +18,15 @@
         "color": "1.0 0.0509804 0.0509804 1.0"
         ,
         "radius": 3.0
+      },
+      "ai_torch":
+      {
+        "time_limit": 2,
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "radius" : 3,
+        "scale" : 1.7,
+        "thin": false
       }
     }
   }
@@ -41,6 +50,15 @@
         "color": "1.0 0.0509804 0.0509804 1.0"
         ,
         "radius": 3.0
+      },
+      "ai_torch":
+      {
+        "time_limit": 2,
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "radius" : 3,
+        "scale" : 1.7,
+        "thin": false
       }
     }
   }
@@ -64,6 +82,15 @@
         "color": "1.0 0.0509804 0.0509804 1.0"
         ,
         "radius": 3.0
+      },
+      "ai_torch":
+      {
+        "time_limit": 2,
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "radius" : 3,
+        "scale" : 1.7,
+        "thin": false
       }
     }
   }
@@ -87,6 +114,15 @@
         "color": "1.0 0.0509804 0.0509804 1.0"
         ,
         "radius": 3.0
+      },
+      "ai_torch":
+      {
+        "time_limit": 2,
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "radius" : 3,
+        "scale" : 1.7,
+        "thin": false
       }
     }
   }
@@ -110,6 +146,15 @@
         "color": "1.0 0.0509804 0.0509804 1.0"
         ,
         "radius": 3.0
+      },
+      "ai_torch":
+      {
+        "time_limit": 2,
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "radius" : 3,
+        "scale" : 1.7,
+        "thin": false
       }
     }
   }
@@ -133,6 +178,15 @@
         "color": "1.0 0.0509804 0.0509804 1.0"
         ,
         "radius": 3.0
+      },
+      "ai_torch":
+      {
+        "time_limit": 2,
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "radius" : 3,
+        "scale" : 1.7,
+        "thin": false
       }
     }
   }
@@ -156,6 +210,15 @@
         "color": "1.0 0.0509804 0.0509804 1.0"
         ,
         "radius": 3.0
+      },
+      "ai_torch":
+      {
+        "time_limit": 2,
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "radius" : 3,
+        "scale" : 1.7,
+        "thin": false
       }
     }
   }
@@ -179,6 +242,15 @@
         "color": "1.0 0.0509804 0.0509804 1.0"
         ,
         "radius": 3.0
+      },
+      "ai_torch":
+      {
+        "time_limit": 2,
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "radius" : 3,
+        "scale" : 1.7,
+        "thin": false
       }
     }
   }
@@ -202,6 +274,15 @@
         "color": "1.0 0.0509804 0.0509804 1.0"
         ,
         "radius": 3.0
+      },
+      "ai_torch":
+      {
+        "time_limit": 2,
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "radius" : 3,
+        "scale" : 1.7,
+        "thin": false
       }
     }
   }
@@ -227,6 +308,15 @@
         "shadows_resolution" : 256,
         "shadows_fmt" : "R32_TYPELESS",
         "color_fmt" : "none"
+      },
+      "ai_torch":
+      {
+        "time_limit": 2,
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "radius" : 3,
+        "scale" : 1.7,
+        "thin": false
       }
     }
   }
@@ -254,16 +344,11 @@
       ,
       "ai_torch":
       {
-        "intensity": 10.0
-        ,
-        "color": "1.0 1.0 1.0 1.0"
-        ,
-        "radius": 3.0
-        ,
-        "time_limit": 2
-        ,
-        "scale": 1
-        ,
+        "time_limit": 2,
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "radius" : 3,
+        "scale" : 1.7,
         "thin": false
       }
     }

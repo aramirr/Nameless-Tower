@@ -50,10 +50,10 @@ public:
 		, NajaOmniPrepUp
 		, NajaOmniPrepBk
 		, NajaOmniPrepFr
-		, NajaOmniPrepFrDn
-		, NajaOmniPrepFrUp
-		, NajaOmniPrepFrBk
-		, NajaOmniPrepBkDn
+		, NajaOmniPrepDnFr
+		, NajaOmniPrepUpFr
+		, NajaOmniPrepUpBk
+		, NajaOmniPrepDnBk
         , NajaOmniDn
         , NajaOmniAr
         , NajaOmniBk
