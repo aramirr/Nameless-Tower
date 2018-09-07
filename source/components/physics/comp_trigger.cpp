@@ -5,7 +5,6 @@
 #include "components/fsm/comp_fsm.h"
 #include "components/ui/ui_mouse_pos.h"
 #include "entity/common_msgs.h"
-#include "modules\game\module_test_axis.h"
 
 DECL_OBJ_MANAGER("trigger", TCompTrigger);
 

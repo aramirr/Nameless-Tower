@@ -82,6 +82,10 @@ const void CModuleTower::setAmbientAdjustment(float ambient) {
 	cb_globals.global_ambient_adjustment = ambient;
 }
 
+const void CModuleTower::setExposureAdjustment(float exposure) {
+    cb_globals.global_exposure_adjustment = exposure;
+
+}
 const void CModuleTower::setDirLightIntensity(const std::string& name, float intensity) {
   CEntity* entity = (CEntity*)getEntityByName(name);
   TCompLightDir* light_dir = entity->get<TCompLightDir>();

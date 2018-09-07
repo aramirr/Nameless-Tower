@@ -80,7 +80,6 @@
     <ClCompile Include="modules\game\module_gameover.cpp" />
     <ClCompile Include="modules\game\module_main_menu.cpp" />
     <ClCompile Include="modules\game\module_splash.cpp" />
-    <ClCompile Include="modules\game\module_test_axis.cpp" />
     <ClCompile Include="modules\module_entities.cpp" />
     <ClCompile Include="modules\module_ia.cpp" />
     <ClCompile Include="modules\module_manager.cpp" />
@@ -179,6 +178,8 @@
     <ClCompile Include="components\lights\comp_light_point.cpp" />
     <ClCompile Include="components\lights\comp_light_spot.cpp" />
     <ClCompile Include="components\controllers\comp_orbit_controller.cpp" />
+    <ClCompile Include="modules\game\module_level_1.cpp" />
+    <ClCompile Include="modules\game\module_level_2.cpp" />
     <ClCompile Include="components\comp_particles.cpp" />
     <ClCompile Include="fsm\player_states\look_up_state.cpp" />
     <ClCompile Include="fsm\player_states\look_down_state.cpp" />
@@ -285,7 +286,6 @@
     <ClInclude Include="modules\game\module_gameover.h" />
     <ClInclude Include="modules\game\module_main_menu.h" />
     <ClInclude Include="modules\game\module_splash.h" />
-    <ClInclude Include="modules\game\module_test_axis.h" />
     <ClInclude Include="modules\module.h" />
     <ClInclude Include="modules\module_entities.h" />
     <ClInclude Include="modules\module_ia.h" />
@@ -425,6 +425,8 @@
     <ClInclude Include="components\lights\comp_light_point.h" />
     <ClInclude Include="components\lights\comp_light_spot.h" />
     <ClInclude Include="components\controllers\comp_orbit_controller.h" />
+    <ClInclude Include="modules\game\module_level_1.h" />
+    <ClInclude Include="modules\game\module_level_2.h" />
     <ClInclude Include="components\comp_particles.h" />
     <ClInclude Include="fsm\player_states\look_up_state.h" />
     <ClInclude Include="fsm\player_states\look_down_state.h" />

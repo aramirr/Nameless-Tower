@@ -6,17 +6,20 @@
     "entity" : 100,
     "transform" : 90
   },
+  "multithread": [
+  	"skeleton"
+  ],
 	"update" : [
 		"player_input",
 		"circular_controller",
 		"player_controller",
-		"bullet_controller",
-		"skeleton",
+		"bullet_controller",		
 	    "flyover_controller",
 	    "camera_flyover",
 	    "curve_controller",
 	    "hierarchy",
 		"camera",
+		"skeleton",
 		"bullet_controller",
 		"spiral_controller",		
 		"projectile_controller",		
@@ -58,6 +61,5 @@
  
 	"render_debug" : 
 	[
-		"light_point_shadows"
 	]
 }

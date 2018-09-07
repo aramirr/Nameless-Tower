@@ -132,3 +132,31 @@ bool parseScene(const std::string& filename, TEntityParseContext& ctx) {
 
   return true;
 }
+
+// 
+bool deleteScene(const std::string& filename, TEntityParseContext& ctx) {
+
+    ctx.filename = filename;
+
+    const json& j_scene = Resources.get(filename)->as<CJsonResource>()->getJson();
+    assert(j_scene.is_array());
+
+    // For each item in the array...
+    for (int i = 0; i < j_scene.size(); ++i) {
+        auto& j_item = j_scene[i];
+
+        assert(j_item.is_object());
+
+        if (j_item.count("entity")) {
+            auto& j_entity = j_item["entity"];
+            std::string name = j_entity["name"];
+            CEntity* h_e = getEntityByName(name);
+            CHandle h(h_e);
+            h.destroy();            
+        }
+    }
+
+    CHandleManager::destroyAllPendingObjects();
+
+    return true;
+}

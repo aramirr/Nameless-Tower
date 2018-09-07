@@ -32,7 +32,7 @@ void TCompLightPointShadows::debugInMenu() {
   float z_far = camera.getZFar();
   bool changed = false;
   changed |= ImGui::DragFloat("Z Near", &z_near, 0.001f, 0.01f, 5.0f);
-  changed |= ImGui::DragFloat("Z Far", &z_far, 1.0f, 2.0f, 3000.0f);
+  changed |= ImGui::DragFloat("Z Far", &z_far, 0.1f, 2.0f, 3000.0f);
   if (changed)
     camera.setPerspective(deg2rad(90.0f), z_near, z_far);
 }
@@ -118,7 +118,7 @@ void TCompLightPointShadows::render() {
 void TCompLightPointShadows::generateShadowMap() {
   if (!shadows_cube_rt || !shadows_enabled )
     return;
-  PROFILE_FUNCTION("LightPointShadows.generateShadowMap");
+  //PROFILE_FUNCTION("LightPointShadows.generateShadowMap");
 
   // In this slot is where we activate the render targets that we are going
   // to update now. You can't be active as texture and render target at the

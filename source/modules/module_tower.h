@@ -27,6 +27,7 @@ public:
 	const void disappearEntity(const std::string& name);
 	const void appearEntity(const std::string& name);
     const void setAmbientAdjustment(float ambient);
+    const void setExposureAdjustment(float exposure);
     const void openDoor(const std::string& name);
 	const void activateAnim(const std::string& name);
     const void activateCinematic(const std::string& name);
