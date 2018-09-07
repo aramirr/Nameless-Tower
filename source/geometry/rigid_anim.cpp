@@ -11,7 +11,7 @@ public:
         extensions = { ".anims" };
     }
     IResource* create(const std::string& name) const override {
-        dbg("Creating json resource %s\n", name.c_str());
+        //dbg("Creating json resource %s\n", name.c_str());
         RigidAnims::CRigidAnimResource* res = new RigidAnims::CRigidAnimResource();
         bool is_ok = res->create(name);
         assert(is_ok);

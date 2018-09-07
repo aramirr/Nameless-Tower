@@ -4,14 +4,14 @@
     {
       "name": "LightDir00",
       "transform": {
-        "pos": "16 40 -89",
+        "pos": "20.575 28.625 -58.575",
         "lookat": "-15.8 15.0 0.0"
       },
       "light_dir": {
-        "intensity": 11,
+        "intensity": 10,
         "color" :  "0.84 0.78 0.56 1",
         "z_near" : 2,
-        "z_far" : 110,
+        "z_far" : 72.000,
         "fov" : 37.300,
         "casts_shadows" : true,
         "shadows_step" : 5.0,
@@ -27,14 +27,14 @@
     {
       "name": "LightDir01",
       "transform": {
-        "pos": "-78.05 53.175 -16.8",
+        "pos": "-48.750 32.075 -16.800",
         "lookat": "0 4.8 16.325"
       },
       "light_dir": {
-        "intensity": 11,
+        "intensity": 10,
         "color" :  "0.84 0.78 0.56 1",
         "z_near" : 2,
-        "z_far" : 160,
+        "z_far" : 50,
         "fov" : 37.300,
         "casts_shadows" : true,
         "shadows_step" : 5.0,
@@ -50,14 +50,14 @@
     {
       "name": "LightDir02",
       "transform": {
-        "pos": "57.575 73.45 80",
+        "pos": "38.000 55.650 50.425",
         "lookat": "11.1 49.1 6.325"
       },
       "light_dir": {
-        "intensity": 11,
+        "intensity": 0,
         "color" :  "0.84 0.78 0.56 1",
         "z_near" : 2,
-        "z_far" : 160,
+        "z_far" : 67.000,
         "fov" : 37.300,
         "casts_shadows" : true,
         "shadows_step" : 5.0,
@@ -74,14 +74,14 @@
     {
       "name": "LightDir03",
       "transform": {
-        "pos": "76.950 107.750 -9.575",
+        "pos": "56.425 94.175 -9.475",
         "lookat": "0 70 -12.375"
       },
       "light_dir": {
-        "intensity": 11,
+        "intensity": 0,
         "color" :  "0.84 0.78 0.56 1",
         "z_near" : 2,
-        "z_far" : 160,
+        "z_far" : 58,
         "fov" : 37.300,
         "casts_shadows" : true,
         "shadows_step" : 5.0,
@@ -90,6 +90,132 @@
         "is_orthographic": true,
         "ortho_width": 42
       }    
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightInteriorS4L",
+      "transform": {
+        "pos": "-31.687 32.35 9.959",
+        "lookat": "-28.888 19.95 -8.988"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.84 0.78 0.56 1",
+        "z_near" : 5,
+        "z_far" : 20,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 4,
+        "ortho_height": 5
+      }    
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightInteriorS4",
+      "transform": {
+        "pos": "-36.587 24.8 -5.441",
+        "lookat": "0 25.250 0"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.18 0.23 0.43 1",
+        "z_near" : 5,
+        "z_far" : 20,
+        "fov" : 37.300,
+        "casts_shadows" : false,
+        "is_orthographic": true,
+        "ortho_width": 10,
+        "ortho_height": 5
+      }    
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightInteriorS5",
+      "transform": {
+        "pos": "-32.562 25 -22.816",
+        "lookat": "0 25 0"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.18 0.23 0.43 1",
+        "z_near" : 7,
+        "z_far" : 25,
+        "fov" : 37.300,
+        "casts_shadows" : false,
+        "is_orthographic": true,
+        "ortho_width": 30,
+        "ortho_height": 8
+      }    
+    }
+  },  {
+    "entity":
+    {
+      "name": "LightInteriorSCompresoras",
+      "transform": {
+        "pos": "2.338 34.000 -40.591",
+        "lookat": "25.643 34 10"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.18 0.23 0.43 1",
+        "z_near" : 7,
+        "z_far" : 60,
+        "fov" : 37.300,
+        "casts_shadows" : false,
+        "is_orthographic": true,
+        "ortho_width": 30,
+        "ortho_height": 8
+      }    
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_loro",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0"
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/test_curve.curve",
+        "speed" : 0.05,
+        "loop": true,
+        "automove": true,
+        "mode": "static"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "loro",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_loro"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/sprites_test.material"
+          ]
+        }
+      ]
     }
   }
 ]

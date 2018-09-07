@@ -16,6 +16,13 @@ void CModuleCameras::TMixedCamera::blendOut(float duration)
   time = 0.f;
 }
 
+void CModuleCameras::TMixedCamera::stopBlend()
+{
+    state = ST_STOP_BLENDING;
+    blendOutTime = time;
+    time = 0.f;
+}
+
 CModuleCameras::CModuleCameras(const std::string& name)
 	: IModule(name)
 {}
@@ -61,6 +68,9 @@ void CModuleCameras::update(float delta)
       else if (mc.state == TMixedCamera::ST_BLENDING_OUT)
       {
         mc.weight = 1.f - clamp(mc.time / mc.blendOutTime, 0.f, 1.f);
+      }
+      else if (mc.state == TMixedCamera::ST_STOP_BLENDING) {
+          mc.weight = mc.weight - (clamp(mc.time / mc.blendOutTime, 0.f, 1.f) / 30);
       }
 
       if (mc.weight > 0.f)
@@ -128,7 +138,7 @@ void CModuleCameras::blendOutCamera(CHandle camera, float blendTime)
   TMixedCamera* mc = getMixedCamera(camera);
   if (mc)
   {
-    mc->blendOut(blendTime);
+    mc->stopBlend();
   }
 }
 

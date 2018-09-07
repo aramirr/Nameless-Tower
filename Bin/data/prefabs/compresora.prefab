@@ -1,0 +1,142 @@
+[
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_00"
+      ,
+      "transform":
+      {
+        "pos": "8.10782 38.152 -30.1297"
+        ,
+        "rotation": "0.0 0.116728 0.0 -0.993164"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Compresor.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CompresorMat.material"
+          ]
+        }
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "trigger1": "Bloque_Compresor_00trigger"
+        ,
+        "trigger2": "Bloque_Compresor_down_00"
+        ,
+        "speed": 2.0
+        ,
+        "delay": 1.0
+        ,
+        "wake": 0.0
+        ,
+        "rol": "father"
+        ,
+        "maxY": 38.152
+        ,
+        "minY": 33.7227
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.68696 2.25 0.979161"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_00trigger"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      {
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Bloque_Compresor_00"
+        ,
+        "pos": "0.0 -0.2 0.0"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68696 2.25 0.979161"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_down_00"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_00"
+      ,
+      "transform":
+      {
+        "pos": "8.09315 31.8949 -30.0656"
+        ,
+        "rotation": "0.0 0.129435 0.0 -0.991588"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_00trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+]

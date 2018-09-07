@@ -161,11 +161,19 @@ void CModuleBillboards::addGrassByAngle(VEC3 pos1, VEC3 pos2, int total) {
     float charlie;
     if (alpha < beta)
       charlie = randomFloat(alpha, beta);
-    else 
-      charlie = randomFloat(beta, alpha);
+    else {
+      //charlie = randomFloat(beta, alpha);
 
+      float proportion_beta = (beta / (deg2rad(360) - alpha + beta))*100;
+      float aux = randomFloat(0, 100);
+      if (aux < proportion_beta )
+        charlie = randomFloat(alpha, deg2rad(360));
+      else 
+        charlie = randomFloat(deg2rad(0), beta);
+    }
 
-    float aux_radius = radius + randomFloat(-1.25f, 1.25f);
+    radius = 28.f;
+    float aux_radius = radius + randomFloat(-3.25f, 3.25f);
     VEC3 new_position = VEC3(aux_radius*cos(charlie), pos1.y, aux_radius*sin(charlie));
     TGrassParticle new_instance;
     new_instance.pos = new_position;

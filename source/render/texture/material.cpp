@@ -10,7 +10,7 @@ public:
     extensions = { ".material" };
   }
   IResource* create(const std::string& name) const override {
-    dbg("Creating material %s\n", name.c_str());
+   // dbg("Creating material %s\n", name.c_str());
 
     auto j = loadJson(name);
     std::string mat_type = j.value("type", "std");
@@ -91,7 +91,7 @@ bool CMaterial::create(const json& j) {
       else if (slot == "cell")
         ts = TS_CELL;
       else if (slot == "ao")
-        ts = TS_AO;
+        ts = TS_SUBLIME;
       /*else if (slot == "sublime")
         ts = TS_SUBLIME;*/
 

@@ -1,0 +1,269 @@
+[
+  {
+    "entity":
+    {
+      "name": "Solidos_Escena02"
+      ,
+      "transform":
+      {
+        "pos": "6.60577 40.5 -1.95642"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Solidos_Escena02.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Paredes_Escena02"
+      ,
+      "transform":
+      {
+        "pos": "6.81191 45.0 -1.41928"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Paredes_Escena02.col_mesh"
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TDEscaleras2"
+      ,
+      "transform":
+      {
+        "pos": "2.95733 33.7604 -31.0327"
+        ,
+        "rotation": "-0.0370072 0.0370072 0.706138 -0.706138"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.31425 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TDTechos"
+      ,
+      "transform":
+      {
+        "pos": "30.5613 33.7604 -4.9645"
+        ,
+        "rotation": "-0.473147 0.473147 0.525483 -0.525483"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TDTechos.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TorreMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.302765 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TAPuertasPrimera"
+      ,
+      "transform":
+      {
+        "pos": "30.7037 42.2263 -7.72111"
+        ,
+        "rotation": "0.0 -0.919786 0.0 -0.392419"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.656078 0.456476 0.66096"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TAPuertasAbajo"
+      ,
+      "transform":
+      {
+        "pos": "27.7154 37.7207 14.679"
+        ,
+        "rotation": "0.0 -0.631735 0.0 -0.775184"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.656078 0.456476 0.66096"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TAPuertasArriba"
+      ,
+      "transform":
+      {
+        "pos": "11.9531 51.2197 29.1764"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.656078 0.456476 0.66096"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+]

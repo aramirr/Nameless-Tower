@@ -11,19 +11,26 @@ class TCompPlayerController : public TCompBase {
 public:
 
 	VEC3	omnidash_vector;
-	VEC2	omnidash_arrow;
+    VEC2	omnidash_arrow;
+    VEC3	player_position;
 	float   gravity;
 	float   y_speed_factor = 0.f;
 	float	jumping_start_height;
 	float	jumping_death_height;
+    float   run_time = 0;
+    float   idle_time = 0;
+    float   idle_max_time;
 	VEC3 checkpoint;
-	bool    looking_left;
+    bool    looking_left;
+    bool    camera_idle = false;
+    bool    on_cinematic = false;
 	bool    is_grounded;
 	bool    is_falling;
 	bool    is_running = false;
 	int anim1 = -1;
 	int anim2 = -1;
-
+    std::string previous_camera;
+    std::string previous_state;
 	VEC3	  center;
 	float	  tower_radius;
 	CHandle         h_entity;
@@ -43,11 +50,11 @@ public:
 		, NajaOmniPrepUp
 		, NajaOmniPrepBk
 		, NajaOmniPrepFr
-		, NajaOmniPrepFrDn
-		, NajaOmniPrepFrUp
-		, NajaOmniPrepFrBk
-		, NajaOmniPrepBkDn
-        , NajaOmniAb
+		, NajaOmniPrepDnFr
+		, NajaOmniPrepUpFr
+		, NajaOmniPrepUpBk
+		, NajaOmniPrepDnBk
+        , NajaOmniDn
         , NajaOmniAr
         , NajaOmniBk
         , NajaOmniFr
@@ -61,7 +68,9 @@ public:
 		, NajaWindstrikeA
 		, NajaDeath
 		, NajaDead
-		, NajaBreak,
+		, NajaBreak
+        , NajaLookDn
+        , NajaLookUp,
 		EAnimations
 	};
 

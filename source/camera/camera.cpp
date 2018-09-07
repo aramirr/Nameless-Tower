@@ -74,7 +74,7 @@ void CCamera::setOrtho(float orto_width, float orto_height, float new_z_near, fl
 	this->orto_width = orto_width;
 	this->orto_height = orto_height;
 
-	proj = MAT44::CreateOrthographic(orto_width, orto_width, new_z_near, new_z_far);
+	proj = MAT44::CreateOrthographic(orto_width, orto_height, new_z_near, new_z_far);
 	updateViewProj();
 }
 
@@ -121,7 +121,6 @@ bool CCamera::getScreenCoordsOfWorldCoord(VEC3 world_pos, VEC3* result) const {
 
   // It's also dividing by w  -> [-1..1]
   VEC3 pos_in_homo_space = VEC3::Transform(world_pos, getViewProjection());
-
   // Convert to 0..1 and then to viewport coordinates
   VEC3 pos_in_screen_space(
     viewport.x0 + (pos_in_homo_space.x + 1.0f) * 0.5f * viewport.width,

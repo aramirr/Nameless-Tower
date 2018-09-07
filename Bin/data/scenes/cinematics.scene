@@ -56,19 +56,8 @@
 				"spline_name" : "test_camera_curve",
 				"time": 5,
 				"blend_time": 2
-			}
-		}
-	},
-	{
-		"entity": {
-			"name": "camera_first_door",
-			"transform": {
-				"pos": "-35.922 24.001 -3.536",
-				"lookat": "-31.231 24.000 -4.108"				
 			},
-			"camera" : {
-				"fov" : 80 
-			}			
+		    "culling":true
 		}
 	},
 	{
@@ -83,19 +72,8 @@
 				"camera_name" : "camera_first_door",
 				"time": 0,
 				"blend_time": 2
-			}
-		}
-	},
-	{
-		"entity": {
-			"name": "camera_sala_escaleras_2",
-			"transform": {
-				"pos": "-7.045 32.716 -39.335",
-				"lookat": "-5.043 31.646 -30.952"				
 			},
-			"camera" : {
-				"fov" : 80 
-			}			
+		    "culling":true
 		}
 	},
 	{
@@ -110,21 +88,10 @@
 				"camera_name" : "camera_sala_escaleras_2",
 				"time": 0,
 				"blend_time": 2
-			}
-		}
-	},
-	{
-		"entity": {
-			"name": "camera_sala_puertas_abajo",
-			"transform": {
-				"pos": "29.429 37.990 18.592",
-				"lookat": "24.893 36.000 19.303"				
 			},
-			"camera" : {
-				"fov" : 80 
-			}			
+		    "culling":true
 		}
-	},
+	},	
 	{
 		"entity": {
 			"name": "cinematic_sala_puertas_abajo",
@@ -137,7 +104,24 @@
 				"camera_name" : "camera_sala_puertas_abajo",
 				"time": 0,
 				"blend_time": 2
-			}
+			},
+		    "culling":true
+		}
+	},	
+	{
+		"entity": {
+			"name": "cinematic_vientos",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"
+			},
+			"cinematic" :
+			{
+				"camera_name" : "camera_vientos",
+				"time": 0,
+				"blend_time": 2
+			},
+		    "culling":true
 		}
 	}
 ]

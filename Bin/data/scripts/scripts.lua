@@ -13,6 +13,11 @@ end
 
 function OnLevel1Start()
 	lm:set_ambient(1)
+	lm:set_dir_light_intensity("LightDir02", 0)
+	lm:set_dir_light_intensity("LightDir03", 0)
+	lm:set_dir_light_intensity("LightInteriorS4", 0)
+	lm:set_dir_light_intensity("LightInteriorS4L", 0)
+
 end
 
 function OnWindstrikeActivateTDWindstrike()
@@ -59,7 +64,7 @@ function OnTriggerEnterTPTutorialIzq()
 end
 
 function OnTriggerEnterTPTutorialDer()
-	-- body
+	lm:set_dir_light_intensity("LightDir01", 10)
 end
 
 -- Sala 3
@@ -72,6 +77,10 @@ function OnTriggerEnterTSEstatuaArriba()
 	lm:hide_mesh("ParedDestapada4")
 	lm:set_ambient(1)
 	lm:set_dir_light_intensity("LightDir00", 10)
+	lm:set_dir_light_intensity("LightDir01", 10)
+	lm:set_dir_light_intensity("LightInteriorS4", 0)
+	lm:set_dir_light_intensity("LightInteriorS4L", 0)
+	lm:set_dir_light_intensity("LightInteriorS5", 0)
 	lm:deactivate_cinematic("cinematic_first_door")
 end
 
@@ -81,6 +90,10 @@ function OnTriggerEnterTSWindstrikeDer()
 	lm:unhide_mesh("ParedDestapada4")
 	lm:set_ambient(0.2)
 	lm:set_dir_light_intensity("LightDir00", 0)
+	lm:set_dir_light_intensity("LightDir01", 0)
+	lm:set_dir_light_intensity("LightInteriorS4", 1)
+	lm:set_dir_light_intensity("LightInteriorS4L", 1)
+	lm:set_dir_light_intensity("LightInteriorS5", 1)
 	lm:activate_cinematic("cinematic_first_door")
 end
 
@@ -91,7 +104,6 @@ function OnTriggerEnterTSWindstrikeIzq()
 	lm:hide_mesh("ParedDestapada5")
 	lm:unhide_mesh("ParedTapada5")
 	lm:set_ambient(0.2)
-	lm:set_dir_light_intensity("LightDir00", 0)
 	lm:activate_cinematic("cinematic_first_door")
 end
 
@@ -111,6 +123,9 @@ function OnTriggerEnterTSEscaleras1Der()
 	lm:hide_mesh("ParedTapada5")
 	lm:set_ambient(0.2)
 	lm:set_dir_light_intensity("LightDir00", 0)
+	lm:set_dir_light_intensity("LightInteriorS4", 1)
+	lm:set_dir_light_intensity("LightInteriorS4L", 1)
+	lm:set_dir_light_intensity("LightInteriorS5", 1)
 	lm:deactivate_cinematic("cinematic_sala_escaleras_2")
 end
 
@@ -120,6 +135,10 @@ function OnTriggerEnterTSEscaleras2Izq()
 	lm:unhide_mesh("ParedTapada5")
 	lm:set_ambient(1)
 	lm:set_dir_light_intensity("LightDir00", 10)
+	lm:set_dir_light_intensity("LightDir01", 0)
+	lm:set_dir_light_intensity("LightInteriorS4", 0)
+	lm:set_dir_light_intensity("LightInteriorS4L", 0)
+	lm:set_dir_light_intensity("LightInteriorS5", 0)
 	lm:activate_cinematic("cinematic_sala_escaleras_2")
 end
 
@@ -128,6 +147,7 @@ function OnTriggerEnterTSEscaleras2Der()
 	lm:unhide_mesh("ParedTapada7")
 	lm:set_ambient(1)
 	lm:set_dir_light_intensity("LightDir00", 10)
+	lm:set_dir_light_intensity("LightInteriorSCompresoras", 0)
 	lm:activate_cinematic("cinematic_sala_escaleras_2")
 end
 
@@ -137,6 +157,7 @@ function OnTriggerEnterTPTechosIzq()
 	lm:hide_mesh("ParedTapada7")
 	lm:set_ambient(0.2)
 	lm:set_dir_light_intensity("LightDir00", 0)
+	lm:set_dir_light_intensity("LightInteriorSCompresoras", 1)
 	lm:deactivate_cinematic("cinematic_sala_escaleras_2")
 end
 
@@ -145,6 +166,9 @@ function OnTriggerEnterTPTechosDer()
 	lm:hide_mesh("ParedTapada7")
 	lm:set_ambient(0.2)
 	lm:set_dir_light_intensity("LightDir00", 0)
+	lm:set_dir_light_intensity("LightDir03", 0)
+	lm:set_dir_light_intensity("LightDir02", 0)
+	lm:set_dir_light_intensity("LightInteriorSCompresoras", 1)
 end
 
 -- Sala 8
@@ -152,7 +176,10 @@ function OnTriggerEnterTSPuertasIzq()
 	lm:hide_mesh("ParedDestapada7")
 	lm:unhide_mesh("ParedTapada7")
 	lm:set_ambient(1)
-	lm:set_dir_light_intensity("LightDir00", 10)
+	lm:deactivate_cinematic("cinematic_vientos")
+	lm:set_dir_light_intensity("LightDir00", 0)
+	lm:set_dir_light_intensity("LightInteriorSCompresoras", 0)
+	lm:set_dir_light_intensity("LightDir02", 10)
 end
 
 function OnTriggerEnterTSPuertasZoom()
@@ -165,29 +192,32 @@ end
 
 -- Sala 9
 function OnTriggerEnterTSArbolAbajo()
-	-- body
+	lm:activate_cinematic("cinematic_vientos")
 end
 
 function OnTriggerEnterTSArbolArriba()
 	lm:hide_mesh("ParedDestapada10")
 	lm:unhide_mesh("ParedTapada10")
 	lm:set_ambient(1)
-	lm:set_dir_light_intensity("LightDir00", 10)
+	lm:set_dir_light_intensity("LightDir02", 10)
+	lm:activate_cinematic("cinematic_vientos")
 end
 
 -- Sala 10
 function OnTriggerEnterTSRunnerIzq()
 	lm:unhide_mesh("ParedDestapada10")
 	lm:hide_mesh("ParedTapada10")
+	lm:deactivate_cinematic("cinematic_vientos")
 	lm:set_ambient(0.2)
 	lm:set_dir_light_intensity("LightDir00", 0)
+	lm:set_dir_light_intensity("LightDir02", 0)
 end
 
 function OnTriggerEnterTSRunnerDer()
 	lm:unhide_mesh("ParedDestapada10")
 	lm:hide_mesh("ParedTapada10")
 	lm:set_ambient(0.2)
-	lm:set_dir_light_intensity("LightDir00", 0)
+	lm:set_dir_light_intensity("LightDir03", 10)
 end
 
 -- Sala 11

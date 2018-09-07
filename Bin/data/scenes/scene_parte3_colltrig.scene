@@ -1,0 +1,101 @@
+[
+  {
+    "entity":
+    {
+      "name": "Solidos_Escena03"
+      ,
+      "transform":
+      {
+        "pos": "10.3859 81.0 1.73888"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Solidos_Escena03.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Paredes_Escena03"
+      ,
+      "transform":
+      {
+        "pos": "12.7217 83.25 0.286607"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Paredes_Escena03.col_mesh"
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TARunner"
+      ,
+      "transform":
+      {
+        "pos": "11.2207 69.2193 29.1045"
+        ,
+        "rotation": "0.0 -0.0821496 0.0 -0.99662"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.656078 0.456476 0.66096"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+]

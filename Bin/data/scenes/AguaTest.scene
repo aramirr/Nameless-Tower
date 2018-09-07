@@ -1,0 +1,56 @@
+[
+  {
+    "entity":
+    {
+      "name": "Plane001"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 -0.707107 -0.707107"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plane001.mesh",
+          "materials" : [
+            "data/materials/AguaTestMat.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "Plane001_B"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 -0.707107 -0.707107"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plane001.mesh",
+          "materials" : [
+            "data/materials/AguaTestMat2.material"
+          ]
+        }
+      ],
+      "hierarchy":
+      {
+        "parent": "Plane001",
+        "transform":
+        {
+          "pos": "-1.1 0.0 0.0"
+        }
+      }
+    }
+  }
+]

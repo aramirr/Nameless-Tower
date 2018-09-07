@@ -57,6 +57,9 @@ namespace FSM
 
 	void InitialState::onFinish(CContext& ctx) const {
 		ctx.setVariable("initial", false);
+        CEntity* e = ctx.getOwner();
+        TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->previous_state = "initial";
 	}
 }
 

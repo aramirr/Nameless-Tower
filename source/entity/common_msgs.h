@@ -134,7 +134,14 @@ struct TMsgSetFSMVariable {
 
 struct TMsgActiveCamera {
 	std::string camera_name;
+    float blend_time;
   DECL_MSG_ID();
+};
+
+struct TMsgRemoveCamera {
+    std::string camera_name;
+    float blend_time;
+    DECL_MSG_ID();
 };
 
 struct TMsgActivateCinematic {
@@ -160,6 +167,12 @@ struct TMsgPlayerOut {
 struct TMsgCheckPlayerIn {
   DECL_MSG_ID();
 };
+
+struct TMsgChangeDirectionUp {
+  bool b_up;
+  DECL_MSG_ID();
+};
+
 
 // Sent to all entities from a parsed file once all the entities
 // in that file has been created. Used to link entities between them
