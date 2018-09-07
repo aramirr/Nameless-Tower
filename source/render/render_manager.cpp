@@ -196,7 +196,7 @@ void CRenderManager::renderCategory(const char* category_name) {
 
   // For each key in the range of keys
   while (it != last) {
-    PROFILE_FUNCTION("Key");
+    //PROFILE_FUNCTION("Key");
 
     // Do the culling
     if (culling_bits) {

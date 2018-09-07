@@ -118,7 +118,7 @@ void TCompLightPointShadows::render() {
 void TCompLightPointShadows::generateShadowMap() {
   if (!shadows_cube_rt || !shadows_enabled )
     return;
-  PROFILE_FUNCTION("LightPointShadows.generateShadowMap");
+  //PROFILE_FUNCTION("LightPointShadows.generateShadowMap");
 
   // In this slot is where we activate the render targets that we are going
   // to update now. You can't be active as texture and render target at the
