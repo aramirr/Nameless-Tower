@@ -148,14 +148,11 @@ void CModuleBillboards::addGrass(VEC3 position, float width, float length, int t
 	grass_instances_mesh->setInstancesData(grass_instances.data(), grass_instances.size(), sizeof(TGrassParticle));
 }
 
-void CModuleBillboards::addGrassByAngle(VEC3 pos1, VEC3 pos2, int total) {
+void CModuleBillboards::addGrassByAngle(VEC3 pos1, VEC3 pos2, int total, float radius1, float radius2) {
   float alpha = asin(pos1.z / EngineTower.getTowerRadius());
   alpha = EngineTower.checkAngle(alpha, pos1);
   float beta = asin(pos2.z / EngineTower.getTowerRadius());
   beta = EngineTower.checkAngle(beta, pos2);
-
-  
-  float radius = EngineTower.getTowerRadius();
 
   for (int i = 0; i < total; ++i) {
     float charlie;
@@ -172,8 +169,7 @@ void CModuleBillboards::addGrassByAngle(VEC3 pos1, VEC3 pos2, int total) {
         charlie = randomFloat(deg2rad(0), beta);
     }
 
-    radius = 28.f;
-    float aux_radius = radius + randomFloat(-3.25f, 3.25f);
+    float aux_radius = randomFloat(radius1, radius2);
     VEC3 new_position = VEC3(aux_radius*cos(charlie), pos1.y, aux_radius*sin(charlie));
     TGrassParticle new_instance;
     new_instance.pos = new_position;

@@ -66,6 +66,6 @@ public:
   void apagarFuego(int id, float scale, bool thin);
   void encenderFuego(int id, float scale, bool thin);
   void addGrass(VEC3 position, float width, float length, int total);
-  void addGrassByAngle(VEC3 pos1, VEC3 pos2, int total);
+  void addGrassByAngle(VEC3 pos1, VEC3 pos2, int total, float radius1, float radius2);
   void calculateAngles(VEC3 pos1, VEC3 pos2, float& alpha, float& beta, float& charlie);
 };

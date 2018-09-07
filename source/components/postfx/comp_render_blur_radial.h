@@ -15,6 +15,7 @@ class TCompRenderBlurRadial : public TCompBase {
   const CRenderMesh*      mesh = nullptr;
   bool                    enabled = true;
   float                   amount = 1.f;
+  float                   current_amount = 0.f;
   float                   radius = 1.f;
   int                     xres = 0;
   int                     yres = 0;
