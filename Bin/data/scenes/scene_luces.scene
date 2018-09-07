@@ -6,18 +6,20 @@
       ,
       "transform":
       {
-        "pos": "13.5308 87.3916 -26.6448"
+        "pos": "13.681 88.142 -26.795"
         ,
         "rotation": "0.0 0.476187 0.0 -0.879344"
       }
       ,
-      "light_point":
-      {
-        "intensity": 10.0
-        ,
-        "color": "1.0 0.0509804 0.0509804 1.0"
-        ,
-        "radius": 3.0
+      "light_point_shadows": {
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "z_near" : 0,
+        "z_far" : 0,
+        "shadows_step" : 0.0,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none"
       },
       "ai_torch":
       {
@@ -34,22 +36,24 @@
   {
     "entity":
     {
-      "name": "Luces_Fuego_012"
+      "name": "Luces_Fuego_011"
       ,
       "transform":
       {
-        "pos": "21.0592 87.3644 -21.0947"
+        "pos": "21.359 88.189 -21.245"
         ,
         "rotation": "0.0 0.604705 0.0 -0.796449"
       }
       ,
-      "light_point":
-      {
-        "intensity": 10.0
-        ,
-        "color": "1.0 0.0509804 0.0509804 1.0"
-        ,
-        "radius": 3.0
+      "light_point_shadows": {
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "z_near" : 0,
+        "z_far" : 0,
+        "shadows_step" : 0.0,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none"
       },
       "ai_torch":
       {
@@ -66,22 +70,24 @@
   {
     "entity":
     {
-      "name": "Luces_Fuego_020"
+      "name": "Luces_Fuego_010"
       ,
       "transform":
       {
-        "pos": "14.3438 62.5053 20.2168"
+        "pos": "11.569 65.705 22.717"
         ,
         "rotation": "0.0 -0.986442 0.0 0.164108"
       }
       ,
-      "light_point":
-      {
-        "intensity": 10.0
-        ,
-        "color": "1.0 0.0509804 0.0509804 1.0"
-        ,
-        "radius": 3.0
+      "light_point_shadows": {
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "z_near" : 0.462,
+        "z_far" : 3.800,
+        "shadows_step" : 3.0,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none"
       },
       "ai_torch":
       {
@@ -102,18 +108,20 @@
       ,
       "transform":
       {
-        "pos": "19.2713 64.4257 15.6436"
+        "pos": "19.796 65.626 16.244"
         ,
         "rotation": "0.0 -0.986442 0.0 0.164108"
       }
       ,
-      "light_point":
-      {
-        "intensity": 10.0
-        ,
-        "color": "1.0 0.0509804 0.0509804 1.0"
-        ,
-        "radius": 3.0
+      "light_point_shadows": {
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "z_near" : 0.462,
+        "z_far" : 3.800,
+        "shadows_step" : 3.0,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none"
       },
       "ai_torch":
       {
@@ -130,22 +138,24 @@
   {
     "entity":
     {
-      "name": "Luces_Fuego_015"
+      "name": "Luces_Fuego_08"
       ,
       "transform":
       {
-        "pos": "12.1354 33.3791 27.2987"
+        "pos": "12.335 34.254 27.574"
         ,
         "rotation": "0.0 -0.998607 0.0 -0.0527577"
       }
       ,
-      "light_point":
-      {
-        "intensity": 10.0
-        ,
-        "color": "1.0 0.0509804 0.0509804 1.0"
-        ,
-        "radius": 3.0
+      "light_point_shadows": {
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "z_near" : 0.462,
+        "z_far" : 3.100,
+        "shadows_step" : 3.0,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none"
       },
       "ai_torch":
       {
@@ -166,18 +176,20 @@
       ,
       "transform":
       {
-        "pos": "22.3672 64.9355 10.0929"
+        "pos": "22.917 68.561 10.193"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
-      "light_point":
-      {
-        "intensity": 10.0
-        ,
-        "color": "1.0 0.0509804 0.0509804 1.0"
-        ,
-        "radius": 3.0
+      "light_point_shadows": {
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "z_near" : 0.462,
+        "z_far" : 7.100,
+        "shadows_step" : 3.0,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none"
       },
       "ai_torch":
       {
@@ -198,18 +210,20 @@
       ,
       "transform":
       {
-        "pos": "27.3054 33.3837 -12.142"
+        "pos": "27.730 34.359 -12.392"
         ,
         "rotation": "0.0 0.743212 0.0 -0.669056"
       }
       ,
-      "light_point":
-      {
-        "intensity": 10.0
-        ,
-        "color": "1.0 0.0509804 0.0509804 1.0"
-        ,
-        "radius": 3.0
+     "light_point_shadows": {
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "z_near" : 0.462,
+        "z_far" : 3.100,
+        "shadows_step" : 3.0,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none"
       },
       "ai_torch":
       {
@@ -230,18 +244,20 @@
       ,
       "transform":
       {
-        "pos": "22.2033 33.3682 -19.9668"
+        "pos": "22.578 34.493 -20.317"
         ,
         "rotation": "0.0 0.630201 0.0 -0.776432"
       }
       ,
-      "light_point":
-      {
-        "intensity": 10.0
-        ,
-        "color": "1.0 0.0509804 0.0509804 1.0"
-        ,
-        "radius": 3.0
+      "light_point_shadows": {
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "z_near" : 0.462,
+        "z_far" : 3.100,
+        "shadows_step" : 3.0,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none"
       },
       "ai_torch":
       {
@@ -262,18 +278,20 @@
       ,
       "transform":
       {
-        "pos": "14.9503 33.3834 -25.8658"
+        "pos": "15.225 34.283 -26.366"
         ,
         "rotation": "0.0 0.500366 0.0 -0.865814"
       }
       ,
-      "light_point":
-      {
-        "intensity": 10.0
-        ,
-        "color": "1.0 0.0509804 0.0509804 1.0"
-        ,
-        "radius": 3.0
+      "light_point_shadows": {
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "z_near" : 0.462,
+        "z_far" : 3.100,
+        "shadows_step" : 3.0,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none"
       },
       "ai_torch":
       {
@@ -294,16 +312,16 @@
       ,
       "transform":
       {
-        "pos": "6.2235 33.3819 -29.2178"
+        "pos": "6.249 34.307 -29.618"
         ,
         "rotation": "0.0 0.358209 0.0 -0.933641"
       }
       ,
-       "light_point_shadows": {
+      "light_point_shadows": {
         "intensity": 10,
-        "color" :  "0.8 0.8 1.0 1",
-        "z_near" : 1,
-        "z_far" : 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "z_near" : 0.462,
+        "z_far" : 3.100,
         "shadows_step" : 3.0,
         "shadows_resolution" : 256,
         "shadows_fmt" : "R32_TYPELESS",
@@ -328,20 +346,54 @@
       ,
       "transform":
       {
-        "pos": "-14.9296 28.9155 -25.8838"
+        "pos": "-15.030 29.240 -26.084"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
-        "light_point":
+       "light_point_shadows": {
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "z_near" : 0.233,
+        "z_far" : 2.900,
+        "shadows_step" : 3.0,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none"
+      },
+      "ai_torch":
       {
-        "intensity": 10.0
+        "time_limit": 2,
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "radius" : 3,
+        "scale" : 1.7,
+        "thin": false
+      }
+    }
+    }  ,
+    {
+    "entity":
+    {
+      "name": "Luces_Fuego_01"
+      ,
+      "transform":
+      {
+        "pos": "-18.980 26.740 -16.809"
         ,
-        "color": "1.0 0.0509804 0.0509804 1.0"
-        ,
-        "radius": 3.0
+        "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
+       "light_point_shadows": {
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "z_near" : 0.233,
+        "z_far" : 4.200,
+        "shadows_step" : 3.0,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none"
+      },
       "ai_torch":
       {
         "time_limit": 2,

@@ -215,7 +215,7 @@ void CDeferredRenderer::renderPointLights() {
 
 		// subir las contantes de la posicion/dir
 		// activar el shadow map...
-		c->simulateLight();
+		//c->simulateLight();
 
 		setWorldTransform(c->getWorld());
 
