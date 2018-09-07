@@ -28,7 +28,10 @@
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3,
         "scale" : 1.7,
-        "thin": false
+        "thin": true,
+        "y_offset": 0.35,
+        "z_offset": 0.1,
+        "x_offset": -0.1
       }
     }
   }
@@ -62,7 +65,10 @@
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3,
         "scale" : 1.7,
-        "thin": false
+        "thin": true,
+        "y_offset": 0.30,
+        "z_offset": 0.05,
+        "x_offset": -0.3
       }
     }
   }
@@ -96,7 +102,8 @@
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3,
         "scale" : 1.7,
-        "thin": false
+        "thin": true,
+        "y_offset": -0.5
       }
     }
   }
@@ -130,7 +137,8 @@
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3,
         "scale" : 1.7,
-        "thin": false
+        "thin": true,
+        "y_offset": -0.4
       }
     }
   }
@@ -164,7 +172,10 @@
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3,
         "scale" : 1.7,
-        "thin": false
+        "thin": true,
+        "y_offset": 0.15,
+        "z_offset": -0.25,
+        "x_offset": -0.2
       }
     }
   }
@@ -198,7 +209,8 @@
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3,
         "scale" : 1.7,
-        "thin": false
+        "thin": false,
+        "y_offset": -2
       }
     }
   }
@@ -232,7 +244,10 @@
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3,
         "scale" : 1.7,
-        "thin": false
+        "thin": true,
+        "y_offset": 0.04,
+        "z_offset": 0.25,
+        "x_offset": -0.4
       }
     }
   }
@@ -266,7 +281,10 @@
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3,
         "scale" : 1.7,
-        "thin": false
+        "thin": true,
+        "y_offset": 0.04,
+        "z_offset": 0.35,
+        "x_offset": -0.35
       }
     }
   }
@@ -300,7 +318,10 @@
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3,
         "scale" : 1.7,
-        "thin": false
+        "thin": true,
+        "y_offset": 0.22,
+        "z_offset": 0.5,
+        "x_offset": -0.25
       }
     }
   }
@@ -334,7 +355,10 @@
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3,
         "scale" : 1.7,
-        "thin": false
+        "thin": true,
+        "y_offset": 0.14,
+        "z_offset": 0.3,
+        "x_offset": -0.05
       }
     }
   }
@@ -368,7 +392,10 @@
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3,
         "scale" : 1.7,
-        "thin": false
+        "thin": true,
+        "y_offset": 0.8,
+        "z_offset": 0.18,
+        "x_offset": 0.08
       }
     }
     }  ,
@@ -379,7 +406,7 @@
       ,
       "transform":
       {
-        "pos": "-18.980 26.740 -16.809"
+        "pos": "-18.680 26.740 -16.684"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -401,7 +428,8 @@
         "color" :  "1.0 0.0509804 0.0509804 1.0",
         "radius" : 3,
         "scale" : 1.7,
-        "thin": false
+        "thin": true,
+        "y_offset": -0.5
       }
     }
   }

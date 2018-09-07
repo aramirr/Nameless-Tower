@@ -44,7 +44,10 @@ void CAITorch::renderDebug() {
 
 void CAITorch::load(const json& j, TEntityParseContext& ctx) {
     setEntity(ctx.current_entity);
-	timer_limit = j.value("time_limit", 5.0f);
+    timer_limit = j.value("time_limit", 5.0f);
+    y_offset = j.value("y_offset", 0.f);
+    z_offset = j.value("z_offset", 0.f);
+    x_offset = j.value("x_offset", 0.f);
 	puzzle_name = j.value("puzzle", "");
 	if (puzzle_name != "") {
 		in_puzzle = true;
@@ -78,7 +81,9 @@ void CAITorch::ActiveState(float dt)
     TCompTransform* my_transform = getMyTransform();
     if (on_start) {
         fire_position = my_transform->getPosition();
-        fire_position.y += thin ? 1.2f : 0.8f;
+        fire_position.y += y_offset;
+        fire_position.z += z_offset;
+        fire_position.x += x_offset;
         on_start = false;
     }
     if (b_fuego) {
