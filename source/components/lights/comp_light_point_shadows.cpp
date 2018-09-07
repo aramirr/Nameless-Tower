@@ -90,12 +90,14 @@ void TCompLightPointShadows::activate() {
 	cb_light.light_znear = camera.getZNear();
   cb_light.updateGPU();
 
-  cb_light.light_shadows_inverse_resolution = 1.0f / (float)shadows_cube_rt->getWidth();
-  cb_light.light_shadows_step = shadows_step;
-  cb_light.light_shadows_step_with_inv_res = shadows_step / (float)shadows_cube_rt->getWidth();
-  //cb_light.light_radius = 1.f;
+  if (intensity != 0) {
+      cb_light.light_shadows_inverse_resolution = 1.0f / (float)shadows_cube_rt->getWidth();
+      cb_light.light_shadows_step = shadows_step;
+      cb_light.light_shadows_step_with_inv_res = shadows_step / (float)shadows_cube_rt->getWidth();
+      //cb_light.light_radius = 1.f;
 
-  shadows_cube_rt->activateCubeShadowMap(TS_LIGHT_SHADOW_MAP);
+      shadows_cube_rt->activateCubeShadowMap(TS_LIGHT_SHADOW_MAP);
+  }  
 }
 
 MAT44 TCompLightPointShadows::getWorld() {
@@ -116,7 +118,7 @@ void TCompLightPointShadows::render() {
 
 // ------------------------------------------------------
 void TCompLightPointShadows::generateShadowMap() {
-  if (!shadows_cube_rt || !shadows_enabled )
+  if (!shadows_cube_rt || !shadows_enabled || intensity == 0)
     return;
   //PROFILE_FUNCTION("LightPointShadows.generateShadowMap");
 
@@ -151,6 +153,9 @@ void TCompLightPointShadows::generateShadowMap() {
 
 }
 
+void TCompLightPointShadows::setIntensity(float value) {
+    intensity = value;
+}
 
 
 

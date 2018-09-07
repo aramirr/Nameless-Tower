@@ -31,5 +31,6 @@ public:
   DECL_SIBLING_ACCESS();
 
   void generateShadowMap();
+  void setIntensity(float value);
   void render();
 };

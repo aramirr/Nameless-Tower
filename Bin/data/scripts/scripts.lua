@@ -105,6 +105,8 @@ function OnTriggerEnterTSWindstrikeIzq()
 	lm:unhide_mesh("ParedTapada5")
 	lm:set_ambient(0.2)
 	lm:activate_cinematic("cinematic_first_door")
+	lm:set_point_light_intensity("Luces_Fuego_01", 0)
+	lm:set_point_light_intensity("Luces_Fuego_02", 0)
 end
 
 -- Sala 5
@@ -116,6 +118,8 @@ function OnTriggerEnterTSEscaleras1Izq()
 	lm:hide_mesh("ParedTapada5")
 	lm:set_ambient(0.2)
 	lm:deactivate_cinematic("cinematic_first_door")
+	lm:set_point_light_intensity("Luces_Fuego_01", 10)
+	lm:set_point_light_intensity("Luces_Fuego_02", 10)
 end
 
 function OnTriggerEnterTSEscaleras1Der()
@@ -126,6 +130,8 @@ function OnTriggerEnterTSEscaleras1Der()
 	lm:set_dir_light_intensity("LightInteriorS4", 1)
 	lm:set_dir_light_intensity("LightInteriorS4L", 1)
 	lm:set_dir_light_intensity("LightInteriorS5", 1)
+	lm:set_point_light_intensity("Luces_Fuego_01", 10)
+	lm:set_point_light_intensity("Luces_Fuego_02", 10)
 	lm:deactivate_cinematic("cinematic_sala_escaleras_2")
 end
 
@@ -139,6 +145,8 @@ function OnTriggerEnterTSEscaleras2Izq()
 	lm:set_dir_light_intensity("LightInteriorS4", 0)
 	lm:set_dir_light_intensity("LightInteriorS4L", 0)
 	lm:set_dir_light_intensity("LightInteriorS5", 0)
+	lm:set_point_light_intensity("Luces_Fuego_01", 0)
+	lm:set_point_light_intensity("Luces_Fuego_02", 0)
 	lm:activate_cinematic("cinematic_sala_escaleras_2")
 end
 
@@ -148,6 +156,10 @@ function OnTriggerEnterTSEscaleras2Der()
 	lm:set_ambient(1)
 	lm:set_dir_light_intensity("LightDir00", 10)
 	lm:set_dir_light_intensity("LightInteriorSCompresoras", 0)
+	lm:set_point_light_intensity("Luces_Fuego_03", 0)
+	lm:set_point_light_intensity("Luces_Fuego_04", 0)
+	lm:set_point_light_intensity("Luces_Fuego_05", 0)
+	lm:set_point_light_intensity("Luces_Fuego_06", 0)
 	lm:activate_cinematic("cinematic_sala_escaleras_2")
 end
 
@@ -158,6 +170,10 @@ function OnTriggerEnterTPTechosIzq()
 	lm:set_ambient(0.2)
 	lm:set_dir_light_intensity("LightDir00", 0)
 	lm:set_dir_light_intensity("LightInteriorSCompresoras", 1)
+	lm:set_point_light_intensity("Luces_Fuego_03", 10)
+	lm:set_point_light_intensity("Luces_Fuego_04", 10)
+	lm:set_point_light_intensity("Luces_Fuego_05", 10)
+	lm:set_point_light_intensity("Luces_Fuego_06", 10)
 	lm:deactivate_cinematic("cinematic_sala_escaleras_2")
 end
 
@@ -168,6 +184,11 @@ function OnTriggerEnterTPTechosDer()
 	lm:set_dir_light_intensity("LightDir00", 0)
 	lm:set_dir_light_intensity("LightDir03", 0)
 	lm:set_dir_light_intensity("LightDir02", 0)
+	lm:set_point_light_intensity("Luces_Fuego_03", 10)
+	lm:set_point_light_intensity("Luces_Fuego_04", 10)
+	lm:set_point_light_intensity("Luces_Fuego_05", 10)
+	lm:set_point_light_intensity("Luces_Fuego_06", 10)
+	lm:set_point_light_intensity("Luces_Fuego_08", 0)
 	lm:set_dir_light_intensity("LightInteriorSCompresoras", 1)
 end
 
@@ -180,6 +201,11 @@ function OnTriggerEnterTSPuertasIzq()
 	lm:set_dir_light_intensity("LightDir00", 0)
 	lm:set_dir_light_intensity("LightInteriorSCompresoras", 0)
 	lm:set_dir_light_intensity("LightDir02", 10)
+	lm:set_point_light_intensity("Luces_Fuego_03", 0)
+	lm:set_point_light_intensity("Luces_Fuego_04", 0)
+	lm:set_point_light_intensity("Luces_Fuego_05", 0)
+	lm:set_point_light_intensity("Luces_Fuego_06", 0)
+	lm:set_point_light_intensity("Luces_Fuego_08", 10)
 end
 
 function OnTriggerEnterTSPuertasZoom()
@@ -187,12 +213,13 @@ function OnTriggerEnterTSPuertasZoom()
 end
 
 function OnTriggerEnterTSPuertasDer()
-	-- body
+	lm:set_point_light_intensity("Luces_Fuego_08", 10)
 end
 
 -- Sala 9
 function OnTriggerEnterTSArbolAbajo()
 	lm:activate_cinematic("cinematic_vientos")
+	lm:set_point_light_intensity("Luces_Fuego_08", 0)
 end
 
 function OnTriggerEnterTSArbolArriba()
@@ -200,6 +227,9 @@ function OnTriggerEnterTSArbolArriba()
 	lm:unhide_mesh("ParedTapada10")
 	lm:set_ambient(1)
 	lm:set_dir_light_intensity("LightDir02", 10)
+	lm:set_point_light_intensity("Luces_Fuego_07", 0)
+	lm:set_point_light_intensity("Luces_Fuego_09", 0)
+	lm:set_point_light_intensity("Luces_Fuego_010", 0)
 	lm:activate_cinematic("cinematic_vientos")
 end
 
@@ -211,6 +241,9 @@ function OnTriggerEnterTSRunnerIzq()
 	lm:set_ambient(0.2)
 	lm:set_dir_light_intensity("LightDir00", 0)
 	lm:set_dir_light_intensity("LightDir02", 0)
+	lm:set_point_light_intensity("Luces_Fuego_07", 10)
+	lm:set_point_light_intensity("Luces_Fuego_09", 10)
+	lm:set_point_light_intensity("Luces_Fuego_010", 10)
 end
 
 function OnTriggerEnterTSRunnerDer()
@@ -218,6 +251,9 @@ function OnTriggerEnterTSRunnerDer()
 	lm:hide_mesh("ParedTapada10")
 	lm:set_ambient(0.2)
 	lm:set_dir_light_intensity("LightDir03", 10)
+	lm:set_point_light_intensity("Luces_Fuego_07", 10)
+	lm:set_point_light_intensity("Luces_Fuego_09", 10)
+	lm:set_point_light_intensity("Luces_Fuego_010", 10)
 end
 
 -- Sala 11
@@ -226,6 +262,9 @@ function OnTriggerEnterTSCascadaAbajo()
 	--lm:unhide_mesh("ParedTapada10")
 	lm:set_ambient(1)
 	lm:set_dir_light_intensity("LightDir00", 10)
+	lm:set_point_light_intensity("Luces_Fuego_07", 0)
+	lm:set_point_light_intensity("Luces_Fuego_09", 0)
+	lm:set_point_light_intensity("Luces_Fuego_010", 0)
 end
 
 function OnTriggerEnterTSCascadaArriba()
@@ -233,6 +272,8 @@ function OnTriggerEnterTSCascadaArriba()
 	lm:unhide_mesh("ParedTapada12")
 	lm:set_ambient(1)
 	lm:set_dir_light_intensity("LightDir00", 10)
+	lm:set_point_light_intensity("Luces_Fuego_011", 0)
+	lm:set_point_light_intensity("Luces_Fuego_012", 0)
 end
 
 -- Sala 12
@@ -241,6 +282,8 @@ function OnTriggerEnterTSAntorchasIzq()
 	lm:hide_mesh("ParedTapada12")
 	lm:set_ambient(0.2)
 	lm:set_dir_light_intensity("LightDir00", 0)
+	lm:set_point_light_intensity("Luces_Fuego_011", 10)
+	lm:set_point_light_intensity("Luces_Fuego_012", 10)
 end
 
 function OnTriggerEnterTSAntorchasDer()
@@ -250,6 +293,8 @@ function OnTriggerEnterTSAntorchasDer()
 
 	lm:hide_mesh("ParedDestapada13")
 	lm:unhide_mesh("ParedTapada13")
+	lm:set_point_light_intensity("Luces_Fuego_011", 10)
+	lm:set_point_light_intensity("Luces_Fuego_012", 10)
 end
 
 -- Sala 13
