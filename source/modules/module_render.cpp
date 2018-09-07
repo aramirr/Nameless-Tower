@@ -229,7 +229,7 @@ void CModuleRender::generateFrame() {
 
 		CRenderManager::get().renderCategory("opacity");
 
-		//CRenderManager::get().renderCategory("particles");
+		CRenderManager::get().renderCategory("particles");
 
 		//CRenderManager::get().renderCategory("distorsions");
 
