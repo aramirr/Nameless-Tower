@@ -46,7 +46,7 @@ CTexture* TCompRenderBlurRadial::apply( CTexture* in_texture) {
 
   cb_blur.blur_center = normalized_center;
   cb_blur.blur_d.x = current_amount;
-  current_amount += current_amount < amount ? 0.01 : 0;
+  current_amount += current_amount < amount ? 0.02 : 0;
   cb_blur.blur_d.y = radius;
   cb_blur.activate();
   cb_blur.updateGPU();
