@@ -13,6 +13,8 @@ class TCompGrass : public TCompBase {
 
   VEC3 pos1 = VEC3::Zero;
   VEC3 pos2 = VEC3::Zero;
+  float radius1 = 0.f;
+  float radius2 = 0.f;
 
   bool carga = false;
 

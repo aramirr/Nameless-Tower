@@ -1,0 +1,54 @@
+[
+  {
+    "entity": {
+      "name": "PlaneGrass1",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render": []
+      ,
+      "comp_grass": { 
+        "total": 4000,
+        "pos2": "12.520 4.5 -28.906",
+        "pos1": "-5.640 4.5 -30.991",
+        "radius1": 24.5,
+        "radius2": 31.5
+      }
+    }
+  },
+  {
+    "entity": {
+      "name": "PlaneGrass2",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render": []
+      ,
+      "comp_grass": { 
+        "total": 400,
+        "pos2": "-10.713 4.5 -29.622",
+        "pos1": "-12.588 4.5 -28.875",
+        "radius1": 24.5,
+        "radius2": 31.5
+      }
+    }
+  }
+  ,
+  {
+    "entity": {
+      "name": "PlaneGrass3",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render": []
+      ,
+      "comp_grass": { 
+        "total": 4000,
+        "pos1": "31.351 31.5 -3.063",
+        "pos2": "30.877 31.5 6.236",
+        "radius1": 24.5,
+        "radius2": 31.5
+      }
+    }
+  }
+]
