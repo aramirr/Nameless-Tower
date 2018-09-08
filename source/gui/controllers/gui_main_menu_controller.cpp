@@ -68,25 +68,18 @@ namespace GUI
       _options[_currentOption].callback();
     }
 		if (EngineInput.mouse()._position_delta != VEC2(0,0)) {
-			int mX = EngineInput.mouse()._position.x;
-			int mY = EngineInput.mouse()._position.y;
-			for (int i = 0; i < _options.size(); i++) {
-				int bmX = _options[i].button->getPosition().x;
-				int bMX = bmX + _options[i].button->getSize().x;
-				int bmY = _options[i].button->getPosition().y;
-				int bMY= bmY + _options[i].button->getSize().y;
-				if (mX >= bmX && mX <= bMX && mY >= bmY && mY <= bMY) {
-					_currentOption = i;
-					setCurrentOption(_currentOption);
-				}
-			}
+      getCurrentOption();
+      setCurrentOption(_currentOption);
 		}
 		if (EngineInput["omnidash"].getsPressed()) {
-			_options[_currentOption].button->setCurrentState(CButton::EState::ST_Pressed);
+			if(getCurrentOption() == _currentOption)
+        _options[_currentOption].button->setCurrentState(CButton::EState::ST_Pressed);
 		}
 		if (EngineInput["omnidash"].getsReleased()) {
-			_options[_currentOption].button->setCurrentState(CButton::EState::ST_Selected);
-			_options[_currentOption].callback();
+      if (getCurrentOption() == _currentOption) {
+        _options[_currentOption].button->setCurrentState(CButton::EState::ST_Selected);
+        _options[_currentOption].callback();
+      }
 		}
   }
 
@@ -110,5 +103,22 @@ namespace GUI
     _currentOption = clamp(newOption, 0, static_cast<int>(_options.size()) - 1);
 
     _options[_currentOption].button->setCurrentState(CButton::EState::ST_Selected);
+  }
+  int CMainMenuController::getCurrentOption()
+  {
+    int mX = EngineInput.mouse()._position.x;
+    int mY = EngineInput.mouse()._position.y;
+    for (int i = 0; i < _options.size(); i++) {
+      int bmX = _options[i].button->getPosition().x;
+      int bMX = bmX + _options[i].button->getSize().x;
+      int bmY = _options[i].button->getPosition().y;
+      int bMY = bmY + _options[i].button->getSize().y;
+      if (mX >= bmX && mX <= bMX && mY >= bmY && mY <= bMY) {
+        _currentOption = i;
+        return i;
+      }
+    }
+    _currentOption = _currentOption;
+    return -1;
   }
 }
