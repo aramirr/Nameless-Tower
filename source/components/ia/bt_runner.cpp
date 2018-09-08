@@ -97,29 +97,36 @@ void bt_runner::create(string s)
 
     addChild("runner_p", "appear_s", SEQUENCE, (btcondition)&bt_runner::conditionAppear, NULL);
     addChild("appear_s", "appear", ACTION, NULL, (btaction)&bt_runner::actionAppear);
+    //addChild("appear_s", "appear_pose", ACTION, NULL, (btaction)&bt_runner::actionAppearPose);
+    //addChild("appear_s", "scream2", ACTION, NULL, (btaction)&bt_runner::actionScream);
 
     addChild("runner_p", "hide", ACTION, NULL, (btaction)&bt_runner::actionHide);
 }
 
 //----- ACTIONS -----
 int bt_runner::actionStop() {
-    change_color(VEC4(0.5f, 0.0f, 0.0f, 1.0f));
-    debug_timer += DT;
-    if (debug_timer >= 1.f) {
-        debug_timer = 0.f;
-        return LEAVE;
-    }
-    return STAY;
+  debug_timer += DT;
+  addGravity();
+  if (debug_timer >= 1.f) {
+      debug_timer = 0.f;
+      return LEAVE;
+  }
+  return STAY;
 };
 
 int bt_runner::actionScream() {
-    change_color(VEC4(1.0f, 0.0f, 0.0f, 1.0f));
-    debug_timer += DT;
-    if (debug_timer >= 1.f) {
-        debug_timer = 0.f;
-        return LEAVE;
-    }
-    return STAY;
+  if (anim_state != "scream") {
+    anim_state = "scream";
+    //change_animation(ERunnerAnimations::RunnerIdle, false, 0.f, 0.f, true);
+    change_animation(ERunnerAnimations::RunnerScream, true, 0.f, 0.f, true);
+  }
+  addGravity();
+  debug_timer += DT;
+  if (debug_timer >= 4.3f) {
+      debug_timer = 0.f;
+      return LEAVE;
+  }
+  return STAY;
 };
 
 int bt_runner::actionDisappear() {
@@ -134,7 +141,7 @@ int bt_runner::actionDisappear() {
 };
 
 int bt_runner::actionRecular() {
-    change_color(VEC4(0.0f, 0.5f, 0.0f, 1.0f));
+    addGravity();
     debug_timer += DT;
     if (debug_timer >= 1.f) {
         debug_timer = 0.f;
@@ -145,7 +152,7 @@ int bt_runner::actionRecular() {
 };
 
 int bt_runner::actionRecover() {
-    change_color(VEC4(0.0f, 1.0f, 0.0f, 1.0f));
+    addGravity();
     debug_timer += DT;
     if (debug_timer >= 1.f) {
         debug_timer = 0.f;
@@ -158,9 +165,12 @@ int bt_runner::actionRecover() {
 int bt_runner::actionAttack() {
 		if (anim_state != "attack") {
 			anim_state = "attack";
-			change_animation(ERunnerAnimations::RunnerIdle, false, 0.f, 0.f, true);
+			//change_animation(ERunnerAnimations::RunnerIdle, false, 0.f, 0.f, true);
 			change_animation(ERunnerAnimations::RunnerAttack, true, 0.f, 0.f, true);
 		}
+
+    addGravity();
+
     debug_timer += DT;
     if (debug_timer >= 0.2f) {
         debug_timer = 0.f;
@@ -218,7 +228,21 @@ int bt_runner::actionAppear() {
   
 	recalculate_path();
 
+  return LEAVE;
+};
+
+int bt_runner::actionAppearPose() {
+  if (anim_state != "appear_pose") {
+    anim_state = "appear_pose";
+    change_animation(ERunnerAnimations::RunnerIdle, false, 0.f, 0.f, true);
+    change_animation(ERunnerAnimations::RunnerAparece, true, 0.f, 0.f, true);
+  }
+  debug_timer += DT;
+  if (debug_timer >= 4.4f) {
+    debug_timer = 0.f;
     return LEAVE;
+  }
+  return STAY;
 };
 
 int bt_runner::actionHide() {
@@ -262,6 +286,21 @@ void bt_runner::killPlayer() {
     deadMsg.variant.setName("hit");
     deadMsg.variant.setBool(true);
     player->sendMsg(deadMsg);
+}
+
+void bt_runner::addGravity() {
+  /*TCompCollider* comp_collider = get<TCompCollider>();
+  TCompTransform* comp_transform = get<TCompTransform>();
+  PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
+  VEC3 delta_move = comp_transform->getPosition();
+  delta_move.y += -10.f * DT;
+
+  PxShape* player_shape;
+  comp_collider->controller->getActor()->getShapes(&player_shape, 1);
+  PxFilterData filter_data = player_shape->getSimulationFilterData();
+  ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
+  BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
+  PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(0.f, delta_move.y, 0.f), 0.f, DT, PxControllerFilters(&filter_data, query_filter, filter_controller));*/
 }
 
 
@@ -363,7 +402,7 @@ void bt_runner::chase_player() {
 		else {
 			if (anim_state != "chase_player") {
 				anim_state = "chase_player";
-				change_animation(ERunnerAnimations::RunnerRunClose, false, 0.f, 0.f, true);
+				change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
 			}
 			walk("player");
 		}
@@ -372,7 +411,7 @@ void bt_runner::chase_player() {
 	else {
 		if (anim_state != "chase_player") {
 			anim_state = "chase_player";
-			change_animation(ERunnerAnimations::RunnerRunClose, false, 0.f, 0.f, true);
+			change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
 		}
 		walk("player");
 	}
@@ -410,7 +449,7 @@ void bt_runner::walk(std::string target = "waypoint") {
 	if (target == "player") {
 		if (anim_state != "chase_player") {
 			anim_state = "chase_player";
-			change_animation(ERunnerAnimations::RunnerRunClose, false, 0.f, 0.f, true);
+			change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
 		}
 		CEntity* e_player = (CEntity*)getEntityByName("The Player");
 		TCompTransform* player_transform = e_player->get<TCompTransform>();
@@ -471,7 +510,6 @@ void bt_runner::walk(std::string target = "waypoint") {
 			ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
 			BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
 			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, DT, PxControllerFilters(&filter_data, query_filter, filter_controller));
-			VEC3 myPos2 = c_my_transform->getPosition();
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
 				current_yaw = going_right ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
@@ -510,7 +548,7 @@ void bt_runner::jump(std::string target = "waypoint") {
 	tower_center.y = myPos.y;
 
 	TCompCollider* comp_collider = get<TCompCollider>();
-	if (!c_my_transform->isInFront(waypoints_map[path[next_waypoint]].position)) {
+	if (!c_my_transform->isInFront(target_position)) {
 		current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
 		float debug = rad2deg(current_yaw);
 		going_right = !going_right;
@@ -549,14 +587,14 @@ void bt_runner::jump(std::string target = "waypoint") {
 			}
 			else {
         
-				float d1 = distance_x_z(newPos, waypoints_map[path[next_waypoint]].position);
-				float d2 = distance_x_z(top_jump_position, waypoints_map[path[next_waypoint]].position);
+				float d1 = distance_x_z(newPos,target_position);
+				float d2 = distance_x_z(top_jump_position, target_position);
 				float perc = 1 - (d1 / d2);
 				if (perc < 0) perc = 0;
 				//perc = perc * perc*perc * (perc * (6.f*perc - 15.f) + 10.f);
 				perc = sin(perc * 3.1415 * 0.5f);
 
-				float aux = lerp(top_jump_position.y, waypoints_map[path[next_waypoint]].position.y, perc);
+				float aux = lerp(top_jump_position.y, target_position.y, perc);
 				newPos.y = aux;
 
 			}

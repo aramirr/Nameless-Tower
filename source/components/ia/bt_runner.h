@@ -19,7 +19,11 @@ class bt_runner:public bt
     , RunnerJumpUp
     , RunnerLookOut
     , RunnerRun
-    , RunnerRunClose,
+    , RunnerRunCerca
+    , RunnerAparece
+    , RunnerGiro
+    , RunnerGolpe
+    , RunnerScream,
     ERunnerAnimations
   };
 
@@ -90,6 +94,7 @@ class bt_runner:public bt
   int actionAttack();
   int actionChase();
   int actionAppear();
+  int actionAppearPose();
   int actionHide();
 
   // Conditions
@@ -105,6 +110,7 @@ class bt_runner:public bt
   void chase_player();
   void walk(std::string target);
   void jump(std::string target);
+  void addGravity();
 
 	DECL_SIBLING_ACCESS();
 

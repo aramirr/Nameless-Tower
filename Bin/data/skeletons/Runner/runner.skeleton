@@ -1,6 +1,6 @@
 {
 	"name":"Runner",
-    "meshes": [ "Runner" ],
+    "meshes": [ "RunnerCabeza", "RunnerCuerpo"],
 	"anims" : [
 		{ "name" : "RunnerIdle"},
 		{ "name" : "RunnerAtacando"},
@@ -10,7 +10,11 @@
 		{ "name" : "RunnerJumpUp"},
 		{ "name" : "RunnerOjeando"},
 		{ "name" : "RunnerRun"},
-		{ "name" : "RunnerRunClose"}
+		{ "name" : "RunnerRunCerca"},
+		{ "name" : "RunnerAparece"},
+		{ "name" : "RunnerGiro"},
+		{ "name" : "RunnerGolpe"},
+		{ "name" : "RunnerGrito"}
 
 	]
 }
