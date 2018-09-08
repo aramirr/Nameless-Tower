@@ -163,7 +163,7 @@ void CModuleBillboards::addGrassByAngle(VEC3 pos1, VEC3 pos2, int total, float r
 
       float proportion_beta = (beta / (deg2rad(360) - alpha + beta))*100;
       float aux = randomFloat(0, 100);
-      if (aux < proportion_beta )
+      if (aux > proportion_beta )
         charlie = randomFloat(alpha, deg2rad(360));
       else 
         charlie = randomFloat(deg2rad(0), beta);
