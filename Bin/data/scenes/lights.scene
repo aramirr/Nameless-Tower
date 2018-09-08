@@ -154,7 +154,7 @@
         "casts_shadows" : false,
         "is_orthographic": true,
         "ortho_width": 30,
-        "ortho_height": 8
+        "ortho_height": 15.000
       }    
     }
   },  {
@@ -163,18 +163,58 @@
       "name": "LightInteriorSCompresoras",
       "transform": {
         "pos": "2.338 34.000 -40.591",
-        "lookat": "25.643 34 10"
+        "lookat": "45.643 34 10"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.18 0.23 0.43 1",
+        "z_near" : 1,
+        "z_far" : 60,
+        "fov" : 37.300,
+        "casts_shadows" : false,
+        "is_orthographic": true,
+        "ortho_width": 21.000,
+        "ortho_height": 8
+      }    
+    }
+  }, {
+    "entity":
+    {
+      "name": "LightInteriorSCaldero",
+      "transform": {
+        "pos": "7.963 67.175 8.159",
+        "lookat": "157.150 67.000 126.325"
       },
       "light_dir": {
         "intensity": 0,
         "color" :  "0.18 0.23 0.43 1",
         "z_near" : 7,
-        "z_far" : 60,
+        "z_far" : 37.000,
         "fov" : 37.300,
         "casts_shadows" : false,
         "is_orthographic": true,
-        "ortho_width": 30,
-        "ortho_height": 8
+        "ortho_width": 48.000,
+        "ortho_height": 20.000
+      }    
+    }
+  }, {
+    "entity":
+    {
+      "name": "LightInteriorSSalaFinal",
+      "transform": {
+        "pos": "-10.271 91.725 -32.104",
+        "lookat": "157.150 91.725 126.325"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.18 0.23 0.43 1",
+        "z_near" : 7,
+        "z_far" : 48.000,
+        "fov" : 37.300,
+        "casts_shadows" : false,
+        "is_orthographic": true,
+        "ortho_width": 48.000,
+        "ortho_height": 20.000
       }    
     }
   },
