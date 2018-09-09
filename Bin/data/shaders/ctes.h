@@ -255,7 +255,7 @@ CB_DEF(CCteMaterial, CB_MATERIAL)
 	float  mix_boost_r;
 	float  mix_boost_g;
 	float  mix_boost_b;
-	float  material_dummy2;
+	float  srites_frames;
 };
 
 CB_DEF(CCteBlur, CB_BLUR)

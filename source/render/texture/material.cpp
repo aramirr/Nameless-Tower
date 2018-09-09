@@ -120,6 +120,8 @@ bool CMaterial::create(const json& j) {
 	if (j.count("color"))
 		cb_material.color_material = loadVEC4(j["color"]);*/
 
+	cb_material.srites_frames = j.value("sprite_frames", 0);
+
   cb_material.mix_boost_r = 0;
   cb_material.mix_boost_g = 0;
   cb_material.mix_boost_b = 0;
