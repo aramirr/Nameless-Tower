@@ -43,6 +43,7 @@ class bt_runner:public bt
   std::vector<waypoint> waypoints_map;
   int actual_waypoint;
   int next_waypoint;
+	int second_closest_waypoint;
 	
   // Condition variables
   bool b_disappear = false;
@@ -67,6 +68,7 @@ class bt_runner:public bt
 	VEC3 tower_center = VEC3::Zero;
 	std::string actual_state;
 	VEC3 top_jump_position = VEC3::Zero;
+	std::string target = "waypoint";
 
   // Animation functions
   void change_animation(int animation_id, bool is_action, float in_delay, float out_delay, bool clear);
@@ -108,8 +110,8 @@ class bt_runner:public bt
   void killPlayer();
   void chase_waypoint();
   void chase_player();
-  void walk(std::string target);
-  void jump(std::string target);
+  void walk();
+  void jump();
   void addGravity();
 
 	DECL_SIBLING_ACCESS();

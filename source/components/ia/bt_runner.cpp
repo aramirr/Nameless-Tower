@@ -182,6 +182,7 @@ int bt_runner::actionAttack() {
 };
 
 int bt_runner::actionChase() {
+	dbg("target %s", target.c_str());
   TCompTransform *c_my_transform = getMyTransform();
   VEC3 my_position = c_my_transform->getPosition();
 
@@ -191,8 +192,13 @@ int bt_runner::actionChase() {
 
   float distance_to_player = distance_x_z(my_position, player_position);
 	float distance_to_waypoint;
-	if (next_waypoint >= 0) distance_to_waypoint = distance_x_z(my_position, waypoints_map[path[next_waypoint]].position);
-	else distance_to_waypoint = distance_x_z(my_position, waypoints_map[path[actual_waypoint]].position);
+	if (target == "waypoint") {
+		if (next_waypoint >= 0) distance_to_waypoint = distance_x_z(my_position, waypoints_map[path[next_waypoint]].position);
+		else distance_to_waypoint = distance_x_z(my_position, waypoints_map[path[actual_waypoint]].position);
+	}
+	else {
+		distance_to_waypoint = distance_x_z(my_position, waypoints_map[second_closest_waypoint].position);
+	}
 
   if (on_jump) chase_waypoint();
 	else if (distance_to_waypoint <= distance_to_player) chase_waypoint();
@@ -390,21 +396,24 @@ void bt_runner::findPath(int origin, int destiny){
 }
 
 void bt_runner::chase_player() {
+	dbg(" -- c_p\n");
+	CEntity* e_player = (CEntity*)getEntityByName("The Player");
+	TCompTransform* player_transform = e_player->get<TCompTransform>();
+	second_closest_waypoint = findSecondClosestWaypoint(player_transform->getPosition(), actual_waypoint);
 
-  
 	if (waypoints_map[path[actual_waypoint]].type == "edge") {
-		CEntity* e_player = (CEntity*)getEntityByName("The Player");
-		TCompTransform* player_transform = e_player->get<TCompTransform>();
-		next_waypoint = findSecondClosestWaypoint(player_transform->getPosition(), actual_waypoint);
-		if (waypoints_map[next_waypoint].type == "edge") {
-			jump("player");
+		//next_waypoint = findSecondClosestWaypoint(player_transform->getPosition(), actual_waypoint);
+		if (waypoints_map[second_closest_waypoint].type == "edge") {
+			target = "player";
+			jump();
 		}
 		else {
 			if (anim_state != "chase_player") {
 				anim_state = "chase_player";
 				change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
 			}
-			walk("player");
+			target = "player";
+			walk();
 		}
 
 	}
@@ -413,27 +422,36 @@ void bt_runner::chase_player() {
 			anim_state = "chase_player";
 			change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
 		}
-		walk("player");
+		target = "player";
+		walk();
 	}
 	
   
 }
 
 void bt_runner::chase_waypoint() {
-	if (next_waypoint >= 0) {
+	dbg(" -- c_w\n");
+	if (next_waypoint >= 0 || target == "player") {
 		if (waypoints_map[path[actual_waypoint]].type == "floor") {
-			walk("waypoint");
+			target = "waypoint";
+			walk();
 		}
 		else if (waypoints_map[path[actual_waypoint]].type == "edge") {
-			if (waypoints_map[path[next_waypoint]].type == "edge") {
-				jump("waypoint");
+			if (target == "waypoint" && waypoints_map[path[next_waypoint]].type == "edge") {
+				target = "waypoint";
+				jump();
 			}
-			else walk("waypoint");
+			else if (target == "player" && waypoints_map[second_closest_waypoint].type == "edge") {
+				jump();
+			}
+			else if (target == "waypoint"){
+				walk();
+			}
 		}
 	}
 
 	TCompTransform* my_transform = getMyTransform();
-	if (next_waypoint < 0 || VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position) <= 1.0f) {
+	if (target == "waypoint" && (next_waypoint < 0 || VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position) <= 1.0f)) {
 		on_jump = false;
 		going_up = true;
 		actual_waypoint = next_waypoint;
@@ -444,7 +462,7 @@ void bt_runner::chase_waypoint() {
 	}
 }
 
-void bt_runner::walk(std::string target = "waypoint") {
+void bt_runner::walk() {
 	VEC3 target_position;
 	if (target == "player") {
 		if (anim_state != "chase_player") {
@@ -519,10 +537,10 @@ void bt_runner::walk(std::string target = "waypoint") {
 	}
 }
 
-void bt_runner::jump(std::string target = "waypoint") {
+void bt_runner::jump() {
   VEC3 target_position;
   if (target == "player") {
-    target_position = waypoints_map[next_waypoint].position;
+    target_position = waypoints_map[second_closest_waypoint].position;
 
   }
   else {
