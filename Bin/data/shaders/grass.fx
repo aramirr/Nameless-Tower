@@ -86,7 +86,7 @@ void PS(
   float3 N = float3(0,1,0);
 
   // Save roughness in the alpha coord of the N render target
-  float roughness = 1.; //txRoughness.Sample(samLinear, iTex0).r;
+  float roughness = 0.; //txRoughness.Sample(samLinear, iTex0).r;
   o_normal = encodeNormal( N, roughness );
 
   // Compute the Z in linear space, and normalize it in the range 0...1
