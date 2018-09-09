@@ -118,11 +118,11 @@ int bt_runner::actionScream() {
   if (anim_state != "scream") {
     anim_state = "scream";
     //change_animation(ERunnerAnimations::RunnerIdle, false, 0.f, 0.f, true);
-    change_animation(ERunnerAnimations::RunnerScream, true, 0.f, 0.f, true);
+    change_animation(ERunnerAnimations::RunnerScreamShort, true, 0.f, 0.f, true);
   }
   addGravity();
   debug_timer += DT;
-  if (debug_timer >= 4.3f) {
+  if (debug_timer >= 2.0f) {
       debug_timer = 0.f;
       return LEAVE;
   }
@@ -172,7 +172,7 @@ int bt_runner::actionAttack() {
     addGravity();
 
     debug_timer += DT;
-    if (debug_timer >= 0.2f) {
+    if (debug_timer >= 0.4f) {
         debug_timer = 0.f;
 				b_disappear = true;
         killPlayer();
@@ -494,6 +494,10 @@ void bt_runner::walk() {
 
   TCompCollider* comp_collider = get<TCompCollider>();
 	if (!c_my_transform->isInFront(target_position)) {
+		/*if (anim_state != "giro") {
+			anim_state = "giro";
+			change_animation(ERunnerAnimations::RunnerGiro, true, 0.f, 0.f, true);
+		}*/
 		current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
 		float debug = rad2deg(current_yaw);
 		going_right = !going_right;
@@ -512,6 +516,17 @@ void bt_runner::walk() {
 
 	}
 	else {
+		if (target == "player") {
+			if (anim_state != "chase_player") {
+				anim_state = "chase_player";
+				change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
+			}
+		}
+		else if (anim_state != "walk") {
+			anim_state = "walk";
+			change_animation(ERunnerAnimations::RunnerRun, false, 0.f, 0.f, true);
+		}
+	
 		current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		VEC3 aux_vector = going_right ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
@@ -548,11 +563,7 @@ void bt_runner::jump() {
   }
 
   on_jump = true;
-  if (anim_state != "jump_up") {
-    anim_state = "jump_up";
-    change_animation(ERunnerAnimations::RunnerJumpLoop, false, 0.f, 0.f, true);
-    change_animation(ERunnerAnimations::RunnerJumpUp, true, 0.f, 0.f, true);
-  }
+  
 	calculate_top_jump_position(target_position);
 
 	TCompTransform *c_my_transform = getMyTransform();
@@ -567,6 +578,10 @@ void bt_runner::jump() {
 
 	TCompCollider* comp_collider = get<TCompCollider>();
 	if (!c_my_transform->isInFront(target_position)) {
+		if (anim_state != "giro") {
+			anim_state = "giro";
+			change_animation(ERunnerAnimations::RunnerGiro, true, 0.f, 0.f, true);
+		}
 		current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
 		float debug = rad2deg(current_yaw);
 		going_right = !going_right;
@@ -580,6 +595,11 @@ void bt_runner::jump() {
 		rigidActor->setGlobalPose(tr);
 	}
 	else {
+		if (anim_state != "jump_up") {
+			anim_state = "jump_up";
+			change_animation(ERunnerAnimations::RunnerJumpLoop, false, 0.f, 0.f, true);
+			change_animation(ERunnerAnimations::RunnerJumpUp, true, 0.f, 0.f, true);
+		}
 		current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		VEC3 aux_vector = going_right ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();

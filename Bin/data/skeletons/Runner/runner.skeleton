@@ -2,19 +2,19 @@
 	"name":"Runner",
     "meshes": [ "RunnerCabeza", "RunnerCuerpo"],
 	"anims" : [
+		{ "name" : "RunnerAparece"},
+		{ "name" : "RunnerAttack"},
+		{ "name" : "RunnerGiro"},
+		{ "name" : "RunnerGrito"},
+		{ "name" : "RunnerGritoCorto"},
 		{ "name" : "RunnerIdle"},
-		{ "name" : "RunnerAtacando"},
 		{ "name" : "RunnerJumpLand"},
 		{ "name" : "RunnerJumpLoop"},
 		{ "name" : "RunnerJumpShort"},
 		{ "name" : "RunnerJumpUp"},
 		{ "name" : "RunnerOjeando"},
+		{ "name" : "RunnerRecular"},
 		{ "name" : "RunnerRun"},
-		{ "name" : "RunnerRunCerca"},
-		{ "name" : "RunnerAparece"},
-		{ "name" : "RunnerGiro"},
-		{ "name" : "RunnerGolpe"},
-		{ "name" : "RunnerGrito"}
-
+		{ "name" : "RunnerRunCerca"}
 	]
 }

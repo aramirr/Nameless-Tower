@@ -11,19 +11,20 @@ class bt_runner:public bt
 
   // Animations Variables
   enum ERunnerAnimations {
-    RunnerIdle = 0
+		RunnerAparece = 0
     , RunnerAttack
+		, RunnerGiro
+		, RunnerScream
+		, RunnerScreamShort
+		, RunnerIdle
     , RunnerJumpLand
     , RunnerJumpLoop
     , RunnerJumpShort
     , RunnerJumpUp
     , RunnerLookOut
-    , RunnerRun
-    , RunnerRunCerca
-    , RunnerAparece
-    , RunnerGiro
-    , RunnerGolpe
-    , RunnerScream,
+		, RunnerRecular
+		, RunnerRun
+    , RunnerRunCerca,
     ERunnerAnimations
   };
 
