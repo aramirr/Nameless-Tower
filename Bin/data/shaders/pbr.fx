@@ -319,7 +319,7 @@ void PS_GBuffer_Parallax(
     iTex0 = parallaxMapping(iTex0, view_dir);
 
     o_albedo = txAlbedo.Sample(samLinear, iTex0);
-    o_albedo.a = txMetallic.Sample(samLinear, iTex0).r;
+    //o_albedo.a = txMetallic.Sample(samLinear, iTex0).r;
     o_selfIllum = txEmissive.Sample(samLinear, iTex0) * 1; // self_intensity;
     //o_selfIllum.xyz *= self_color;
 
@@ -395,7 +395,7 @@ void PS_GBufferMix(
 
   //o_albedo.xyz = weight_texture_boost.xyz;	// Show the extra weight textures
 
-    o_albedo.a = txMetallic.Sample(samLinear, iTex0).r;
+    //o_albedo.a = txMetallic.Sample(samLinear, iTex0).r;
 
   // This is the same -----------------------------------------
   // Save roughness in the alpha coord of the N render target

@@ -67,9 +67,12 @@ void PS(
   , out float4 o_albedo : SV_Target0
   , out float4 o_normal : SV_Target1
   , out float1 o_depth  : SV_Target2
+  , out float1 o_cell : SV_Target5
+  , out float4 o_sublime : SV_Target6
 
 )
 {
+    o_cell = (txCell.Sample(samLinear, iUV)).x;
   float4 texture_color = txAlbedo.Sample(samLinear, iUV) * iColor;
 
   if ( texture_color.a < 0.3 ) 
@@ -88,6 +91,8 @@ void PS(
   // Save roughness in the alpha coord of the N render target
   float roughness = 0.; //txRoughness.Sample(samLinear, iTex0).r;
   o_normal = encodeNormal( N, roughness );
+
+    o_sublime = txSublime.Sample(samLinear, iUV);
 
   // Compute the Z in linear space, and normalize it in the range 0...1
   float3 camera2wpos = iWorldPos - camera_pos;
