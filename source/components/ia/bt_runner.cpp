@@ -71,6 +71,10 @@ void bt_runner::debugInMenu() {
   ImGui::Text("b_chase: %s", b_chase ? "Si" : "No");
   ImGui::Text("b_recular: %s", b_recular ? "Si" : "No");
 	ImGui::Text("timer %f", debug_timer);
+	if (actual_waypoint >= 0 && path.size() > 0) {
+		ImGui::Text("actual_waypoint type %s", waypoints_map[path[actual_waypoint]].type.c_str());
+		ImGui::Text("actual_waypoint %i", path[actual_waypoint]);
+	}
   anim_debug_changed = ImGui::DragInt("ANIM", &anim_id, 0.1f, 0, 8);
 
 }
@@ -182,6 +186,11 @@ int bt_runner::actionAttack() {
 };
 
 int bt_runner::actionChase() {
+	recalculate_timer += DT;
+	if (recalculate_timer > 0.2f) {
+		recalculate_timer = 0.f;
+		//recalculate_path();
+	}
 	dbg("target %s", target.c_str());
   TCompTransform *c_my_transform = getMyTransform();
   VEC3 my_position = c_my_transform->getPosition();
@@ -201,7 +210,7 @@ int bt_runner::actionChase() {
 	}
 
   if (on_jump) chase_waypoint();
-	else if (distance_to_waypoint <= distance_to_player) chase_waypoint();
+	else if (distance_to_waypoint < distance_to_player) chase_waypoint();
 	else chase_player();
 
   if (conditionAttack()) {
@@ -299,14 +308,14 @@ void bt_runner::addGravity() {
   TCompTransform* comp_transform = get<TCompTransform>();
   PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
   VEC3 delta_move = comp_transform->getPosition();
-  delta_move.y += -10.f * DT;
-
+  delta_move.y += -1.f * DT;
+	float d_y = -10.f * DT;
   PxShape* player_shape;
   comp_collider->controller->getActor()->getShapes(&player_shape, 1);
   PxFilterData filter_data = player_shape->getSimulationFilterData();
   ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
   BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
-  PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(0.f, delta_move.y, 0.f), 0.f, DT, PxControllerFilters(&filter_data, query_filter, filter_controller));*/
+  PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(0.f, d_y, 0.f), 0.f, DT, PxControllerFilters(&filter_data, query_filter, filter_controller));//*/
 }
 
 
@@ -399,6 +408,7 @@ void bt_runner::chase_player() {
 	dbg(" -- c_p\n");
 	CEntity* e_player = (CEntity*)getEntityByName("The Player");
 	TCompTransform* player_transform = e_player->get<TCompTransform>();
+
 	second_closest_waypoint = findSecondClosestWaypoint(player_transform->getPosition(), actual_waypoint);
 
 	if (waypoints_map[path[actual_waypoint]].type == "edge") {
@@ -578,10 +588,10 @@ void bt_runner::jump() {
 
 	TCompCollider* comp_collider = get<TCompCollider>();
 	if (!c_my_transform->isInFront(target_position)) {
-		if (anim_state != "giro") {
+		/*if (anim_state != "giro") {
 			anim_state = "giro";
 			change_animation(ERunnerAnimations::RunnerGiro, true, 0.f, 0.f, true);
-		}
+		}*/
 		current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
 		float debug = rad2deg(current_yaw);
 		going_right = !going_right;
@@ -704,17 +714,12 @@ void bt_runner::recalculate_path() {
 
 	CEntity *player = (CEntity *)getEntityByName("The Player");
 	TCompTransform *c_p_transform = player->get<TCompTransform>();
-	int target = findClosestWaypoint(c_p_transform->getPosition());
+	int target_pos = findClosestWaypoint(c_p_transform->getPosition());
 
-	findPath(origin, target);
+	findPath(origin, target_pos);
 	actual_waypoint = path.size() -1;
 	next_waypoint = actual_waypoint -1;
-  if (path.size() < 2) {
-    b_chase_player = true;
-  }
-  else {
-    b_chase_player = false;
-  }
+	target == "waypoint";
 }
 
 // Animation functions

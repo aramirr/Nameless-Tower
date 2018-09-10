@@ -42,9 +42,10 @@ class bt_runner:public bt
 
   std::vector<int> path;
   std::vector<waypoint> waypoints_map;
-  int actual_waypoint;
+  int actual_waypoint = -1;
   int next_waypoint;
 	int second_closest_waypoint;
+	float recalculate_timer = 0.f;
 	
   // Condition variables
   bool b_disappear = false;
