@@ -23,6 +23,7 @@ bool CModuleGUI::start()
 
   CParser parser;
   parser.parseFile("data/gui/inicio.json");
+  parser.parseFile("data/gui/pause_menu.json"); 
   /*parser.parseFile("data/gui/main_menu.json");
   parser.parseFile("data/gui/gameplay.json");
   parser.parseFile("data/gui/game_over.json");*/
