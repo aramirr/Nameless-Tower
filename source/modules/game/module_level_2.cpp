@@ -75,6 +75,12 @@ void CModuleLevel2::update(float delta)
 		ImGui::Text("Mouse at %1.2f, %1.2f", mouse.x, mouse.y);
 	}
 
+  if (EngineInput[VK_ESCAPE].getsPressed())
+  {
+    EngineUI.activateWidget("menu_pausa");
+    EngineUI.activePauseMenu();
+  }
+
 }
 
 

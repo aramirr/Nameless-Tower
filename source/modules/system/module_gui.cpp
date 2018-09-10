@@ -37,6 +37,11 @@ bool CModuleGUI::start()
   mmc = new CMainMenuController();
   registerController(mmc);
 
+  //PAUSE MENU
+  pmc = new CPauseMenuController();
+  registerController(pmc);
+  desactivePauseMenu();
+
   //OMNI DASH
   odc = new COmnidashArrowController();
   registerController(odc);
@@ -92,6 +97,16 @@ void CModuleGUI::desactiveMainMenu()
 void CModuleGUI::activeMainMenu()
 {
   registerController(mmc);
+}
+
+void CModuleGUI::desactivePauseMenu()
+{
+  pmc->setActive(false);
+}
+
+void CModuleGUI::activePauseMenu()
+{
+  pmc->setActive(true);
 }
 
 void CModuleGUI::setOmindash(bool omnidash)
