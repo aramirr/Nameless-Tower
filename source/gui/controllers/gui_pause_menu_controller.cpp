@@ -11,8 +11,9 @@ namespace GUI
 
     if (carga) {
 
-      auto newGameCB = []() {
-        dbg("STARTING GAME\n");
+      auto resumeGameCB = []() {
+        dbg("RESUMING GAME\n");
+        EngineTimer.setTimeSlower(1.f);
         //Engine.getModules().changeGameState("test_axis");
         EngineUI.desactivateWidget("menu_pausa");
         EngineUI.desactivePauseMenu();
@@ -24,8 +25,7 @@ namespace GUI
         pauseMsg.variant.setBool(true);
 
         player->sendMsg(pauseMsg);
-
-        EngineTimer.setTimeSlower(1.f);
+        
       };
       auto exitCB = []() {
         dbg("LOADING GAME\n");
@@ -33,7 +33,7 @@ namespace GUI
         exit(0);
       };
 
-      registerOption("resume_game", newGameCB);
+      registerOption("resume_game", resumeGameCB);
       registerOption("exit_2", exitCB);
       setCurrentOption(0);
 
@@ -114,6 +114,8 @@ namespace GUI
       player->sendMsg(pauseMsg);
 
       EngineUI.activateWidget("menu_pausa");
+
+      EngineTimer.setTimeSlower(0.f);
     }
     else {
       EngineUI.desactivateWidget("menu_pausa");
