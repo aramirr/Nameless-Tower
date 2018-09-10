@@ -577,29 +577,27 @@ float4 PS_ambient(
     //final_color = final_color * global_ambient_adjustment * ao;
     //return lerp(float4(env, 1), final_color, visibility) + float4(self_illum.xyz, 1) * global_ambient_adjustment * global_self_intensity;
 
+    // From wPos to Light
+    float3 light_dir_full = light_pos.xyz - wPos;
+    float distance_to_light = length(light_dir_full);
+    float3 light_dir = light_dir_full / distance_to_light;
+
     float4 final_color;
 
     if (cell)
     {
-        final_color = float4(/*env_fresnel * env * g_ReflectionIntensity +*/
-                              albedo.xyz * /*irradiance **/ g_AmbientLightIntensity
+        final_color = float4( /*env_fresnel * env * g_ReflectionIntensity +*/
+                              albedo.xyz * irradiance * g_AmbientLightIntensity
                               , albedo.a) + self_illum;
 
 
-        final_color = final_color * global_ambient_adjustment /** ao*/;
+        final_color = final_color * global_ambient_adjustment/* * ao*/;
         final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
 
         final_color.a = 1;
 
-        float intensity;
-        if (light_point == 1)
-        {
-            intensity = dot(normalize(iPosition.xyz - light_pos), N);
-        }
-        else
-        {
-            intensity = dot(normalize(light_direction.xyz), N);
-        }
+        float intensity = dot(normalize(light_dir), N);
+        
  
     // Discretize the intensity, based on a few cutoff points
         if (intensity > 0.8)
@@ -692,21 +690,18 @@ float4 shade(
 
     if (cell)
     {
-        float3 final_color = light_color.xyz * cDiff /** NdL * (cDiff * (1.0f - cSpec) + cSpec) */ * att * light_intensity * shadow_factor;
+        half NdotL = dot(normalize(light_dir), N);
+        if (NdotL <= 0.0)
+            NdotL = 0;
+        else
+            NdotL = 1;
+        float3 final_color = light_color.xyz * cDiff /** NdL*/ /** (cDiff * (1.0f - cSpec) + cSpec) **/* att * light_intensity * shadow_factor;
 
         final_color2 = float4(final_color, 1);
 
         final_color2.a = 1;
 
-        float intensity;
-        if (light_point == 1)
-        {
-            intensity = dot(normalize(iPosition.xyz - light_pos), N);
-        }
-        else
-        {
-            intensity = dot(normalize(light_direction.xyz), N);
-        }
+        float intensity= dot(normalize(light_dir), N);
  
     // Discretize the intensity, based on a few cutoff points
         if (intensity > 0.8)
