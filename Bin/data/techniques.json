@@ -309,6 +309,9 @@
   
   "grass": {
     "vs_file": "data/shaders/grass.fx",
+    "ps_file": "data/shaders/grass.fx",
+    "vs_entry_point": "VS",
+    "ps_entry_point": "PS",
     "vertex_type": "Pos_x_InstancedPos",
     "category": "gbuffer"
   },
