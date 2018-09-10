@@ -44,88 +44,100 @@
 		    "bt_runner": {
 		    	"waypoints_map": [
 		    		{
-		    			"pos": "7.844 4.500 -30.508",
+		    			"pos": "0 -1000 0",
 		    			"id": 0,
 		    			"type": "floor",
-		    			"neighbours": ["1"]
+		    			"neighbours": ["18"]
 		    		},
 		    		{
-		    			"pos": "-6.194 4.5 -30.885",
+		    			"pos": "27.619 49.5 15.147",
 		    			"id": 1,
-		    			"type": "edge",
-		    			"neighbours": ["2","0"]
+		    			"type": "floor",
+		    			"neighbours": ["2"]
 		    		},
 		    		{
-		    			"pos": "-11.302 4.5 -29.403",
+		    			"pos": "28.648 49.5 13.097",
 		    			"id": 2,
 		    			"type": "edge",
-		    			"neighbours": ["3", "1"]
+		    			"neighbours": ["1","3"]
 		    		},
 		    		{
-		    			"pos": "-12.298 4.5 -29.0",
+		    			"pos": "29.645 45 10.649",
 		    			"id": 3,
-		    			"type": "floor",
-		    			"neighbours": ["4","2"]
+		    			"type": "edge",
+		    			"neighbours": ["2","4","8"]
 		    		},
 		    		{
-		    			"pos": "-25.156 4.5 -18.958",
+		    			"pos": "31.128 45 4.202",
 		    			"id": 4,
 		    			"type": "edge",
-		    			"neighbours": ["5","3"]
+		    			"neighbours": ["3","5"]
 		    		},
 		    		{
-		    			"pos": "-27.717 4.5 -14.967",
+		    			"pos": "31.478 40.5 1.169",
 		    			"id": 5,
 		    			"type": "edge",
-		    			"neighbours": ["6","4"]
+		    			"neighbours": ["4","6","10","14"]
 		    		},
 		    		{
-		    			"pos": "-28.935 4.5 -12.451",
+		    			"pos": "31.294 40.5 -3.598",
 		    			"id": 6,
-		    			"type": "floor",
-		    			"neighbours": ["5","7"]
-		    		},
-		    		{
-		    			"pos": "-29.657 4.5 -10.681",
-		    			"id": 7,
 		    			"type": "edge",
-		    			"neighbours": ["6","8"]
+		    			"neighbours": ["5","7","14"]
 		    		},
 		    		{
-		    			"pos": "-31.099 4.5 -5.011",
+		    			"pos": "30.696 40.5 -7.115",
+		    			"id": 7,
+		    			"type": "floor",
+		    			"neighbours": ["6"]
+		    		},
+		    		{
+		    			"pos": "30.218 36 8.895",
 		    			"id": 8,
 		    			"type": "edge",
-		    			"neighbours": ["7","9"]
+		    			"neighbours": ["3","9"]
 		    		},
 		    		{
-		    			"pos": "-31.495 4.5 -0.571",
+		    			"pos": "30.449 36 8.069",
 		    			"id": 9,
 		    			"type": "floor",
-		    			 "neighbours": ["10","8"]
+		    			"neighbours": ["8","10"]
 		    		},
 		    		{
-		    			"pos": "-31.498 4.5 0.334",
+		    			"pos": "30.76 36 6.789",
 		    			"id": 10,
 		    			"type": "edge",
-		    			"neighbours": ["11","9"]
+		    			"neighbours": ["9","5","12"]
 		    		},
 		    		{
-		    			"pos": "-31.188 6.75 4.421",
+		    			"pos": "30.990 31.5 5.648",
 		    			"id": 11,
-		    			"type": "edge",
+		    			"type": "floor",
 		    			"neighbours": ["12"]
 		    		},
-		    		{ 
-		    			"pos": "-30.376 9 8.341",
+		    		{
+		    			"pos": "31.375 31.5 2.809",
 		    			"id": 12,
 		    			"type": "edge",
-		    			"neighbours": ["13"]
+		    			"neighbours": ["11","10","13"]
 		    		},
 		    		{
-		    			"pos": "-29.575 13.5 10.842",
+		    			"pos": "31.499 31.5 0.283",
 		    			"id": 13,
+		    			"type": "floor",
+		    			"neighbours": ["12","14"]
+		    		},
+		    		{
+		    			"pos": "31.465 31.5 -1.493",
+		    			"id": 14,
 		    			"type": "edge",
-		    			"neighbours": ["12"]
+		    			"neighbours": ["13","15","5","6"]
+		    		},
+		    		{
+		    			"pos": "30.997 31.5 -5.609",
+		    			"id": 15,
+		    			"type": "floor",
+		    			"neighbours": ["14"]
 		    		}
 		    	]
 		    }		 	    	
@@ -149,7 +161,7 @@
 		"entity": {
 			"name": "BossTrigger1",
 			"transform": {
-				"pos": "-4.521 4.5 -31.174"
+				"pos": "31.294 40.5 -3.598"
 			},
 			"render" : [
 		        {
@@ -166,7 +178,7 @@
 			},
 			"trigger": {
 				"trigger_type": "runner_appear",
-				"appearing_position": "7.844 5.00 -30.508"
+				"appearing_position": "27.619 51.0 15.147"
 			}
 		}
 	}
