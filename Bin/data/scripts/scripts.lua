@@ -20,6 +20,16 @@ function OnLevel1Start()
 
 end
 
+function OnLevel2Start()
+	lm:set_exposure(0.36)
+	lm:set_dir_light_intensity("LightDir00", 0)
+	lm:set_dir_light_intensity("LightDir01", 0)
+	lm:set_dir_light_intensity("LightDir02", 0)
+	lm:set_dir_light_intensity("LightDir03", 0)	
+	lm:set_dir_light_intensity("LightInteriorSSalaFinal", 1)
+
+end
+
 function OnWindstrikeActivateTDWindstrike()
 	lm:open_door("Puerta_Abatible_Madera_01")
 end
@@ -215,6 +225,7 @@ end
 
 function OnTriggerEnterTSPuertasDer()
 	lm:set_point_light_intensity("Luces_Fuego_08", 10)
+	lm:deactivate_cinematic("cinematic_vientos")
 end
 
 -- Sala 9
@@ -276,7 +287,7 @@ function OnTriggerEnterTSCascadaArriba()
 	lm:hide_mesh("ParedDestapada12")
 	lm:unhide_mesh("ParedTapada12")
 	lm:set_ambient(1)
-	lm:set_dir_light_intensity("LightDir00", 10)
+	lm:set_dir_light_intensity("LightDir03", 10)
 	lm:set_point_light_intensity("Luces_Fuego_011", 0)
 	lm:set_point_light_intensity("Luces_Fuego_012", 0)
 	lm:set_dir_light_intensity("LightInteriorSSalaFinal", 0)
@@ -287,11 +298,9 @@ end
 function OnTriggerEnterTSAntorchasIzq()
 	lm:unhide_mesh("ParedDestapada12")
 	lm:hide_mesh("ParedTapada12")
-	lm:set_ambient(0.2)
-	lm:set_dir_light_intensity("LightDir00", 0)
+	lm:change_level("level_2")
 	lm:set_point_light_intensity("Luces_Fuego_011", 10)
 	lm:set_point_light_intensity("Luces_Fuego_012", 10)
-	lm:set_dir_light_intensity("LightInteriorSSalaFinal", 1)
 end
 
 function OnTriggerEnterTSAntorchasDer()

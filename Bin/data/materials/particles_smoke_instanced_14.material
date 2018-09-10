@@ -1,10 +1,11 @@
 {
-  "technique": "particles_14.tech"
+  "technique": "particles.tech"
   ,
   "shadows": false
   ,
   "textures":
   {
     "albedo": "data/textures/HumoApagadoA.dds"
-  }
+  },
+  "sprite_frames": 14
 }

@@ -31,6 +31,7 @@ public:
 	int anim2 = -1;
     std::string previous_camera;
     std::string previous_state;
+    std::string game_state = "level_1";
 	VEC3	  center;
 	float	  tower_radius;
 	CHandle         h_entity;

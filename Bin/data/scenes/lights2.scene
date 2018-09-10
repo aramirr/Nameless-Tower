@@ -9,7 +9,7 @@
       },
       "light_dir": {
         "intensity": 11,
-        "color" :  "0.848 0.247 0.229 1",
+        "color" :  "0.004 0.036 0.279 1",
         "z_near" : 2,
         "z_far" : 110,
         "fov" : 37.300,
@@ -32,7 +32,7 @@
       },
       "light_dir": {
         "intensity": 11,
-        "color" :  "0.848 0.247 0.229 1",
+        "color" :  "0.004 0.036 0.279 1",
         "z_near" : 2,
         "z_far" : 160,
         "fov" : 37.300,
@@ -55,7 +55,7 @@
       },
       "light_dir": {
         "intensity": 11,
-        "color" :  "0.848 0.247 0.229 1",
+        "color" :  "0.004 0.036 0.279 1",
         "z_near" : 2,
         "z_far" : 160,
         "fov" : 37.300,
@@ -79,7 +79,7 @@
       },
       "light_dir": {
         "intensity": 11,
-        "color" :  "0.848 0.247 0.229 1",
+        "color" :  "0.004 0.036 0.279 1",
         "z_near" : 2,
         "z_far" : 160,
         "fov" : 37.300,
@@ -89,6 +89,27 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 42
+      }    
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightInteriorSSalaFinal",
+      "transform": {
+        "pos": "-10.271 91.725 -32.104",
+        "lookat": "157.150 91.725 126.325"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.18 0.23 0.43 1",
+        "z_near" : 7,
+        "z_far" : 48.000,
+        "fov" : 37.300,
+        "casts_shadows" : false,
+        "is_orthographic": true,
+        "ortho_width": 48.000,
+        "ortho_height": 20.000
       }    
     }
   }

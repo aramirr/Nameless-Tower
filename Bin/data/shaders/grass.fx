@@ -70,7 +70,7 @@ void PS(
 
 )
 {
-  float4 texture_color = txAlbedo.Sample(samLinear, iUV) * iColor;
+  float4 texture_color = txAlbedo.Sample(samLinear, iUV);
 
   if ( texture_color.a < 0.3 ) 
     discard;
@@ -105,7 +105,7 @@ float4 PS_Shadows(
   , float3 iWorldPos : TEXCOORD2
 ) : SV_Target
 {
-  float4 texture_color = txAlbedo.Sample(samLinear, iUV) * iColor;
+  float4 texture_color = txAlbedo.Sample(samLinear, iUV);
 
   if ( texture_color.a < 0.3 ) 
     discard;

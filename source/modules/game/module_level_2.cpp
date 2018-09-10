@@ -33,7 +33,6 @@ bool CModuleLevel2::start()
 	if (p)
 		EngineScripting.script.doString("OnLevel2Start()");
 
-    EngineTower.setExposureAdjustment(0.36f);
     return true;
 }
 

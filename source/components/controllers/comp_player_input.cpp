@@ -111,7 +111,7 @@ void TCompPlayerInput::update(float dt)
 
     if (EngineInput["level_2"].getsPressed())
     {       
-        EngineTower.setExposureAdjustment(0);
+        //EngineTower.setExposureAdjustment(0);
         CEngine::get().getModules().changeGameState("level_2");
     }
 	/*

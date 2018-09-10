@@ -91,9 +91,9 @@ void TCompLightPointShadows::activate() {
   cb_light.updateGPU();
 
   if (intensity != 0) {
-      //cb_light.light_shadows_inverse_resolution = 1.0f / (float)shadows_cube_rt->getWidth();
-     // cb_light.light_shadows_step = shadows_step;
-      //cb_light.light_shadows_step_with_inv_res = shadows_step / (float)shadows_cube_rt->getWidth();
+      cb_light.light_shadows_inverse_resolution = 1.0f / (float)shadows_cube_rt->getWidth();
+      cb_light.light_shadows_step = shadows_step;
+      cb_light.light_shadows_step_with_inv_res = shadows_step / (float)shadows_cube_rt->getWidth();
       //cb_light.light_radius = 1.f;
 
       shadows_cube_rt->activateCubeShadowMap(TS_LIGHT_SHADOW_MAP);

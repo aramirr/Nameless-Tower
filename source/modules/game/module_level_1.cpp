@@ -87,7 +87,7 @@ bool CModuleLevel1::stop()
 	//Engine.getEntities().destroyAllEntities();
 	//Engine.getCameras().destroyAllCameras();    
     TEntityParseContext ctx;
-    deleteScene("data/scenes/Torre4Milestone.scene", ctx);
+    //deleteScene("data/scenes/Torre4Milestone.scene", ctx);
     deleteScene("data/scenes/lights.scene", ctx);
 	return true;
 }
