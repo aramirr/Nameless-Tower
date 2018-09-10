@@ -1,13 +1,13 @@
 {
-  "technique": "pbr_skin.tech"
+  "technique": "catarata_opacity.tech"
   ,
   "shadows": true
   ,
   "textures":
   {
-    "albedo": "data/textures/Naja_bm.dds"
+    "albedo": "data/textures/agua_b.dds"
     ,
-    "normal": "data/textures/Naja_nr.dds"
+    "normal": "data/textures/clouds_n.dds"
     ,
     "emissive": "data/textures/null_emissive.dds"
     ,
@@ -17,8 +17,6 @@
     ,
     "height": "data/textures/null_height.dds"
     ,
-    "ao": "data/textures/Naja_orm.dds"
-    ,
-    "cell": "data/textures/white.dds"
+    "ao": "data/textures/null_ambientOcclusion.dds"
   }
 }
