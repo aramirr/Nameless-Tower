@@ -2,19 +2,75 @@
   {
     "entity":
     {
-      "name": "Puerta_Abierta_Madera_040"
+      "name": "Sala_EstatuaFea_073"
       ,
       "transform":
       {
-        "pos": "6.392 60.5221 30.8439"
+        "pos": "-22.5456 26.452 -11.4773"
         ,
-        "rotation": "0.0 -0.777146 0.0 -0.629321"
+        "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abierta_Madera_040.mesh"
+          "mesh": "data/meshes/Sala_EstatuaFea_073.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Careta_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sala_EstatuaFea_072"
+      ,
+      "transform":
+      {
+        "pos": "11.7702 65.1902 26.0989"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sala_EstatuaFea_072.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Careta_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Puerta_Abierta_Madera_042"
+      ,
+      "transform":
+      {
+        "pos": "30.8439 65.0221 -6.39199"
+        ,
+        "rotation": "0.0 -0.994522 0.0 0.104528"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Abierta_Madera_042.mesh"
           ,
           "materials":
           [
@@ -58,19 +114,19 @@
   {
     "entity":
     {
-      "name": "Puerta_Abierta_Madera_042"
+      "name": "Puerta_Abierta_Madera_040"
       ,
       "transform":
       {
-        "pos": "30.8439 65.0221 -6.39199"
+        "pos": "6.392 60.5221 30.8439"
         ,
-        "rotation": "0.0 -0.994522 0.0 0.104528"
+        "rotation": "0.0 -0.777146 0.0 -0.629321"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abierta_Madera_042.mesh"
+          "mesh": "data/meshes/Puerta_Abierta_Madera_040.mesh"
           ,
           "materials":
           [
@@ -773,7 +829,7 @@
       ,
       "transform":
       {
-        "pos": "22.8218 65.4539 10.1205"
+        "pos": "22.8218 65.6092 10.1205"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -1406,34 +1462,6 @@
           "materials":
           [
             "data/materials/RocaVerde.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sala_EstatuaFea_04"
-      ,
-      "transform":
-      {
-        "pos": "11.7702 65.1902 26.0989"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_04.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Careta_01.material"
           ]
         }
       ]
@@ -2746,14 +2774,6 @@
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/EspumaCascadaRipples.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CascadaRipples.material"
-          ]
-        }
       ]
       ,
       "abs_aabb": true
@@ -2942,14 +2962,6 @@
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/EspumaCascada.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EspumaCascada.material"
-          ]
-        }
       ]
       ,
       "abs_aabb": true
@@ -2970,14 +2982,6 @@
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/FlujoGrande.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EspumaCascada.material"
-          ]
-        }
       ]
       ,
       "abs_aabb": true
@@ -2998,14 +3002,6 @@
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/FlujoChico.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EspumaCascada.material"
-          ]
-        }
       ]
       ,
       "abs_aabb": true
