@@ -192,30 +192,100 @@
 		    			"id": 24,
 		    			"type": "edge",
 		    			"neighbours": ["23"]
+		    		},
+		    		{
+		    			"pos": "31.029 63 -5.429",
+		    			"id": 25,
+		    			"type": "floor",
+		    			"neighbours": ["26"]
+		    		},
+		    		{
+		    			"pos": "31.497 63 0.458",
+		    			"id": 26,
+		    			"type": "floor",
+		    			"neighbours": ["27","25"]
+		    		},
+		    		{
+		    			"pos": "30.84 63 6.412",
+		    			"id": 27,
+		    			"type": "floor",
+		    			"neighbours": ["28","26"]
+		    		},
+		    		{
+		    			"pos": "30.027 63 9.519",
+		    			"id": 28,
+		    			"type": "floor",
+		    			"neighbours": ["29","27"]
+		    		},
+		    		{
+		    			"pos": "29.002 63 12.103",
+		    			"id": 29,
+		    			"type": "floor",
+		    			"neighbours": ["30","28"]
+		    		},
+		    		{
+		    			"pos": "28.906 63 12.518",
+		    			"id": 30,
+		    			"type": "edge",
+		    			"neighbours": ["31","29"]
+		    		},
+		    		{
+		    			"pos": "25.002 63 19.161",
+		    			"id": 31,
+		    			"type": "edge",
+		    			"neighbours": ["32","30"]
+		    		},
+		    		{
+		    			"pos": "24.322 63 20.018",
+		    			"id": 32,
+		    			"type": "floor",
+		    			"neighbours": ["33","31"]
+		    		},
+		    		{
+		    			"pos": "23.286 62.946 21.213",
+		    			"id": 33,
+		    			"type": "floor",
+		    			"neighbours": ["34","32"]
+		    		},
+		    		{
+		    			"pos": "15.490 58.508 27.428",
+		    			"id": 34,
+		    			"type": "floor",
+		    			"neighbours": ["35","33"]
+		    		},
+		    		{
+		    			"pos": "15.217 58.5 27.581",
+		    			"id": 35,
+		    			"type": "floor",
+		    			"neighbours": ["36","34"]
+		    		},
+		    		{
+		    			"pos": "12.357 58.5 28.975",
+		    			"id": 36,
+		    			"type": "floor",
+		    			"neighbours": ["37","35"]
+		    		},
+		    		{
+		    			"pos": "9.034 58.5 30.177",
+		    			"id": 37,
+		    			"type": "floor",
+		    			"neighbours": ["38","36"]
+		    		},
+		    		{
+		    			"pos": "7.345 58.5 30.632",
+		    			"id": 38,
+		    			"type": "floor",
+		    			"neighbours": ["37"]
 		    		}
-		    	]
+	    		]
 		    }		 	    	
-		}
-	},
-	{
-		"entity": {
-			"prefab" : "data/prefabs/cannon.prefab",
-			"name": "cannon_left",
-			"transform": {},
-			"comment" : "Enable hierarchy comp to move cannons when the teapot moves",
-			"hierarchy": {
-				"axis": "0 1 0", 
-				"angle" : 0,
-				"pos": "0 0 0",
-				"parent" : "Runner"
-			}
 		}
 	},
 	{
 		"entity": {
 			"name": "BossTrigger1",
 			"transform": {
-				"pos": "31.294 40.5 -3.598"
+				"pos": "31.391 63 2.616"
 			},
 			"render" : [
 		        {
@@ -232,7 +302,7 @@
 			},
 			"trigger": {
 				"trigger_type": "runner_appear",
-				"appearing_position": "27.619 51.0 15.147"
+				"appearing_position": "31.029 64.5 -5.429"
 			}
 		}
 	}

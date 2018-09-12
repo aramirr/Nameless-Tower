@@ -629,17 +629,17 @@ void bt_runner::jump() {
 			VEC3 delta_move;
 			if (going_up) {
 				if (jump_down) {
-					top_jump_position.x = target_position.x;
-					top_jump_position.z = target_position.z;
+					//top_jump_position.x = target_position.x;
+					//top_jump_position.z = target_position.z;
 				}
 
 				float d1 = distance_x_z(newPos, top_jump_position);
 
 				float d2 = distance_x_z(waypoints_map[path[actual_waypoint]].position, top_jump_position);
 				float perc = 1 - (d1 / d2);
-				if (distance_x_z(waypoints_map[path[actual_waypoint]].position, newPos) > d2) perc = 1;
+				//if (distance_x_z(waypoints_map[path[actual_waypoint]].position, newPos) > d2) perc = 1;
 				if (perc < 0) perc = 0;
-				if (perc == 1.f) {
+				if (perc >= 0.9f) {
 					going_up = false;
 				}
 				dbg("perc %f\n", perc);
@@ -659,7 +659,7 @@ void bt_runner::jump() {
 					float d1 = distance_x_z(newPos, target_position);
 					float d2 = distance_x_z(top_jump_position, target_position);
 					float perc = 1 - (d1 / d2);
-					if (distance_x_z(top_jump_position, newPos) > d1) perc = 1;
+					//if (distance_x_z(top_jump_position, newPos) > d1) perc = 1;
 					if (perc < 0) perc = 0;
 					perc = sin(perc * 3.1415 * 0.5f);
 					newPos.y = lerp(top_jump_position.y, target_position.y, perc);
