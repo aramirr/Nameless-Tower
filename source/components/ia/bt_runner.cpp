@@ -66,7 +66,9 @@ void bt_runner::debugInMenu() {
 		state_s = "null";
 	else state_s = current->getName();
 	ImGui::Text("State %s", state_s.c_str());
-  ImGui::Text("b_disappear: %s", b_disappear ? "Si" : "No");
+	ImGui::Text("Target %s", target.c_str());
+	ImGui::Text("Going Up: %s", going_up? "Si" : "No");
+	ImGui::Text("b_disappear: %s", b_disappear ? "Si" : "No");
   ImGui::Text("b_appear: %s", b_appear ? "Si" : "No");
   ImGui::Text("b_chase: %s", b_chase ? "Si" : "No");
   ImGui::Text("b_recular: %s", b_recular ? "Si" : "No");
@@ -189,9 +191,9 @@ int bt_runner::actionChase() {
 	recalculate_timer += DT;
 	if (recalculate_timer > 0.2f) {
 		recalculate_timer = 0.f;
-		//recalculate_path();
+		recalculate_path();
 	}
-	dbg("target %s", target.c_str());
+	//dbg("target %s", target.c_str());
   TCompTransform *c_my_transform = getMyTransform();
   VEC3 my_position = c_my_transform->getPosition();
 
@@ -199,14 +201,14 @@ int bt_runner::actionChase() {
   TCompTransform *c_p_transform = player->get<TCompTransform>();
   VEC3 player_position = c_p_transform->getPosition();
 
-  float distance_to_player = distance_x_z(my_position, player_position);
+  float distance_to_player = VEC3::Distance(my_position, player_position);
 	float distance_to_waypoint;
 	if (target == "waypoint") {
-		if (next_waypoint >= 0) distance_to_waypoint = distance_x_z(my_position, waypoints_map[path[next_waypoint]].position);
-		else distance_to_waypoint = distance_x_z(my_position, waypoints_map[path[actual_waypoint]].position);
+		if (next_waypoint >= 0) distance_to_waypoint = VEC3::Distance(my_position, waypoints_map[path[next_waypoint]].position);
+		else distance_to_waypoint = VEC3::Distance(my_position, waypoints_map[path[actual_waypoint]].position);
 	}
 	else {
-		distance_to_waypoint = distance_x_z(my_position, waypoints_map[second_closest_waypoint].position);
+		distance_to_waypoint = VEC3::Distance(my_position, waypoints_map[second_closest_waypoint].position);
 	}
 
   if (on_jump) chase_waypoint();
@@ -304,7 +306,7 @@ void bt_runner::killPlayer() {
 }
 
 void bt_runner::addGravity() {
-  /*TCompCollider* comp_collider = get<TCompCollider>();
+  TCompCollider* comp_collider = get<TCompCollider>();
   TCompTransform* comp_transform = get<TCompTransform>();
   PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
   VEC3 delta_move = comp_transform->getPosition();
@@ -572,7 +574,7 @@ void bt_runner::jump() {
     target_position = waypoints_map[path[next_waypoint]].position;
   }
 
-  on_jump = true;
+  
   
 	calculate_top_jump_position(target_position);
 
@@ -581,13 +583,12 @@ void bt_runner::jump() {
 
 	float current_yaw;
 	float current_pitch;
-	float amount_moved = speed * DT;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	tower_center.y = myPos.y;
 
 	TCompCollider* comp_collider = get<TCompCollider>();
-	if (!c_my_transform->isInFront(target_position)) {
+	if (!c_my_transform->isInFront(target_position) && target_position.x != myPos.x && target_position.z != myPos.z && !on_jump) {
 		/*if (anim_state != "giro") {
 			anim_state = "giro";
 			change_animation(ERunnerAnimations::RunnerGiro, true, 0.f, 0.f, true);
@@ -608,7 +609,15 @@ void bt_runner::jump() {
 		if (anim_state != "jump_up") {
 			anim_state = "jump_up";
 			change_animation(ERunnerAnimations::RunnerJumpLoop, false, 0.f, 0.f, true);
-			change_animation(ERunnerAnimations::RunnerJumpUp, true, 0.f, 0.f, true);
+			if (waypoints_map[path[actual_waypoint]].position.y > target_position.y + 2.0f)
+				change_animation(ERunnerAnimations::RunnerJumpShort, true, 0.f, 0.f, true);
+			else change_animation(ERunnerAnimations::RunnerJumpUp, true, 0.f, 0.f, true);
+		}
+
+		float amount_moved = speed * DT + 0.05f *DT*DT;
+		bool jump_down = false;
+		if (waypoints_map[path[actual_waypoint]].position.y > target_position.y + 2.0f) {
+			jump_down = true;
 		}
 		current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
@@ -617,36 +626,49 @@ void bt_runner::jump() {
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		if (comp_collider && comp_collider->controller)
 		{
-
+			VEC3 delta_move;
 			if (going_up) {
+				if (jump_down) {
+					top_jump_position.x = target_position.x;
+					top_jump_position.z = target_position.z;
+				}
+
 				float d1 = distance_x_z(newPos, top_jump_position);
 
 				float d2 = distance_x_z(waypoints_map[path[actual_waypoint]].position, top_jump_position);
 				float perc = 1 - (d1 / d2);
+				if (distance_x_z(waypoints_map[path[actual_waypoint]].position, newPos) > d2) perc = 1;
 				if (perc < 0) perc = 0;
-				if (perc >= 0.99) {
+				if (perc == 1.f) {
 					going_up = false;
 				}
+				dbg("perc %f\n", perc);
 				//perc = perc * perc*perc * (perc * (6.f*perc - 15.f) + 10.f);
 				perc = sin(perc * 3.1415 * 0.5f);
 
 				float aux = lerp(waypoints_map[path[actual_waypoint]].position.y, top_jump_position.y, perc);
 				newPos.y = aux;
+				delta_move = newPos - myPos;
 			}
 			else {
-        
-				float d1 = distance_x_z(newPos,target_position);
-				float d2 = distance_x_z(top_jump_position, target_position);
-				float perc = 1 - (d1 / d2);
-				if (perc < 0) perc = 0;
-				//perc = perc * perc*perc * (perc * (6.f*perc - 15.f) + 10.f);
-				perc = sin(perc * 3.1415 * 0.5f);
+				if (jump_down) {
+					delta_move = VEC3(0.f, -10.f*DT - 0.05f*DT*DT, 0.f);
 
-				float aux = lerp(top_jump_position.y, target_position.y, perc);
-				newPos.y = aux;
+				}
+				else {
+					float d1 = distance_x_z(newPos, target_position);
+					float d2 = distance_x_z(top_jump_position, target_position);
+					float perc = 1 - (d1 / d2);
+					if (distance_x_z(top_jump_position, newPos) > d1) perc = 1;
+					if (perc < 0) perc = 0;
+					perc = sin(perc * 3.1415 * 0.5f);
+					newPos.y = lerp(top_jump_position.y, target_position.y, perc);
+					delta_move = newPos - myPos;
+				}
+				
 
 			}
-			VEC3 delta_move = newPos - myPos;
+			
 
 			PxShape* player_shape;
 			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
@@ -661,6 +683,7 @@ void bt_runner::jump() {
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 			}
       if (!going_up && flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
+				going_up = true;
         if (anim_state != "jump_land") {
           anim_state = "jump_land";
           change_animation(ERunnerAnimations::RunnerJumpLand, true, 0.f, 0.f, true);
@@ -668,14 +691,20 @@ void bt_runner::jump() {
       }
 		}
 	}
-
+	on_jump = true;
 }
 
 void bt_runner::calculate_top_jump_position(VEC3 target_position) {
 	float alpha = asin(waypoints_map[path[actual_waypoint]].position.z / EngineTower.getTowerRadius());
 	float beta = asin(target_position.z / EngineTower.getTowerRadius());
-  	float charlie = (alpha + beta) / 2.f;
-	float top_y = max(waypoints_map[path[actual_waypoint]].position.y, target_position.y) + 2.0f;
+  float charlie = (alpha + beta) / 2.f;
+	//charlie = ((beta - alpha) / 4.f) + alpha;
+
+	float top_y;
+	if (waypoints_map[path[actual_waypoint]].position.y <= target_position.y)
+		top_y = target_position.y + 1.5f;
+	else
+		top_y = waypoints_map[path[actual_waypoint]].position.y + 0.5f;
 
 	top_jump_position = VEC3(EngineTower.getTowerRadius()*cos(charlie), top_y, EngineTower.getTowerRadius()*sin(charlie));
 
