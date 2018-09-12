@@ -2,15 +2,28 @@
 	{
 		"entity": {
 			"name": "Runner",
+			"skeleton": {
+        		"skeleton": "data/skeletons/Runner/runner.skeleton"
+      		},
       		"render" : [
 		        {
-		          "mesh": "data/meshes/Teapot001.mesh",
-		          "materials" : [
-		            "data/materials/PuertaM.material"
+		          "mesh": "data/skeletons/Runner/RunnerCuerpo.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/RunnerCuerpoMat.material"
+		          ]
+		        },
+		        {
+		          "mesh": "data/skeletons/Runner/RunnerCabeza.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/RunnerCabezaMat.material"
 		          ]
 		        }
-		      ]	
-			,
+      		]
+			, 
 			"transform": {
 				"pos": "-8.426 0.258 30.011",
 				"front": "1 0 0"
@@ -20,9 +33,9 @@
 				"shape": "capsule",
 				"is_character_controller": true
 				,
-				"radius": 0.22
+				"radius": 0.8
 				,
-				"height": 0.7
+				"height": 1.5
 				,
 				"is_dynamic": false
 				,
@@ -31,52 +44,422 @@
 		    "bt_runner": {
 		    	"waypoints_map": [
 		    		{
-		    			"pos": "-2.527 9.000 -31.398",
+		    			"pos": "0 -1000 0",
 		    			"id": 0,
 		    			"type": "floor",
-		    			"neighbours": ["1"]
+		    			"neighbours": []
 		    		},
 		    		{
-		    			"pos": "-9.055 9.000 -30.171",
+		    			"pos": "27.619 49.5 15.147",
 		    			"id": 1,
-		    			"type": "edge",
+		    			"type": "floor",
 		    			"neighbours": ["2"]
 		    		},
 		    		{
-		    			"pos": "-13.556 9.000 -28.434",
+		    			"pos": "28.648 49.5 13.097",
 		    			"id": 2,
 		    			"type": "edge",
-		    			"neighbours": ["3"]
+		    			"neighbours": ["1","3"]
 		    		},
 		    		{
-		    			"pos": "-26.966 9.000 -16.281",
+		    			"pos": "29.645 45 10.649",
 		    			"id": 3,
+		    			"type": "edge",
+		    			"neighbours": ["2","4","8"]
+		    		},
+		    		{
+		    			"pos": "31.128 45 4.202",
+		    			"id": 4,
+		    			"type": "edge",
+		    			"neighbours": ["3","5"]
+		    		},
+		    		{
+		    			"pos": "31.478 40.5 1.169",
+		    			"id": 5,
+		    			"type": "edge",
+		    			"neighbours": ["4","6","10","14"]
+		    		},
+		    		{
+		    			"pos": "31.294 40.5 -3.598",
+		    			"id": 6,
+		    			"type": "edge",
+		    			"neighbours": ["5","7","14"]
+		    		},
+		    		{
+		    			"pos": "30.696 40.5 -7.115",
+		    			"id": 7,
 		    			"type": "floor",
-		    			"neighbours": ["0"]
+		    			"neighbours": ["6"]
+		    		},
+		    		{
+		    			"pos": "30.218 36 8.895",
+		    			"id": 8,
+		    			"type": "edge",
+		    			"neighbours": ["3","9"]
+		    		},
+		    		{
+		    			"pos": "30.449 36 8.069",
+		    			"id": 9,
+		    			"type": "floor",
+		    			"neighbours": ["8","10"]
+		    		},
+		    		{
+		    			"pos": "30.76 36 6.789",
+		    			"id": 10,
+		    			"type": "edge",
+		    			"neighbours": ["9","5","12"]
+		    		},
+		    		{
+		    			"pos": "30.990 31.5 5.648",
+		    			"id": 11,
+		    			"type": "floor",
+		    			"neighbours": ["12"]
+		    		},
+		    		{
+		    			"pos": "31.375 31.5 2.809",
+		    			"id": 12,
+		    			"type": "edge",
+		    			"neighbours": ["11","10","13"]
+		    		},
+		    		{
+		    			"pos": "31.499 31.5 0.283",
+		    			"id": 13,
+		    			"type": "floor",
+		    			"neighbours": ["12","14"]
+		    		},
+		    		{
+		    			"pos": "31.465 31.5 -1.493",
+		    			"id": 14,
+		    			"type": "edge",
+		    			"neighbours": ["13","15","5","6"]
+		    		},
+		    		{
+		    			"pos": "30.997 31.5 -5.609",
+		    			"id": 15,
+		    			"type": "floor",
+		    			"neighbours": ["14","16","39"]
+		    		},
+		    		{
+		    			"pos": "0 -10000 0",
+		    			"id": 16,
+		    			"type": "floor",
+		    			"neighbours": ["15","17"]
+		    		},
+		    		{
+		    			"pos": "0 -10000 0",
+		    			"id": 17,
+		    			"type": "floor",
+		    			"neighbours": ["16","18"]
+		    		},
+		    		{
+		    			"pos": "0 -10000 0",
+		    			"id": 18,
+		    			"type": "edge",
+		    			"neighbours": ["17","19"]
+		    		},
+		    		{
+		    			"pos": "0 -10000 0",
+		    			"id": 19,
+		    			"type": "edge",
+		    			"neighbours": ["18","20"]
+		    		},
+		    		{
+		    			"pos": "0 -10000 0",
+		    			"id": 20,
+		    			"type": "floor",
+		    			"neighbours": ["19","21"]
+		    		},
+		    		{
+		    			"pos": "0 -10000 0",
+		    			"id": 21,
+		    			"type": "edge",
+		    			"neighbours": ["20","22"]
+		    		},
+		    		{
+		    			"pos": "0 -10000 0",
+		    			"id": 22,
+		    			"type": "edge",
+		    			"neighbours": ["21","23"]
+		    		},
+		    		{
+		    			"pos": "0 -10000 0",
+		    			"id": 23,
+		    			"type": "floor",
+		    			"neighbours": ["22","24"]
+		    		},
+		    		{
+		    			"pos": "0 -10000 0",
+		    			"id": 24,
+		    			"type": "edge",
+		    			"neighbours": ["23"]
+		    		},
+		    		{
+		    			"pos": "31.029 63 -5.429",
+		    			"id": 25,
+		    			"type": "floor",
+		    			"neighbours": ["26"]
+		    		},
+		    		{
+		    			"pos": "31.497 63 0.458",
+		    			"id": 26,
+		    			"type": "floor",
+		    			"neighbours": ["27","25"]
+		    		},
+		    		{
+		    			"pos": "30.84 63 6.412",
+		    			"id": 27,
+		    			"type": "floor",
+		    			"neighbours": ["28","26"]
+		    		},
+		    		{
+		    			"pos": "30.027 63 9.519",
+		    			"id": 28,
+		    			"type": "floor",
+		    			"neighbours": ["29","27"]
+		    		},
+		    		{
+		    			"pos": "29.002 63 12.103",
+		    			"id": 29,
+		    			"type": "floor",
+		    			"neighbours": ["30","28"]
+		    		},
+		    		{
+		    			"pos": "28.906 63 12.518",
+		    			"id": 30,
+		    			"type": "edge",
+		    			"neighbours": ["31","29"]
+		    		},
+		    		{
+		    			"pos": "25.002 63 19.161",
+		    			"id": 31,
+		    			"type": "edge",
+		    			"neighbours": ["32","30"]
+		    		},
+		    		{
+		    			"pos": "24.322 63 20.018",
+		    			"id": 32,
+		    			"type": "floor",
+		    			"neighbours": ["33","31"]
+		    		},
+		    		{
+		    			"pos": "23.286 62.946 21.213",
+		    			"id": 33,
+		    			"type": "floor",
+		    			"neighbours": ["34","32"]
+		    		},
+		    		{
+		    			"pos": "15.490 58.508 27.428",
+		    			"id": 34,
+		    			"type": "floor",
+		    			"neighbours": ["35","33"]
+		    		},
+		    		{
+		    			"pos": "15.217 58.5 27.581",
+		    			"id": 35,
+		    			"type": "floor",
+		    			"neighbours": ["36","34"]
+		    		},
+		    		{
+		    			"pos": "12.357 58.5 28.975",
+		    			"id": 36,
+		    			"type": "floor",
+		    			"neighbours": ["37","35"]
+		    		},
+		    		{
+		    			"pos": "9.034 58.5 30.177",
+		    			"id": 37,
+		    			"type": "floor",
+		    			"neighbours": ["38","36"]
+		    		},
+		    		{
+		    			"pos": "7.345 58.5 30.632",
+		    			"id": 38,
+		    			"type": "floor",
+		    			"neighbours": ["37"]
+		    		},
+		    		{
+		    			"pos": "31.167 31.5 -4.57",
+		    			"id": 39,
+		    			"type": "floor",
+		    			"neighbours": ["40","15"]
+		    		},
+		    		{
+		    			"pos": "30.383 31.5 -8.314",
+		    			"id": 40,
+		    			"type": "floor",
+		    			"neighbours": ["39","41"]
+		    		},
+		    		{
+		    			"pos": "29.39 31.5 -11.335",
+		    			"id": 41,
+		    			"type": "floor",
+		    			"neighbours": ["40","42"]
+		    		},
+		    		{
+		    			"pos": "27.052 31.5 -16.139",
+		    			"id": 42,
+		    			"type": "floor",
+		    			"neighbours": ["41","43"]
+		    		},
+		    		{
+		    			"pos": "25.229 31.5 -18.862",
+		    			"id": 43,
+		    			"type": "floor",
+		    			"neighbours": ["42","44"]
+		    		},
+		    		{
+		    			"pos": "22.943 31.5 -21.584",
+		    			"id": 44,
+		    			"type": "floor",
+		    			"neighbours": ["43","45"]
+		    		},
+		    		{
+		    			"pos": "21.383 31.5 -23.130",
+		    			"id": 45,
+		    			"type": "floor",
+		    			"neighbours": ["44","46"]
+		    		},
+		    		{
+		    			"pos": "21.083 31.5 -23.404",
+		    			"id": 46,
+		    			"type": "edge",
+		    			"neighbours": ["45","47"]
+		    		},
+		    		{
+		    			"pos": "18.66 31.407 -25.378",
+		    			"id": 47,
+		    			"type": "edge",
+		    			"neighbours": ["46","48"]
+		    		},
+		    		{
+		    			"pos": "18.33 31.5 -25.618",
+		    			"id": 48,
+		    			"type": "floor",
+		    			"neighbours": ["47","49"]
+		    		},
+		    		{
+		    			"pos": "14.907 31.5 -27.749",
+		    			"id": 49,
+		    			"type": "floor",
+		    			"neighbours": ["48","50"]
+		    		},
+		    		{
+		    			"pos": "12.953 31.5 -28.713",
+		    			"id": 50,
+		    			"type": "floor",
+		    			"neighbours": ["49","51"]
+		    		},
+		    		{
+		    			"pos": "12.634 31.5 -28.855",
+		    			"id": 51,
+		    			"type": "edge",
+		    			"neighbours": ["50","52"]
+		    		},
+		    		{
+		    			"pos": "9.798 31.5 -29.938",
+		    			"id": 52,
+		    			"type": "edge",
+		    			"neighbours": ["51","53"]
+		    		},
+		    		{
+		    			"pos": "9.603 31.5 -30.001",
+		    			"id": 53,
+		    			"type": "floor",
+		    			"neighbours": ["52","54"]
+		    		},
+		    		{
+		    			"pos": "6.113 31.5 -30.901",
+		    			"id": 54,
+		    			"type": "floor",
+		    			"neighbours": ["53","55"]
+		    		},
+		    		{
+		    			"pos": "3.302 31.5 -31.326",
+		    			"id": 55,
+		    			"type": "floor",
+		    			"neighbours": ["54","56"]
+		    		},
+		    		{
+		    			"pos": "0.098 31.5 -31.5",
+		    			"id": 56,
+		    			"type": "floor",
+		    			"neighbours": ["55","57"]
+		    		},
+		    		{
+		    			"pos": "-1.613 31.096 -31.459",
+		    			"id": 57,
+		    			"type": "floor",
+		    			"neighbours": ["56","58"]
+		    		},
+		    		{
+		    			"pos": "-2.254 30.932 -31.419",
+		    			"id": 58,
+		    			"type": "edge",
+		    			"neighbours": ["57","59"]
+		    		},
+		    		{
+		    			"pos": "-9.959 28.144 -29.884",
+		    			"id": 59,
+		    			"type": "edge",
+		    			"neighbours": ["58","60"]
+		    		},
+		    		{
+		    			"pos": "-10.631 28.026 -29.652",
+		    			"id": 60,
+		    			"type": "floor",
+		    			"neighbours": ["59","61"]
+		    		},
+		    		{
+		    			"pos": "-13.081 27.173 -28.655",
+		    			"id": 61,
+		    			"type": "floor",
+		    			"neighbours": ["60","62"]
+		    		},
+		    		{
+		    			"pos": "-16.318 27 -26.944",
+		    			"id": 62,
+		    			"type": "floor",
+		    			"neighbours": ["61","63"]
+		    		},
+		    		{
+		    			"pos": "-18.439 27 -25.539",
+		    			"id": 63,
+		    			"type": "floor",
+		    			"neighbours": ["62","64"]
+		    		},
+		    		{
+		    			"pos": "-25.791 22.573 -18.085",
+		    			"id": 64,
+		    			"type": "floor",
+		    			"neighbours": ["63","65"]
+		    		},
+		    		{
+		    			"pos": "-27.125 22.5 -16.033",
+		    			"id": 65,
+		    			"type": "floor",
+		    			"neighbours": ["64","66"]
+		    		},
+		    		{
+		    			"pos": "-28.748 22.5 -12.875",
+		    			"id": 66,
+		    			"type": "floor",
+		    			"neighbours": ["65","67"]
+		    		},
+		    		{
+		    			"pos": "-29.928 22.5 -9.856",
+		    			"id": 67,
+		    			"type": "floor",
+		    			"neighbours": ["66"]
 		    		}
-		    	]
+	    		]
 		    }		 	    	
 		}
 	},
 	{
 		"entity": {
-			"prefab" : "data/prefabs/cannon.prefab",
-			"name": "cannon_left",
-			"transform": {},
-			"comment" : "Enable hierarchy comp to move cannons when the teapot moves",
-			"hierarchy": {
-				"axis": "0 1 0", 
-				"angle" : 0,
-				"pos": "0 0 0",
-				"parent" : "Runner"
-			}
-		}
-	},
-	{
-		"entity": {
-			"name": "DebugTrigger",
+			"name": "RunnerAppearPasillo",
 			"transform": {
-				"pos": "-9.055 9.000 -30.171"
+				"pos": "29.44 31.5 -11.204"
 			},
 			"render" : [
 		        {
@@ -93,7 +476,80 @@
 			},
 			"trigger": {
 				"trigger_type": "runner_appear",
-				"appearing_position": "-2.527 9.500 -31.398"
+				"appearing_position": "30.383 33 -8.314"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "RunnerDisappearPasillo",
+			"transform": {
+				"pos": "-28.537 22.5 -13.338"
+			},
+			"render" : [
+		        {
+		          "mesh": "data/meshes/UnitBox.mesh",
+		          "materials" : [
+		            "data/materials/PuertaM.material"
+		          ]
+		        }
+		      ],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "runner_disappear"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "RunnerAppearTemplo",
+			"transform": {
+				"pos": "31.480 63 1.109"
+			},
+			"render" : [
+		        {
+		          "mesh": "data/meshes/UnitBox.mesh",
+		          "materials" : [
+		            "data/materials/PuertaM.material"
+		          ]
+		        }
+		      ],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "runner_appear",
+				"appearing_position": "30.951 64.5 -5.855"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "RunnerDisappearTemplo",
+			"transform": {
+				"pos": "7.702 58.5 30.544"
+			},
+			"render" : [
+		        {
+		          "mesh": "data/meshes/UnitBox.mesh",
+		          "materials" : [
+		            "data/materials/PuertaM.material"
+		          ]
+		        }
+		      ],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "runner_disappear"
 			}
 		}
 	}

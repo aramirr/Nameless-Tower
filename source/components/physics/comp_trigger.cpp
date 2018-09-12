@@ -53,12 +53,17 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 			CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
 			e_collider_entity->sendMsg(destroy_msg);
 		}
-		else if (trigger_type == "runner_appear") {
-			TMsgRunnerAppear appear_msg;
-			appear_msg.appearing_position = appearing_position;
-			CEntity* e_collider_entity = (CEntity*)getEntityByName("Runner");
-			e_collider_entity->sendMsg(appear_msg);
-		}
+    else if (trigger_type == "runner_appear") {
+      TMsgRunnerAppear appear_msg;
+      appear_msg.appearing_position = appearing_position;
+      CEntity* e_collider_entity = (CEntity*)getEntityByName("Runner");
+      e_collider_entity->sendMsg(appear_msg);
+    }
+    else if (trigger_type == "runner_disappear") {
+      TMsgRunnerDisappear disappear_msg;
+      CEntity* e_collider_entity = (CEntity*)getEntityByName("Runner");
+      e_collider_entity->sendMsg(disappear_msg);
+    }
     else if (trigger_type == "compresora") {
       CEntity* e = h_entity;
       TMsgPlayerIn msg_in;
