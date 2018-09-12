@@ -159,7 +159,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 
 			if (EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) {
 				PxFilterData filter_data = hit.block.shape->getSimulationFilterData();
-        
+
         if (filter_data.word0 == CModulePhysics::FilterGroup::Scenario) {
 					//TODO: Mandar mensaje a la camara para que se quede quieta -> MANUE el LLoron
           CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
