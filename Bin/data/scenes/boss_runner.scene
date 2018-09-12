@@ -457,7 +457,7 @@
 	},
 	{
 		"entity": {
-			"name": "BossTrigger1",
+			"name": "RunnerAppearPasillo",
 			"transform": {
 				"pos": "29.44 31.5 -11.204"
 			},
@@ -476,7 +476,80 @@
 			},
 			"trigger": {
 				"trigger_type": "runner_appear",
-				"appearing_position": "30.383 31.5 -8.314"
+				"appearing_position": "30.383 33 -8.314"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "RunnerDisappearPasillo",
+			"transform": {
+				"pos": "-28.537 22.5 -13.338"
+			},
+			"render" : [
+		        {
+		          "mesh": "data/meshes/UnitBox.mesh",
+		          "materials" : [
+		            "data/materials/PuertaM.material"
+		          ]
+		        }
+		      ],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "runner_disappear"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "RunnerAppearTemplo",
+			"transform": {
+				"pos": "31.480 63 1.109"
+			},
+			"render" : [
+		        {
+		          "mesh": "data/meshes/UnitBox.mesh",
+		          "materials" : [
+		            "data/materials/PuertaM.material"
+		          ]
+		        }
+		      ],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "runner_appear",
+				"appearing_position": "30.951 64.5 -5.855"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "RunnerDisappearTemplo",
+			"transform": {
+				"pos": "7.702 58.5 30.544"
+			},
+			"render" : [
+		        {
+		          "mesh": "data/meshes/UnitBox.mesh",
+		          "materials" : [
+		            "data/materials/PuertaM.material"
+		          ]
+		        }
+		      ],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "runner_disappear"
 			}
 		}
 	}
