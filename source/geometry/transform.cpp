@@ -81,7 +81,7 @@ bool CTransform::debugInMenu() {
   float yaw1, pitch1;
   getYawPitchFromVector(a_front, &yaw1, &pitch1);
   //EDU: Descomentar para poder setear el target pero dejara de funcionar el setear del yaw, pitch y roll
-  //setYawPitchRoll(yaw1, pitch1, 0.f);
+  setYawPitchRoll(yaw1, pitch1, 0.f);
 
   // Angulos
   float yaw, pitch, roll;

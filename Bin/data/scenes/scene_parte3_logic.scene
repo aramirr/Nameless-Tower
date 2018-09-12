@@ -40,28 +40,30 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Reja_02.mesh"
+          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_reja_00.material"
+            "data/materials/Puerta_Cerrada_01.material"
           ]
         }
       ]
       ,
       "collider":
       {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1.16967 2.31665 0.185844"
+        "shape": "convex_mesh"
         ,
         "is_dynamic": false
         ,
         "is_trigger": false
-      },
-      "door":{
+        ,
+        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "door":
+      {
         "up": true
       }
     }
@@ -142,12 +144,12 @@
         ,
         "is_trigger": false
       },
-      "rigid_anim" : 
-      {
-        "src" : "data/anims/Torre3MilestoneGB.anims",
-        "loops": false,
-        "speed_factor": 0.15
-      } 
+       "rigid_anim" : 
+         {
+           "src" : "data/anims/AnimsActivadores.anims",
+ 
+           "is_trigger": false
+         }
     }
   }
   ,
@@ -1062,7 +1064,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.28151 2.40304 1.06284"
+        "halfExtent": "1.38794 2.28628 1.0167"
         ,
         "is_dynamic": false
         ,
@@ -1129,7 +1131,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.28151 2.40304 1.06284"
+        "halfExtent": "1.38794 2.28628 1.0167"
         ,
         "is_dynamic": false
         ,

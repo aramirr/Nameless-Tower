@@ -1,7 +1,7 @@
 {
   "technique": "pbr.tech"
   ,
-  "shadows": false
+  "shadows": true
   ,
   "textures":
   {
@@ -17,6 +17,6 @@
     ,
     "height": "data/textures/null_height.dds"
     ,
-    "ao": "data/textures/null_ambientOcclusion.dds"
+    "ao": "data/textures/agua_orm.dds"
   }
 }

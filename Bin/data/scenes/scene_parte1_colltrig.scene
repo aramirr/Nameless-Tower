@@ -2,6 +2,46 @@
   {
     "entity":
     {
+      "name": "TPAves"
+      ,
+      "transform":
+      {
+        "pos": "-4.04421 5.70169 -31.0725"
+        ,
+        "rotation": "0.0 -0.0531861 0.0 -0.998585"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.735725 1.2017 0.883035"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "PodiumCollider"
       ,
       "transform":

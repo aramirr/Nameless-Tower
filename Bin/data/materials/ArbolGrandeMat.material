@@ -5,8 +5,18 @@
   ,
   "textures":
   {
-    "albedo": "data/textures/ArbolGrande_Arbol_Grande_d.dds"
+    "albedo": "data/textures/arbolGrande_b.dds"
     ,
-    "normal": "data/textures/ArbolGrande_Arbol_Grande_n.dds"
+    "normal": "data/textures/arbolGrande_n.dds"
+    ,
+    "emissive": "data/textures/null_emissive.dds"
+    ,
+    "alpha": "data/textures/null_opacity.dds"
+    ,
+    "transparency": "data/textures/null_transparency.dds"
+    ,
+    "height": "data/textures/null_height.dds"
+    ,
+    "ao": "data/textures/arbolGrande_orm.dds"
   }
 }
