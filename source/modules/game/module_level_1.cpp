@@ -89,6 +89,7 @@ bool CModuleLevel1::stop()
     TEntityParseContext ctx;
     //deleteScene("data/scenes/Torre4Milestone.scene", ctx);
     deleteScene("data/scenes/lights.scene", ctx);
+    deleteScene("data/scenes/compresoras.scene", ctx);
 	return true;
 }
 
