@@ -71,6 +71,7 @@ class bt_runner:public bt
 	std::string actual_state;
 	VEC3 top_jump_position = VEC3::Zero;
 	std::string target = "waypoint";
+  VEC3 last_pos = VEC3::Zero;
 
   // Animation functions
   void change_animation(int animation_id, bool is_action, float in_delay, float out_delay, bool clear);

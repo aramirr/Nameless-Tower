@@ -242,7 +242,7 @@ int bt_runner::actionAppear() {
 	going_right = false;
 	going_up = true;
 	on_jump = false;
-  
+  recalculate_timer = 0.f;
 	recalculate_path();
 
   return LEAVE;
@@ -324,13 +324,16 @@ void bt_runner::addGravity() {
 int bt_runner::findClosestWaypoint(VEC3 position) {
 	float min_dist = INFINITE;
 	int closest_waypoint;
+  int xx = 0;
 	for (auto wp : waypoints_map) {
+    ++xx;
 		float d = VEC3::Distance(position, wp.position);
 		if (d < min_dist) {
 			min_dist = d;
 			closest_waypoint = wp.id;
 		}
 	}
+  int a = 0;
 	return closest_waypoint;
 }
 
@@ -401,6 +404,16 @@ void bt_runner::findPath(int origin, int destiny){
 	int u = destiny;
 	path.push_back(u);
 	while (u != origin) {
+    //u = p[u];
+    if (u < 0 || u > p.size()) {
+      int a = 0;
+      TCompTransform* my_transform = getMyTransform();
+      VEC3 pos = my_transform->getPosition();
+      CEntity* e_player = (CEntity*)getEntityByName("The Player");
+      TCompTransform* player_transform = e_player->get<TCompTransform>();
+      VEC3 p_pos = player_transform->getPosition();
+      a = 1;
+    }
 		path.push_back(p[u]);
 		u = p[u];
 	}
@@ -651,11 +664,11 @@ void bt_runner::jump() {
 				delta_move = newPos - myPos;
 			}
 			else {
-				if (jump_down) {
+				/*if (jump_down) {
 					delta_move = VEC3(0.f, -10.f*DT - 0.05f*DT*DT, 0.f);
 
 				}
-				else {
+				else {*/
 					float d1 = distance_x_z(newPos, target_position);
 					float d2 = distance_x_z(top_jump_position, target_position);
 					float perc = 1 - (d1 / d2);
@@ -664,7 +677,7 @@ void bt_runner::jump() {
 					perc = sin(perc * 3.1415 * 0.5f);
 					newPos.y = lerp(top_jump_position.y, target_position.y, perc);
 					delta_move = newPos - myPos;
-				}
+				//}
 				
 
 			}
