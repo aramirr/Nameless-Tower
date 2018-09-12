@@ -20,6 +20,9 @@ public:
     dbg("Creating skelton resource %s\n", name.c_str());
     CGameCoreSkeleton* res = new CGameCoreSkeleton(name);
     bool is_ok = res->create(name);
+	if (!is_ok) {
+		int a = 1;
+	}
     assert(is_ok);
     return res;
   }

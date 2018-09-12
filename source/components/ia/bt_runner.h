@@ -9,89 +9,127 @@
 class bt_runner:public bt
 	{
 
+  // Animations Variables
+  enum ERunnerAnimations {
+		RunnerAparece = 0
+    , RunnerAttack
+		, RunnerGiro
+		, RunnerScream
+		, RunnerScreamShort
+		, RunnerIdle
+    , RunnerJumpLand
+    , RunnerJumpLoop
+    , RunnerJumpShort
+    , RunnerJumpUp
+    , RunnerLookOut
+		, RunnerRecular
+		, RunnerRun
+    , RunnerRunCerca,
+    ERunnerAnimations
+  };
+
+  std::string anim_state = "";
+  int anim_id;
+
+  // Pathfinding variables
+	typedef pair<float, int> Warc;
 	struct waypoint {
 		int id;
 		VEC3 position;
 		std::string type;
-		std::vector<int> neighbours;
+		std::vector<Warc> neighbours;
 	};
-	
-	float attack_distance;
-    float debug_timer = 0.f;
-	float speed = 2.0f;
 
-    bool b_disappear = false;
-    bool b_appear = false;
-    bool b_chase = false;
-    bool b_recular = false;
-    bool on_wall = false;
+  std::vector<int> path;
+  std::vector<waypoint> waypoints_map;
+  int actual_waypoint = -1;
+  int next_waypoint;
+	int second_closest_waypoint;
+	float recalculate_timer = 0.f;
+	
+  // Condition variables
+  bool b_disappear = false;
+  bool b_appear = false;
+  bool b_chase = false;
+  bool b_recular = false;
+  bool on_wall = false;
 	bool b_chase_player = false;
 
+  // Logic variables
 	bool going_right = false;
 	bool going_up = true;
-
-	std::vector<waypoint> path;
-	std::vector<waypoint> waypoints_map;
-	waypoint actual_waypoint;
-	waypoint next_waypoint;
-
-    VEC3 appearing_position;
+  bool on_jump = false;
+  bool chase_started = false;
+  bool anim_debug_changed = false;
+  float attack_distance;
+  float debug_timer = 0.f;
+  float speed = 2.0f;
+	
+  // Other variables
+  VEC3 appearing_position;
 	VEC3 tower_center = VEC3::Zero;
 	std::string actual_state;
-
 	VEC3 top_jump_position = VEC3::Zero;
+	std::string target = "waypoint";
+  VEC3 last_pos = VEC3::Zero;
 
-    void get_next_waypoint();
-	void calculate_top_jump_position();
+  // Animation functions
+  void change_animation(int animation_id, bool is_action, float in_delay, float out_delay, bool clear);
+  void clear_animations(float out_delay);
+  void remove_animation(int animation_id);
+
+  // Pathfinding functions
+	void recalculate_path();
+	void calculate_top_jump_position(VEC3 target_position);
 	float distance_x_z(VEC3 v1, VEC3 v2);
+	void calculate_distances_graph();
+  void findPath(int origin, int destiny);
+	int findClosestWaypoint(VEC3 position);
+	int findSecondClosestWaypoint(VEC3 position, int closest_waypoint_id);
+
+  // BT
+  void create(string);
+
+  // Actions
+  int actionStop();
+  int actionScream();
+  int actionDisappear();
+  int actionRecular();
+  int actionRecover();
+  int actionAttack();
+  int actionChase();
+  int actionAppear();
+  int actionAppearPose();
+  int actionHide();
+
+  // Conditions
+  bool conditionDisappear();
+  bool conditionChase();
+  bool conditionRecular();
+  bool conditionAttack();
+  bool conditionAppear();
+  
+  // Other
+  void killPlayer();
+  void chase_waypoint();
+  void chase_player();
+  void walk();
+  void jump();
+  void addGravity();
 
 	DECL_SIBLING_ACCESS();
 
 	public:
+
+  void debugInMenu();
 	void load(const json& j, TEntityParseContext& ctx);
-	void debugInMenu();
-    void load_waypoint(const json& j);
+  void load_waypoint(const json& j);
 
-    void appear(const TMsgRunnerAppear& msg);
-    void disappear(const TMsgRunnerDisappear& msg);
-
+ 
+  // Messages
 	static void registerMsgs();
-
-
-	void create(string);
-
-	// Actions
-    int actionStop();
-    int actionScream();
-    int actionDisappear();
-    int actionRecular();
-    int actionRecover();
-    int actionAttackWall1();
-    int actionAttackWall2();
-    int actionAttackFloor1();
-    int actionAttackFloor2();
-    int actionChase();
-    int actionAppear();
-    int actionHide();
-
-	// Conditions
-    bool conditionDisappear();
-    bool conditionChase();
-    bool conditionRecular();
-    bool conditionAttack();
-    bool conditionAttackWall();
-    bool conditionAttackFloor();
-    bool conditionAppear();
-
-    void killPlayer();
-
-	void chase();
-	void findPath(int origin, int destiny, std::vector<int>& path);
-	int findClosestWaypoint(VEC3 position);
-	void chase_waypoint();
-	void chase_player();
-	void walk();
-	void jump();
+  void appear(const TMsgRunnerAppear& msg);
+  void disappear(const TMsgRunnerDisappear& msg);
 
 	};
 
