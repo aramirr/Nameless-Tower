@@ -3,7 +3,7 @@
 #include "components/juan/comp_render.h"
 #include "render/render_objects.h"
 #include "components/lights/comp_light_dir.h"
-#include "components/lights/comp_light_point.h"
+#include "components/lights/comp_light_point_shadows.h"
 #include "components/controllers/comp_door.h"
 
 
@@ -82,6 +82,10 @@ const void CModuleTower::setAmbientAdjustment(float ambient) {
 	cb_globals.global_ambient_adjustment = ambient;
 }
 
+const void CModuleTower::setExposureAdjustment(float exposure) {
+    cb_globals.global_exposure_adjustment = exposure;
+
+}
 const void CModuleTower::setDirLightIntensity(const std::string& name, float intensity) {
   CEntity* entity = (CEntity*)getEntityByName(name);
   TCompLightDir* light_dir = entity->get<TCompLightDir>();
@@ -90,7 +94,7 @@ const void CModuleTower::setDirLightIntensity(const std::string& name, float int
 
 const void CModuleTower::setPointLightIntensity(const std::string& name, float intensity) {
   CEntity* entity = (CEntity*)getEntityByName(name);
-  TCompLightPoint* light_point = entity->get<TCompLightPoint>();
+  TCompLightPointShadows* light_point = entity->get<TCompLightPointShadows>();
   light_point->setIntensity(intensity);
 }
 

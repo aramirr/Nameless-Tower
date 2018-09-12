@@ -8,12 +8,9 @@
 		"render",
 		"cameras",
 		"particles",
-		"main_menu",
-		"splash",
-		"game_over",
-	    "test_input",
 	    "cameras",
-	    "test_axis",
+	    "level_1",
+	    "level_2",
 	    "sound",
 	    "gui",
 	    "billboards"
@@ -21,7 +18,8 @@
 	"render" : 
 	[
 		"render",
-		"test_axis",
+		"level_1",
+		"level_2",
 		"entities",
 		"input",
 		"particles",

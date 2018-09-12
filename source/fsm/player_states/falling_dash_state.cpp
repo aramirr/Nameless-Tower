@@ -100,6 +100,7 @@ namespace FSM
         CEntity* e = ctx.getOwner();
         TCompPlayerController* player = e->get<TCompPlayerController>();
         player->change_animation(player->EAnimations::NajaDashLand, true, _delay_in, 0.5, true);
+        player->previous_state = "falling_dash";
 	}
 
 }

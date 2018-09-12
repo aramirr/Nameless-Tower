@@ -1,0 +1,967 @@
+[ 
+  {
+    "entity":
+    {
+      "name": "TSCabeza"
+      ,
+      "transform":
+      {
+        "pos": "-12.5209 5.99632 -28.576"
+        ,
+        "rotation": "0.147016 -0.147016 0.691655 -0.691655"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-10.859 5.99632 -29.569"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.53589 0.136175 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TPTutorialIzq"
+      ,
+      "transform":
+      {
+        "pos": "-12.9913 5.99632 -28.3666"
+        ,
+        "rotation": "0.147016 -0.147016 0.691655 -0.691655"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-10.859 5.99632 -29.569"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.53589 0.136175 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TPTutorialDer"
+      ,
+      "transform":
+      {
+        "pos": "-31.1214 6.76337 -0.334956"
+        ,
+        "rotation": "-0.5 0.5 -0.5 0.5"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.30294 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSEstatuaAbajo"
+      ,
+      "transform":
+      {
+        "pos": "-31.1214 6.74531 0.156436"
+        ,
+        "rotation": "-0.5 0.5 -0.5 0.5"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSEstatuaArriba"
+      ,
+      "transform":
+      {
+        "pos": "-31.1214 24.7638 0.156435"
+        ,
+        "rotation": "-0.5 0.5 -0.5 0.5"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSWindstrikeDer"
+      ,
+      "transform":
+      {
+        "pos": "-31.1214 24.7638 -0.422847"
+        ,
+        "rotation": "-0.5 0.5 -0.5 0.5"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSWindstrikeIzq"
+      ,
+      "transform":
+      {
+        "pos": "-29.7982 24.7638 -9.28279"
+        ,
+        "rotation": "0.415627 -0.415627 0.572061 -0.572061"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSEscaleras1Izq"
+      ,
+      "transform":
+      {
+        "pos": "-29.5805 24.7638 -9.9531"
+        ,
+        "rotation": "0.415627 -0.415627 0.572061 -0.572061"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSEscaleras1Der"
+      ,
+      "transform":
+      {
+        "pos": "-18.2887 29.2509 -25.1177"
+        ,
+        "rotation": "0.218508 -0.218508 0.672499 -0.672499"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSEscaleras2Izq"
+      ,
+      "transform":
+      {
+        "pos": "-17.8746 29.2509 -25.4185"
+        ,
+        "rotation": "0.218508 -0.218508 0.672499 -0.672499"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSEscaleras2Der"
+      ,
+      "transform":
+      {
+        "pos": "3.22449 33.7604 -31.012"
+        ,
+        "rotation": "-0.0370071 0.0370072 0.706138 -0.706138"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TPTechosIzq"
+      ,
+      "transform":
+      {
+        "pos": "3.89774 33.7604 -30.9412"
+        ,
+        "rotation": "-0.0370071 0.0370072 0.706138 -0.706138"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TPTechosDer"
+      ,
+      "transform":
+      {
+        "pos": "30.7256 33.7604 -3.4151"
+        ,
+        "rotation": "-0.473147 0.473147 0.525483 -0.525483"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSPuertasIzq"
+      ,
+      "transform":
+      {
+        "pos": "30.7747 33.7604 -2.94791"
+        ,
+        "rotation": "-0.473147 0.473147 0.525483 -0.525483"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "30.7747 33.7604 -2.94791"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSPuertasZoom"
+      ,
+      "transform":
+      {
+        "pos": "11.4724 33.7604 29.028"
+        ,
+        "rotation": "0.0 -0.125838 0.0 -0.992051"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "11.4724 33.7604 29.028"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "4.59462 2.28488 1.66647"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSPuertasDer"
+      ,
+      "transform":
+      {
+        "pos": "6.70732 33.7604 30.2797"
+        ,
+        "rotation": "0.703233 -0.703233 -0.0739127 0.0739127"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.70732 33.7604 30.2797"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSArbolAbajo"
+      ,
+      "transform":
+      {
+        "pos": "6.29372 33.7604 30.3676"
+        ,
+        "rotation": "0.703233 -0.703233 -0.0739127 0.0739127"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.29372 33.7604 30.3676"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSArbolArriba"
+      ,
+      "transform":
+      {
+        "pos": "6.3252 60.7138 30.5157"
+        ,
+        "rotation": "0.703233 -0.703233 -0.0739126 0.0739127"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSRunnerIzq"
+      ,
+      "transform":
+      {
+        "pos": "6.73075 60.7138 30.4295"
+        ,
+        "rotation": "0.703233 -0.703233 -0.0739127 0.0739127"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSRunnerDer"
+      ,
+      "transform":
+      {
+        "pos": "30.4778 65.0183 6.48617"
+        ,
+        "rotation": "0.549525 -0.549525 -0.444997 0.444997"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSCascadaAbajo"
+      ,
+      "transform":
+      {
+        "pos": "30.5625 65.0183 6.08748"
+        ,
+        "rotation": "0.549525 -0.549525 -0.444997 0.444997"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSCascadaArriba"
+      ,
+      "transform":
+      {
+        "pos": "23.2444 87.7776 -20.8154"
+        ,
+        "rotation": "-0.287606 0.287606 0.645974 -0.645974"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSAntorchasIzq"
+      ,
+      "transform":
+      {
+        "pos": "23.0236 87.7776 -21.0606"
+        ,
+        "rotation": "-0.287606 0.287606 0.645974 -0.645974"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSAntorchasDer"
+      ,
+      "transform":
+      {
+        "pos": "-9.38346 87.7776 -29.8162"
+        ,
+        "rotation": "0.110616 -0.110616 0.698401 -0.698401"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TTSalidaAbajo"
+      ,
+      "transform":
+      {
+        "pos": "-9.89438 87.7776 -29.6502"
+        ,
+        "rotation": "0.147016 -0.147016 0.691655 -0.691655"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "6.3252 60.7138 30.5157"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TTSalidaArriba"
+      ,
+      "transform":
+      {
+        "pos": "-14.3835 116.878 -26.7452"
+        ,
+        "rotation": "-0.258819 2.61203e-07 -0.965926 -1.26556e-07"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "checkpoint"
+        ,
+        "appearing_position": "-14.3835 116.878 -26.7452"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "5.98039 0.720924 6.22661"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+] 

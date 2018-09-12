@@ -26,7 +26,7 @@
       		]		
 			,
 			"transform": {
-				"pos": "30.74 40.5 -7.151",
+				"pos": "1.096 4.5 -31.460",
 				"front": "1 0 0"
 			}
 			, 
@@ -35,7 +35,8 @@
 			}
 			,
 			"player_controller" : {
-			"gravity": 80
+			"gravity": 80,
+			"idle_max_time": 15
 			}
 			,
 			"player_input": {}

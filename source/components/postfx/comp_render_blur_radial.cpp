@@ -45,7 +45,8 @@ CTexture* TCompRenderBlurRadial::apply( CTexture* in_texture) {
   in_texture->activate(TS_ALBEDO);
 
   cb_blur.blur_center = normalized_center;
-  cb_blur.blur_d.x = amount;
+  cb_blur.blur_d.x = current_amount;
+  current_amount += current_amount < amount ? 0.02 : 0;
   cb_blur.blur_d.y = radius;
   cb_blur.activate();
   cb_blur.updateGPU();
@@ -54,4 +55,13 @@ CTexture* TCompRenderBlurRadial::apply( CTexture* in_texture) {
   mesh->activateAndRender();
 
   return rt_output;
+}
+
+void TCompRenderBlurRadial::setActive(bool active) {
+	enabled = active;
+    current_amount = 0;
+}
+
+void TCompRenderBlurRadial::setCenter(VEC2 new_center) {
+	normalized_center = new_center;
 }

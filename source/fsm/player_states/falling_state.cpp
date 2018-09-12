@@ -82,6 +82,9 @@ namespace FSM
 
 	void FallingState::onFinish(CContext& ctx) const {
 		ctx.setVariable("is_falling", false);
+        CEntity* e = ctx.getOwner();
+        TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->previous_state = "falling";
 	}
 
 }

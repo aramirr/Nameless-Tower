@@ -5,9 +5,9 @@
   ,
   "textures":
   {
-    "albedo": "data/textures/cube_basecolor.dds"
+    "albedo": "data/textures/PodiumLow_DefaultMaterial_BaseColor.dds"
     ,
-    "normal": "data/textures/cube_Material _2_Normal.dds"
+    "normal": "data/textures/PodiumLow_DefaultMaterial_Normal.dds"
     ,
     "emissive": "data/textures/null_emissive.dds"
     ,
@@ -17,6 +17,6 @@
     ,
     "height": "data/textures/null_height.dds"
     ,
-    "ao": "data/textures/null_ambientOcclusion.dds"
+    "ao": "data/textures/PodiumLow_DefaultMaterial_OcclusionRoughnessMetallic.dds"
   }
 }

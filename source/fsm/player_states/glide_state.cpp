@@ -89,6 +89,7 @@ namespace FSM
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->y_speed_factor = 0;
+        player->previous_state = "glide";
 	}
 
 }

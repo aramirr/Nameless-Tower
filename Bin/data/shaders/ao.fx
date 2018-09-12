@@ -110,6 +110,7 @@ float4 PS(
 
     // This is to prevent large Z range to generate occlusion... will remove black halos in the character head
     float rangeCheck = smoothstep( zrange_discard, 0, abs(zlinear - prevDepthAtSampleCoords) );
+    //occlusion += ( smoothstep( 0.002, 0.0, prevDepthAtSampleCoords - sample_linear_depth )) * rangeCheck;
     occlusion += ( prevDepthAtSampleCoords <= sample_linear_depth ? 1.0 : 0.0) * rangeCheck;
   }
 

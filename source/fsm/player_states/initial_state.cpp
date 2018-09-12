@@ -42,6 +42,7 @@ namespace FSM
 		ctx.setVariable("can_dash", true);
 		ctx.setVariable("can_omni", true);
 		ctx.setVariable("is_grounded", true);
+        ctx.setVariable("is_falling", false);
 	}
 
 	bool InitialState::load(const json& jData)
@@ -56,6 +57,9 @@ namespace FSM
 
 	void InitialState::onFinish(CContext& ctx) const {
 		ctx.setVariable("initial", false);
+        CEntity* e = ctx.getOwner();
+        TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->previous_state = "initial";
 	}
 }
 

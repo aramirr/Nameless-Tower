@@ -10,7 +10,7 @@ public:
     extensions = { ".material" };
   }
   IResource* create(const std::string& name) const override {
-    dbg("Creating material %s\n", name.c_str());
+   // dbg("Creating material %s\n", name.c_str());
 
     auto j = loadJson(name);
     std::string mat_type = j.value("type", "std");
@@ -91,7 +91,7 @@ bool CMaterial::create(const json& j) {
       else if (slot == "cell")
         ts = TS_CELL;
       else if (slot == "ao")
-        ts = TS_AO;
+        ts = TS_SUBLIME;
       /*else if (slot == "sublime")
         ts = TS_SUBLIME;*/
 
@@ -106,7 +106,7 @@ bool CMaterial::create(const json& j) {
 
   if (!cb_material.create(CB_MATERIAL))
     return false;
-  cb_material.scalar_metallic = -1.f;     // Initially disabled
+  cb_material.scalar_metallic = 0.f;     // Initially disabled
   cb_material.scalar_roughness = 1.f;
   cb_material.scalar_irradiance_vs_mipmaps = 0.f;
 
@@ -119,6 +119,8 @@ bool CMaterial::create(const json& j) {
 	cb_material.color_material = VEC4(1, 1, 1, 1);
 	if (j.count("color"))
 		cb_material.color_material = loadVEC4(j["color"]);*/
+
+	cb_material.srites_frames = j.value("sprite_frames", 0);
 
   cb_material.mix_boost_r = 0;
   cb_material.mix_boost_g = 0;

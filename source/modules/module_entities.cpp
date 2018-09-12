@@ -49,7 +49,7 @@ bool CModuleEntities::start()
     auto om = CHandleManager::predefined_managers[i];
     auto it = comp_sizes.find(om->getName());
     int sz = (it == comp_sizes.end()) ? default_size : it->second;
-    dbg("Initializing obj manager %s with %d\n", om->getName(), sz);
+   // dbg("Initializing obj manager %s with %d\n", om->getName(), sz);
     om->init(sz, false);
   }
 
@@ -143,6 +143,4 @@ void CModuleEntities::destroyAllEntities() {
 		h.destroy();
 	});
 	CHandleManager::destroyAllPendingObjects();
-
-
 }

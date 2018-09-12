@@ -124,6 +124,13 @@ void CWidget::render()
   // ...
 }
 
+VEC2 CWidget::getPosition()
+{
+	if(_parent != nullptr)
+		return _params._position + _parent->getPosition();
+	return _params._position;
+}
+
 void CWidget::setPosition(VEC2 position)
 {
   _params._position = position;

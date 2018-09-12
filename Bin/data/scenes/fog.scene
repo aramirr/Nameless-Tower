@@ -1,0 +1,27 @@
+[
+  {
+    "entity": {
+      "name": "fog",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy":
+      {
+        "parent": "camera_orbit_IZQ",
+        "offset": "0 0 -10"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/FogMat.material"
+          ]
+        }
+      ]
+    }
+  }
+]

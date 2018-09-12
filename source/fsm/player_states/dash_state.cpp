@@ -40,5 +40,6 @@ namespace FSM
 		ctx.setVariable("dash", false);
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->previous_state = "dash";
 	}
 }

@@ -5,10 +5,7 @@
 			"transform": {
 				"pos": "0 3 3"
 			},
-			"cameraManager" : {},
-			"render_outlines" : {
-		        "enabled" : false
-		      }
+			"cameraManager" : {}
 		}
 	},
 	{
@@ -19,10 +16,7 @@
 			},
 			"camera" : {
 				"fov" : 80 
-			},
-		      "render_outlines" : {
-		        "enabled" : false
-		      }
+			}
 		}
 	},
 	{
@@ -55,9 +49,145 @@
 			"render_ao" : {
 		        "enabled" :  true,
 		        "radius": 0.6,
-		        "amount_spreading": 0.95
+		        "amount_spreading": 0.95,
+		        "zrange_discard": 0.009
 		      },
 		    "culling":true
+		    ,
+		    "render_blur_radial" : {
+		      "enabled" :  false
+		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_look_up",
+			"transform": {
+				"pos": "-14 16 12",
+				"lookat": "-1 0 -1"
+			},
+			"orbitCamera" : {
+				"izq" : true,
+				"height": 4.9,
+				"y": 2.9
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"render_ao" : {
+		        "enabled" :  true,
+		        "radius": 0.6,
+		        "amount_spreading": 0.95,
+		        "zrange_discard": 0.009
+		      }
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_look_down",
+			"transform": {
+				"pos": "-14 16 12",
+				"lookat": "-1 0 -1"
+			},
+			"orbitCamera" : {
+				"izq" : true,
+				"height": 1,
+				"y": -2.9
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"render_ao" : {
+		        "enabled" :  true,
+		        "radius": 0.6,
+		        "amount_spreading": 0.95,
+		        "zrange_discard": 0.009
+		      }
+		}
+	},
+		{
+		"entity": {
+			"name": "camera_vientos",
+			"transform": {
+				"pos": "-14 16 12",
+				"lookat": "-1 0 -1"
+			},
+			"orbitCamera" : {
+				"izq" : true,
+				"distance": 26.800,
+				"height": 3.100,
+				"apertura": -263.700
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"render_ao" : {
+		        "enabled" :  true,
+		        "radius": 0.6,
+		        "amount_spreading": 0.95
+		      }
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_idle",
+			"transform": {
+				"pos": "-14 16 12",
+				"lookat": "-1 0 -1"
+			},
+			"orbitCamera" : {
+				"izq" : true,
+				"distance": 29.300,
+				"height": 1.200,
+				"apertura": -263.700
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"render_ao" : {
+		        "enabled" :  true,
+		        "radius": 0.6,
+		        "amount_spreading": 0.95
+		      }
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_sala_puertas_abajo",
+			"transform": {
+				"pos": "29.429 37.990 18.592",
+				"lookat": "24.893 36.000 19.303"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+		    "culling":true			
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_sala_escaleras_2",
+			"transform": {
+				"pos": "-7.045 32.716 -39.335",
+				"lookat": "-5.043 31.646 -30.952"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+		    "culling":true			
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_first_door",
+			"transform": {
+				"pos": "-35.922 24.001 -3.536",
+				"lookat": "-31.231 24.000 -4.108"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+		    "culling":true	
 		}
 	}
 ]

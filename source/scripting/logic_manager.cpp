@@ -1,6 +1,6 @@
 #include "mcv_platform.h"
 #include <lua/SLB/SLB.hpp>
-
+#include "components/player/comp_player_controller.h"
 #include "logic_manager.h"
 #include "components/juan/comp_transform.h"
 #include "components/juan/comp_render.h"
@@ -43,6 +43,10 @@ void LogicManager::setAmbientAdjustment(float value) {
 	EngineTower.setAmbientAdjustment(value);
 };
 
+void LogicManager::setExposureAdjustment(float value) {
+    EngineTower.setExposureAdjustment(value);
+};
+
 void LogicManager::playLastCinematic() {
 	CEntity* cam = (CEntity*)getEntityByName("camera_manager");
 
@@ -76,6 +80,16 @@ void LogicManager::openDoor(const char* name) {
 
 void LogicManager::activateAnim(const char* name) {
 	EngineTower.activateAnim(name);
+}
+
+void LogicManager::changeGameState(const char* name) {
+    
+    CEntity* e = getEntityByName("The Player");
+    TCompPlayerController* player = e->get<TCompPlayerController>();
+    if (player->game_state == "level_1") {
+        CEngine::get().getModules().changeGameState(name);
+        player->game_state = "level_2";
+    }        
 }
 
 LogicPlayer::LogicPlayer() {}

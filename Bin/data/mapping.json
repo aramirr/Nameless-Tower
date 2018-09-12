@@ -38,6 +38,15 @@
 		"name" : "down",
 		"all" : false,
 		"buttons" : [ "q"]
+	},{
+		"name" : "look_up",
+		"all" : false,
+		"buttons" : [ "w"]
+	},
+	{
+		"name" : "look_down",
+		"all" : false,
+		"buttons" : [ "s"]
 	},
 	{
 		"name" : "dash",
@@ -78,5 +87,10 @@
 		"name" : "glide",
 		"all" : false,
 		"buttons" : [ "w"]
+	},
+		{
+		"name" : "level_2",
+		"all" : false,
+		"buttons" : [ "2"]
 	}
 ]

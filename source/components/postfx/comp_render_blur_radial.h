@@ -15,6 +15,7 @@ class TCompRenderBlurRadial : public TCompBase {
   const CRenderMesh*      mesh = nullptr;
   bool                    enabled = true;
   float                   amount = 1.f;
+  float                   current_amount = 0.f;
   float                   radius = 1.f;
   int                     xres = 0;
   int                     yres = 0;
@@ -25,6 +26,8 @@ public:
   void  load(const json& j, TEntityParseContext& ctx);
   void  debugInMenu();
   CTexture* apply(CTexture* in_texture);
+  void setActive(bool active);
+  void setCenter(VEC2 new_center);
 };
 
 #endif

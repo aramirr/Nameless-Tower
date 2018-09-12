@@ -41,4 +41,5 @@ struct TEntityParseContext {
 };
 
 bool parseScene(const std::string& filename, TEntityParseContext& ctx);
+bool deleteScene(const std::string& filename, TEntityParseContext& ctx);
 

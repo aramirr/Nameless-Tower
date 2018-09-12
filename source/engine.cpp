@@ -5,7 +5,8 @@
 #include "modules/game/module_splash.h"
 #include "modules/game/module_main_menu.h"
 #include "modules/game/module_gameover.h"
-#include "modules/game/module_test_axis.h"
+#include "modules/game/module_level_1.h"
+#include "modules/game/module_level_2.h"
 #include "modules/test/module_test_input.h"
 #include "modules/test/module_test_cameras.h"
 #include "modules/test/module_test_instancing.h"
@@ -38,13 +39,9 @@ CEngine::CEngine()
 
 bool CEngine::start() {
 
-  static CModuleSplash   module_splash("splash");
-  static CModuleMainMenu module_main_menu("main_menu");
-  static CModuleGameOver module_game_over("game_over");
-  static CModuleTestAxis module_test_axis("test_axis");
-  static CModuleTestInput module_test_input("test_input");
-  static CModuleTestCameras module_test_cameras("test_cameras");
-  static CModuleTestInstancing module_test_instancing("test_instancing");
+    static CModuleLevel1 module_level_1("level_1");
+    static CModuleLevel2 module_level_2("level_2");
+    static CModuleTestInstancing module_test_instancing("test_instancing");
 
 
 	_modules.registerSystemModule(&_module_render);
@@ -58,15 +55,11 @@ bool CEngine::start() {
 	_modules.registerSystemModule(&_module_fsm);
 	_modules.registerSystemModule(&_module_gui);
 	_modules.registerSystemModule(&_module_sound);
-   _modules.registerSystemModule(&_module_particles);
+    _modules.registerSystemModule(&_module_particles);
     _modules.registerSystemModule(&_module_billboards);
 
-
-	_modules.registerGameModule(&module_splash);
-	_modules.registerGameModule(&module_main_menu);
-	_modules.registerGameModule(&module_game_over);
-	_modules.registerGameModule(&module_test_axis);
-	_modules.registerGameModule(&module_test_input);
+    _modules.registerGameModule(&module_level_1);
+    _modules.registerGameModule(&module_level_2);
 	_modules.registerGameModule(&module_test_instancing);
 
 	_modules.loadModules("data/modules.json");

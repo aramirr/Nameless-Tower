@@ -1,0 +1,222 @@
+[
+  {
+    "entity":
+    {
+      "name": "LightDir00",
+      "transform": {
+        "pos": "16 40 -89",
+        "lookat": "-15.8 15.0 0.0"
+      },
+      "light_dir": {
+        "intensity": 11,
+        "color" :  "0.004 0.036 0.279 1",
+        "z_near" : 2,
+        "z_far" : 110,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 45.0
+      }   
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightDir01",
+      "transform": {
+        "pos": "-78.05 53.175 -16.8",
+        "lookat": "0 4.8 16.325"
+      },
+      "light_dir": {
+        "intensity": 11,
+        "color" :  "0.004 0.036 0.279 1",
+        "z_near" : 2,
+        "z_far" : 160,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 45.0
+      }    
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightDir02",
+      "transform": {
+        "pos": "57.575 73.45 80",
+        "lookat": "11.1 49.1 6.325"
+      },
+      "light_dir": {
+        "intensity": 11,
+        "color" :  "0.004 0.036 0.279 1",
+        "z_near" : 2,
+        "z_far" : 160,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 50,
+        "ortho_height": 40
+      }    
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightDir03",
+      "transform": {
+        "pos": "76.950 107.750 -9.575",
+        "lookat": "0 70 -12.375"
+      },
+      "light_dir": {
+        "intensity": 11,
+        "color" :  "0.004 0.036 0.279 1",
+        "z_near" : 2,
+        "z_far" : 160,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 42
+      }    
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightInteriorSSalaFinal",
+      "transform": {
+        "pos": "-10.271 91.725 -32.104",
+        "lookat": "157.150 91.725 126.325"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.18 0.23 0.43 1",
+        "z_near" : 7,
+        "z_far" : 48.000,
+        "fov" : 37.300,
+        "casts_shadows" : false,
+        "is_orthographic": true,
+        "ortho_width": 48.000,
+        "ortho_height": 20.000
+      }    
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightInteriorS4L",
+      "transform": {
+        "pos": "-31.687 32.35 9.959",
+        "lookat": "-28.888 19.95 -8.988"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.84 0.78 0.56 1",
+        "z_near" : 5,
+        "z_far" : 20,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 4,
+        "ortho_height": 5
+      }    
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightInteriorS4",
+      "transform": {
+        "pos": "-36.587 24.8 -5.441",
+        "lookat": "0 25.250 0"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.18 0.23 0.43 1",
+        "z_near" : 5,
+        "z_far" : 20,
+        "fov" : 37.300,
+        "casts_shadows" : false,
+        "is_orthographic": true,
+        "ortho_width": 10,
+        "ortho_height": 5
+      }    
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightInteriorS5",
+      "transform": {
+        "pos": "-32.562 25 -22.816",
+        "lookat": "0 25 0"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.18 0.23 0.43 1",
+        "z_near" : 7,
+        "z_far" : 25,
+        "fov" : 37.300,
+        "casts_shadows" : false,
+        "is_orthographic": true,
+        "ortho_width": 30,
+        "ortho_height": 15.000
+      }    
+    }
+  },  {
+    "entity":
+    {
+      "name": "LightInteriorSCompresoras",
+      "transform": {
+        "pos": "2.338 34.000 -40.591",
+        "lookat": "45.643 34 10"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.18 0.23 0.43 1",
+        "z_near" : 1,
+        "z_far" : 60,
+        "fov" : 37.300,
+        "casts_shadows" : false,
+        "is_orthographic": true,
+        "ortho_width": 21.000,
+        "ortho_height": 8
+      }    
+    }
+  }, {
+    "entity":
+    {
+      "name": "LightInteriorSCaldero",
+      "transform": {
+        "pos": "7.963 67.175 8.159",
+        "lookat": "157.150 67.000 126.325"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.18 0.23 0.43 1",
+        "z_near" : 7,
+        "z_far" : 37.000,
+        "fov" : 37.300,
+        "casts_shadows" : false,
+        "is_orthographic": true,
+        "ortho_width": 48.000,
+        "ortho_height": 20.000
+      }    
+    }
+  }
+]

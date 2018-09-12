@@ -1,26 +1,14 @@
 {
-	"startup" : "test_axis",
+	"startup" : "level_1",
 	"gamestates" : 
-	[
+	[		
 		{
-			"name" : "splash",
-			"modules" : [ "splash" ]
+			"name" : "level_1",
+			"modules" : [ "level_1", "test_instancing" ]
 		},
 		{
-			"name" : "main_menu",
-			"modules" : [ "main_menu" ]
-		},
-		{
-			"name" : "game_over",
-			"modules" : [ "game_over" ]
-		},
-		{
-			"name" : "test_axis",
-			"modules" : [ "test_axis", "test_instancing" ]
-		},
-		{
-			"name" : "test_input",
-			"modules" : [ "test_input" ]
+			"name" : "level_2",
+			"modules" : [ "level_2", "test_instancing" ]
 		}
 	]
 }

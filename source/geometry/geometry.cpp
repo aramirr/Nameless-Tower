@@ -12,6 +12,9 @@ VEC3 loadVEC3(const json& j) {
 	VEC3 v;
 	std::string str = j.get< std::string >();
 	int n = sscanf(str.c_str(), "%f %f %f", &v.x, &v.y, &v.z);
+  if (n != 3) {
+    int a = 1;
+  }
 	assert(n == 3);
 	return v;
 }
@@ -21,7 +24,7 @@ VEC4 loadVEC4(const json& j) {
 	std::string str = j.get< std::string >();
 	int n = sscanf(str.c_str(), "%f %f %f %f", &v.x, &v.y, &v.z, &v.w);
 	if (n != 4)
- 		dbg(str.c_str());
+ 		//dbg(str.c_str());
 	assert(n == 4);
 	return v;
 }

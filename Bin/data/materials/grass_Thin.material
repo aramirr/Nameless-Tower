@@ -1,0 +1,22 @@
+{
+  "technique": "alpha.tech"
+  ,
+  "shadows": true
+  ,
+  "textures":
+  {
+    "albedo": "data/textures/grass_Thin_ALBEDO.dds"
+    ,
+    "normal": "data/textures/grass_Thin_NORMAL.dds"
+    ,
+    "emissive": "data/textures/null_emissive.dds"
+    ,
+    "alpha": "data/textures/grass_Thin_ALPHA.dds"
+    ,
+    "transparency": "data/textures/null_transparency.dds"
+    ,
+    "height": "data/textures/null_height.dds"
+    ,
+    "ao": "data/textures/null_ambientOcclusion.dds"
+  }
+}

@@ -21,6 +21,7 @@ public:
 
   // Misc
 	void setAmbientAdjustment(float value);
+    void setExposureAdjustment(float value);
 	void playLastCinematic();
 	void openDoor(const char* name);
 	void activateAnim(const char* name);
@@ -33,6 +34,8 @@ public:
   void setDirLightIntensity(const char* name, float value);
   void setPointLightIntensity(const char* name, float value);
 
+  // Change level
+  void changeGameState(const char* name);
 
 };
 

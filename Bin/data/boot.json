@@ -6,8 +6,23 @@
     "data/scenes/lua.scene",
     "data/scenes/lights.scene",
     "data/scenes/test_instancing.scene",
-    "data/scenes/Torre4Milestone.scene",
     "data/scenes/cinematics.scene",
+    "data/scenes/particles.scene",
+    "data/scenes/grass.scene",
+    "data/scenes/scene_parte1_colltrig.scene",
+    "data/scenes/scene_parte1_logic.scene",
+    "data/scenes/scene_parte1_meshes.scene",
+    "data/scenes/scene_parte2_colltrig.scene",
+    "data/scenes/scene_parte2_logic.scene",
+    "data/scenes/scene_parte2_meshes.scene",
+    "data/scenes/scene_parte3_colltrig.scene",
+    "data/scenes/scene_parte3_logic.scene",
+    "data/scenes/scene_parte3_meshes.scene",
+    "data/scenes/scene_parte4_colltrig.scene",
+    "data/scenes/scene_parte4_logic.scene",
+    "data/scenes/scene_parte4_meshes.scene",
+    "data/scenes/scene_luces.scene",
+    "data/scenes/scene_checkpoints.scene",
     "data/scenes/boss_runner.scene"
   ],
   "unused_scenes": [
@@ -22,5 +37,8 @@
     "data/scenes/multimaterial.scene",
     "data/scenes/skeleton_bear.scene",
     "dummy"
+  ],
+  "boot_level_2": [
+ 	"data/scenes/lights2.scene"
   ]
 }  

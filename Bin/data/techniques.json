@@ -93,17 +93,21 @@
     "z": "disable_all",
     "category": "helper"
   },
+  "gbuffer_resolve_face": {
+    "vs_file": "data/shaders/screen_quad.fx",
+    "vertex_type": "PosClr",
+    "ps_file": "data/shaders/deferred.fx",
+    "ps_entry_point": "PS_face",
+    "z": "disable_all",
+    "category": "helper"
+  },
   "pbr": {
     "vs_file": "data/shaders/pbr.fx",
     "ps_file": "data/shaders/pbr.fx",
     "vs_entry_point": "VS_GBuffer",
     "ps_entry_point": "PS_GBuffer",
     "vertex_type": "PosNUvUvT",
-    "category": "gbuffer",
-    "textures": {
-      "environment": "data/textures/cubemaps/env.dds",
-      "irradiance": "data/textures/cubemaps/irradiance.dds"
-    }
+    "category": "gbuffer"
   },
    "pbr_parallax": {
     "vs_file": "data/shaders/pbr.fx",
@@ -111,11 +115,7 @@
     "vs_entry_point": "VS_GBuffer",
     "ps_entry_point": "PS_GBuffer_Parallax",
     "vertex_type": "PosNUvUvT",
-    "category" : "gbuffer",
-    "textures" : { 
-      "environment" : "data/textures/cubemaps/env.dds", 
-      "irradiance" : "data/textures/cubemaps/irradiance.dds" 
-    }
+    "category" : "gbuffer"
   },
 "pbr_skin": {
     "vs_file": "data/shaders/pbr.fx",
@@ -124,10 +124,6 @@
     "ps_entry_point": "PS_GBuffer",
     "vertex_type": "PosNUvUvTanSkin",
     "category" : "gbuffer",
-    "textures" : { 
-      "environment" : "data/textures/cubemaps/env.dds", 
-      "irradiance" : "data/textures/cubemaps/irradiance.dds" 
-    },
     "uses_skin" : true
   },
   "pbr_ambient": {
@@ -136,7 +132,11 @@
     "ps_entry_point": "PS_ambient",
     "vertex_type": "PosClr",
     "category": "pbr_proc",
-    "z": "disable_all"
+    "z": "disable_all",
+    "textures": {
+      "environment": "data/textures/cubemaps/env.dds",
+      "irradiance": "data/textures/cubemaps/irradiance.dds"
+    }
   },
   "pbr_dir_lights": {
     "vs_file": "data/shaders/pbr.fx",
@@ -146,13 +146,32 @@
     "vertex_type": "PosNUvUvT",
     "category": "pbr_proc",
     "z": "inverse_test_no_write",
-    "blend": "additive"
+    "blend": "additive",
+    "textures": {
+      "environment": "data/textures/cubemaps/env.dds",
+      "irradiance": "data/textures/cubemaps/irradiance.dds"
+    }
   },
   "pbr_point_lights": {
     "vs_file": "data/shaders/pbr.fx",
     "ps_file": "data/shaders/pbr.fx",
     "vs_entry_point": "VS_pass",
     "ps_entry_point": "PS_point_lights",
+    "vertex_type": "PosNUvUvT",
+    "category": "pbr_proc",
+    "z": "inverse_test_no_write",
+    "rs_config": "reverse_culling",
+    "blend": "additive",
+    "textures": {
+      "environment": "data/textures/cubemaps/env.dds",
+      "irradiance": "data/textures/cubemaps/irradiance.dds"
+    }
+  },
+  "pbr_point_lights_shadow": {
+    "vs_file": "data/shaders/pbr.fx",
+    "ps_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_pass",
+    "ps_entry_point": "PS_point_lights_shadow",
     "vertex_type": "PosNUvUvT",
     "category": "pbr_proc",
     "z": "inverse_test_no_write",
@@ -166,10 +185,6 @@
     "ps_entry_point": "PS",
     "vertex_type": "PosNUvUvTanSkin",
     "category" : "cell",
-    "textures" : { 
-      "environment" : "data/textures/cubemaps/env.dds", 
-      "irradiance" : "data/textures/cubemaps/irradiance.dds" 
-    },
     "uses_skin" : true
   },
   "water": {
@@ -294,12 +309,11 @@
   
   "grass": {
     "vs_file": "data/shaders/grass.fx",
+    "ps_file": "data/shaders/grass.fx",
+    "vs_entry_point": "VS",
+    "ps_entry_point": "PS",
     "vertex_type": "Pos_x_InstancedPos",
-    "category": "gbuffer",
-    "textures": {
-      "environment": "data/textures/cubemaps/env.dds",
-      "irradiance": "data/textures/cubemaps/irradiance.dds"
-    }
+    "category": "gbuffer"
   },
 
   "shadows_grass_instanced": {
@@ -356,27 +370,50 @@
     "vs_entry_point": "VS_GBuffer_Catarata",
     "ps_entry_point": "PS_GBuffer_Catarata",
     "vertex_type": "PosNUvUvT",
-    "category": "gbuffer",
+    "category": "alpha",
     "blend": "alpha",
     "priority" : 150,
     "comment" : "This needs to go after the pbr's solids, but just before the object to render"
   },
   "alpha": {
     "vs_file": "data/shaders/alpha.fx",
-    "ps_file": "data/shaders/alpha.fx",
+    "ps_file": "data/shaders/pbr.fx",
     "vs_entry_point": "VS_Alpha",
-    "ps_entry_point": "PS_Alpha",
+    "ps_entry_point": "PS_GBuffer_Alpha",
+    "vertex_type": "PosNUvUvT",
+    "category": "gbuffer",
+    "blend": "default",
+    "priority" : 150,
+    "comment" : "This needs to go after the pbr's solids, but just before the object to render"
+  },
+  "viento": {
+    "vs_file": "data/shaders/viento.fx",
+    "ps_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_Viento",
+    "ps_entry_point": "PS_GBuffer_Viento",
+    "vertex_type": "PosNUvUvT",
+    "category": "gbuffer",
+    "blend": "alpha",
+    "priority" : 150,
+    "comment" : "This needs to go after the pbr's solids, but just before the object to render"
+  }
+  ,
+  "fog_left": {
+    "vs_file": "data/shaders/fog_left.fx",
+    "ps_file": "data/shaders/fog_left.fx",
+    "vs_entry_point": "VS_FogLeft",
+    "ps_entry_point": "PS_FogLeft",
     "vertex_type": "PosNUvUvT",
     "category": "alpha",
     "blend": "alpha",
     "priority" : 150,
     "comment" : "This needs to go after the pbr's solids, but just before the object to render"
   },
-  "viento": {
-    "vs_file": "data/shaders/viento.fx",
-    "ps_file": "data/shaders/viento.fx",
-    "vs_entry_point": "VS_Viento",
-    "ps_entry_point": "PS_Viento",
+  "fog_right": {
+    "vs_file": "data/shaders/fog_right.fx",
+    "ps_file": "data/shaders/fog_right.fx",
+    "vs_entry_point": "VS_FogRight",
+    "ps_entry_point": "PS_FogRight",
     "vertex_type": "PosNUvUvT",
     "category": "alpha",
     "blend": "alpha",
@@ -413,6 +450,16 @@
     "vertex_type" : "PosClr",
     "category" : "gui",
     "z" : "disable_all",
+    "rs" : "cull_none",
+    "blend" : "combinative"
+  },
+  "particles_albert" : {
+    "vs_file": "data/shaders/particles_albert.fx",
+    "vs_entry_point": "VS_Particles",
+    "ps_entry_point": "PS_Particles",
+    "vertex_type" : "PosClr",
+    "category" : "particles",
+    "z" : "test_but_no_write",
     "rs" : "cull_none",
     "blend" : "combinative"
   }

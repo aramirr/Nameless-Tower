@@ -31,6 +31,8 @@ namespace GUI
     virtual void update(float delta);
     virtual void render();
 
+		VEC2 getPosition();
+
     void setPosition(VEC2 position);
     void setRotation(float rotation);
 

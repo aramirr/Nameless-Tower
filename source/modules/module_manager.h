@@ -31,8 +31,8 @@ private:
 
 	bool startModule(IModule* mod);
 	bool stopModule(IModule* mod);
-  bool startModules(VModules& modules);
-  bool stopModules(VModules& modules);
+      bool startModules(VModules& modules);
+      bool stopModules(VModules& modules);
 
   VModules _registered_modules;
   VModules _system_modules;

@@ -37,6 +37,9 @@ namespace FSM
 
 	void TurnAroundState::onFinish(CContext& ctx) const {
 		ctx.setVariable("turn_around", false);
+        CEntity* e = ctx.getOwner();
+        TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->previous_state = "turn_around";
 	}
 }
 

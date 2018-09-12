@@ -73,41 +73,42 @@
 #define TS_TRANSPARENCY        7
 #define TS_CELL                8
 #define TS_AO                  9
-//#define TS_SUBLIME						 9
+#define TS_SUBLIME						 10
 
 // .. Other slots of the material
-#define TS_NUM_MATERIALS_SLOTS 10
+#define TS_NUM_MATERIALS_SLOTS 11
 
 // Here goes the slots NOT associated to a material
-#define TS_LIGHT_PROJECTOR     11
-#define TS_LIGHT_SHADOW_MAP    12 
-#define TS_ENVIRONMENT_MAP     13
-#define TS_IRRADIANCE_MAP      14
-#define TS_NOISE_MAP           15
+#define TS_LIGHT_PROJECTOR     12
+#define TS_LIGHT_SHADOW_MAP    13 
+#define TS_ENVIRONMENT_MAP     14
+#define TS_IRRADIANCE_MAP      15
+#define TS_NOISE_MAP           16
 
-#define TS_DEFERRED_ALBEDOS           16
-#define TS_DEFERRED_NORMALS           17
-#define TS_DEFERRED_LINEAR_DEPTH      18
-#define TS_DEFERRED_ACC_LIGHTS        19
-#define TS_DEFERRED_AO                20
-#define TS_DEFERRED_SELF_ILLUM        21
-#define TS_DEFERRED_ALPHA             22
-#define TS_DEFERRED_CELL              23
+#define TS_DEFERRED_ALBEDOS           17
+#define TS_DEFERRED_NORMALS           18
+#define TS_DEFERRED_LINEAR_DEPTH      19
+#define TS_DEFERRED_ACC_LIGHTS        20
+#define TS_DEFERRED_AO                21
+#define TS_DEFERRED_SELF_ILLUM        22
+#define TS_DEFERRED_ALPHA             23
+#define TS_DEFERRED_CELL              24
+#define TS_DEFERRED_SUBLIME           25
 
 // LookUpTable for the color grading
-#define TS_LUT_COLOR_GRADING          24
+#define TS_LUT_COLOR_GRADING          26
 
-#define TS_MIX_BLEND_WEIGHTS          25
+#define TS_MIX_BLEND_WEIGHTS          27
 
 #define TS_FIRST_SLOT_MATERIAL_0      TS_ALBEDO
 #define TS_FIRST_SLOT_MATERIAL_1      TS_ALBEDO1
 // 17,18,19 goes for extra textures of second material
 #define TS_FIRST_SLOT_MATERIAL_2      TS_ALBEDO2
 
-#define TS_ALBEDO1 26
-#define TS_NORMAL1 27
-#define TS_ALBEDO2 28
-#define TS_NORMAL2 29
+#define TS_ALBEDO1 28
+#define TS_NORMAL1 29
+#define TS_ALBEDO2 30
+#define TS_NORMAL2 31
 
 // -------------------------------------------------
 #define RO_COMPLETE     0
@@ -193,8 +194,8 @@ CB_DEF(CCteLight, CB_LIGHT)
 	VEC4  light_direction;
 
   int light_point;
-	int dummy1;
-	int dummy2;
+	float light_zfar;
+	float light_znear;
 	int dummy3;
 
 	// Align x4
@@ -254,7 +255,7 @@ CB_DEF(CCteMaterial, CB_MATERIAL)
 	float  mix_boost_r;
 	float  mix_boost_g;
 	float  mix_boost_b;
-	float  material_dummy2;
+	float  srites_frames;
 };
 
 CB_DEF(CCteBlur, CB_BLUR)
