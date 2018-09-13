@@ -1,4 +1,5 @@
-[{
+[
+	{
 		"entity": {
 			"name": "windstrike",
 			"transform": {
@@ -27,5 +28,20 @@
 				"mask": "all_unless_player"
 			}
 		}
+	}
+	,
+	{
+		"entity": {
+		"name": "windstrike_trail",
+		"transform": {},
+		"hierarchy": {
+			"angle" : 0,
+			"pos": "0 0 0",
+			"parent" : "windstrike"
+		},
+		"particles" : {
+			"core" : "data/particles/trail.particles"
+		}
+	}
 	}
 ]
