@@ -3,6 +3,8 @@
 #include "fsm/context.h"
 #include "entity/entity_parser.h"
 #include "components/player/comp_player_controller.h"
+#include "components\comp_particles.h"
+
 
 namespace FSM
 {
@@ -17,6 +19,13 @@ namespace FSM
 		}
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->change_animation(player->EAnimations::NajaWindstrikeA, _is_action, _delay_in, _delay_out, true);
+
+		CEntity* trail = (CEntity *)getEntityByName("windstrike_trail");
+		if (trail)
+		{
+			TCompParticles* particle = (TCompParticles*)trail->get<TCompParticles>();
+			particle->_core->life.maxParticles = 200;
+		}
 	}
 	
 	bool WindstrikeState::load(const json& jData)
@@ -33,6 +42,13 @@ namespace FSM
 	}
 
 	void WindstrikeState::onFinish(CContext& ctx) const {
+		CEntity* trail = (CEntity *)getEntityByName("windstrike_trail");
+		if (trail)
+		{
+			TCompParticles* particle = (TCompParticles*)trail->get<TCompParticles>();
+			particle->_core->life.maxParticles = 0;
+		}
+
 		ctx.setVariable("windstrike", false);
         CEntity* e = ctx.getOwner();
         TCompPlayerController* player = e->get<TCompPlayerController>();

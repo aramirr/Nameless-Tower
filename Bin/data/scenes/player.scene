@@ -65,17 +65,18 @@
 	}
 	,
 	{
-		"entity": {
-		"name": "player_trail",
-		"transform": {},
-		"hierarchy": {
-			"angle" : 0,
-			"pos": "0 0.8 0",
-			"parent" : "The Player"
-		},
-		"particles" : {
-			"core" : "data/particles/trail.particles"
+		"entity": 
+		{
+			"name": "windstrike_trail",
+			"transform": {},
+			"particles" : {
+				"core" : "data/particles/trail.particles"
+			}
+			,
+			"bone_anchor":{
+				"skel_owner":"The Player",
+				"bone_id":85
+			}
 		}
-	}
 	}
 ]
