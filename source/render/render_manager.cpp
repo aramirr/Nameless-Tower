@@ -36,6 +36,13 @@ bool CRenderManager::sortRenderKeys(const TRenderKey& k1, const TRenderKey& k2) 
   if (k1.material->tech->usesSkin() != k2.material->tech->usesSkin())
     return k1.material->tech->usesSkin() < k2.material->tech->usesSkin();
   // Render tech
+
+  //JUAN DEBERES 
+  //auto p1 = k1.material->getPriority();
+  //auto p2 = k2.material->getPriority();
+  //if (p1 != p2)
+  //  return p1 < p2;
+
   auto t1 = k1.material->tech;
   auto t2 = k2.material->tech;
   if (t1 != t2 ) {

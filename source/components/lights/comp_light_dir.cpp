@@ -105,6 +105,9 @@ void TCompLightDir::activate() {
     assert(shadows_rt->getZTexture());
     shadows_rt->getZTexture()->activate(TS_LIGHT_SHADOW_MAP);
   }
+  /*else {
+    CTexture::setNullTexture( TS_LIGHT_SHADOW_MAP );
+  }*/
 
 }
 

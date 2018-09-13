@@ -29,7 +29,7 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		if (trigger_type == "checkpoint") {
       if (!appear_on_transform_position)
 			  Engine.getTower().setLastCheckpoint(appearing_position);
-      else {
+      else { 
         TCompTransform *entity_transform = entity->get<TCompTransform>();
         Engine.getTower().setLastCheckpoint(entity_transform->getPosition());
       }
