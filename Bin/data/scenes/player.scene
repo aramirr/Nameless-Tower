@@ -63,4 +63,19 @@
 		    }		 	    	
 		}
 	}
+	,
+	{
+		"entity": {
+		"name": "player_trail",
+		"transform": {},
+		"hierarchy": {
+			"angle" : 0,
+			"pos": "0 0.8 0",
+			"parent" : "The Player"
+		},
+		"particles" : {
+			"core" : "data/particles/trail.particles"
+		}
+	}
+	}
 ]

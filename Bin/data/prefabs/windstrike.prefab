@@ -29,19 +29,4 @@
 			}
 		}
 	}
-	,
-	{
-		"entity": {
-		"name": "windstrike_trail",
-		"transform": {},
-		"hierarchy": {
-			"angle" : 0,
-			"pos": "0 0 0",
-			"parent" : "windstrike"
-		},
-		"particles" : {
-			"core" : "data/particles/trail.particles"
-		}
-	}
-	}
 ]

@@ -2,7 +2,7 @@
   "life" : {
       "duration" : 1.8,
       "duration_variation" : 0,
-      "max_particles" : 200,
+      "max_particles" : 0,
       "time_factor" : 2.0
   },
   "emission" : {
@@ -20,7 +20,7 @@
       "gravity" : 0.0,
       "ground" : true
   },
-  "render" : {
+  "render" : { 
       "texture" : "data/textures/particles/trail.dds"
   },
   "size" : {
@@ -35,9 +35,9 @@
     ]
   },
   "color" : {
-    "opacity" : 0.5,
+    "opacity" : 1,
     "colors" : [
-      [0.0, "1 1 1 0.3"],
+      [0.0, "1 1 1 1"],
       [1.0, "0.5 0.5 0.5 0"]
     ] 
   }
