@@ -33,4 +33,5 @@ public:
 
   void setIntensity(float value);
 
+  bool haveShadows() { return casts_shadows; }
 };

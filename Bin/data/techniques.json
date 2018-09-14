@@ -138,6 +138,20 @@
       "irradiance": "data/textures/cubemaps/irradiance.dds"
     }
   },
+  "pbr_dir_lights_shadow": {
+    "vs_file": "data/shaders/pbr.fx",
+    "ps_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_pass",
+    "ps_entry_point": "PS_dir_lights_shadow",
+    "vertex_type": "PosNUvUvT",
+    "category": "pbr_proc",
+    "z": "inverse_test_no_write",
+    "blend": "additive",
+    "textures": {
+      "environment": "data/textures/cubemaps/env.dds",
+      "irradiance": "data/textures/cubemaps/irradiance.dds"
+    }
+  },
   "pbr_dir_lights": {
     "vs_file": "data/shaders/pbr.fx",
     "ps_file": "data/shaders/pbr.fx",

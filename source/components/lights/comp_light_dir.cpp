@@ -31,12 +31,12 @@ void TCompLightDir::load(const json& j, TEntityParseContext& ctx) {
     color = loadVEC4(j["color"]);
   intensity = j.value("intensity", intensity);
 
-  if( j.count("projector")) {
+ /* if( j.count("projector")) {
     std::string projector_name = j.value("projector", "");
     projector = Resources.get(projector_name)->as<CTexture>();
   } else {
 		projector = Resources.get("data/textures/white.dds")->as<CTexture>();
-	}
+	}*/
 
   // Check if we need to allocate a shadow map
   casts_shadows = j.value("casts_shadows", false);
@@ -76,8 +76,8 @@ void TCompLightDir::activate() {
   if (!c)
     return;
 
-  if (projector)
-    projector->activate( TS_LIGHT_PROJECTOR );
+  /*if (projector)
+    projector->activate( TS_LIGHT_PROJECTOR );*/
 
   // To avoid converting the range -1..1 to 0..1 in the shader
   // we concatenate the view_proj with a matrix to apply this offset
@@ -115,7 +115,7 @@ void TCompLightDir::activate() {
 
 // ------------------------------------------------------
 void TCompLightDir::generateShadowMap() {
-  if (!shadows_rt || !shadows_enabled || intensity == 0)
+  if (!shadows_rt || !shadows_enabled || !casts_shadows || intensity == 0)
     return;
 
   // In this slot is where we activate the render targets that we are going

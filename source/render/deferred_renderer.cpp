@@ -177,9 +177,9 @@ void CDeferredRenderer::renderAccLight() {
 	rt_acc_light->activateRT();
 	rt_acc_light->clear(VEC4(0, 0, 0, 0));
 	renderAmbientPass();
+  renderDirectionalLights();
 	renderPointLights();
 	renderPointLightsShadows();
-	renderDirectionalLights();
 	renderSkyBox();
 }
 
@@ -230,6 +230,8 @@ void CDeferredRenderer::renderPointLights() {
 void CDeferredRenderer::renderDirectionalLights() {
 	CTraceScoped gpu_scope("renderDirectionalLights");
 
+  //LIGHT DIR NON SHADOWS
+
 	// Activate tech for the light dir 
 	auto* tech = Resources.get("pbr_dir_lights.tech")->as<CRenderTechnique>();
 	tech->activate();
@@ -241,16 +243,48 @@ void CDeferredRenderer::renderDirectionalLights() {
 	// Para todas las luces... pintala
 	getObjectManager<TCompLightDir>()->forEach([mesh](TCompLightDir* c) {
 
-		// subir las contantes de la posicion/dir
-		// activar el shadow map...
-		c->activate();
+    if (!c->haveShadows()) {
+      // subir las contantes de la posicion/dir
+      // activar el shadow map...
 
-		setWorldTransform(c->getViewProjection().Invert());
+      c->activate();
 
-		// mandar a pintar una geometria que refleje los pixeles que potencialmente
-		// puede iluminar esta luz.... El Frustum solido
-		mesh->render();
+      setWorldTransform(c->getViewProjection().Invert());
+
+      // mandar a pintar una geometria que refleje los pixeles que potencialmente
+      // puede iluminar esta luz.... El Frustum solido
+      mesh->render();
+    }
+		
 	});
+
+  //LIGHT DIR SHADOWS
+
+  // Activate tech for the light dir 
+  tech = Resources.get("pbr_dir_lights_shadow.tech")->as<CRenderTechnique>();
+  tech->activate();
+
+  //// All light directional use the same mesh
+  //mesh = Resources.get("data/meshes/UnitFrustum.mesh")->as<CRenderMesh>();
+  //mesh->activate();
+
+  // Para todas las luces... pintala
+  getObjectManager<TCompLightDir>()->forEach([mesh](TCompLightDir* c) {
+
+    if (c->haveShadows()) {
+      // subir las contantes de la posicion/dir
+      // activar el shadow map...
+
+      c->activate();
+
+      setWorldTransform(c->getViewProjection().Invert());
+
+      // mandar a pintar una geometria que refleje los pixeles que potencialmente
+      // puede iluminar esta luz.... El Frustum solido
+      mesh->render();
+    }
+
+  });
 }
 
 // -------------------------------------------------------------------------

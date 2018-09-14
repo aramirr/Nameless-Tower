@@ -82,12 +82,20 @@ void TCompLightPointShadows::activate() {
   if (!c)
     return;
 
+  // To avoid converting the range -1..1 to 0..1 in the shader
+  // we concatenate the view_proj with a matrix to apply this offset
+  MAT44 mtx_offset = MAT44::CreateScale(VEC3(0.5f, -0.5f, 1.0f))
+    * MAT44::CreateTranslation(VEC3(0.5f, 0.5f, 0.0f));
+
   cb_light.light_color = color;
   cb_light.light_intensity = intensity;
   cb_light.light_pos = c->getPosition();
   cb_light.light_radius = camera.getZFar();
   cb_light.light_zfar = camera.getZFar();
   cb_light.light_znear = camera.getZNear();
+  cb_light.light_view_proj_offset = camera.getViewProjection() * mtx_offset;
+  cb_light.light_point = 1;
+  cb_light.light_angle = 0;
   cb_light.updateGPU();
 
   if (intensity != 0) {
