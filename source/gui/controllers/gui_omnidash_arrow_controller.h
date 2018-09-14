@@ -12,6 +12,6 @@ namespace GUI
     void setActive(bool _active);
 
   private:
-    bool active = false;;
+    bool active = false;
   };
 }

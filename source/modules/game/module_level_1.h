@@ -9,6 +9,7 @@ class CModuleLevel1: public IModule
 {
 
   bool carga = true;
+  bool pausa = false;
 	CHandle h_e_camera;
 
 public:

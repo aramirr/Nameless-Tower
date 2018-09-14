@@ -23,6 +23,7 @@ bool CModuleGUI::start()
 
   CParser parser;
   parser.parseFile("data/gui/inicio.json");
+  parser.parseFile("data/gui/pause_menu.json"); 
   /*parser.parseFile("data/gui/main_menu.json");
   parser.parseFile("data/gui/gameplay.json");
   parser.parseFile("data/gui/game_over.json");*/
@@ -35,6 +36,11 @@ bool CModuleGUI::start()
   //MAIN MENU
   mmc = new CMainMenuController();
   registerController(mmc);
+
+  //PAUSE MENU
+  pmc = new CPauseMenuController();
+  registerController(pmc);
+  desactivePauseMenu();
 
   //OMNI DASH
   odc = new COmnidashArrowController();
@@ -91,6 +97,16 @@ void CModuleGUI::desactiveMainMenu()
 void CModuleGUI::activeMainMenu()
 {
   registerController(mmc);
+}
+
+void CModuleGUI::desactivePauseMenu()
+{
+  pmc->setActive(false);
+}
+
+void CModuleGUI::activePauseMenu()
+{
+  pmc->setActive(true);
 }
 
 void CModuleGUI::setOmindash(bool omnidash)
