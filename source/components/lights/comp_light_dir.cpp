@@ -24,6 +24,13 @@ void TCompLightDir::renderDebug() {
   TCompCamera::renderDebug();
 }
 
+MAT44 TCompLightDir::getWorld() {
+  TCompTransform* c = get<TCompTransform>();
+  if (!c)
+    return MAT44::Identity;
+  return MAT44::CreateScale(getZFar()) * c->asMatrix();
+}
+
 // -------------------------------------------------
 void TCompLightDir::load(const json& j, TEntityParseContext& ctx) {
   TCompCamera::load( j, ctx );
@@ -88,9 +95,10 @@ void TCompLightDir::activate() {
   cb_light.light_intensity = intensity;
   cb_light.light_pos = c->getPosition();
   cb_light.light_radius = getZFar();
-  cb_light.light_zfar = 1.f;// getZFar();
+  cb_light.light_zfar =  getZFar();
   cb_light.light_znear = getZNear();
-  cb_light.light_view_proj_offset = getViewProjection() * mtx_offset;
+  if(casts_shadows)cb_light.light_view_proj_offset = getViewProjection() * mtx_offset;
+  else cb_light.light_view_proj_offset = MAT44::Identity;
   cb_light.light_direction = VEC4(c->getFront().x, c->getFront().y, c->getFront().z, 1);
   cb_light.light_point = 0;
   cb_light.light_angle = 0;

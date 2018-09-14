@@ -28,6 +28,8 @@ public:
   void update(float dt);
   DECL_SIBLING_ACCESS();
 
+  MAT44 getWorld();
+
   void activate();
   void generateShadowMap();
 
