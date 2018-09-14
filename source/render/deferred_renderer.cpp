@@ -177,9 +177,9 @@ void CDeferredRenderer::renderAccLight() {
 	rt_acc_light->activateRT();
 	rt_acc_light->clear(VEC4(0, 0, 0, 0));
 	renderAmbientPass();
+  renderPointLightsShadows();
   renderDirectionalLights();
 	renderPointLights();
-	renderPointLightsShadows();
 	renderSkyBox();
 }
 
@@ -233,17 +233,17 @@ void CDeferredRenderer::renderDirectionalLights() {
   //LIGHT DIR NON SHADOWS
 
 	// Activate tech for the light dir 
-	auto* tech = Resources.get("pbr_dir_lights.tech")->as<CRenderTechnique>();
+	auto* tech = Resources.get("pbr_dir_lights_shadow.tech")->as<CRenderTechnique>();
 	tech->activate();
 
 	// All light directional use the same mesh
 	auto* mesh = Resources.get("data/meshes/UnitFrustum.mesh")->as<CRenderMesh>();
 	mesh->activate();
 
-	// Para todas las luces... pintala
-	getObjectManager<TCompLightDir>()->forEach([mesh](TCompLightDir* c) {
+  // Para todas las luces... pintala
+  getObjectManager<TCompLightDir>()->forEach([mesh](TCompLightDir* c) {
 
-    if (!c->haveShadows()) {
+    if (c->haveShadows()) {
       // subir las contantes de la posicion/dir
       // activar el shadow map...
 
@@ -255,13 +255,13 @@ void CDeferredRenderer::renderDirectionalLights() {
       // puede iluminar esta luz.... El Frustum solido
       mesh->render();
     }
-		
-	});
+
+  });
 
   //LIGHT DIR SHADOWS
 
   // Activate tech for the light dir 
-  tech = Resources.get("pbr_dir_lights_shadow.tech")->as<CRenderTechnique>();
+  tech = Resources.get("pbr_dir_lights.tech")->as<CRenderTechnique>();
   tech->activate();
 
   //// All light directional use the same mesh
@@ -271,7 +271,7 @@ void CDeferredRenderer::renderDirectionalLights() {
   // Para todas las luces... pintala
   getObjectManager<TCompLightDir>()->forEach([mesh](TCompLightDir* c) {
 
-    if (c->haveShadows()) {
+    if (!c->haveShadows()) {
       // subir las contantes de la posicion/dir
       // activar el shadow map...
 
