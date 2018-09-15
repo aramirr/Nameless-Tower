@@ -26,7 +26,7 @@ void VS(
 
   // At this point local_pos goes from 0..2
   //float unit_rand_val = ( 1 + sin( iInstancedID ) ) * 0.5f;
-  float unit_rand_val = 0.9 - sin( iInstancedID ) / 3;
+  float unit_rand_val = 0.8 - sin( iInstancedID ) / 3;
 
   // To fade out the grass as it goes far from the camera render position
   float z_start_fadeout = 150; 
