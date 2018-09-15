@@ -114,7 +114,7 @@ void TCompPlayerInput::update(float dt)
         //EngineTower.setExposureAdjustment(0);
         CEngine::get().getModules().changeGameState("level_2");
     }
-	/*
+	
 	TMsgSetFSMVariable pauseMsg;
 	pauseMsg.variant.setName("pause");
 	pauseMsg.variant.setBool(EngineInput["pause"].getsPressed());
@@ -123,5 +123,5 @@ void TCompPlayerInput::update(float dt)
 		CEntity* e = CHandle(this).getOwner();
 		e->sendMsg(pauseMsg);
 	}
-	*/
+	
 }

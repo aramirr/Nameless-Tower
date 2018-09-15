@@ -105,13 +105,13 @@ namespace GUI
     if (active) {
 
       //PAUSAR JUEGO
-      CEntity* player = (CEntity*)getEntityByName("The Player");
+      /*CEntity* player = (CEntity*)getEntityByName("The Player");
 
       TMsgSetFSMVariable pauseMsg;
       pauseMsg.variant.setName("pause");
       pauseMsg.variant.setBool(true);
 
-      player->sendMsg(pauseMsg);
+      player->sendMsg(pauseMsg);*/
 
       EngineUI.activateWidget("menu_pausa");
 

@@ -17,6 +17,7 @@ namespace FSM
 
 	bool PauseState::update(float dt, CContext& ctx) const
 	{				
+        int a = 1;
 		return false;
 	}
 
