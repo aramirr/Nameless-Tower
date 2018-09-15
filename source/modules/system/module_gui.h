@@ -6,6 +6,7 @@
 #include "gui/gui_controller.h"
 #include "gui/controllers/gui_main_menu_controller.h"
 #include "gui/controllers/gui_omnidash_arrow_controller.h"
+#include "gui/controllers/gui_pause_menu_controller.h"
 
 using namespace GUI;
 
@@ -22,6 +23,8 @@ public:
   //FUNCIONES GENERICAS PARA SER LLAMADAS DESDE DIFERENTES LUGARES DEL ENGINE
   void desactiveMainMenu();
   void activeMainMenu();
+  void desactivePauseMenu();
+  void activePauseMenu();
   void setOmindash(bool omnidash);
 
   // widget management
@@ -48,6 +51,7 @@ private:
   const CTexture* _fontTexture = nullptr;
   
   CMainMenuController* mmc;
+  CPauseMenuController* pmc;
   COmnidashArrowController* odc;
 
   GUI::VWidgets _registeredWidgets;

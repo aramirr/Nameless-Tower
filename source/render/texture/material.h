@@ -14,12 +14,15 @@ protected:
 
   static const int max_textures = TS_NUM_MATERIALS_SLOTS;
   CRenderCte<CCteMaterial> cb_material;
+  uint32_t priority = 0;
 
 public:
 
   const CTexture* textures[max_textures];
 
   const CRenderTechnique* tech = nullptr;
+
+  uint32_t getPriority() const { return priority; }
 
   CMaterial();
 

@@ -63,4 +63,20 @@
 		    }		 	    	
 		}
 	}
+	,
+	{
+		"entity": 
+		{
+			"name": "windstrike_trail",
+			"transform": {},
+			"particles" : {
+				"core" : "data/particles/trail.particles"
+			}
+			,
+			"bone_anchor":{
+				"skel_owner":"The Player",
+				"bone_id":85
+			}
+		}
+	}
 ]

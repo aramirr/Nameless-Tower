@@ -121,6 +121,29 @@ void CModuleLevel1::update(float delta)
 		ImGui::Text("Mouse at %1.2f, %1.2f", mouse.x, mouse.y);
 	}
 
+  if (EngineInput[VK_ESCAPE].getsPressed())
+  {
+    pausa = !pausa;
+    if (pausa) {
+      EngineUI.activateWidget("menu_pausa");
+      EngineUI.activePauseMenu();
+    }
+    else {
+      EngineTimer.setTimeSlower(1.f);
+      //Engine.getModules().changeGameState("test_axis");
+      EngineUI.desactivateWidget("menu_pausa");
+      EngineUI.desactivePauseMenu();
+
+      CEntity* player = (CEntity*)getEntityByName("The Player");
+
+      TMsgSetFSMVariable pauseMsg;
+      pauseMsg.variant.setName("idle");
+      pauseMsg.variant.setBool(true);
+
+      player->sendMsg(pauseMsg);
+    }
+  }
+
 }
 
 

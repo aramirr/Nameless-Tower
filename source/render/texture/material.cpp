@@ -59,6 +59,7 @@ bool CMaterial::create(const json& j) {
   tech = Resources.get(technique_name)->as<CRenderTechnique>();
 
   cast_shadows = j.value("shadows", true);
+  priority = j.value("priority", 100);
 
 	// Setting default textures
 	//textures[TS_EMISSIVE] = Resources.get("data/textures/default_emissive.dds")->as<CTexture>();

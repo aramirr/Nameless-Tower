@@ -2,6 +2,7 @@
 #include "dash_state.h"
 #include "fsm/context.h"
 #include "components/player/comp_player_controller.h"
+#include "components\comp_particles.h"
 
 namespace FSM
 {
@@ -14,6 +15,13 @@ namespace FSM
 		player->jumping_start_height = c_my_transform->getPosition().y;
         player->clear_animations(0.1f);
 		player->change_animation(player->EAnimations::NajaDashStrike, _is_action, _delay_in, _delay_out, true);
+
+		CEntity* trail = (CEntity *)getEntityByName("player_trail");
+		if (trail)
+		{
+			TCompParticles* particle = (TCompParticles*)trail->get<TCompParticles>();
+			particle->_core->life.maxParticles = 200;
+		}
 	}
 
 	bool DashState::load(const json& jData)
@@ -37,6 +45,13 @@ namespace FSM
 	}
 
 	void DashState::onFinish(CContext& ctx) const {
+		CEntity* trail = (CEntity *)getEntityByName("player_trail");
+		if (trail)
+		{
+			TCompParticles* particle = (TCompParticles*)trail->get<TCompParticles>();
+			particle->_core->life.maxParticles = 0;
+		}
+
 		ctx.setVariable("dash", false);
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();

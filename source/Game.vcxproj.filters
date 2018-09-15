@@ -183,10 +183,11 @@
     <ClCompile Include="components\comp_particles.cpp" />
     <ClCompile Include="fsm\player_states\look_up_state.cpp" />
     <ClCompile Include="fsm\player_states\look_down_state.cpp" />
-    <ClCompile Include="components\juan\comp_render_cube.cpp" />
     <ClCompile Include="render\texture\render_to_cube.cpp" />
     <ClCompile Include="components\ia\ai_compresora.cpp" />
     <ClCompile Include="components\lights\comp_light_point_shadows.cpp" />
+    <ClCompile Include="gui\controllers\gui_pause_menu_controller.cpp" />
+    <ClCompile Include="components\controllers\bone_anchor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera\camera.h" />
@@ -434,6 +435,8 @@
     <ClInclude Include="render\texture\render_to_cube.h" />
     <ClInclude Include="components\ia\ai_compresora.h" />
     <ClInclude Include="components\lights\comp_light_point_shadows.h" />
+    <ClInclude Include="gui\controllers\gui_pause_menu_controller.h" />
+    <ClInclude Include="components\controllers\bone_anchor.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />
