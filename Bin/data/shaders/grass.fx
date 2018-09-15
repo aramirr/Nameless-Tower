@@ -25,7 +25,8 @@ void VS(
   local_pos.y += 0.5;
 
   // At this point local_pos goes from 0..2
-  float unit_rand_val = ( 1 + sin( iInstancedID ) ) * 0.5f;
+  //float unit_rand_val = ( 1 + sin( iInstancedID ) ) * 0.5f;
+  float unit_rand_val = 0.9 - sin( iInstancedID ) / 3;
 
   // To fade out the grass as it goes far from the camera render position
   float z_start_fadeout = 150; 
@@ -72,7 +73,7 @@ void PS(
 
 )
 {
-  float4 texture_color = txAlbedo.Sample(samLinear, iUV);
+  float4 texture_color = txAlbedo.Sample(samLinear, iUV) * iColor;
   o_cell = (txCell.Sample(samLinear, iUV)).x;
 
   if ( texture_color.a < 0.3 ) 
@@ -110,7 +111,7 @@ float4 PS_Shadows(
   , float3 iWorldPos : TEXCOORD2
 ) : SV_Target
 {
-  float4 texture_color = txAlbedo.Sample(samLinear, iUV);
+  float4 texture_color = txAlbedo.Sample(samLinear, iUV) * iColor;
 
   if ( texture_color.a < 0.3 ) 
     discard;
