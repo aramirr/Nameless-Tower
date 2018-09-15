@@ -157,5 +157,6 @@ void TCompLightPointShadows::setIntensity(float value) {
     intensity = value;
 }
 
-
-
+void TCompLightPointShadows::update(float dt) {
+    int a = 1;
+}

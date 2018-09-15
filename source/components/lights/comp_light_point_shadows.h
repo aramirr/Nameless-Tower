@@ -33,4 +33,5 @@ public:
   void generateShadowMap();
   void setIntensity(float value);
   void render();
+  void update(float dt);
 };
