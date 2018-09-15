@@ -14,6 +14,7 @@ class TCompRender : public TCompBase {
 public:
   VEC4 color = VEC4(1, 1, 1, 1);
   bool is_active = true;
+  bool only_shadows = false;
 	float self_illumination = 1.f;
 	//VEC4               self_color = VEC4(1, 1, 1, 1);
 	//float              self_intensity = 1.f;

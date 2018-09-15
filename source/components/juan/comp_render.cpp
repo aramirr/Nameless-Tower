@@ -158,6 +158,7 @@ void TCompRender::load(const json& j, TEntityParseContext& ctx) {
     // We accept not receiving an array of mesh inside the comp_render, for handle files
     loadMesh(j, ctx);
     is_active = j.value("is_active", true);
+    only_shadows = j.value("only_shadows", false);
   }
 
   refreshMeshesInRenderManager();
@@ -189,7 +190,8 @@ void TCompRender::refreshMeshesInRenderManager() {
           h_me,
           mwm.mesh,
           m,
-          idx
+          idx,
+          only_shadows
         );
       }
       ++idx;

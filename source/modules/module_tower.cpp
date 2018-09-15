@@ -52,17 +52,31 @@ const void CModuleTower::setLastCheckpointLeft(bool checkpoint_left) {
 }
 
 const void CModuleTower::disappearEntity(const std::string& name) {
-	CEntity* entity = (CEntity*)getEntityByName(name);
-	TCompRender* h_render = entity->get< TCompRender >();
-	h_render->is_active = false;
-	h_render->refreshMeshesInRenderManager();
+  CEntity* entity = (CEntity*)getEntityByName(name);
+  TCompRender* h_render = entity->get< TCompRender >();
+  h_render->is_active = false;
+  h_render->refreshMeshesInRenderManager();
 }
 
 const void CModuleTower::appearEntity(const std::string& name) {
-	CEntity* entity = (CEntity*)getEntityByName(name);
-	TCompRender* h_render = entity->get< TCompRender >();
-	h_render->is_active = true;
-	h_render->refreshMeshesInRenderManager();
+  CEntity* entity = (CEntity*)getEntityByName(name);
+  TCompRender* h_render = entity->get< TCompRender >();
+  h_render->is_active = true;
+  h_render->refreshMeshesInRenderManager();
+}
+
+const void CModuleTower::renderOnlyShadows(const std::string& name) {
+  CEntity* entity = (CEntity*)getEntityByName(name);
+  TCompRender* h_render = entity->get< TCompRender >();
+  h_render->only_shadows = true;
+  h_render->refreshMeshesInRenderManager();
+}
+
+const void CModuleTower::renderEverything(const std::string& name) {
+  CEntity* entity = (CEntity*)getEntityByName(name);
+  TCompRender* h_render = entity->get< TCompRender >();
+  h_render->only_shadows = false;
+  h_render->refreshMeshesInRenderManager();
 }
 
 

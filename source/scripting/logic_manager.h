@@ -8,20 +8,19 @@ public:
 	LogicManager();
 	void printDbg(const char* msg);
 	
-  // Hide - Unhide Mesh
+  // Hide - Unhide Meshes
   void appearEntity(const char* name);
 	void disappearEntity(const char* name);
+  void renderOnlyShadows(const char* name);
+  void renderEverything(const char* name);
 
-
-	void activateCamera(const char* name);
-	void disactivateCamera(const char* name);
-
-    void activateCinematic(const char* name);
-    void deactivateCinematic(const char* name);
+  // Cinematics
+  void activateCinematic(const char* name);
+  void deactivateCinematic(const char* name);
 
   // Misc
 	void setAmbientAdjustment(float value);
-    void setExposureAdjustment(float value);
+  void setExposureAdjustment(float value);
 	void playLastCinematic();
 	void openDoor(const char* name);
 	void activateAnim(const char* name);
@@ -36,18 +35,5 @@ public:
 
   // Change level
   void changeGameState(const char* name);
-
-};
-
-
-class LogicPlayer
-{
-
-
-public:
-
-	LogicPlayer();
-	VEC3 getPlayerPosition();
-	void setPlayerPosition(float x, float y, float z);
 
 };

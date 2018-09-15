@@ -15,22 +15,24 @@ void LogicManager::printDbg(const char* msg) {
 	dbg(msg);
 }
 
+// Hide - Unhide Meshes
 void LogicManager::disappearEntity(const char* name) {
-	EngineTower.disappearEntity(name);
+  EngineTower.disappearEntity(name);
 }
 
 void LogicManager::appearEntity(const char* name) {
-	EngineTower.appearEntity(name);
+  EngineTower.appearEntity(name);
 }
 
-void LogicManager::activateCamera(const char* name) {
-	dbg("JOHAN");
+void LogicManager::renderOnlyShadows(const char* name) {
+  EngineTower.renderOnlyShadows(name);
 }
 
-void LogicManager::disactivateCamera(const char* name) {
-	dbg("JOHAN");
+void LogicManager::renderEverything(const char* name) {
+  EngineTower.renderEverything(name);
 }
 
+// Cinematics
 void LogicManager::activateCinematic(const char* name) {
     EngineTower.activateCinematic(name);    
 }
@@ -39,6 +41,7 @@ void LogicManager::deactivateCinematic(const char* name) {
     EngineTower.deactivateCinematic(name);    
 }
 
+// Misc
 void LogicManager::setAmbientAdjustment(float value) {
 	EngineTower.setAmbientAdjustment(value);
 };
@@ -56,6 +59,15 @@ void LogicManager::playLastCinematic() {
 	cm->activateCinematic("final");
 }
 
+void LogicManager::openDoor(const char* name) {
+  EngineTower.openDoor(name);
+}
+
+void LogicManager::activateAnim(const char* name) {
+  EngineTower.activateAnim(name);
+}
+
+// UI
 void LogicManager::activateText(const char* name) {
 	std::string s = name;
 	EngineUI.activateWidget(s);
@@ -66,6 +78,7 @@ void LogicManager::disactivateText(const char* name) {
 	EngineUI.desactivateWidget(s);
 }
 
+// Lights
 void LogicManager::setDirLightIntensity(const char* name, float value) {
   EngineTower.setDirLightIntensity(name, value);
 }
@@ -74,14 +87,7 @@ void LogicManager::setPointLightIntensity(const char* name, float value) {
   EngineTower.setPointLightIntensity(name, value);
 }
 
-void LogicManager::openDoor(const char* name) {
-  EngineTower.openDoor(name);
-}
-
-void LogicManager::activateAnim(const char* name) {
-	EngineTower.activateAnim(name);
-}
-
+// Change Level
 void LogicManager::changeGameState(const char* name) {
     
     CEntity* e = getEntityByName("The Player");
@@ -90,15 +96,4 @@ void LogicManager::changeGameState(const char* name) {
         CEngine::get().getModules().changeGameState(name);
         player->game_state = "level_2";
     }        
-}
-
-LogicPlayer::LogicPlayer() {}
-
-void LogicPlayer::setPlayerPosition(float x, float y, float z) {
-	CEntity* player = (CEntity*)getEntityByName("The Player");
-	TCompCollider *player_collider = player->get<TCompCollider>();
-	PxRigidActor* rigidActor = ((PxRigidActor*)player_collider->actor);
-	PxTransform tr = rigidActor->getGlobalPose();
-	tr.p = PxVec3(x, y, z);
-	rigidActor->setGlobalPose(tr);
 }
