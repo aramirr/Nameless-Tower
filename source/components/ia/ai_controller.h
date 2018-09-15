@@ -31,9 +31,7 @@ protected:
 
   std::string                         state;
   // the states, as maps to functions
-  std::map<std::string, statehandler> statemap;
-
-  float DT;
+  std::map<std::string, statehandler> statemap;  
 
 public:
   void debugInMenu();

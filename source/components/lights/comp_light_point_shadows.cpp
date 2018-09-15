@@ -55,6 +55,7 @@ void TCompLightPointShadows::load(const json& j, TEntityParseContext& ctx) {
 
   float z_near = j.value("z_near", z_near);
   float z_far = j.value("z_far", z_far);
+  initial_z_far = z_far;
   camera.setPerspective(deg2rad(90.0f), z_near, z_far);
 
   // if we need to allocate a shadow map
@@ -91,6 +92,26 @@ void TCompLightPointShadows::activate() {
   cb_light.updateGPU();
 
   if (intensity != 0) {
+      float r = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX))*0.04;
+      if (r > 0.1f) r = 0.1f;
+      
+      if (b_increasing_radius) {
+          camera.setZFar(camera.getZFar() + r);
+          intensity += r;
+          int aux = rand() % 2;
+          if (aux == 0 || camera.getZFar() > initial_z_far + 0.2f)
+              b_increasing_radius = false;
+      }
+      else {
+          camera.setZFar(camera.getZFar() - r);
+          if (intensity - r > 0)
+              intensity -= r;
+          int aux = rand() % 2;
+          if (aux == 0 || camera.getZFar() < initial_z_far - 0.2f)
+              b_increasing_radius = true;
+      }
+      cb_light.light_intensity = intensity;
+
       cb_light.light_shadows_inverse_resolution = 1.0f / (float)shadows_cube_rt->getWidth();
       cb_light.light_shadows_step = shadows_step;
       cb_light.light_shadows_step_with_inv_res = shadows_step / (float)shadows_cube_rt->getWidth();
@@ -157,6 +178,6 @@ void TCompLightPointShadows::setIntensity(float value) {
     intensity = value;
 }
 
-void TCompLightPointShadows::update(float dt) {
-    int a = 1;
+void TCompLightPointShadows::simulate() {
+    
 }

@@ -11,6 +11,7 @@ class TCompLightPointShadows : public TCompBase {
   // Light params
   VEC4            color = VEC4(1, 1, 1, 1);
   float           intensity = 1.0f;
+  float           initial_z_far;
 
   // Stores znear/zfar, and has fov = 90o
   CCamera         camera;
@@ -20,6 +21,7 @@ class TCompLightPointShadows : public TCompBase {
   float             shadows_step = 1.f;
   CRenderToCube*    shadows_cube_rt = nullptr;
   bool              shadows_enabled = true; // To be updated in runtime
+  bool              b_increasing_radius = true;
 
   void activate();
   MAT44 getWorld();
@@ -33,5 +35,5 @@ public:
   void generateShadowMap();
   void setIntensity(float value);
   void render();
-  void update(float dt);
+  void simulate();
 };

@@ -68,6 +68,7 @@ public:
   float getFov() const { return fov_vertical; }
   float getZNear() const { return z_near; }
   float getZFar() const { return z_far; }
+  void setZFar(float _far) { z_far = _far; }
   float getOrthoWidth() const { return orto_width; }
   float getOrthoHeight() const { return orto_height; }
   float getAspectRatio() const { return aspect_ratio; }

@@ -10,6 +10,8 @@ struct TCompBase {
   void update(float dt) {}
 
   static void registerMsgs() {}
+  protected:
+      float DT;
 };
 
 // Add this macro inside each derived class so the
