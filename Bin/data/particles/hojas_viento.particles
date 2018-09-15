@@ -6,7 +6,8 @@
       "time_factor" : 1.0
   },
   "emission" : {
-      "type" : "point",
+      "type" : "square",
+      "size" : 4.000,
       "angle" : 0.400,
       "interval" : 0.2,
       "count" : 2,
@@ -21,7 +22,7 @@
       "ground" : true
   },
   "render" : {
-      "texture" : "data/textures/Hojita01.dds"
+      "texture" : "data/textures/particles/Hojita01.dds"
   },
   "size" : {
     "scale" : 0.08,

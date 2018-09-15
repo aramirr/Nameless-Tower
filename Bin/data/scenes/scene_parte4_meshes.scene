@@ -552,7 +552,7 @@
           ,
           "materials":
           [
-            "data/materials/RocaGris.material"
+            "data/materials/ArcoMat.material"
           ]
         }
       ]
@@ -608,7 +608,35 @@
           ,
           "materials":
           [
-            "data/materials/RocaGris.material"
+            "data/materials/ArcoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Puerta_Final003"
+      ,
+      "transform":
+      {
+        "pos": "12.788 87.8352 -28.5002"
+        ,
+        "rotation": "0.167012 0.0 -0.985955 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Final003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMat.material"
           ]
         }
       ]
@@ -720,7 +748,7 @@
           ,
           "materials":
           [
-            "data/materials/RocaGris.material"
+            "data/materials/ArcoMat.material"
           ]
         }
       ]
@@ -748,7 +776,7 @@
           ,
           "materials":
           [
-            "data/materials/RocaGris.material"
+            "data/materials/ArcoMat.material"
           ]
         }
       ]

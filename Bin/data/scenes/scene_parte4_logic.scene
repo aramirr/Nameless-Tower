@@ -2,50 +2,6 @@
   {
     "entity":
     {
-      "name": "Puerta_Final003"
-      ,
-      "transform":
-      {
-        "pos": "12.788 87.8352 -28.5002"
-        ,
-        "rotation": "0.167012 0.0 -0.985955 0.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Puerta_Cerrada_01.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "convex_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
-      }
-      ,
-      "abs_aabb": true
-      ,
-      "door":
-      {
-        "up": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "ParedTapada12"
       ,
       "transform":

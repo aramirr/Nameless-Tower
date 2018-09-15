@@ -2,6 +2,1579 @@
   {
     "entity":
     {
+      "name": "Bloque_Compresor_down_007"
+      ,
+      "transform":
+      {
+        "pos": "26.1664 31.8949 -16.987"
+        ,
+        "rotation": "0.0 0.476191 0.0 -0.879342"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_07trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_004"
+      ,
+      "transform":
+      {
+        "pos": "19.7282 30.4007 -24.291"
+        ,
+        "rotation": "0.0 0.332769 0.0 -0.943008"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_04trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_001"
+      ,
+      "transform":
+      {
+        "pos": "11.2293 30.4007 -29.0843"
+        ,
+        "rotation": "0.0 0.181153 0.0 -0.983455"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_01trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_010"
+      ,
+      "transform":
+      {
+        "pos": "30.161 31.8949 -8.01698"
+        ,
+        "rotation": "0.0 0.607888 0.0 -0.794023"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_10trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_009"
+      ,
+      "transform":
+      {
+        "pos": "29.1443 31.8949 -11.1584"
+        ,
+        "rotation": "0.0 0.565499 0.0 -0.824749"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_09trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_008"
+      ,
+      "transform":
+      {
+        "pos": "27.7925 31.8949 -14.1362"
+        ,
+        "rotation": "0.0 0.52156 0.0 -0.853215"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_08trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_006"
+      ,
+      "transform":
+      {
+        "pos": "24.2424 31.8949 -19.6479"
+        ,
+        "rotation": "0.0 0.429518 0.0 -0.903058"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_06trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_005"
+      ,
+      "transform":
+      {
+        "pos": "22.0215 31.8949 -22.0993"
+        ,
+        "rotation": "0.0 0.381666 0.0 -0.9243"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_05trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_003"
+      ,
+      "transform":
+      {
+        "pos": "16.9864 31.8949 -26.0861"
+        ,
+        "rotation": "0.0 0.28296 0.0 -0.959132"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_03trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_002"
+      ,
+      "transform":
+      {
+        "pos": "14.1672 31.8949 -27.7612"
+        ,
+        "rotation": "0.0 0.232375 0.0 -0.972626"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_02trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_down_00"
+      ,
+      "transform":
+      {
+        "pos": "8.09315 31.8949 -30.0656"
+        ,
+        "rotation": "0.0 0.129435 0.0 -0.991588"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_00trigger"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.61191 0.461867 1.23498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_10"
+      ,
+      "transform":
+      {
+        "pos": "30.1284 38.1688 -8.10961"
+        ,
+        "rotation": "0.0 0.611659 0.0 -0.791122"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Compresor.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CompresorMat.material"
+          ]
+        }
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "trigger1": "Bloque_Compresor_10trigger"
+        ,
+        "trigger2": "Bloque_Compresor_down_010"
+        ,
+        "speed": 2.0
+        ,
+        "delay": 0.1
+        ,
+        "wake": 2.0
+        ,
+        "rol": "father"
+        ,
+        "maxY": 38.1688
+        ,
+        "minY": 33.7271
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.68696 2.25 0.98087"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_10trigger"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      {
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Bloque_Compresor_10"
+        ,
+        "pos": "0.0 -0.1 0.0"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68696 2.25 0.98087"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_down_010"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_09"
+      ,
+      "transform":
+      {
+        "pos": "29.1131 38.1605 -11.2046"
+        ,
+        "rotation": "0.0 0.558553 0.0 -0.829469"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Compresor.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CompresorMat.material"
+          ]
+        }
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "trigger1": "Bloque_Compresor_09trigger"
+        ,
+        "trigger2": "Bloque_Compresor_down_009"
+        ,
+        "speed": 2.0
+        ,
+        "delay": 0.1
+        ,
+        "wake": 1.8
+        ,
+        "rol": "father"
+        ,
+        "maxY": 38.1605
+        ,
+        "minY": 33.7372
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.68696 2.25 0.981142"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_09trigger"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      {
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Bloque_Compresor_09"
+        ,
+        "pos": "0.0 -0.1 0.0"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68696 2.25 0.981142"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_down_009"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_08"
+      ,
+      "transform":
+      {
+        "pos": "27.7936 38.1311 -14.0294"
+        ,
+        "rotation": "0.0 0.536457 0.0 -0.843928"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Compresor.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CompresorMat.material"
+          ]
+        }
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "trigger1": "Bloque_Compresor_08trigger"
+        ,
+        "trigger2": "Bloque_Compresor_down_008"
+        ,
+        "speed": 2.0
+        ,
+        "delay": 0.1
+        ,
+        "wake": 1.6
+        ,
+        "rol": "father"
+        ,
+        "maxY": 38.1311
+        ,
+        "minY": 33.7672
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.68617 2.25 1.02498"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_08trigger"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      {
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Bloque_Compresor_08"
+        ,
+        "pos": "0.0 -0.1 0.0"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68617 2.25 1.02498"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_down_008"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_07"
+      ,
+      "transform":
+      {
+        "pos": "26.1402 40.294 -16.9936"
+        ,
+        "rotation": "0.0 0.471258 0.0 -0.881996"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Compresor.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CompresorMat.material"
+          ]
+        }
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "trigger1": ""
+        ,
+        "trigger2": ""
+        ,
+        "speed": 2.0
+        ,
+        "delay": 0.1
+        ,
+        "wake": 1.4
+        ,
+        "rol": "father"
+        ,
+        "maxY": 40.294
+        ,
+        "minY": 36.2519
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.68688 2.25 0.993346"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_07trigger"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      {
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Bloque_Compresor_07"
+        ,
+        "pos": "0.0 -0.1 0.0"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68688 2.25 0.993346"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_down_007"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_06"
+      ,
+      "transform":
+      {
+        "pos": "24.1847 38.1105 -19.6798"
+        ,
+        "rotation": "0.0 0.416095 0.0 -0.909321"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Compresor.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CompresorMat.material"
+          ]
+        }
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "trigger1": "Bloque_Compresor_06trigger"
+        ,
+        "trigger2": "Bloque_Compresor_down_006"
+        ,
+        "speed": 2.0
+        ,
+        "delay": 0.1
+        ,
+        "wake": 1.2
+        ,
+        "rol": "father"
+        ,
+        "maxY": 38.1105
+        ,
+        "minY": 33.7815
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.68696 2.25 0.981155"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_06trigger"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      {
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Bloque_Compresor_06"
+        ,
+        "pos": "0.0 -0.1 0.0"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68696 2.25 0.981155"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_down_006"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_05"
+      ,
+      "transform":
+      {
+        "pos": "22.0394 38.0844 -22.04"
+        ,
+        "rotation": "0.0 0.375334 0.0 -0.92689"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Compresor.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CompresorMat.material"
+          ]
+        }
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "trigger1": "Bloque_Compresor_05trigger"
+        ,
+        "trigger2": "Bloque_Compresor_down_005"
+        ,
+        "speed": 2.0
+        ,
+        "delay": 0.1
+        ,
+        "wake": 1.0
+        ,
+        "rol": "father"
+        ,
+        "maxY": 38.0844
+        ,
+        "minY": 33.7865
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.68696 2.25 0.97984"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_05trigger"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      {
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Bloque_Compresor_05"
+        ,
+        "pos": "0.0 -0.1 0.0"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68696 2.25 0.97984"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_down_005"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_04"
+      ,
+      "transform":
+      {
+        "pos": "19.6235 38.1141 -24.216"
+        ,
+        "rotation": "0.0 0.337703 0.0 -0.941253"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Compresor.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CompresorMat.material"
+          ]
+        }
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "trigger1": ""
+        ,
+        "trigger2": ""
+        ,
+        "speed": 2.0
+        ,
+        "delay": 0.1
+        ,
+        "wake": 0.8
+        ,
+        "rol": "father"
+        ,
+        "maxY": 38.1141
+        ,
+        "minY": 33.7765
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.68696 2.25 0.982083"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_04trigger"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      {
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Bloque_Compresor_04"
+        ,
+        "pos": "0.0 -0.1 0.0"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68696 2.25 0.982083"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_down_004"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_03"
+      ,
+      "transform":
+      {
+        "pos": "16.9925 38.0863 -26.1412"
+        ,
+        "rotation": "0.0 0.287038 0.0 -0.957919"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Compresor.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CompresorMat.material"
+          ]
+        }
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "trigger1": "Bloque_Compresor_03trigger"
+        ,
+        "trigger2": "Bloque_Compresor_down_003"
+        ,
+        "speed": 2.0
+        ,
+        "delay": 0.1
+        ,
+        "wake": 0.6
+        ,
+        "rol": "father"
+        ,
+        "maxY": 38.0863
+        ,
+        "minY": 33.7121
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.68684 2.25 0.996925"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_03trigger"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      {
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Bloque_Compresor_03"
+        ,
+        "pos": "0.0 -0.1 0.0"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68684 2.25 0.996925"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_down_003"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_02"
+      ,
+      "transform":
+      {
+        "pos": "14.1754 38.0754 -27.7799"
+        ,
+        "rotation": "0.0 0.227831 0.0 -0.973701"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Compresor.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CompresorMat.material"
+          ]
+        }
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "trigger1": "Bloque_Compresor_02trigger"
+        ,
+        "trigger2": "Bloque_Compresor_down_002"
+        ,
+        "speed": 2.0
+        ,
+        "delay": 0.1
+        ,
+        "wake": 0.4
+        ,
+        "rol": "father"
+        ,
+        "maxY": 38.0754
+        ,
+        "minY": 33.7536
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.68691 2.25 0.990046"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_02trigger"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      {
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Bloque_Compresor_02"
+        ,
+        "pos": "0.0 -0.1 0.0"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68691 2.25 0.990046"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_down_002"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_01"
+      ,
+      "transform":
+      {
+        "pos": "11.203 38.0717 -29.1143"
+        ,
+        "rotation": "0.0 0.174061 0.0 -0.984735"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Compresor.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CompresorMat.material"
+          ]
+        }
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "trigger1": ""
+        ,
+        "trigger2": ""
+        ,
+        "speed": 2.0
+        ,
+        "delay": 0.1
+        ,
+        "wake": 0.2
+        ,
+        "rol": "father"
+        ,
+        "maxY": 38.0717
+        ,
+        "minY": 33.7385
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.68688 2.25 0.992771"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_01trigger"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      {
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Bloque_Compresor_01"
+        ,
+        "pos": "0.0 -0.1 0.0"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68688 2.25 0.992771"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_down_001"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_00"
+      ,
+      "transform":
+      {
+        "pos": "8.10782 38.0806 -30.1297"
+        ,
+        "rotation": "0.0 0.116728 0.0 -0.993164"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Compresor.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CompresorMat.material"
+          ]
+        }
+      ]
+      ,
+      "ia_compressora_kill":
+      {
+        "trigger1": "Bloque_Compresor_00trigger"
+        ,
+        "trigger2": "Bloque_Compresor_down_00"
+        ,
+        "speed": 2.0
+        ,
+        "delay": 0.1
+        ,
+        "wake": 0.0
+        ,
+        "rol": "father"
+        ,
+        "maxY": 38.0806
+        ,
+        "minY": 33.8168
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.687 2.25 0.979"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Bloque_Compresor_00trigger"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      {
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Bloque_Compresor_00"
+        ,
+        "pos": "0.0 -0.1 0.0"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.687 2.25 0.979"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "ia_compressora_kill":
+      {
+        "other_name": "Bloque_Compresor_down_00"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "compresora"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Vientos01"
       ,
       "transform":
@@ -14,6 +1587,19 @@
       "render":
       [
       ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.24996 1.58777 1.70092"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
       ,
       "abs_aabb": true
     }
@@ -156,7 +1742,7 @@
       ,
       "transform":
       {
-        "pos": "3.46993 33.6167 -30.9084"
+        "pos": "3.46982 31.4999 -30.0727"
         ,
         "rotation": "0.0 0.626226 0.0 -0.779642"
       }
@@ -200,7 +1786,7 @@
       ,
       "transform":
       {
-        "pos": "31.2766 33.6167 -3.16903"
+        "pos": "30.4644 31.4999 -2.97231"
         ,
         "rotation": "0.0 -0.974216 0.0 0.225617"
       }
@@ -489,7 +2075,13 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      }
+      },
+      "rigid_anim" : 
+      {
+        "src" : "data/anims/Torre4Milestone325.anims",
+        "loops": false,
+        "speed_factor": 0.15
+      } 
     }
   }
   ,
@@ -528,13 +2120,7 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      },
-      "rigid_anim" : 
-      {
-        "src" : "data/anims/Torre4Milestone325.anims",
-        "loops": false,
-        "speed_factor": 0.15
-      } 
+      }
     }
   }
   ,

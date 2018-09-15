@@ -5,9 +5,9 @@
   ,
   "textures":
   {
-    "albedo": "data/textures/careta_b.dds"
+    "albedo": "data/textures/Careta_01.dds"
     ,
-    "normal": "data/textures/careta_n.dds"
+    "normal": "data/textures/null_normal.dds"
     ,
     "emissive": "data/textures/null_emissive.dds"
     ,
@@ -17,6 +17,6 @@
     ,
     "height": "data/textures/null_height.dds"
     ,
-    "ao": "data/textures/careta_orm.dds"
+    "ao": "data/textures/null_ambientOcclusion.dds"
   }
 }
