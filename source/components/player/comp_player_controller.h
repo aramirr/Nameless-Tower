@@ -13,6 +13,7 @@ public:
 	VEC3	omnidash_vector;
     VEC2	omnidash_arrow;
     VEC3	player_position;
+    bool    can_die;
     float   falling_time;
     bool    fall_anim;
 	float   gravity;
