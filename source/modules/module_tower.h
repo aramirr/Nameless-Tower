@@ -16,8 +16,9 @@ protected:
 public:
 	CModuleTower(const std::string& aname) : IModule(aname) { }
 	bool start() override;
-    void update(float delta) override;
-    void render() override;
+  void update(float delta) override;
+  void render() override;
+
 	const VEC3 getLastCheckpoint();
 	const void setLastCheckpoint(VEC3 checkpoint);
 	const float getLastCheckpointYaw();
@@ -26,14 +27,16 @@ public:
 	const void setLastCheckpointLeft(bool checkpoint_left);
 	const void disappearEntity(const std::string& name);
 	const void appearEntity(const std::string& name);
-    const void setAmbientAdjustment(float ambient);
-    const void setExposureAdjustment(float exposure);
-    const void openDoor(const std::string& name);
+  const void renderOnlyShadows(const std::string& name);
+  const void renderEverything(const std::string& name);
+  const void setAmbientAdjustment(float ambient);
+  const void setExposureAdjustment(float exposure);
+  const void openDoor(const std::string& name);
 	const void activateAnim(const std::string& name);
-    const void activateCinematic(const std::string& name);
-    const void deactivateCinematic(const std::string& name);
-    const void setDirLightIntensity(const std::string& name, float intensity);
-    const void setPointLightIntensity(const std::string& name, float intensity);
+  const void activateCinematic(const std::string& name);
+  const void deactivateCinematic(const std::string& name);
+  const void setDirLightIntensity(const std::string& name, float intensity);
+  const void setPointLightIntensity(const std::string& name, float intensity);
 
 
 	float getTowerRadius();

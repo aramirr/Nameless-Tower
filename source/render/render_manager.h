@@ -75,6 +75,7 @@ public:
     , const CRenderMesh* mesh
     , const CMaterial* material
     , uint32_t subgroup_idx
+    , bool only_shadows = false
   );
 
   void renderCategory(const char* category_name );
