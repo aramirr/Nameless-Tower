@@ -704,6 +704,17 @@
 		},
 		{
 			"type" : "VariableTransition",
+			"source" : "falling_omni",
+			"target" : "windstrike",
+			"variable" : {
+				"name" : "windstrike",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},
+		{
+			"type" : "VariableTransition",
 			"source" : "run",
 			"target" : "windstrike",
 			"variable" : {
