@@ -23,7 +23,7 @@ namespace FSM
 		player->y_speed_factor = _y_speed;
 		player->is_falling = false;
 
-    CEntity* particles_emiter = (CEntity*)getEntityByName("humo_suelo");
+    CEntity* particles_emiter = (CEntity*)getEntityByName("humo_salto");
     TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
     c_particles->emit();
 	}

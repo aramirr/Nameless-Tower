@@ -1,45 +1,32 @@
 {
   "life" : {
-      "duration" : 0.5,
-      "duration_variation" : 0.1,
-      "max_particles" : 20,
-      "time_factor" : 1.0
+      "duration" : 1,
+      "max_particles" : 1
   },
   "emission" : {
       "type" : "point",
-      "angle" : 80.0,
-      "interval" : 2,
-      "count" : 9,
+      "count" : 1,
       "cyclic" : false
   },
-  "movement" : {
-      "velocity" : 0.3,
-      "acceleration" : 0.0,
-      "spin" : 0.0,
-      "wind" : 0.0,
-      "gravity" : 0.0,
-      "ground" : true
+  "movement" : {     
   },
   "render" : {
-      "texture" : "data/textures/particles/glow.dds"
+      "texture" : "data/textures/sprites/Sprite_JumpUp.dds",
+      "frame_size" : "0.25 0.25",
+      "initial_frame" : 0,
+      "num_frames" : 16,
+      "frame_speed" : 15
   },
   "size" : {
     "scale" : 0.8,
-    "scale_variation" : 0.15,
     "sizes" : [
-      [0.0, 0.0],
-      [0.1, 0.2],
-      [0.8, 1.0],
-      [1.0, 0.0]
+      [1.0, 1.0]
     ]
   },
   "color" : {
-    "opacity" : 0.5,
+    "opacity" : 0.8,
     "colors" : [
-      [0.0, "0.45 0.45 0.45 0"],
-      [0.3, "0.45 0.45 0.45 1"],
-      [0.7, "0.45 0.45 0.45 1"],
-      [1.0, "0.45 0.45 0.45 0"]
+      [1.0, "1 1 1 1"]
     ] 
   }
 }

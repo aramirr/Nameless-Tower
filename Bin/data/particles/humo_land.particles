@@ -1,0 +1,32 @@
+{
+  "life" : {
+      "duration" : 0.7,
+      "max_particles" : 1
+  },
+  "emission" : {
+      "type" : "point",
+      "count" : 1,
+      "cyclic" : false
+  },
+  "movement" : {     
+  },
+  "render" : {
+      "texture" : "data/textures/sprites/Sprite_JumpLand.dds",
+      "frame_size" : "0.25 0.25",
+      "initial_frame" : 0,
+      "num_frames" : 16,
+      "frame_speed" : 23
+  },
+  "size" : {
+    "scale" : 1,
+    "sizes" : [
+      [1.0, 1.0]
+    ]
+  },
+  "color" : {
+    "opacity" : 0.8,
+    "colors" : [
+      [1.0, "1 1 1 1"]
+    ] 
+  }
+}

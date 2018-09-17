@@ -68,7 +68,7 @@ namespace FSM
 					ctx.setVariable(
                         "hit", true);
 				}
-                CEntity* particles_emiter = (CEntity*)getEntityByName("humo_suelo");
+                CEntity* particles_emiter = (CEntity*)getEntityByName("humo_land");
                 TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
                 c_particles->emit();
 				player->is_grounded = true;

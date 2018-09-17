@@ -187,7 +187,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 					CEntity* e = CHandle(this).getOwner();
 					e->sendMsg(deadMsg);
 				}
-                CEntity* particles_emiter = (CEntity*)getEntityByName("humo_suelo");
+                CEntity* particles_emiter = (CEntity*)getEntityByName("humo_land");
                 TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
                 c_particles->emit();
 				is_grounded = true;				
@@ -213,7 +213,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
                 else {
                     falling_time += dt;
                 }
-                if (falling_time > 0.25) {
+                if (falling_time > 0.15) {
                     fall_anim = false;
                     is_grounded = false;
                     y_speed_factor = 0;
