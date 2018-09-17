@@ -620,7 +620,7 @@ float4 PS_ambient(
     }
   
    
-    return final_color;
+    return float4(postprocesado(final_color.rgb, iUV), final_color.a);
 
 }
 

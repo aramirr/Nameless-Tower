@@ -144,6 +144,14 @@ void CModuleRender::render()
 		ImGui::DragFloat("HDR", &cb_globals.global_hdr_enabled, 0.01f, 0.0f, 1.f);
 		ImGui::DragFloat("Gamma Correction", &cb_globals.global_gamma_correction_enabled, 0.01f, 0.0f, 1.f);
 		ImGui::DragFloat("Reinhard vs Uncharted2", &cb_globals.global_tone_mapping_mode, 0.01f, 0.0f, 1.f);
+		ImGui::DragFloat("Hue", &cb_globals.global_hue_adjustment, 0.01f, 0.0f, 10.f);
+		ImGui::DragFloat("Sat", &cb_globals.global_sat_adjustment, 0.01f, 0.0f, 10.f);
+		ImGui::DragFloat("Light", &cb_globals.global_light_adjustment, 0.01f, 0.0f, 10.f);
+		if (ImGui::SmallButton("Reset post procesado")) {
+			cb_globals.global_hue_adjustment = 1.f;
+			cb_globals.global_sat_adjustment = 1.f;
+			cb_globals.global_light_adjustment = 1.f;
+		}
 
 		// Must be in the same order as the RO_* ctes
 		static const char* render_output_str =
