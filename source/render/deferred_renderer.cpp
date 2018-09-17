@@ -32,14 +32,14 @@ void CDeferredRenderer::renderGBuffer() {
   ID3D11RenderTargetView* rts[nrender_targets] = {
     rt_albedos->getRenderTargetView(),
     rt_normals->getRenderTargetView(),
-	rt_depth->getRenderTargetView(),
-	rt_alpha->getRenderTargetView(),
+	  rt_depth->getRenderTargetView(),
+	  rt_alpha->getRenderTargetView(),
 		rt_self_illum->getRenderTargetView(),
 		rt_cell->getRenderTargetView(),
     rt_sublime->getRenderTargetView()
   };
 
-	// We use our 3 rt's and the Zbuffer of the backbuffer
+	// We use our 7 rt's and the Zbuffer of the backbuffer
 	Render.ctx->OMSetRenderTargets(nrender_targets, rts, rt_acc_light->getDepthStencilView());
 	rt_albedos->activateViewport();   // Any rt will do...
 

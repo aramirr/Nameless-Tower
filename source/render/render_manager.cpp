@@ -73,19 +73,22 @@ void CRenderManager::addRenderKey(
   CHandle h_comp_render_owner, 
   const CRenderMesh* mesh, 
   const CMaterial* material, 
-  uint32_t subgroup_idx) {
+  uint32_t subgroup_idx,
+  bool only_shadows) {
   
   CEntity* e_owner = h_comp_render_owner.getOwner();
   assert(e_owner);
 
   // Register the basic mesh
-  TRenderKey key;
-  key.h_render_owner = h_comp_render_owner;
-  key.h_aabb = e_owner->get<TCompAbsAABB>();
-  key.mesh = mesh;
-  key.material = material;
-  key.subgroup_idx = subgroup_idx;
-  render_keys.addKey(key);
+  if (!only_shadows) {
+    TRenderKey key;
+    key.h_render_owner = h_comp_render_owner;
+    key.h_aabb = e_owner->get<TCompAbsAABB>();
+    key.mesh = mesh;
+    key.material = material;
+    key.subgroup_idx = subgroup_idx;
+    render_keys.addKey(key);
+  }
 
   if (material->castsShadows()) {
 
