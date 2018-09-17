@@ -64,6 +64,10 @@ bool CModuleLevel1::start()
 	cb_globals.global_sat_adjustment = 1.f;
 	cb_globals.global_light_adjustment = 1.f;
 
+	cb_globals.global_brightness_adjustment = 0.f;
+	cb_globals.global_contrast_adjustment = 0.f;
+	cb_globals.global_saturation_adjustment = 0.f;
+
 	cb_light.activate();
 	cb_object.activate();
 	cb_globals.activate();

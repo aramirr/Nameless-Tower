@@ -238,6 +238,10 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
 	float global_light_adjustment;
 	float global_dummy2;
 
+	float global_brightness_adjustment;
+	float global_contrast_adjustment;
+	float global_saturation_adjustment;
+	float global_dummy3;
 };
 
 CB_DEF(CCteMaterial, CB_MATERIAL)
