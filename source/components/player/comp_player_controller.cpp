@@ -206,18 +206,28 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				e->sendMsg(omniMsg);
 			}
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && is_grounded) {
-				is_grounded = false;
-				y_speed_factor = 0;
-				jumping_start_height = c_my_transform->getPosition().y;
-				TMsgSetFSMVariable groundMsg;
-				groundMsg.variant.setName("is_grounded");
-				groundMsg.variant.setBool(false);
-				CEntity* e = CHandle(this).getOwner();
-				e->sendMsg(groundMsg);
-				TMsgSetFSMVariable fallMsg;
-				fallMsg.variant.setName("is_falling");
-				fallMsg.variant.setBool(true);
-				e->sendMsg(fallMsg);
+                if (!fall_anim) {
+                    fall_anim = true;
+                    falling_time = 0;
+                }
+                else {
+                    falling_time += dt;
+                }
+                if (falling_time > 0.25) {
+                    fall_anim = false;
+                    is_grounded = false;
+                    y_speed_factor = 0;
+                    jumping_start_height = c_my_transform->getPosition().y;
+                    TMsgSetFSMVariable groundMsg;
+                    groundMsg.variant.setName("is_grounded");
+                    groundMsg.variant.setBool(false);
+                    CEntity* e = CHandle(this).getOwner();
+                    e->sendMsg(groundMsg);
+                    TMsgSetFSMVariable fallMsg;
+                    fallMsg.variant.setName("is_falling");
+                    fallMsg.variant.setBool(true);
+                    e->sendMsg(fallMsg);
+                }				
 			}
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {

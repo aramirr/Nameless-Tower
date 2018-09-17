@@ -13,6 +13,8 @@ public:
 	VEC3	omnidash_vector;
     VEC2	omnidash_arrow;
     VEC3	player_position;
+    float   falling_time;
+    bool    fall_anim;
 	float   gravity;
 	float   y_speed_factor = 0.f;
 	float	jumping_start_height;

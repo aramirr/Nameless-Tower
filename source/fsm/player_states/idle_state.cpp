@@ -23,9 +23,10 @@ namespace FSM
             if (player->previous_state == "run") {
                 player->change_animation(player->EAnimations::NajaIdle, _is_action, 0.01, _delay_out, true);
             }
-            else {
+            else if (player->previous_state == "falling") {
+                player->change_animation(player->EAnimations::NajaIdle, _is_action, 0.1, _delay_out, true);
+            } else 
                 player->change_animation(player->EAnimations::NajaIdle, _is_action, _delay_in, _delay_out, true);
-            }
         }		    
 		ctx.setVariable("initial", false);
         player->idle_time = 0;
