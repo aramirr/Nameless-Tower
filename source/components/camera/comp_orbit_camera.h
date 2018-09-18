@@ -6,8 +6,6 @@
 
 class TCompOrbitCamera : public TCompBase {
 
-  TCompCamera* camera;
-
   CEntity *player;
   VEC3 towerCentre;
 
@@ -47,6 +45,7 @@ class TCompOrbitCamera : public TCompBase {
   void deactivateCamera(const TMsgDeactiveCamera& msg);
 
 public:
+	TCompCamera * camera;
   static void registerMsgs();
 
   void debugInMenu();

@@ -65,11 +65,13 @@
 				"lookat": "-1 0 -1"
 			},
 			"orbitCamera" : {
-				"izq" : true,
-				"distance" : 35
+				"fov" : 60,
+				"z_far" : 10,
+				"distance" : 30
 			},
 			"camera" : {
-				"fov" : 100 
+				"fov" : 60,
+				"z_far" : 10
 			},
 		    "culling":true
 		}

@@ -45,8 +45,8 @@ void TCompCulling::update( float dt ) {
 	//PROFILE_FUNCTION("Updating culling");
 
 	// Conseguimos acceso al comp_camera de un sibling component
-    CEntity* e_camera = EngineCameras.getActiveCamera();
-  TCompCamera* c_camera = e_camera->get<TCompCamera>();
+    //CEntity* e_camera = EngineCameras.getActiveCamera();
+  TCompCamera* c_camera = get<TCompCamera>();
   if (!c_camera)
     return;
   MAT44 view_proj = c_camera->getViewProjection();
