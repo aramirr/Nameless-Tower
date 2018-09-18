@@ -52,11 +52,26 @@
 		        "amount_spreading": 0.95,
 		        "zrange_discard": 0.009
 		      },
-		    "culling":true
-		    ,
 		    "render_blur_radial" : {
 		      "enabled" :  false
 		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "camera_orbit_culling",
+			"transform": {
+				"pos": "-14 16 12",
+				"lookat": "-1 0 -1"
+			},
+			"orbitCamera" : {
+				"izq" : true,
+				"distance" : 35
+			},
+			"camera" : {
+				"fov" : 100 
+			},
+		    "culling":true
 		}
 	},
 	{
