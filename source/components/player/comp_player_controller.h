@@ -14,8 +14,6 @@ public:
     VEC2	omnidash_arrow;
     VEC3	player_position;
     bool    can_die;
-    float   falling_time;
-    bool    fall_anim;
 	float   gravity;
 	float   y_speed_factor = 0.f;
 	float	jumping_start_height;
