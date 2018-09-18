@@ -14,6 +14,8 @@ public:
     VEC2	omnidash_arrow;
     VEC3	player_position;
     bool    can_die;
+    bool    run_sprite = true;
+    bool    left_key = false;
 	float   gravity;
 	float   y_speed_factor = 0.f;
 	float	jumping_start_height;
