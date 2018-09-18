@@ -120,6 +120,14 @@ float3 hsv2rgb(float3 c)
 //--------------------------------------------------------------------------------------
 //
 //--------------------------------------------------------------------------------------
+float remap(float value, float inputMin, float inputMax, float outputMin, float outputMax)
+{
+    return (value - inputMin) * ((outputMax - outputMin) / (inputMax - inputMin)) + outputMin;
+}
+
+//--------------------------------------------------------------------------------------
+//
+//--------------------------------------------------------------------------------------
 float3 postprocesado(float3 c)
 {
     float3 hsvPixel = rgb2hsv(float3(c.rgb));
@@ -129,65 +137,72 @@ float3 postprocesado(float3 c)
     float3 LightPixel = float3(hsv2rgb(float3(hsvPixel.rg, hsvPixel.b * global_light_adjustment)) /*, c.a*/);
     
     
-    return HuePixel + SatPixel + LightPixel;
+    float3 r = HuePixel + SatPixel + LightPixel;
+
+    float contrast = remap(global_contrast_adjustment, 0.0, 1.0, 0.2 /*min*/, 4.0 /*max*/);
+    float4 dstColor = float4((r.rgb - (float3) (0.5)) * contrast + (float3)(0.5), 1.0);
+    return clamp(dstColor, 0.0, 1.0);
     
 
 }
 
-//--------------------------------------------------------------------------------------
-//
-//--------------------------------------------------------------------------------------
-float4x4 brightnessMatrix(float brightness)
-{
-    return float4x4(1, 0, 0, 0,
-                 0, 1, 0, 0,
-                 0, 0, 1, 0,
-                 brightness, brightness, brightness, 1);
-}
+////--------------------------------------------------------------------------------------
+////
+////--------------------------------------------------------------------------------------
+//float4x4 brightnessMatrix(float brightness)
+//{
+//    return float4x4(1, 0, 0, 0,
+//                 0, 1, 0, 0,
+//                 0, 0, 1, 0,
+//                 brightness, brightness, brightness, 1);
+//}
 
-//--------------------------------------------------------------------------------------
-//
-//--------------------------------------------------------------------------------------
-float4x4 contrastMatrix(float contrast)
-{
-    float t = (1.0 - contrast) / 2.0;
+////--------------------------------------------------------------------------------------
+////
+////--------------------------------------------------------------------------------------
+//float4x4 contrastMatrix(float contrast)
+//{
+//    float t = (1.0 - contrast) / 2.0;
     
-    return float4x4(contrast, 0, 0, 0,
-                 0, contrast, 0, 0,
-                 0, 0, contrast, 0,
-                 t, t, t, 1);
+//    return float4x4(contrast, 0, 0, 0,
+//                 0, contrast, 0, 0,
+//                 0, 0, contrast, 0,
+//                 t, t, t, 1);
 
-}
+//}
 
-//--------------------------------------------------------------------------------------
-//
-//--------------------------------------------------------------------------------------
-float4x4 saturationMatrix(float saturation)
-{
-    float3 luminance = float3(0.3086, 0.6094, 0.0820);
+////--------------------------------------------------------------------------------------
+////
+////--------------------------------------------------------------------------------------
+//float4x4 saturationMatrix(float saturation)
+//{
+//    float3 luminance = float3(0.3086, 0.6094, 0.0820);
     
-    float oneMinusSat = 1.0 - saturation;
+//    float oneMinusSat = 1.0 - saturation;
     
-    float3 red = (luminance.x * oneMinusSat) + float3(saturation, 0, 0);
+//    float3 red = (float3)(luminance.x * oneMinusSat);
+//    red += float3(saturation, 0, 0);
     
-    float3 green = (luminance.y * oneMinusSat) + float3(0, saturation, 0);
+//    float3 green = 
+//    (float3)(luminance.y * oneMinusSat);
+//    green += float3(0, saturation, 0);
     
-    float3 blue = (luminance.z * oneMinusSat) + float3(0, 0, saturation);
+//    float3 blue = (float3)(luminance.z * oneMinusSat);
+//    blue += float3(0, 0, saturation);
     
-    return float4x4(red, 0,
-                 green, 0,
-                 blue, 0,
-                 0, 0, 0, 1);
-}
+//    return float4x4(red, 0,
+//                 green, 0,
+//                 blue, 0,
+//                 0, 0, 0, 1);
+//}
 
-//--------------------------------------------------------------------------------------
-// 
-//--------------------------------------------------------------------------------------
-float4 postprocesado2(float4 c)
-{
-    return (0, 0, 0, 0);
-    //brightnessMatrix(global_brightness_adjustment) * contrastMatrix(global_contrast_adjustment) * saturationMatrix(global_saturation_adjustment) * c;
-}
+////--------------------------------------------------------------------------------------
+//// 
+////--------------------------------------------------------------------------------------
+//float4 postprocesado2(float4 c)
+//{
+//    return brightnessMatrix(global_brightness_adjustment) * contrastMatrix(global_contrast_adjustment) * saturationMatrix(global_saturation_adjustment) * (float4x1)c;
+//}
 
 //--------------------------------------------------------------------------------------
 // 
