@@ -26,7 +26,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
     jumping_death_height = j.value("jumping_death_height", 9.f);
     idle_max_time = j.value("idle_max_time", 10.f);
 	is_grounded = true;
-	looking_left = true;
+	looking_left = false;
 
   rayWall = false;
 
@@ -123,6 +123,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 		turnMsg.variant.setBool(true);
 		CEntity* e = CHandle(this).getOwner();
 		e->sendMsg(turnMsg);
+        CEntity* particles_emiter;        
 	}
 	else {
 		current_yaw = left ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;

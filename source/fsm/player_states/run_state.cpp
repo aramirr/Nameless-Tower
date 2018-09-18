@@ -2,6 +2,7 @@
 #include "run_state.h"
 #include "fsm/context.h"
 #include "components/player/comp_player_controller.h"
+#include "components/comp_particles.h"
 
 namespace FSM
 {
@@ -13,6 +14,13 @@ namespace FSM
         player->clear_animations(0.005f);
         player->run_time = 0;
 		EngineSound.res = _sound->start();
+        CEntity* particles_emiter;
+        if (player->looking_left)
+            particles_emiter = (CEntity*)getEntityByName("humo_run_left");
+        else
+            particles_emiter = (CEntity*)getEntityByName("humo_run_right");
+        TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+        c_particles->emit();
 	}
 
 	bool RunState::load(const json& jData)
@@ -55,6 +63,10 @@ namespace FSM
 			if (!player->looking_left) {
 				player->looking_left = true;
 				player->move_player(false, true, dt, y_speed, _x_speed);
+                CEntity* particles_emiter;
+                particles_emiter = (CEntity*)getEntityByName("humo_run_left");
+                TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+                c_particles->emit();
 			}
 			else {
 				player->move_player(false, false, dt, y_speed, _x_speed);
@@ -67,6 +79,10 @@ namespace FSM
 			else {
 				player->looking_left = false;
 				player->move_player(true, true, dt, y_speed, _x_speed);
+                CEntity* particles_emiter;
+                particles_emiter = (CEntity*)getEntityByName("humo_run_right");
+                TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+                c_particles->emit();
 			}
 		}
 		else {
