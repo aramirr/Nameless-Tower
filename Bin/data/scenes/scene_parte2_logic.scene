@@ -13,7 +13,20 @@
       ,
       "render":
       [
-      ]     
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.24996 1.58777 1.70092"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
       ,
       "abs_aabb": true
     }
@@ -156,7 +169,7 @@
       ,
       "transform":
       {
-        "pos": "3.46982 31.4999 -30.0727"
+        "pos": "3.30994 31.4999 -30.0799"
         ,
         "rotation": "0.0 0.626226 0.0 -0.779642"
       }
@@ -200,7 +213,7 @@
       ,
       "transform":
       {
-        "pos": "30.4644 31.4999 -2.97231"
+        "pos": "30.4337 31.4999 -3.12938"
         ,
         "rotation": "0.0 -0.974216 0.0 0.225617"
       }
@@ -360,13 +373,7 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      },
-      "rigid_anim" : 
-      {
-        "src" : "data/anims/Torre4Milestone325.anims",
-        "loops": false,
-        "speed_factor": 0.15
-      } 
+      }
     }
   }
   ,
@@ -444,13 +451,7 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      },
-      "rigid_anim" : 
-      {
-        "src" : "data/anims/Torre4Milestone325.anims",
-        "loops": false,
-        "speed_factor": 0.15
-      } 
+      }
     }
   }
   ,
@@ -489,13 +490,7 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      },
-      "rigid_anim" : 
-      {
-        "src" : "data/anims/Torre4Milestone325.anims",
-        "loops": false,
-        "speed_factor": 0.15
-      } 
+      }
     }
   }
   ,
@@ -534,13 +529,7 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      },
-      "rigid_anim" : 
-      {
-        "src" : "data/anims/Torre4Milestone325.anims",
-        "loops": false,
-        "speed_factor": 0.15
-      } 
+      }
     }
   }
   ,
