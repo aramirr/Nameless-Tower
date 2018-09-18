@@ -587,13 +587,34 @@ void bt_runner::jump() {
     target_position = waypoints_map[path[next_waypoint]].position;
   }
 
-  
-  
-	calculate_top_jump_position(target_position);
-
 	TCompTransform *c_my_transform = getMyTransform();
 	VEC3 myPos = c_my_transform->getPosition();
 
+	float gravity = 9.8f;
+
+	// C position is the point with maxHeight and Vy = 0
+	float Yc;
+	if (waypoints_map[path[actual_waypoint]].position.y <= target_position.y)
+		Yc = target_position.y + 1.5f;
+	else
+		Yc = waypoints_map[path[actual_waypoint]].position.y + 1.5f;
+
+	float TimeBC = 2*(target_position.y - Yc)/-gravity;
+	float TimeAC = TimeBC;
+	float TimeAB = TimeAC + TimeBC;
+
+	//float Vx = distance_radius(waypoints_map[path[actual_waypoint]].position, target_position) / TimeAB;
+	
+
+
+
+
+
+
+  
+	calculate_top_jump_position(target_position);
+
+	
 	float current_yaw;
 	float current_pitch;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
