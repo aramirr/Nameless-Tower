@@ -482,6 +482,31 @@
 	},
 	{
 		"entity": {
+			"name": "RunnerAppearJardin",
+			"transform": {
+				"pos": "27.766 49.5 14.875"
+			},
+			"render" : [
+		        {
+		          "mesh": "data/meshes/UnitBox.mesh",
+		          "materials" : [
+		            "data/materials/PuertaM.material"
+		          ]
+		        }
+		      ],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "runner_appear",
+				"appearing_position": "25.850 51 18.001"
+			}
+		}
+	},
+	{
+		"entity": {
 			"name": "RunnerDisappearPasillo",
 			"transform": {
 				"pos": "-28.537 22.5 -13.338"

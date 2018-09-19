@@ -84,7 +84,7 @@ void LogicManager::setDirLightIntensity(const char* name, float value) {
 }
 
 void LogicManager::setPointLightIntensity(const char* name, float value) {
-  EngineTower.setPointLightIntensity(name, value);
+  //EngineTower.setPointLightIntensity(name, value);
 }
 
 // Change Level

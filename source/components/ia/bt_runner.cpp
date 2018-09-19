@@ -589,16 +589,16 @@ void bt_runner::jump() {
 
 	TCompTransform *c_my_transform = getMyTransform();
 	VEC3 myPos = c_my_transform->getPosition();
+	float gravity = 15.f;
 
 	if (!on_jump) {
-		float gravity = 9.8f;
 
 		// C position is the point with maxHeight and Vy = 0
 		float Yc;
-		if (waypoints_map[path[actual_waypoint]].position.y <= target_position.y)
+		if (waypoints_map[path[actual_waypoint]].position.y <= target_position.y + 0.5f)
 			Yc = target_position.y + 1.5f;
 		else
-			Yc = waypoints_map[path[actual_waypoint]].position.y + 1.5f;
+			Yc = waypoints_map[path[actual_waypoint]].position.y + 0.5f;
 
 		float TimeBC = 2 * (target_position.y - Yc) / -gravity;
 		float TimeAC = TimeBC;
@@ -642,7 +642,6 @@ void bt_runner::jump() {
 			else change_animation(ERunnerAnimations::RunnerJumpUp, true, 0.f, 0.f, true);
 		}
 
-		float amount_moved = speed * DT + 0.05f *DT*DT;
 		
 		current_yaw = going_right ? current_yaw + Vx*DT : current_yaw - Vx * DT;
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
@@ -654,6 +653,10 @@ void bt_runner::jump() {
 		{
 			VEC3 delta_move;
 			delta_move = newPos - myPos;
+
+			delta_move.y += Vy*DT;
+			Vy -= gravity * DT;
+
 			PxShape* player_shape;
 			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
 			PxFilterData filter_data = player_shape->getSimulationFilterData();
@@ -663,7 +666,7 @@ void bt_runner::jump() {
 			VEC3 myPos2 = c_my_transform->getPosition();
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
-				current_yaw = going_right ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
+				current_yaw = going_right ? current_yaw - Vx * DT : current_yaw + Vx * DT;
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 			}
       if (!going_up && flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
