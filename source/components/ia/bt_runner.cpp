@@ -590,29 +590,23 @@ void bt_runner::jump() {
 	TCompTransform *c_my_transform = getMyTransform();
 	VEC3 myPos = c_my_transform->getPosition();
 
-	float gravity = 9.8f;
+	if (!on_jump) {
+		float gravity = 9.8f;
 
-	// C position is the point with maxHeight and Vy = 0
-	float Yc;
-	if (waypoints_map[path[actual_waypoint]].position.y <= target_position.y)
-		Yc = target_position.y + 1.5f;
-	else
-		Yc = waypoints_map[path[actual_waypoint]].position.y + 1.5f;
+		// C position is the point with maxHeight and Vy = 0
+		float Yc;
+		if (waypoints_map[path[actual_waypoint]].position.y <= target_position.y)
+			Yc = target_position.y + 1.5f;
+		else
+			Yc = waypoints_map[path[actual_waypoint]].position.y + 1.5f;
 
-	float TimeBC = 2*(target_position.y - Yc)/-gravity;
-	float TimeAC = TimeBC;
-	float TimeAB = TimeAC + TimeBC;
+		float TimeBC = 2 * (target_position.y - Yc) / -gravity;
+		float TimeAC = TimeBC;
+		float TimeAB = TimeAC + TimeBC;
 
-	//float Vx = distance_radius(waypoints_map[path[actual_waypoint]].position, target_position) / TimeAB;
-	
-
-
-
-
-
-
-  
-	calculate_top_jump_position(target_position);
+		Vx = distance_arc(waypoints_map[path[actual_waypoint]].position, target_position) / TimeAB; // Radians/seconds
+		Vy = gravity * TimeAC;
+	}
 
 	
 	float current_yaw;
@@ -649,61 +643,17 @@ void bt_runner::jump() {
 		}
 
 		float amount_moved = speed * DT + 0.05f *DT*DT;
-		bool jump_down = false;
-		if (waypoints_map[path[actual_waypoint]].position.y > target_position.y + 2.0f) {
-			jump_down = true;
-		}
-		current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
+		
+		current_yaw = going_right ? current_yaw + Vx*DT : current_yaw - Vx * DT;
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		VEC3 aux_vector = going_right ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
 		VEC3 newPos = tower_center + (aux_vector * EngineTower.getTowerRadius());
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+
 		if (comp_collider && comp_collider->controller)
 		{
 			VEC3 delta_move;
-			if (going_up) {
-				if (jump_down) {
-					//top_jump_position.x = target_position.x;
-					//top_jump_position.z = target_position.z;
-				}
-
-				float d1 = distance_x_z(newPos, top_jump_position);
-
-				float d2 = distance_x_z(waypoints_map[path[actual_waypoint]].position, top_jump_position);
-				float perc = 1 - (d1 / d2);
-				//if (distance_x_z(waypoints_map[path[actual_waypoint]].position, newPos) > d2) perc = 1;
-				if (perc < 0) perc = 0;
-				if (perc >= 0.9f) {
-					going_up = false;
-				}
-				dbg("perc %f\n", perc);
-				//perc = perc * perc*perc * (perc * (6.f*perc - 15.f) + 10.f);
-				perc = sin(perc * 3.1415 * 0.5f);
-
-				float aux = lerp(waypoints_map[path[actual_waypoint]].position.y, top_jump_position.y, perc);
-				newPos.y = aux;
-				delta_move = newPos - myPos;
-			}
-			else {
-				/*if (jump_down) {
-					delta_move = VEC3(0.f, -10.f*DT - 0.05f*DT*DT, 0.f);
-
-				}
-				else {*/
-					float d1 = distance_x_z(newPos, target_position);
-					float d2 = distance_x_z(top_jump_position, target_position);
-					float perc = 1 - (d1 / d2);
-					//if (distance_x_z(top_jump_position, newPos) > d1) perc = 1;
-					if (perc < 0) perc = 0;
-					perc = sin(perc * 3.1415 * 0.5f);
-					newPos.y = lerp(top_jump_position.y, target_position.y, perc);
-					delta_move = newPos - myPos;
-				//}
-				
-
-			}
-			
-
+			delta_move = newPos - myPos;
 			PxShape* player_shape;
 			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
 			PxFilterData filter_data = player_shape->getSimulationFilterData();
@@ -726,6 +676,17 @@ void bt_runner::jump() {
 		}
 	}
 	on_jump = true;
+}
+
+float bt_runner::distance_arc(VEC3 pos1, VEC3 pos2) {
+	float alpha = asin(pos1.z / EngineTower.getTowerRadius());
+	float beta = asin(pos2.z / EngineTower.getTowerRadius());
+	
+	float dist;
+	if (alpha > beta) dist = alpha - beta;
+	else dist = beta - alpha;
+
+	return dist;
 }
 
 void bt_runner::calculate_top_jump_position(VEC3 target_position) {
