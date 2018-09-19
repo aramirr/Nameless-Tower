@@ -1,6 +1,8 @@
 {
   "technique": "pbr.tech"
   ,
+  "priority": 50
+  ,
   "shadows": true
   ,
   "textures":
@@ -17,6 +19,6 @@
     ,
     "height": "data/textures/null_height.dds"
     ,
-    "ao": "data/textures/Techo_Cabeza_orm.dds"
+    "orm": "data/textures/Techo_Cabeza_orm.dds"
   }
 }

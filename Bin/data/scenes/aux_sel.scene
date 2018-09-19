@@ -1,0 +1,29 @@
+[
+  {
+    "entity":
+    {
+      "name": "ParedesExterioresEscena01"
+      ,
+      "transform":
+      {
+        "pos": "-13.3257 24.7471 -9.6406"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedesExterioresEscena01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pared_Ladrillo_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+]

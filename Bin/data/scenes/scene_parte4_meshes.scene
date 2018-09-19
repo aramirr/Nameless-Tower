@@ -118,7 +118,7 @@
       ,
       "transform":
       {
-        "pos": "12.1949 88.0281 -31.3636"
+        "pos": "12.1988 88.0281 -31.2928"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -146,7 +146,7 @@
       ,
       "transform":
       {
-        "pos": "-2.04245 88.0281 -33.5756"
+        "pos": "-2.074 88.0281 -33.5268"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -484,7 +484,7 @@
       ,
       "transform":
       {
-        "pos": "3.82406 92.8782 -24.2092"
+        "pos": "3.81499 92.8841 -24.1571"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -552,7 +552,7 @@
           ,
           "materials":
           [
-            "data/materials/ArcoMat.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
@@ -608,35 +608,7 @@
           ,
           "materials":
           [
-            "data/materials/ArcoMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Puerta_Final003"
-      ,
-      "transform":
-      {
-        "pos": "12.788 87.8352 -28.5002"
-        ,
-        "rotation": "0.167012 0.0 -0.985955 0.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Puerta_Final003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMat.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
@@ -748,7 +720,7 @@
           ,
           "materials":
           [
-            "data/materials/ArcoMat.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
@@ -776,7 +748,7 @@
           ,
           "materials":
           [
-            "data/materials/ArcoMat.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
@@ -1012,7 +984,7 @@
   {
     "entity":
     {
-      "name": "BordesEscena04"
+      "name": "BordesParte4"
       ,
       "transform":
       {
@@ -1024,7 +996,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/BordesEscena04.mesh"
+          "mesh": "data/meshes/BordesParte4.mesh"
           ,
           "materials":
           [
@@ -1040,7 +1012,7 @@
   {
     "entity":
     {
-      "name": "ParedExteriorEscena04"
+      "name": "ParedExteriorParte4"
       ,
       "transform":
       {
@@ -1052,7 +1024,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/ParedExteriorEscena04.mesh"
+          "mesh": "data/meshes/ParedExteriorParte4.mesh"
           ,
           "materials":
           [
