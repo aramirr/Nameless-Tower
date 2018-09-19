@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "comp_player_input.h"
 #include "components/fsm/comp_fsm.h"
+#include "components/player/comp_player_controller.h"
 
 DECL_OBJ_MANAGER("player_input", TCompPlayerInput);
 
@@ -68,11 +69,15 @@ void TCompPlayerInput::update(float dt)
 	runMsg.variant.setBool(EngineInput["left"].isPressed());
 	if (EngineInput["left"].isPressed())
 	{
+        TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->left_key = true;
 		e->sendMsg(runMsg);
 	}
 	runMsg.variant.setBool(EngineInput["right"].isPressed());
 	if (EngineInput["right"].isPressed())
 	{
+        TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->left_key = false;
 		e->sendMsg(runMsg);
 	}
 

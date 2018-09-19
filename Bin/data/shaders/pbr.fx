@@ -223,9 +223,8 @@ void PS_GBuffer_Alpha(
   // Store in the Alpha channel of the albedo texture, the 'metallic' amount of
   // the material
     o_albedo = txAlbedo.Sample(samLinear, iTex0);
-    o_albedo.a = txAlpha.Sample(samLinear, iTex0).r;
 
-    if (o_albedo.a < 0.3) 
+    if (txAlpha.Sample(samLinear, iTex0).r < 0.3) 
         discard;
 
     float3 N = computeNormalMap(iNormal, iTangent, iTex0);

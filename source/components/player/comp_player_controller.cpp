@@ -26,7 +26,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
     jumping_death_height = j.value("jumping_death_height", 9.f);
     idle_max_time = j.value("idle_max_time", 10.f);
 	is_grounded = true;
-	looking_left = true;
+	looking_left = false;
 
   rayWall = false;
 
@@ -123,6 +123,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 		turnMsg.variant.setBool(true);
 		CEntity* e = CHandle(this).getOwner();
 		e->sendMsg(turnMsg);
+        CEntity* particles_emiter;        
 	}
 	else {
 		current_yaw = left ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
@@ -144,15 +145,15 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			VEC3 player_position = c_my_transform->getPosition();
 			VEC3 player_front = c_my_transform->getFront();
 			
-      //FRONT
-      VEC3 posef = player_position + player_front * 0.3f;
-			PxVec3 originf = PxVec3(posef.x, posef.y +0.5f, posef.z);
-      PxVec3 unitDirf = PxVec3(player_front.x, player_front.y, player_front.z);
+          //FRONT
+            VEC3 posef = player_position + player_front * 0.3f;
+	        PxVec3 originf = PxVec3(posef.x, posef.y +0.5f, posef.z);
+            PxVec3 unitDirf = PxVec3(player_front.x, player_front.y, player_front.z);
       
-      //BACK
-      VEC3 poseb = player_position - player_front * 0.3f;
-      PxVec3 originb = PxVec3(poseb.x, poseb.y + 0.5f, poseb.z);
-      PxVec3 unitDirb = PxVec3(-player_front.x, -player_front.y, -player_front.z);
+          //BACK
+            VEC3 poseb = player_position - player_front * 0.3f;
+            PxVec3 originb = PxVec3(poseb.x, poseb.y + 0.5f, poseb.z);
+            PxVec3 unitDirb = PxVec3(-player_front.x, -player_front.y, -player_front.z);
 
 			PxReal maxDistance = 4.0f;
 			PxRaycastBuffer hit;
@@ -160,22 +161,22 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			if (EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) {
 				PxFilterData filter_data = hit.block.shape->getSimulationFilterData();
 
-        if (filter_data.word0 == CModulePhysics::FilterGroup::Scenario) {
-					//TODO: Mandar mensaje a la camara para que se quede quieta -> MANUE el LLoron
-          CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
-          rayWall = true;
-          TMsgDeactiveCamera msg;
-          e->sendMsg(msg);
-        }
+                if (filter_data.word0 == CModulePhysics::FilterGroup::Scenario) {
+					        //TODO: Mandar mensaje a la camara para que se quede quieta -> MANUE el LLoron
+                  CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
+                  rayWall = true;
+                  TMsgDeactiveCamera msg;
+                  e->sendMsg(msg);
+                }
         
 			}
-      else if(rayWall && !EnginePhysics.gScene->raycast(originb, unitDirb, maxDistance / 2, hit)) {
-        CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
-        rayWall = false;
-        TMsgActiveCamera msg;
-        msg.blend_time = 2.f;
-        e->sendMsg(msg);
-      }
+            else if(rayWall && !EnginePhysics.gScene->raycast(originb, unitDirb, maxDistance / 2, hit)) {
+                CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
+                rayWall = false;
+                TMsgActiveCamera msg;
+                msg.blend_time = 2.f;
+                e->sendMsg(msg);
+            }
 
 			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, query_filter, filter_controller));
 			
@@ -206,15 +207,15 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				e->sendMsg(omniMsg);
 			}
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && is_grounded) {
-                if (!fall_anim) {
-                    fall_anim = true;
-                    falling_time = 0;
-                }
-                else {
-                    falling_time += dt;
-                }
-                if (falling_time > 0.15) {
-                    fall_anim = false;
+                //FRONT
+                VEC3 posef = player_position;
+                PxVec3 originf = PxVec3(posef.x, posef.y, posef.z);
+                PxVec3 unitDirf = PxVec3(0,-1,0);
+
+                PxReal maxDistance = 0.5f;
+                PxRaycastBuffer hit;
+
+                if (!EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) {
                     is_grounded = false;
                     y_speed_factor = 0;
                     jumping_start_height = c_my_transform->getPosition().y;

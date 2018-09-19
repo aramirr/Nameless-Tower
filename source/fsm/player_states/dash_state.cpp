@@ -16,6 +16,13 @@ namespace FSM
         player->clear_animations(0.1f);
 		player->change_animation(player->EAnimations::NajaDashStrike, _is_action, _delay_in, _delay_out, true);
 
+        CEntity* particles_emiter;
+        if (player->looking_left)
+            particles_emiter = (CEntity*)getEntityByName("humo_dash_left");
+        else
+            particles_emiter = (CEntity*)getEntityByName("humo_dash_right");
+        TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+        c_particles->emit();
 		CEntity* trail = (CEntity *)getEntityByName("player_trail");
 		if (trail)
 		{

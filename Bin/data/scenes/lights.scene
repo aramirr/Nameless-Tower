@@ -19,7 +19,8 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 45.0
-      }   
+      },
+        "culling":true   
     }
   },
   {
@@ -42,7 +43,8 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 45.0
-      }    
+      } ,
+        "culling":true   
     }
   },
   {
@@ -66,7 +68,8 @@
         "is_orthographic": true,
         "ortho_width": 50,
         "ortho_height": 40
-      }    
+      } ,
+        "culling":true   
     }
   },
   {
@@ -89,7 +92,8 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 42
-      }    
+      }    ,
+        "culling":true
     }
   },
   {
