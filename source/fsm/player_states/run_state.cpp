@@ -15,12 +15,13 @@ namespace FSM
         player->run_time = 0;
 		EngineSound.res = _sound->start();
         CEntity* particles_emiter;
-        if (player->looking_left)
+        if (player->left_key)
             particles_emiter = (CEntity*)getEntityByName("humo_run_left");
         else
             particles_emiter = (CEntity*)getEntityByName("humo_run_right");
         TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
         c_particles->emit();
+        player->run_sprite = false;
 	}
 
 	bool RunState::load(const json& jData)
@@ -63,10 +64,14 @@ namespace FSM
 			if (!player->looking_left) {
 				player->looking_left = true;
 				player->move_player(false, true, dt, y_speed, _x_speed);
-                CEntity* particles_emiter;
-                particles_emiter = (CEntity*)getEntityByName("humo_run_left");
-                TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
-                c_particles->emit();
+                if (player->run_sprite) {
+                    CEntity* particles_emiter;
+                    particles_emiter = (CEntity*)getEntityByName("humo_run_left");
+                    TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+                    c_particles->emit();
+                }
+                else
+                    player->run_sprite = true;
 			}
 			else {
 				player->move_player(false, false, dt, y_speed, _x_speed);
@@ -79,10 +84,13 @@ namespace FSM
 			else {
 				player->looking_left = false;
 				player->move_player(true, true, dt, y_speed, _x_speed);
-                CEntity* particles_emiter;
-                particles_emiter = (CEntity*)getEntityByName("humo_run_right");
-                TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
-                c_particles->emit();
+                if (player->run_sprite) {
+                    CEntity* particles_emiter;
+                    particles_emiter = (CEntity*)getEntityByName("humo_run_right");
+                    TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+                    c_particles->emit();
+                } else
+                    player->run_sprite = true;
 			}
 		}
 		else {
