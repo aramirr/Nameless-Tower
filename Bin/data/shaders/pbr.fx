@@ -223,9 +223,8 @@ void PS_GBuffer_Alpha(
   // Store in the Alpha channel of the albedo texture, the 'metallic' amount of
   // the material
     o_albedo = txAlbedo.Sample(samLinear, iTex0);
-    o_albedo.a = txAlpha.Sample(samLinear, iTex0).r;
 
-    if (o_albedo.a < 0.3) 
+    if (txAlpha.Sample(samLinear, iTex0).r < 0.3) 
         discard;
 
     float3 N = computeNormalMap(iNormal, iTangent, iTex0);
@@ -591,7 +590,7 @@ float4 PS_ambient(
                               , albedo.a) + self_illum;
 
 
-        final_color = final_color * global_ambient_adjustment/* * ao*/;
+        final_color = final_color * global_ambient_adjustment /* * ao*/;
         final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
 
         final_color.a = 1;
@@ -620,8 +619,7 @@ float4 PS_ambient(
     }
   
    
-    return float4(postprocesado(final_color.rgb), final_color.a);
-    //return postprocesado2(final_color);
+    return final_color;
 
 }
 
