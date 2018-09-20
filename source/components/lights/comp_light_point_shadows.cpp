@@ -6,6 +6,7 @@
 #include "ctes.h"                     // texture slots
 #include "render/texture/render_to_cube.h" 
 #include "render/render_manager.h" 
+#include "components/juan/comp_culling.h"
 
 DECL_OBJ_MANAGER("light_point_shadows", TCompLightPointShadows);
 
@@ -169,7 +170,8 @@ void TCompLightPointShadows::generateShadowMap() {
     
     // We are going to render the scene from the light position & orientation
     activateCamera(camera, shadows_cube_rt->getWidth(), shadows_cube_rt->getHeight());
-    CRenderManager::get().renderCategory("shadows");
+
+    CRenderManager::get().renderCategory("shadows", nullptr);
   }
 
 }

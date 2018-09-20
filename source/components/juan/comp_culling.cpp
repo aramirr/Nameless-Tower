@@ -2,6 +2,7 @@
 #include "comp_culling.h"
 #include "comp_aabb.h"
 #include "components/camera/comp_camera.h"
+#include "entity/entity_parser.h"
 //#include "comp_msgs.h"
 
 DECL_OBJ_MANAGER("culling", TCompCulling);
@@ -45,12 +46,21 @@ void TCompCulling::update( float dt ) {
 	//PROFILE_FUNCTION("Updating culling");
 
 	// Conseguimos acceso al comp_camera de un sibling component
-    CEntity* e_camera = EngineCameras.getActiveCamera();
-  TCompCamera* c_camera = e_camera->get<TCompCamera>();
+	CEntity* e = h_entity;
+  TCompCamera* c_camera = e->get<TCompCamera>();
   if (!c_camera)
     return;
   MAT44 view_proj = c_camera->getViewProjection();
 	//e_owner->sendMsg(TMsgGetCullingViewProj{ &view_proj });
 
   updateFromMatrix(view_proj);
+}
+
+void TCompCulling::load(const json& j, TEntityParseContext& ctx) {
+	setEntity(ctx.current_entity);
+}
+
+void TCompCulling::setEntity(CHandle new_entity) {
+	h_entity = new_entity;
+	assert(h_entity.isValid());
 }

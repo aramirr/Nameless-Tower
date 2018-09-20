@@ -2,6 +2,7 @@
 #define INC_RENDER_MANAGER_H_
 
 #include "entity/entity.h"
+#include "components/juan/comp_culling.h"
 
 class CTexture;
 class CRenderMesh;
@@ -78,7 +79,7 @@ public:
     , bool only_shadows = false
   );
 
-  void renderCategory(const char* category_name );
+  void renderCategory(const char* category_name, const TCompCulling* culling = nullptr);
   
   void debugInMenu();
 

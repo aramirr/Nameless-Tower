@@ -6,6 +6,8 @@
 #include "ctes.h"                     // texture slots
 #include "render/texture/render_to_texture.h" 
 #include "render/render_manager.h" 
+#include "components/juan/comp_culling.h"
+#include "entity/entity_parser.h"
 
 DECL_OBJ_MANAGER("light_dir", TCompLightDir);
 
@@ -26,10 +28,12 @@ void TCompLightDir::renderDebug() {
 
 // -------------------------------------------------
 void TCompLightDir::load(const json& j, TEntityParseContext& ctx) {
+	setEntity(ctx.current_entity);
   TCompCamera::load( j, ctx );
   if(j.count("color"))
     color = loadVEC4(j["color"]);
-  intensity = j.value("intensity", intensity);
+	intensity = j.value("intensity", intensity);
+	has_culling = j.value("has_culling", false);
 
   if( j.count("projector")) {
     std::string projector_name = j.value("projector", "");
@@ -134,13 +138,22 @@ void TCompLightDir::generateShadowMap() {
   }
 
 	//¿?CRenderManager::get().setEntityCamera(CHandle(this).getOwner());
-  CRenderManager::get().renderCategory("shadows");
+	TCompCulling* culling;
+	if (has_culling) {
+		CEntity* e = h_entity;
+		culling = e->get<TCompCulling>();
+	}
+	else culling = nullptr;
+
+	CRenderManager::get().renderCategory("shadows", culling);  
 }
 
 void TCompLightDir::setIntensity(float value) {
   intensity = value;
 }
 
-
-
+void TCompLightDir::setEntity(CHandle new_entity) {
+	h_entity = new_entity;
+	assert(h_entity.isValid());
+}
 

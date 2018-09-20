@@ -18,9 +18,10 @@
         "shadows_resolution" : 2048,
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
-        "ortho_width": 45.0
+        "ortho_width": 45.0,
+        "has_culling": true
       },
-        "culling":true   
+        "culling": {}   
     }
   },
   {
@@ -42,9 +43,10 @@
         "shadows_resolution" : 2048,
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
-        "ortho_width": 45.0
+        "ortho_width": 45.0,
+        "has_culling": true
       } ,
-        "culling":true   
+        "culling": {}   
     }
   },
   {
@@ -67,9 +69,10 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 50,
-        "ortho_height": 40
+        "ortho_height": 40,
+        "has_culling": true
       } ,
-        "culling":true   
+        "culling": {}   
     }
   },
   {
@@ -91,9 +94,10 @@
         "shadows_resolution" : 2048,
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
-        "ortho_width": 42
+        "ortho_width": 42,
+        "has_culling": true
       }    ,
-        "culling":true
+        "culling": {}
     }
   },
   {
