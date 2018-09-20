@@ -32,6 +32,8 @@ public:
   //Lights
   void setDirLightIntensity(const char* name, float value);
   void setPointLightIntensity(const char* name, float value);
+	void setNajaInterior();
+	void setnajaExterior();
 
   // Change level
   void changeGameState(const char* name);

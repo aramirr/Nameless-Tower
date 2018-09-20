@@ -590,8 +590,8 @@ float4 PS_ambient(
                               , albedo.a) + self_illum;
 
 
-        final_color = final_color * global_ambient_adjustment/* * ao*/;
-        final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
+        final_color = final_color * 5/* * ao*/;
+        final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * 5;
 
         final_color.a = 1;
 

@@ -225,7 +225,7 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
 	float global_gamma_correction_enabled;
 	float global_tone_mapping_mode;
 	int   global_render_output;
-	int global_naja_interior;
+	int   global_naja_interior;
 	//float global_fog_density;
 
 	float global_shared_fx_amount;
@@ -250,7 +250,7 @@ CB_DEF(CCteMaterial, CB_MATERIAL)
 	//VEC4   color_emission;
 	//VEC4   color_material;
 
-	int  material_interior;
+	int  material_dummy;
 
 	float  mix_boost_r;
 	float  mix_boost_g;
