@@ -185,3 +185,17 @@ void TCompOrbitCamera::update(float dt) {
   c->setPosition(newPos);
   c->lookAt(newPos, center);
 }
+
+void TCompOrbitCamera::setPosition(VEC3 position)
+{
+	dbg("PRUEBA");
+	active = false;
+	oldPos = position;
+	TCompTransform* c = get<TCompTransform>();
+	assert(c);
+	VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
+	c->setPosition(position);
+	c->lookAt(position, center);
+	carga = true;
+	active = true;
+}

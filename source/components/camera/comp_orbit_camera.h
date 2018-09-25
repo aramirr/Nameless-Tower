@@ -52,5 +52,6 @@ public:
   void debugInMenu();
   void load(const json& j, TEntityParseContext& ctx);
   void update(float dt);
+	void setPosition(VEC3 position);
   DECL_SIBLING_ACCESS();
 };
