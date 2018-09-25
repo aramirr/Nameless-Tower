@@ -7,6 +7,7 @@ class IAIController;
 
 class CModuleTower : public IModule {
 
+	bool cargar = true;
 	bool changeExposure;
 	float newExposure;
 	float oldExposure;

@@ -10,9 +10,6 @@
 bool CModuleTower::start()
 {
 	changeExposure = false;
-	/*newExposure = 0.f;
-	oldExposure = cb_globals.global_exposure_adjustment;*/
-	defaultExposure = cb_globals.global_exposure_adjustment;
 	return true;
 }
 
@@ -34,7 +31,12 @@ void CModuleTower::update(float delta)
 				changeExposure = false;
 			}
 		}
-
+	}
+	if (cargar) {
+		newExposure = 0.f;
+		oldExposure = cb_globals.global_exposure_adjustment;
+		defaultExposure = cb_globals.global_exposure_adjustment;
+		cargar = false;
 	}
 }
 
