@@ -30,8 +30,8 @@ public:
 	void disactivateText(const char* name);
 
   //Lights
-  void setDirLightIntensity(const char* name, float value);
-  void setPointLightIntensity(const char* name, float value);
+  void setDirLightIntensity(const char* name, float value, bool left);
+  void setPointLightIntensity(const char* name, float value, bool left);
 	void setNajaInterior();
 	void setnajaExterior();
 	void setExposure(float value);
