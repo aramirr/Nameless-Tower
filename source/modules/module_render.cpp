@@ -151,9 +151,10 @@ void CModuleRender::render()
 		ImGui::DragFloat("Contrast", &cb_globals.global_contrast_adjustment, 0.005f, 0.0f, 1.f);
 		//ImGui::DragFloat("Saturation", &cb_globals.global_saturation_adjustment, 0.01f, -100.f, 100.f);
 		if (ImGui::SmallButton("Reset post procesado")) {
+			cb_globals.global_exposure_adjustment = 0.260f;
 			cb_globals.global_hue_adjustment = 1.f;
 			cb_globals.global_sat_adjustment = 1.f;
-			cb_globals.global_light_adjustment = 1.f;
+			cb_globals.global_light_adjustment = 0.f;
 			cb_globals.global_contrast_adjustment = 0.215f;
 		}
 

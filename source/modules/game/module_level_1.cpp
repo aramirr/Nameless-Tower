@@ -50,7 +50,7 @@ bool CModuleLevel1::start()
 	if (!cb_particles.create(CB_PARTICLE))
 		return false;
 
-	cb_globals.global_exposure_adjustment = 1.f;
+	cb_globals.global_exposure_adjustment = 0.260f;
 	cb_globals.global_ambient_adjustment = 1.f;
 	//cb_globals.global_exposure_adjustment = 2.010f;
 	//cb_globals.global_ambient_adjustment = 0.150f;
@@ -62,7 +62,7 @@ bool CModuleLevel1::start()
 	//cb_globals.global_self_intensity = 10.f;
 	cb_globals.global_hue_adjustment = 1.f;
 	cb_globals.global_sat_adjustment = 1.f;
-	cb_globals.global_light_adjustment = 1.f;
+	cb_globals.global_light_adjustment = 0.f;
 
 	cb_globals.global_contrast_adjustment = 0.215f;
 
