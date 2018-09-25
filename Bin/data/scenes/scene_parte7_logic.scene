@@ -1,0 +1,500 @@
+[
+  {
+    "entity":
+    {
+      "name": "ParedTapada5"
+      ,
+      "transform":
+      {
+        "pos": "1.90735e-06 9.0 5.60272e-07"
+        ,
+        "rotation": "0.0 -0.99152 0.0 0.129958"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedTapada5.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedTapada4"
+      ,
+      "transform":
+      {
+        "pos": "1.90735e-06 4.5 7.56973e-07"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedTapada4.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Puerta_Abatible_Madera_01"
+      ,
+      "transform":
+      {
+        "pos": "-29.1321 22.5 -8.91518"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puerta_Cerrada_01.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "door":
+      {
+        "up": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "AguaMuerte001"
+      ,
+      "transform":
+      {
+        "pos": "-6.76662 21.506 -29.5998"
+        ,
+        "rotation": "0.0 -0.797485 0.0 -0.603339"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.98433 1.6875 8.40013"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sierra006"
+      ,
+      "transform":
+      {
+        "pos": "-29.55 11.2862 -6.69738"
+        ,
+        "rotation": "0.0 -0.995529 0.0 -0.0944558"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sierra006.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SierraLinealMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 1.5
+        ,
+        "delay": 0.1
+        ,
+        "wake": 1.1
+        ,
+        "waypoints":
+        [
+          "-29.55 11.2862 -6.69738"
+          ,
+          "-29.55 6.2601 -6.69738"
+        ]
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "circular_controller":
+      {
+        "speed": 5.0
+        ,
+        "eje": "X"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "mesh_src": "data/meshes/Sierra006.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sierra005"
+      ,
+      "transform":
+      {
+        "pos": "-28.8666 11.2862 -8.97217"
+        ,
+        "rotation": "0.0 -0.989221 0.0 -0.146428"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sierra006.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SierraLinealMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 1.5
+        ,
+        "delay": 0.5
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "-28.8666 11.2862 -8.97217"
+          ,
+          "-28.8666 6.68916 -8.97217"
+        ]
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "circular_controller":
+      {
+        "speed": 5.0
+        ,
+        "eje": "X"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "mesh_src": "data/meshes/Sierra006.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PuertaCortante01"
+      ,
+      "transform":
+      {
+        "pos": "-31.2001 23.46 -0.255647"
+        ,
+        "rotation": "0.0 9.55686e-05 0.0 -1.0"
+      }
+      ,
+      "render":
+      {
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PuertaCortante01_up"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_up.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-31.2001 23.46 0.255646"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 1.7335 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 1.816 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "PuertaCortante01"
+      }
+      ,
+      "ai_cut_door":
+      {
+        "opened_position": 3.0
+        ,
+        "up": true
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PuertaCortante01_down"
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cut_door_down.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaM.material"
+          ]
+        }
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-31.2001 23.46 0.255646"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.475 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "offset": "0 -0.5175 0"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "PuertaCortante01"
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PuertaCortante01_trigger_up"
+      ,
+      "render":
+      [
+      ]
+      ,
+      "transform":
+      {
+        "pos": "-31.2001 23.46 0.255646"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2675 0.0825 0.247"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "PuertaCortante01_up"
+        ,
+        "pos": "0 0 0"
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pinchos003"
+      ,
+      "transform":
+      {
+        "pos": "-29.9721 2.91952 -8.098"
+        ,
+        "rotation": "0.0 -0.62932 0.0 -0.777146"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PinchosM.material"
+            ,
+            "data/materials/PinchosSangreM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+]

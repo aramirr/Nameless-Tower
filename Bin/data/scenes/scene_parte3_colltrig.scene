@@ -2,6 +2,35 @@
   {
     "entity":
     {
+      "name": "PuenteColl"
+      ,
+      "transform":
+      {
+        "pos": "27.2495 84.7377 -13.8358"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/PuenteColl.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Solidos_Escena03"
       ,
       "transform":
@@ -62,13 +91,13 @@
   {
     "entity":
     {
-      "name": "TARunner"
+      "name": "TSRunnerCascada"
       ,
       "transform":
       {
-        "pos": "11.2207 69.2193 29.1045"
+        "pos": "30.6975 65.1702 -6.41781"
         ,
-        "rotation": "0.0 -0.0821496 0.0 -0.99662"
+        "rotation": "-0.444997 0.444997 0.549525 -0.549525"
       }
       ,
       "render":
@@ -90,11 +119,55 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "0.656078 0.456476 0.66096"
+        "halfExtent": "2.28488 0.136176 1.13929"
         ,
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSArbolRunner"
+      ,
+      "transform":
+      {
+        "pos": "6.70561 60.7138 30.556"
+        ,
+        "rotation": "0.703233 -0.703233 -0.0739127 0.0739127"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "group": "scenario"
       }
     }
   }

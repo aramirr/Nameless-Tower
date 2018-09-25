@@ -764,7 +764,7 @@
       ,
       "transform":
       {
-        "pos": "4.63481 92.152 -29.4466"
+        "pos": "4.86845 92.152 -30.3255"
         ,
         "rotation": "0.0 -0.00313643 0.0 -0.999995"
       }
@@ -872,11 +872,11 @@
   {
     "entity":
     {
-      "name": "Techos_escena04"
+      "name": "Techo_parte4_A"
       ,
       "transform":
       {
-        "pos": "7.05475 90.0249 -26.2144"
+        "pos": "18.1974 90.0249 -24.8986"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -884,7 +884,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Techos_escena04.mesh"
+          "mesh": "data/meshes/Techo_parte4_A.mesh"
           ,
           "materials":
           [
@@ -900,7 +900,7 @@
   {
     "entity":
     {
-      "name": "Techo_Final"
+      "name": "Techo_parte4_B"
       ,
       "transform":
       {
@@ -912,7 +912,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Techo_Final.mesh"
+          "mesh": "data/meshes/Techo_parte4_B.mesh"
           ,
           "materials":
           [

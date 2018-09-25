@@ -426,16 +426,16 @@
       [
       ]
       ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
       "trigger":
       {
         "trigger_type": "player_killer"
         ,
         "render": false
-      }
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
       }
       ,
       "collider":
