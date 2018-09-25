@@ -123,15 +123,28 @@ void TCompOrbitCamera::update(float dt) {
   }
   else if (currentPlayerY > pPos.y + 0.1f) {
     if (dY > height + height + 1.5f) speedCaida = 40.f;
-    else if (dY > height + (height / 2) + 1.5f) speedCaida = 30.f;
-    else if (dY > height + (height / 3) + 1.5f) speedCaida = 20.f;
-    else if (dY > height + (height / 4) + 1.5f) speedCaida = 10.f;
-    else speedCaida = 0.f;
-
+		else if (dY > height + (height / 2) + 1.5f) {
+			currentPlayerY = pPos.y;
+			speedCaida = 30.f;
+		}	
+		else if (dY > height + (height / 3) + 1.5f) {
+			currentPlayerY = pPos.y;
+			speedCaida = 20.f;
+		}
+		else if (dY > height + (height / 4) + 1.5f) {
+			currentPlayerY = pPos.y;
+			speedCaida = 10.f;
+		}
+		else if (dY > height + (height / 5) + 1.5f) {
+			currentPlayerY = pPos.y;
+			speedCaida = 5.f;
+		}
+		else {
+			//dbg(std::to_string(dY) + std::string(">") + std::to_string(height + (height / 5) + 1.5f));
+			currentPlayerY -= 0.05f;
+			speedCaida = 0.f;
+		}
 	b_caida = true;
-	currentPlayerY = pPos.y;
-
-
   }
 
   VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
