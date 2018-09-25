@@ -46,7 +46,7 @@ float4 compute(float4 iPosition, float2 iUV, float1 cell)
     if (cell == 0)
         hdrColor *= global_exposure_adjustment;
     else if (global_naja_interior == 0)
-        hdrColor *= global_exposure_adjustment / 2;
+        hdrColor *= global_exposure_adjustment / 1.2;
     else
         hdrColor *= 1;
 
