@@ -210,8 +210,13 @@ namespace Particles
       case TCoreSystem::TEmission::Line:
         return VEC3(random(-size, size), 0.f, 0.f);
 
-      case TCoreSystem::TEmission::Square:
-        return VEC3(random(-size, size), 0.f, random(-size, size));
+			case TCoreSystem::TEmission::Square:
+				return VEC3(random(-size, size), 0.f, random(-size, size));
+
+			case TCoreSystem::TEmission::Rectangle: {
+				const float& size_2 = _core->emission.size_2;
+				return VEC3(random(-size, size), 0.f, random(-size_2, size_2));
+			}
 
       case TCoreSystem::TEmission::Box:
         return VEC3(random(-size, size), random(-size, size), random(-size, size));

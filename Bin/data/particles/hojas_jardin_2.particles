@@ -1,37 +1,39 @@
 {
   "life" : {
-      "duration" : 16,
-      "duration_variation" : 0,
-      "max_particles" : 4000,
-      "time_factor" : 1.0
+      "duration" : 19.0,
+      "max_particles" : 500,
+      "time_factor" : 1.0,
+      "duration_variation" : 1.0
   },
   "emission" : {
       "type" : "rectangle",
-      "size" : 3.0,
-      "size_2" : 2.5,
-      "angle" : 0.400,
-      "interval" : 0.4,
-      "count" : 1,
+      "size" : 2,
+      "size_2" : 2.0,
+      "interval" : 7.0,
+      "count" : 4,
       "cyclic" : true,
+      "angle" : 3.9,
       "random_rotation": true
   },
   "movement" : {
-      "velocity" : 2.0,
+      "velocity" : -0.8,
       "acceleration" : 0.0,
       "spin" : 0.175,
-      "wind" : 0.0,
-      "gravity" : 0,
-      "ground" : true
+      "wind" : 0.05,
+      "gravity" : 0.005,
+      "ground" : true,
+      "ground_y": 31.5
   },
   "render" : {
       "texture" : "data/textures/particles/Hoja_Particula1.dds"
   },
   "size" : {
-    "scale" : 0.15,
-    "scale_variation" : 0.0,
+    "scale" : 0.2,
+    "scale_variation" : 0.075,
     "sizes" : [
       [0.0, 1.0],
-      [1.0, 1.0]
+      [0.9, 1.0],
+      [1.0, 0.0]
     ]
   },
   "color" : {

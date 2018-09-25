@@ -1,21 +1,22 @@
 {
   "life" : {
-      "duration" : 20.0,
+      "duration" : 22.0,
       "max_particles" : 500,
       "time_factor" : 1.0,
-      "duration_variation" : 1.5
+      "duration_variation" : 1.0
   },
   "emission" : {
-      "type" : "square",
-      "size" : 10.000,
-      "interval" : 1.0,
-      "count" : 10,
+      "type" : "rectangle",
+      "size" : 2.000,
+      "size_2" : 6.000,
+      "interval" : 2.0,
+      "count" : 3,
       "cyclic" : true,
       "angle" : 3.9,
       "random_rotation": true
   },
   "movement" : {
-      "velocity" : -0.4,
+      "velocity" : -0.6,
       "acceleration" : 0.0,
       "spin" : 0.175,
       "wind" : 0.05,
@@ -31,7 +32,7 @@
     "scale_variation" : 0.075,
     "sizes" : [
       [0.0, 1.0],
-      [0.8, 1.0],
+      [0.9, 1.0],
       [1.0, 0.0]
     ]
   },
