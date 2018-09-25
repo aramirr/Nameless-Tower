@@ -50,7 +50,7 @@ void LogicManager::setAmbientAdjustment(float value) {
 };
 
 void LogicManager::setExposureAdjustment(float value) {
-    EngineTower.setExposureAdjustment(value);
+    EngineTower.setExposure(value);
 };
 
 void LogicManager::playLastCinematic() {

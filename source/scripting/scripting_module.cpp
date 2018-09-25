@@ -35,6 +35,8 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("open_door", &LogicManager::openDoor)
     .set("activate_anim", &LogicManager::activateAnim)
     .set("change_level", &LogicManager::changeGameState)
+		.set("set_naja_int", &LogicManager::setNajaInterior)
+		.set("set_naja_ext", &LogicManager::setnajaExterior)
 		;
 }
 

@@ -7,6 +7,11 @@ class IAIController;
 
 class CModuleTower : public IModule {
 
+	bool changeExposure;
+	float newExposure;
+	float oldExposure;
+	float defaultExposure;
+
 protected:
 	float tower_radius = 31.5f;
 	VEC3  last_checkpoint_position;
@@ -37,6 +42,7 @@ public:
   const void deactivateCinematic(const std::string& name);
   const void setDirLightIntensity(const std::string& name, float intensity);
   const void setPointLightIntensity(const std::string& name, float intensity);
+	void setExposure(float _exposure);
 
 
 	float getTowerRadius();

@@ -9,11 +9,33 @@
 
 bool CModuleTower::start()
 {
+	changeExposure = false;
+	/*newExposure = 0.f;
+	oldExposure = cb_globals.global_exposure_adjustment;*/
+	defaultExposure = cb_globals.global_exposure_adjustment;
 	return true;
 }
 
 void CModuleTower::update(float delta)
 {
+	if (changeExposure) {
+		if (newExposure > oldExposure) {
+			cb_globals.global_exposure_adjustment += 0.01f;
+			oldExposure = cb_globals.global_exposure_adjustment;
+			if (oldExposure > newExposure) {
+				if (oldExposure > defaultExposure)newExposure = defaultExposure;
+				else changeExposure = false;
+			}
+		}
+		else if (newExposure < oldExposure) {
+			cb_globals.global_exposure_adjustment -= 0.01f;
+			oldExposure = cb_globals.global_exposure_adjustment;
+			if (oldExposure < newExposure) {
+				changeExposure = false;
+			}
+		}
+
+	}
 }
 
 void CModuleTower::render()
@@ -154,4 +176,9 @@ const void CModuleTower::activateAnim(const std::string& name) {
 	CEntity* entity = (CEntity*)getEntityByName(name);
 	TMsgActivateAnim msg;
 	entity->sendMsg(msg);
+}
+
+void CModuleTower::setExposure(float _exposure) {
+	newExposure = _exposure;
+	changeExposure = true;
 }
