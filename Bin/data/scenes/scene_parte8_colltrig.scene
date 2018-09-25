@@ -1,0 +1,61 @@
+[
+  {
+    "entity":
+    {
+      "name": "Paredes_Parte08"
+      ,
+      "transform":
+      {
+        "pos": "-8.01597 9.0 30.1669"
+        ,
+        "rotation": "0.0 -0.587785 0.0 -0.809017"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Paredes_Parte08.col_mesh"
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Solidos_Parte08"
+      ,
+      "transform":
+      {
+        "pos": "-19.5244 11.25 21.2969"
+        ,
+        "rotation": "0.0 -0.544639 0.0 -0.838671"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Solidos_Parte08.col_mesh"
+      }
+    }
+  }
+]

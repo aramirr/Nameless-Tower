@@ -2,6 +2,174 @@
   {
     "entity":
     {
+      "name": "Plataforma_008"
+      ,
+      "transform":
+      {
+        "pos": "18.3289 41.5617 24.1222"
+        ,
+        "rotation": "0.0 -0.837813 0.0 -0.545957"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plataforma_008.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PlatMaderaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Plataforma_007"
+      ,
+      "transform":
+      {
+        "pos": "30.1255 39.4361 2.64262"
+        ,
+        "rotation": "0.0 -0.99013 0.0 -0.14015"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plataforma_007.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_parte2_E"
+      ,
+      "transform":
+      {
+        "pos": "3.24912 63.0254 29.6875"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte2_E.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Normal.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_parte2_D"
+      ,
+      "transform":
+      {
+        "pos": "11.2651 36.025 28.8963"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte2_D.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Normal.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_parte2_C"
+      ,
+      "transform":
+      {
+        "pos": "25.9946 40.5249 15.0271"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte2_C.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Normal.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_parte2_B"
+      ,
+      "transform":
+      {
+        "pos": "29.2016 47.2749 -6.50102"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte2_B.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Normal.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "plant_HangingFern_Long"
       ,
       "transform":
@@ -418,6 +586,34 @@
       ]
       ,
       "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "marco004"
+      ,
+      "transform":
+      {
+        "pos": "29.652 44.9364 -3.6909"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/marco004.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MarcoMater.material"
+            ,
+            "data/materials/ArcoMater.material"
+          ]
+        }
+      ]
     }
   }
   ,
@@ -1807,11 +2003,11 @@
   {
     "entity":
     {
-      "name": "Techos_Escena02"
+      "name": "Techo_parte2_A"
       ,
       "transform":
       {
-        "pos": "16.0316 49.5254 0.0888803"
+        "pos": "17.7508 38.275 -17.7508"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -1819,7 +2015,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Techos_Escena02.mesh"
+          "mesh": "data/meshes/Techo_parte2_A.mesh"
           ,
           "materials":
           [
@@ -1835,7 +2031,7 @@
   {
     "entity":
     {
-      "name": "Techos2"
+      "name": "Techo_parte2_F"
       ,
       "transform":
       {
@@ -1847,7 +2043,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Techos2.mesh"
+          "mesh": "data/meshes/Techo_parte2_F.mesh"
           ,
           "materials":
           [
@@ -2312,62 +2508,6 @@
           "materials":
           [
             "data/materials/RocaGris.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_003"
-      ,
-      "transform":
-      {
-        "pos": "20.4445 41.5647 22.8503"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Madera_02.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_002"
-      ,
-      "transform":
-      {
-        "pos": "30.5477 39.4606 2.79932"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_002.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Madera_02.material"
           ]
         }
       ]

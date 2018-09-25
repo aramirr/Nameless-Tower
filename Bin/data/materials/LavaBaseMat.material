@@ -1,0 +1,22 @@
+{
+  "technique": "pbr.tech"
+  ,
+  "shadows": true
+  ,
+  "textures":
+  {
+    "albedo": "data/textures/lava_b.dds"
+    ,
+    "normal": "data/textures/clouds_n.dds"
+    ,
+    "emissive": "data/textures/lava_e.dds"
+    ,
+    "alpha": "data/textures/null_opacity.dds"
+    ,
+    "transparency": "data/textures/null_transparency.dds"
+    ,
+    "height": "data/textures/null_height.dds"
+    ,
+    "orm": "data/textures/agua_orm.dds"
+  }
+}

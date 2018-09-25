@@ -24,21 +24,25 @@ void LogicManager::appearEntity(const char* name) {
   EngineTower.appearEntity(name);
 }
 
-void LogicManager::renderOnlyShadows(const char* name) {
-  EngineTower.renderOnlyShadows(name);
+void LogicManager::renderOnlyShadows(const char* name, bool left) {
+  if (applyFunction(left))
+      EngineTower.renderOnlyShadows(name);
 }
 
-void LogicManager::renderEverything(const char* name) {
-  EngineTower.renderEverything(name);
+void LogicManager::renderEverything(const char* name, bool left) {
+    if (applyFunction(left))
+        EngineTower.renderEverything(name);
 }
 
 // Cinematics
-void LogicManager::activateCinematic(const char* name) {
-    EngineTower.activateCinematic(name);    
+void LogicManager::activateCinematic(const char* name, bool left) {
+    if (applyFunction(left))
+        EngineTower.activateCinematic(name);
 }
 
-void LogicManager::deactivateCinematic(const char* name) {
-    EngineTower.deactivateCinematic(name);    
+void LogicManager::deactivateCinematic(const char* name, bool left) {
+    if (applyFunction(left))
+        EngineTower.deactivateCinematic(name);
 }
 
 // Misc
@@ -79,12 +83,14 @@ void LogicManager::disactivateText(const char* name) {
 }
 
 // Lights
-void LogicManager::setDirLightIntensity(const char* name, float value) {
-  EngineTower.setDirLightIntensity(name, value);
+void LogicManager::setDirLightIntensity(const char* name, float value, bool left) {
+    if (applyFunction(left))
+        EngineTower.setDirLightIntensity(name, value);
 }
 
-void LogicManager::setPointLightIntensity(const char* name, float value) {
-  EngineTower.setPointLightIntensity(name, value);
+void LogicManager::setPointLightIntensity(const char* name, float value, bool left) {
+    if (applyFunction(left))
+        EngineTower.setPointLightIntensity(name, value);
 }
 
 // Change Level
@@ -96,4 +102,10 @@ void LogicManager::changeGameState(const char* name) {
         CEngine::get().getModules().changeGameState(name);
         player->game_state = "level_2";
     }        
+}
+
+bool LogicManager::applyFunction(bool left) {
+    CEntity* e = getEntityByName("The Player");
+    TCompPlayerController* player = e->get<TCompPlayerController>();
+    return player->looking_left == left;
 }

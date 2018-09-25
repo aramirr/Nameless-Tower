@@ -5,8 +5,18 @@
   ,
   "textures":
   {
-    "albedo": "data/textures/ColmillosDif.dds"
+    "albedo": "data/textures/.dds"
     ,
-    "normal": "data/textures/ColmillosNormal.dds"
+    "normal": "data/textures/.dds"
+    ,
+    "emissive": "data/textures/.dds"
+    ,
+    "alpha": "data/textures/null_opacity.dds"
+    ,
+    "transparency": "data/textures/null_transparency.dds"
+    ,
+    "height": "data/textures/null_height.dds"
+    ,
+    "orm": "data/textures/null_ambientOcclusion.dds"
   }
 }
