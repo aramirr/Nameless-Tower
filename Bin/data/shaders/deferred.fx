@@ -33,7 +33,7 @@ float3 toneMappingUncharted2(float3 x)
 }
 
 // ----------------------------------------
-float4 compute(float4 iPosition, float2 iUV)
+float4 compute(float4 iPosition, float2 iUV, float1 cell)
 {
     int3 ss_load_coords = uint3(iPosition.xy, 0);
     float4 oAlbedo = txGBufferAlbedos.Load(ss_load_coords);
@@ -43,7 +43,12 @@ float4 compute(float4 iPosition, float2 iUV)
 
     float3 hdrColor = txAccLights.Load(ss_load_coords).xyz;
 
-    hdrColor *= global_exposure_adjustment;
+    if (cell == 0)
+        hdrColor *= global_exposure_adjustment;
+    else if (global_naja_interior == 0)
+        hdrColor *= 0.5;
+    else
+        hdrColor *= 1;
 
   // In Low Dynamic Range we could not go beyond the value 1
     float3 ldrColor = min(hdrColor, float3(1, 1, 1));
@@ -94,11 +99,12 @@ float4 PS_face(
 , in float2 iUV : TEXCOORD0
   ) : SV_Target
 {
-
+    int3 ss_load_coords = uint3(iPosition.xy, 0);
+    float1 o_cell = (txGBufferCell.Load(ss_load_coords)).x;
     float4 swapPosition = iPosition;
     swapPosition.x = 511 - swapPosition.x;
 
-    return compute(swapPosition, iUV);
+    return compute(swapPosition, iUV, o_cell);
 }
 
 // ----------------------------------------
@@ -107,5 +113,7 @@ float4 PS(
 , in float2 iUV : TEXCOORD0
   ) : SV_Target
 {
-    return compute(iPosition, iUV);
+    int3 ss_load_coords = uint3(iPosition.xy, 0);
+    float1 o_cell = (txGBufferCell.Load(ss_load_coords)).x;
+    return compute(iPosition, iUV, o_cell);
 }

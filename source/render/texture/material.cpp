@@ -122,6 +122,7 @@ bool CMaterial::create(const json& j) {
 
 	cb_material.srites_frames = j.value("sprite_frames", 0);
 
+
   cb_material.mix_boost_r = 0;
   cb_material.mix_boost_g = 0;
   cb_material.mix_boost_b = 0;

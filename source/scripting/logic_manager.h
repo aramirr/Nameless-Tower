@@ -30,8 +30,11 @@ public:
 	void disactivateText(const char* name);
 
   //Lights
-  void setDirLightIntensity(const char* name, float value, bool left);
-  void setPointLightIntensity(const char* name, float value, bool left);
+  void setDirLightIntensity(const char* name, float value);
+  void setPointLightIntensity(const char* name, float value);
+	void setNajaInterior();
+	void setnajaExterior();
+	void setExposure(float value);
 
   // Change level
   void changeGameState(const char* name);
