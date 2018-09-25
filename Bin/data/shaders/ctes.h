@@ -233,10 +233,10 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
 	float global_shared_fx_val2;
 	float global_shared_fx_val3;
 
-	/*float global_self_intensity;
-	float global_dummy2;
-	float global_dummy3;
-	float global_dummy4;*/
+	float global_hue_adjustment;
+	float global_sat_adjustment;
+	float global_light_adjustment;
+  float global_contrast_adjustment;
 
 };
 

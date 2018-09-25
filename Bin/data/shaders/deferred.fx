@@ -58,7 +58,7 @@ float4 compute(float4 iPosition, float2 iUV)
 
     //QUITAR ESTO??????????????????
     if (global_render_output == RO_COMPLETE)
-        return float4(gammaCorrectedColor, 1);
+        return float4(postprocesado(gammaCorrectedColor), 1);
     else if (global_render_output == RO_ALBEDO)
         return float4(oAlbedo.rgb, 1);
     else if (global_render_output == RO_NORMAL)
@@ -85,7 +85,7 @@ float4 compute(float4 iPosition, float2 iUV)
         return txAO.Sample(samLinear, iUV);
     }
   
-    return float4(gammaCorrectedColor, 1);;
+    return float4(postprocesado(gammaCorrectedColor), 1);
 }
 
 // ----------------------------------------

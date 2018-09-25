@@ -94,6 +94,117 @@ float4x4 getSkinMtx( int4 iBones, float4 iWeights ) {
 }
 
 //--------------------------------------------------------------------------------------
+//
+//--------------------------------------------------------------------------------------
+float3 rgb2hsv(float3 c)
+{
+    float4 K = float4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    float4 p = lerp(float4(c.bg, K.wz), float4(c.gb, K.xy), step(c.b, c.g));
+    float4 q = lerp(float4(p.xyw, c.r), float4(c.r, p.yzx), step(p.x, c.r));
+
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return float3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+//--------------------------------------------------------------------------------------
+//
+//--------------------------------------------------------------------------------------
+float3 hsv2rgb(float3 c)
+{
+    float4 K = float4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    float3 p = abs(frac(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * lerp(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+
+//--------------------------------------------------------------------------------------
+//
+//--------------------------------------------------------------------------------------
+float remap(float value, float inputMin, float inputMax, float outputMin, float outputMax)
+{
+    return (value - inputMin) * ((outputMax - outputMin) / (inputMax - inputMin)) + outputMin;
+}
+
+//--------------------------------------------------------------------------------------
+//
+//--------------------------------------------------------------------------------------
+float3 postprocesado(float3 c)
+{
+    float3 hsvPixel = rgb2hsv(float3(c.rgb));
+    
+    float3 HuePixel = float3(hsv2rgb(float3(hsvPixel.r * global_hue_adjustment, hsvPixel.gb)) /*, c.a*/);
+    float3 SatPixel = float3(hsv2rgb(float3(hsvPixel.r, hsvPixel.g * global_sat_adjustment, hsvPixel.b)) /*, c.a*/);
+    float3 LightPixel = float3(hsv2rgb(float3(hsvPixel.rg, hsvPixel.b * global_light_adjustment)) /*, c.a*/);
+    
+    
+    float3 r = HuePixel + SatPixel + LightPixel;
+
+    float contrast = remap(global_contrast_adjustment, 0.0, 1.0, 0.2 /*min*/, 4.0 /*max*/);
+    float4 dstColor = float4((r.rgb - (float3) (0.5)) * contrast + (float3)(0.5), 1.0);
+    return clamp(dstColor, 0.0, 1.0);
+    
+
+}
+
+////--------------------------------------------------------------------------------------
+////
+////--------------------------------------------------------------------------------------
+//float4x4 brightnessMatrix(float brightness)
+//{
+//    return float4x4(1, 0, 0, 0,
+//                 0, 1, 0, 0,
+//                 0, 0, 1, 0,
+//                 brightness, brightness, brightness, 1);
+//}
+
+////--------------------------------------------------------------------------------------
+////
+////--------------------------------------------------------------------------------------
+//float4x4 contrastMatrix(float contrast)
+//{
+//    float t = (1.0 - contrast) / 2.0;
+    
+//    return float4x4(contrast, 0, 0, 0,
+//                 0, contrast, 0, 0,
+//                 0, 0, contrast, 0,
+//                 t, t, t, 1);
+
+//}
+
+////--------------------------------------------------------------------------------------
+////
+////--------------------------------------------------------------------------------------
+//float4x4 saturationMatrix(float saturation)
+//{
+//    float3 luminance = float3(0.3086, 0.6094, 0.0820);
+    
+//    float oneMinusSat = 1.0 - saturation;
+    
+//    float3 red = (float3)(luminance.x * oneMinusSat);
+//    red += float3(saturation, 0, 0);
+    
+//    float3 green = 
+//    (float3)(luminance.y * oneMinusSat);
+//    green += float3(0, saturation, 0);
+    
+//    float3 blue = (float3)(luminance.z * oneMinusSat);
+//    blue += float3(0, 0, saturation);
+    
+//    return float4x4(red, 0,
+//                 green, 0,
+//                 blue, 0,
+//                 0, 0, 0, 1);
+//}
+
+////--------------------------------------------------------------------------------------
+//// 
+////--------------------------------------------------------------------------------------
+//float4 postprocesado2(float4 c)
+//{
+//    return brightnessMatrix(global_brightness_adjustment) * contrastMatrix(global_contrast_adjustment) * saturationMatrix(global_saturation_adjustment) * (float4x1)c;
+//}
+
+//--------------------------------------------------------------------------------------
 // 
 //--------------------------------------------------------------------------------------
 float2 hash2( float n ) { return frac(sin(float2(n,n+1.0))*float2(43758.5453123,22578.1459123)); }
