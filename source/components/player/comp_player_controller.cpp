@@ -167,6 +167,10 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
                   rayWall = true;
                   TMsgDeactiveCamera msg;
                   e->sendMsg(msg);
+									e = (CEntity*)getEntityByName("camera_look_up");
+									e->sendMsg(msg);
+									e = (CEntity*)getEntityByName("camera_look_down");
+									e->sendMsg(msg);
                 }
         
 			}
@@ -176,6 +180,10 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
                 TMsgActiveCamera msg;
                 msg.blend_time = 2.f;
                 e->sendMsg(msg);
+								e = (CEntity*)getEntityByName("camera_look_up");
+								e->sendMsg(msg);
+								e = (CEntity*)getEntityByName("camera_look_down");
+								e->sendMsg(msg);
             }
 
 			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, query_filter, filter_controller));
