@@ -10,13 +10,13 @@ public:
 	
   // Hide - Unhide Meshes
   void appearEntity(const char* name);
-	void disappearEntity(const char* name);
-  void renderOnlyShadows(const char* name);
-  void renderEverything(const char* name);
+  void disappearEntity(const char* name);
+  void renderOnlyShadows(const char* name, bool left);
+  void renderEverything(const char* name, bool left);
 
   // Cinematics
-  void activateCinematic(const char* name);
-  void deactivateCinematic(const char* name);
+  void activateCinematic(const char* name, bool left);
+  void deactivateCinematic(const char* name, bool left);
 
   // Misc
 	void setAmbientAdjustment(float value);
@@ -30,10 +30,13 @@ public:
 	void disactivateText(const char* name);
 
   //Lights
-  void setDirLightIntensity(const char* name, float value);
-  void setPointLightIntensity(const char* name, float value);
+  void setDirLightIntensity(const char* name, float value, bool left);
+  void setPointLightIntensity(const char* name, float value, bool left);
 
   // Change level
   void changeGameState(const char* name);
+
+  // utils
+  bool applyFunction(bool left);
 
 };
