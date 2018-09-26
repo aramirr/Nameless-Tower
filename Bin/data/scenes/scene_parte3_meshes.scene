@@ -6,7 +6,7 @@
       ,
       "transform":
       {
-        "pos": "25.7805 68.9091 -15.6494"
+        "pos": "26.5238 69.4042 -14.931"
         ,
         "rotation": "0.0 -0.991935 0.0 0.126744"
       }
@@ -34,7 +34,7 @@
       ,
       "transform":
       {
-        "pos": "16.8759 66.2399 26.2803"
+        "pos": "17.2623 66.2399 26.2014"
         ,
         "rotation": "0.0 -0.774598 0.0 -0.632454"
       }
@@ -286,7 +286,7 @@
       ,
       "transform":
       {
-        "pos": "20.1865 98.0595 -10.5728"
+        "pos": "19.9535 98.0595 -10.3761"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -2911,14 +2911,37 @@
       "render":
       [
         {
-          "mesh": "data/meshes/SalaEstatuaPinchos.mesh"
+          "mesh": "data/meshes/PinchosD.mesh"
           ,
           "materials":
           [
-            "data/materials/RocaGris.material"
+            "data/materials/RocaVerde.material"
           ]
         }
       ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
       ,
       "abs_aabb": true
     }

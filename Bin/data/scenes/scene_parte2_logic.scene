@@ -2,6 +2,99 @@
   {
     "entity":
     {
+      "name": "VientoVertical"
+      ,
+      "transform":
+      {
+        "pos": "3.25849 47.25 30.997"
+        ,
+        "rotation": "0.0 6.75532e-07 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.24996 1.58777 1.70092"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoVerticalTrigger"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      {
+        "mesh": "data/meshes/VientoVertical004.mesh"
+        ,
+        "materials":
+        [
+          "data/materials/VientoVertMat.material"
+        ]
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "VientoVertical"
+        ,
+        "pos": "0.0 0.0 0.0"
+      }
+      ,
+      "ai_fan":
+      {
+        "force": 2.0
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "3.4 16.5 1.7"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Activador_Estatua03"
       ,
       "transform":
@@ -64,6 +157,15 @@
         }
       ]
       ,
+      "rigid_anim":
+      {
+        "src": "data/anims/Activadores.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+      ,
       "collider":
       {
         "shape": "box"
@@ -104,6 +206,15 @@
           ]
         }
       ]
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/Activadores.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
       ,
       "collider":
       {
@@ -227,6 +338,15 @@
           ]
         }
       ]
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/Activadores.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
       ,
       "collider":
       {

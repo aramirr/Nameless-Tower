@@ -6,7 +6,7 @@
       ,
       "transform":
       {
-        "pos": "-29.4599 15.8517 6.91044"
+        "pos": "-29.4963 15.8536 6.33674"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -118,7 +118,7 @@
       ,
       "transform":
       {
-        "pos": "-27.9899 11.2498 -7.49953"
+        "pos": "-30.2004 11.2289 -8.06996"
         ,
         "rotation": "0.0 -0.309017 0.0 -0.951056"
       }
@@ -2102,34 +2102,6 @@
   {
     "entity":
     {
-      "name": "PinchosDesague003"
-      ,
-      "transform":
-      {
-        "pos": "-30.663 3.88301 -8.22896"
-        ,
-        "rotation": "0.0 -0.271197 0.0 -0.962524"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/PinchosDesague003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RocaVerde.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Dragones"
       ,
       "transform":
@@ -2640,7 +2612,7 @@
       ,
       "transform":
       {
-        "pos": "0.0864849 15.7528 -29.2624"
+        "pos": "0.0864859 15.7528 -29.2624"
         ,
         "rotation": "0.0 0.84058 0.0 -0.541687"
       }
@@ -4576,34 +4548,6 @@
   {
     "entity":
     {
-      "name": "PinchosDesague"
-      ,
-      "transform":
-      {
-        "pos": "-7.81028 3.84084 -29.1308"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/PinchosDesague.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RocaVerde.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Agua_03"
       ,
       "transform":
@@ -4649,34 +4593,6 @@
           "materials":
           [
             "data/materials/CascadaAguaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "PinchosDesague02"
-      ,
-      "transform":
-      {
-        "pos": "-26.2786 3.88301 -17.1027"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/PinchosDesague02.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RocaVerde.material"
           ]
         }
       ]
