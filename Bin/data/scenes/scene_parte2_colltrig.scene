@@ -2,6 +2,126 @@
   {
     "entity":
     {
+      "name": "TAPuertasAbajo"
+      ,
+      "transform":
+      {
+        "pos": "27.6896 37.7207 14.784"
+        ,
+        "rotation": "0.0 -0.502692 0.0 -0.864466"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "activador"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.656078 0.456476 0.66096"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TAPuertasArriba"
+      ,
+      "transform":
+      {
+        "pos": "11.971 51.2197 28.9435"
+        ,
+        "rotation": "0.0 -0.156435 0.0 -0.987688"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "activador"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.656078 0.456476 0.66096"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TAPuertasPrimera"
+      ,
+      "transform":
+      {
+        "pos": "30.7348 42.2263 -7.49867"
+        ,
+        "rotation": "0.0 -0.78688 0.0 -0.617106"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "activador"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.656078 0.456476 0.66096"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Solidos_Escena02"
       ,
       "transform":
@@ -131,126 +251,6 @@
         "offset": "0.0 0.0 0.0"
         ,
         "halfExtent": "2.28488 0.302765 1.13929"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TAPuertasPrimera"
-      ,
-      "transform":
-      {
-        "pos": "30.7037 42.2263 -7.72111"
-        ,
-        "rotation": "0.0 -0.919786 0.0 -0.392419"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "activador"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.656078 0.456476 0.66096"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TAPuertasAbajo"
-      ,
-      "transform":
-      {
-        "pos": "27.7154 37.7207 14.679"
-        ,
-        "rotation": "0.0 -0.631735 0.0 -0.775184"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "activador"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.656078 0.456476 0.66096"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TAPuertasArriba"
-      ,
-      "transform":
-      {
-        "pos": "11.9531 51.2197 29.1764"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "activador"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.656078 0.456476 0.66096"
         ,
         "is_dynamic": false
         ,

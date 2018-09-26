@@ -282,36 +282,6 @@
   {
     "entity":
     {
-      "name": "ParedDestapada12"
-      ,
-      "transform":
-      {
-        "pos": "18.8395 87.75 -25.8784"
-        ,
-        "rotation": "0.0 -0.65264 0.0 -0.757668"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedDestapada12.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-            ,
-            "data/materials/ParedModeladaInteriores.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Suelo_Pasillo_003"
       ,
       "transform":

@@ -2,37 +2,11 @@
   {
     "entity":
     {
-      "name": "ParedTapada10"
-      ,
-      "transform":
-      {
-        "pos": "1.90735e-06 40.5 -8.16637e-07"
-        ,
-        "rotation": "0.0 0.0267501 0.0 -0.999642"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedTapada10.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "AguaMuerte"
       ,
       "transform":
       {
-        "pos": "27.2495 60.1875 -13.8358"
+        "pos": "27.2495 59.9889 -13.8358"
         ,
         "rotation": "0.0 -0.258819 0.0 -0.965926"
       }
@@ -59,12 +33,38 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.98433 1.6875 8.40013"
+        "halfExtent": "1.98433 1.48889 8.40013"
         ,
         "is_dynamic": false
         ,
         "is_trigger": true
       }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedTapada10"
+      ,
+      "transform":
+      {
+        "pos": "1.90735e-06 40.5 -8.16637e-07"
+        ,
+        "rotation": "0.0 0.0267501 0.0 -0.999642"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedTapada10.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
     }
   }
   ,

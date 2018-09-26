@@ -58,34 +58,6 @@
   {
     "entity":
     {
-      "name": "Techo_parte2_F"
-      ,
-      "transform":
-      {
-        "pos": "20.377 53.75 13.756"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Techo_parte2_F.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Techos_Puente.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Techo_parte2_C"
       ,
       "transform":
@@ -159,6 +131,34 @@
           "materials":
           [
             "data/materials/Techo_Normal.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_parte2_F"
+      ,
+      "transform":
+      {
+        "pos": "20.377 53.75 13.756"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte2_F.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techos_Puente.material"
           ]
         }
       ]
@@ -1333,61 +1333,7 @@
   {
     "entity":
     {
-      "name": "AguaEstanqueCaida_Flujo"
-      ,
-      "transform":
-      {
-        "pos": "21.1441 58.3654 19.4638"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/AguaEstanqueCaida_Flujo.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EspumaCascada.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "AguaEstanque_Flujo"
-      ,
-      "transform":
-      {
-        "pos": "21.1288 59.9076 19.4195"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/AguaEstanque_Flujo.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EspumaCascada.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "AguaEstanqueCaida_Caustica"
+      "name": "LavaEstanqueCaida_Caustica"
       ,
       "transform":
       {
@@ -1399,11 +1345,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/AguaEstanqueCaida_Caustica.mesh"
+          "mesh": "data/meshes/LavaEstanqueCaida_Caustica.mesh"
           ,
           "materials":
           [
-            "data/materials/CascadaCausticaMat.material"
+            "data/materials/lavaRocas.material"
           ]
         }
       ]
@@ -1415,7 +1361,7 @@
   {
     "entity":
     {
-      "name": "AguaEstanqueCaida"
+      "name": "LavaEstanqueCaida"
       ,
       "transform":
       {
@@ -1427,11 +1373,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/AguaEstanqueCaida.mesh"
+          "mesh": "data/meshes/LavaEstanqueCaida.mesh"
           ,
           "materials":
           [
-            "data/materials/CascadaAguaMat.material"
+            "data/materials/LavaBaseMat.material"
           ]
         }
       ]
@@ -1443,7 +1389,7 @@
   {
     "entity":
     {
-      "name": "RioCaida_Caustica"
+      "name": "RioLavaCaida_Caustica"
       ,
       "transform":
       {
@@ -1455,11 +1401,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/RioCaida_Caustica.mesh"
+          "mesh": "data/meshes/RioLavaCaida_Caustica.mesh"
           ,
           "materials":
           [
-            "data/materials/CascadaCausticaMat.material"
+            "data/materials/lavaRocas.material"
           ]
         }
       ]
@@ -1471,7 +1417,7 @@
   {
     "entity":
     {
-      "name": "RioPila_Caustica"
+      "name": "RioLavaPila_Caustica"
       ,
       "transform":
       {
@@ -1483,11 +1429,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/RioPila_Caustica.mesh"
+          "mesh": "data/meshes/RioLavaPila_Caustica.mesh"
           ,
           "materials":
           [
-            "data/materials/CascadaCausticaMat.material"
+            "data/materials/lavaRocas.material"
           ]
         }
       ]
@@ -1499,63 +1445,7 @@
   {
     "entity":
     {
-      "name": "RioCaida_Espuma"
-      ,
-      "transform":
-      {
-        "pos": "-18.8746 22.3108 -21.5411"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RioCaida_Espuma.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EspumaCascada.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Rio_Flujo"
-      ,
-      "transform":
-      {
-        "pos": "-18.6391 25.4345 -21.7431"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Rio_Flujo.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EspumaCascada.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "RioPilate"
+      "name": "RioLavaPilate"
       ,
       "transform":
       {
@@ -1567,11 +1457,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/RioPilate.mesh"
+          "mesh": "data/meshes/RioLavaPilate.mesh"
           ,
           "materials":
           [
-            "data/materials/CascadaAguaMat.material"
+            "data/materials/LavaBaseMat.material"
           ]
         }
       ]
@@ -1583,7 +1473,7 @@
   {
     "entity":
     {
-      "name": "RioCaida_Agua"
+      "name": "RioLavaCaida_Base"
       ,
       "transform":
       {
@@ -1595,11 +1485,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/RioCaida_Agua.mesh"
+          "mesh": "data/meshes/RioLavaCaida_Base.mesh"
           ,
           "materials":
           [
-            "data/materials/CascadaAguaMat.material"
+            "data/materials/LavaBaseMat.material"
           ]
         }
       ]
@@ -1628,66 +1518,6 @@
           "materials":
           [
             "data/materials/Suelos_Interiores_Varios_00.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Object052"
-      ,
-      "transform":
-      {
-        "pos": "31.8126 45.0 -6.4982"
-        ,
-        "rotation": "0.0 -0.72498 0.0 -0.68877"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Object052.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-            ,
-            "data/materials/ParedModeladaInteriores.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "ParedDestapada7"
-      ,
-      "transform":
-      {
-        "pos": "18.2971 31.5 -18.5547"
-        ,
-        "rotation": "0.0 -0.98315 0.0 -0.182799"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedDestapada7.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-            ,
-            "data/materials/ParedModeladaInteriores.material"
           ]
         }
       ]

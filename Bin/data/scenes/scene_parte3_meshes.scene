@@ -2983,36 +2983,6 @@
   {
     "entity":
     {
-      "name": "ParedDestapada10"
-      ,
-      "transform":
-      {
-        "pos": "19.7829 67.5 13.1348"
-        ,
-        "rotation": "0.0 -0.232888 0.0 -0.972504"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedDestapada10.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-            ,
-            "data/materials/ParedModeladaInteriores.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "BordesParte3A"
       ,
       "transform":

@@ -2,6 +2,34 @@
   {
     "entity":
     {
+      "name": "lavaGrandeOrillas"
+      ,
+      "transform":
+      {
+        "pos": "27.2218 71.6144 -14.5086"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/lavaGrandeOrillas.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LavaOrillasMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "W_GranMuro001"
       ,
       "transform":
@@ -75,34 +103,6 @@
           "materials":
           [
             "data/materials/MaderaMate.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Techo_parte3_G"
-      ,
-      "transform":
-      {
-        "pos": "7.50738 63.0229 25.2019"
-        ,
-        "rotation": "0.0 -0.0104551 0.0 -0.999945"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Techo_parte3_G.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Techo_Normal.material"
           ]
         }
       ]
@@ -226,6 +226,34 @@
   {
     "entity":
     {
+      "name": "Techo_parte3_G"
+      ,
+      "transform":
+      {
+        "pos": "7.50738 63.0229 25.2019"
+        ,
+        "rotation": "0.0 -0.0104551 0.0 -0.999945"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte3_G.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Normal.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Techo_parte3_B"
       ,
       "transform":
@@ -243,6 +271,34 @@
           "materials":
           [
             "data/materials/Techo_Normal.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_Cascada"
+      ,
+      "transform":
+      {
+        "pos": "24.0906 103.25 -12.9659"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_Cascada.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Cascada.material"
           ]
         }
       ]
@@ -282,11 +338,11 @@
   {
     "entity":
     {
-      "name": "Techo_Cascada"
+      "name": "lavaRocas"
       ,
       "transform":
       {
-        "pos": "24.0906 103.25 -12.9659"
+        "pos": "27.2218 71.6144 -14.5086"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -294,11 +350,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Techo_Cascada.mesh"
+          "mesh": "data/meshes/lavaRocas.mesh"
           ,
           "materials":
           [
-            "data/materials/Techo_Cascada.material"
+            "data/materials/lavaRocas.material"
           ]
         }
       ]
@@ -383,34 +439,6 @@
           "materials":
           [
             "data/materials/Careta_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "lavaRocas"
-      ,
-      "transform":
-      {
-        "pos": "27.2218 71.6144 -14.5086"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/lavaRocas.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/lavaRocas.material"
           ]
         }
       ]
@@ -1841,7 +1869,7 @@
   {
     "entity":
     {
-      "name": "AguaEstanque_Espuma"
+      "name": "LavaEstanque_Espuma"
       ,
       "transform":
       {
@@ -1853,11 +1881,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/AguaEstanque_Espuma.mesh"
+          "mesh": "data/meshes/LavaEstanque_Espuma.mesh"
           ,
           "materials":
           [
-            "data/materials/EspumaAgua.material"
+            "data/materials/LavaOrillasMat.material"
           ]
         }
       ]
@@ -1869,7 +1897,7 @@
   {
     "entity":
     {
-      "name": "AguaEstanque_Caustica"
+      "name": "LavaEstanque_Caustica"
       ,
       "transform":
       {
@@ -1881,11 +1909,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/AguaEstanque_Caustica.mesh"
+          "mesh": "data/meshes/LavaEstanque_Caustica.mesh"
           ,
           "materials":
           [
-            "data/materials/CascadaCausticaMat.material"
+            "data/materials/lavaRocas.material"
           ]
         }
       ]
@@ -1897,7 +1925,7 @@
   {
     "entity":
     {
-      "name": "AguaEstanque"
+      "name": "LavaEstanque"
       ,
       "transform":
       {
@@ -1909,11 +1937,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/AguaEstanque.mesh"
+          "mesh": "data/meshes/LavaEstanque.mesh"
           ,
           "materials":
           [
-            "data/materials/CascadaAguaMat.material"
+            "data/materials/LavaBaseMat.material"
           ]
         }
       ]
@@ -3092,36 +3120,6 @@
           "materials":
           [
             "data/materials/Suelo_Templo_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "ParedDestapada10"
-      ,
-      "transform":
-      {
-        "pos": "19.7829 67.5 13.1348"
-        ,
-        "rotation": "0.0 -0.232888 0.0 -0.972504"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedDestapada10.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-            ,
-            "data/materials/ParedModeladaInteriores.material"
           ]
         }
       ]

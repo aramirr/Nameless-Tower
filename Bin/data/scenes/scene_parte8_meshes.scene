@@ -18,7 +18,7 @@
           ,
           "materials":
           [
-            "data/materials/Pinchos_salaEstatuaFEa_00.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
@@ -96,7 +96,7 @@
           ,
           "materials":
           [
-            "data/materials/RocaGris.material"
+            "data/materials/CabarribaIntMat.material"
           ]
         }
       ]
@@ -175,32 +175,6 @@
           "materials":
           [
             "data/materials/CalderoMate.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Pinchos_005"
-      ,
-      "transform":
-      {
-        "pos": "-11.9211 3.94949 25.821"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Pinchos_005.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pinchos_salaEstatuaFEa_00.material"
           ]
         }
       ]
@@ -642,59 +616,7 @@
           ,
           "materials":
           [
-            "data/materials/Pinchos_salaEstatuaFEa_00.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Pinchos_003"
-      ,
-      "transform":
-      {
-        "pos": "-21.1987 3.94948 19.635"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Pinchos_003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pinchos_salaEstatuaFEa_00.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Pinchos_002"
-      ,
-      "transform":
-      {
-        "pos": "-20.4868 12.8592 16.955"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Pinchos_002.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pinchos_salaEstatuaFEa_00.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
@@ -825,58 +747,6 @@
           "materials":
           [
             "data/materials/CalderoMate.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Estatua_Columna_018"
-      ,
-      "transform":
-      {
-        "pos": "-8.84653 9.40595 18.3129"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Estatua_Columna_018.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RocaGris.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Estatua_Columna_017"
-      ,
-      "transform":
-      {
-        "pos": "-14.6488 9.39301 14.059"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Estatua_Columna_017.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RocaGris.material"
           ]
         }
       ]
