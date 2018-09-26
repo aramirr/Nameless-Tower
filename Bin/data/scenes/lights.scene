@@ -69,7 +69,7 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 41.000,
-        "ortho_height": 13.000
+        "ortho_height": 15.000
       } ,
         "culling":true   
     }
@@ -93,7 +93,7 @@
         "shadows_resolution" : 2048,
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
-        "ortho_width": 24.000,
+        "ortho_width": 28.000,
         "ortho_height": 31.000
       } ,
         "culling":true   
@@ -143,8 +143,8 @@
         "shadows_resolution" : 2048,
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
-        "ortho_width": 26.000,
-        "ortho_height": 9.000
+        "ortho_width": 29.000,
+        "ortho_height": 11.000
       },
         "culling":true   
     }
@@ -167,7 +167,7 @@
         "shadows_resolution" : 2048,
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
-        "ortho_width": 23.000,
+        "ortho_width": 20.000,
         "ortho_height": 10.000
       },
         "culling":true   
@@ -216,8 +216,8 @@
         "shadows_resolution" : 2048,
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
-        "ortho_width": 28.000,
-        "ortho_height": 25.000
+        "ortho_width": 31.500,
+        "ortho_height": 41.000
       } ,
         "culling":true   
     }
@@ -226,7 +226,7 @@
     {
       "name": "LightDir09",
       "transform": {
-        "pos": "3.500 56.325 47.225",
+        "pos": "2.000 56.325 66.625",
         "lookat": "0 25.275 0"
       },
       "light_dir": {
@@ -240,8 +240,8 @@
         "shadows_resolution" : 2048,
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
-        "ortho_width": 17.000,
-        "ortho_height": 28.000
+        "ortho_width": 10.000,
+        "ortho_height": 51.000
       } ,
         "culling":true   
     }
@@ -251,8 +251,58 @@
     {
       "name": "LightDir10",
       "transform": {
-        "pos": "56.425 94.175 -9.475",
-        "lookat": "0 70 -12.375"
+        "pos": "27.775 83.075 40.850",
+        "lookat": "-3.875 31.425 0"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.84 0.78 0.56 1",
+        "z_near" : 2,
+        "z_far" : 35.000,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 23.000,
+        "ortho_height": 14.000
+      } ,
+        "culling":true   
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightDir11",
+      "transform": {
+        "pos": "42.125 76.075 17.950",
+        "lookat": "-3.875 42.675 -21.750"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.84 0.78 0.56 1",
+        "z_near" : 2,
+        "z_far" : 45.000,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 24.000,
+        "ortho_height": 20.000
+      } ,
+        "culling":true   
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightDir12",
+      "transform": {
+        "pos": "42.125 76.075 -29.325",
+        "lookat": "-3.875 56.100 3.525"
       },
       "light_dir": {
         "intensity": 0,
@@ -265,7 +315,33 @@
         "shadows_resolution" : 2048,
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
-        "ortho_width": 42
+        "ortho_width": 37.000,
+        "ortho_height": 20.000
+      }    ,
+        "culling":true
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightDir13",
+      "transform": {
+        "pos": "42.125 95.875 -11.975",
+        "lookat": "0 75.700 0"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.84 0.78 0.56 1",
+        "z_near" : 2,
+        "z_far" : 25.000,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 37.000,
+        "ortho_height": 30.000
       }    ,
         "culling":true
     }
