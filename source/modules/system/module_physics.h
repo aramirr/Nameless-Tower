@@ -16,6 +16,7 @@ public:
         Enemy = 1 << 3,
 		Windstrike = 1 << 4,
 		Projectile = 1 << 5,
+		Stairs = 1 << 6,
         Scenario = Wall | Floor,
         Characters = Player | Enemy,
 		AllUnlessPlayer = -Player,
