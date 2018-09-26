@@ -13,7 +13,7 @@ namespace FSM
         TCompPlayerController* player = e->get<TCompPlayerController>();
         player->clear_animations(0.005f);
         player->run_time = 0;
-		EngineSound.res = _sound->start();
+		_sound->start();
         CEntity* particles_emiter;
         if (player->left_key)
             particles_emiter = (CEntity*)getEntityByName("humo_run_left");
@@ -34,8 +34,8 @@ namespace FSM
 		if (jData.count("sound")) {
 			Studio::EventDescription* event_description = NULL;
 			std::string event_name = jData["sound"];
-			EngineSound.res = EngineSound.system->getEvent(event_name.c_str(), &event_description);
-			EngineSound.res = event_description->createInstance(&_sound);
+			EngineSound.system->getEvent(event_name.c_str(), &event_description);
+			event_description->createInstance(&_sound);
 		}		
         
 		return true;

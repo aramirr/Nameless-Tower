@@ -15,6 +15,7 @@ namespace FSM
 		player->jumping_start_height = c_my_transform->getPosition().y;
         player->y_speed_factor = _y_speed;
         player->clear_animations(0.f);
+        EngineSound.res = _sound->start();
 	}
 
 	bool OmnijumpState::load(const json& jData)
@@ -24,6 +25,12 @@ namespace FSM
 		_is_action = jData.value("is_action", false);
 		_delay_out = jData.value("delay_out", 0.01f);
 		_delay_in = jData.value("delay_in", 0.01f);
+        if (jData.count("sound")) {
+            Studio::EventDescription* event_description = NULL;
+            std::string event_name = jData["sound"];
+            EngineSound.res = EngineSound.system->getEvent(event_name.c_str(), &event_description);
+            EngineSound.res = event_description->createInstance(&_sound);
+        }
 		return true;
 	}
 

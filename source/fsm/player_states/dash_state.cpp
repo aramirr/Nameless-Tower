@@ -15,7 +15,7 @@ namespace FSM
 		player->jumping_start_height = c_my_transform->getPosition().y;
         player->clear_animations(0.1f);
 		player->change_animation(player->EAnimations::NajaDashStrike, _is_action, _delay_in, _delay_out, true);
-
+        _sound->start();
         CEntity* particles_emiter;
         if (player->looking_left)
             particles_emiter = (CEntity*)getEntityByName("humo_dash_left");
@@ -37,6 +37,12 @@ namespace FSM
 		_is_action = jData.value("is_action", false);
 		_delay_out = jData.value("delay_out", 0.01f);
 		_delay_in = jData.value("delay_in", 0.01f);
+        if (jData.count("sound")) {
+            Studio::EventDescription* event_description = NULL;
+            std::string event_name = jData["sound"];
+            EngineSound.system->getEvent(event_name.c_str(), &event_description);
+            event_description->createInstance(&_sound);
+        }
 		return true;
 	}
 
