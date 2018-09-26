@@ -17,7 +17,9 @@ struct TCompParticles : public TCompBase
   void load(const json& j, TEntityParseContext& ctx);
   void onCreated(const TMsgEntityCreated&);
   void onDestroyed(const TMsgEntityDestroyed&);
-  void emit();
+	void emit();
+	void stop_emiter();
+	void start_emiter();
   void debugInMenu();
 };
 

@@ -22,7 +22,8 @@ namespace Particles
       EType type = Point;           // type of emissor
       float interval = 0.f;         // generation interval
       int count = 1;                // number of particles each generation
-      bool cyclic = false;          // system re-emits after the interval time
+			bool cyclic = false;          // system re-emits after the interval time
+			bool on = true;          // system re-emits after the interval time
 			float size = 0.f;             // emissor size
 			float size_2 = 0.f;             // emissor size
       float angle = 0.f;            // emission angle

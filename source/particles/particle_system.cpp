@@ -72,59 +72,61 @@ namespace Particles
       fadeRatio = 1.f - (_fadeTime / _fadeDuration);
     }
 
-    delta *= _core->life.timeFactor;
+		if (_core->emission.on) {
+			delta *= _core->life.timeFactor;
 
-    auto it = _particles.begin();
-    while (it != _particles.end())
-    {
-      TParticle& p = *it;
+			auto it = _particles.begin();
+			while (it != _particles.end())
+			{
+				TParticle& p = *it;
 
-      p.lifetime += delta;
+				p.lifetime += delta;
 
-      if (p.max_lifetime > 0.f && p.lifetime >= p.max_lifetime)
-      {
-        it = _particles.erase(it);
-      }
-      else
-      {
-        VEC3 dir = p.velocity;
-        dir.Normalize();
-        p.velocity += dir * _core->movement.acceleration * delta;
-        p.velocity += kGravity * _core->movement.gravity * delta;
-        if (!_core->movement.ground  || _core->movement.on_ground_move || p.position.y > _core->movement.ground_y) {
-          p.position += p.velocity * delta;
-          p.position += kWindVelocity * _core->movement.wind * delta;
-          p.rotation += _core->movement.spin * delta;
-        }
-        if (_core->movement.ground)
-        {
-          p.position.y = std::max(_core->movement.ground_y, p.position.y);
-        }
-        
+				if (p.max_lifetime > 0.f && p.lifetime >= p.max_lifetime)
+				{
+					it = _particles.erase(it);
+				}
+				else
+				{
+					VEC3 dir = p.velocity;
+					dir.Normalize();
+					p.velocity += dir * _core->movement.acceleration * delta;
+					p.velocity += kGravity * _core->movement.gravity * delta;
+					if (!_core->movement.ground || _core->movement.on_ground_move || p.position.y > _core->movement.ground_y) {
+						p.position += p.velocity * delta;
+						p.position += kWindVelocity * _core->movement.wind * delta;
+						p.rotation += _core->movement.spin * delta;
+					}
+					if (_core->movement.ground)
+					{
+						p.position.y = std::max(_core->movement.ground_y, p.position.y);
+					}
 
-        
-        float life_ratio = p.max_lifetime > 0.f ? clamp(p.lifetime / p.max_lifetime, 0.f, 1.f) : 1.f;
-        p.color = _core->color.colors.get(life_ratio) * fadeRatio;
-        p.color.w *= _core->color.opacity;
-        p.size = _core->size.sizes.get(life_ratio);
 
-        int frame_idx = (int)(p.lifetime * _core->render.frameSpeed);
-        p.frame = _core->render.initialFrame + (frame_idx % _core->render.numFrames);
 
-        ++it;
-      }
-    }
+					float life_ratio = p.max_lifetime > 0.f ? clamp(p.lifetime / p.max_lifetime, 0.f, 1.f) : 1.f;
+					p.color = _core->color.colors.get(life_ratio) * fadeRatio;
+					p.color.w *= _core->color.opacity;
+					p.size = _core->size.sizes.get(life_ratio);
 
-    // check if a new batch of particles needs to be generated
-    if (_core->emission.cyclic && _core->emission.interval > 0.f) {
-      _time += delta;
-      if (_time > _core->emission.interval) {
-        emit();
-        _time -= _core->emission.interval;
-      }
-    }
+					int frame_idx = (int)(p.lifetime * _core->render.frameSpeed);
+					p.frame = _core->render.initialFrame + (frame_idx % _core->render.numFrames);
 
-    return fadeRatio > 0.f && (!_particles.empty() || _core->emission.cyclic);
+					++it;
+				}
+			}
+
+			// check if a new batch of particles needs to be generated
+			if (_core->emission.cyclic && _core->emission.interval > 0.f) {
+				_time += delta;
+				if (_time > _core->emission.interval) {
+					emit();
+					_time -= _core->emission.interval;
+				}
+			}
+		}
+
+		return fadeRatio > 0.f && (!_particles.empty() || _core->emission.cyclic);
   }
 
   void CSystem::render()
