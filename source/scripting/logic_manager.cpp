@@ -55,7 +55,8 @@ void LogicManager::setAmbientAdjustment(float value) {
 	EngineTower.setAmbientAdjustment(value);
 };
 
-void LogicManager::setExposureAdjustment(float value) {
+void LogicManager::setExposureAdjustment(float value, bool left) {
+	if (applyFunction(left))
     EngineTower.setExposure(value);
 };
 
@@ -98,14 +99,14 @@ void LogicManager::setPointLightIntensity(const char* name, float value, bool le
         EngineTower.setPointLightIntensity(name, value);
 }
 
-void LogicManager::setNajaInterior()
-{
-	cb_globals.global_naja_interior = 1;
+void LogicManager::setNajaInterior(bool left) {
+	if (applyFunction(left))
+		cb_globals.global_naja_interior = 1;
 }
 
-void LogicManager::setnajaExterior()
-{
-	cb_globals.global_naja_interior = 0;
+void LogicManager::setnajaExterior(bool left) {
+	if (applyFunction(left))
+		cb_globals.global_naja_interior = 0;
 }
 
 void LogicManager::startEmiter(const char* name, bool left) {

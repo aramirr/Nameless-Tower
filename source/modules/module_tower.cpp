@@ -25,7 +25,7 @@ void CModuleTower::update(float delta)
 			}
 		}
 		else if (newExposure < oldExposure) {
-			cb_globals.global_exposure_adjustment -= 0.01f;
+			cb_globals.global_exposure_adjustment -= 0.005f;
 			oldExposure = cb_globals.global_exposure_adjustment;
 			if (oldExposure < newExposure) {
 				changeExposure = false;
