@@ -51,7 +51,8 @@
 		    },
 		    "trigger":{
 		    	"trigger_type": "player_killer",
-		        "render": false
+		        "render": false,
+		        "sound_name": "hit_dardos"
 		    },
 		    "player_killer": {
 		        "kill_enabled": true

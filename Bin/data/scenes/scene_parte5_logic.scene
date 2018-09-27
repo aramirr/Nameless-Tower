@@ -43,7 +43,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_pinchos"
         ,
         "render": false
       }
@@ -886,7 +886,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_pinchos"
         ,
         "render": false
       }
