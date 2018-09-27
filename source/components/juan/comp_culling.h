@@ -10,6 +10,7 @@ struct TCompCulling : public TCompBase {
   static const size_t nBits = 6000;
   typedef std::bitset<nBits> TCullingBits;
   TCullingBits bits;
+	CHandle h_entity;
 
   // A single plane
   struct CPlane {
@@ -74,6 +75,8 @@ struct TCompCulling : public TCompBase {
   void debugInMenu();
   void update(float dt);
   void updateFromMatrix(MAT44 view_proj);
+	void load(const json& j, TEntityParseContext& ctx);
+	void setEntity(CHandle new_entity);
 
   DECL_SIBLING_ACCESS();
 };
