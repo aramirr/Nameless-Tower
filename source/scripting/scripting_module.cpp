@@ -35,6 +35,8 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("open_door", &LogicManager::openDoor)
     .set("activate_anim", &LogicManager::activateAnim)
     .set("change_level", &LogicManager::changeGameState)
+    .set("play_ambient_sound", &LogicManager::playAmbientSound)
+    .set("play_interior_sound", &LogicManager::playInteriorSound)
 		;
 }
 

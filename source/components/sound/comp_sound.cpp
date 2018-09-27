@@ -13,20 +13,35 @@ using namespace FMOD;
 void TCompSound::load(const json& j, TEntityParseContext& ctx) {
 	for (auto& event : j["events"]) {
 		Studio::EventDescription* event_description= NULL;
-		std::string event_name = event.get<std::string>();
-		EngineSound.res = EngineSound.system->getEvent(event_name.c_str(), &event_description);
+        std::string event_src = event["src"].get<std::string>();
+        std::string event_name = event["name"].get<std::string>();
+		EngineSound.res = EngineSound.system->getEvent(event_src.c_str(), &event_description);
 
 		Studio::EventInstance* event_instance = NULL;
 		EngineSound.res = event_description->createInstance(&event_instance);
-		events.push_back(event_instance);
+		events.insert(std::make_pair(event_name, event_instance));
 	}	
 }
 
 void TCompSound::update(float dt) {
- 
 }
 
 void TCompSound::debugInMenu() {
-  
+}
 
+void TCompSound::playInterior() {
+    events["ambient"]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+    events["interior"]->start();
+}
+
+void TCompSound::playAmbient() {
+    events["interior"]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+    events["ambient"]->start();
+}
+
+void TCompSound::playSound(std::string name) {
+    events[name]->start();
+}
+void TCompSound::stopSound(std::string name) {
+    events[name]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
 }

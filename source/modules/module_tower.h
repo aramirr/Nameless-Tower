@@ -3,6 +3,7 @@
 #include "modules/module.h"
 #include "entity/entity.h"
 
+
 class IAIController;
 
 class CModuleTower : public IModule {
@@ -37,7 +38,6 @@ public:
   const void deactivateCinematic(const std::string& name);
   const void setDirLightIntensity(const std::string& name, float intensity);
   const void setPointLightIntensity(const std::string& name, float intensity);
-
 
 	float getTowerRadius();
 

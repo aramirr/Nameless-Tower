@@ -22,6 +22,7 @@ namespace FSM
         TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
         c_particles->emit();
         player->run_sprite = false;
+        ctx.setVariable("can_dash", true);
 	}
 
 	bool RunState::load(const json& jData)

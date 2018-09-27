@@ -27,6 +27,18 @@ namespace FSM
 		_is_action = jData.value("is_action", false);
 		_delay_out = jData.value("delay_out", 0.01f);
 		_delay_in = jData.value("delay_in", 0.01f);
+        if (jData.count("sound")) {
+            Studio::EventDescription* event_description = NULL;
+            std::string event_name = jData["sound"];
+            EngineSound.system->getEvent(event_name.c_str(), &event_description);
+            event_description->createInstance(&_sound);
+        }
+        if (jData.count("sound_cloth")) {
+            Studio::EventDescription* event_description_cloth = NULL;
+            std::string event_name_cloth = jData["sound_cloth"];
+            EngineSound.system->getEvent(event_name_cloth.c_str(), &event_description_cloth);
+            event_description_cloth->createInstance(&_sound);
+        }
 		return true;
 	}
 

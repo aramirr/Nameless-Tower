@@ -31,6 +31,12 @@ namespace FSM
             EngineSound.res = EngineSound.system->getEvent(event_name.c_str(), &event_description);
             EngineSound.res = event_description->createInstance(&_sound);
         }
+        if (jData.count("sound_cloth")) {
+            Studio::EventDescription* event_description_cloth = NULL;
+            std::string event_name_cloth = jData["sound_cloth"];
+            EngineSound.system->getEvent(event_name_cloth.c_str(), &event_description_cloth);
+            event_description_cloth->createInstance(&_sound);
+        }
 		return true;
 	}
 

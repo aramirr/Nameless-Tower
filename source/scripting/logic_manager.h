@@ -38,5 +38,9 @@ public:
 
   // utils
   bool applyFunction(bool left);
+  void playAmbientSound(bool left);
+  void playInteriorSound(bool left);
+  void playSound(bool left, std::string name);
+  void stopSound(bool left, std::string name);
 
 };

@@ -116,6 +116,10 @@ struct TMsgExitPlatform {
   DECL_MSG_ID();
 };
 
+struct TMsgSetPlayer{
+    DECL_MSG_ID();
+};
+
 struct TMsgChangeDirection {
 	VEC3 new_direction;
 	bool reset_duration = false;

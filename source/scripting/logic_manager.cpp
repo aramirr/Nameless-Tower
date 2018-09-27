@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include <lua/SLB/SLB.hpp>
 #include "components/player/comp_player_controller.h"
+#include "components/sound/comp_sound.h"
 #include "logic_manager.h"
 #include "components/juan/comp_transform.h"
 #include "components/juan/comp_render.h"
@@ -109,3 +110,35 @@ bool LogicManager::applyFunction(bool left) {
     TCompPlayerController* player = e->get<TCompPlayerController>();
     return player->looking_left == left;
 }
+
+void LogicManager::playAmbientSound(bool left) {
+    if (applyFunction(left)) {
+        CEntity* e = getEntityByName("The Player");
+        TCompSound* sound = e->get<TCompSound>();
+        sound->playAmbient();
+    }
+}
+
+void LogicManager::playInteriorSound(bool left) {
+    if (applyFunction(left)) {
+        CEntity* e = getEntityByName("The Player");
+        TCompSound* sound = e->get<TCompSound>();
+        sound->playInterior();
+    }
+}
+
+void LogicManager::playSound(bool left, std::string name) {
+    if (applyFunction(left)) {
+        CEntity* e = getEntityByName("The Player");
+        TCompSound* sound = e->get<TCompSound>();
+        sound->playSound(name);
+    }
+}
+void LogicManager::stopSound(bool left, std::string name) {
+    if (applyFunction(left)) {
+        CEntity* e = getEntityByName("The Player");
+        TCompSound* sound = e->get<TCompSound>();
+        sound->stopSound(name);
+    }
+}
+
