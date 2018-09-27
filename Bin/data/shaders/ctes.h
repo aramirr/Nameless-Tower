@@ -241,6 +241,11 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
 	float global_vignetting_adjustment;
 	float global_resolution_X;
 	float global_resolution_Y;
+	float global_dummy1;
+
+	float global_fogDist_adjustment;
+	float global_fogDensity_adjustment;
+	float global_dummy2;
 	float global_dummy3;
 
 };
