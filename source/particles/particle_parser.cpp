@@ -45,9 +45,11 @@ namespace Particles
     if (emitterType == "line")        cps->emission.type = TCoreSystem::TEmission::Line;
     else if (emitterType == "square") cps->emission.type = TCoreSystem::TEmission::Square;
     else if (emitterType == "box")    cps->emission.type = TCoreSystem::TEmission::Box;
-    else if (emitterType == "sphere") cps->emission.type = TCoreSystem::TEmission::Sphere;
+		else if (emitterType == "sphere") cps->emission.type = TCoreSystem::TEmission::Sphere;
+		else if (emitterType == "rectangle") cps->emission.type = TCoreSystem::TEmission::Rectangle;
     else                              cps->emission.type = TCoreSystem::TEmission::Point;
-    cps->emission.size = emission.value("size", cps->emission.size);
+		cps->emission.size = emission.value("size", cps->emission.size);
+		cps->emission.size_2 = emission.value("size_2", cps->emission.size);
     cps->emission.angle = deg2rad(emission.value("angle", rad2deg(cps->emission.angle)));
     cps->emission.random_rotation = emission.value("random_rotation", cps->emission.random_rotation);
     

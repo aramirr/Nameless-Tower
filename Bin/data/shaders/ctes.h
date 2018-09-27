@@ -225,7 +225,7 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
 	float global_gamma_correction_enabled;
 	float global_tone_mapping_mode;
 	int   global_render_output;
-	float global_dummy;
+	int   global_naja_interior;
 	//float global_fog_density;
 
 	float global_shared_fx_amount;
@@ -233,10 +233,10 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
 	float global_shared_fx_val2;
 	float global_shared_fx_val3;
 
-	/*float global_self_intensity;
-	float global_dummy2;
-	float global_dummy3;
-	float global_dummy4;*/
+	float global_hue_adjustment;
+	float global_sat_adjustment;
+	float global_light_adjustment;
+  float global_contrast_adjustment;
 
 };
 
@@ -250,7 +250,7 @@ CB_DEF(CCteMaterial, CB_MATERIAL)
 	//VEC4   color_emission;
 	//VEC4   color_material;
 
-	float  material_dummy;
+	int  material_dummy;
 
 	float  mix_boost_r;
 	float  mix_boost_g;

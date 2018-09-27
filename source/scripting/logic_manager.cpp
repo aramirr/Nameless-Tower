@@ -5,7 +5,11 @@
 #include "logic_manager.h"
 #include "components/juan/comp_transform.h"
 #include "components/juan/comp_render.h"
+#include "components/comp_particles.h"
 #include "components/camera/comp_camera_manager.h"
+#include "render\render_objects.h"
+#include "ctes.h"
+#include "render/cte_buffer.h"
 using namespace SLB;
 
 
@@ -52,7 +56,7 @@ void LogicManager::setAmbientAdjustment(float value) {
 };
 
 void LogicManager::setExposureAdjustment(float value) {
-    EngineTower.setExposureAdjustment(value);
+    EngineTower.setExposure(value);
 };
 
 void LogicManager::playLastCinematic() {
@@ -92,6 +96,32 @@ void LogicManager::setDirLightIntensity(const char* name, float value, bool left
 void LogicManager::setPointLightIntensity(const char* name, float value, bool left) {
     if (applyFunction(left))
         EngineTower.setPointLightIntensity(name, value);
+}
+
+void LogicManager::setNajaInterior()
+{
+	cb_globals.global_naja_interior = 1;
+}
+
+void LogicManager::setnajaExterior()
+{
+	cb_globals.global_naja_interior = 0;
+}
+
+void LogicManager::startEmiter(const char* name, bool left) {
+	if (applyFunction(left)) {
+		CEntity* particles_emiter = (CEntity*)getEntityByName(name);
+		TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+		c_particles->start_emiter();
+	}
+}
+
+void LogicManager::stopEmiter(const char* name, bool left) {
+	if (applyFunction(left)) {
+		CEntity* particles_emiter = (CEntity*)getEntityByName(name);
+		TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+		c_particles->stop_emiter();
+	}
 }
 
 // Change Level
