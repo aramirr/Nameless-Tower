@@ -9,7 +9,6 @@ class TCompPlayerController : public TCompBase {
   DECL_SIBLING_ACCESS();
 
 public:
-
 	VEC3	omnidash_vector;
     VEC2	omnidash_arrow;
     VEC3	player_position;
@@ -41,6 +40,7 @@ public:
 	CHandle         h_transform;        // Cached
 	CHandle         h_render;        // Cached
 	CHandle         h_collider;        // Cached
+    Studio::EventInstance*  _sound_land;
 
 	enum EAnimations {
 		NajaRun = 0

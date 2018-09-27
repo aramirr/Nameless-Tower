@@ -71,7 +71,8 @@ namespace FSM
                 CEntity* particles_emiter = (CEntity*)getEntityByName("humo_land");
                 TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
                 c_particles->emit();
-				player->is_grounded = true;
+                player->is_grounded = true;
+                player->_sound_land->start();
 				ctx.setVariable("is_grounded", true);
 				ctx.setVariable("can_omni", true);
 				ctx.setVariable("can_dash", true);

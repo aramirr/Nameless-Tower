@@ -40,7 +40,13 @@ void TCompSpiralController::load(const json& j, TEntityParseContext& ctx) {
   }
 
   direction.Normalize();
-
+  if (j.count("sound")) {
+      Studio::EventDescription* event_description = NULL;
+      std::string event_name = j["sound"];
+      EngineSound.system->getEvent(event_name.c_str(), &event_description);
+      event_description->createInstance(&_sound);
+      _sound->start();
+  }
 }
 
 void TCompSpiralController::setEntity(CHandle new_entity) {
@@ -139,6 +145,7 @@ void TCompSpiralController::destroy()
 			e->~CEntity();
 		}
 	}*/
+    _sound->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
 
 	CHandle h_col = e->get<TCompCollider>();
 	TCompCollider *my_col = e->get<TCompCollider>();

@@ -19,9 +19,10 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 34.000,
-        "ortho_height": 24.000
+        "ortho_height": 24.000,
+        "has_culling": true
       },
-        "culling":true   
+        "culling":{}   
     }
   },
   {
@@ -44,9 +45,10 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 34.000,
-        "ortho_height": 12.000
+        "ortho_height": 12.000,
+        "has_culling": true
       },
-        "culling":true   
+        "culling":{}   
     }
   },
   {
@@ -69,9 +71,10 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 41.000,
-        "ortho_height": 15.000
+        "ortho_height": 15.000,
+        "has_culling": true
       } ,
-        "culling":true   
+        "culling":{}   
     }
   },  
   {
@@ -94,9 +97,10 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 28.000,
-        "ortho_height": 31.000
+        "ortho_height": 31.000,
+        "has_culling": true
       } ,
-        "culling":true   
+        "culling":{}   
     }
   },
   {
@@ -119,9 +123,10 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 27.000,
-        "ortho_height": 19.000
+        "ortho_height": 19.000,
+        "has_culling": true
       },
-        "culling":true   
+        "culling":{}   
     }
   },
     {
@@ -144,9 +149,10 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 29.000,
-        "ortho_height": 11.000
+        "ortho_height": 11.000,
+        "has_culling": true
       },
-        "culling":true   
+        "culling":{}   
     }
   },    {
     "entity":
@@ -168,9 +174,10 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 20.000,
-        "ortho_height": 10.000
+        "ortho_height": 10.000,
+        "has_culling": true
       },
-        "culling":true   
+        "culling":{}   
     }
   },
   {
@@ -193,9 +200,10 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 28.000,
-        "ortho_height": 25.000
+        "ortho_height": 25.000,
+        "has_culling": true
       } ,
-        "culling":true   
+        "culling":{}   
     }
   },{
     "entity":
@@ -217,9 +225,10 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 31.500,
-        "ortho_height": 41.000
+        "ortho_height": 41.000,
+        "has_culling": true
       } ,
-        "culling":true   
+        "culling":{}   
     }
   },{
     "entity":
@@ -241,9 +250,10 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 10.000,
-        "ortho_height": 51.000
+        "ortho_height": 51.000,
+        "has_culling": true
       } ,
-        "culling":true   
+        "culling":{}   
     }
   },
   {
@@ -266,9 +276,10 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 23.000,
-        "ortho_height": 14.000
+        "ortho_height": 14.000,
+        "has_culling": true
       } ,
-        "culling":true   
+        "culling":{}   
     }
   },
   {
@@ -291,9 +302,10 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 24.000,
-        "ortho_height": 20.000
+        "ortho_height": 20.000,
+        "has_culling": true
       } ,
-        "culling":true   
+        "culling":{}   
     }
   },
   {
@@ -316,9 +328,10 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 37.000,
-        "ortho_height": 20.000
+        "ortho_height": 20.000,
+        "has_culling": true
       }    ,
-        "culling":true
+        "culling":{}
     }
   },
   {
@@ -341,9 +354,10 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 37.000,
-        "ortho_height": 30.000
+        "ortho_height": 30.000,
+        "has_culling": true
       }    ,
-        "culling":true
+        "culling":{}
     }
   },
   {

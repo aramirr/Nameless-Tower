@@ -5,7 +5,7 @@
 #include "components/lights/comp_light_dir.h"
 #include "components/lights/comp_light_point_shadows.h"
 #include "components/controllers/comp_door.h"
-
+#include "components/player/comp_player_controller.h"
 
 bool CModuleTower::start()
 {

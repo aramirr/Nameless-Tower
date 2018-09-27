@@ -29,17 +29,25 @@ public:
 	void activateText(const char* name);
 	void disactivateText(const char* name);
 
-  //Lights
+  // Lights
   void setDirLightIntensity(const char* name, float value, bool left);
   void setPointLightIntensity(const char* name, float value, bool left);
 	void setNajaInterior();
 	void setnajaExterior();
 	void setExposure(float value);
 
+	// Particles
+	void startEmiter(const char* name, bool left);
+	void stopEmiter(const char* name, bool left);
+
   // Change level
   void changeGameState(const char* name);
 
   // utils
   bool applyFunction(bool left);
+  void playAmbientSound(bool left);
+  void playInteriorSound(bool left);
+  void playSound(bool left, std::string name);
+  void stopSound(bool left, std::string name);
 
 };

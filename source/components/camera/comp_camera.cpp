@@ -57,7 +57,6 @@ void TCompCamera::renderDebug() {
 
 // -------------------------------------------------
 void TCompCamera::load(const json& j, TEntityParseContext& ctx) {
-
 	// ..
 	player = (CEntity *)getEntityByName("The Player");
 

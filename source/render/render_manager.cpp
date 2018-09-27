@@ -164,7 +164,7 @@ void CRenderManager::setEntityCamera(CHandle h_new_entity_camera) {
   h_camera = h_new_entity_camera;
 }
 
-void CRenderManager::renderCategory(const char* category_name) {
+void CRenderManager::renderCategory(const char* category_name, const TCompCulling* culling) {
   PROFILE_FUNCTION(category_name);
   CTraceScoped gpu_scope(category_name);
 
@@ -180,12 +180,6 @@ void CRenderManager::renderCategory(const char* category_name) {
     return;
 
   // Check if we have culling information from the camera source
-  CEntity* e_camera = EngineCameras.getOutputCamera();
-  const TCompCulling* culling = nullptr;
-  std::string camera_name = EngineCameras.getActiveCamera()->getName();
-  if (e_camera && camera_name != "camera_idle" && camera_name != "camera_look_up" && camera_name != "camera_look_down") {
-      culling = e_camera->get<TCompCulling>();
-  }
   const TCompCulling::TCullingBits* culling_bits = culling ? &culling->bits : nullptr;
 
   //cte_object.activate();
