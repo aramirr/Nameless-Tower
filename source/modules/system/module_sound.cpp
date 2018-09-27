@@ -15,7 +15,7 @@ bool CModuleSound::start()
 	System* lowLevelSystem = NULL;
 	Studio::Bank* masterBank = NULL;		// ESTOS DOS SON OBLIGATORIOS, SON EL INDICE
 	Studio::Bank* stringsBank = NULL;		// ESTOS DOS SON OBLIGATORIOS, SON EL INDICE
-	Studio::Bank* TorreBank = NULL;
+	//Studio::Bank* TorreBank = NULL;
 
 	// arranco FMOD
 	res = Studio::System::create(&system);
@@ -27,7 +27,7 @@ bool CModuleSound::start()
 	res = system->loadBankFile("./data/fmod/Master Bank.strings.bank", FMOD_STUDIO_LOAD_BANK_NORMAL, &stringsBank);
 
 	// un par de bancos de ejemplo    
-	res = system->loadBankFile("./data/fmod/StepBank.bank", FMOD_STUDIO_LOAD_BANK_NORMAL, &TorreBank);
+	//res = system->loadBankFile("./data/fmod/StepBank.bank", FMOD_STUDIO_LOAD_BANK_NORMAL, &TorreBank);
 
 
 	// Cargamos los EventDescriptors

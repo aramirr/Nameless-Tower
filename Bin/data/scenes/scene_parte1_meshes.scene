@@ -2,6 +2,226 @@
   {
     "entity":
     {
+      "name": "Plataforma_01"
+      ,
+      "transform":
+      {
+        "pos": "-29.4599 15.8517 6.91044"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plataforma_01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PlatMaderaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_parte1_D"
+      ,
+      "transform":
+      {
+        "pos": "-4.91072 45.025 -27.5958"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte1_D.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Normal.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_parte1_C"
+      ,
+      "transform":
+      {
+        "pos": "-14.7739 31.5248 -25.0367"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte1_C.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Normal.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_parte_1_B"
+      ,
+      "transform":
+      {
+        "pos": "-30.5226 27.025 -5.02169"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte_1_B.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Normal.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedCanal3"
+      ,
+      "transform":
+      {
+        "pos": "-27.9899 11.2498 -7.49953"
+        ,
+        "rotation": "0.0 -0.309017 0.0 -0.951056"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedCanal3.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pared_Ladrillo_01.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "hojas012"
+      ,
+      "transform":
+      {
+        "pos": "1.45075 14.9563 -30.9563"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/hojas012.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/HojaMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "hojas012"
+      ,
+      "transform":
+      {
+        "pos": "0.10314 14.1456 -22.2073"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/hojas012.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/HojaMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PaiPaiPlaceholder"
+      ,
+      "transform":
+      {
+        "pos": "9.62696 4.51234 -29.0725"
+        ,
+        "rotation": "-0.557447 -0.5397 -0.443259 -0.448886"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PaiPaiPlaceholder.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PaipaiMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "EstatuaParte1"
       ,
       "transform":
@@ -159,6 +379,34 @@
             "data/materials/MarcoMater.material"
             ,
             "data/materials/ArcoMater.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sala_EstatuaFea_073"
+      ,
+      "transform":
+      {
+        "pos": "-22.5456 26.452 -11.4773"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sala_EstatuaFea_073.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Careta_01.material"
           ]
         }
       ]
@@ -362,34 +610,6 @@
       ]
       ,
       "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "marco004"
-      ,
-      "transform":
-      {
-        "pos": "29.652 44.9364 -3.6909"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/marco004.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MarcoMater.material"
-            ,
-            "data/materials/ArcoMater.material"
-          ]
-        }
-      ]
     }
   }
   ,
@@ -1544,62 +1764,6 @@
   {
     "entity":
     {
-      "name": "hojas011"
-      ,
-      "transform":
-      {
-        "pos": "0.983833 14.3416 -30.2426"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/hojas011.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/HojaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "hojas010"
-      ,
-      "transform":
-      {
-        "pos": "0.204807 13.2848 -22.2334"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/hojas010.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/HojaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Planta045"
       ,
       "transform":
@@ -2276,7 +2440,7 @@
   {
     "entity":
     {
-      "name": "Techo_Estatua"
+      "name": "Techo_parte1_E"
       ,
       "transform":
       {
@@ -2288,7 +2452,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Techo_Estatua.mesh"
+          "mesh": "data/meshes/Techo_parte1_E.mesh"
           ,
           "materials":
           [
@@ -2304,11 +2468,11 @@
   {
     "entity":
     {
-      "name": "Techo_parte_1"
+      "name": "Techo_parte_1_A"
       ,
       "transform":
       {
-        "pos": "-14.5512 27.025 -16.2502"
+        "pos": "-22.3709 11.275 -14.8453"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -2316,7 +2480,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Techo_parte_1.mesh"
+          "mesh": "data/meshes/Techo_parte_1_A.mesh"
           ,
           "materials":
           [
@@ -2956,7 +3120,7 @@
   {
     "entity":
     {
-      "name": "Object015"
+      "name": "PuertaSalaWindstrike"
       ,
       "transform":
       {
@@ -2968,7 +3132,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Object015.mesh"
+          "mesh": "data/meshes/PuertaSalaWindstrike.mesh"
           ,
           "materials":
           [
@@ -3208,7 +3372,7 @@
   {
     "entity":
     {
-      "name": "Techo"
+      "name": "Techo_parte1_F"
       ,
       "transform":
       {
@@ -3220,7 +3384,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Techo.mesh"
+          "mesh": "data/meshes/Techo_parte1_F.mesh"
           ,
           "materials":
           [
@@ -3634,7 +3798,7 @@
   {
     "entity":
     {
-      "name": "TechoCabeza"
+      "name": "Techo_parte1_G"
       ,
       "transform":
       {
@@ -3646,7 +3810,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/TechoCabeza.mesh"
+          "mesh": "data/meshes/Techo_parte1_G.mesh"
           ,
           "materials":
           [
@@ -4575,34 +4739,6 @@
           "materials":
           [
             "data/materials/CascadaAguaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_01"
-      ,
-      "transform":
-      {
-        "pos": "-29.4599 15.8517 6.91044"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Madera_02.material"
           ]
         }
       ]

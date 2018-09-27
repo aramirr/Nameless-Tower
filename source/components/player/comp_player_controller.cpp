@@ -214,7 +214,11 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 
                 PxReal maxDistance = 0.5f;
                 PxRaycastBuffer hit;
-
+                TMsgSetFSMVariable dashMsg;
+                dashMsg.variant.setName("can_dash");
+                dashMsg.variant.setBool(true);
+                CEntity* e = CHandle(this).getOwner();
+                e->sendMsg(dashMsg);
                 if (!EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) {
                     is_grounded = false;
                     y_speed_factor = 0;

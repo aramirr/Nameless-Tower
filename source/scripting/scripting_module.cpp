@@ -35,6 +35,10 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("open_door", &LogicManager::openDoor)
     .set("activate_anim", &LogicManager::activateAnim)
     .set("change_level", &LogicManager::changeGameState)
+		.set("set_naja_int", &LogicManager::setNajaInterior)
+		.set("set_naja_ext", &LogicManager::setnajaExterior)
+		.set("start_emiter", &LogicManager::startEmiter)
+		.set("stop_emiter", &LogicManager::stopEmiter)
 		;
 }
 
@@ -47,8 +51,8 @@ void ScriptingModule::ExecEvent(ScriptEvents e, vector<string> params) {
       fWindstrikeActivate(params);
     }
 	}*/
-  if (e == ScriptEvents::trigger_enter) {
-    fTriggerEnter(params);
+  if (e == ScriptEvents::trigger_exit) {
+    fTriggerExit(params);
   }
   else if (e == ScriptEvents::windstrike_activate) {
     fWindstrikeActivate(params);
@@ -57,14 +61,14 @@ void ScriptingModule::ExecEvent(ScriptEvents e, vector<string> params) {
 }
 
 
-void ScriptingModule::fTriggerEnter(vector<string> params) {
-  if (params.size() > 0) {
-    string name = params[0];
-    string func_name = "OnTriggerEnter" + name;
-    auto p = EngineScripting.script.exists(func_name);
-    if (p)
-      EngineScripting.script.doString(func_name + "()");
-  }
+void ScriptingModule::fTriggerExit(vector<string> params) {
+    if (params.size() > 0) {
+        string name = params[0];
+        string func_name = "OnTriggerExit" + name;
+        auto p = EngineScripting.script.exists(func_name);
+        if (p)
+            EngineScripting.script.doString(func_name + "()");
+    }
 }
 
 void ScriptingModule::fWindstrikeActivate(vector<string> params) {

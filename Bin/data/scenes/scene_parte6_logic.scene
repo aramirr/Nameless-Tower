@@ -1,0 +1,385 @@
+[
+  {
+    "entity":
+    {
+      "name": "ParedTapada7"
+      ,
+      "transform":
+      {
+        "pos": "1.90735e-06 13.5 3.63571e-07"
+        ,
+        "rotation": "0.0 -0.972236 0.0 -0.234003"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedTapada7.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Puerta_Abatible_Madera_003"
+      ,
+      "transform":
+      {
+        "pos": "3.30994 31.4999 -30.0799"
+        ,
+        "rotation": "0.0 0.626226 0.0 -0.779642"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puerta_Cerrada_01.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "door":
+      {
+        "up": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Puerta_Abatible_Madera_002"
+      ,
+      "transform":
+      {
+        "pos": "30.4337 31.4999 -3.12938"
+        ,
+        "rotation": "0.0 -0.974216 0.0 0.225617"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puerta_Cerrada_01.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "door":
+      {
+        "up": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Movil03"
+      ,
+      "transform":
+      {
+        "pos": "30.6139 42.2095 -7.80482"
+        ,
+        "rotation": "0.0 0.43062 0.0 -0.902533"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Movil03.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.471604 0.341846 0.360126"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Estatua02"
+      ,
+      "transform":
+      {
+        "pos": "30.0131 43.9342 -8.34039"
+        ,
+        "rotation": "0.0 0.43062 0.0 -0.902533"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Estatua02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaCabezaOutMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.319037 0.606354 0.414331"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Movil02"
+      ,
+      "transform":
+      {
+        "pos": "27.7312 37.7039 14.5425"
+        ,
+        "rotation": "0.0 0.797226 0.0 -0.603681"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Movil02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.471604 0.341846 0.360125"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Estatua03"
+      ,
+      "transform":
+      {
+        "pos": "27.8214 39.4286 13.7427"
+        ,
+        "rotation": "0.0 0.797226 0.0 -0.603681"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Estatua03.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaCabezaOutMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.319037 0.606354 0.414332"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Estatico03"
+      ,
+      "transform":
+      {
+        "pos": "27.8844 37.4282 13.7275"
+        ,
+        "rotation": "0.0 0.797226 0.0 -0.603682"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Estatico03.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.965661 1.44805 0.988708"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Estatico02"
+      ,
+      "transform":
+      {
+        "pos": "30.0371 41.9338 -8.40063"
+        ,
+        "rotation": "0.0 0.43062 0.0 -0.902533"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Estatico02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.965661 1.44805 0.988708"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Proyectil01"
+      ,
+      "transform":
+      {
+        "pos": "19.5553 52.9952 24.2726"
+        ,
+        "rotation": "-0.666205 -0.237003 0.237003 -0.666205"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Dragon01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CabezaDragonCabezaMat.material"
+            ,
+            "data/materials/CabezaDragonColmillosMat.material"
+            ,
+            "data/materials/CabezaDragonAdornoMat.material"
+          ]
+        }
+      ]
+      ,
+      "projectile_controller":
+      {
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+]

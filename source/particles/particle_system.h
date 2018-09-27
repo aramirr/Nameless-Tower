@@ -17,13 +17,15 @@ namespace Particles
     };
     struct TEmission
     {
-      enum EType {Point = 0, Line, Square, Box, Sphere};
+      enum EType {Point = 0, Line, Square, Box, Sphere, Rectangle};
 
       EType type = Point;           // type of emissor
       float interval = 0.f;         // generation interval
       int count = 1;                // number of particles each generation
-      bool cyclic = false;          // system re-emits after the interval time
-      float size = 0.f;             // emissor size
+			bool cyclic = false;          // system re-emits after the interval time
+			bool on = true;          // system re-emits after the interval time
+			float size = 0.f;             // emissor size
+			float size_2 = 0.f;             // emissor size
       float angle = 0.f;            // emission angle
       bool random_rotation = false; // if true: particles appear in a random position
       VEC3 direction = VEC3::Zero;

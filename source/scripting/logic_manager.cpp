@@ -4,7 +4,11 @@
 #include "logic_manager.h"
 #include "components/juan/comp_transform.h"
 #include "components/juan/comp_render.h"
+#include "components/comp_particles.h"
 #include "components/camera/comp_camera_manager.h"
+#include "render\render_objects.h"
+#include "ctes.h"
+#include "render/cte_buffer.h"
 using namespace SLB;
 
 
@@ -24,21 +28,25 @@ void LogicManager::appearEntity(const char* name) {
   EngineTower.appearEntity(name);
 }
 
-void LogicManager::renderOnlyShadows(const char* name) {
-  EngineTower.renderOnlyShadows(name);
+void LogicManager::renderOnlyShadows(const char* name, bool left) {
+  if (applyFunction(left))
+      EngineTower.renderOnlyShadows(name);
 }
 
-void LogicManager::renderEverything(const char* name) {
-  EngineTower.renderEverything(name);
+void LogicManager::renderEverything(const char* name, bool left) {
+    if (applyFunction(left))
+        EngineTower.renderEverything(name);
 }
 
 // Cinematics
-void LogicManager::activateCinematic(const char* name) {
-    EngineTower.activateCinematic(name);    
+void LogicManager::activateCinematic(const char* name, bool left) {
+    if (applyFunction(left))
+        EngineTower.activateCinematic(name);
 }
 
-void LogicManager::deactivateCinematic(const char* name) {
-    EngineTower.deactivateCinematic(name);    
+void LogicManager::deactivateCinematic(const char* name, bool left) {
+    if (applyFunction(left))
+        EngineTower.deactivateCinematic(name);
 }
 
 // Misc
@@ -47,7 +55,7 @@ void LogicManager::setAmbientAdjustment(float value) {
 };
 
 void LogicManager::setExposureAdjustment(float value) {
-    EngineTower.setExposureAdjustment(value);
+    EngineTower.setExposure(value);
 };
 
 void LogicManager::playLastCinematic() {
@@ -79,12 +87,40 @@ void LogicManager::disactivateText(const char* name) {
 }
 
 // Lights
-void LogicManager::setDirLightIntensity(const char* name, float value) {
-  EngineTower.setDirLightIntensity(name, value);
+void LogicManager::setDirLightIntensity(const char* name, float value, bool left) {
+    if (applyFunction(left))
+        EngineTower.setDirLightIntensity(name, value);
 }
 
-void LogicManager::setPointLightIntensity(const char* name, float value) {
-  EngineTower.setPointLightIntensity(name, value);
+void LogicManager::setPointLightIntensity(const char* name, float value, bool left) {
+    if (applyFunction(left))
+        EngineTower.setPointLightIntensity(name, value);
+}
+
+void LogicManager::setNajaInterior()
+{
+	cb_globals.global_naja_interior = 1;
+}
+
+void LogicManager::setnajaExterior()
+{
+	cb_globals.global_naja_interior = 0;
+}
+
+void LogicManager::startEmiter(const char* name, bool left) {
+	if (applyFunction(left)) {
+		CEntity* particles_emiter = (CEntity*)getEntityByName(name);
+		TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+		c_particles->start_emiter();
+	}
+}
+
+void LogicManager::stopEmiter(const char* name, bool left) {
+	if (applyFunction(left)) {
+		CEntity* particles_emiter = (CEntity*)getEntityByName(name);
+		TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+		c_particles->stop_emiter();
+	}
 }
 
 // Change Level
@@ -96,4 +132,10 @@ void LogicManager::changeGameState(const char* name) {
         CEngine::get().getModules().changeGameState(name);
         player->game_state = "level_2";
     }        
+}
+
+bool LogicManager::applyFunction(bool left) {
+    CEntity* e = getEntityByName("The Player");
+    TCompPlayerController* player = e->get<TCompPlayerController>();
+    return player->looking_left == left;
 }

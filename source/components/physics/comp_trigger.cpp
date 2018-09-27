@@ -88,9 +88,17 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 }
 
 void TCompTrigger::onTriggerExit(const TMsgTriggerExit& msg) {
+    CEntity* entity = h_entity;
+    std::string name = entity->getName();
+
+    std::vector<std::string> params;
+    params.push_back(name);
 	h_other_entity = msg.h_other_entity;
 	CEntity* e_other_entity = h_other_entity;
 	std::string other_entity_name = e_other_entity->getName();
+    if (other_entity_name == "The Player") {
+        EngineScripting.ExecEvent(ScriptEvents::trigger_exit, params);
+    }
 	if (trigger_type == "plattform" && other_entity_name == "The Player") {
 		CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
 		TMsgDetachOf detach_msg;

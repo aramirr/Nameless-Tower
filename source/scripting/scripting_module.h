@@ -6,7 +6,8 @@
  
  enum ScriptEvents {
 	 trigger_enter = 0,
-   windstrike_activate = 1,
+     windstrike_activate = 1,
+     trigger_exit = 2,
 	 max_num_events
  };
 
@@ -22,6 +23,6 @@ class ScriptingModule
 		void BootLuaSLB(SLB::Manager *m);
 		void ExecEvent(ScriptEvents e, std::vector<std::string> params);
 
-    void fTriggerEnter(std::vector<std::string> params);
-    void fWindstrikeActivate(std::vector<std::string> params);
+        void fTriggerExit(std::vector<std::string> params);
+        void fWindstrikeActivate(std::vector<std::string> params);
 };
