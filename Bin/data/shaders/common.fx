@@ -128,7 +128,7 @@ float remap(float value, float inputMin, float inputMax, float outputMin, float 
 //--------------------------------------------------------------------------------------
 //
 //--------------------------------------------------------------------------------------
-float3 postprocesado(float3 c)
+float3 postprocesado(float3 c, float2 iUV)
 {
     float3 hsvPixel = rgb2hsv(float3(c.rgb));
     
@@ -141,8 +141,16 @@ float3 postprocesado(float3 c)
 
     float contrast = remap(global_contrast_adjustment, 0.0, 1.0, 0.2 /*min*/, 4.0 /*max*/);
     float4 dstColor = float4((r.rgb - (float3) (0.5)) * contrast + (float3)(0.5), 1.0);
-    return clamp(dstColor, 0.0, 1.0);
-    
+    float4 finalColor = clamp(dstColor, 0.0, 1.0);
+
+    //VIGNETTING
+    //float2 uv = fragCoord.xy / iResolution.xy;
+    float2 coord = (iUV - 0.5) * (global_resolution_X / global_resolution_Y) * 2.0;
+    float rf = sqrt(dot(coord, coord)) * global_vignetting_adjustment;
+    float rf2_1 = rf * rf + 1.0;
+    float e = 1.0 / (rf2_1 * rf2_1);
+
+    return float4(finalColor.rgb * e, 1.0);
 
 }
 
