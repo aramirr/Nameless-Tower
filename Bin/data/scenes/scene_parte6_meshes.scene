@@ -18,7 +18,7 @@
           ,
           "materials":
           [
-            "data/materials/PlatMaderaAMat.material"
+            "data/materials/MaderaMusgoMat.material"
           ]
         }
       ]
@@ -170,34 +170,6 @@
   {
     "entity":
     {
-      "name": "Bridge_Break"
-      ,
-      "transform":
-      {
-        "pos": "26.4965 85.1746 -13.7179"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Bridge_Break.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Madera_02.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Puerta_Reja_01"
       ,
       "transform":
@@ -218,6 +190,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
       ,
       "collider":
       {
@@ -569,6 +543,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,

@@ -53,108 +53,6 @@
   {
     "entity":
     {
-      "name": "PinchosDesague"
-      ,
-      "transform":
-      {
-        "pos": "-7.81028 3.84084 -29.1308"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/PinchosA.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RocaVerde.material"
-          ]
-        }
-      ]
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": true
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.2417 0.804776 1.58385"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "PinchosDesague02"
-      ,
-      "transform":
-      {
-        "pos": "-26.2786 3.88301 -17.1027"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/PinchosB.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RocaVerde.material"
-          ]
-        }
-      ]
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": true
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.2417 0.804776 1.58385"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "ParedTapada5"
       ,
       "transform":
@@ -609,6 +507,108 @@
   {
     "entity":
     {
+      "name": "PinchosDesague"
+      ,
+      "transform":
+      {
+        "pos": "-7.81028 3.84084 -29.1308"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocaVerde.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PinchosDesague02"
+      ,
+      "transform":
+      {
+        "pos": "-26.2786 3.88301 -17.1027"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocaVerde.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Sierra006"
       ,
       "transform":
@@ -909,73 +909,6 @@
       "player_killer":
       {
         "kill_enabled": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Lanzas01"
-      ,
-      "transform":
-      {
-        "pos": "-14.0972 10.1302 -27.6159"
-        ,
-        "rotation": "0.0 -0.258819 0.0 -0.965926"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Lanzas01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/LanzasMat.material"
-          ]
-        }
-      ]
-      ,
-      "ai_linear_patrol":
-      {
-        "speed": 3.0
-        ,
-        "delay": 1.0
-        ,
-        "wake": 0.0
-        ,
-        "waypoints":
-        [
-          "-14.0451 10.0574 -27.6313"
-          ,
-          "-14.0451 6.93206 -27.6313"
-        ]
-      }
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1.38794 2.28628 1.0167"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
       }
     }
   }

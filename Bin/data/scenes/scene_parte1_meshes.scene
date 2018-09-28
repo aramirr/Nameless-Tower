@@ -2,6 +2,32 @@
   {
     "entity":
     {
+      "name": "Lanzas01"
+      ,
+      "transform":
+      {
+        "pos": "-14.0806 10.0444 -27.6794"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Lanzas01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LanzasMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Plataforma_01"
       ,
       "transform":
@@ -18,7 +44,7 @@
           ,
           "materials":
           [
-            "data/materials/PlatMaderaAMat.material"
+            "data/materials/MaderaMusgoMat.material"
           ]
         }
       ]
@@ -134,6 +160,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -216,6 +244,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -354,6 +384,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -2852,6 +2884,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -2878,6 +2912,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -2904,6 +2940,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -2930,6 +2968,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -2956,6 +2996,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -2982,6 +3024,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -3008,6 +3052,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -3034,6 +3080,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -3060,6 +3108,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -3086,6 +3136,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,

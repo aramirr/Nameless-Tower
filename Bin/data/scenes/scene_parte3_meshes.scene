@@ -2,6 +2,36 @@
   {
     "entity":
     {
+      "name": "Bridge"
+      ,
+      "transform":
+      {
+        "pos": "26.4965 85.1746 -13.7179"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Bridge.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuenteMate.material"
+            ,
+            "data/materials/CuerdaMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Plataforma_009"
       ,
       "transform":
@@ -18,7 +48,7 @@
           ,
           "materials":
           [
-            "data/materials/PlatMaderaAMat.material"
+            "data/materials/MaderaMusgoMat.material"
           ]
         }
       ]
@@ -159,34 +189,6 @@
           "materials":
           [
             "data/materials/Techo_Normal.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Bridge_Break001"
-      ,
-      "transform":
-      {
-        "pos": "26.5434 85.4161 -13.7179"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Bridge_Break001.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Madera_02.material"
           ]
         }
       ]
@@ -498,6 +500,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1305,7 +1309,7 @@
       {
         "pos": "17.2846 69.876 7.7916"
         ,
-        "rotation": "0.0 -0.587785 0.0 -0.809017"
+        "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
       "render":
@@ -2891,57 +2895,6 @@
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "SalaEstatuaPinchos"
-      ,
-      "transform":
-      {
-        "pos": "26.1949 61.1154 15.7051"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/PinchosD.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RocaVerde.material"
-          ]
-        }
-      ]
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": true
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.2417 0.804776 1.58385"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
       ,
       "abs_aabb": true
     }

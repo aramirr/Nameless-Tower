@@ -2,6 +2,37 @@
   {
     "entity":
     {
+      "name": "Escaleras_Escena01"
+      ,
+      "transform":
+      {
+        "pos": "-17.9658 25.3354 -23.9434"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Escaleras_Escena01.col_mesh"
+        ,
+        "group": "stairs"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "TSCabezaTutorial"
       ,
       "transform":
