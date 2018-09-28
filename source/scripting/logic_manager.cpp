@@ -143,17 +143,13 @@ bool LogicManager::applyFunction(bool left) {
 
 void LogicManager::playAmbientSound(bool left) {
     if (applyFunction(left)) {
-        CEntity* e = getEntityByName("The Player");
-        TCompSound* sound = e->get<TCompSound>();
-        sound->playAmbient();
+        EngineSound.playAmbient();
     }
 }
 
 void LogicManager::playInteriorSound(bool left) {
     if (applyFunction(left)) {
-        CEntity* e = getEntityByName("The Player");
-        TCompSound* sound = e->get<TCompSound>();
-        sound->playInterior();
+        EngineSound.playInterior();
     }
 }
 

@@ -29,16 +29,6 @@ void TCompSound::update(float dt) {
 void TCompSound::debugInMenu() {
 }
 
-void TCompSound::playInterior() {
-    events["ambient"]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
-    events["interior"]->start();
-}
-
-void TCompSound::playAmbient() {
-    events["interior"]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
-    events["ambient"]->start();
-}
-
 void TCompSound::playSound(std::string name) {
     events[name]->start();
 }
