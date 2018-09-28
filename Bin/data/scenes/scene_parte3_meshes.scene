@@ -2,6 +2,538 @@
   {
     "entity":
     {
+      "name": "Tela_Templo13"
+      ,
+      "transform":
+      {
+        "pos": "20.0702 75.8305 12.8746"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo13.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo17"
+      ,
+      "transform":
+      {
+        "pos": "18.3444 75.6325 11.9535"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo17.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo18"
+      ,
+      "transform":
+      {
+        "pos": "20.7545 75.372 5.87024"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo18.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo16"
+      ,
+      "transform":
+      {
+        "pos": "20.7124 75.4846 9.17167"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo16.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo15"
+      ,
+      "transform":
+      {
+        "pos": "23.5697 75.7523 6.65731"
+        ,
+        "rotation": "0.0 -1.74846e-07 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo15.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo08"
+      ,
+      "transform":
+      {
+        "pos": "28.4742 75.6615 12.5416"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo08.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo07"
+      ,
+      "transform":
+      {
+        "pos": "24.8479 75.6122 15.5782"
+        ,
+        "rotation": "0.0 -1.74846e-07 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo07.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo14"
+      ,
+      "transform":
+      {
+        "pos": "23.2558 75.2353 10.4636"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo14.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo11"
+      ,
+      "transform":
+      {
+        "pos": "26.5451 75.5666 7.57169"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo11.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo10"
+      ,
+      "transform":
+      {
+        "pos": "26.0891 74.9975 11.5809"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo10.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo09"
+      ,
+      "transform":
+      {
+        "pos": "29.4541 75.2821 8.29419"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo09.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo12"
+      ,
+      "transform":
+      {
+        "pos": "22.1516 75.0907 14.0274"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo12.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo06"
+      ,
+      "transform":
+      {
+        "pos": "11.5005 70.7034 27.4381"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo06.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo04"
+      ,
+      "transform":
+      {
+        "pos": "13.992 70.8368 22.7253"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo04.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo02"
+      ,
+      "transform":
+      {
+        "pos": "21.1368 70.587 18.094"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo01"
+      ,
+      "transform":
+      {
+        "pos": "17.6759 71.0053 20.4908"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo03"
+      ,
+      "transform":
+      {
+        "pos": "15.6974 70.7491 25.0292"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo03.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo00"
+      ,
+      "transform":
+      {
+        "pos": "19.6982 70.9886 23.2102"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo00.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Tela_Templo05"
+      ,
+      "transform":
+      {
+        "pos": "11.0247 71.1201 26.51"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Tela_Templo05.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Bridge"
       ,
       "transform":
@@ -1951,342 +2483,6 @@
   {
     "entity":
     {
-      "name": "Tela_Templo13"
-      ,
-      "transform":
-      {
-        "pos": "20.3329 75.4328 12.8708"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo13.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Tela_Templo17"
-      ,
-      "transform":
-      {
-        "pos": "18.2019 75.238 11.3718"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo17.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Tela_Templo18"
-      ,
-      "transform":
-      {
-        "pos": "20.6973 75.2507 5.87131"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo18.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Tela_Templo16"
-      ,
-      "transform":
-      {
-        "pos": "20.7756 75.0831 9.30613"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo16.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Tela_Templo15"
-      ,
-      "transform":
-      {
-        "pos": "23.712 74.9623 6.73404"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo15.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Tela_Templo08"
-      ,
-      "transform":
-      {
-        "pos": "28.5517 75.2626 12.6702"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo08.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Tela_Templo07"
-      ,
-      "transform":
-      {
-        "pos": "24.9526 75.2146 15.59"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo07.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Tela_Templo14"
-      ,
-      "transform":
-      {
-        "pos": "23.166 75.238 10.3514"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo14.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Tela_Templo11"
-      ,
-      "transform":
-      {
-        "pos": "26.4867 75.1692 7.57914"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo11.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Tela_Templo10"
-      ,
-      "transform":
-      {
-        "pos": "26.2033 74.7794 11.5401"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo10.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Tela_Templo09"
-      ,
-      "transform":
-      {
-        "pos": "29.628 75.0873 8.39005"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo09.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Tela_Templo12"
-      ,
-      "transform":
-      {
-        "pos": "22.2948 75.369 13.7891"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo12.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Sala_EstatuaFea_08"
       ,
       "transform":
@@ -2371,62 +2567,6 @@
   {
     "entity":
     {
-      "name": "Tela_Templo06"
-      ,
-      "transform":
-      {
-        "pos": "11.4857 70.7088 27.4992"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo06.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Tela_Templo04"
-      ,
-      "transform":
-      {
-        "pos": "13.9485 70.5139 22.5763"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo04.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Sala_EstatuaFea_43"
       ,
       "transform":
@@ -2455,62 +2595,6 @@
   {
     "entity":
     {
-      "name": "Tela_Templo02"
-      ,
-      "transform":
-      {
-        "pos": "21.1171 70.8044 18.2175"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo02.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Tela_Templo01"
-      ,
-      "transform":
-      {
-        "pos": "17.4837 70.5918 20.7738"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Sala_EstatuaFea_40"
       ,
       "transform":
@@ -2524,90 +2608,6 @@
       [
         {
           "mesh": "data/meshes/Sala_EstatuaFea_40.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Tela_Templo03"
-      ,
-      "transform":
-      {
-        "pos": "15.6501 70.3591 25.1451"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo03.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Tela_Templo00"
-      ,
-      "transform":
-      {
-        "pos": "19.4658 70.5824 22.5821"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo00.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Tela_Templo05"
-      ,
-      "transform":
-      {
-        "pos": "11.0554 70.6449 26.6606"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Tela_Templo05.mesh"
           ,
           "materials":
           [

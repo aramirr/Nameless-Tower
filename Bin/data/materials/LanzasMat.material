@@ -5,9 +5,9 @@
   ,
   "textures":
   {
-    "albedo": "data/textures/lanza_b.dds"
+    "albedo": "data/textures/Lanza_BaseColor.dds"
     ,
-    "normal": "data/textures/lanza_n.dds"
+    "normal": "data/textures/Lanza_Normal.dds"
     ,
     "emissive": "data/textures/null_emissive.dds"
     ,
@@ -17,6 +17,6 @@
     ,
     "height": "data/textures/null_height.dds"
     ,
-    "orm": "data/textures/lanza_orm.dds"
+    "orm": "data/textures/Lanza_OcclusionRoughnessMetallic.dds"
   }
 }

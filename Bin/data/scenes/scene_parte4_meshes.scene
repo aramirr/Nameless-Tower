@@ -2,6 +2,146 @@
   {
     "entity":
     {
+      "name": "Line037"
+      ,
+      "transform":
+      {
+        "pos": "-1.00923 93.4354 -31.3242"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Line037.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Line036"
+      ,
+      "transform":
+      {
+        "pos": "10.8518 93.4336 -29.0346"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Line036.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Line034"
+      ,
+      "transform":
+      {
+        "pos": "8.8174 93.4524 -25.4772"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Line034.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Line031"
+      ,
+      "transform":
+      {
+        "pos": "3.85452 92.8787 -24.084"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Line031.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Line030"
+      ,
+      "transform":
+      {
+        "pos": "-0.593155 93.4091 -26.8198"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Line030.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Puerta_Abierta_Madera_043"
       ,
       "transform":
@@ -351,146 +491,6 @@
       [
         {
           "mesh": "data/meshes/Line038.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Line037"
-      ,
-      "transform":
-      {
-        "pos": "-0.60218 93.0183 -30.9731"
-        ,
-        "rotation": "0.0 -1.74846e-07 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Line037.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Line036"
-      ,
-      "transform":
-      {
-        "pos": "10.0963 93.0167 -29.3828"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Line036.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Line034"
-      ,
-      "transform":
-      {
-        "pos": "9.03785 93.1505 -25.3573"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Line034.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Line031"
-      ,
-      "transform":
-      {
-        "pos": "3.81499 92.8841 -24.1571"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Line031.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Line030"
-      ,
-      "transform":
-      {
-        "pos": "-0.658627 93.004 -26.8052"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Line030.mesh"
           ,
           "materials":
           [

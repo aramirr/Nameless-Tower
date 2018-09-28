@@ -98,16 +98,14 @@ bool CModuleLevel1::stop()
     deleteScene("data/scenes/compresoras.scene", ctx);
     deleteScene("data/scenes/scene_parte1_colltrig.scene", ctx);
     deleteScene("data/scenes/scene_parte1_logic.scene", ctx);
+    deleteScene("data/scenes/scene_parte1_meshes.scene", ctx);
     deleteScene("data/scenes/scene_parte2_colltrig.scene", ctx);
     deleteScene("data/scenes/scene_parte2_logic.scene", ctx);
     deleteScene("data/scenes/scene_parte2_meshes.scene", ctx);
     deleteScene("data/scenes/scene_parte3_colltrig.scene", ctx);
     deleteScene("data/scenes/scene_parte3_logic.scene", ctx);
     deleteScene("data/scenes/scene_parte3_meshes.scene", ctx);
-    deleteScene("data/scenes/scene_parte4_colltrig.scene", ctx);
-    deleteScene("data/scenes/scene_parte4_logic.scene", ctx);
     deleteScene("data/scenes/scene_parte3_colltrig.scene", ctx);
-    deleteScene("data/scenes/scene_parte4_meshes.scene", ctx);
    
 	return true;
 }
