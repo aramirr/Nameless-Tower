@@ -18,14 +18,15 @@ void TCompSound::load(const json& j, TEntityParseContext& ctx) {
         std::string event_name = event["name"].get<std::string>();
 		EngineSound.res = EngineSound.system->getEvent(event_src.c_str(), &event_description);
 		Studio::EventInstance* event_instance = NULL;
-		EngineSound.res = event_description->createInstance(&event_instance);
+		EngineSound.res = event_description->createInstance(&event_instance);        
 
         sound.path = event_src;
         sound.eventInstance = event_instance;
         sound.eventDescriptor = event_description;
-        sound.following = event.value("following", sound.following);
-        sound.multiInstancing = event.value("multi_instancing", sound.multiInstancing);
-        sound.stopFadeOut = event.value("stop_fade_out", sound.stopFadeOut);
+        sound.positional = event.value("positional", false);
+        event_description->is3D(&sound.positional);
+        sound.multiInstancing = event.value("multi_instancing", false);
+        sound.stopFadeOut = event.value("stop_fade_out", false);
 		events.insert(std::make_pair(event_name, sound));
 	}	
 }
@@ -36,8 +37,10 @@ void TCompSound::update(float dt) {
 	for (auto& p : events) {
 		auto& sound = p.second;
 		auto& eventInstance = sound.eventInstance;		
-		if (sound.following) {
+		if (sound.positional) {
 			FMOD_3D_ATTRIBUTES attributes = toFMODAttributes(*transform);
+            dbg(std::to_string(attributes.position.x).c_str());
+            dbg("3\n");
 			eventInstance->set3DAttributes(&attributes);
 		}
 	}
@@ -59,12 +62,17 @@ FMOD_3D_ATTRIBUTES TCompSound::toFMODAttributes(CTransform t) {
     attr.forward = toFMODVector(t.getFront());
     attr.velocity = FMOD_VECTOR();
     attr.position = toFMODVector(t.getPosition());
+    attr.up = toFMODVector(t.getUp());
     return attr;
 }
 
 FMOD_VECTOR TCompSound::toFMODVector(VEC3 v) {
     FMOD_VECTOR vec;
+    dbg(std::to_string(v.x).c_str());
+    dbg("1\n");
     vec.x = v.x;
+    dbg(std::to_string(vec.x).c_str());
+    dbg("2\n");
     vec.y = v.y;
     vec.z = v.z;
     return vec;

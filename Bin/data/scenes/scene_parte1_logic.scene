@@ -89,7 +89,12 @@
         "pos": "0.0 0.0 0.0"
         ,
         "rotation": "0.0 0.0 0.0 0.0"
-      }
+      },
+      "sound": {
+          "events": [         
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra", "positional": false}
+          ]
+        }    
     }
   }
   ,

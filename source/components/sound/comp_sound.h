@@ -19,7 +19,7 @@ struct TCompSound: public TCompBase {
         FMOD::Studio::EventDescription* eventDescriptor = nullptr;
         FMOD::Studio::EventInstance* eventInstance;
         bool stopFadeOut = false;
-        bool following = false;
+        bool positional = false;
         bool multiInstancing = true;
     };
 
