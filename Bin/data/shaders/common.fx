@@ -220,6 +220,16 @@ float3 postprocesado(float3 c, float2 iUV, float4 iPosition)
     float rf2_1 = rf * rf + 1.0;
     float e = 1.0 / (rf2_1 * rf2_1);
 
+    //finalColor = float4(finalColor.rgb * e, 1.0);
+
+    //BANDA NEGRA PARA CINEMATICAS
+    //vec2 q = fragCoord.xy / iResolution.xy;
+       
+    if (iUV.y >= global_bandMin_adjustment || iUV.y < global_bandMax_adjustment)
+    {
+        return float4(0.f, 0.f, 0.f, 1.f);
+    }
+
     return float4(finalColor.rgb * e, 1.0);
 
 }

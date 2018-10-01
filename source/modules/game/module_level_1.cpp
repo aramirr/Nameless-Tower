@@ -70,6 +70,9 @@ bool CModuleLevel1::start()
 
 	cb_globals.global_contrast_adjustment = 0.215f;
 
+	cb_globals.global_bandMin_adjustment = 0.f;
+	cb_globals.global_bandMax_adjustment = 0.f;
+
 	cb_light.activate();
 	cb_object.activate();
 	cb_globals.activate();
