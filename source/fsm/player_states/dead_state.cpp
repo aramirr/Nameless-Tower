@@ -12,7 +12,9 @@ namespace FSM
 	{
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_animation(player->EAnimations::NajaDeath, _is_action, _delay_in, _delay_out, true);
+		if (player->can_die) {
+			player->change_animation(player->EAnimations::NajaDeath, _is_action, _delay_in, _delay_out, true);
+		}
 		ctx.setVariable("hit", false);
 	}
 
