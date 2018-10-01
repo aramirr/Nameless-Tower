@@ -10,6 +10,9 @@ class CModuleTower : public IModule {
 
 	bool cargar = true;
 	bool changeExposure;
+	bool time_out = false;
+	float current_time = 0.0f;
+	float total_wait_time = 0.0f;
 	float newExposure;
 	float oldExposure;
 	float defaultExposure;
@@ -45,6 +48,7 @@ public:
   const void setDirLightIntensity(const std::string& name, float intensity);
   const void setPointLightIntensity(const std::string& name, float intensity);
 	void setExposure(float _exposure);
+	void wait_seconds(float num_seconds);
 
 	float getTowerRadius();
 

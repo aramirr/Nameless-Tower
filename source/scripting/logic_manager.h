@@ -49,4 +49,9 @@ public:
   void playSound(bool left, std::string name);
   void stopSound(bool left, std::string name);
 
+  //Lua Cinematics
+  void pausePlayer();
+  void setAnim();
+  void regainControl(float time_to_wait);
+
 };

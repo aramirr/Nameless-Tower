@@ -38,6 +38,21 @@ void CModuleTower::update(float delta)
 		defaultExposure = cb_globals.global_exposure_adjustment;
 		cargar = false;
 	}
+	if (time_out) {
+		current_time += delta;
+		if (current_time > total_wait_time) {
+			time_out = false;
+			CEntity* player = getEntityByName("The Player");
+			TMsgSetFSMVariable pauseMsg;
+			pauseMsg.variant.setName("pause");
+			pauseMsg.variant.setBool(false);
+			player->sendMsg(pauseMsg);
+
+			pauseMsg.variant.setName("idle");
+			pauseMsg.variant.setBool(true);
+			player->sendMsg(pauseMsg);
+		}
+	}
 }
 
 void CModuleTower::render()
@@ -183,4 +198,10 @@ const void CModuleTower::activateAnim(const std::string& name) {
 void CModuleTower::setExposure(float _exposure) {
 	newExposure = _exposure;
 	changeExposure = true;
+}
+
+void CModuleTower::wait_seconds(float num_seconds) {
+	current_time = 0.0f;
+	total_wait_time = num_seconds;
+	time_out = true;
 }

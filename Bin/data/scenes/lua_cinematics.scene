@@ -1,0 +1,36 @@
+[
+{
+    "entity":
+    {
+      "name": "LuaCinematicTest"
+      ,
+      "transform":
+      {
+        "pos": "4.314 4.5 -31.203"
+        ,
+        "rotation": "0.0 -0.882102 0.0 -0.471058"
+      }
+      ,
+      "render":
+      []
+      ,
+      "trigger":
+      {
+        "trigger_type": "default"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "3 3 3"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+}
+]

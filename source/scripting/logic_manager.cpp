@@ -173,3 +173,27 @@ void LogicManager::stopSound(bool left, std::string name) {
     }
 }
 
+// LUA Cinematic
+void LogicManager::pausePlayer() {
+	CEntity* player = getEntityByName("The Player");
+
+	TMsgSetFSMVariable pauseMsg;
+	pauseMsg.variant.setName("pause");
+	pauseMsg.variant.setBool(true);
+	player->sendMsg(pauseMsg);
+
+	//Pinchar la camara que sea sobre railes aqui
+
+}
+
+
+void LogicManager::setAnim() {
+	CEntity* player = getEntityByName("The Player");
+	TCompPlayerController * controller = player->get<TCompPlayerController>();
+	// PASARLE EL ANIM QUE TOCA, esta puesto el idle
+	controller->change_animation(controller->EAnimations::NajaOmniAr, false, 0.5, 0.5, true);
+}
+
+void LogicManager::regainControl(float time_to_wait) {
+	EngineTower.wait_seconds(time_to_wait);
+}

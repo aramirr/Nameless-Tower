@@ -41,6 +41,9 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("set_naja_ext", &LogicManager::setnajaExterior)
 		.set("start_emiter", &LogicManager::startEmiter)
 		.set("stop_emiter", &LogicManager::stopEmiter)
+		.set("pause_player", &LogicManager::pausePlayer)
+		.set("play_animation", &LogicManager::setAnim)
+		.set("regain_control", &LogicManager::regainControl)
 		;
 }
 
@@ -68,7 +71,7 @@ void ScriptingModule::fTriggerExit(vector<string> params) {
         string name = params[0];
         string func_name = "OnTriggerExit" + name;
         auto p = EngineScripting.script.exists(func_name);
-        if (p)
+		if (p)
             EngineScripting.script.doString(func_name + "()");
     }
 }

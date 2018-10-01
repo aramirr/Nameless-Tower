@@ -377,3 +377,12 @@ function OnTriggerEnterTSCascadaArriba()
 	lm:render_everything("ParedDestapada13", false)
 	lm:render_only_shadows("ParedTapada13", false)
 end
+
+
+function OnTriggerExitLuaCinematicTest()
+	lm:pause_player()
+	lm:set_ambient(0)
+	lm:activate_cinematic("cinematic_first_door", true)
+	lm:play_animation()
+	lm:regain_control(5)
+end
