@@ -13,6 +13,9 @@ class TCompLightPointShadows : public TCompBase {
   float           intensity = 1.0f;
   float           initial_z_far;
 
+	CHandle h_entity;
+	bool has_culling = false;
+
   // Stores znear/zfar, and has fov = 90o
   CCamera         camera;
 
@@ -36,4 +39,6 @@ public:
   void setIntensity(float value);
   void render();
   void simulate();
+
+	void setEntity(CHandle new_entity);
 };
