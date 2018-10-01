@@ -150,6 +150,8 @@ void CModuleRender::render()
 		//ImGui::DragFloat("Brightness", &cb_globals.global_brightness_adjustment, 0.01f, -100.f, 100.f);
 		ImGui::DragFloat("Contrast", &cb_globals.global_contrast_adjustment, 0.005f, 0.0f, 1.f);
 		ImGui::DragFloat("Vignetting", &cb_globals.global_vignetting_adjustment, 0.005f, 0.0f, 1.f);
+		ImGui::DragFloat("Fog Distance", &cb_globals.global_fogDist_adjustment, 0.005f, 0.0f, 1000.f);
+		ImGui::DragFloat("Fog Density", &cb_globals.global_fogDensity_adjustment, 0.005f, 0.0f, 1000.f);
 		//ImGui::DragFloat("Saturation", &cb_globals.global_saturation_adjustment, 0.01f, -100.f, 100.f);
 		if (ImGui::SmallButton("Reset post procesado")) {
 			cb_globals.global_exposure_adjustment = 0.260f;
