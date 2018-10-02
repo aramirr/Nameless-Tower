@@ -117,7 +117,29 @@ void TCompOrbitCamera::update(float dt) {
       speedCaida = 40.f;
     }
     else {
-      currentPlayerY = pPos.y;
+			//Raycast looking for walls
+			VEC3 player_position = p->getPosition();
+			VEC3 player_Up = p->getUp();
+
+			//DOWN
+			VEC3 posef = player_position - player_Up * 0.3f;
+			PxVec3 originf = PxVec3(posef.x, posef.y + 0.5f, posef.z);
+			PxVec3 unitDirf = PxVec3(-player_Up.x, -player_Up.y, -player_Up.z);
+
+			PxReal maxDistance = 4.0f;
+			PxRaycastBuffer hit;
+
+			bool stairs = false;
+
+			if (EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) {
+				PxFilterData filter_data = hit.block.shape->getSimulationFilterData();
+				if (filter_data.word0 == CModulePhysics::FilterGroup::Stairs) {
+					stairs = true;
+				}
+			}
+			
+			if (stairs) currentPlayerY -= 0.05f;
+      else currentPlayerY = pPos.y;
       speedCaida = 0.f;
     }
   }
@@ -140,8 +162,29 @@ void TCompOrbitCamera::update(float dt) {
 			speedCaida = 5.f;
 		}
 		else {
-			//dbg(std::to_string(dY) + std::string(">") + std::to_string(height + (height / 5) + 1.5f));
-			currentPlayerY -= 0.05f;
+			//Raycast looking for walls
+			VEC3 player_position = p->getPosition();
+			VEC3 player_Up = p->getUp();
+
+			//DOWN
+			VEC3 posef = player_position - player_Up * 0.3f;
+			PxVec3 originf = PxVec3(posef.x, posef.y + 0.5f, posef.z);
+			PxVec3 unitDirf = PxVec3(-player_Up.x, -player_Up.y, -player_Up.z);
+
+			PxReal maxDistance = 4.0f;
+			PxRaycastBuffer hit;
+
+			bool stairs = false;
+
+			if (EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) {
+				PxFilterData filter_data = hit.block.shape->getSimulationFilterData();
+				if (filter_data.word0 == CModulePhysics::FilterGroup::Stairs) {
+					stairs = true;
+				}
+			}
+
+			if (stairs) currentPlayerY -= 0.05f;
+			else currentPlayerY = pPos.y;
 			speedCaida = 0.f;
 		}
 	b_caida = true;
