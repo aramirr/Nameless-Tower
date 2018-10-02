@@ -19,16 +19,16 @@
 
 bool CModuleLevel1::start()
 {
-  EngineTimer.setTimeSlower(0.f);
+	EngineTimer.setTimeSlower(0.f);
 	CCamera        camera;
 	json jboot = loadJson("data/boot.json");
 
 	// Auto load some scenes
 	std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];
 	for (auto& scene_name : scenes_to_auto_load) {
-	    dbg("Autoloading scene %s\n", scene_name.c_str());
-	    TEntityParseContext ctx;
-	    parseScene(scene_name, ctx);
+		dbg("Autoloading scene %s\n", scene_name.c_str());
+		TEntityParseContext ctx;
+		parseScene(scene_name, ctx);
 	}
 
 	// -------------------------------------------
@@ -46,11 +46,11 @@ bool CModuleLevel1::start()
 	if (!cb_blur.create(CB_BLUR))
 		return false;
 	if (!cb_gui.create(CB_GUI))
-	    return false;
+		return false;
 	if (!cb_particles.create(CB_PARTICLE))
 		return false;
 
-	cb_globals.global_exposure_adjustment = 1.f;
+	cb_globals.global_exposure_adjustment = 0.260f;
 	cb_globals.global_ambient_adjustment = 1.f;
 	//cb_globals.global_exposure_adjustment = 2.010f;
 	//cb_globals.global_ambient_adjustment = 0.150f;
@@ -58,15 +58,27 @@ bool CModuleLevel1::start()
 	cb_globals.global_hdr_enabled = 1.f;
 	cb_globals.global_gamma_correction_enabled = 1.f;
 	cb_globals.global_tone_mapping_mode = 1.f;
+	cb_globals.global_naja_interior = 0;
 	//cb_globals.global_fog_density = 0.017f;
 	//cb_globals.global_self_intensity = 10.f;
+	cb_globals.global_hue_adjustment = 1.f;
+	cb_globals.global_sat_adjustment = 1.f;
+	cb_globals.global_light_adjustment = 0.f;
+	cb_globals.global_vignetting_adjustment = 0.25f;
+	cb_globals.global_fogDist_adjustment = 0.25f;
+	cb_globals.global_fogDensity_adjustment = 0.25f;
+
+	cb_globals.global_contrast_adjustment = 0.215f;
+
+	cb_globals.global_bandMin_adjustment = 0.f;
+	cb_globals.global_bandMax_adjustment = 0.f;
 
 	cb_light.activate();
 	cb_object.activate();
 	cb_globals.activate();
 	cb_camera.activate();
 	cb_blur.activate();
-    cb_gui.activate();
+	cb_gui.activate();
 	cb_particles.activate();
 
 	auto p = EngineScripting.script.exists("OnLevel1Start");
@@ -83,13 +95,13 @@ bool CModuleLevel1::stop()
 	//cb_object.destroy();
 	//cb_globals.destroy();
 	//cb_blur.destroy();
-    //cb_gui.destroy();
+		//cb_gui.destroy();
 	//Engine.getEntities().destroyAllEntities();
 	//Engine.getCameras().destroyAllCameras();    
-    TEntityParseContext ctx;
-    //deleteScene("data/scenes/Torre4Milestone.scene", ctx);
-    deleteScene("data/scenes/lights.scene", ctx);
-    deleteScene("data/scenes/compresoras.scene", ctx);
+	TEntityParseContext ctx;
+	//deleteScene("data/scenes/Torre4Milestone.scene", ctx);
+	deleteScene("data/scenes/lights.scene", ctx);
+	deleteScene("data/scenes/compresoras.scene", ctx);
 	return true;
 }
 
@@ -100,14 +112,14 @@ void CModuleLevel1::update(float delta)
 		CEntity* cam = (CEntity*)getEntityByName("camera_manager");
 		TCompCameraManager* cm = cam->get<TCompCameraManager>();
 		assert(cm);
-    
+
 		//cm->activateCinematic("final");
 
 		carga = false;
 	}
-  CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+	CEntity* cam = (CEntity*)getEntityByName("camera_manager");
 
-  
+
 	static VEC3 world_pos;
 	ImGui::DragFloat3("Pos", &world_pos.x, 0.025f, -50.f, 50.f);
 
@@ -121,28 +133,28 @@ void CModuleLevel1::update(float delta)
 		ImGui::Text("Mouse at %1.2f, %1.2f", mouse.x, mouse.y);
 	}
 
-  if (EngineInput[VK_ESCAPE].getsPressed())
-  {
-    pausa = !pausa;
-    if (pausa) {
-      EngineUI.activateWidget("menu_pausa");
-      EngineUI.activePauseMenu();
-    }
-    else {
-      EngineTimer.setTimeSlower(1.f);
-      //Engine.getModules().changeGameState("test_axis");
-      EngineUI.desactivateWidget("menu_pausa");
-      EngineUI.desactivePauseMenu();
+	if (EngineInput[VK_ESCAPE].getsPressed())
+	{
+		pausa = !pausa;
+		if (pausa) {
+			EngineUI.activateWidget("menu_pausa");
+			EngineUI.activePauseMenu();
+		}
+		else {
+			EngineTimer.setTimeSlower(1.f);
+			//Engine.getModules().changeGameState("test_axis");
+			EngineUI.desactivateWidget("menu_pausa");
+			EngineUI.desactivePauseMenu();
 
-      CEntity* player = (CEntity*)getEntityByName("The Player");
+			CEntity* player = (CEntity*)getEntityByName("The Player");
 
-      TMsgSetFSMVariable pauseMsg;
-      pauseMsg.variant.setName("idle");
-      pauseMsg.variant.setBool(true);
+			TMsgSetFSMVariable pauseMsg;
+			pauseMsg.variant.setName("idle");
+			pauseMsg.variant.setBool(true);
 
-      player->sendMsg(pauseMsg);
-    }
-  }
+			player->sendMsg(pauseMsg);
+		}
+	}
 
 }
 
@@ -150,17 +162,17 @@ void CModuleLevel1::update(float delta)
 void CModuleLevel1::render()
 {
 
-  // Render the grid
-  cb_object.obj_world = MAT44::Identity;
-  cb_object.obj_color = VEC4(1,1,1,1);
-  cb_object.updateGPU();
-  /*
-  auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
-  solid->activate();
+	// Render the grid
+	cb_object.obj_world = MAT44::Identity;
+	cb_object.obj_color = VEC4(1, 1, 1, 1);
+	cb_object.updateGPU();
+	/*
+	auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
+	solid->activate();
 
-  auto grid = Resources.get("grid.mesh")->as<CRenderMesh>();
-  grid->activateAndRender();
-  auto axis = Resources.get("axis.mesh")->as<CRenderMesh>();
-  axis->activateAndRender();
-  */
+	auto grid = Resources.get("grid.mesh")->as<CRenderMesh>();
+	grid->activateAndRender();
+	auto axis = Resources.get("axis.mesh")->as<CRenderMesh>();
+	axis->activateAndRender();
+	*/
 }

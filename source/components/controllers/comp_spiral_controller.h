@@ -13,6 +13,7 @@ class TCompSpiralController : public TCompBase {
   VEC3		  center;
   VEC3		  direction;
   float		  offsetY;
+  Studio::EventInstance*  _sound;
 	bool			set_once = false;
 	bool			is_left;
 	float		  life;

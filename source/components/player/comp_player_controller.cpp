@@ -27,8 +27,11 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	idle_max_time = j.value("idle_max_time", 10.f);
 	is_grounded = true;
 	looking_left = false;
-
-	rayWall = false;
+    rayWall = false;
+    Studio::EventDescription* event_description = NULL;
+    std::string event_name = "event:/SFX/Character/Naja/StepsLands/Land_Dirt";
+    EngineSound.system->getEvent(event_name.c_str(), &event_description);
+    event_description->createInstance(&_sound_land);
 
 	init();
 }
@@ -196,10 +199,11 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 					CEntity* e = CHandle(this).getOwner();
 					e->sendMsg(deadMsg);
 				}
-				CEntity* particles_emiter = (CEntity*)getEntityByName("humo_land");
-				TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
-				c_particles->emit();
-				is_grounded = true;
+                CEntity* particles_emiter = (CEntity*)getEntityByName("humo_land");
+                TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+                c_particles->emit();
+				is_grounded = true;				
+                _sound_land->start();
 				TMsgSetFSMVariable groundMsg;
 				groundMsg.variant.setName("is_grounded");
 				groundMsg.variant.setBool(true);

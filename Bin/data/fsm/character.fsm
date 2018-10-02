@@ -18,7 +18,9 @@
 			"x_speed" : 2,
 			"is_action": false,
 			"delay_in": 0.05,
-			"delay_out": 0.01		},
+			"delay_out": 0.01,
+			"sound": "event:/SFX/Character/Naja/StepsLands/Step_Rock"
+		},
 		{
 			"name" : "turn_around",
 			"type" : "TurnAroundState",
@@ -67,14 +69,17 @@
 			"x_speed": 4,
 			"is_action": true,
 			"delay_in": 0,
-			"delay_out": 0
+			"delay_out": 0,
+			"sound": "event:/SFX/Character/Naja/Windstrike/Windstike_Slash",
+			"sound_cloth": "event:/SFX/Character/Naja/Clothes/Cloth_Rustle_Intense"
 		},
 		{
 			"name" : "windstrike",
 			"type" : "WindstrikeState",
 			"is_action": true,
 			"delay_in": 0.05,
-			"delay_out": 0.2
+			"delay_out": 0.2,
+			"sound": "event:/SFX/Character/Naja/Windstrike/Windstike_Slash"
 		},
 		{
 			"name" : "omnidash",
@@ -90,7 +95,9 @@
 			"x_speed" : 1,
 			"is_action": true,
 			"delay_in": 0,
-			"delay_out": 0
+			"delay_out": 0,
+			"sound": "event:/SFX/Character/Naja/Windstrike/Windstike_Slash",
+			"sound_cloth": "event:/SFX/Character/Naja/Clothes/Cloth_Rustle_Intense"
 		},
 		{
 			"name" : "dying",
@@ -116,7 +123,8 @@
 			"x_speed" : 2,
 			"is_action": false,
 			"delay_in": 0.01,
-			"delay_out": 0.01			
+			"delay_out": 0.01,
+			"sound_cloth": "event:/SFX/Character/Naja/Clothes/Cloth_Rustle_Intense"
 		},
 		{
 			"name" : "look_up",

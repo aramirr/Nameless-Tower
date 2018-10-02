@@ -18,8 +18,12 @@ struct TCompSound: public TCompBase {
   void load(const json& j, TEntityParseContext& ctx);
   void update(float dt);
   void debugInMenu();
+  void playInterior();
+  void playAmbient();
+  void playSound(std::string name);
+  void stopSound(std::string name);
 
-	std::vector<Studio::EventInstance*> events;
+	std::map<std::string, Studio::EventInstance*> events;
   DECL_SIBLING_ACCESS();
 };
 
