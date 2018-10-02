@@ -5,14 +5,7 @@
 			"transform": {
 				"pos": "0 0 0"
 			},
-			"render" : [
-		      {
-		        "mesh": "data/meshes/VientoWindstrike.mesh",
-		        "materials" : [
-		          "data/materials/VientoMat.material"
-		        ]
-		      }
-		    ]
+			"render" : []
 			,
 			"spiral_controller":{
 				"speed": 10,
@@ -27,7 +20,8 @@
 				"offset": "0.0 0.6 0.0",
 				"group": "windstrike",
 				"mask": "all_unless_player"
-			}
+			},
+			"render_windstrike": {}
 		}
 	}
 ]
