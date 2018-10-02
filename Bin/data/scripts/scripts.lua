@@ -94,6 +94,7 @@ end
 
 -- Sala 3-4
 function OnTriggerExitTSEstatuaWindstrike()
+
 	--Exterior
 	lm:set_exposure(0.4, false)
 	lm:set_naja_ext(false)

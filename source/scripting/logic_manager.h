@@ -17,6 +17,8 @@ public:
   // Cinematics
   void activateCinematic(const char* name, bool left);
   void deactivateCinematic(const char* name, bool left);
+	void activateBandCinematics(bool left);
+	void deactivateBandCinematics(bool left);
 
   // Misc
 	void setAmbientAdjustment(float value);
