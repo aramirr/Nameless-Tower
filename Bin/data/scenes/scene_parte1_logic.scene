@@ -89,12 +89,7 @@
         "pos": "0.0 0.0 0.0"
         ,
         "rotation": "0.0 0.0 0.0 0.0"
-      },
-      "sound": {
-          "events": [         
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra", "positional": false}
-          ]
-        }    
+      } 
     }
   }
   ,
@@ -157,7 +152,12 @@
         "mesh_src": "data/meshes/Sierra004.col_mesh"
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+      "sound": {
+          "events": [         
+             {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra",    "positional": true, "on_start": true}
+          ]
+        }   
     }
   }
   ,
@@ -306,7 +306,12 @@
         "mesh_src": "data/meshes/Sierra004.col_mesh"
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+      "sound": {
+          "events": [         
+             {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra",    "positional": true, "on_start": true}
+          ]
+        }   
     }
   }
   ,
@@ -411,7 +416,12 @@
         "mesh_src": "data/meshes/Sierra004.col_mesh"
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+      "sound": {
+          "events": [         
+             {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra",    "positional": true, "on_start": true}
+          ]
+        }   
     }
   }
   ,
@@ -828,7 +838,12 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-      }
+      },
+      "sound": {
+          "events": [         
+             {"name": "sound", "src": "event:/SFX/Object/Mechanics/Lanzas",    "positional": true}
+          ]
+        }   
     }
   }
   ,

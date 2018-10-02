@@ -285,9 +285,11 @@ function OnTriggerExitTSRunnerCascada()
 	lm:play_interior_sound(true)
 	lm:start_emiter("hojas_viento", true)
 	lm:stop_emiter("particulas_top_cascada", true)
+	lm:stop_sound(true, "cascade")
 
 	
 	lm:play_ambient_sound(false)
+	lm:play_sound(false, "cascade")
 	lm:render_only_shadows("ParedDestapada10", false)
 	lm:render_everything("ParedTapada10", false)
 	lm:set_dir_light_intensity("LightDir12", 11, false)
@@ -309,7 +311,10 @@ function OnTriggerExitTSCascadaAntorchas()
 	lm:set_point_light_intensity("Luces_Fuego_012", 0, true)
 	lm:set_dir_light_intensity("LightInteriorSSalaFinal", 0, true)
 	lm:play_ambient_sound(true)
+	lm:play_sound(true, "cascade")
 
+	
+	lm:stop_sound(false, "cascade")
 	lm:play_interior_sound(false)
 	lm:render_everything("ParedDestapada12", false)
 	lm:render_only_shadows("ParedTapada12", false)

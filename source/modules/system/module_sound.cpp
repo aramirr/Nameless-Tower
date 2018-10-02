@@ -57,13 +57,12 @@ bool CModuleSound::stop()
 void CModuleSound::update(float delta)
 {
     updateListenerAttributes();
-    updateFollowingEvents();
     system->update();
 }
 
 void CModuleSound::updateListenerAttributes() {
     if (!cameraHandle.isValid()) {
-        CHandle cameraEntityHandle = getEntityByName("the_camera");
+        CHandle cameraEntityHandle = EngineCameras.getActiveCamera();
         if (cameraEntityHandle.isValid()) {
             CEntity* cameraEntity = cameraEntityHandle;
             cameraHandle = cameraEntity->get<TCompCamera>();
@@ -82,45 +81,16 @@ void CModuleSound::updateListenerAttributes() {
     auto res = system->setListenerAttributes(0, &listenerAttributes);
 }
 
-void CModuleSound::updateFollowingEvents() {
-    auto it = followingEvents.begin();
-    while (it != followingEvents.end()) {
-        auto& followingEvent = *it;
-        if (!followingEvent.eventInstance->isValid() || !followingEvent.transformHandle.isValid()) { // Event has been released or does not follow a transform anymore
-            it = followingEvents.erase(it);
-        }
-        else {
-            TCompTransform* transform = followingEvent.transformHandle;
-            FMOD_3D_ATTRIBUTES attributes = toFMODAttributes(*transform);
-            followingEvent.eventInstance->set3DAttributes(&attributes);
-            ++it;
-        }
-    }
+void CModuleSound::emitEvent(const std::string& sound) {
+    events[sound]->start();
+}
+
+void CModuleSound::stopEvent(const std::string& sound) {
+    events[sound]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
 }
 
 FMOD::Studio::System* CModuleSound::getSystem() {
     return system;
-}
-
-Studio::EventInstance* CModuleSound::emitFollowingEvent(const std::string& sound, CHandle transformHandle) {
-    TCompTransform* transform = transformHandle;
-    auto eventInstance = emitEvent(sound, transform);
-    followingEvents.push_back(FollowingEvent{ eventInstance, transformHandle });
-    return eventInstance;
-}
-
-Studio::EventInstance* CModuleSound::emitEvent(const std::string& sound, const CTransform* transform) {
-    FMOD_3D_ATTRIBUTES attributes = toFMODAttributes(*transform);
-    return emitEvent(sound, &attributes);
-}
-
-Studio::EventInstance* CModuleSound::emitEvent(const std::string& sound, const FMOD_3D_ATTRIBUTES* attributes) {
-    if (sound.empty()) return nullptr;
-    Studio::EventInstance* event = events[sound];
-    event->set3DAttributes(attributes);
-    event->start();
-    event->release();
-    return event;
 }
 
 FMOD_3D_ATTRIBUTES CModuleSound::toFMODAttributes(CTransform t) {

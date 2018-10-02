@@ -15,7 +15,7 @@ namespace FSM
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		if (player->can_die) {
 			player->change_animation(player->EAnimations::NajaDead, _is_action, _delay_in, _delay_out, true);
-			player->can_die = false;
+            player->can_die = false;
 		}		    
 	}
 
