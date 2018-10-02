@@ -44,6 +44,7 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("pause_player", &LogicManager::pausePlayer)
 		.set("play_animation", &LogicManager::setAnim)
 		.set("regain_control", &LogicManager::regainControl)
+		.set("set_cinematic_bars", &LogicManager::setCinematicBars)
 		;
 }
 

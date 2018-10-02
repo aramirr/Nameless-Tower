@@ -174,6 +174,11 @@ void LogicManager::stopSound(bool left, std::string name) {
 }
 
 // LUA Cinematic
+void LogicManager::setCinematicBars() {
+	//to be implemented
+	//EngineTower.toggle_cinematic_bars();
+}
+
 void LogicManager::pausePlayer() {
 	CEntity* player = getEntityByName("The Player");
 
@@ -190,10 +195,11 @@ void LogicManager::pausePlayer() {
 void LogicManager::setAnim() {
 	CEntity* player = getEntityByName("The Player");
 	TCompPlayerController * controller = player->get<TCompPlayerController>();
-	// PASARLE EL ANIM QUE TOCA, esta puesto el idle
+	// PASARLE EL ANIM QUE TOCA, ahora esta puesta una random
 	controller->change_animation(controller->EAnimations::NajaOmniAr, false, 0.5, 0.5, true);
 }
 
 void LogicManager::regainControl(float time_to_wait) {
+	// La function debe devolver el control al personaje, sacar las barras y 
 	EngineTower.wait_seconds(time_to_wait);
 }

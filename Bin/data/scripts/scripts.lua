@@ -381,7 +381,7 @@ end
 
 function OnTriggerExitLuaCinematicTest()
 	lm:pause_player()
-	lm:set_ambient(0)
+	lm:set_cinematic_bars()
 	lm:activate_cinematic("cinematic_first_door", true)
 	lm:play_animation()
 	lm:regain_control(5)

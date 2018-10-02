@@ -52,6 +52,7 @@ public:
   //Lua Cinematics
   void pausePlayer();
   void setAnim();
+  void setCinematicBars();
   void regainControl(float time_to_wait);
 
 };
