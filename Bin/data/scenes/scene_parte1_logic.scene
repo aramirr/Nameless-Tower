@@ -89,7 +89,7 @@
         "pos": "0.0 0.0 0.0"
         ,
         "rotation": "0.0 0.0 0.0 0.0"
-      }
+      } 
     }
   }
   ,
@@ -136,7 +136,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_sierras"
         ,
         "render": false
       }
@@ -152,7 +152,12 @@
         "mesh_src": "data/meshes/Sierra004.col_mesh"
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+      "sound": {
+          "events": [         
+             {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra",    "positional": true, "on_start": true}
+          ]
+        }   
     }
   }
   ,
@@ -285,7 +290,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_sierras"
         ,
         "render": false
       }
@@ -301,7 +306,12 @@
         "mesh_src": "data/meshes/Sierra004.col_mesh"
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+      "sound": {
+          "events": [         
+             {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra",    "positional": true, "on_start": true}
+          ]
+        }   
     }
   }
   ,
@@ -390,7 +400,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_sierras"
         ,
         "render": false
       }
@@ -406,7 +416,12 @@
         "mesh_src": "data/meshes/Sierra004.col_mesh"
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+      "sound": {
+          "events": [         
+             {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra",    "positional": true, "on_start": true}
+          ]
+        }   
     }
   }
   ,
@@ -433,7 +448,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_pinchos"
         ,
         "render": false
       }
@@ -507,7 +522,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_sierras"
         ,
         "render": true
       }
@@ -581,7 +596,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_sierras"
         ,
         "render": true
       }
@@ -748,7 +763,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_sierras"
         ,
         "render": false
       }
@@ -807,7 +822,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_pinchos"
         ,
         "render": false
       }
@@ -823,7 +838,12 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-      }
+      },
+      "sound": {
+          "events": [         
+             {"name": "sound", "src": "event:/SFX/Object/Mechanics/Lanzas",    "positional": true}
+          ]
+        }   
     }
   }
   ,
@@ -860,7 +880,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_pinchos"
         ,
         "render": true
       }
@@ -913,7 +933,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_pinchos"
         ,
         "render": true
       }
@@ -966,7 +986,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_pinchos"
         ,
         "render": true
       }

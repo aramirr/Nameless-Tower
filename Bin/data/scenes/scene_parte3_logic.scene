@@ -87,7 +87,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_dardos"
         ,
         "render": false
       }
@@ -740,7 +740,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_dardos"
         ,
         "render": false
       }
@@ -807,7 +807,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_dardos"
         ,
         "render": false
       }
@@ -860,7 +860,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_dardos"
         ,
         "render": true
       }
@@ -913,7 +913,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_dardos"
         ,
         "render": true
       }

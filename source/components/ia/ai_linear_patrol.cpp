@@ -7,6 +7,7 @@
 #include "modules/system/module_physics.h"
 #include "components/physics/controller_filter.h"
 #include "components/physics/query_filter.h"
+#include "components/sound/comp_sound.h"
 
 using namespace physx;
 
@@ -84,6 +85,9 @@ void CAILinearPatrol::InitializeWaypointState()
 void CAILinearPatrol::NextWaypointState()
 {
 	currentWaypoint = (currentWaypoint + 1) % _waypoints.size();
+    CEntity* e = CHandle(this).getOwner();
+    TMsgPlaySound msg;
+    e->sendMsg(msg);
 	ChangeState("move_to_waypoint");
 }
 

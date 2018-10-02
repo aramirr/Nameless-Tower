@@ -6,7 +6,8 @@
 
 class TCompTrigger : public IAIController {
 	enum TriggerTypes {player, runner, plattform, spikes, none};
-	std::string collider_entity;
+    std::string collider_entity;
+    std::string sound_name;
 
 	CHandle h_entity;
 	CHandle h_other_entity;
