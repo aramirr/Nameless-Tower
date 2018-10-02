@@ -2,6 +2,90 @@
   {
     "entity":
     {
+      "name": "TSRunnerLava"
+      ,
+      "transform":
+      {
+        "pos": "30.6975 65.1702 -6.41781"
+        ,
+        "rotation": "-0.444997 0.444997 0.549525 -0.549525"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSJardinRunner"
+      ,
+      "transform":
+      {
+        "pos": "26.7821 58.1635 15.6013"
+        ,
+        "rotation": "-0.866025 1.40469e-07 0.5 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "3.96185 0.136175 1.78955"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "TCLavaMuerte"
       ,
       "transform":

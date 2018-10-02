@@ -2,6 +2,62 @@
   {
     "entity":
     {
+      "name": "CabezaDragon"
+      ,
+      "transform":
+      {
+        "pos": "-15.6953 6.00795 14.8781"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CabezaDragon.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DragonMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CabezaDragon001"
+      ,
+      "transform":
+      {
+        "pos": "-9.44843 6.00795 19.4835"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CabezaDragon001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DragonMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Pinchos_006"
       ,
       "transform":
@@ -803,66 +859,6 @@
           "materials":
           [
             "data/materials/CalderoMate.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Dragon001"
-      ,
-      "transform":
-      {
-        "pos": "-9.43601 6.00795 19.5998"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Dragon001.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CabezaM.material"
-            ,
-            "data/materials/ColmillosM.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Dragon"
-      ,
-      "transform":
-      {
-        "pos": "-15.7519 6.00795 14.9584"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Dragon.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CabezaM.material"
-            ,
-            "data/materials/ColmillosM.material"
           ]
         }
       ]

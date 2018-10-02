@@ -2,6 +2,86 @@
   {
     "entity":
     {
+      "name": "Plataforma_01"
+      ,
+      "transform":
+      {
+        "pos": "-29.8518 15.6194 6.33674"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plataforma_01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMusgoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Plane002"
+      ,
+      "transform":
+      {
+        "pos": "-11.4045 3.58191 26.176"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plane002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LavaBaseMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Plane001"
+      ,
+      "transform":
+      {
+        "pos": "-21.5019 3.58191 19.1436"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plane001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LavaBaseMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Line021"
       ,
       "transform":
@@ -271,34 +351,6 @@
           "materials":
           [
             "data/materials/Ropa_Colgada_Mat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_01"
-      ,
-      "transform":
-      {
-        "pos": "-29.4963 15.8536 6.33674"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
           ]
         }
       ]

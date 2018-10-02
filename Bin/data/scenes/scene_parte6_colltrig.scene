@@ -2,6 +2,90 @@
   {
     "entity":
     {
+      "name": "TPTechosPuertasB"
+      ,
+      "transform":
+      {
+        "pos": "31.0583 33.7604 -3.42639"
+        ,
+        "rotation": "-0.473147 0.473147 0.525483 -0.525483"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSEscaleras2PasilloB"
+      ,
+      "transform":
+      {
+        "pos": "3.46833 33.7604 -31.0907"
+        ,
+        "rotation": "-0.0370071 0.0370072 0.706138 -0.706138"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Solidos_Parte6"
       ,
       "transform":

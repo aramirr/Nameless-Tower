@@ -2,6 +2,62 @@
   {
     "entity":
     {
+      "name": "Plataforma_009"
+      ,
+      "transform":
+      {
+        "pos": "26.5238 69.4042 -14.931"
+        ,
+        "rotation": "0.0 -0.991935 0.0 0.126744"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plataforma_009.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMusgoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Plataforma_005"
+      ,
+      "transform":
+      {
+        "pos": "17.2473 65.8198 26.1277"
+        ,
+        "rotation": "0.0 -0.774598 0.0 -0.632454"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plataforma_005.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaPlataformasMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Tela_Templo13"
       ,
       "transform":
@@ -556,62 +612,6 @@
           ]
         }
       ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_009"
-      ,
-      "transform":
-      {
-        "pos": "26.5238 69.4042 -14.931"
-        ,
-        "rotation": "0.0 -0.991935 0.0 0.126744"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_009.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_005"
-      ,
-      "transform":
-      {
-        "pos": "17.2623 66.2399 26.2014"
-        ,
-        "rotation": "0.0 -0.774598 0.0 -0.632454"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_005.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMate.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
     }
   }
   ,
@@ -1202,12 +1202,7 @@
       "abs_aabb": true
     }
   }
-  ,
-  {
-    "entity":
-    {
-    }
-  }
+   
   ,
   {
     "entity":
@@ -1236,12 +1231,7 @@
       "abs_aabb": true
     }
   }
-  ,
-  {
-    "entity":
-    {
-    }
-  }
+   
   ,
   {
     "entity":
@@ -3210,34 +3200,6 @@
           "materials":
           [
             "data/materials/LavaBaseMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "EspumaCascadaRipples"
-      ,
-      "transform":
-      {
-        "pos": "27.0446 61.758 -14.2546"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/EspumaCascadaRipples.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CascadaRipples.material"
           ]
         }
       ]
