@@ -83,11 +83,17 @@ void TCompCameraManager::activateCinematic(std::string name)
 void TCompCameraManager::activarTemblor()
 {
 	temblor = true;
+	CEntity* e_player = (CEntity*)getEntityByName("The Player");
+	TCompPlayerController* player = e_player->get<TCompPlayerController>();
+	player->on_cinematic = true;
 }
 
 void TCompCameraManager::desactivarTemblor()
 {
 	temblor = false;
+	CEntity* e_player = (CEntity*)getEntityByName("The Player");
+	TCompPlayerController* player = e_player->get<TCompPlayerController>();
+	player->on_cinematic = false;
 }
 
 void TCompCameraManager::debugInMenu() {
@@ -107,7 +113,7 @@ void TCompCameraManager::load(const json& j, TEntityParseContext& ctx) {
 
 	cinematics.clear();
 
-	temblor = true;
+	temblor = false;
 
 	cameraActive = 0;
 	currentTime = 0.f;
@@ -136,13 +142,9 @@ int Seed = 26508293; // <--Introduzca aqui la semilla
 
 void TCompCameraManager::update(float dt) {
 
-	if (temblor && isPressed(VK_F3)) {
+	if (temblor /*&& isPressed(VK_F3)*/) {
 		CEntity* camera = (CEntity*)Engine.getCameras().getActiveCamera();
 		TCompTransform* c = camera->get<TCompTransform>();
-
-		CEntity* e_player = (CEntity*)getEntityByName("The Player");
-		TCompPlayerController* player = e_player->get<TCompPlayerController>();
-		player->on_cinematic = true;
 
 		VEC3 newPos = c->getPosition();
 		VEC3 newFront = c->getFront();

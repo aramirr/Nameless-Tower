@@ -87,6 +87,19 @@ void LogicManager::activateAnim(const char* name) {
   EngineTower.activateAnim(name);
 }
 
+void LogicManager::setTemblor(bool temblor, bool left)
+{
+	if (applyFunction(left)) {
+		CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+
+		TCompCameraManager* cm = cam->get<TCompCameraManager>();
+		assert(cm);
+
+		if(temblor)cm->activarTemblor();
+		else cm->desactivarTemblor();
+	}
+}
+
 // UI
 void LogicManager::activateText(const char* name) {
 	std::string s = name;
