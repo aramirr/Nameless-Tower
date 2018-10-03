@@ -64,8 +64,14 @@ bool CModuleLevel1::start()
 	cb_globals.global_hue_adjustment = 1.f;
 	cb_globals.global_sat_adjustment = 1.f;
 	cb_globals.global_light_adjustment = 0.f;
+	cb_globals.global_vignetting_adjustment = 0.25f;
+	cb_globals.global_fogDist_adjustment = 0.25f;
+	cb_globals.global_fogDensity_adjustment = 0.25f;
 
 	cb_globals.global_contrast_adjustment = 0.215f;
+
+	cb_globals.global_bandMin_adjustment = 0.f;
+	cb_globals.global_bandMax_adjustment = 0.f;
 
 	cb_light.activate();
 	cb_object.activate();

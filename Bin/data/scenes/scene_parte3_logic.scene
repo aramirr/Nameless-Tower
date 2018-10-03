@@ -138,7 +138,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_dardos"
         ,
         "render": false
       }
@@ -791,7 +791,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_dardos"
         ,
         "render": false
       }
@@ -858,7 +858,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "player_killer"
+        "trigger_type": "player_killer", "sound_name": "hit_dardos"
         ,
         "render": false
       }
@@ -875,6 +875,112 @@
         ,
         "is_trigger": true
       }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pinchos010"
+      ,
+      "transform":
+      {
+        "pos": "27.8162 61.3379 14.5808"
+        ,
+        "rotation": "0.0 -0.43368 0.0 -0.901067"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PinchosM.material"
+            ,
+            "data/materials/PinchosSangreM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer", "sound_name": "hit_dardos"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pinchos009"
+      ,
+      "transform":
+      {
+        "pos": "25.0152 61.7269 16.4257"
+        ,
+        "rotation": "0.0 -0.648791 0.0 -0.760967"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PinchosM.material"
+            ,
+            "data/materials/PinchosSangreM.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer", "sound_name": "hit_dardos"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "abs_aabb": true
     }
   }
 ]

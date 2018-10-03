@@ -7,6 +7,7 @@
 #include "render/texture/render_to_cube.h" 
 #include "render/render_manager.h" 
 #include "components/juan/comp_culling.h"
+#include "entity/entity_parser.h"
 
 DECL_OBJ_MANAGER("light_point_shadows", TCompLightPointShadows);
 
@@ -50,7 +51,8 @@ void TCompLightPointShadows::renderDebug() {
 
 // -------------------------------------------------
 void TCompLightPointShadows::load(const json& j, TEntityParseContext& ctx) {
-  if(j.count("color"))
+	setEntity(ctx.current_entity);
+	if(j.count("color"))
     color = loadVEC4(j["color"]);
   intensity = j.value("intensity", intensity);
 
@@ -58,6 +60,8 @@ void TCompLightPointShadows::load(const json& j, TEntityParseContext& ctx) {
   float z_far = j.value("z_far", z_far);
   initial_z_far = z_far;
   camera.setPerspective(deg2rad(90.0f), z_near, z_far);
+
+	has_culling = j.value("has_culling", false);
 
   // if we need to allocate a shadow map
   shadows_step = j.value("shadows_step", shadows_step);
@@ -162,6 +166,13 @@ void TCompLightPointShadows::generateShadowMap() {
   TCompTransform* my_trans = get<TCompTransform>();
   camera.lookAt(my_trans->getPosition(), my_trans->getPosition() + VEC3(0, 0, 1));
 
+	TCompCulling* culling;
+	if (has_culling) {
+		CEntity* e = h_entity;
+		culling = e->get<TCompCulling>();
+	}
+	else culling = nullptr;
+
   CTraceScoped gpu_scope(shadows_cube_rt->getName().c_str());
   for (int i = 0; i < shadows_cube_rt->getNSides(); ++i) {
     CTraceScoped scope(face_names[i]);
@@ -171,7 +182,7 @@ void TCompLightPointShadows::generateShadowMap() {
     // We are going to render the scene from the light position & orientation
     activateCamera(camera, shadows_cube_rt->getWidth(), shadows_cube_rt->getHeight());
 
-    CRenderManager::get().renderCategory("shadows", nullptr);
+    CRenderManager::get().renderCategory("shadows", culling);
   }
 
 }
@@ -182,4 +193,9 @@ void TCompLightPointShadows::setIntensity(float value) {
 
 void TCompLightPointShadows::simulate() {
     
+}
+
+void TCompLightPointShadows::setEntity(CHandle new_entity) {
+	h_entity = new_entity;
+	assert(h_entity.isValid());
 }

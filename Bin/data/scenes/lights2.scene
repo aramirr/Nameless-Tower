@@ -27,46 +27,25 @@
     {
       "name": "LightDir01",
       "transform": {
-        "pos": "-78.05 53.175 -16.8",
-        "lookat": "0 4.8 16.325"
+        "pos": "-44.175 18.925 -38.275",
+        "lookat": "0 -5.950 14.400"
       },
       "light_dir": {
-        "intensity": 11,
+        "intensity": 0,
         "color" :  "0.004 0.036 0.279 1",
         "z_near" : 2,
-        "z_far" : 160,
+        "z_far" : 42.000,
         "fov" : 37.300,
         "casts_shadows" : true,
         "shadows_step" : 5.0,
         "shadows_resolution" : 2048,
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
-        "ortho_width": 45.0
-      }    
-    }
-  },
-  {
-    "entity":
-    {
-      "name": "LightDir02",
-      "transform": {
-        "pos": "57.575 73.45 80",
-        "lookat": "11.1 49.1 6.325"
+        "ortho_width": 34.000,
+        "ortho_height": 12.000,
+        "has_culling": true
       },
-      "light_dir": {
-        "intensity": 11,
-        "color" :  "0.004 0.036 0.279 1",
-        "z_near" : 2,
-        "z_far" : 160,
-        "fov" : 37.300,
-        "casts_shadows" : true,
-        "shadows_step" : 5.0,
-        "shadows_resolution" : 2048,
-        "shadows_fmt" : "R32_TYPELESS",
-        "is_orthographic": true,
-        "ortho_width": 50,
-        "ortho_height": 40
-      }    
+        "culling":{}   
     }
   },
   {
@@ -74,43 +53,308 @@
     {
       "name": "LightDir03",
       "transform": {
-        "pos": "76.950 107.750 -9.575",
-        "lookat": "0 70 -12.375"
+        "pos": "-48.900 45.525 -29.150",
+        "lookat": "0 4.800 0"
       },
       "light_dir": {
-        "intensity": 11,
+        "intensity": 0,
         "color" :  "0.004 0.036 0.279 1",
         "z_near" : 2,
-        "z_far" : 160,
+        "z_far" : 45,
         "fov" : 37.300,
         "casts_shadows" : true,
         "shadows_step" : 5.0,
         "shadows_resolution" : 2048,
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
-        "ortho_width": 42
-      }    
+        "ortho_width": 41.000,
+        "ortho_height": 15.000,
+        "has_culling": true
+      } ,
+        "culling":{}   
+    }
+  },  
+  {
+    "entity":
+    {
+      "name": "LightDir02",
+      "transform": {
+        "pos": "-57.100 32.075 11.700",
+        "lookat": "0 0 0"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.004 0.036 0.279 1",
+        "z_near" : 2,
+        "z_far" : 45,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 28.000,
+        "ortho_height": 31.000,
+        "has_culling": true
+      } ,
+        "culling":{}   
     }
   },
   {
     "entity":
     {
-      "name": "LightInteriorSSalaFinal",
+      "name": "LightDir04",
       "transform": {
-        "pos": "-10.271 91.725 -32.104",
-        "lookat": "157.150 91.725 126.325"
+        "pos": "-10.000 50.925 -49.150",
+        "lookat": "0 0 0.0"
       },
       "light_dir": {
         "intensity": 0,
-        "color" :  "0.18 0.23 0.43 1",
-        "z_near" : 7,
-        "z_far" : 48.000,
+        "color" :  "0.004 0.036 0.279 1",
+        "z_near" : 2,
+        "z_far" : 47.000,
         "fov" : 37.300,
-        "casts_shadows" : false,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
-        "ortho_width": 48.000,
-        "ortho_height": 20.000
-      }    
+        "ortho_width": 27.000,
+        "ortho_height": 19.000,
+        "has_culling": true
+      },
+        "culling":{}   
+    }
+  },
+    {
+    "entity":
+    {
+      "name": "LightDir05",
+      "transform": {
+        "pos": "19.700 36.475 -42.000",
+        "lookat": "1.350 27.050 0.0"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.004 0.036 0.279 1",
+        "z_near" : 2,
+        "z_far" : 42.000,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 29.000,
+        "ortho_height": 11.000,
+        "has_culling": true
+      },
+        "culling":{}   
+    }
+  },    {
+    "entity":
+    {
+      "name": "LightDir06",
+      "transform": {
+        "pos": "37.950 35.750 -16.100",
+        "lookat": "-2.400 27.050 0.0"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.004 0.036 0.279 1",
+        "z_near" : 2,
+        "z_far" : 42.000,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 20.000,
+        "ortho_height": 10.000,
+        "has_culling": true
+      },
+        "culling":{}   
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightDir07",
+      "transform": {
+        "pos": "50.775 54.025 3.825",
+        "lookat": "0 24.275 0"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.004 0.036 0.279 1",
+        "z_near" : 2,
+        "z_far" : 36.000,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 28.000,
+        "ortho_height": 25.000,
+        "has_culling": true
+      } ,
+        "culling":{}   
+    }
+  },{
+    "entity":
+    {
+      "name": "LightDir08",
+      "transform": {
+        "pos": "35.375 59.350 39.000",
+        "lookat": "-3.675 19.750 0"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.004 0.036 0.279 1",
+        "z_near" : 2,
+        "z_far" : 45.000,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 31.500,
+        "ortho_height": 41.000,
+        "has_culling": true
+      } ,
+        "culling":{}   
+    }
+  },{
+    "entity":
+    {
+      "name": "LightDir09",
+      "transform": {
+        "pos": "2.000 56.325 66.625",
+        "lookat": "0 25.275 0"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.004 0.036 0.279 1",
+        "z_near" : 2,
+        "z_far" : 45.000,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 10.000,
+        "ortho_height": 51.000,
+        "has_culling": true
+      } ,
+        "culling":{}   
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightDir10",
+      "transform": {
+        "pos": "27.775 83.075 40.850",
+        "lookat": "-3.875 31.425 0"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.004 0.036 0.279 1",
+        "z_near" : 2,
+        "z_far" : 35.000,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 23.000,
+        "ortho_height": 14.000,
+        "has_culling": true
+      } ,
+        "culling":{}   
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightDir11",
+      "transform": {
+        "pos": "42.125 76.075 17.950",
+        "lookat": "-3.875 42.675 -21.750"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.004 0.036 0.279 1",
+        "z_near" : 2,
+        "z_far" : 45.000,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 24.000,
+        "ortho_height": 20.000,
+        "has_culling": true
+      } ,
+        "culling":{}   
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightDir12",
+      "transform": {
+        "pos": "42.125 76.075 -29.325",
+        "lookat": "-3.875 56.100 3.525"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.004 0.036 0.279 1",
+        "z_near" : 2,
+        "z_far" : 58,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 37.000,
+        "ortho_height": 20.000,
+        "has_culling": true
+      }    ,
+        "culling":{}
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightDir13",
+      "transform": {
+        "pos": "42.125 95.875 -11.975",
+        "lookat": "0 75.700 0"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.004 0.036 0.279 1",
+        "z_near" : 2,
+        "z_far" : 25.000,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 37.000,
+        "ortho_height": 30.000,
+        "has_culling": true
+      }    ,
+        "culling":{}
     }
   },
   {
@@ -118,12 +362,12 @@
     {
       "name": "LightInteriorS4L",
       "transform": {
-        "pos": "-31.687 32.35 9.959",
+        "pos": "-33.462 32.35 10.134",
         "lookat": "-28.888 19.95 -8.988"
       },
       "light_dir": {
         "intensity": 0,
-        "color" :  "0.84 0.78 0.56 1",
+        "color" :  "0.004 0.036 0.279 1",
         "z_near" : 5,
         "z_far" : 20,
         "fov" : 37.300,
@@ -170,7 +414,7 @@
         "intensity": 0,
         "color" :  "0.18 0.23 0.43 1",
         "z_near" : 7,
-        "z_far" : 25,
+        "z_far" : 55,
         "fov" : 37.300,
         "casts_shadows" : false,
         "is_orthographic": true,
@@ -183,8 +427,8 @@
     {
       "name": "LightInteriorSCompresoras",
       "transform": {
-        "pos": "2.338 34.000 -40.591",
-        "lookat": "45.643 34 10"
+        "pos": "34.000 34.000 -24.216",
+        "lookat": "0 34 0"
       },
       "light_dir": {
         "intensity": 0,
@@ -194,7 +438,7 @@
         "fov" : 37.300,
         "casts_shadows" : false,
         "is_orthographic": true,
-        "ortho_width": 21.000,
+        "ortho_width": 43.000,
         "ortho_height": 8
       }    
     }
@@ -210,13 +454,73 @@
         "intensity": 0,
         "color" :  "0.18 0.23 0.43 1",
         "z_near" : 7,
-        "z_far" : 37.000,
+        "z_far" : 55,
         "fov" : 37.300,
         "casts_shadows" : false,
         "is_orthographic": true,
         "ortho_width": 48.000,
         "ortho_height": 20.000
       }    
+    }
+  }, {
+    "entity":
+    {
+      "name": "LightInteriorSSalaFinal",
+      "transform": {
+        "pos": "-10.271 91.725 -32.104",
+        "lookat": "157.150 91.725 126.325"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.18 0.23 0.43 1",
+        "z_near" : 7,
+        "z_far" : 48.000,
+        "fov" : 37.300,
+        "casts_shadows" : false,
+        "is_orthographic": true,
+        "ortho_width": 48.000,
+        "ortho_height": 20.000
+      }    
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_loro",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0"
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/test_curve.curve",
+        "speed" : 0.05,
+        "loop": true,
+        "automove": true,
+        "mode": "static"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "loro",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_loro"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/sprites_test.material"
+          ]
+        }
+      ]
     }
   }
 ]

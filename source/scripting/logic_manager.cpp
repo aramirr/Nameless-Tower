@@ -50,12 +50,23 @@ void LogicManager::deactivateCinematic(const char* name, bool left) {
         EngineTower.deactivateCinematic(name);
 }
 
+void LogicManager::activateBandCinematics(bool left) {
+	if (applyFunction(left))
+		EngineTower.setBandsCinematics(true);
+}
+
+void LogicManager::deactivateBandCinematics(bool left) {
+	if (applyFunction(left))
+		EngineTower.setBandsCinematics(false);
+}
+
 // Misc
 void LogicManager::setAmbientAdjustment(float value) {
 	EngineTower.setAmbientAdjustment(value);
 };
 
-void LogicManager::setExposureAdjustment(float value) {
+void LogicManager::setExposureAdjustment(float value, bool left) {
+	if (applyFunction(left))
     EngineTower.setExposure(value);
 };
 
@@ -98,14 +109,14 @@ void LogicManager::setPointLightIntensity(const char* name, float value, bool le
         EngineTower.setPointLightIntensity(name, value);
 }
 
-void LogicManager::setNajaInterior()
-{
-	cb_globals.global_naja_interior = 1;
+void LogicManager::setNajaInterior(bool left) {
+	if (applyFunction(left))
+		cb_globals.global_naja_interior = 1;
 }
 
-void LogicManager::setnajaExterior()
-{
-	cb_globals.global_naja_interior = 0;
+void LogicManager::setnajaExterior(bool left) {
+	if (applyFunction(left))
+		cb_globals.global_naja_interior = 0;
 }
 
 void LogicManager::startEmiter(const char* name, bool left) {
@@ -143,32 +154,24 @@ bool LogicManager::applyFunction(bool left) {
 
 void LogicManager::playAmbientSound(bool left) {
     if (applyFunction(left)) {
-        CEntity* e = getEntityByName("The Player");
-        TCompSound* sound = e->get<TCompSound>();
-        sound->playAmbient();
+        EngineSound.playAmbient();
     }
 }
 
 void LogicManager::playInteriorSound(bool left) {
     if (applyFunction(left)) {
-        CEntity* e = getEntityByName("The Player");
-        TCompSound* sound = e->get<TCompSound>();
-        sound->playInterior();
+        EngineSound.playInterior();
     }
 }
 
 void LogicManager::playSound(bool left, std::string name) {
     if (applyFunction(left)) {
-        CEntity* e = getEntityByName("The Player");
-        TCompSound* sound = e->get<TCompSound>();
-        sound->playSound(name);
+        EngineSound.emitEvent(name);
     }
 }
 void LogicManager::stopSound(bool left, std::string name) {
     if (applyFunction(left)) {
-        CEntity* e = getEntityByName("The Player");
-        TCompSound* sound = e->get<TCompSound>();
-        sound->stopSound(name);
+        EngineSound.stopEvent(name);
     }
 }
 
