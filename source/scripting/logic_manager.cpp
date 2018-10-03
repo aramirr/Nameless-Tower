@@ -191,12 +191,10 @@ void LogicManager::pausePlayer() {
 
 }
 
-
-void LogicManager::setAnim() {
+void LogicManager::setAnim(int anim_id) {
 	CEntity* player = getEntityByName("The Player");
 	TCompPlayerController * controller = player->get<TCompPlayerController>();
-	// PASARLE EL ANIM QUE TOCA, ahora esta puesta una random
-	controller->change_animation(controller->EAnimations::NajaOmniAr, false, 0.5, 0.5, true);
+	controller->change_animation(anim_id, false, 0.5, 0.5, true);
 }
 
 void LogicManager::regainControl(float time_to_wait) {
