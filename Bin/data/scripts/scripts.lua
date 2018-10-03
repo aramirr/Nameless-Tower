@@ -94,6 +94,7 @@ end
 
 -- Sala 3-4
 function OnTriggerExitTSEstatuaWindstrike()
+
 	--Exterior
 	lm:set_exposure(0.4, false)
 	lm:set_naja_ext(false)
@@ -380,9 +381,10 @@ end
 
 
 function OnTriggerExitLuaCinematicTest()
+	lm:activate_cinematic_bands(false)
 	lm:pause_player()
-	lm:set_cinematic_bars()
-	lm:activate_cinematic("cinematic_first_door", true)
+	--If camera needs to be moved
+	--lm:activate_cinematic("cinematic_first_door", false)
 	lm:play_animation(5)
 	lm:regain_control(5)
 end

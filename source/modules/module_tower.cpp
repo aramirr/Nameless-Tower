@@ -51,7 +51,22 @@ void CModuleTower::update(float delta)
 			pauseMsg.variant.setName("idle");
 			pauseMsg.variant.setBool(true);
 			player->sendMsg(pauseMsg);
+
+			setBandsCinematics(false);
+			if (current_cinematic != "") {
+				deactivateCinematic(current_cinematic);
+			}
 		}
+	}
+	if (bandCinematics && bandsValue < 0.15f) {
+		bandsValue += 0.01f;
+		cb_globals.global_bandMax_adjustment = bandsValue;
+		cb_globals.global_bandMin_adjustment = bandsValue;
+	}
+	else if (!bandCinematics && bandsValue > 0.f) {
+		bandsValue -= 0.01f;
+		cb_globals.global_bandMax_adjustment = bandsValue;
+		cb_globals.global_bandMin_adjustment = bandsValue;
 	}
 }
 
@@ -123,12 +138,14 @@ const void CModuleTower::activateCinematic(const std::string& name) {
     CEntity* cinematic = (CEntity*)getEntityByName(name);
     TMsgActivateCinematic activate_cinematic;
     cinematic->sendMsg(activate_cinematic);
+	current_cinematic = name;
 }
 
 const void CModuleTower::deactivateCinematic(const std::string& name) {
     CEntity* cinematic = (CEntity*)getEntityByName(name);
     TMsgDeactivateCinematic deactivate_cinematic;
     cinematic->sendMsg(deactivate_cinematic);
+	current_cinematic = "";
 }
 
 const void CModuleTower::setAmbientAdjustment(float ambient) {
@@ -138,6 +155,10 @@ const void CModuleTower::setAmbientAdjustment(float ambient) {
 const void CModuleTower::setExposureAdjustment(float exposure) {
     cb_globals.global_exposure_adjustment = exposure;
 
+}
+const void CModuleTower::setBandsCinematics(bool _band)
+{
+	bandCinematics = _band;
 }
 const void CModuleTower::setDirLightIntensity(const std::string& name, float intensity) {
   CEntity* entity = (CEntity*)getEntityByName(name);

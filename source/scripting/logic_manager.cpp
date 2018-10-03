@@ -50,6 +50,16 @@ void LogicManager::deactivateCinematic(const char* name, bool left) {
         EngineTower.deactivateCinematic(name);
 }
 
+void LogicManager::activateBandCinematics(bool left) {
+	if (applyFunction(left))
+		EngineTower.setBandsCinematics(true);
+}
+
+void LogicManager::deactivateBandCinematics(bool left) {
+	if (applyFunction(left))
+		EngineTower.setBandsCinematics(false);
+}
+
 // Misc
 void LogicManager::setAmbientAdjustment(float value) {
 	EngineTower.setAmbientAdjustment(value);

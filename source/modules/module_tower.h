@@ -16,6 +16,10 @@ class CModuleTower : public IModule {
 	float newExposure;
 	float oldExposure;
 	float defaultExposure;
+	std::string current_cinematic;
+
+	float bandsValue = 0.f;
+	bool bandCinematics = false;
 
 protected:
 	float tower_radius = 31.5f;
@@ -41,6 +45,7 @@ public:
   const void renderEverything(const std::string& name);
   const void setAmbientAdjustment(float ambient);
   const void setExposureAdjustment(float exposure);
+	const void setBandsCinematics(bool _band);
   const void openDoor(const std::string& name);
 	const void activateAnim(const std::string& name);
   const void activateCinematic(const std::string& name);

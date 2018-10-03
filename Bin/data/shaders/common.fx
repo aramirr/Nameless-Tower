@@ -94,6 +94,47 @@ float4x4 getSkinMtx( int4 iBones, float4 iWeights ) {
 }
 
 //--------------------------------------------------------------------------------------
+// screen_coords va entre 0..1024
+//--------------------------------------------------------------------------------------
+float3 getWorldCoords(float2 screen_coords, float zlinear_normalized)
+{
+
+/*
+  // ux = -1 .. 1
+  // Si screen_coords == 0 => ux = 1
+  // Si screen_coords == 512 => ux = 0
+  // Si screen_coords == 1024 => ux = -1
+  float ux = 1.0 - screen_coords.x * camera_inv_resolution.x * 2;
+  
+  // Si screen_coords =   0 => uy = 1;
+  // Si screen_coords = 400 => uy = 0;
+  // Si screen_coords = 800 => uy = -1;
+  float uy = 1.0 - screen_coords.y * camera_inv_resolution.y * 2;
+  
+
+  float3 view_dir2 = float3( ux * camera_tan_half_fov * camera_aspect_ratio
+                          , uy * camera_tan_half_fov
+                          , 1.) * ( zlinear_normalized * camera_zfar );
+
+  float3 view_dir = mul( float4( screen_coords, 1, 1 ), camera_screen_to_world ).xyz;
+  
+  view_dir *= ( zlinear_normalized );
+
+  float3 wPos =
+      CameraFront.xyz * view_dir.z
+    + CameraLeft.xyz  * view_dir.x
+    + CameraUp.xyz    * view_dir.y
+    + CameraWorldPos.xyz;
+  return wPos;
+
+  // camera_screen_to_world includes all the previous operations
+*/
+
+    float3 view_dir = mul(float4(screen_coords, 1, 1), camera_screen_to_world).xyz;
+    return view_dir * zlinear_normalized + camera_pos;
+}
+
+//--------------------------------------------------------------------------------------
 //
 //--------------------------------------------------------------------------------------
 float3 rgb2hsv(float3 c)
@@ -128,7 +169,34 @@ float remap(float value, float inputMin, float inputMax, float outputMin, float 
 //--------------------------------------------------------------------------------------
 //
 //--------------------------------------------------------------------------------------
-float3 postprocesado(float3 c, float2 iUV)
+float4 fog(float4 _finalColor, float4 iPosition)
+{
+    float3 fogColor = float3(0.5f, 0.5f, 0.5f);
+
+    int3 ss_load_coords = uint3(iPosition.xy, 0);
+
+    // Reciver world position cooirds
+    float zlinear = txGBufferLinearDepth.Load(ss_load_coords).x;
+    float3 world_pos = getWorldCoords(iPosition.xy, zlinear);
+
+    // Get light an view directions
+    float3 L = normalize(light_pos - world_pos);
+    float3 V = normalize(camera_pos - world_pos);
+
+    float fogFactor = 0;
+
+    // Exponential fog
+
+    fogFactor = 1.0f / exp(global_fogDist_adjustment * global_fogDensity_adjustment);
+    fogFactor = clamp(fogFactor, 0.0f, 1.0f);
+
+    return float4(fogColor * (1 - fogFactor) + _finalColor.rgb * fogFactor, 1.0f);
+}
+
+//--------------------------------------------------------------------------------------
+//
+//--------------------------------------------------------------------------------------
+float3 postprocesado(float3 c, float2 iUV, float4 iPosition)
 {
     float3 hsvPixel = rgb2hsv(float3(c.rgb));
     
@@ -143,6 +211,8 @@ float3 postprocesado(float3 c, float2 iUV)
     float4 dstColor = float4((r.rgb - (float3) (0.5)) * contrast + (float3)(0.5), 1.0);
     float4 finalColor = clamp(dstColor, 0.0, 1.0);
 
+    finalColor = fog(finalColor, iPosition);
+
     //VIGNETTING
     //float2 uv = fragCoord.xy / iResolution.xy;
     float2 coord = (iUV - 0.5) * (global_resolution_X / global_resolution_Y) * 2.0;
@@ -150,67 +220,19 @@ float3 postprocesado(float3 c, float2 iUV)
     float rf2_1 = rf * rf + 1.0;
     float e = 1.0 / (rf2_1 * rf2_1);
 
+    //finalColor = float4(finalColor.rgb * e, 1.0);
+
+    //BANDA NEGRA PARA CINEMATICAS
+    //vec2 q = fragCoord.xy / iResolution.xy;
+       
+    if (iUV.y >= 1 - global_bandMin_adjustment || iUV.y < global_bandMax_adjustment)
+    {
+        return float4(0.f, 0.f, 0.f, 1.f);
+    }
+
     return float4(finalColor.rgb * e, 1.0);
 
 }
-
-////--------------------------------------------------------------------------------------
-////
-////--------------------------------------------------------------------------------------
-//float4x4 brightnessMatrix(float brightness)
-//{
-//    return float4x4(1, 0, 0, 0,
-//                 0, 1, 0, 0,
-//                 0, 0, 1, 0,
-//                 brightness, brightness, brightness, 1);
-//}
-
-////--------------------------------------------------------------------------------------
-////
-////--------------------------------------------------------------------------------------
-//float4x4 contrastMatrix(float contrast)
-//{
-//    float t = (1.0 - contrast) / 2.0;
-    
-//    return float4x4(contrast, 0, 0, 0,
-//                 0, contrast, 0, 0,
-//                 0, 0, contrast, 0,
-//                 t, t, t, 1);
-
-//}
-
-////--------------------------------------------------------------------------------------
-////
-////--------------------------------------------------------------------------------------
-//float4x4 saturationMatrix(float saturation)
-//{
-//    float3 luminance = float3(0.3086, 0.6094, 0.0820);
-    
-//    float oneMinusSat = 1.0 - saturation;
-    
-//    float3 red = (float3)(luminance.x * oneMinusSat);
-//    red += float3(saturation, 0, 0);
-    
-//    float3 green = 
-//    (float3)(luminance.y * oneMinusSat);
-//    green += float3(0, saturation, 0);
-    
-//    float3 blue = (float3)(luminance.z * oneMinusSat);
-//    blue += float3(0, 0, saturation);
-    
-//    return float4x4(red, 0,
-//                 green, 0,
-//                 blue, 0,
-//                 0, 0, 0, 1);
-//}
-
-////--------------------------------------------------------------------------------------
-//// 
-////--------------------------------------------------------------------------------------
-//float4 postprocesado2(float4 c)
-//{
-//    return brightnessMatrix(global_brightness_adjustment) * contrastMatrix(global_contrast_adjustment) * saturationMatrix(global_saturation_adjustment) * (float4x1)c;
-//}
 
 //--------------------------------------------------------------------------------------
 // 
@@ -449,47 +471,6 @@ float3 computeNormalMap( float3 inputN, float4 inputT, float2 inUV ) {
   //wN = N;
 
   return wN;
-}
-
-
-//--------------------------------------------------------------------------------------
-// screen_coords va entre 0..1024
-//--------------------------------------------------------------------------------------
-float3 getWorldCoords(float2 screen_coords, float zlinear_normalized) {
-
-/*
-  // ux = -1 .. 1
-  // Si screen_coords == 0 => ux = 1
-  // Si screen_coords == 512 => ux = 0
-  // Si screen_coords == 1024 => ux = -1
-  float ux = 1.0 - screen_coords.x * camera_inv_resolution.x * 2;
-  
-  // Si screen_coords =   0 => uy = 1;
-  // Si screen_coords = 400 => uy = 0;
-  // Si screen_coords = 800 => uy = -1;
-  float uy = 1.0 - screen_coords.y * camera_inv_resolution.y * 2;
-  
-
-  float3 view_dir2 = float3( ux * camera_tan_half_fov * camera_aspect_ratio
-                          , uy * camera_tan_half_fov
-                          , 1.) * ( zlinear_normalized * camera_zfar );
-
-  float3 view_dir = mul( float4( screen_coords, 1, 1 ), camera_screen_to_world ).xyz;
-  
-  view_dir *= ( zlinear_normalized );
-
-  float3 wPos =
-      CameraFront.xyz * view_dir.z
-    + CameraLeft.xyz  * view_dir.x
-    + CameraUp.xyz    * view_dir.y
-    + CameraWorldPos.xyz;
-  return wPos;
-
-  // camera_screen_to_world includes all the previous operations
-*/
-
-  float3 view_dir = mul( float4( screen_coords, 1, 1 ), camera_screen_to_world ).xyz;
-  return view_dir * zlinear_normalized + camera_pos;
 }
 
 // -----------------------------------------------------

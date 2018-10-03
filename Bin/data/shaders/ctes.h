@@ -17,52 +17,6 @@
 
 // -------------------------------------------------
 // Texture Slots
-// Materials
-//#define TS_ALBEDO              0
-//#define TS_NORMAL              1
-//#define TS_METALLIC            2
-//#define TS_ROUGHNESS           3
-//#define TS_EMISSIVE            4
-//#define TS_HEIGHT              5
-//#define TS_ALPHA               6
-//#define TS_TRANSPARENCY        7
-//#define TS_CELL                8
-//#define TS_SUBLIME						 9
-//
-//// .. Other slots of the material
-//#define TS_NUM_MATERIALS_SLOTS 10
-//
-//// Here goes the slots NOT associated to a material
-//#define TS_LIGHT_PROJECTOR     11
-//#define TS_LIGHT_SHADOW_MAP    12 
-//#define TS_ENVIRONMENT_MAP     13
-//#define TS_IRRADIANCE_MAP      14
-//#define TS_NOISE_MAP           15
-//
-//#define TS_DEFERRED_ALBEDOS           16
-//#define TS_DEFERRED_NORMALS           17
-//#define TS_DEFERRED_LINEAR_DEPTH      18
-//#define TS_DEFERRED_ACC_LIGHTS        19
-//#define TS_DEFERRED_AO                20
-//#define TS_DEFERRED_SELF_ILLUM        21
-//#define TS_DEFERRED_ALPHA             22
-//#define TS_DEFERRED_CELL              23
-//
-//// LookUpTable for the color grading
-//#define TS_LUT_COLOR_GRADING          24
-//
-//#define TS_MIX_BLEND_WEIGHTS          25
-//
-//#define TS_FIRST_SLOT_MATERIAL_0      TS_ALBEDO
-//#define TS_FIRST_SLOT_MATERIAL_1      TS_ALBEDO1
-//// 17,18,19 goes for extra textures of second material
-//#define TS_FIRST_SLOT_MATERIAL_2      TS_ALBEDO2
-//
-//#define TS_ALBEDO1 26
-//#define TS_NORMAL1 27
-//#define TS_ALBEDO2 28
-//#define TS_NORMAL2 29
-
 #define TS_ALBEDO              0
 #define TS_NORMAL              1
 #define TS_METALLIC            2
@@ -241,7 +195,12 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
 	float global_vignetting_adjustment;
 	float global_resolution_X;
 	float global_resolution_Y;
-	float global_dummy3;
+	float global_dummy1;
+
+	float global_fogDist_adjustment;
+	float global_fogDensity_adjustment;
+	float global_bandMin_adjustment;
+	float global_bandMax_adjustment;
 
 };
 
