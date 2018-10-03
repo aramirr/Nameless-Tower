@@ -25,7 +25,7 @@ void CModuleTower::update(float delta)
 			}
 		}
 		else if (newExposure < oldExposure) {
-			cb_globals.global_exposure_adjustment -= 0.01f;
+			cb_globals.global_exposure_adjustment -= 0.005f;
 			oldExposure = cb_globals.global_exposure_adjustment;
 			if (oldExposure < newExposure) {
 				changeExposure = false;
@@ -37,6 +37,16 @@ void CModuleTower::update(float delta)
 		oldExposure = cb_globals.global_exposure_adjustment;
 		defaultExposure = cb_globals.global_exposure_adjustment;
 		cargar = false;
+	}
+	if (bandCinematics && bandsValue < 0.15f) {
+		bandsValue += 0.01f;
+		cb_globals.global_bandMax_adjustment = bandsValue;
+		cb_globals.global_bandMin_adjustment = bandsValue;
+	}
+	else if (!bandCinematics && bandsValue > 0.f) {
+		bandsValue -= 0.01f;
+		cb_globals.global_bandMax_adjustment = bandsValue;
+		cb_globals.global_bandMin_adjustment = bandsValue;
 	}
 }
 
@@ -123,6 +133,10 @@ const void CModuleTower::setAmbientAdjustment(float ambient) {
 const void CModuleTower::setExposureAdjustment(float exposure) {
     cb_globals.global_exposure_adjustment = exposure;
 
+}
+const void CModuleTower::setBandsCinematics(bool _band)
+{
+	bandCinematics = _band;
 }
 const void CModuleTower::setDirLightIntensity(const std::string& name, float intensity) {
   CEntity* entity = (CEntity*)getEntityByName(name);

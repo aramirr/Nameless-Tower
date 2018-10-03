@@ -17,10 +17,12 @@ public:
   // Cinematics
   void activateCinematic(const char* name, bool left);
   void deactivateCinematic(const char* name, bool left);
+	void activateBandCinematics(bool left);
+	void deactivateBandCinematics(bool left);
 
   // Misc
 	void setAmbientAdjustment(float value);
-  void setExposureAdjustment(float value);
+  void setExposureAdjustment(float value, bool left);
 	void playLastCinematic();
 	void openDoor(const char* name);
 	void activateAnim(const char* name);
@@ -32,9 +34,8 @@ public:
   // Lights
   void setDirLightIntensity(const char* name, float value, bool left);
   void setPointLightIntensity(const char* name, float value, bool left);
-	void setNajaInterior();
-	void setnajaExterior();
-	void setExposure(float value);
+	void setNajaInterior(bool left);
+	void setnajaExterior(bool left);
 
 	// Particles
 	void startEmiter(const char* name, bool left);

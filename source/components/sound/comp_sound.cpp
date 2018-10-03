@@ -15,33 +15,70 @@ void TCompSound::load(const json& j, TEntityParseContext& ctx) {
 		Studio::EventDescription* event_description= NULL;
         std::string event_src = event["src"].get<std::string>();
         std::string event_name = event["name"].get<std::string>();
-		EngineSound.res = EngineSound.system->getEvent(event_src.c_str(), &event_description);
-
+        FMOD_RESULT res = EngineSound.system->getEvent(event_src.c_str(), &event_description);
+        assert(res == FMOD_OK);
 		Studio::EventInstance* event_instance = NULL;
-		EngineSound.res = event_description->createInstance(&event_instance);
-		events.insert(std::make_pair(event_name, event_instance));
+        res = event_description->createInstance(&event_instance);
+        assert(res == FMOD_OK);
+        positional = event.value("positional", false); 
+        event_description->is3D(&positional);
+
+        eventInstance = event_instance;
+        eventDescriptor = event_description;
+        
+        multiInstancing = event.value("multi_instancing", false);
+        stopFadeOut = event.value("stop_fade_out", false);
+        onStart = event.value("on_start", false);
 	}	
 }
 
 void TCompSound::update(float dt) {
+    TCompTransform* transform = get<TCompTransform>();	
+	if (positional) {
+		FMOD_3D_ATTRIBUTES attributes = toFMODAttributes(*transform);
+		eventInstance->set3DAttributes(&attributes);
+	}
 }
 
 void TCompSound::debugInMenu() {
 }
 
-void TCompSound::playInterior() {
-    events["ambient"]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
-    events["interior"]->start();
-}
-
-void TCompSound::playAmbient() {
-    events["interior"]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
-    events["ambient"]->start();
-}
-
 void TCompSound::playSound(std::string name) {
-    events[name]->start();
+    eventInstance->start();
+    events.insert(std::make_pair(name, eventInstance));
 }
 void TCompSound::stopSound(std::string name) {
     events[name]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+}
+
+void TCompSound::onGroupCreated(const TMsgEntitiesGroupCreated& msg) {
+    if (onStart)
+        playSound("sound");
+}
+
+FMOD_3D_ATTRIBUTES TCompSound::toFMODAttributes(CTransform t) {
+    FMOD_3D_ATTRIBUTES attr;
+    attr.forward = toFMODVector(t.getFront());
+    attr.velocity = FMOD_VECTOR();
+    attr.position = toFMODVector(t.getPosition());
+    attr.up = toFMODVector(t.getUp());
+    return attr;
+}
+
+FMOD_VECTOR TCompSound::toFMODVector(VEC3 v) {
+    FMOD_VECTOR vec;
+    vec.x = v.x;
+    vec.y = v.y;
+    vec.z = v.z;
+    return vec;
+}
+
+void TCompSound::playSoundMsg(const TMsgPlaySound& msg) {
+    playSound("sound");
+}
+
+void TCompSound::registerMsgs() {
+    DECL_MSG(TCompSound, TMsgEntitiesGroupCreated, onGroupCreated);
+    DECL_MSG(TCompSound, TMsgPlaySound, playSoundMsg);
+    
 }

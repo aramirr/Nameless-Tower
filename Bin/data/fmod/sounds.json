@@ -3,12 +3,7 @@
 	"events": [
 		{"name": "ambient", "src": "event:/Ambience/Outside_Ambience_A"},
 		{"name": "interior", "src": "event:/Ambience/Inside_Ambience_A"},
-		{"name": "cascade", "src": "event:/Ambience/Cascada"},
-		{"name": "hit_compresora", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras"},
-		{"name": "hit_dardos", "src": "event:/SFX/Character/Naja/Hits/Hit_Dardo"},
-		{"name": "hit_lanzas", "src": "event:/SFX/Character/Naja/Hits/Hit_Lanzas"},
-		{"name": "hit_pinchos", "src": "event:/SFX/Character/Naja/Hits/Hit_Pinchos"},
-		{"name": "hit_sierras", "src": "event:/SFX/Character/Naja/Hits/Hit_Sierras"}
+		{"name": "cascade", "src": "event:/Ambience/Cascada"}
 	]
 	    
 }

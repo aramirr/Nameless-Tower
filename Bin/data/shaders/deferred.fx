@@ -61,9 +61,8 @@ float4 compute(float4 iPosition, float2 iUV, float1 cell)
     float3 gammaCorrectedColor = gammaCorrect(tmColor);
     gammaCorrectedColor = lerp(tmColor, gammaCorrectedColor.xyz, global_gamma_correction_enabled);
 
-    //QUITAR ESTO??????????????????
     if (global_render_output == RO_COMPLETE)
-        return float4(postprocesado(gammaCorrectedColor), 1);
+        return float4(postprocesado(gammaCorrectedColor, iUV, iPosition), 1);
     else if (global_render_output == RO_ALBEDO)
         return float4(oAlbedo.rgb, 1);
     else if (global_render_output == RO_NORMAL)
@@ -90,7 +89,7 @@ float4 compute(float4 iPosition, float2 iUV, float1 cell)
         return txAO.Sample(samLinear, iUV);
     }
   
-    return float4(postprocesado(gammaCorrectedColor), 1);
+    return float4(postprocesado(gammaCorrectedColor, iUV, iPosition), 1);
 }
 
 // ----------------------------------------

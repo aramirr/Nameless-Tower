@@ -54,8 +54,24 @@ class CModuleBillboards : public IModule
   CRenderMeshInstanced* grass_instances_mesh = nullptr;
   std::vector< TGrassParticle > grass_instances;
 
+
+  // -------------------------------------------------------------------
+  struct TWindstrikeParticle {
+	  VEC3  pos;      // Maps to iCenter.xyz
+	  float angle;    // Maps to iCenter.w
+	  VEC4  color;
+	  float scale_x;
+	  float scale_y;
+	  float nframe;
+  };
+  CRenderMeshInstanced* windstrike_instances_mesh = nullptr;
+  std::vector< TWindstrikeParticle > windstrike_instances;
+  std::vector< int > windstrike_ids;
+
+
 public:
-	int max_id = 0;
+	int fuego_max_id = 0;
+	int windstrike_max_id = 0;
 
   CModuleBillboards (const std::string& name)
 		: IModule(name)
@@ -68,4 +84,7 @@ public:
   void addGrass(VEC3 position, float width, float length, int total);
   void addGrassByAngle(VEC3 pos1, VEC3 pos2, int total, float radius1, float radius2);
   void calculateAngles(VEC3 pos1, VEC3 pos2, float& alpha, float& beta, float& charlie);
+  int addWindstrike(VEC3 position);
+  void deleteWindstrike(int id);
+  void moveWindstrike(VEC3 position, int id);
 };
