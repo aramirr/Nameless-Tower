@@ -24,5 +24,5 @@ float4 PS(
   ) : SV_Target
 {
   float4 oDiffuse = txAlbedo.Sample(samLinear, input.UV);
-  return oDiffuse;
+    return float4(postprocesado(oDiffuse.rgb, input.UV, input.Pos), oDiffuse.a);
 }

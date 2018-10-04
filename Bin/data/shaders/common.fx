@@ -227,10 +227,10 @@ float3 postprocesado(float3 c, float2 iUV, float4 iPosition)
        
     if (iUV.y >= 1 - global_bandMin_adjustment || iUV.y < global_bandMax_adjustment)
     {
-        return float4(0.f, 0.f, 0.f, 1.f);
+        return float3(0.f, 0.f, 0.f);
     }
 
-    return float4(finalColor.rgb * e, 1.0);
+    return finalColor.rgb * e;
 
 }
 
