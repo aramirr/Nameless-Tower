@@ -76,7 +76,6 @@ namespace FSM
 			}
 			else {				
 				VEC3 delta_move = new_pos - my_pos;
-				dbg("%f\n", delta_move.y);
 				PxShape* player_shape;
 				comp_collider->controller->getActor()->getShapes(&player_shape, 1);
 				PxFilterData filter_data = player_shape->getSimulationFilterData();

@@ -197,7 +197,6 @@ CRenderMesh* createUnitQuadPosXY() {
   return mesh;
 }
 
-
 // --------------------------
 void registerMesh(CRenderMesh* new_mesh, const char* name) {
 	new_mesh->setNameAndClass(name, getResourceClassOf<CRenderMesh>());

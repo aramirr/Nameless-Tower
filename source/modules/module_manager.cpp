@@ -186,7 +186,6 @@ void CModuleManager::loadModules(const std::string& filename)
   json json_data = loadJson(filename);
 
 	// parse update modules
-	dbg("UPDATE\n");
 	auto& json_update = json_data["update"];
 	for (auto& modName : json_update)
 	{
@@ -203,7 +202,6 @@ void CModuleManager::loadModules(const std::string& filename)
 	}
 
 	// parse render modules
-	dbg("RENDER\n");
 	auto& json_render = json_data["render"];
 	for (auto& modName : json_render)
 	{
