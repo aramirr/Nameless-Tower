@@ -208,7 +208,10 @@ void PS_GBuffer_Catarata(
   // the material
     o_albedo = txAlbedo.Sample(samLinear, iTex0);
     float4 alpha_color = txAlpha.Sample(samLinear, iTex0);
+    o_albedo = float4(postprocesado(o_albedo.xyz, iTex0, Pos), 1);
     o_albedo.a = alpha_color.r;
+
+    
 
     if (o_albedo.a < 0.3) 
         discard;

@@ -97,15 +97,52 @@ void TCompCameraManager::load(const json& j, TEntityParseContext& ctx) {
 
   cinematics.clear();
 
-  cameraActive = 0;
-  currentTime = 0.f;
-  totalTime = 0.f;
+	temblor = true;
+
+	cameraActive = 0;
+	currentTime = 0.f;
+	totalTime = 0.f;
 }
 
 void TCompCameraManager::update(float dt) {
 
-  if (isPressed(VK_F1)) {
-    CEntity* player = (CEntity*)getEntityByName("The Player");
+	if (temblor && isPressed(VK_F3)) {
+		CEntity* camera = (CEntity*)Engine.getCameras().getActiveCamera();
+		TCompTransform* c = camera->get<TCompTransform>();
+
+		VEC3 newPos = c->getPosition();
+		VEC3 newFront = c->getFront();
+		VEC3 newLeft = c->getLeft();
+
+		float x = Randfloat(-0.1f, 0.1f);
+		dbg(("X: " + std::to_string(x) + "\n").c_str());
+		float y = Randfloat(-0.1f, 0.1f);;
+		dbg(("Y: " + std::to_string(y) + "\n").c_str());
+		float z = Randfloat(-0.1f, 0.1f);
+		dbg(("Z: " + std::to_string(z) + "\n").c_str());
+
+		newLeft *= x;
+		newPos += newLeft;
+		//newPos.x += x;
+		//newFront.x += x;
+
+		newPos.y += y;
+		//newFront.y += y;
+
+		//newPos.z += z;
+		//newFront.z += z;
+
+		c->setPosition(newPos);
+		c->lookAt(newPos, newPos + newFront);
+	}
+	else {
+		if (!temblor) {
+			CEntity* e_player = (CEntity*)getEntityByName("The Player");
+			TCompPlayerController* player = e_player->get<TCompPlayerController>();
+			player->on_cinematic = false;
+		}
+		if (isPressed(VK_F1)) {
+			CEntity* player = (CEntity*)getEntityByName("The Player");
 
     TMsgSetFSMVariable pauseMsg;
     pauseMsg.variant.setName("pause");
