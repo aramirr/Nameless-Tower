@@ -26,7 +26,6 @@ bool CModuleLevel1::start()
 	// Auto load some scenes
 	std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];
 	for (auto& scene_name : scenes_to_auto_load) {
-		dbg("Autoloading scene %s\n", scene_name.c_str());
 		TEntityParseContext ctx;
 		parseScene(scene_name, ctx);
 	}

@@ -25,7 +25,6 @@ void TCompCameraManager::loadCinematics()
       auto& j_cinematic = j_item["cinematic"];
 
       std::string cinematic_name = j_cinematic["name"];
-      //dbg(cinematic_name.c_str());
 
       std::vector<std::pair<Camera, float>> cameras;
 
@@ -36,11 +35,6 @@ void TCompCameraManager::loadCinematics()
         float time;
 
         std::string str = (it.value()).get<std::string>();
-
-        //dbg("------------------------------------------------------------------------------\n");
-        //dbg(str.c_str());
-        //dbg("\n");
-
         int n = sscanf(str.c_str(), "%f %f %f %f %f %f %f", &pos.x, &pos.y, &pos.z, &lookAt.x, &lookAt.y, &lookAt.z, &time);
         assert(n == 7);
 
@@ -194,21 +188,6 @@ void TCompCameraManager::update(float dt) {
 
       ct->setPosition(camP);
       ct->lookAt(camP, camL);
-
-      /*	std::string str = std::to_string(currentTime);
-      std::string str2 = std::to_string(ratio);
-      std::string str3 = std::to_string(cameraActive);
-      std::string str4 = std::to_string(cameras.size());
-
-      dbg("------------------------------------------------------------------------------\n");
-      dbg(str.c_str());
-      dbg("\n");
-      dbg(str2.c_str());
-      dbg("\n");
-      dbg(str3.c_str());
-      dbg("\n");
-      dbg(str4.c_str());
-      dbg("\n");*/
 
       if (cameraActive == cameras.size()) {
         cinemating = false;
