@@ -11,57 +11,27 @@
 						"name" : "fondoA",
 						"type" : "image",
 						"size" : "1920 1080",
-						"texture" : "data/textures/gui/MenuFondo.dds",
+						"texture" : "data/textures/gui/referencia.dds",
 						"minUV" : "0 0",
-						"maxUV" : "0.5 1",
-						"effects" : [
-							{
-								"type" : "animate_uv",
-								"speed" : "0.0125 0"
-							}
-						]
-					},
-					{
-						"name" : "fondoB",
-						"type" : "image",
-						"size" : "1920 1080",
-						"texture" : "data/textures/gui/menu_anim_background1.dds",
-						"minUV" : "0 0",
-						"maxUV" : "0.5 1",
-						"effects" : [
-							{
-								"type" : "animate_uv",
-								"speed" : "-0.025 0"
-							}
-						]
+						"maxUV" : "1 1"
 					}
 				]
 			},
 			{
 				"name" : "test_buttons",
 				"type" : "widget",
-				"position" : "810 650",
 				"children" : [
 					{
 						"name" : "new_game",
 						"type" : "button",
-						"position" : "0 0",
-						"size" : "300 50",
-						"texture" : "data/textures/gui/menu_boton.dds",
-						"font_size" : 32.0,
-						"text" : "NEW GAME",
-						"halign" : "center",
-						"valign" : "center",
-						"color" : "0.5 0.5 0.5 1",
+						"position" : "1203 870",
+						"size" : "300 300",
+						"texture" : "data/textures/gui/playNormal.dds",
 						"selected" : {
-							"position" : "30 0",
-							"font_size" : 36.0,
-							"color" : "1 1 1 1"
+							"texture" : "data/textures/gui/playClick.dds"
 						},
 						"pressed" : {
-							"position" : "30 0",
-							"font_size" : 36.0,
-							"font_color" : "0.8 0.8 1 1"
+							"texture" : "data/textures/gui/playClick.dds"
 						}
 					},
 					{
