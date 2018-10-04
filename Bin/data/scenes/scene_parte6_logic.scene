@@ -2,32 +2,6 @@
   {
     "entity":
     {
-      "name": "ParedTapada7B"
-      ,
-      "transform":
-      {
-        "pos": "1.90735e-06 13.5 3.63571e-07"
-        ,
-        "rotation": "0.0 -0.972236 0.0 -0.234003"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedTapada7B.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Puerta_Abatible_Madera_003"
       ,
       "transform":

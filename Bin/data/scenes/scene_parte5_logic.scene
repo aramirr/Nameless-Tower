@@ -45,32 +45,6 @@
   {
     "entity":
     {
-      "name": "ParedTapada10B"
-      ,
-      "transform":
-      {
-        "pos": "1.90735e-06 40.5 -8.16637e-07"
-        ,
-        "rotation": "0.0 0.0267501 0.0 -0.999642"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedTapada10B.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "PlatZ002"
       ,
       "transform":
