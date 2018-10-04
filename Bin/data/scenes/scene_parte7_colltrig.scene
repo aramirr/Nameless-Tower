@@ -2,6 +2,37 @@
   {
     "entity":
     {
+      "name": "Escaleras_Escena07"
+      ,
+      "transform":
+      {
+        "pos": "-17.9658 25.3354 -23.9434"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Escaleras_Escena07.col_mesh"
+        ,
+        "group": "stairs"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "TSEscaleras1Escaleras2B"
       ,
       "transform":
@@ -128,7 +159,7 @@
   {
     "entity":
     {
-      "name": "PodiumCollider"
+      "name": "PodiumCollider_Bajada"
       ,
       "transform":
       {
@@ -149,7 +180,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/PodiumCollider.col_mesh"
+        "mesh_src": "data/meshes/PodiumCollider_Bajada.col_mesh"
       }
     }
   }

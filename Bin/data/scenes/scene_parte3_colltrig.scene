@@ -2,6 +2,54 @@
   {
     "entity":
     {
+      "name": "TSRejaAntorchas"
+      ,
+      "transform":
+      {
+        "pos": "30.8273 65.1923 5.50072"
+        ,
+        "rotation": "0.0 -0.636836 0.0 -0.770999"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TSRejaAntorchas.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TexturaTriggerMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.273263 2.17942 1.20489"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Escaleras_Escena03"
       ,
       "transform":
