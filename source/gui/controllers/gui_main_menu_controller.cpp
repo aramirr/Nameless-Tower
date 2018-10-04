@@ -34,13 +34,19 @@ namespace GUI
 
         EngineTimer.setTimeSlower(1.f);
       };
+			auto optionsCB = []() {
+				dbg("OPTIONES\n");
+				//TO DO: Iniciar Menu de Opciones
+				//...
+			};
       auto exitCB = []() {
-        dbg("LOADING GAME\n");
+        dbg("EXIT\n");
 
         exit(0);
       };
 
       registerOption("new_game", newGameCB);
+			registerOption("options", optionsCB);
       registerOption("exit", exitCB);
       setCurrentOption(0);
 

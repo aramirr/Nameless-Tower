@@ -48,6 +48,17 @@ LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
     PostQuitMessage(0);
     break;
 
+	case WM_SIZE:
+	{
+		dbg("aaaaaaa");
+		float xres = GetSystemMetrics(SM_CXSCREEN);
+		float yres = GetSystemMetrics(SM_CYSCREEN);
+
+		CEngine::get().getRender().configure(xres, yres);
+		EngineUI.resizeGUI(xres, yres);
+	}
+	break;
+
 	case WM_MOUSEMOVE:
 	{
 		Input::CMouse* mouse = static_cast<Input::CMouse*>(EngineInput.getDevice("mouse"));

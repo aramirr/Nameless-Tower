@@ -11,7 +11,7 @@
 						"name" : "fondoA",
 						"type" : "image",
 						"size" : "1920 1080",
-						"texture" : "data/textures/gui/referencia.dds",
+						"texture" : "data/textures/gui/Menu.dds",
 						"minUV" : "0 0",
 						"maxUV" : "1 1"
 					}
@@ -20,12 +20,13 @@
 			{
 				"name" : "test_buttons",
 				"type" : "widget",
+				"position" : "0 0",
 				"children" : [
 					{
 						"name" : "new_game",
 						"type" : "button",
-						"position" : "1203 870",
-						"size" : "300 300",
+						"position" : "1193 560",
+						"size" : "325 325",
 						"texture" : "data/textures/gui/playNormal.dds",
 						"selected" : {
 							"texture" : "data/textures/gui/playClick.dds"
@@ -35,40 +36,33 @@
 						}
 					},
 					{
-						"name" : "exit",
+						"name" : "options",
 						"type" : "button",
-						"position" : "0 80",
-						"size" : "300 50",
-						"texture" : "data/textures/gui/menu_boton.dds",
-						"font_size" : 32.0,
-						"text" : "EXIT",
-						"halign" : "center",
-						"valign" : "center",
-						"color" : "0.5 0.5 0.5 1",
+						"position" : "1248 720",
+						"size" : "266 266",
+						"texture" : "data/textures/gui/OPTIONSNormal.dds",
 						"selected" : {
-							"position" : "30 80",
-							"font_size" : 36.0,
-							"color" : "1 1 1 1"
+							"texture" : "data/textures/gui/OPTIONSCLICK.dds"
 						},
 						"pressed" : {
-							"position" : "30 80",
-							"font_size" : 36.0,
-							"font_color" : "0.8 0.8 1 1"
+							"texture" : "data/textures/gui/OPTIONSCLICK.dds"
+						}
+					},
+					{
+						"name" : "exit",
+						"type" : "button",
+						"position" : "1358 880",
+						"size" : "177 177",
+						"texture" : "data/textures/gui/ExitNormal.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/ExitClick.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/ExitClick.dds"
 						}
 					}
 				]
-			},
-		    {
-		        "name" : "game_credits",
-		        "type" : "text",
-		        "position" : "1870 1030",
-		        "scale" : "1.0 1.0",
-		        "text" : "MILESTONE IV",
-		        "font_color" : "0.5 0.5 0.5 1",
-		        "font_size" : 36,
-		        "halign" : "right",
-		        "valign" : "bottom"
-		    }
+			}
 		]
 	},
 	{
@@ -84,96 +78,6 @@
 				"texture" : "data/textures/gui/aire2.dds",
 				"minUV" : "0 0",
 				"maxUV" : "1 1"
-			}
-		]
-	},
-	{
-		"name" : "text_sala_eleccion",
-		"type" : "widget",
-		"position" : "810 650",
-		"children" : [
-		    {
-				"name" : "tutorial",
-				"type" : "text",
-				"position" : "0 250",
-				"size" : "300 50",
-				"font_size" : 32.0,
-				"text" : "CHOOSE WISELY. REMEMBER THE CLUE",
-				"halign" : "center",
-				"valign" : "center",
-				"color" : "0.5 0.5 0.5 1"
-			}
-		]
-	},
-	{
-		"name" : "text_pista",
-		"type" : "widget",
-		"position" : "810 650",
-		"children" : [
-		    {
-				"name" : "tutorial",
-				"type" : "text",
-				"position" : "0 250",
-				"size" : "300 50",
-				"font_size" : 32.0,
-				"text" : "HMMM..., THIS SEEMS IMPORTANT",
-				"halign" : "center",
-				"valign" : "center",
-				"color" : "0.5 0.5 0.5 1"
-			}
-		]
-	},
-	{
-		"name" : "text_plataforma_eleccion",
-		"type" : "widget",
-		"position" : "810 650",
-		"children" : [
-		    {
-				"name" : "tutorial",
-				"type" : "text",
-				"position" : "0 250",
-				"size" : "300 50",
-				"font_size" : 32.0,
-				"text" : "CHOOSE YOUR NEXT STEP WISELY FOR IT COULD COST YOR LIFE",
-				"halign" : "center",
-				"valign" : "center",
-				"color" : "0.5 0.5 0.5 1"
-			}
-		]
-	},
-	{
-		"name" : "text_plataforma_activable",
-		"type" : "widget",
-		"position" : "810 650",
-		"children" : [
-		    {
-				"name" : "tutorial",
-				"type" : "text",
-				"position" : "0 250",
-				"size" : "300 50",
-				"font_size" : 32.0,
-				"text" : "THE POWER OF WIND COULD HELP YOU MOVE THIS PLATFORM",
-				"halign" : "center",
-				"valign" : "center",
-				"color" : "0.5 0.5 0.5 1"
-			}
-		]
-	},
-	{
-		"name" : "text_planear",
-		"type" : "widget",
-		"position" : "810 650",
-		"children" : [
-		    {
-				"name" : "tutorial",
-				"type" : "text",
-				"position" : "0 250",
-				"size" : "300 50",
-				"font_size" : 32.0,
-				"text" : "PRESS G TO GLIDE",
-				"halign" : "center",
-				"valign" : "center",
-				"color" : "0.5 0.5 0.5 1"
 			}
 		]
 	}
