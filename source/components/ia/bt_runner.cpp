@@ -211,13 +211,14 @@ int bt_runner::actionChase() {
 		distance_to_waypoint = VEC3::Distance(my_position, waypoints_map[second_closest_waypoint].position);
 	}
 
-  if (on_jump) chase_waypoint();
+  /*if (on_jump) chase_waypoint();
 	else if (distance_to_waypoint < distance_to_player) chase_waypoint();
-	else chase_player();
+	else chase_player();*/
+	chase_waypoint();
 
-  if (conditionAttack()) {
+  /*if (conditionAttack()) {
     return LEAVE;
-  }
+  }*/
 
 	//Cambiar a STAY y poner interrupciones que reinicien el BT
     return STAY;
@@ -758,7 +759,7 @@ void bt_runner::recalculate_path() {
 	TCompTransform *c_p_transform = player->get<TCompTransform>();
 	int target_pos = findClosestWaypoint(c_p_transform->getPosition());
 
-	findPath(origin, target_pos);
+	findPath(origin, 60);
 	actual_waypoint = path.size() -1;
 	next_waypoint = actual_waypoint -1;
 	target == "waypoint";
@@ -770,7 +771,7 @@ void bt_runner::change_animation(int animation_id, bool is_action, float in_dela
   TCompSkeleton* skeleton = e->get<TCompSkeleton>();
   assert(skeleton);
 
-  skeleton->playAnimation(animation_id, is_action, in_delay, out_delay, clear);
+  //skeleton->playAnimation(animation_id, is_action, in_delay, out_delay, clear);
 }
 
 void bt_runner::remove_animation(int animation_id) {

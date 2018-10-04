@@ -103,6 +103,18 @@ void TCompCameraManager::load(const json& j, TEntityParseContext& ctx) {
 }
 
 void TCompCameraManager::update(float dt) {
+	// Debug Runner
+	if (isPressed(VK_F4)) {
+		CEntity* e = (CEntity*)getEntityByName("Runner");
+		TMsgRunnerAppear msg;
+		msg.appearing_position = VEC3(28.431f, 64.101f, -13.563f);
+		e->sendMsg(msg);
+	}
+	if (isPressed(VK_F5)) {
+		CEntity* e = (CEntity*)getEntityByName("Runner");
+		TMsgRunnerDisappear msg;
+		e->sendMsg(msg);
+	}
 
   if (isPressed(VK_F1)) {
     CEntity* player = (CEntity*)getEntityByName("The Player");
