@@ -246,7 +246,6 @@ void CModuleBillboards::deleteWindstrike(int id) {
 	}
 }
 
-
 void CModuleBillboards::addGrass(VEC3 position, float width, float length, int total) {
 	for (int i = 0; i < total; ++i) {
 		TGrassParticle new_instance;
@@ -285,8 +284,6 @@ void CModuleBillboards::addGrassByAngle(VEC3 pos1, VEC3 pos2, int total, float r
   }
   grass_instances_mesh->setInstancesData(grass_instances.data(), grass_instances.size(), sizeof(TGrassParticle));
 }
-
-
 
 void CModuleBillboards::update(float delta)
 {

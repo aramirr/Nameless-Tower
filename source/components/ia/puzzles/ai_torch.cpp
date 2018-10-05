@@ -17,7 +17,7 @@ void CAITorch::Init()
 
 	AddState("active", (statehandler)&CAITorch::ActiveState);
 	AddState("inactive", (statehandler)&CAITorch::InactiveState);
-	ChangeState("active");
+    ChangeState("active");
 }
 
 void CAITorch::debugInMenu() {
@@ -68,7 +68,8 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
     thin = j.value("thin", thin);
     violeta = j.value("violeta", false);
     initial_radius = radius;
-
+    render = j.value("render", true);
+    //if (render)
     Init();
 }
 
@@ -79,23 +80,25 @@ DECL_MSG(CAITorch, TMsgDeactivateTorch, deactivate);
 
 void CAITorch::ActiveState(float dt)
 {	
-    TCompTransform* my_transform = getMyTransform();
-    if (on_start) {
-        fire_position = my_transform->getPosition();
-        fire_position.y += y_offset;
-        fire_position.z += z_offset;
-        fire_position.x += x_offset;
-        on_start = false;
-    }
-    if (b_fuego) {
-        if (violeta) {
-            id = EngineBillboards.addFuegoVioleta(fire_position, scale, thin);
+    if (render) {
+        TCompTransform* my_transform = getMyTransform();
+        if (on_start) {
+            fire_position = my_transform->getPosition();
+            fire_position.y += y_offset;
+            fire_position.z += z_offset;
+            fire_position.x += x_offset;
+            on_start = false;
         }
-        else {
-            id = EngineBillboards.addFuegoTest(fire_position, scale, thin);
+        if (b_fuego) {
+            if (violeta) {
+                id = EngineBillboards.addFuegoVioleta(fire_position, scale, thin);
+            }
+            else {
+                id = EngineBillboards.addFuegoTest(fire_position, scale, thin);
+            }
+            b_fuego = false;
         }
-        b_fuego = false;
-    }
+    }  
     
 }
 

@@ -17,6 +17,7 @@ class CAITorch : public IAIController
     bool in_puzzle;
     bool violeta;
     bool active = true;
+    bool render;
     bool attached = false;
 	std::string puzzle_name;
 
