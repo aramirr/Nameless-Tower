@@ -66,6 +66,7 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
 	radius = j.value("radius", radius);
     scale = j.value("scale", scale);
     thin = j.value("thin", thin);
+    violeta = j.value("violeta", false);
     initial_radius = radius;
 
     Init();
@@ -87,7 +88,12 @@ void CAITorch::ActiveState(float dt)
         on_start = false;
     }
     if (b_fuego) {
-        id = EngineBillboards.addFuegoTest(fire_position, scale, thin);
+        if (violeta) {
+            id = EngineBillboards.addFuegoVioleta(fire_position, scale, thin);
+        }
+        else {
+            id = EngineBillboards.addFuegoTest(fire_position, scale, thin);
+        }
         b_fuego = false;
     }
     
@@ -109,7 +115,10 @@ void CAITorch::activate() {
 	//TCompRender *my_render = getMyRender();
 	//my_render->self_illumination = 1;
 	TCompTransform* my_transform = getMyTransform();
-	EngineBillboards.encenderFuego(id, scale, thin);
+    if (violeta)
+        EngineBillboards.encenderFuegoVioleta(id, scale, thin);
+    else
+        EngineBillboards.encenderFuego(id, scale, thin);
     
 	ChangeState("active");
 }

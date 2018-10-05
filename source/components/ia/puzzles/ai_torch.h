@@ -14,7 +14,8 @@ class CAITorch : public IAIController
   float x_offset = 0.f;
   float z_offset = 0.f;
 	float timer_limit;
-	bool in_puzzle;
+    bool in_puzzle;
+    bool violeta;
     bool active = true;
     bool attached = false;
 	std::string puzzle_name;
