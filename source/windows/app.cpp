@@ -55,7 +55,6 @@ LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 		float yres = GetSystemMetrics(SM_CYSCREEN);
 
 		CEngine::get().getRender().configure(xres, yres);
-		EngineUI.resizeGUI(xres, yres);
 	}
 	break;
 

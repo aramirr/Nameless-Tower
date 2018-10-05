@@ -25,8 +25,8 @@
 					{
 						"name" : "new_game",
 						"type" : "button",
-						"position" : "1193 560",
-						"size" : "325 325",
+						"position" : "1193 660",
+						"size" : "332 148",
 						"texture" : "data/textures/gui/playNormal.dds",
 						"selected" : {
 							"texture" : "data/textures/gui/playClick.dds"
@@ -38,21 +38,21 @@
 					{
 						"name" : "options",
 						"type" : "button",
-						"position" : "1248 720",
-						"size" : "266 266",
-						"texture" : "data/textures/gui/OPTIONSNormal.dds",
+						"position" : "1248 795",
+						"size" : "268 128",
+						"texture" : "data/textures/gui/OptionNormal.dds",
 						"selected" : {
-							"texture" : "data/textures/gui/OPTIONSCLICK.dds"
+							"texture" : "data/textures/gui/OptionClick.dds"
 						},
 						"pressed" : {
-							"texture" : "data/textures/gui/OPTIONSCLICK.dds"
+							"texture" : "data/textures/gui/OptionClick.dds"
 						}
 					},
 					{
 						"name" : "exit",
 						"type" : "button",
-						"position" : "1358 880",
-						"size" : "177 177",
+						"position" : "1358 920",
+						"size" : "176 124",
 						"texture" : "data/textures/gui/ExitNormal.dds",
 						"selected" : {
 							"texture" : "data/textures/gui/ExitClick.dds"

@@ -24,9 +24,10 @@ namespace GUI
       my_pos.y += 0.55f;
       c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
       player_c->player_position = player_position;
-      std::string str1 = std::to_string(my_pos.x) + ", " + std::to_string(my_pos.y) + " GUI \n";
-      std::string str2 = std::to_string(player_position.x) + ", " + std::to_string(player_position.y) + " GUI \n";
-      dbg(str1.c_str());
+      //std::string str1 = std::to_string(my_pos.x) + ", " + std::to_string(my_pos.y) + " GUI \n";
+      //std::string str2 = std::to_string(player_position.x) + ", " + std::to_string(player_position.y) + " GUI \n";
+			std::string str2 = std::to_string(mouse._position.x) + ", " + std::to_string(mouse._position.y) + " GUI \n";
+      //dbg(str1.c_str());
       dbg(str2.c_str());
       angle = (float)(atan2(mouse._position.y - player_position.y, mouse._position.x - player_position.x));
 
@@ -60,6 +61,4 @@ namespace GUI
       EngineUI.desactivateWidget("Omnidash");
     }
   }
-
-
 }
