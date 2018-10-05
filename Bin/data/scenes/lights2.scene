@@ -1,4 +1,30 @@
 [
+{
+    "entity":
+    {
+      "name": "LightDir14",
+      "transform": {
+        "pos": "8.350 97.150 -43.400",
+        "lookat": "0 75.700 0"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.004 0.036 0.279 1",
+        "z_near" : 2,
+        "z_far" : 25.000,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 37.000,
+        "ortho_height": 22.000,
+        "has_culling": true
+      }    ,
+        "culling":{}
+    }
+  },
   {
     "entity":
     {
@@ -356,31 +382,5 @@
       }    ,
         "culling":{}
     }
-  },
-  {
-    "entity":
-    {
-      "name": "LightDir14",
-      "transform": {
-        "pos": "8.350 97.150 -43.400",
-        "lookat": "0 75.700 0"
-      },
-      "light_dir": {
-        "intensity": 0,
-        "color" :  "0.84 0.78 0.56 1",
-        "z_near" : 2,
-        "z_far" : 25.000,
-        "fov" : 37.300,
-        "casts_shadows" : true,
-        "shadows_step" : 5.0,
-        "shadows_resolution" : 2048,
-        "shadows_fmt" : "R32_TYPELESS",
-        "is_orthographic": true,
-        "ortho_width": 37.000,
-        "ortho_height": 22.000,
-        "has_culling": true
-      }    ,
-        "culling":{}
-    }
-  }
+  }  
 ]

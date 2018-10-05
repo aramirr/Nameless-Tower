@@ -87,30 +87,38 @@ const void CModuleTower::setLastCheckpointLeft(bool checkpoint_left) {
 
 const void CModuleTower::disappearEntity(const std::string& name) {
   CEntity* entity = (CEntity*)getEntityByName(name);
-  TCompRender* h_render = entity->get< TCompRender >();
-  h_render->is_active = false;
-  h_render->refreshMeshesInRenderManager();
+  if (entity) {
+      TCompRender* h_render = entity->get< TCompRender >();
+      h_render->is_active = false;
+      h_render->refreshMeshesInRenderManager();
+  }
 }
 
 const void CModuleTower::appearEntity(const std::string& name) {
   CEntity* entity = (CEntity*)getEntityByName(name);
-  TCompRender* h_render = entity->get< TCompRender >();
-  h_render->is_active = true;
-  h_render->refreshMeshesInRenderManager();
+  if (entity) {
+      TCompRender* h_render = entity->get< TCompRender >();
+      h_render->is_active = true;
+      h_render->refreshMeshesInRenderManager();
+  }
 }
 
 const void CModuleTower::renderOnlyShadows(const std::string& name) {
   CEntity* entity = (CEntity*)getEntityByName(name);
-  TCompRender* h_render = entity->get< TCompRender >();
-  h_render->only_shadows = true;
-  h_render->refreshMeshesInRenderManager();
+  if (entity) {
+      TCompRender* h_render = entity->get< TCompRender >();
+      h_render->only_shadows = true;
+      h_render->refreshMeshesInRenderManager();
+  }
 }
 
 const void CModuleTower::renderEverything(const std::string& name) {
   CEntity* entity = (CEntity*)getEntityByName(name);
-  TCompRender* h_render = entity->get< TCompRender >();
-  h_render->only_shadows = false;
-  h_render->refreshMeshesInRenderManager();
+  if (entity) {
+      TCompRender* h_render = entity->get< TCompRender >();
+      h_render->only_shadows = false;
+      h_render->refreshMeshesInRenderManager();
+  }
 }
 
 
@@ -140,14 +148,18 @@ const void CModuleTower::setBandsCinematics(bool _band)
 }
 const void CModuleTower::setDirLightIntensity(const std::string& name, float intensity) {
   CEntity* entity = (CEntity*)getEntityByName(name);
-  TCompLightDir* light_dir = entity->get<TCompLightDir>();
-  light_dir->setIntensity(intensity);
+  if (entity) {
+      TCompLightDir* light_dir = entity->get<TCompLightDir>();
+      light_dir->setIntensity(intensity);
+  }
 }
 
 const void CModuleTower::setPointLightIntensity(const std::string& name, float intensity) {
   CEntity* entity = (CEntity*)getEntityByName(name);
-  TCompLightPointShadows* light_point = entity->get<TCompLightPointShadows>();
-  light_point->setIntensity(intensity);
+  if (entity) {
+      TCompLightPointShadows* light_point = entity->get<TCompLightPointShadows>();
+      light_point->setIntensity(intensity);
+  }  
 }
 
 float CModuleTower::checkAngle(float alpha, VEC3 pos1) {
