@@ -103,7 +103,6 @@ void TCompCameraManager::load(const json& j, TEntityParseContext& ctx) {
 }
 
 void TCompCameraManager::update(float dt) {
-
   if (isPressed(VK_F1)) {
     CEntity* player = (CEntity*)getEntityByName("The Player");
 
