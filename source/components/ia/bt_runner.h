@@ -66,6 +66,7 @@ class bt_runner:public bt
   float speed = 2.0f;
 	float Vx;
 	float Vy;
+	float gravity = 15.f;
 	
   // Other variables
   VEC3 appearing_position;

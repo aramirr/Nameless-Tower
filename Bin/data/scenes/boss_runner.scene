@@ -33,9 +33,9 @@
 				"shape": "capsule",
 				"is_character_controller": true
 				,
-				"radius": 0.8
+				"radius": 0.7
 				,
-				"height": 1.5
+				"height": 1.2
 				,
 				"is_dynamic": false
 				,
@@ -243,7 +243,7 @@
 		    			"neighbours": ["31","29"]
 		    		},
 		    		{
-		    			"pos": "28.964 63 12.383",
+		    			"pos": "28.717 63 12.945",
 		    			"id": 31,
 		    			"type": "edge",
 		    			"neighbours": ["32","30","36"]
@@ -275,7 +275,7 @@
 
 
 		    		{
-		    			"pos": "27.014 49.5 16.202",
+		    			"pos": "27.509 49.5 15.346",
 		    			"id": 36,
 		    			"type": "edge",
 		    			"neighbours": ["37","32","31"]
@@ -326,13 +326,13 @@
 		    			"pos": "31.294 45 3.597",
 		    			"id": 44,
 		    			"type": "edge",
-		    			"neighbours": ["43","45","48"]
+		    			"neighbours": ["43","48"]
 		    		},
 		    		{
 		    			"pos": "31.374 40.5 2.816",
 		    			"id": 45,
 		    			"type": "edge",
-		    			"neighbours": ["44","46","52"]
+		    			"neighbours": ["46","52"]
 		    		},
 		    		{
 		    			"pos": "31.404 40.5 2.451",

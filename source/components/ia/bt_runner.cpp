@@ -191,7 +191,7 @@ int bt_runner::actionChase() {
 	recalculate_timer += DT;
 	if (recalculate_timer > 0.2f) {
 		recalculate_timer = 0.f;
-		recalculate_path();
+		//recalculate_path();
 	}
 	//dbg("target %s", target.c_str());
   TCompTransform *c_my_transform = getMyTransform();
@@ -477,8 +477,8 @@ void bt_runner::chase_waypoint() {
 	}
 
 	TCompTransform* my_transform = getMyTransform();
-	if (target == "waypoint" && (next_waypoint < 0 || VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position) <= 1.0f)) {
-		dbg("--------------------- aw: %i - nw: %i - d: %f\n", path[actual_waypoint], path[next_waypoint], VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position));
+	if (target == "waypoint" && (next_waypoint < 0 || VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position) <= 0.5f)) {
+		//dbg("--------------------- aw: %i - nw: %i - d: %f\n", path[actual_waypoint], path[next_waypoint], VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position));
 
 		on_jump = false;
 		going_up = true;
@@ -592,28 +592,41 @@ void bt_runner::jump() {
 
 	TCompTransform *c_my_transform = getMyTransform();
 	VEC3 myPos = c_my_transform->getPosition();
-	float gravity = 15.f;
-	float Yc = -1.f;
 	if (!on_jump) {
-
+		gravity = 15.f;
 		// C position is the point with maxHeight and Vy = 0
-		
+		float Yc;
 		if (waypoints_map[path[actual_waypoint]].position.y <= target_position.y + 0.5f)
-			Yc = target_position.y + 0.5f;
+			Yc = target_position.y + 1.5f;
 		else
-			Yc = waypoints_map[path[actual_waypoint]].position.y + 0.5f;
+			Yc = waypoints_map[path[actual_waypoint]].position.y + 1.5f;
 
 
 		//dbg("wp: %i - Yc: %f - ypos: %f\n", path[actual_waypoint], Yc, myPos.y);
 
+		float Yac = Yc - waypoints_map[path[actual_waypoint]].position.y;
+		float Ybc = Yc - target_position.y;
+
+		float propYbc = Ybc / (Yac + Ybc);
+		float propYac = Yac / (Yac + Ybc);
+
 		float TimeBC = 2 * (target_position.y - Yc) / -gravity;
-		float TimeAC = TimeBC;
+
+		float TimeAC = propYac * TimeBC / propYbc;
 		float TimeAB = TimeAC + TimeBC;
 
 		Vx = distance_arc(waypoints_map[path[actual_waypoint]].position, target_position) / TimeAB; // Radians/seconds
-		Vy = gravity * TimeAC;
+
+		//gravity = 2 * Yac / (TimeAC*TimeAC);
+		Vy = 1.1*gravity * TimeAC;
+
+
+
+		dbg("**Tbc: %f - Tac: %f - propBC: %f\n", TimeBC, TimeAC, propYbc); 
+
 	}
-	dbg("wp: %i - nwp: %i - Yc: %f - ypos: %f\n", path[actual_waypoint], path[next_waypoint], Yc, myPos.y);
+	//dbg("wp: %i - nwp: %i - Yc: %f - ypos: %f\n", path[actual_waypoint], path[next_waypoint], Yc, myPos.y);
+	
 	
 	float current_yaw;
 	float current_pitch;
@@ -643,9 +656,9 @@ void bt_runner::jump() {
 		if (anim_state != "jump_up") {
 			anim_state = "jump_up";
 			change_animation(ERunnerAnimations::RunnerJumpLoop, false, 0.1f, 0.f, true);
-			if (waypoints_map[path[actual_waypoint]].position.y > target_position.y + 2.0f)
+			/*if (waypoints_map[path[actual_waypoint]].position.y > target_position.y + 2.0f)
 				change_animation(ERunnerAnimations::RunnerJumpShort, true, 0.1f, 0.f, true);
-			else change_animation(ERunnerAnimations::RunnerJumpUp, true, 0.1f, 0.f, true);
+			else*/ change_animation(ERunnerAnimations::RunnerJumpUp, true, 0.1f, 0.f, true);
 		}
 
 		
@@ -662,6 +675,7 @@ void bt_runner::jump() {
 
 			delta_move.y += Vy*DT;
 			Vy -= gravity * DT;
+			if (Vy <= 0.f) gravity = 15.f;
 
 			PxShape* player_shape;
 			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
@@ -742,6 +756,7 @@ float bt_runner::distance_x_z(VEC3 v1, VEC3 v2) {
 
 
 void bt_runner::recalculate_path() {
+	dbg("***RECALCULATING PATH***\n");
 	TCompTransform* my_transform = getMyTransform();
 	int origin = findClosestWaypoint(my_transform->getPosition());
 
@@ -761,7 +776,7 @@ void bt_runner::change_animation(int animation_id, bool is_action, float in_dela
   TCompSkeleton* skeleton = e->get<TCompSkeleton>();
   assert(skeleton);
 
-  //skeleton->playAnimation(animation_id, is_action, in_delay, out_delay, clear);
+  skeleton->playAnimation(animation_id, is_action, in_delay, out_delay, clear);
 }
 
 void bt_runner::remove_animation(int animation_id) {
