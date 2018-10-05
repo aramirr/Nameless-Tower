@@ -159,7 +159,7 @@
   {
     "entity":
     {
-      "name": "PodiumCollider_Bajada"
+      "name": "PodiumCollider"
       ,
       "transform":
       {
@@ -180,7 +180,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/PodiumCollider_Bajada.col_mesh"
+        "mesh_src": "data/meshes/PodiumCollider.col_mesh"
       }
     }
   }

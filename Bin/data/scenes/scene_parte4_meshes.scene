@@ -2,6 +2,62 @@
   {
     "entity":
     {
+      "name": "Niebla014"
+      ,
+      "transform":
+      {
+        "pos": "3.86263 91.931 -24.2906"
+        ,
+        "rotation": "0.707064 -0.00778417 -0.00778417 -0.707064"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla014.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla013"
+      ,
+      "transform":
+      {
+        "pos": "3.87053 91.931 -24.4584"
+        ,
+        "rotation": "0.707064 -0.00778417 -0.00778417 -0.707064"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla013.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Line037"
       ,
       "transform":
@@ -174,7 +230,7 @@
       ,
       "transform":
       {
-        "pos": "12.4033 87.321 -32.1258"
+        "pos": "12.3811 87.321 -32.2257"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -202,7 +258,7 @@
       ,
       "transform":
       {
-        "pos": "-1.78015 87.3814 -33.9054"
+        "pos": "-1.68615 87.3814 -34.0316"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }

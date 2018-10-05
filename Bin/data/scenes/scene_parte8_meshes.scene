@@ -2,6 +2,86 @@
   {
     "entity":
     {
+      "name": "Plane002"
+      ,
+      "transform":
+      {
+        "pos": "-11.4045 3.58191 26.176"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plane002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LavaBaseMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Plane001"
+      ,
+      "transform":
+      {
+        "pos": "-21.5019 3.58191 19.1436"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plane001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LavaBaseMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CabezaDragon001"
+      ,
+      "transform":
+      {
+        "pos": "-9.44843 6.00795 19.4835"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CabezaDragon001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DragonMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "CabezaDragon"
       ,
       "transform":
@@ -30,11 +110,11 @@
   {
     "entity":
     {
-      "name": "CabezaDragon001"
+      "name": "Arriba008"
       ,
       "transform":
       {
-        "pos": "-9.44843 6.00795 19.4835"
+        "pos": "-8.91095 9.40595 18.3768"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -42,11 +122,39 @@
       "render":
       [
         {
-          "mesh": "data/meshes/CabezaDragon001.mesh"
+          "mesh": "data/meshes/Arriba008.mesh"
           ,
           "materials":
           [
-            "data/materials/DragonMate.material"
+            "data/materials/CabarribaIntMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Arriba007"
+      ,
+      "transform":
+      {
+        "pos": "-14.7794 9.31647 14.0607"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Arriba007.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CabarribaIntMat.material"
           ]
         }
       ]

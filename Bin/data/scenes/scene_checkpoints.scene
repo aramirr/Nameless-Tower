@@ -2,7 +2,7 @@
   {
     "entity":
     {
-      "name": "TSCascadaArriba"
+      "name": "TSCascadaArriba001"
       ,
       "transform":
       {
@@ -37,6 +37,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "group": "scenario"
       }
     }
   }
@@ -44,7 +46,7 @@
   {
     "entity":
     {
-      "name": "TSPuertasCentro"
+      "name": "TSPuertasIzq001"
       ,
       "transform":
       {
@@ -79,6 +81,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "group": "scenario"
       }
     }
   }
@@ -86,7 +90,7 @@
   {
     "entity":
     {
-      "name": "TSCascadaArribaPuente"
+      "name": "TSCascadaArriba"
       ,
       "transform":
       {
@@ -121,6 +125,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "group": "scenario"
       }
     }
   }
@@ -163,6 +169,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "group": "scenario"
       }
     }
   }
@@ -205,6 +213,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "group": "scenario"
       }
     }
   }
@@ -247,6 +257,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "group": "scenario"
       }
     }
   }
@@ -289,6 +301,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "group": "scenario"
       }
     }
   }
@@ -331,6 +345,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "group": "scenario"
       }
     }
   }
@@ -373,6 +389,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "group": "scenario"
       }
     }
   }
@@ -415,6 +433,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "group": "scenario"
       }
     }
   }
@@ -457,6 +477,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "group": "scenario"
       }
     }
   }
@@ -499,6 +521,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "group": "scenario"
       }
     }
   }

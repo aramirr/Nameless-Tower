@@ -2,6 +2,62 @@
   {
     "entity":
     {
+      "name": "arbol006"
+      ,
+      "transform":
+      {
+        "pos": "25.2837 57.7338 16.7372"
+        ,
+        "rotation": "0.0 -0.987688 0.0 -0.156435"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arbol006.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TreeMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arbol005"
+      ,
+      "transform":
+      {
+        "pos": "27.3415 55.1819 14.5475"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arbol005.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TreeMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Plataforma_009"
       ,
       "transform":
@@ -19,34 +75,6 @@
           "materials":
           [
             "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_005"
-      ,
-      "transform":
-      {
-        "pos": "17.2473 65.8198 26.1277"
-        ,
-        "rotation": "0.0 -0.774598 0.0 -0.632454"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_005.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaPlataformasMat.material"
           ]
         }
       ]
@@ -584,34 +612,6 @@
       ]
       ,
       "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Bridge_Break002"
-      ,
-      "transform":
-      {
-        "pos": "26.4965 85.1746 -13.7179"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Bridge_Break002.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/PuenteMate.material"
-            ,
-            "data/materials/CuerdaMate.material"
-          ]
-        }
-      ]
     }
   }
   ,
@@ -1202,7 +1202,12 @@
       "abs_aabb": true
     }
   }
-   
+  ,
+  {
+    "entity":
+    {
+    }
+  }
   ,
   {
     "entity":
@@ -1231,7 +1236,12 @@
       "abs_aabb": true
     }
   }
-   
+  ,
+  {
+    "entity":
+    {
+    }
+  }
   ,
   {
     "entity":
@@ -1281,34 +1291,6 @@
           "materials":
           [
             "data/materials/Careta_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sala_EstatuaFea_074"
-      ,
-      "transform":
-      {
-        "pos": "26.0178 61.6329 15.7188"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_074.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Suelo_Estatua_fea.material"
           ]
         }
       ]
@@ -1544,34 +1526,6 @@
   {
     "entity":
     {
-      "name": "Sala_EstatuaFea_073"
-      ,
-      "transform":
-      {
-        "pos": "-22.5456 26.452 -11.4773"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_073.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Careta_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Puerta_Abierta_Madera_042"
       ,
       "transform":
@@ -1712,34 +1666,6 @@
   {
     "entity":
     {
-      "name": "alocasiaExotic_stems003"
-      ,
-      "transform":
-      {
-        "pos": "30.2011 63.1425 -13.482"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/alocasiaExotic_stems003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/plant_Alocasia_Exotic.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "areca_Stems010"
       ,
       "transform":
@@ -1813,34 +1739,6 @@
           "materials":
           [
             "data/materials/plant_Arrowhead_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "grass_Gamba_029"
-      ,
-      "transform":
-      {
-        "pos": "29.6845 64.4194 -14.3582"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/grass_Gamba_029.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/grass_Gamba.material"
           ]
         }
       ]
@@ -2795,9 +2693,9 @@
       ,
       "transform":
       {
-        "pos": "19.5081 64.4029 15.9842"
+        "pos": "19.8277 63.4648 15.9842"
         ,
-        "rotation": "0.0 0.0 0.0 -1.0"
+        "rotation": "-0.102244 0.0217327 0.206773 -0.972789"
       }
       ,
       "render":
