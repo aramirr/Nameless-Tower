@@ -15,7 +15,8 @@ DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
 void TCompPlayerController::debugInMenu() {
 	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
-	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
+    ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
+    ImGui::Text("Can die: %s", can_die ? "Si" : "No");
 }
 
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
