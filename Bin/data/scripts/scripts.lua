@@ -385,6 +385,6 @@ function OnTriggerExitLuaCinematicTest()
 	lm:pause_player()
 	--If camera needs to be moved
 	--lm:activate_cinematic("cinematic_first_door", false)
-	lm:play_animation(5)
+	lm:play_animation(32)
 	lm:regain_control(5)
 end

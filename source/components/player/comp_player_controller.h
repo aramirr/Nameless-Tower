@@ -74,7 +74,8 @@ public:
 		, NajaDead
 		, NajaBreak
         , NajaLookDn
-        , NajaLookUp,
+        , NajaLookUp
+		, NajaIntro,
 		EAnimations
 	};
 
