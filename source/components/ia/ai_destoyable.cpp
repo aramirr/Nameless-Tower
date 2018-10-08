@@ -105,7 +105,24 @@ void CAIDestroyable::DestroyState(float dt)
         if (!mypos) {
             return;
         }
+
+				CEntity* entity = (CEntity*)getEntityByName("Destruible3_Post_12");
+				TMsgDesactivateAnim msg;
+				entity->sendMsg(msg);
+
+				//TCompRender *my_render = entity->get<TCompRender>();
+				//if (my_render->meshes.size() > 0) {
+				//	//my_render->mesh = my_render->meshes_leo[mesh_index];
+				//	for (int i = 0; i < my_render->meshes.size(); ++i) {
+				//		my_render->meshes[i].enabled = false;
+				//	}
+				//	my_render->meshes[0].enabled = true;
+				//	my_render->refreshMeshesInRenderManager();
+				//}
+
         bool has_mesh = change_mesh(0);
+
+
 
         mypos->setPosition(current_pos);
         TCompCollider* comp_collider = get<TCompCollider>();

@@ -62,6 +62,10 @@ struct TMsgActivateAnim{
 	DECL_MSG_ID();
 };
 
+struct TMsgDesactivateAnim {
+	DECL_MSG_ID();
+};
+
 struct TMsgWindstrike {
 	DECL_MSG_ID();
 }; 
