@@ -61,7 +61,11 @@ void CAIDestroyable::TriggerDestroyState(float dt)
     if (acum_time >= destroy_time)
     {
         acum_time = 0;
-        has_mesh = change_mesh(1);
+        //has_mesh = change_mesh(1);
+				//CEntity* entity = CHandle(this).getOwner();
+				CEntity* entity = (CEntity*)getEntityByName("Destruible3_Post_12");
+				TMsgActivateAnim msg;
+				entity->sendMsg(msg);
         ChangeState("transition_destroy");
     }
 }
