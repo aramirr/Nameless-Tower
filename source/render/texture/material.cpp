@@ -121,6 +121,7 @@ bool CMaterial::create(const json& j) {
 		cb_material.color_material = loadVEC4(j["color"]);*/
 
 	cb_material.srites_frames = j.value("sprite_frames", 0);
+	cb_material.cell_type = j.value("cell_type", 0); // 1 - Naja			2 - Runner
 
 
   cb_material.mix_boost_r = 0;
