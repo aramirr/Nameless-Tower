@@ -26,6 +26,7 @@ function OnLevel1Start()
 	lm:stop_emiter("hojas_jardin_2", false)
 	lm:stop_emiter("hojas_viento", false)
 	lm:stop_emiter("particulas_top_cascada", false)
+	
 end
 
 function OnLevel2Start()
@@ -386,5 +387,5 @@ function OnTriggerExitLuaCinematicTest()
 	--If camera needs to be moved
 	--lm:activate_cinematic("cinematic_first_door", false)
 	lm:play_animation(32)
-	lm:regain_control(5)
+	lm:regain_control(25)
 end
