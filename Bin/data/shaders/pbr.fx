@@ -503,7 +503,7 @@ void decodeGBuffer(
     view_dir = -incident_dir;
 
   // Comprobamos si el objeto se pinta con PBR o Cell Shading
-    if ((txGBufferCell.Load(ss_load_coords)).x < 0.35f)
+    if ((txGBufferCell.Load(ss_load_coords)).x < 0.49f)
         cell_shading = false;
     else cell_shading = true;
 }
