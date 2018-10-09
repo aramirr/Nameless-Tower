@@ -480,7 +480,7 @@ void bt_runner::chase_waypoint() {
 	TCompTransform* my_transform = getMyTransform();
 	if (target == "waypoint" && (next_waypoint < 0 || VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position) <= 0.5f)) {
 		//dbg("--------------------- aw: %i - nw: %i - d: %f\n", path[actual_waypoint], path[next_waypoint], VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position));
-
+		anim_state = "";
 		on_jump = false;
 		going_up = true;
 		actual_waypoint = next_waypoint;
@@ -678,8 +678,7 @@ void bt_runner::jump() {
 				current_yaw = going_right ? current_yaw - Vx * DT : current_yaw + Vx * DT;
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 			}
-      if (!going_up && flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
-				going_up = true;
+      if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
         if (anim_state != "jump_land") {
           anim_state = "jump_land";
           change_animation(ERunnerAnimations::RunnerJumpLand, true, 0.1f, 0.f, true);
