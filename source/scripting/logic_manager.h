@@ -24,7 +24,8 @@ public:
 	void setAmbientAdjustment(float value);
   void setExposureAdjustment(float value, bool left);
 	void playLastCinematic();
-	void openDoor(const char* name);
+    void openDoor(const char* name);
+    void closeDoor(const char* name);
 	void activateAnim(const char* name);
 
   // UI
@@ -51,5 +52,6 @@ public:
   void playSound(bool left, std::string name);
   void stopSound(bool left, std::string name);
   void activateTorch(std::string name);
+  void scarePlayer();
 
 };

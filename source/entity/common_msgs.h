@@ -54,7 +54,11 @@ struct TMsgCheckpoint {
 	DECL_MSG_ID();
 };
 
-struct TMsgOpenDoor{
+struct TMsgCloseDoor{
+    DECL_MSG_ID();
+};
+
+struct TMsgOpenDoor {
     DECL_MSG_ID();
 };
 

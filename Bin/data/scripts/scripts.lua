@@ -607,6 +607,15 @@ function OnTriggerExitTSJardinRunner()
 	lm:stop_emiter("hojas_jardin_2", false)
 end
 
+-- Puzzle antorchas
+function OnTriggerExitTSRejaAntorchas()
+	lm:activate_torch("TFAntorcha1")
+	lm:activate_torch("TFAntorcha02")
+	lm:activate_torch("TFAntorcha03")
+	lm:close_door("Puerta_Reja_02")
+	lm:scare_player()
+end
+
 function OnTriggerExitTSRunnerLava()
 	--Interior
 	lm:set_exposure(0.05, true)

@@ -139,6 +139,13 @@
 			"is_action": false,
 			"delay_in": 0.1,
 			"delay_out": 0.1			
+		},
+		{
+			"name" : "scared",
+			"type" : "ScaredState",
+			"is_action": true,
+			"delay_in": 0.01,
+			"delay_out": 0.3			
 		}
 	],
 	"transitions" : [
@@ -375,11 +382,68 @@
 			},
 			"operation" : "equal"
 		},
-			{
+		{
 			"type" : "TimeTransition",
 			"source" : "turn_around",
 			"target" : "run",
 			"time": 0.1
+		},
+		{
+			"type" : "TimeTransition",
+			"source" : "scared",
+			"target" : "idle",
+			"time": 0.7
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "idle",
+			"target" : "scared",
+			"variables" : [{
+				"name" : "scared",
+				"type" : "bool",
+				"value" : true
+			},
+			{
+				"name" : "was_scared",
+				"type" : "bool",
+				"value" : false
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "run",
+			"target" : "scared",
+			"variables" : [{
+				"name" : "scared",
+				"type" : "bool",
+				"value" : true
+			},
+			{
+				"name" : "was_scared",
+				"type" : "bool",
+				"value" : false
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
+		},
+		{
+			"type" : "LogicTransition",
+			"source" : "dash",
+			"target" : "scared",
+			"variables" : [{
+				"name" : "scared",
+				"type" : "bool",
+				"value" : true
+			},
+			{
+				"name" : "was_scared",
+				"type" : "bool",
+				"value" : false
+			}],
+			"operation" : "equal",
+			"logic_operation" : "and"
 		},
 		{
 			"type" : "VariableTransition",
@@ -1093,6 +1157,16 @@
 		},
 			{
 			"name" : "on_cinematic",
+			"type" : "bool",
+			"value" : false
+		},
+			{
+			"name" : "scared",
+			"type" : "bool",
+			"value" : false
+		},
+			{
+			"name" : "was_scared",
 			"type" : "bool",
 			"value" : false
 		}

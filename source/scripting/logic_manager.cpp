@@ -83,6 +83,10 @@ void LogicManager::openDoor(const char* name) {
   EngineTower.openDoor(name);
 }
 
+void LogicManager::closeDoor(const char* name) {
+    EngineTower.closeDoor(name);
+}
+
 void LogicManager::activateAnim(const char* name) {
   EngineTower.activateAnim(name);
 }
@@ -180,4 +184,12 @@ void LogicManager::activateTorch(std::string name) {
     CEntity* e = getEntityByName(name);
     TMsgActivateTorch msg;
     e->sendMsg(msg);
+}
+
+void LogicManager::scarePlayer() {
+    CEntity* e = getEntityByName("The Player");
+    TMsgSetFSMVariable scareMsg;
+    scareMsg.variant.setName("scared");
+    scareMsg.variant.setBool(true);
+    e->sendMsg(scareMsg);
 }
