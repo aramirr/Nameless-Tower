@@ -103,6 +103,11 @@ struct TMsgDestroy {
 	DECL_MSG_ID();
 };
 
+struct TMsgRegisterDestoyableSon {
+	std::string name;
+	DECL_MSG_ID();
+};
+
 struct TMsgDeactivateTorch {
 	DECL_MSG_ID();
 };
