@@ -255,3 +255,14 @@ void TCompSkeleton::renderDebug() {
     renderMesh(mesh, matrix, VEC4(1, 1, 1, 1));
   }
 }
+
+bool TCompSkeleton::check_if_anim(int id_amimation) {
+	auto mixer = model->getMixer();
+	auto core = (CGameCoreSkeleton*)model->getCoreModel();
+	
+	for (auto a : mixer->getAnimationActionList()) {
+		if (id_amimation == core->getCoreAnimationId(a->getCoreAnimation()->getName()))
+			return true;
+	}
+	return false;
+}

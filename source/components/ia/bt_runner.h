@@ -80,6 +80,7 @@ class bt_runner:public bt
   void change_animation(int animation_id, bool is_action, float in_delay, float out_delay, bool clear);
   void clear_animations(float out_delay);
   void remove_animation(int animation_id);
+	bool check_if_action_is_on(int animation_id);
 
   // Pathfinding functions
 	void recalculate_path();

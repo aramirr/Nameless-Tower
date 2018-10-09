@@ -210,13 +210,14 @@ int bt_runner::actionChase() {
 	else {
 		distance_to_waypoint = VEC3::Distance(my_position, waypoints_map[second_closest_waypoint].position);
 	}
+	
+	chase_waypoint();
 
   /*if (on_jump) chase_waypoint();
 	else if (distance_to_waypoint < distance_to_player) chase_waypoint();
-	else chase_player();*/
-	chase_waypoint();
-
-  /*if (conditionAttack()) {
+	else chase_player();
+	
+  if (conditionAttack()) {
     return LEAVE;
   }*/
 
@@ -504,7 +505,7 @@ void bt_runner::walk() {
 	else {
 		if (anim_state != "walk") {
 			anim_state = "walk";
-			change_animation(ERunnerAnimations::RunnerRun, false, 0.f, 0.f, true);
+			change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
 		}
 		if (next_waypoint >= 0) target_position = waypoints_map[path[next_waypoint]].position; 
 		else target_position = waypoints_map[path[actual_waypoint]].position;
@@ -522,22 +523,14 @@ void bt_runner::walk() {
 
   TCompCollider* comp_collider = get<TCompCollider>();
 	if (!c_my_transform->isInFront(target_position)) {
-		/*if (anim_state != "giro") {
-			anim_state = "giro";
-			change_animation(ERunnerAnimations::RunnerGiro, true, 0.f, 0.f, true);
-		}*/
 		current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
 		float debug = rad2deg(current_yaw);
 		going_right = !going_right;
 
 		PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
 		PxTransform tr = rigidActor->getGlobalPose();
-		auto& rot2 = c_my_transform->getRotation();
-
-
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 
-   
 		auto& rot = c_my_transform->getRotation();
 		tr.q = PxQuat(rot.x, rot.y, rot.z, rot.w);
 		rigidActor->setGlobalPose(tr);
@@ -552,7 +545,7 @@ void bt_runner::walk() {
 		}
 		else if (anim_state != "walk") {
 			anim_state = "walk";
-			change_animation(ERunnerAnimations::RunnerRun, false, 0.f, 0.f, true);
+			change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
 		}
 	
 		current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
@@ -597,9 +590,9 @@ void bt_runner::jump() {
 		// C position is the point with maxHeight and Vy = 0
 		float Yc;
 		if (waypoints_map[path[actual_waypoint]].position.y <= target_position.y + 0.5f)
-			Yc = target_position.y + 1.5f;
+			Yc = target_position.y + 2.5f;
 		else
-			Yc = waypoints_map[path[actual_waypoint]].position.y + 1.5f;
+			Yc = waypoints_map[path[actual_waypoint]].position.y + 2.5f;
 
 
 		//dbg("wp: %i - Yc: %f - ypos: %f\n", path[actual_waypoint], Yc, myPos.y);
@@ -636,18 +629,14 @@ void bt_runner::jump() {
 
 	TCompCollider* comp_collider = get<TCompCollider>();
 	if (!c_my_transform->isInFront(target_position) && target_position.x != myPos.x && target_position.z != myPos.z && !on_jump) {
-		/*if (anim_state != "giro") {
-			anim_state = "giro";
-			change_animation(ERunnerAnimations::RunnerGiro, true, 0.f, 0.f, true);
-		}*/
 		current_yaw = going_right ? current_yaw - deg2rad(180) : current_yaw + deg2rad(180);
 		float debug = rad2deg(current_yaw);
 		going_right = !going_right;
 
 		PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
 		PxTransform tr = rigidActor->getGlobalPose();
-
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+
 		auto& rot = c_my_transform->getRotation();
 		tr.q = PxQuat(rot.x, rot.y, rot.z, rot.w);
 		rigidActor->setGlobalPose(tr);
@@ -777,6 +766,13 @@ void bt_runner::change_animation(int animation_id, bool is_action, float in_dela
   assert(skeleton);
 
   skeleton->playAnimation(animation_id, is_action, in_delay, out_delay, clear);
+}
+
+bool bt_runner::check_if_action_is_on(int animation_id) {
+	CEntity* e = h_entity;
+	TCompSkeleton* skeleton = e->get<TCompSkeleton>();
+
+	return skeleton->check_if_anim(animation_id);
 }
 
 void bt_runner::remove_animation(int animation_id) {
