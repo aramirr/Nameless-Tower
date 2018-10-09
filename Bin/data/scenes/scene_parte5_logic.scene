@@ -2,6 +2,140 @@
   {
     "entity":
     {
+      "name": "DestruiblePuente2_Pre"
+      ,
+      "transform":
+      {
+        "pos": "26.115 84.5944 -17.2624"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente2_Pre.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.57994 0.199509 1.73674"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Pre"
+      ,
+      "transform":
+      {
+        "pos": "28.9519 84.5468 -11.2486"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Pre.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.46312 0.203442 1.66755"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente2_Post_Fijo"
+      ,
+      "transform":
+      {
+        "pos": "25.4169 84.6111 -17.3872"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente2_Post_Fijo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_Fijo"
+      ,
+      "transform":
+      {
+        "pos": "28.9519 84.5368 -11.1163"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_Fijo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "AguaMuerte"
       ,
       "transform":
@@ -49,7 +183,7 @@
       ,
       "transform":
       {
-        "pos": "1.90735e-06 40.5 -8.16637e-07"
+        "pos": "19.5038 67.5 19.5272"
         ,
         "rotation": "0.0 0.0267501 0.0 -0.999642"
       }
@@ -236,196 +370,6 @@
   {
     "entity":
     {
-      "name": "Destruible009"
-      ,
-      "transform":
-      {
-        "pos": "26.0899 84.3406 -16.9848"
-        ,
-        "rotation": "-0.0161735 -0.958001 -0.0551498 0.280948"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-      ]
-      ,
-      "ai_destroyable":
-      {
-        "trigger_actor": "The Player"
-        ,
-        "destroy_time": 1.0
-        ,
-        "recover_time": 5.0
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.25557 0.153804 1.7009"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Destruible009_trigger"
-      ,
-      "transform":
-      {
-        "pos": "26.0899 84.3406 -16.9848"
-        ,
-        "rotation": "-0.0161735 -0.958001 -0.0551498 0.280948"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "destroyable"
-        ,
-        "collider_entity": "Destruible009"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.25477 0.5 1.69847"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Destruible008"
-      ,
-      "transform":
-      {
-        "pos": "29.0812 84.2745 -11.0973"
-        ,
-        "rotation": "0.0133072 -0.981041 0.0729026 0.179073"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-      ]
-      ,
-      "ai_destroyable":
-      {
-        "trigger_actor": "The Player"
-        ,
-        "destroy_time": 1.0
-        ,
-        "recover_time": 5.0
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.25557 0.153804 1.7009"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Destruible008_trigger"
-      ,
-      "transform":
-      {
-        "pos": "29.0812 84.2745 -11.0973"
-        ,
-        "rotation": "0.0133072 -0.981041 0.0729026 0.179073"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "destroyable"
-        ,
-        "collider_entity": "Destruible008"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.25477 0.5 1.69847"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Proyectil002"
       ,
       "transform":
@@ -483,6 +427,13 @@
         }
       ]
       ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
       "ai_linear_patrol":
       {
         "speed": 3.5
@@ -502,13 +453,6 @@
       "player_killer":
       {
         "kill_enabled": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": false
       }
       ,
       "collider":
