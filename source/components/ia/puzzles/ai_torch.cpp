@@ -74,7 +74,8 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
 }
 
 void CAITorch::registerMsgs() {
-DECL_MSG(CAITorch, TMsgDeactivateTorch, deactivate);
+    DECL_MSG(CAITorch, TMsgDeactivateTorch, deactivate);
+    DECL_MSG(CAITorch, TMsgActivateTorch, activateMsg);
 }
 
 
@@ -108,13 +109,14 @@ void CAITorch::InactiveState(float dt)
 	if (in_puzzle) {
 		timer += DT;
 		if (timer > timer_limit) {
-			activate();
+			//activate();
 		}
 	}	
 }
 
 void CAITorch::activate() {
 	active = true;
+    render = true;
 	//TCompRender *my_render = getMyRender();
 	//my_render->self_illumination = 1;
 	TCompTransform* my_transform = getMyTransform();
@@ -139,11 +141,18 @@ void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
 		if (in_puzzle) {
 			TMsgActivateTorchPuzzle activate_msg;
 			CEntity* e_collider_entity = (CEntity*)getEntityByName(puzzle_name);
-      CEntity* e = h_entity;
+            CEntity* e = h_entity;
 			e_collider_entity->sendMsg(activate_msg);
-      attached = true;
+            attached = true;
 		}
 	}	
+}
+
+
+void CAITorch::activateMsg(const TMsgActivateTorch& msg) {
+    if (!active || !render) {
+        activate();
+    }
 }
 
 void CAITorch::simulateLight() {

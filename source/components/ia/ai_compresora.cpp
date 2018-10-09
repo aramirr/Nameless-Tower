@@ -117,6 +117,9 @@ void CAICompresora::SleepState()
     acum_delay += DT;
     if (wake_time < acum_delay) {
       ChangeState("move_down");
+      CEntity* e = CHandle(this).getOwner();
+      TMsgPlaySound msg;
+      e->sendMsg(msg);
     }
   }
 }
@@ -135,9 +138,15 @@ void CAICompresora::WaitState()
 	}
     if (going_up) {
       ChangeState("move_up");
+      CEntity* e = CHandle(this).getOwner();
+      TMsgPlaySound msg;
+      e->sendMsg(msg);
     }
     else if (!going_up) {
       ChangeState("move_down");
+      CEntity* e = CHandle(this).getOwner();
+      TMsgPlaySound msg;
+      e->sendMsg(msg);
     }
   }
 }

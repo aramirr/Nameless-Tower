@@ -197,6 +197,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
                 c_particles->emit();
 				is_grounded = true;				
                 _sound_land->start();
+                change_animation(EAnimations::NajaJumpLand, true, 0.01, 0.1, false);
 				TMsgSetFSMVariable groundMsg;
 				groundMsg.variant.setName("is_grounded");
 				groundMsg.variant.setBool(true);

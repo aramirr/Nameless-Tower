@@ -2,6 +2,90 @@
   {
     "entity":
     {
+      "name": "ParedDestapada3"
+      ,
+      "transform":
+      {
+        "pos": "13.5129 51.75 29.5675"
+        ,
+        "rotation": "0.0 -0.649012 0.0 -0.760778"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada3.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedDestapada2"
+      ,
+      "transform":
+      {
+        "pos": "31.8584 45.0 -6.50055"
+        ,
+        "rotation": "0.0 -0.72498 0.0 -0.68877"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada2.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedDestapada7"
+      ,
+      "transform":
+      {
+        "pos": "18.2971 31.5 -18.5547"
+        ,
+        "rotation": "0.0 -0.98315 0.0 -0.182799"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada7.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Niebla008"
       ,
       "transform":

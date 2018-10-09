@@ -32,15 +32,15 @@
       ,
       "transform":
       {
-        "pos": "3.30994 31.4999 -30.0799"
+        "pos": "4.88714 33.6433 -30.1404"
         ,
-        "rotation": "0.0 0.626226 0.0 -0.779642"
+        "rotation": "-0.0404183 -0.987891 -0.109415 0.102301"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          "mesh": "data/meshes/Puerta_Abatible_Madera_003.mesh"
           ,
           "materials":
           [
@@ -49,42 +49,26 @@
         }
       ]
       ,
-      "collider":
-      {
-        "shape": "convex_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
-      }
-      ,
       "abs_aabb": true
-      ,
-      "door":
-      {
-        "up": false
-      }
     }
   }
   ,
   {
     "entity":
     {
-      "name": "Puerta_Abatible_Madera_002"
+      "name": "Puerta_Abatible_Madera_Bajada002"
       ,
       "transform":
       {
-        "pos": "30.4337 31.4999 -3.12938"
+        "pos": "29.7119 33.4623 -1.67336"
         ,
-        "rotation": "0.0 -0.974216 0.0 0.225617"
+        "rotation": "0.138961 -0.819173 -0.159624 -0.533072"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          "mesh": "data/meshes/Puerta_Abatible_Madera_Bajada002.mesh"
           ,
           "materials":
           [
@@ -93,23 +77,7 @@
         }
       ]
       ,
-      "collider":
-      {
-        "shape": "convex_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
-      }
-      ,
       "abs_aabb": true
-      ,
-      "door":
-      {
-        "up": false
-      }
     }
   }
   ,

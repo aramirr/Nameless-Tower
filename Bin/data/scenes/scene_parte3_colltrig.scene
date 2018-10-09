@@ -13,14 +13,6 @@
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/TSRejaAntorchas.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/TexturaTriggerMat.material"
-          ]
-        }
       ]
       ,
       "trigger":
@@ -243,8 +235,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "group": "scenario"
       }
     }
   }
@@ -285,8 +275,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "group": "scenario"
       }
     }
   }

@@ -54,50 +54,6 @@
   {
     "entity":
     {
-      "name": "Puerta_Abatible_Madera_01"
-      ,
-      "transform":
-      {
-        "pos": "-29.1321 22.5 -8.91518"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Puerta_Cerrada_01.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "convex_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
-      }
-      ,
-      "abs_aabb": true
-      ,
-      "door":
-      {
-        "up": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "AguaMuerte001"
       ,
       "transform":

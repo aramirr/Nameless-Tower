@@ -45,6 +45,7 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("start_emiter", &LogicManager::startEmiter)
         .set("stop_emiter", &LogicManager::stopEmiter)
         .set("stop_sound", &LogicManager::stopSound)
+        .set("activate_torch", &LogicManager::activateTorch)
 		;
 }
 

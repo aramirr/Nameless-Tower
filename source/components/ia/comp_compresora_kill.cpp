@@ -2,6 +2,7 @@
 #include "entity/entity_parser.h"
 #include "comp_compresora_kill.h"
 #include "entity/common_msgs.h"
+#include "../sound/comp_sound.h"
 
 DECL_OBJ_MANAGER("comp_compressora_kill", TCompCompresoraKill);
 
@@ -14,6 +15,8 @@ void TCompCompresoraKill::checkIfTouchingPlayer(const TMsgCheckPlayerIn& msg) {
     deadMsg.variant.setName("hit");
     deadMsg.variant.setBool(true);
     player->sendMsg(deadMsg);
+    TCompSound* sound = get<TCompSound>();
+    sound->playSound("sound");
   }
 }
 

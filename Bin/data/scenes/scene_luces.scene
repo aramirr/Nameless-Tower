@@ -34,7 +34,11 @@
         "y_offset": 0.15,
         "z_offset": 0.1,
         "x_offset": -0.1
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -73,7 +77,11 @@
         "y_offset": 0.10,
         "z_offset": 0.05,
         "x_offset": -0.3
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -110,7 +118,11 @@
         "scale" : 1.7,
         "thin": true,
         "y_offset": -0.5
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -147,7 +159,11 @@
         "scale" : 1.7,
         "thin": true,
         "y_offset": -0.4
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -186,7 +202,11 @@
         "y_offset": -0.05,
         "z_offset": -0.25,
         "x_offset": -0.2
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -225,7 +245,11 @@
         "y_offset": -1.5,
         "x_offset": -1,
         "z_offset": 0.0
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -264,7 +288,11 @@
         "y_offset": -0.14,
         "z_offset": 0.25,
         "x_offset": -0.4
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -303,7 +331,11 @@
         "y_offset": -0.14,
         "z_offset": 0.35,
         "x_offset": -0.35
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -342,7 +374,11 @@
         "y_offset": 0.02,
         "z_offset": 0.5,
         "x_offset": -0.25
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -381,7 +417,11 @@
         "y_offset": -0.05,
         "z_offset": 0.3,
         "x_offset": -0.05
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -420,9 +460,13 @@
         "y_offset": 0.5,
         "z_offset": 0.18,
         "x_offset": 0.08
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_C", "positional": true, "on_start": true}
+           ]
+          }
     }
-    }  ,
+    },
     {
     "entity":
     {
@@ -456,7 +500,11 @@
         "scale" : 1.7,
         "thin": true,
         "y_offset": -0.5
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_C", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
 ]

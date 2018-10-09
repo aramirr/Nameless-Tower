@@ -169,9 +169,15 @@ void LogicManager::playSound(bool left, std::string name) {
         EngineSound.emitEvent(name);
     }
 }
+
 void LogicManager::stopSound(bool left, std::string name) {
     if (applyFunction(left)) {
         EngineSound.stopEvent(name);
     }
 }
 
+void LogicManager::activateTorch(std::string name) {
+    CEntity* e = getEntityByName(name);
+    TMsgActivateTorch msg;
+    e->sendMsg(msg);
+}

@@ -48,6 +48,7 @@ public:
   static void registerMsgs();
   void activate();
   void deactivate(const TMsgDeactivateTorch& msg);
+  void activateMsg(const TMsgActivateTorch& msg);
 
   MAT44 getWorld();
   void renderDebug();

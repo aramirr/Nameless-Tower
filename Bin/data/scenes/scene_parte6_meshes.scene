@@ -822,7 +822,7 @@
       ,
       "transform":
       {
-        "pos": "29.8198 32.1827 -1.72901"
+        "pos": "29.5681 32.1827 -2.34729"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -863,62 +863,6 @@
           "materials":
           [
             "data/materials/grass_Thin.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "grass_Tropical_006"
-      ,
-      "transform":
-      {
-        "pos": "30.1138 32.1472 -1.30093"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/grass_Tropical_006.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/grass_Tropical_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "grass_Gamba_016"
-      ,
-      "transform":
-      {
-        "pos": "28.5969 35.0679 2.90646"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/grass_Gamba_016.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/grass_Gamba.material"
           ]
         }
       ]
