@@ -209,15 +209,15 @@ int bt_runner::actionChase() {
 		distance_to_waypoint = VEC3::Distance(my_position, waypoints_map[second_closest_waypoint].position);
 	}
 	
-	chase_waypoint();
+	//chase_waypoint();
 
-  /*if (on_jump) chase_waypoint();
+  if (on_jump) chase_waypoint();
 	else if (distance_to_waypoint < distance_to_player) chase_waypoint();
 	else chase_player();
 	
   if (conditionAttack()) {
     return LEAVE;
-  }*/
+  }
 
 	//Cambiar a STAY y poner interrupciones que reinicien el BT
     return STAY;
@@ -420,7 +420,7 @@ void bt_runner::findPath(int origin, int destiny){
 }
 
 void bt_runner::chase_player() {
-	dbg(" -- c_p\n");
+	//dbg(" -- c_p\n");
 	CEntity* e_player = (CEntity*)getEntityByName("The Player");
 	TCompTransform* player_transform = e_player->get<TCompTransform>();
 
@@ -615,7 +615,7 @@ void bt_runner::jump() {
 
 
 
-		dbg("**Tbc: %f - Tac: %f - propBC: %f\n", TimeBC, TimeAC, propYbc); 
+		//dbg("**Tbc: %f - Tac: %f - propBC: %f\n", TimeBC, TimeAC, propYbc); 
 
 	}
 	//dbg("wp: %i - nwp: %i - Yc: %f - ypos: %f\n", path[actual_waypoint], path[next_waypoint], Yc, myPos.y);
@@ -742,7 +742,7 @@ float bt_runner::distance_x_z(VEC3 v1, VEC3 v2) {
 
 
 void bt_runner::recalculate_path() {
-	dbg("***RECALCULATING PATH***\n");
+	//dbg("***RECALCULATING PATH***\n");
 	TCompTransform* my_transform = getMyTransform();
 	int origin = findClosestWaypoint(my_transform->getPosition());
 
