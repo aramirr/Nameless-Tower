@@ -16,15 +16,24 @@ void CAIDestroyable::debugInMenu() {
 
 void CAIDestroyable::registerMsgs() {
     DECL_MSG(CAIDestroyable, TMsgDestroy, onTriggerEnter);
+		DECL_MSG(CAIDestroyable, TMsgRegisterDestoyableSon, registerSon);
 }
 
 void CAIDestroyable::onTriggerEnter(const TMsgDestroy& msg) {
-    acum_time = 0.0f;
-    ChangeState("trigger_destroy");
-};
+	if (!recovering) {
+		acum_time = 0.0f;
+		ChangeState("trigger_destroy");
+	}
+}
+void CAIDestroyable::registerSon(const TMsgRegisterDestoyableSon & msg)
+{
+	sons.push_back(msg.name);
+}
 
 void CAIDestroyable::load(const json& j, TEntityParseContext& ctx) {
     setEntity(ctx.current_entity);
+
+		sons.clear();
 
     destroy_time = j.value("destroy_time", 1.0f);
     recover_time = j.value("recover_time", 5.0f);
@@ -60,12 +69,16 @@ void CAIDestroyable::TriggerDestroyState(float dt)
     acum_time += DT;
     if (acum_time >= destroy_time)
     {
+			  recovering = true;
         acum_time = 0;
         //has_mesh = change_mesh(1);
 				//CEntity* entity = CHandle(this).getOwner();
-				CEntity* entity = (CEntity*)getEntityByName("Destruible3_Post_12");
-				TMsgActivateAnim msg;
-				entity->sendMsg(msg);
+				for (int i = 0; i < sons.size(); i++) {
+					CEntity* entity = (CEntity*)getEntityByName(sons[i]);
+					TMsgActivateAnim msg;
+					entity->sendMsg(msg);
+				}
+				
         ChangeState("transition_destroy");
     }
 }
@@ -106,9 +119,12 @@ void CAIDestroyable::DestroyState(float dt)
             return;
         }
 
-				CEntity* entity = (CEntity*)getEntityByName("Destruible3_Post_12");
-				TMsgDesactivateAnim msg;
-				entity->sendMsg(msg);
+				for (int i = 0; i < sons.size(); i++) {
+					CEntity* entity = (CEntity*)getEntityByName(sons[i]);
+					TMsgDesactivateAnim msg;
+					entity->sendMsg(msg);
+				}
+				
 
 				//TCompRender *my_render = entity->get<TCompRender>();
 				//if (my_render->meshes.size() > 0) {
@@ -135,6 +151,7 @@ void CAIDestroyable::DestroyState(float dt)
             tr.p = PxVec3(current_pos.x, current_pos.y, current_pos.z);
             rigidActor->setGlobalPose(tr);
         }
+				recovering = false;
         ChangeState("idle");
     }
 }
