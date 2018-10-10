@@ -123,7 +123,6 @@ int bt_runner::actionStop() {
 int bt_runner::actionScream() {
   if (anim_state != "scream") {
     anim_state = "scream";
-    //change_animation(ERunnerAnimations::RunnerIdle, false, 0.f, 0.f, true);
     change_animation(ERunnerAnimations::RunnerScreamShort, true, 0.f, 0.f, true);
   }
   addGravity();
@@ -171,7 +170,6 @@ int bt_runner::actionRecover() {
 int bt_runner::actionAttack() {
 		if (anim_state != "attack") {
 			anim_state = "attack";
-			//change_animation(ERunnerAnimations::RunnerIdle, false, 0.f, 0.f, true);
 			change_animation(ERunnerAnimations::RunnerAttack, true, 0.f, 0.f, true);
 		}
 
@@ -457,7 +455,6 @@ void bt_runner::chase_player() {
 }
 
 void bt_runner::chase_waypoint() {
-	//dbg(" -- c_w\n");
 	if (next_waypoint >= 0 || target == "player") {
 		if (waypoints_map[path[actual_waypoint]].type == "floor") {
 			target = "waypoint";
@@ -471,7 +468,7 @@ void bt_runner::chase_waypoint() {
 			else if (target == "player" && waypoints_map[second_closest_waypoint].type == "edge") {
 				jump();
 			}
-			else if (target == "waypoint"){
+			else if (target == "waypoint") {
 				walk();
 			}
 		}
@@ -480,6 +477,9 @@ void bt_runner::chase_waypoint() {
 	TCompTransform* my_transform = getMyTransform();
 	if (target == "waypoint" && (next_waypoint < 0 || VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position) <= 0.5f)) {
 		//dbg("--------------------- aw: %i - nw: %i - d: %f\n", path[actual_waypoint], path[next_waypoint], VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position));
+		if (on_jump && (anim_state != "jump_land")) {
+			change_animation(ERunnerAnimations::RunnerJumpLand, true, 0.1f, 0.f, true);
+		}
 		anim_state = "";
 		on_jump = false;
 		going_up = true;
@@ -644,10 +644,8 @@ void bt_runner::jump() {
 	else {
 		if (anim_state != "jump_up") {
 			anim_state = "jump_up";
+			change_animation(ERunnerAnimations::RunnerJumpUp, true, 0.1f, 0.f, true);
 			change_animation(ERunnerAnimations::RunnerJumpLoop, false, 0.1f, 0.f, true);
-			/*if (waypoints_map[path[actual_waypoint]].position.y > target_position.y + 2.0f)
-				change_animation(ERunnerAnimations::RunnerJumpShort, true, 0.1f, 0.f, true);
-			else*/ change_animation(ERunnerAnimations::RunnerJumpUp, true, 0.1f, 0.f, true);
 		}
 
 		
