@@ -2,32 +2,6 @@
   {
     "entity":
     {
-      "name": "ParedTapada10B"
-      ,
-      "transform":
-      {
-        "pos": "20.0687 67.5 12.736"
-        ,
-        "rotation": "0.0 0.0267501 0.0 -0.999642"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedTapada10B.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "DestruiblePuente2_Pre"
       ,
       "transform":
@@ -199,6 +173,32 @@
         ,
         "is_trigger": true
       }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedTapada10B"
+      ,
+      "transform":
+      {
+        "pos": "19.5038 67.5 19.5272"
+        ,
+        "rotation": "0.0 0.0267501 0.0 -0.999642"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedTapada10B.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
     }
   }
   ,
