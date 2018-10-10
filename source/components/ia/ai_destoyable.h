@@ -12,7 +12,11 @@ class CAIDestroyable : public IAIController
     bool has_mesh = false;
     bool onStart = true;
 
+		std::vector<std::string> sons;
+		bool recovering = false;
+
     void onTriggerEnter(const TMsgDestroy& msg);
+		void registerSon(const TMsgRegisterDestoyableSon& msg);
 
     DECL_SIBLING_ACCESS();
 
