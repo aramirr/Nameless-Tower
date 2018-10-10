@@ -106,11 +106,9 @@ end
 -- Sala 2-3
 function OnTriggerExitTPTutorialEstatua()
 	lm:set_dir_light_intensity("LightDir00", 11, true)
-	lm:set_dir_light_intensity("LightDir03", 0, true)
 	lm:start_emiter("hojas_inicio", false)
 
 	lm:set_dir_light_intensity("LightDir00", 0, false)
-	lm:set_dir_light_intensity("LightDir03", 11, false)
 	lm:stop_emiter("hojas_inicio", true)
 end
 
@@ -161,6 +159,7 @@ function OnTriggerExitTSWindstrikeEscaleras1()
 	lm:activate_cinematic("cinematic_first_door", false)	
 	lm:set_dir_light_intensity("LightDir04", 0, false)
 	lm:set_dir_light_intensity("LightDir02", 11, false)
+	lm:set_dir_light_intensity("LightDir03", 11, false)
 
 	lm:render_everything("ParedTapada4", true)
 	--lm:render_only_shadows("ParedDestapada4", true)
@@ -169,6 +168,7 @@ function OnTriggerExitTSWindstrikeEscaleras1()
 	lm:deactivate_cinematic("cinematic_first_door", true)
 	lm:set_dir_light_intensity("LightDir04", 11, true)
 	lm:set_dir_light_intensity("LightDir02", 0, true)
+	lm:set_dir_light_intensity("LightDir03", 0, true)
 end		
 
 -- Sala 5-6

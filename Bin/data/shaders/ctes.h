@@ -195,7 +195,7 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
 	float global_vignetting_adjustment;
 	float global_resolution_X;
 	float global_resolution_Y;
-	float global_dummy1;
+	int   global_runner_interior;
 
 	float global_fogDist_adjustment;
 	float global_fogDensity_adjustment;
@@ -214,12 +214,13 @@ CB_DEF(CCteMaterial, CB_MATERIAL)
 	//VEC4   color_emission;
 	//VEC4   color_material;
 
-	int  material_dummy;
+	int  cell_type;
 
 	float  mix_boost_r;
 	float  mix_boost_g;
 	float  mix_boost_b;
 	float  srites_frames;
+
 };
 
 CB_DEF(CCteBlur, CB_BLUR)
