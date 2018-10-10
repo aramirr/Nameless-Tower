@@ -27,6 +27,11 @@ function OnLevel1Start()
 	lm:stop_emiter("hojas_viento", false)
 	lm:stop_emiter("particulas_top_cascada", false)
 	
+	lm:activate_cinematic_bands(false)
+	lm:pause_player()
+	lm:play_animation(32)
+	lm:regain_control(25)
+	
 end
 
 function OnLevel2Start()
