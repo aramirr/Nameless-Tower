@@ -2,7 +2,6 @@
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "Caldero_Colgado02"
       ,
       "transform":
@@ -107,13 +106,6 @@
       "transform":
       {
         "pos": "24.2257 69.8869 19.7908"
-=======
-      "name": "BridgeBreak"
-      ,
-      "transform":
-      {
-        "pos": "26.4989 85.2817 -13.7206"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
         ,
         "rotation": "0.0 -0.156434 0.0 -0.987688"
       }
@@ -121,7 +113,6 @@
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/Caldero_ColgadoBajada.mesh"
           ,
           "materials":
@@ -129,20 +120,10 @@
             "data/materials/CalderoMate.material"
             ,
             "data/materials/Cadenas.material"
-=======
-          "mesh": "data/meshes/BridgeBreak.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/puenteRoto.material"
-            ,
-            "data/materials/Cuerda.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ]
         }
       ]
       ,
-<<<<<<< HEAD
       "collider":
       {
         "shape": "convex_mesh"
@@ -210,7 +191,6 @@
         }
       ]
       ,
-=======
       "abs_aabb": true
     }
   }
@@ -218,166 +198,6 @@
   {
     "entity":
     {
-      "name": "ParedDestapada10"
-      ,
-      "transform":
-      {
-        "pos": "21.2892 67.4963 12.3696"
-        ,
-        "rotation": "0.0 -0.232888 0.0 -0.972504"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedDestapada10.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-            ,
-            "data/materials/ParedModeladaInteriores.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Caldero_ColgadoBajada"
-      ,
-      "transform":
-      {
-        "pos": "23.8162 69.8869 19.1291"
-        ,
-        "rotation": "0.0 -0.156434 0.0 -0.987688"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Caldero_ColgadoBajada.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CalderoMate.material"
-            ,
-            "data/materials/Cadenas.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "convex_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/Caldero_ColgadoBajada.col_mesh"
-      }
-      ,
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-<<<<<<< HEAD
-      "name": "ParedesExtraEscena05B"
-      ,
-      "transform":
-      {
-        "pos": "29.7738 65.25 0.0149355"
-=======
-      "name": "ParedExteriorParte5F"
-      ,
-      "transform":
-      {
-        "pos": "19.9012 72.0 24.6485"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
-        ,
-        "rotation": "0.0 0.85294 0.0 -0.52201"
-      }
-      ,
-      "render":
-      [
-        {
-<<<<<<< HEAD
-          "mesh": "data/meshes/ParedesExtraEscena05B.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Interior_01.material"
-=======
-          "mesh": "data/meshes/ParedExteriorParte5F.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-<<<<<<< HEAD
-      "name": "Pared_Lanzas"
-      ,
-      "transform":
-      {
-        "pos": "29.6896 65.25 4.69586"
-=======
-      "name": "ParedExteriorParte5E"
-      ,
-      "transform":
-      {
-        "pos": "24.6058 99.0 -12.4876"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
-        ,
-        "rotation": "0.0 0.85294 0.0 -0.52201"
-      }
-      ,
-      "render":
-      [
-        {
-<<<<<<< HEAD
-          "mesh": "data/meshes/Pared_Lanzas.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Interior_Lanzas.material"
-=======
-          "mesh": "data/meshes/ParedExteriorParte5E.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-<<<<<<< HEAD
-=======
       "name": "ParedesExtraEscena05B"
       ,
       "transform":
@@ -400,15 +220,12 @@
       ]
       ,
       "abs_aabb": true
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
     }
   }
   ,
   {
     "entity":
     {
-<<<<<<< HEAD
-=======
       "name": "Pared_Lanzas"
       ,
       "transform":
@@ -431,10 +248,20 @@
       ]
       ,
       "abs_aabb": true
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
     }
   }
-  
+  ,
+  {
+    "entity":
+    {
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+    }
+  }
   ,
   {
     "entity":
@@ -483,11 +310,7 @@
           ,
           "materials":
           [
-<<<<<<< HEAD
             "data/materials/ArbolMat.material"
-=======
-            "data/materials/TreeMate.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ]
         }
       ]
@@ -515,11 +338,7 @@
           ,
           "materials":
           [
-<<<<<<< HEAD
             "data/materials/ArbolMat.material"
-=======
-            "data/materials/TreeMate.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ]
         }
       ]
@@ -1143,20 +962,16 @@
       "abs_aabb": true
     }
   }
- 
   ,
   {
     "entity":
     {
-<<<<<<< HEAD
     }
   }
   ,
   {
     "entity":
     {
-=======
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
       "name": "Sala_EstatuaFea_18_Parte5"
       ,
       "transform":
@@ -1181,7 +996,12 @@
       "abs_aabb": true
     }
   }
-  
+  ,
+  {
+    "entity":
+    {
+    }
+  }
   ,
   {
     "entity":

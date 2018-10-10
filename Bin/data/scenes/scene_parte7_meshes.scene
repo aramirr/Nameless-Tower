@@ -3,7 +3,6 @@
     "entity":
     {
       "name": "ParedDestapada1"
-<<<<<<< HEAD
       ,
       "transform":
       {
@@ -66,24 +65,12 @@
         "pos": "-31.9623 24.75 -5.04018"
         ,
         "rotation": "0.0 0.793702 0.0 -0.608306"
-=======
-      ,
-      "transform":
-      {
-        "pos": "1.73666 33.75 -32.5968"
-        ,
-        "rotation": "0.0 -0.996962 0.0 0.0778873"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
       }
       ,
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/ParedDestapada4.mesh"
-=======
-          "mesh": "data/meshes/ParedDestapada1.mesh"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ,
           "materials":
           [
@@ -99,7 +86,6 @@
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "ParedExteriorParte7G"
       ,
       "transform":
@@ -107,44 +93,27 @@
         "pos": "-27.0235 18.0 17.8187"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
-=======
-      "name": "ParedDestapada5"
-      ,
-      "transform":
-      {
-        "pos": "-22.6674 27.0 -20.3465"
-        ,
-        "rotation": "0.0 -0.879091 0.0 0.476655"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
       }
       ,
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/ParedExteriorParte7G.mesh"
-=======
-          "mesh": "data/meshes/ParedDestapada5.mesh"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ,
           "materials":
           [
             "data/materials/ParedModelo.material"
-<<<<<<< HEAD
-=======
-            ,
-            "data/materials/ParedModeladaInteriores.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "ParedExteriorParte7F"
       ,
       "transform":
@@ -152,56 +121,32 @@
         "pos": "-31.9735 11.25 -5.03496"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
-=======
-      "name": "ParedDestapada4"
-      ,
-      "transform":
-      {
-        "pos": "-31.9623 24.75 -5.04018"
-        ,
-        "rotation": "0.0 0.793702 0.0 -0.608306"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
       }
       ,
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/ParedExteriorParte7F.mesh"
-=======
-          "mesh": "data/meshes/ParedDestapada4.mesh"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ,
           "materials":
           [
             "data/materials/ParedModelo.material"
-<<<<<<< HEAD
-=======
-            ,
-            "data/materials/ParedModeladaInteriores.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "ParedExteriorParte7E"
       ,
       "transform":
       {
         "pos": "-27.8546 33.75 5.94458"
-=======
-      "name": "ParedExteriorParte7G"
-      ,
-      "transform":
-      {
-        "pos": "-27.0235 18.0 17.8187"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -209,11 +154,7 @@
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/ParedExteriorParte7E.mesh"
-=======
-          "mesh": "data/meshes/ParedExteriorParte7G.mesh"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ,
           "materials":
           [
@@ -229,88 +170,6 @@
   {
     "entity":
     {
-<<<<<<< HEAD
-      "name": "ParedExteriorParte7D"
-      ,
-      "transform":
-      {
-        "pos": "-23.9363 40.5 -19.3871"
-=======
-      "name": "ParedExteriorParte7F"
-      ,
-      "transform":
-      {
-        "pos": "-31.9735 11.25 -5.03496"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
-        ,
-        "rotation": "0.0 0.85294 0.0 -0.52201"
-      }
-      ,
-      "render":
-      [
-        {
-<<<<<<< HEAD
-          "mesh": "data/meshes/ParedExteriorParte7D.mesh"
-=======
-          "mesh": "data/meshes/ParedExteriorParte7F.mesh"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-<<<<<<< HEAD
-      "name": "ParedExteriorParte7A"
-      ,
-      "transform":
-      {
-        "pos": "-6.50409 40.5 -30.5351"
-=======
-      "name": "ParedExteriorParte7E"
-      ,
-      "transform":
-      {
-        "pos": "-27.8546 33.75 5.94458"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
-        ,
-        "rotation": "0.0 0.85294 0.0 -0.52201"
-      }
-      ,
-      "render":
-      [
-        {
-<<<<<<< HEAD
-          "mesh": "data/meshes/ParedExteriorParte7A.mesh"
-=======
-          "mesh": "data/meshes/ParedExteriorParte7E.mesh"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-<<<<<<< HEAD
-=======
       "name": "ParedExteriorParte7D"
       ,
       "transform":
@@ -333,15 +192,12 @@
       ]
       ,
       "abs_aabb": true
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
     }
   }
   ,
   {
     "entity":
     {
-<<<<<<< HEAD
-=======
       "name": "ParedExteriorParte7A"
       ,
       "transform":
@@ -364,10 +220,20 @@
       ]
       ,
       "abs_aabb": true
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
     }
   }
- 
+  ,
+  {
+    "entity":
+    {
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+    }
+  }
   ,
   {
     "entity":

@@ -2,7 +2,6 @@
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "Caldero_Colgado02"
       ,
       "transform":
@@ -50,35 +49,17 @@
       {
         "pos": "18.0412 59.0852 22.0929"
         ,
-=======
-      "name": "Bridge"
-      ,
-      "transform":
-      {
-        "pos": "26.5364 85.4058 -13.7206"
-        ,
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
         "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/EstanqueCaustica.mesh"
           ,
           "materials":
           [
             "data/materials/CascadaCausticaMat.material"
-=======
-          "mesh": "data/meshes/Bridge.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/PuenteMate.material"
-            ,
-            "data/materials/CuerdaMate.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ]
         }
       ]
@@ -90,19 +71,11 @@
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "Bridge"
       ,
       "transform":
       {
         "pos": "26.5364 85.4058 -13.7206"
-=======
-      "name": "ParedesExtraEscena03B"
-      ,
-      "transform":
-      {
-        "pos": "29.7771 65.25 -1.53461"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -110,7 +83,6 @@
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/Bridge.mesh"
           ,
           "materials":
@@ -118,13 +90,6 @@
             "data/materials/PuenteMate.material"
             ,
             "data/materials/CuerdaMate.material"
-=======
-          "mesh": "data/meshes/ParedesExtraEscena03B.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Interior_01.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ]
         }
       ]
@@ -136,7 +101,6 @@
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "ParedesExtraEscena03B"
       ,
       "transform":
@@ -144,33 +108,16 @@
         "pos": "29.7771 65.25 -1.53461"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
-=======
-      "name": "ParedExteriorParte3H"
-      ,
-      "transform":
-      {
-        "pos": "29.4913 60.75 6.27343"
-        ,
-        "rotation": "0.0 0.85294 0.0 -0.52201"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
       }
       ,
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/ParedesExtraEscena03B.mesh"
           ,
           "materials":
           [
             "data/materials/Pared_Interior_01.material"
-=======
-          "mesh": "data/meshes/ParedExteriorParte3H.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ]
         }
       ]
@@ -182,19 +129,11 @@
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "ParedExteriorParte3H"
       ,
       "transform":
       {
         "pos": "29.4913 60.75 6.27343"
-=======
-      "name": "ParedExteriorParte3G"
-      ,
-      "transform":
-      {
-        "pos": "32.0767 72.0 0.166851"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -202,11 +141,7 @@
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/ParedExteriorParte3H.mesh"
-=======
-          "mesh": "data/meshes/ParedExteriorParte3G.mesh"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ,
           "materials":
           [
@@ -222,19 +157,11 @@
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "ParedExteriorParte3G"
       ,
       "transform":
       {
         "pos": "32.0767 72.0 0.166851"
-=======
-      "name": "ParedExteriorParte3F"
-      ,
-      "transform":
-      {
-        "pos": "28.5493 103.5 -9.27346"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -242,11 +169,7 @@
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/ParedExteriorParte3G.mesh"
-=======
-          "mesh": "data/meshes/ParedExteriorParte3F.mesh"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ,
           "materials":
           [
@@ -262,19 +185,11 @@
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "ParedExteriorParte3F"
       ,
       "transform":
       {
         "pos": "28.5493 103.5 -9.27346"
-=======
-      "name": "Pared_Lanzas"
-      ,
-      "transform":
-      {
-        "pos": "29.6896 65.25 4.69586"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -282,19 +197,11 @@
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/ParedExteriorParte3F.mesh"
           ,
           "materials":
           [
             "data/materials/ParedModelo.material"
-=======
-          "mesh": "data/meshes/Pared_Lanzas.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Interior_Lanzas.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ]
         }
       ]
@@ -302,64 +209,15 @@
       "abs_aabb": true
     }
   }
-  
   ,
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "Pared_Lanzas"
       ,
       "transform":
       {
         "pos": "29.6896 65.25 4.69586"
-=======
-      "name": "Caldero_Colgado"
-      ,
-      "transform":
-      {
-        "pos": "23.6819 70.4585 19.3189"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
-        ,
-        "rotation": "0.0 -0.156434 0.0 -0.987688"
-      }
-      ,
-      "render":
-      [
-        {
-<<<<<<< HEAD
-          "mesh": "data/meshes/Pared_Lanzas.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Interior_Lanzas.material"
-=======
-          "mesh": "data/meshes/Caldero_Colgado.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CalderoMate.material"
-            ,
-            "data/materials/Cadenas.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-<<<<<<< HEAD
-=======
-      "name": "CascadaEspuma"
-      ,
-      "transform":
-      {
-        "pos": "27.2949 71.5787 -14.6886"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -367,24 +225,28 @@
       "render":
       [
         {
-          "mesh": "data/meshes/CascadaEspuma.mesh"
+          "mesh": "data/meshes/Pared_Lanzas.mesh"
           ,
           "materials":
           [
-            "data/materials/EspumaAgua.material"
+            "data/materials/Pared_Interior_Lanzas.material"
           ]
         }
       ]
       ,
       "abs_aabb": true
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
     }
   }
   ,
   {
     "entity":
     {
-<<<<<<< HEAD
+    }
+  }
+  ,
+  {
+    "entity":
+    {
     }
   }
   ,
@@ -398,21 +260,11 @@
         "pos": "24.4249 70.4585 19.9571"
         ,
         "rotation": "0.0 -0.156434 0.0 -0.987688"
-=======
-      "name": "CascadaCaustica"
-      ,
-      "transform":
-      {
-        "pos": "27.2933 71.6169 -14.6879"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
       }
       ,
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/Caldero_Colgado.mesh"
           ,
           "materials":
@@ -420,13 +272,6 @@
             "data/materials/CalderoMate.material"
             ,
             "data/materials/Cadenas.material"
-=======
-          "mesh": "data/meshes/CascadaCaustica.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CascadaCausticaMat.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ]
         }
       ]
@@ -438,38 +283,23 @@
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "CascadaEspuma"
       ,
       "transform":
       {
         "pos": "27.2949 71.5787 -14.6886"
-=======
-      "name": "HojasArbolcascada"
-      ,
-      "transform":
-      {
-        "pos": "27.7108 92.5844 -14.7676"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
         ,
-        "rotation": "-0.0772245 -0.964696 -0.0142851 -0.251383"
+        "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/CascadaEspuma.mesh"
           ,
           "materials":
           [
             "data/materials/EspumaAgua.material"
-=======
-          "mesh": "data/meshes/HojasArbolcascada.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/HojaMat.material"
           ]
         }
       ]
@@ -481,80 +311,34 @@
   {
     "entity":
     {
-      "name": "arboles_cascada"
-      ,
-      "transform":
-      {
-        "pos": "27.075 90.4784 -11.2212"
-        ,
-        "rotation": "-0.117799 -0.670423 0.664336 -0.308729"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/arboles_cascada.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMat.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-<<<<<<< HEAD
       "name": "CascadaCaustica"
       ,
       "transform":
       {
         "pos": "27.2933 71.6169 -14.6879"
-=======
-      "name": "ParedDestapada10"
-      ,
-      "transform":
-      {
-        "pos": "19.7829 67.5 13.1349"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
         ,
-        "rotation": "0.0 -0.232888 0.0 -0.972504"
+        "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/CascadaCaustica.mesh"
           ,
           "materials":
           [
             "data/materials/CascadaCausticaMat.material"
-=======
-          "mesh": "data/meshes/ParedDestapada10.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-            ,
-            "data/materials/ParedModeladaInteriores.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "HojasArbolcascada"
       ,
       "transform":
@@ -562,33 +346,16 @@
         "pos": "27.7108 92.5844 -14.7676"
         ,
         "rotation": "-0.0772245 -0.964696 -0.0142851 -0.251383"
-=======
-      "name": "Sala_EstatuaFea_078"
-      ,
-      "transform":
-      {
-        "pos": "10.1901 69.4349 29.9459"
-        ,
-        "rotation": "0.0 -0.5 0.0 -0.866026"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
       }
       ,
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/HojasArbolcascada.mesh"
           ,
           "materials":
           [
             "data/materials/HojaMat.material"
-=======
-          "mesh": "data/meshes/Sala_EstatuaFea_078.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EstatuaGrandeMate.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ]
         }
       ]
@@ -600,7 +367,6 @@
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "arboles_cascada"
       ,
       "transform":
@@ -608,33 +374,16 @@
         "pos": "27.075 90.4784 -11.2212"
         ,
         "rotation": "-0.117799 -0.670423 0.664336 -0.308729"
-=======
-      "name": "Sala_EstatuaFea_077"
-      ,
-      "transform":
-      {
-        "pos": "10.938 68.7361 29.7212"
-        ,
-        "rotation": "0.0 -0.669131 0.0 -0.743145"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
       }
       ,
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/arboles_cascada.mesh"
           ,
           "materials":
           [
             "data/materials/ArbolMat.material"
-=======
-          "mesh": "data/meshes/Sala_EstatuaFea_077.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CalderoMate.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ]
         }
       ]
@@ -646,7 +395,6 @@
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "ParedDestapada10"
       ,
       "transform":
@@ -654,21 +402,11 @@
         "pos": "19.7829 67.5 13.1349"
         ,
         "rotation": "0.0 -0.232888 0.0 -0.972504"
-=======
-      "name": "Sala_EstatuaFea_076"
-      ,
-      "transform":
-      {
-        "pos": "23.676 69.2043 19.3003"
-        ,
-        "rotation": "0.0 -0.156434 0.0 -0.987688"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
       }
       ,
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/ParedDestapada10.mesh"
           ,
           "materials":
@@ -676,13 +414,6 @@
             "data/materials/ParedModelo.material"
             ,
             "data/materials/ParedModeladaInteriores.material"
-=======
-          "mesh": "data/meshes/Sala_EstatuaFea_076.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CalderoMate.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ]
         }
       ]
@@ -692,7 +423,6 @@
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "Sala_EstatuaFea_078"
       ,
       "transform":
@@ -700,25 +430,12 @@
         "pos": "10.1901 69.4349 29.9459"
         ,
         "rotation": "0.0 -0.5 0.0 -0.866026"
-=======
-      "name": "Sala_EstatuaFea_075"
-      ,
-      "transform":
-      {
-        "pos": "30.5839 72.7281 6.61891"
-        ,
-        "rotation": "0.0 0.5 0.0 -0.866025"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
       }
       ,
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/Sala_EstatuaFea_078.mesh"
-=======
-          "mesh": "data/meshes/Sala_EstatuaFea_075.mesh"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ,
           "materials":
           [
@@ -734,7 +451,6 @@
   {
     "entity":
     {
-<<<<<<< HEAD
       "name": "Sala_EstatuaFea_077"
       ,
       "transform":
@@ -742,25 +458,12 @@
         "pos": "10.938 68.7361 29.7212"
         ,
         "rotation": "0.0 -0.669131 0.0 -0.743145"
-=======
-      "name": "Sala_EstatuaFea_074"
-      ,
-      "transform":
-      {
-        "pos": "30.55 71.9931 7.38279"
-        ,
-        "rotation": "0.0 0.544639 0.0 -0.838671"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
       }
       ,
       "render":
       [
         {
-<<<<<<< HEAD
           "mesh": "data/meshes/Sala_EstatuaFea_077.mesh"
-=======
-          "mesh": "data/meshes/Sala_EstatuaFea_074.mesh"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ,
           "materials":
           [
@@ -780,11 +483,7 @@
       ,
       "transform":
       {
-<<<<<<< HEAD
         "pos": "22.9359 69.4886 11.6057"
-=======
-        "pos": "25.91 69.4886 13.1854"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
         ,
         "rotation": "-0.419661 -0.569109 -0.569109 0.419661"
       }
@@ -812,11 +511,7 @@
       ,
       "transform":
       {
-<<<<<<< HEAD
         "pos": "19.7905 69.4886 9.74574"
-=======
-        "pos": "25.688 69.4886 12.9865"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
         ,
         "rotation": "-0.419661 -0.569109 -0.569109 0.419661"
       }
@@ -828,11 +523,7 @@
           ,
           "materials":
           [
-<<<<<<< HEAD
             "data/materials/nieblaBMat.material"
-=======
-            "data/materials/nieblaAMat.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ]
         }
       ]
@@ -876,11 +567,7 @@
       ,
       "transform":
       {
-<<<<<<< HEAD
         "pos": "13.5562 64.8474 20.7435"
-=======
-        "pos": "16.3553 64.8474 22.101"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
         ,
         "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
       }
@@ -892,11 +579,7 @@
           ,
           "materials":
           [
-<<<<<<< HEAD
             "data/materials/nieblaBMat.material"
-=======
-            "data/materials/nieblaAMat.material"
->>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
           ]
         }
       ]
@@ -2508,34 +2191,6 @@
           "materials":
           [
             "data/materials/Techo_Cascada.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "ParedExteriorParte3I"
-      ,
-      "transform":
-      {
-        "pos": "19.3873 99.0378 -10.2732"
-        ,
-        "rotation": "0.0 -0.983359 0.0 0.181672"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedExteriorParte3I.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
           ]
         }
       ]

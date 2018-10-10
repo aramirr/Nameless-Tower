@@ -37,12 +37,7 @@
         "pos": "0.0 0.0 0.0"
         ,
         "rotation": "0.0 0.0 0.0 0.0"
-      },
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra", "positional": true, "on_start": true}
-            ]
-            }
+      }
     }
   }
   ,
@@ -149,12 +144,7 @@
         "pos": "0.0 0.0 0.0"
         ,
         "rotation": "0.0 0.0 0.0 0.0"
-      },
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra", "positional": true, "on_start": true}
-            ]
-            }
+      }
     }
   }
   ,
@@ -222,7 +212,48 @@
       "abs_aabb": true
     }
   }
-
+  ,
+  {
+    "entity":
+    {
+      "name": "Sierra003"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sierra003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SierraLinealMat.material"
+          ]
+        }
+      ]
+      ,
+      "circular_controller":
+      {
+        "speed": 10.0
+        ,
+        "eje": "X"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Sierra003_parent"
+        ,
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+    }
+  }
   ,
   {
     "entity":
@@ -659,12 +690,7 @@
         "mesh_src": "data/meshes/Sierra006.col_mesh"
       }
       ,
-      "abs_aabb": true,
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra", "positional": true, "on_start": false}
-            ]
-            }
+      "abs_aabb": true
     }
   }
   ,
@@ -740,12 +766,7 @@
         "mesh_src": "data/meshes/Sierra006.col_mesh"
       }
       ,
-      "abs_aabb": true,
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra", "positional": true, "on_start": false}
-            ]
-            }
+      "abs_aabb": true
     }
   }
   ,
@@ -905,52 +926,6 @@
       {
         "kill_enabled": true
       }
-    }
-  }  ,
-  {
-    "entity":
-    {
-      "name": "Sierra003"
-      ,
-      "transform":
-      {
-        "pos": "0.0 0.0 0.0"
-        ,
-        "rotation": "0.0 0.0 0.0 0.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sierra003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/SierraLinealMat.material"
-          ]
-        }
-      ]
-      ,
-      "circular_controller":
-      {
-        "speed": 10.0
-        ,
-        "eje": "X"
-      }
-      ,
-      "hierarchy":
-      {
-        "parent": "Sierra003_parent"
-        ,
-        "pos": "0.0 0.0 0.0"
-        ,
-        "rotation": "0.0 0.0 0.0 0.0"
-      },
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra", "positional": true, "on_start": true}
-            ]
-            }
     }
   }
 ]
