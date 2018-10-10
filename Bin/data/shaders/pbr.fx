@@ -599,10 +599,10 @@ float4 PS_ambient(
     float4 self_illum = txSelfIllum.Load(uint3(iPosition.xy, 0));
 
     // Compute global fog on ambient.
-    //float3 pixel_depth = camera_pos.xyz - wPos;
-    //float distancet = length(pixel_depth);
-    //float visibility = exp(distancet * distancet * -global_fog_density * global_fog_density * 1.442695);
-    //visibility = clamp(visibility, 0, 1);
+    float3 pixel_depth = camera_pos.xyz - wPos;
+    float distancet = length(pixel_depth);
+    float visibility = 1.0f / exp(distancet * global_fogDensity_adjustment);
+    visibility = clamp(visibility, 0.0f, 1.0f);
 
     //float4 final_color = float4(env_fresnel * env * g_ReflectionIntensity + albedo.xyz * irradiance * g_AmbientLightIntensity, 1.0f);
     //final_color = final_color * global_ambient_adjustment * ao;
@@ -623,7 +623,7 @@ float4 PS_ambient(
 
 
         final_color = final_color * 0.1 /* * ao*/;
-        final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * 0.1;
+        final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * 0.1f;
 
         final_color.a = 1;
 
@@ -649,9 +649,27 @@ float4 PS_ambient(
         final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
 
     }
-  
+    //return final_color;
+    float3 fogColor = float3(0.5f, 0.5f, 0.5f);
    
-    return final_color;
+    //Get light
+    //an view
+    //directions
+
+    //float3 L = normalize(light_pos - wPos);
+    //float3 V = normalize(camera_pos - wPos);
+
+    //float fogFactor = 0;
+
+    //Exponential fog
+
+    //float dist = iPosition.z / iPosition.w;
+
+    //fogFactor = 1.0f / exp(dist * global_fogDensity_adjustment);
+    //fogFactor = clamp(fogFactor, 0.0f, 1.0f);
+
+    //return float4(fogColor * (1 - fogFactor) + _finalColor.rgb * fogFactor, 1.0f);
+    return float4(lerp(fogColor, final_color.rgb, visibility), final_color.a);
 
 }
 
