@@ -2,6 +2,47 @@
   {
     "entity":
     {
+      "name": "Caldero_Colgado02"
+      ,
+      "transform":
+      {
+        "pos": "30.4607 72.1396 7.37185"
+        ,
+        "rotation": "0.0 -0.156434 0.0 -0.987688"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Caldero_Colgado02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CalderoMate.material"
+            ,
+            "data/materials/Cadenas.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Caldero_Colgado02.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "BridgeBreak"
       ,
       "transform":
@@ -64,7 +105,7 @@
       ,
       "transform":
       {
-        "pos": "23.8162 69.8869 19.1291"
+        "pos": "24.2257 69.8869 19.7908"
         ,
         "rotation": "0.0 -0.156434 0.0 -0.987688"
       }
@@ -209,8 +250,9 @@
       "abs_aabb": true
     }
   }
-  
   ,
+   
+   
   {
     "entity":
     {
@@ -258,7 +300,7 @@
           ,
           "materials":
           [
-            "data/materials/TreeMate.material"
+            "data/materials/ArbolMat.material"
           ]
         }
       ]
@@ -286,7 +328,7 @@
           ,
           "materials":
           [
-            "data/materials/TreeMate.material"
+            "data/materials/ArbolMat.material"
           ]
         }
       ]
@@ -910,8 +952,8 @@
       "abs_aabb": true
     }
   }
- 
   ,
+   
   {
     "entity":
     {
@@ -939,8 +981,8 @@
       "abs_aabb": true
     }
   }
-  
   ,
+   
   {
     "entity":
     {

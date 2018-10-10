@@ -2,6 +2,75 @@
   {
     "entity":
     {
+      "name": "Caldero_Colgado02"
+      ,
+      "transform":
+      {
+        "pos": "30.4607 72.1396 7.37185"
+        ,
+        "rotation": "0.0 -0.156434 0.0 -0.987688"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Caldero_Colgado02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CalderoMate.material"
+            ,
+            "data/materials/Cadenas.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Caldero_Colgado02.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EstanqueCaustica"
+      ,
+      "transform":
+      {
+        "pos": "18.0412 59.0852 22.0929"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EstanqueCaustica.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CascadaCausticaMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Bridge"
       ,
       "transform":
@@ -168,8 +237,9 @@
       "abs_aabb": true
     }
   }
-  
   ,
+   
+   
   {
     "entity":
     {
@@ -177,7 +247,7 @@
       ,
       "transform":
       {
-        "pos": "23.6819 70.4585 19.3189"
+        "pos": "24.4249 70.4585 19.9571"
         ,
         "rotation": "0.0 -0.156434 0.0 -0.987688"
       }
@@ -399,95 +469,11 @@
   {
     "entity":
     {
-      "name": "Sala_EstatuaFea_076"
-      ,
-      "transform":
-      {
-        "pos": "23.676 69.2043 19.3003"
-        ,
-        "rotation": "0.0 -0.156434 0.0 -0.987688"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_076.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CalderoMate.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sala_EstatuaFea_075"
-      ,
-      "transform":
-      {
-        "pos": "30.5839 72.7281 6.61891"
-        ,
-        "rotation": "0.0 0.5 0.0 -0.866025"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_075.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EstatuaGrandeMate.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sala_EstatuaFea_074"
-      ,
-      "transform":
-      {
-        "pos": "30.55 71.9931 7.38279"
-        ,
-        "rotation": "0.0 0.544639 0.0 -0.838671"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_074.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CalderoMate.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Niebla012"
       ,
       "transform":
       {
-        "pos": "25.91 69.4886 13.1854"
+        "pos": "22.9359 69.4886 11.6057"
         ,
         "rotation": "-0.419661 -0.569109 -0.569109 0.419661"
       }
@@ -515,7 +501,7 @@
       ,
       "transform":
       {
-        "pos": "25.688 69.4886 12.9865"
+        "pos": "19.7905 69.4886 9.74574"
         ,
         "rotation": "-0.419661 -0.569109 -0.569109 0.419661"
       }
@@ -527,7 +513,7 @@
           ,
           "materials":
           [
-            "data/materials/nieblaAMat.material"
+            "data/materials/nieblaBMat.material"
           ]
         }
       ]
@@ -571,7 +557,7 @@
       ,
       "transform":
       {
-        "pos": "16.3553 64.8474 22.101"
+        "pos": "13.5562 64.8474 20.7435"
         ,
         "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
       }
@@ -583,7 +569,7 @@
           ,
           "materials":
           [
-            "data/materials/nieblaAMat.material"
+            "data/materials/nieblaBMat.material"
           ]
         }
       ]
@@ -1822,11 +1808,9 @@
         }
       ]
       ,
-      "abs_aabb": true
-      ,
       "collider":
       {
-        "shape": "convex_mesh"
+        "shape": "tri_mesh"
         ,
         "is_dynamic": false
         ,
@@ -1834,6 +1818,8 @@
         ,
         "mesh_src": "data/meshes/RocaTipoC014.col_mesh"
       }
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -2094,6 +2080,34 @@
   {
     "entity":
     {
+      "name": "EstanqueAgua"
+      ,
+      "transform":
+      {
+        "pos": "18.0416 59.0803 22.0947"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EstanqueAgua.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CascadaAguaMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "AguaEstanque_Espuma"
       ,
       "transform":
@@ -2111,62 +2125,6 @@
           "materials":
           [
             "data/materials/EspumaAgua.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "AguaEstanque_Caustica"
-      ,
-      "transform":
-      {
-        "pos": "18.0509 58.117 22.1018"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/AguaEstanque_Caustica.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CascadaCausticaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "AguaEstanque"
-      ,
-      "transform":
-      {
-        "pos": "18.0511 58.1145 22.1018"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/AguaEstanque.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CascadaAguaMat.material"
           ]
         }
       ]

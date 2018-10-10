@@ -194,8 +194,8 @@
       ]
     }
   }
- 
   ,
+   
   {
     "entity":
     {
@@ -231,7 +231,7 @@
       ,
       "transform":
       {
-        "pos": "19.7431 42.6949 22.0255"
+        "pos": "18.8627 42.6949 21.1954"
         ,
         "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
       }
@@ -243,7 +243,7 @@
           ,
           "materials":
           [
-            "data/materials/nieblaAMat.material"
+            "data/materials/nieblaBMat.material"
           ]
         }
       ]
@@ -287,7 +287,7 @@
       ,
       "transform":
       {
-        "pos": "29.3007 42.6949 3.13375"
+        "pos": "27.6234 42.6949 2.92974"
         ,
         "rotation": "-0.480162 -0.519081 -0.519081 0.480162"
       }
@@ -327,7 +327,7 @@
           ,
           "materials":
           [
-            "data/materials/nieblaAMat.material"
+            "data/materials/nieblaBMat.material"
           ]
         }
       ]
@@ -2031,62 +2031,6 @@
             "data/materials/MarcoMater.material"
             ,
             "data/materials/ArcoMater.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "AguaEstanqueCaida_Caustica"
-      ,
-      "transform":
-      {
-        "pos": "21.3106 59.1619 19.2058"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/AguaEstanqueCaida_Caustica.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CascadaCausticaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "AguaEstanqueCaida"
-      ,
-      "transform":
-      {
-        "pos": "21.3109 59.1606 19.2054"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/AguaEstanqueCaida.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CascadaAguaMat.material"
           ]
         }
       ]
