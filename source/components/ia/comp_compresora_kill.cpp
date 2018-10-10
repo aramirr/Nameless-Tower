@@ -14,9 +14,9 @@ void TCompCompresoraKill::checkIfTouchingPlayer(const TMsgCheckPlayerIn& msg) {
     TMsgSetFSMVariable deadMsg;
     deadMsg.variant.setName("hit");
     deadMsg.variant.setBool(true);
-    player->sendMsg(deadMsg);
+    //player->sendMsg(deadMsg);
     TCompSound* sound = get<TCompSound>();
-    sound->playSound("sound");
+    sound->playSound("hit");
   }
 }
 

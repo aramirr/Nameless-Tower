@@ -14,13 +14,19 @@
 using namespace std;
 
 struct TCompSound: public TCompBase {
+    struct Sound {
+        FMOD::Studio::EventDescription* eventDescriptor = nullptr;
+        FMOD::Studio::EventInstance* eventInstance;
+        bool stopFadeOut = false;
+        bool positional = false;
+        bool onStart = false;
+    };
     std::string path;
     bool onStart;
     FMOD::Studio::EventDescription* eventDescriptor = nullptr;
     FMOD::Studio::EventInstance* eventInstance;
     bool stopFadeOut = false;
     bool positional = false;
-    bool multiInstancing = true;
 
     void load(const json& j, TEntityParseContext& ctx);
     void update(float dt);
@@ -35,7 +41,7 @@ struct TCompSound: public TCompBase {
     FMOD_VECTOR toFMODVector(VEC3 v);
     static void registerMsgs();
 
-    std::map<std::string, Studio::EventInstance*> events;
+    std::map<std::string, Sound> events;
   DECL_SIBLING_ACCESS();
 };
 

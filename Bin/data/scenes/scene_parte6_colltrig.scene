@@ -2,6 +2,46 @@
   {
     "entity":
     {
+      "name": "TSLucesCompresorasB"
+      ,
+      "transform":
+      {
+        "pos": "22.3048 33.7604 -21.9511"
+        ,
+        "rotation": "-0.259794 0.259794 0.657653 -0.657653"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.713416 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Escaleras_Escena06"
       ,
       "transform":

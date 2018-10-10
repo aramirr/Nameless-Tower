@@ -7,6 +7,7 @@
 #include "modules/system/module_physics.h"
 #include "components/physics/controller_filter.h"
 #include "components/physics/query_filter.h"
+#include "../sound/comp_sound.h"
 
 using namespace physx;
 
@@ -159,6 +160,8 @@ void CAICompresora::checkIfTouchingPlayer(const TMsgCheckPlayerIn& msg) {
     deadMsg.variant.setName("hit");
     deadMsg.variant.setBool(true);
     player->sendMsg(deadMsg);
+    TCompSound* sound = get<TCompSound>();
+    sound->playSound("hit");
   }
 }
 

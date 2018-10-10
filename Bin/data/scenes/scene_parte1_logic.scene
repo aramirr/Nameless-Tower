@@ -37,7 +37,12 @@
         "pos": "0.0 0.0 0.0"
         ,
         "rotation": "0.0 0.0 0.0 0.0"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
   ,
@@ -87,6 +92,8 @@
         "trigger_type": "player_killer"
         ,
         "render": false
+        ,
+        "sound_name": "hit_sierras"
       }
       ,
       "collider":
@@ -142,7 +149,12 @@
         "pos": "0.0 0.0 0.0"
         ,
         "rotation": "0.0 0.0 0.0 0.0"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
   ,
@@ -192,6 +204,8 @@
         "trigger_type": "player_killer"
         ,
         "render": false
+        ,
+        "sound_name": "hit_sierras"
       }
       ,
       "collider":
@@ -208,48 +222,7 @@
       "abs_aabb": true
     }
   }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sierra003"
-      ,
-      "transform":
-      {
-        "pos": "0.0 0.0 0.0"
-        ,
-        "rotation": "0.0 0.0 0.0 0.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sierra003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/SierraLinealMat.material"
-          ]
-        }
-      ]
-      ,
-      "circular_controller":
-      {
-        "speed": 10.0
-        ,
-        "eje": "X"
-      }
-      ,
-      "hierarchy":
-      {
-        "parent": "Sierra003_parent"
-        ,
-        "pos": "0.0 0.0 0.0"
-        ,
-        "rotation": "0.0 0.0 0.0 0.0"
-      }
-    }
-  }
+
   ,
   {
     "entity":
@@ -297,6 +270,8 @@
         "trigger_type": "player_killer"
         ,
         "render": false
+        ,
+        "sound_name": "hit_sierras"
       }
       ,
       "collider":
@@ -329,7 +304,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/PinchosA.mesh"
+          "mesh": "data/meshes/PinchosC.mesh"
           ,
           "materials":
           [
@@ -348,6 +323,8 @@
         "trigger_type": "player_killer"
         ,
         "render": true
+        ,
+        "sound_name": "hit_pinchos"
       }
       ,
       "collider":
@@ -372,7 +349,7 @@
       ,
       "transform":
       {
-        "pos": "1.90735e-06 9.0 5.60272e-07"
+        "pos": "-22.3268 27.0 -20.0513"
         ,
         "rotation": "0.0 -0.99152 0.0 0.129958"
       }
@@ -398,7 +375,7 @@
       ,
       "transform":
       {
-        "pos": "1.90735e-06 4.5 7.56973e-07"
+        "pos": "-31.9735 24.75 -5.03496"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -477,16 +454,16 @@
       [
       ]
       ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
       "trigger":
       {
         "trigger_type": "player_killer"
         ,
         "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
       }
       ,
       "collider":
@@ -538,6 +515,8 @@
         "trigger_type": "player_killer"
         ,
         "render": true
+        ,
+        "sound_name": "hit_pinchos"
       }
       ,
       "collider":
@@ -589,6 +568,8 @@
         "trigger_type": "player_killer"
         ,
         "render": true
+        ,
+        "sound_name": "hit_pinchos"
       }
       ,
       "collider":
@@ -663,6 +644,8 @@
         "trigger_type": "player_killer"
         ,
         "render": true
+        ,
+        "sound_name": "hit_sierras"
       }
       ,
       "collider":
@@ -676,7 +659,12 @@
         "mesh_src": "data/meshes/Sierra006.col_mesh"
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -737,6 +725,8 @@
         "trigger_type": "player_killer"
         ,
         "render": true
+        ,
+        "sound_name": "hit_sierras"
       }
       ,
       "collider":
@@ -750,7 +740,12 @@
         "mesh_src": "data/meshes/Sierra006.col_mesh"
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -910,6 +905,52 @@
       {
         "kill_enabled": true
       }
+    }
+  }  ,
+  {
+    "entity":
+    {
+      "name": "Sierra003"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sierra003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SierraLinealMat.material"
+          ]
+        }
+      ]
+      ,
+      "circular_controller":
+      {
+        "speed": 10.0
+        ,
+        "eje": "X"
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "Sierra003_parent"
+        ,
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      },
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
 ]

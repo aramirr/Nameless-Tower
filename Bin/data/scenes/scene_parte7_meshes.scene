@@ -2,6 +2,231 @@
   {
     "entity":
     {
+      "name": "ParedDestapada1"
+      ,
+      "transform":
+      {
+        "pos": "1.73666 33.75 -32.5968"
+        ,
+        "rotation": "0.0 -0.996962 0.0 0.0778873"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada1.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedDestapada5"
+      ,
+      "transform":
+      {
+        "pos": "-22.6674 27.0 -20.3465"
+        ,
+        "rotation": "0.0 -0.879091 0.0 0.476655"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada5.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedDestapada4"
+      ,
+      "transform":
+      {
+        "pos": "-31.9623 24.75 -5.04018"
+        ,
+        "rotation": "0.0 0.793702 0.0 -0.608306"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada4.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte7G"
+      ,
+      "transform":
+      {
+        "pos": "-27.0235 18.0 17.8187"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte7G.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte7F"
+      ,
+      "transform":
+      {
+        "pos": "-31.9735 11.25 -5.03496"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte7F.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte7E"
+      ,
+      "transform":
+      {
+        "pos": "-27.8546 33.75 5.94458"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte7E.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte7D"
+      ,
+      "transform":
+      {
+        "pos": "-23.9363 40.5 -19.3871"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte7D.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte7A"
+      ,
+      "transform":
+      {
+        "pos": "-6.50409 40.5 -30.5351"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte7A.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+ 
+  ,
+  {
+    "entity":
+    {
       "name": "Plataforma_01"
       ,
       "transform":
@@ -258,7 +483,7 @@
       ,
       "transform":
       {
-        "pos": "-14.0687 36.0 -21.5605"
+        "pos": "-22.6139 22.5 -20.0348"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -1804,7 +2029,7 @@
       ,
       "transform":
       {
-        "pos": "-27.8546 22.5 5.94458"
+        "pos": "-28.629 2.24996 10.9769"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -2265,36 +2490,6 @@
           "materials":
           [
             "data/materials/Escalera_Sala_Caldero.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "ParedRotaIzInf001"
-      ,
-      "transform":
-      {
-        "pos": "1.73666 33.75 -32.5968"
-        ,
-        "rotation": "0.0 -0.996962 0.0 0.0778873"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedRotaIzInf001.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-            ,
-            "data/materials/ParedModeladaInteriores.material"
           ]
         }
       ]

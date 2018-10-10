@@ -2,6 +2,146 @@
   {
     "entity":
     {
+      "name": "ParedExteriorParte2H"
+      ,
+      "transform":
+      {
+        "pos": "13.2624 27.0 26.1101"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte2H.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte2G"
+      ,
+      "transform":
+      {
+        "pos": "16.8732 47.25 25.6192"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte2G.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte2C"
+      ,
+      "transform":
+      {
+        "pos": "28.4403 49.5 -12.903"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte2C.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte2F"
+      ,
+      "transform":
+      {
+        "pos": "29.7477 51.75 7.97215"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte2F.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte2E"
+      ,
+      "transform":
+      {
+        "pos": "11.3804 31.5 -29.0378"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte2E.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "ParedDestapada3"
       ,
       "transform":
@@ -54,6 +194,7 @@
       ]
     }
   }
+ 
   ,
   {
     "entity":
@@ -482,39 +623,11 @@
   {
     "entity":
     {
-      "name": "ParedExteriorParte2C"
-      ,
-      "transform":
-      {
-        "pos": "18.5739 51.75 -18.992"
-        ,
-        "rotation": "0.0 0.85294 0.0 -0.52201"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedExteriorParte2C.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "ParedExteriorParte2B"
       ,
       "transform":
       {
-        "pos": "29.7477 38.25 7.97215"
+        "pos": "29.7477 27.0 7.97216"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -542,7 +655,7 @@
       ,
       "transform":
       {
-        "pos": "17.3246 31.5 -19.6303"
+        "pos": "27.3296 31.5 -13.8913"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -2131,7 +2244,7 @@
       ,
       "transform":
       {
-        "pos": "8.2301 40.5 25.3358"
+        "pos": "-5.03498 40.5 31.9735"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }

@@ -12,6 +12,7 @@ using namespace FMOD;
 
 void TCompSound::load(const json& j, TEntityParseContext& ctx) {
 	for (auto& event : j["events"]) {
+        Sound sound;
 		Studio::EventDescription* event_description= NULL;
         std::string event_src = event["src"].get<std::string>();
         std::string event_name = event["name"].get<std::string>();
@@ -20,40 +21,45 @@ void TCompSound::load(const json& j, TEntityParseContext& ctx) {
 		Studio::EventInstance* event_instance = NULL;
         res = event_description->createInstance(&event_instance);
         assert(res == FMOD_OK);
-        positional = event.value("positional", false); 
-        event_description->is3D(&positional);
+        sound.positional = event.value("positional", false); 
+        event_description->is3D(&sound.positional);
 
-        eventInstance = event_instance;
-        eventDescriptor = event_description;
+        sound.eventInstance = event_instance;
+        sound.eventDescriptor = event_description;
         
-        multiInstancing = event.value("multi_instancing", false);
-        stopFadeOut = event.value("stop_fade_out", false);
-        onStart = event.value("on_start", false);
+        sound.stopFadeOut = event.value("stop_fade_out", false);
+        sound.onStart = event.value("on_start", false);
+        events.insert(std::make_pair(event_name, sound));
 	}	
 }
 
 void TCompSound::update(float dt) {
     TCompTransform* transform = get<TCompTransform>();	
-	if (positional) {
-		FMOD_3D_ATTRIBUTES attributes = toFMODAttributes(*transform);
-		eventInstance->set3DAttributes(&attributes);
-	}
+    for (auto& p : events) {
+        auto& sound = p.second;
+        if (sound.positional) {
+            FMOD_3D_ATTRIBUTES attributes = toFMODAttributes(*transform);
+            sound.eventInstance->set3DAttributes(&attributes);
+        }
+    }
 }
 
 void TCompSound::debugInMenu() {
 }
 
 void TCompSound::playSound(std::string name) {
-    eventInstance->start();
-    events.insert(std::make_pair(name, eventInstance));
+    events[name].eventInstance->start();    
 }
 void TCompSound::stopSound(std::string name) {
-    events[name]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+    events[name].eventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
 }
 
 void TCompSound::onGroupCreated(const TMsgEntitiesGroupCreated& msg) {
-    if (onStart)
-        playSound("sound");
+    for (auto& p : events) {
+        auto& sound = p.second;
+        if (sound.onStart)
+            playSound(p.first);
+    }
 }
 
 FMOD_3D_ATTRIBUTES TCompSound::toFMODAttributes(CTransform t) {

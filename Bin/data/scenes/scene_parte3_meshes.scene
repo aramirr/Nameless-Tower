@@ -2,6 +2,177 @@
   {
     "entity":
     {
+      "name": "Bridge"
+      ,
+      "transform":
+      {
+        "pos": "26.5364 85.4058 -13.7206"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Bridge.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuenteMate.material"
+            ,
+            "data/materials/CuerdaMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedesExtraEscena03B"
+      ,
+      "transform":
+      {
+        "pos": "29.7771 65.25 -1.53461"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedesExtraEscena03B.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pared_Interior_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte3H"
+      ,
+      "transform":
+      {
+        "pos": "29.4913 60.75 6.27343"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte3H.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte3G"
+      ,
+      "transform":
+      {
+        "pos": "32.0767 72.0 0.166851"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte3G.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte3F"
+      ,
+      "transform":
+      {
+        "pos": "28.5493 103.5 -9.27346"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte3F.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pared_Lanzas"
+      ,
+      "transform":
+      {
+        "pos": "29.6896 65.25 4.69586"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Pared_Lanzas.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pared_Interior_Lanzas.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  
+  ,
+  {
+    "entity":
+    {
       "name": "Caldero_Colgado"
       ,
       "transform":
@@ -36,7 +207,7 @@
       ,
       "transform":
       {
-        "pos": "27.2918 71.6145 -14.6873"
+        "pos": "27.2949 71.5787 -14.6886"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -64,7 +235,7 @@
       ,
       "transform":
       {
-        "pos": "27.2918 71.6145 -14.6873"
+        "pos": "27.2933 71.6169 -14.6879"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -740,7 +911,7 @@
       ,
       "transform":
       {
-        "pos": "21.764 99.0 -4.50297"
+        "pos": "31.0322 90.0 3.40046"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -796,7 +967,7 @@
       ,
       "transform":
       {
-        "pos": "8.22982 72.0 25.3364"
+        "pos": "8.22982 69.75 25.3364"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -805,6 +976,34 @@
       [
         {
           "mesh": "data/meshes/ParedExteriorParte3A.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte3E"
+      ,
+      "transform":
+      {
+        "pos": "21.5397 56.25 -17.4765"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte3E.mesh"
           ,
           "materials":
           [
@@ -1550,7 +1749,7 @@
       ,
       "transform":
       {
-        "pos": "8.213 69.499 24.9031"
+        "pos": "8.15091 69.4825 24.8472"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -1701,7 +1900,7 @@
       ,
       "transform":
       {
-        "pos": "17.2846 69.876 7.7916"
+        "pos": "17.2846 69.876 7.79161"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -2035,11 +2234,39 @@
   {
     "entity":
     {
+      "name": "ParedExteriorParte3I"
+      ,
+      "transform":
+      {
+        "pos": "19.3873 99.0378 -10.2732"
+        ,
+        "rotation": "0.0 -0.983359 0.0 0.181672"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte3I.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "ParedesExtraEscena03"
       ,
       "transform":
       {
-        "pos": "18.2188 63.0 11.6046"
+        "pos": "9.2318 60.75 28.4207"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -2095,7 +2322,7 @@
       ,
       "transform":
       {
-        "pos": "29.4913 69.75 6.27346"
+        "pos": "29.6957 81.0 11.5879"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -2181,7 +2408,7 @@
       ,
       "transform":
       {
-        "pos": "24.9615 63.0502 13.0324"
+        "pos": "24.961 63.0502 13.0332"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -2881,7 +3108,7 @@
       ,
       "transform":
       {
-        "pos": "26.1299 77.2304 -6.5609"
+        "pos": "21.9927 78.095 -11.7213"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
