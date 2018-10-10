@@ -34,7 +34,8 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
     .set("disactivate_text", &LogicManager::disactivateText)
     .set("set_dir_light_intensity", &LogicManager::setDirLightIntensity)
     .set("set_point_light_intensity", &LogicManager::setPointLightIntensity)
-		.set("open_door", &LogicManager::openDoor)
+        .set("open_door", &LogicManager::openDoor)
+        .set("close_door", &LogicManager::closeDoor)
     .set("activate_anim", &LogicManager::activateAnim)
     .set("change_level", &LogicManager::changeGameState)
     .set("play_ambient_sound", &LogicManager::playAmbientSound)
@@ -45,6 +46,8 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("start_emiter", &LogicManager::startEmiter)
         .set("stop_emiter", &LogicManager::stopEmiter)
         .set("stop_sound", &LogicManager::stopSound)
+        .set("activate_torch", &LogicManager::activateTorch)
+        .set("scare_player", &LogicManager::scarePlayer)
 		;
 }
 

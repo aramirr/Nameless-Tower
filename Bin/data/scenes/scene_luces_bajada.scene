@@ -1,0 +1,425 @@
+[
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_012"
+      ,
+      "transform":
+      {
+        "pos": "13.681 88.142 -26.795"
+        ,
+        "rotation": "0.0 0.476187 0.0 -0.879344"
+      }
+      ,
+      "light_point_shadows": {
+        "intensity": 0,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "z_near" : 0.462,
+        "z_far" : 3.800,
+        "shadows_step" : 0.0,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none",
+        "has_culling": true
+      },
+        "culling":{},
+      "ai_torch":
+      {
+        "time_limit": 2, "violeta": true,
+        "intensity": 10,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "radius" : 3,
+        "scale" : 1.3,
+        "thin": true,
+        "y_offset": 0.15,
+        "z_offset": 0.1,
+        "x_offset": -0.1
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_011"
+      ,
+      "transform":
+      {
+        "pos": "21.359 88.189 -21.245"
+        ,
+        "rotation": "0.0 0.604705 0.0 -0.796449"
+      }
+      ,
+      "light_point_shadows": {
+        "intensity": 0,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "z_near" : 0.462,
+        "z_far" : 3.800,
+        "shadows_step" : 0.0,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none",
+        "has_culling": true
+      },
+        "culling":{},
+      "ai_torch":
+      {
+        "time_limit": 2, "violeta": true,
+        "intensity": 10,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "radius" : 3,
+        "scale" : 1.3,
+        "thin": true,
+        "y_offset": 0.10,
+        "z_offset": 0.05,
+        "x_offset": -0.3
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_010"
+      ,
+      "transform":
+      {
+        "pos": "11.569 65.705 22.717"
+        ,
+        "rotation": "0.0 -0.986442 0.0 0.164108"
+      }
+      ,
+      "light_point_shadows": {
+        "intensity": 0,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "z_near" : 0.462,
+        "z_far" : 3.800,
+        "shadows_step" : 0.620,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none",
+        "has_culling": true
+      },
+        "culling":{},
+      "ai_torch":
+      {
+        "time_limit": 2, "violeta": true,
+        "intensity": 10,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "radius" : 3,
+        "scale" : 1.7,
+        "thin": true,
+        "y_offset": -0.5
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_08"
+      ,
+      "transform":
+      {
+        "pos": "12.335 34.254 27.574"
+        ,
+        "rotation": "0.0 -0.998607 0.0 -0.0527577"
+      }
+      ,
+      "light_point_shadows": {
+        "intensity": 0,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "z_near" : 0.462,
+        "z_far" : 3.100,
+        "shadows_step" : 0.620,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none",
+        "has_culling": true
+      },
+        "culling":{},
+      "ai_torch":
+      {
+        "time_limit": 2, "violeta": true,
+        "intensity": 10,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "radius" : 3,
+        "scale" : 1.3,
+        "thin": true,
+        "y_offset": -0.05,
+        "z_offset": -0.25,
+        "x_offset": -0.2
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_07"
+      ,
+      "transform":
+      {
+        "pos": "23.967 69.386 10.243"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "light_point_shadows": {
+        "intensity": 0,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "z_near" : 0.462,
+        "z_far" : 7.100,
+        "shadows_step" : 0.620,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none",
+        "has_culling": true
+      },
+        "culling":{},
+      "ai_torch":
+      {
+        "time_limit": 2, "violeta": true,
+        "intensity": 10,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "radius" : 3,
+        "scale" : 3,
+        "thin": false,
+        "y_offset": -1.5,
+        "x_offset": -1,
+        "z_offset": 0.0
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_06"
+      ,
+      "transform":
+      {
+        "pos": "27.730 34.359 -12.392"
+        ,
+        "rotation": "0.0 0.743212 0.0 -0.669056"
+      }
+      ,
+     "light_point_shadows": {
+        "intensity": 0,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "z_near" : 0.462,
+        "z_far" : 2.5,
+        "shadows_step" : 0.620,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none",
+        "has_culling": true
+      },
+        "culling":{},
+      "ai_torch":
+      {
+        "time_limit": 2, "violeta": true,
+        "intensity": 10,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "radius" : 3,
+        "scale" : 1.3,
+        "thin": true,
+        "y_offset": -0.14,
+        "z_offset": 0.25,
+        "x_offset": -0.4
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_05"
+      ,
+      "transform":
+      {
+        "pos": "22.578 34.493 -20.317"
+        ,
+        "rotation": "0.0 0.630201 0.0 -0.776432"
+      }
+      ,
+      "light_point_shadows": {
+        "intensity": 0,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "z_near" : 0.462,
+        "z_far" : 2.5,
+        "shadows_step" : 0.620,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none",
+        "has_culling": true
+      },
+        "culling":{},
+      "ai_torch":
+      {
+        "time_limit": 2, "violeta": true,
+        "intensity": 10,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "radius" : 3,
+        "scale" : 1.3,
+        "thin": true,
+        "y_offset": -0.14,
+        "z_offset": 0.35,
+        "x_offset": -0.35
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_04"
+      ,
+      "transform":
+      {
+        "pos": "15.225 34.283 -26.366"
+        ,
+        "rotation": "0.0 0.500366 0.0 -0.865814"
+      }
+      ,
+      "light_point_shadows": {
+        "intensity": 0,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "z_near" : 0.462,
+        "z_far" : 2.5,
+        "shadows_step" : 0.620,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none",
+        "has_culling": true
+      },
+        "culling":{},
+      "ai_torch":
+      {
+        "time_limit": 2, "violeta": true,
+        "intensity": 10,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "radius" : 3,
+        "scale" : 1.3,
+        "thin": true,
+        "y_offset": 0.02,
+        "z_offset": 0.5,
+        "x_offset": -0.25
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_03"
+      ,
+      "transform":
+      {
+        "pos": "6.249 34.307 -29.618"
+        ,
+        "rotation": "0.0 0.358209 0.0 -0.933641"
+      }
+      ,
+      "light_point_shadows": {
+        "intensity": 0,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "z_near" : 0.462,
+        "z_far" : 2.5,
+        "shadows_step" : 0.620,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none",
+        "has_culling": true
+      },
+        "culling":{},
+      "ai_torch":
+      {
+        "time_limit": 2, "violeta": true,
+        "intensity": 10,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "radius" : 3,
+        "scale" : 1.3,
+        "thin": true,
+        "y_offset": -0.05,
+        "z_offset": 0.3,
+        "x_offset": -0.05
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Luces_Fuego_02"
+      ,
+      "transform":
+      {
+        "pos": "-15.030 29.240 -26.084"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+       "light_point_shadows": {
+        "intensity": 0,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "z_near" : 0.233,
+        "z_far" : 2.900,
+        "shadows_step" : 0.620,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none",
+        "has_culling": true
+      },
+        "culling":{},
+      "ai_torch":
+      {
+        "time_limit": 2, "violeta": true,
+        "intensity": 10,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "radius" : 3,
+        "scale" : 1.4,
+        "thin": true,
+        "y_offset": 0.5,
+        "z_offset": 0.18,
+        "x_offset": 0.08
+      }
+    }
+    }  ,
+    {
+    "entity":
+    {
+      "name": "Luces_Fuego_01"
+      ,
+      "transform":
+      {
+        "pos": "-18.680 26.740 -16.684"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+       "light_point_shadows": {
+        "intensity": 0,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "z_near" : 0.233,
+        "z_far" : 4.200,
+        "shadows_step" : 0.620,
+        "shadows_resolution" : 256,
+        "shadows_fmt" : "R32_TYPELESS",
+        "color_fmt" : "none",
+        "has_culling": true
+      },
+        "culling":{},
+      "ai_torch":
+      {
+        "time_limit": 2, "violeta": true,
+        "intensity": 10,
+        "color" :  "0.051 0.0509804 1 1.0",
+        "radius" : 3,
+        "scale" : 1.7,
+        "thin": true,
+        "y_offset": -0.5
+      }
+    }
+  }
+]

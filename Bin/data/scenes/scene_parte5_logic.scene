@@ -2,32 +2,13 @@
   {
     "entity":
     {
+<<<<<<< HEAD
       "name": "ParedTapada10B"
       ,
       "transform":
       {
         "pos": "20.0687 67.5 12.736"
-        ,
-        "rotation": "0.0 0.0267501 0.0 -0.999642"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedTapada10B.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
+=======
       "name": "DestruiblePuente2_Pre"
       ,
       "transform":
@@ -72,6 +53,7 @@
       "transform":
       {
         "pos": "28.9519 84.5468 -11.2486"
+>>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -106,6 +88,117 @@
   {
     "entity":
     {
+<<<<<<< HEAD
+      "name": "DestruiblePuente2_Pre"
+      ,
+      "transform":
+      {
+        "pos": "26.115 84.5944 -17.2624"
+=======
+      "name": "DestruiblePuente2_Post_Fijo"
+      ,
+      "transform":
+      {
+        "pos": "25.4169 84.6111 -17.3872"
+>>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+<<<<<<< HEAD
+          "mesh": "data/meshes/DestruiblePuente2_Pre.mesh"
+=======
+          "mesh": "data/meshes/DestruiblePuente2_Post_Fijo.mesh"
+>>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+<<<<<<< HEAD
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.57994 0.199509 1.73674"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+=======
+      "abs_aabb": true
+>>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+<<<<<<< HEAD
+      "name": "DestruiblePuente1_Pre"
+      ,
+      "transform":
+      {
+        "pos": "28.9519 84.5468 -11.2486"
+=======
+      "name": "DestruiblePuente1_Post_Fijo"
+      ,
+      "transform":
+      {
+        "pos": "28.9519 84.5368 -11.1163"
+>>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+<<<<<<< HEAD
+          "mesh": "data/meshes/DestruiblePuente1_Pre.mesh"
+=======
+          "mesh": "data/meshes/DestruiblePuente1_Post_Fijo.mesh"
+>>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+<<<<<<< HEAD
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.46312 0.203442 1.66755"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+=======
+      "abs_aabb": true
+>>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+<<<<<<< HEAD
       "name": "DestruiblePuente2_Post_Fijo"
       ,
       "transform":
@@ -113,10 +206,20 @@
         "pos": "25.4169 84.6111 -17.3872"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
+=======
+      "name": "AguaMuerte"
+      ,
+      "transform":
+      {
+        "pos": "27.2495 59.9889 -13.8358"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+>>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
       }
       ,
       "render":
       [
+<<<<<<< HEAD
         {
           "mesh": "data/meshes/DestruiblePuente2_Post_Fijo.mesh"
           ,
@@ -128,12 +231,41 @@
       ]
       ,
       "abs_aabb": true
+=======
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.98433 1.48889 8.40013"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+>>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
     }
   }
   ,
   {
     "entity":
     {
+<<<<<<< HEAD
       "name": "DestruiblePuente1_Post_Fijo"
       ,
       "transform":
@@ -141,11 +273,21 @@
         "pos": "28.9519 84.5368 -11.1163"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
+=======
+      "name": "ParedTapada10B"
+      ,
+      "transform":
+      {
+        "pos": "19.5038 67.5 19.5272"
+        ,
+        "rotation": "0.0 0.0267501 0.0 -0.999642"
+>>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
       }
       ,
       "render":
       [
         {
+<<<<<<< HEAD
           "mesh": "data/meshes/DestruiblePuente1_Post_Fijo.mesh"
           ,
           "materials":
@@ -199,6 +341,16 @@
         ,
         "is_trigger": true
       }
+=======
+          "mesh": "data/meshes/ParedTapada10B.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+>>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
     }
   }
   ,
@@ -284,11 +436,19 @@
       "ai_linear_patrol":
       {
         "speed": 1.75
+<<<<<<< HEAD
         ,
         "delay": 0.25
         ,
         "wake": 0.8
         ,
+=======
+        ,
+        "delay": 0.25
+        ,
+        "wake": 0.8
+        ,
+>>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
         "waypoints":
         [
           "20.9289 72.5625 -23.1527"
@@ -339,11 +499,19 @@
       "ai_linear_patrol":
       {
         "speed": 1.5
+<<<<<<< HEAD
         ,
         "delay": 0.5
         ,
         "wake": 0.0
         ,
+=======
+        ,
+        "delay": 0.5
+        ,
+        "wake": 0.0
+        ,
+>>>>>>> ea61663a1e67e436f3de48bbadae90246a4ebfb3
         "waypoints":
         [
           "17.0543 68.0578 -26.1431"

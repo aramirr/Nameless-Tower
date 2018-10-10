@@ -40,34 +40,56 @@ end
 
 function OnWindstrikeActivateTDWindstrike()
 	lm:open_door("Puerta_Abatible_Madera_01")
+	lm:play_sound(false, "puerta_madera")
+	lm:play_sound(true, "puerta_madera")
 end
 
 function OnWindstrikeActivateTDEscaleras2()
 	lm:open_door("Puerta_Abatible_Madera_003")
+	lm:play_sound(false, "puerta_madera")
+	lm:play_sound(true, "puerta_madera")
 end
 
 function OnWindstrikeActivateTDTechos()
 	lm:open_door("Puerta_Abatible_Madera_002")
+	lm:play_sound(false, "puerta_madera")
+	lm:play_sound(true, "puerta_madera")
 end
 
 function OnWindstrikeActivateTAPuertasPrimera()
 	lm:open_door("Puerta_Reja_01")
 	lm:activate_anim("Activador_Movil03")
+	lm:play_sound(false, "activador_movil")
+	lm:play_sound(true, "activador_movil")
+	lm:play_sound(false, "puerta_reja")
+	lm:play_sound(true, "puerta_reja")
 end
 
 function OnWindstrikeActivateTAPuertasAbajo()
 	lm:open_door("Puerta_Reja_005")
 	lm:activate_anim("Activador_Movil02")
+	lm:play_sound(false, "activador_movil")
+	lm:play_sound(true, "activador_movil")
+	lm:play_sound(false, "puerta_reja")
+	lm:play_sound(true, "puerta_reja")
 end
 
 function OnWindstrikeActivateTAPuertasArriba()
 	lm:open_door("Puerta_Reja_04")
 	lm:activate_anim("Activador_Movil04")
+	lm:play_sound(false, "activador_movil")
+	lm:play_sound(true, "activador_movil")
+	lm:play_sound(false, "puerta_reja")
+	lm:play_sound(true, "puerta_reja")
 end
 
 function OnWindstrikeActivateTARunner()
 	lm:open_door("Puerta_Reja_02")
 	lm:activate_anim("Activador_Movil01")
+	lm:play_sound(false, "activador_movil")
+	lm:play_sound(true, "activador_movil")
+	lm:play_sound(false, "puerta_reja")
+	lm:play_sound(true, "puerta_reja")
 end
 
 
@@ -605,6 +627,15 @@ function OnTriggerExitTSJardinRunner()
 	lm:set_point_light_intensity("Luces_Fuego_09", 10, false)
 	lm:set_point_light_intensity("Luces_Fuego_010", 10, false)
 	lm:stop_emiter("hojas_jardin_2", false)
+end
+
+-- Puzzle antorchas
+function OnTriggerExitTSRejaAntorchas()
+	lm:activate_torch("TFAntorcha1")
+	lm:activate_torch("TFAntorcha02")
+	lm:activate_torch("TFAntorcha03")
+	lm:close_door("Puerta_Reja_02")
+	lm:scare_player()
 end
 
 function OnTriggerExitTSRunnerLava()

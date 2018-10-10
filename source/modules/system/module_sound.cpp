@@ -35,14 +35,16 @@ bool CModuleSound::start()
     // Carga eventos
     auto j = loadJson("data/fmod/sounds.json");
     for (auto& event : j["events"]) {
-        Studio::EventDescription* event_description = NULL;
+        Sound sound;
+        sound.eventDescriptor = NULL;
         std::string event_src = event["src"].get<std::string>();
         std::string event_name = event["name"].get<std::string>();
-        EngineSound.res = EngineSound.system->getEvent(event_src.c_str(), &event_description);
-
-        Studio::EventInstance* event_instance = NULL;
-        EngineSound.res = event_description->createInstance(&event_instance);
-        events.insert(std::make_pair(event_name, event_instance));
+        EngineSound.res = EngineSound.system->getEvent(event_src.c_str(), &sound.eventDescriptor);
+        sound.positional = event.value("positional", false);
+        sound.onStart = event.value("on_start", false);
+        sound.eventInstance = NULL;
+        EngineSound.res = sound.eventDescriptor->createInstance(&sound.eventInstance);
+        events.insert(std::make_pair(event_name, sound));
         assert(res == FMOD_OK);
     }
   return true;
@@ -82,11 +84,11 @@ void CModuleSound::updateListenerAttributes() {
 }
 
 void CModuleSound::emitEvent(const std::string& sound) {
-    events[sound]->start();
+    events[sound].eventInstance->start();
 }
 
 void CModuleSound::stopEvent(const std::string& sound) {
-    events[sound]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+    events[sound].eventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
 }
 
 FMOD::Studio::System* CModuleSound::getSystem() {
@@ -110,11 +112,11 @@ FMOD_VECTOR CModuleSound::toFMODVector(VEC3 v) {
 }
 
 void CModuleSound::playInterior() {
-    events["ambient"]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
-    events["interior"]->start();
+    events["ambient"].eventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+    events["interior"].eventInstance->start();
 }
 
 void CModuleSound::playAmbient() {
-    events["interior"]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
-    events["ambient"]->start();
+    events["interior"].eventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+    events["ambient"].eventInstance->start();
 }
