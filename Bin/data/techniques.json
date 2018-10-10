@@ -201,10 +201,10 @@
   "catarata": {
     "vs_file": "data/shaders/pbr.fx",
     "ps_file": "data/shaders/pbr.fx",
-    "vs_entry_point": "VS_GBuffer_Catarata",
+    "vs_entry_point": "VS_GBuffer_Catarata_Base",
     "ps_entry_point": "PS_GBuffer_Catarata",
     "vertex_type": "PosNUvUvT",
-    "category": "gbuffer",
+    "category": "alpha",
     "textures": {
       "noise": "data/textures/noise_cloud3.dds"
     }

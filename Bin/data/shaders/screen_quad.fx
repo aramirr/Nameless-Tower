@@ -23,6 +23,8 @@ float4 PS(
   VS_FULL_OUTPUT input
   ) : SV_Target
 {
+  float4 self_illum = txSelfIllum.Load(uint3(input.Pos.xy, 0));
   float4 oDiffuse = txAlbedo.Sample(samLinear, input.UV);
-  return oDiffuse;
+    float4 final_color = oDiffuse + float4(self_illum.xyz, 1) * 0.1;
+    return oDiffuse;
 }
