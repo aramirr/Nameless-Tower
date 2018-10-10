@@ -73,42 +73,13 @@
   {
     "entity":
     {
-      "name": "PlantasColliders"
-      ,
-      "transform":
-      {
-        "pos": "8.08905 6.07159 -29.9099"
-        ,
-        "rotation": "0.0522004 -0.322547 0.107199 -0.939014"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "tri_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/PlantasColliders.col_mesh"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "TPAves"
       ,
       "transform":
       {
-        "pos": "-4.04421 5.70169 -31.0725"
+        "pos": "3.23904 5.70169 -30.9285"
         ,
-        "rotation": "0.0 -0.0531861 0.0 -0.998585"
+        "rotation": "0.0 0.0428576 0.0 -0.999081"
       }
       ,
       "render":
@@ -304,8 +275,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "group": "scenario"
       }
     }
   }
@@ -346,8 +315,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "group": "scenario"
       }
     }
   }
@@ -388,8 +355,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "group": "scenario"
       }
     }
   }

@@ -2,23 +2,23 @@
   {
     "entity":
     {
-      "name": "Plataforma_008"
+      "name": "ParedExteriorParte2H"
       ,
       "transform":
       {
-        "pos": "20.5302 40.9886 22.7598"
+        "pos": "13.2624 27.0 26.1101"
         ,
-        "rotation": "0.0 -0.837813 0.0 -0.545957"
+        "rotation": "0.0 0.85294 0.0 -0.52201"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Plataforma_008.mesh"
+          "mesh": "data/meshes/ParedExteriorParte2H.mesh"
           ,
           "materials":
           [
-            "data/materials/MaderaMusgoMat.material"
+            "data/materials/ParedModelo.material"
           ]
         }
       ]
@@ -30,11 +30,350 @@
   {
     "entity":
     {
+      "name": "ParedExteriorParte2G"
+      ,
+      "transform":
+      {
+        "pos": "16.8732 47.25 25.6192"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte2G.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte2C"
+      ,
+      "transform":
+      {
+        "pos": "28.4403 49.5 -12.903"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte2C.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte2F"
+      ,
+      "transform":
+      {
+        "pos": "29.7477 51.75 7.97215"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte2F.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte2E"
+      ,
+      "transform":
+      {
+        "pos": "11.3804 31.5 -29.0378"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte2E.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedDestapada3"
+      ,
+      "transform":
+      {
+        "pos": "13.5129 51.75 29.5675"
+        ,
+        "rotation": "0.0 -0.649012 0.0 -0.760778"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada3.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedDestapada2"
+      ,
+      "transform":
+      {
+        "pos": "31.8584 45.0 -6.50055"
+        ,
+        "rotation": "0.0 -0.72498 0.0 -0.68877"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada2.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+   
+  {
+    "entity":
+    {
+      "name": "ParedDestapada7"
+      ,
+      "transform":
+      {
+        "pos": "18.2971 31.5 -18.5547"
+        ,
+        "rotation": "0.0 -0.98315 0.0 -0.182799"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada7.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla008"
+      ,
+      "transform":
+      {
+        "pos": "18.8627 42.6949 21.1954"
+        ,
+        "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla008.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla007"
+      ,
+      "transform":
+      {
+        "pos": "19.8809 42.6949 22.1926"
+        ,
+        "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla007.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla006"
+      ,
+      "transform":
+      {
+        "pos": "27.6234 42.6949 2.92974"
+        ,
+        "rotation": "-0.480162 -0.519081 -0.519081 0.480162"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla006.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla005"
+      ,
+      "transform":
+      {
+        "pos": "29.5517 42.6949 3.19308"
+        ,
+        "rotation": "-0.480162 -0.519081 -0.519081 0.480162"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla005.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Plataforma_008"
+      ,
+      "transform":
+      {
+        "pos": "20.5273 40.9886 22.7533"
+        ,
+        "rotation": "0.0 -0.837813 0.0 -0.545957"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plataforma_008.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaPlataformasMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Plataforma_007"
       ,
       "transform":
       {
-        "pos": "30.3201 40.8337 2.75437"
+        "pos": "30.2184 40.8337 2.95644"
         ,
         "rotation": "0.0 -0.99013 0.0 -0.14015"
       }
@@ -46,12 +385,14 @@
           ,
           "materials":
           [
-            "data/materials/MaderaMate.material"
+            "data/materials/MaderaMusgoMat.material"
           ]
         }
       ]
       ,
       "abs_aabb": true
+      ,
+      "local_aabb": true
     }
   }
   ,
@@ -282,39 +623,11 @@
   {
     "entity":
     {
-      "name": "ParedExteriorParte2C"
-      ,
-      "transform":
-      {
-        "pos": "18.5739 51.75 -18.992"
-        ,
-        "rotation": "0.0 0.85294 0.0 -0.52201"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedExteriorParte2C.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "ParedExteriorParte2B"
       ,
       "transform":
       {
-        "pos": "29.7477 38.25 7.97215"
+        "pos": "29.7477 27.0 7.97216"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -342,7 +655,7 @@
       ,
       "transform":
       {
-        "pos": "17.3246 31.5 -19.6303"
+        "pos": "27.3296 31.5 -13.8913"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -1729,286 +2042,6 @@
   {
     "entity":
     {
-      "name": "AguaEstanqueCaida_Flujo"
-      ,
-      "transform":
-      {
-        "pos": "21.1441 58.3654 19.4638"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/AguaEstanqueCaida_Flujo.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EspumaCascada.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "AguaEstanque_Flujo"
-      ,
-      "transform":
-      {
-        "pos": "21.1288 59.9076 19.4195"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/AguaEstanque_Flujo.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EspumaCascada.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "AguaEstanqueCaida_Caustica"
-      ,
-      "transform":
-      {
-        "pos": "21.3106 59.1619 19.2058"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/AguaEstanqueCaida_Caustica.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CascadaCausticaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "AguaEstanqueCaida"
-      ,
-      "transform":
-      {
-        "pos": "21.3109 59.1606 19.2054"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/AguaEstanqueCaida.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CascadaAguaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "RioCaida_Caustica"
-      ,
-      "transform":
-      {
-        "pos": "-18.6896 23.8154 -21.6694"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RioCaida_Caustica.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CascadaCausticaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "RioPila_Caustica"
-      ,
-      "transform":
-      {
-        "pos": "-18.0923 25.5689 -22.2515"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RioPila_Caustica.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CascadaCausticaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "RioCaida_Espuma"
-      ,
-      "transform":
-      {
-        "pos": "-18.8746 22.3108 -21.5411"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RioCaida_Espuma.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EspumaCascada.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Rio_Flujo"
-      ,
-      "transform":
-      {
-        "pos": "-18.6391 25.4345 -21.7431"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Rio_Flujo.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EspumaCascada.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "RioPilate"
-      ,
-      "transform":
-      {
-        "pos": "-18.0923 25.5664 -22.2515"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RioPilate.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CascadaAguaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "RioCaida_Agua"
-      ,
-      "transform":
-      {
-        "pos": "-18.6895 23.8144 -21.6695"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RioCaida_Agua.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CascadaAguaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Techo_parte2_A"
       ,
       "transform":
@@ -2155,7 +2188,7 @@
       ,
       "transform":
       {
-        "pos": "8.2301 40.5 25.3358"
+        "pos": "-5.03498 40.5 31.9735"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }

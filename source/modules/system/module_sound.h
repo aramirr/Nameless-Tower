@@ -10,6 +10,14 @@ using namespace FMOD;
 class CModuleSound : public IModule
 {
 public:
+    struct Sound {
+        FMOD::Studio::EventDescription* eventDescriptor = nullptr;
+        FMOD::Studio::EventInstance* eventInstance;
+        bool stopFadeOut = false;
+        bool positional = false;
+        bool onStart = false;
+    };
+
 	CModuleSound(const std::string& name);
     bool start() override;
     bool stop() override;
@@ -17,7 +25,7 @@ public:
 
 	FMOD_RESULT res;
 	Studio::System* system = NULL;
-    std::map<std::string, Studio::EventInstance*> events;
+    std::map<std::string, Sound> events;
     FMOD::Studio::System* getSystem();
     void stopEvent(FMOD::Studio::EventInstance * instance, bool fadeout = false);
     void playInterior();

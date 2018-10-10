@@ -188,7 +188,8 @@
     <ClCompile Include="components\lights\comp_light_point_shadows.cpp" />
     <ClCompile Include="gui\controllers\gui_pause_menu_controller.cpp" />
     <ClCompile Include="components\controllers\bone_anchor.cpp" />
-    <ClCompile Include="components\comp_render_windstrike.cpp" />
+    <ClCompile Include="components\controllers\comp_render_windstrike.cpp" />
+    <ClCompile Include="fsm\player_states\scared_state.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera\camera.h" />
@@ -438,7 +439,8 @@
     <ClInclude Include="components\lights\comp_light_point_shadows.h" />
     <ClInclude Include="gui\controllers\gui_pause_menu_controller.h" />
     <ClInclude Include="components\controllers\bone_anchor.h" />
-    <ClInclude Include="components\comp_render_windstrike.h" />
+    <ClInclude Include="components\controllers\comp_render_windstrike.h" />
+    <ClInclude Include="fsm\player_states\scared_state.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />

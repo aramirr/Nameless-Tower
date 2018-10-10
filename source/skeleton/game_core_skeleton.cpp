@@ -17,7 +17,6 @@ public:
     extensions = { ".skeleton" };
   }
   IResource* create(const std::string& name) const override {
-    dbg("Creating skelton resource %s\n", name.c_str());
     CGameCoreSkeleton* res = new CGameCoreSkeleton(name);
     bool is_ok = res->create(name);
 	if (!is_ok) {

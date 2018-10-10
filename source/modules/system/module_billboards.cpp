@@ -32,8 +32,16 @@ bool CModuleBillboards::start()
 	    fire_particles_instances_mesh = (CRenderMeshInstanced*)rmesh;
     }
     {
+        auto rmesh = Resources.get("data/meshes/particles_15_violeta.instanced_mesh")->as<CRenderMesh>();
+        fire_particles_violeta_instances_mesh = (CRenderMeshInstanced*)rmesh;
+    }
+    {
         auto rmesh = Resources.get("data/meshes/particles_thin_15.instanced_mesh")->as<CRenderMesh>();
         thin_fire_particles_instances_mesh = (CRenderMeshInstanced*)rmesh;
+    }
+    {
+        auto rmesh = Resources.get("data/meshes/particles_thin_15_violeta.instanced_mesh")->as<CRenderMesh>();
+        thin_fire_violeta_particles_instances_mesh = (CRenderMeshInstanced*)rmesh;
     }
     {
         auto rmesh = Resources.get("data/meshes/particles_thin_14.instanced_mesh")->as<CRenderMesh>();
@@ -102,6 +110,26 @@ void CModuleBillboards::encenderFuego(int id, float scale, bool thin) {
 	
 }
 
+void CModuleBillboards::encenderFuegoVioleta(int id, float scale, bool thin) {
+    if (thin) {
+        for (int i = 0; i < thin_fire_violeta_particles_instances.size(); ++i) {
+            if (thin_fire_violeta_particles_ids[i] == id) {
+                thin_fire_violeta_particles_instances[i].scale_x = scale;
+                thin_fire_violeta_particles_instances[i].scale_y = scale;
+            }
+        }
+    }
+    else {
+        for (int i = 0; i < fire_violeta_particles_instances.size(); ++i) {
+            if (fire_violeta_particles_ids[i] == id) {
+                fire_violeta_particles_instances[i].scale_x = scale;
+                fire_violeta_particles_instances[i].scale_y = scale;
+            }
+        }
+    }
+
+}
+
 int CModuleBillboards::addFuegoTest(VEC3 position, float scale, bool thin) {
 	int fire_new_id = fuego_max_id;
 	++fuego_max_id;
@@ -143,6 +171,42 @@ int CModuleBillboards::addFuegoTest(VEC3 position, float scale, bool thin) {
 	return fire_new_id;
 }
 
+int CModuleBillboards::addFuegoVioleta(VEC3 position, float scale, bool thin) {
+    int fire_new_id = fuego_max_id;
+    ++fuego_max_id;
+    TRenderParticle new_instance;
+    //new_instance.id = new_id;
+    new_instance.scale_x = scale;
+    new_instance.scale_y = new_instance.scale_x;
+    new_instance.pos = position;
+    new_instance.nframe = randomFloat(0.f, 16.f);
+    new_instance.angle = deg2rad(randomFloat(0, 360));
+    new_instance.color.x = unitRandom();
+    new_instance.color.y = unitRandom();
+    new_instance.color.z = 1 - new_instance.color.x - new_instance.color.y;
+    new_instance.color.w = 1;
+    TRenderParticle smoke_instance;
+    //new_instance.id = new_id;
+    smoke_instance.scale_x = 0.f;
+    smoke_instance.scale_y = smoke_instance.scale_x;
+    smoke_instance.pos = position;
+    smoke_instance.nframe = randomFloat(0.f, 16.f);
+    smoke_instance.angle = deg2rad(randomFloat(0, 360));
+    smoke_instance.color.x = unitRandom();
+    smoke_instance.color.y = unitRandom();
+    smoke_instance.color.z = 1 - smoke_instance.color.x - smoke_instance.color.y;
+    smoke_instance.color.w = 1;
+    if (thin) {
+        thin_fire_violeta_particles_instances.push_back(new_instance);
+        thin_fire_violeta_particles_ids.push_back(fire_new_id);
+    }
+    else {
+        fire_violeta_particles_instances.push_back(new_instance);
+        fire_violeta_particles_ids.push_back(fire_new_id);
+    }
+
+    return fire_new_id;
+}
 
 int CModuleBillboards::addWindstrike(VEC3 position) {
 	int new_id = windstrike_max_id;
@@ -182,7 +246,6 @@ void CModuleBillboards::deleteWindstrike(int id) {
 	}
 }
 
-
 void CModuleBillboards::addGrass(VEC3 position, float width, float length, int total) {
 	for (int i = 0; i < total; ++i) {
 		TGrassParticle new_instance;
@@ -221,8 +284,6 @@ void CModuleBillboards::addGrassByAngle(VEC3 pos1, VEC3 pos2, int total, float r
   }
   grass_instances_mesh->setInstancesData(grass_instances.data(), grass_instances.size(), sizeof(TGrassParticle));
 }
-
-
 
 void CModuleBillboards::update(float delta)
 {
@@ -375,16 +436,21 @@ void CModuleBillboards::update(float delta)
   t += delta;
   for (auto& p : instances) 
     p.world = p.world * MAT44::CreateTranslation(VEC3(0, 0.1f * sin(t), 0));
-  instances_mesh->setInstancesData(instances.data(), instances.size(), sizeof(TInstance));
+    instances_mesh->setInstancesData(instances.data(), instances.size(), sizeof(TInstance));
 
-  blood_instances_mesh->setInstancesData(blood_instances.data(), blood_instances.size(), sizeof(TInstanceBlood));
-  
-	particles_instances_mesh->setInstancesData(particles_instances.data(), particles_instances.size(), sizeof(TRenderParticle));
+    blood_instances_mesh->setInstancesData(blood_instances.data(), blood_instances.size(), sizeof(TInstanceBlood));  
+    particles_instances_mesh->setInstancesData(particles_instances.data(), particles_instances.size(), sizeof(TRenderParticle));
     fire_particles_instances_mesh->setInstancesData(fire_particles_instances.data(), fire_particles_instances.size(), sizeof(TRenderParticle));
+    fire_particles_violeta_instances_mesh->setInstancesData(fire_violeta_particles_instances.data(), fire_violeta_particles_instances.size(), sizeof(TRenderParticle));
     thin_fire_particles_instances_mesh->setInstancesData(thin_fire_particles_instances.data(), thin_fire_particles_instances.size(), sizeof(TRenderParticle));
+    thin_fire_violeta_particles_instances_mesh->setInstancesData(thin_fire_violeta_particles_instances.data(), thin_fire_violeta_particles_instances.size(), sizeof(TRenderParticle));
     smoke_particles_instances_mesh->setInstancesData(smoke_particles_instances.data(), smoke_particles_instances.size(), sizeof(TRenderParticle));
     thin_smoke_particles_instances_mesh->setInstancesData(thin_smoke_particles_instances.data(), thin_smoke_particles_instances.size(), sizeof(TRenderParticle));
+    windstrike_instances_mesh->setInstancesData(windstrike_instances.data(), windstrike_instances.size(), sizeof(TWindstrikeParticle));
 
-  windstrike_instances_mesh->setInstancesData(windstrike_instances.data(), windstrike_instances.size(), sizeof(TWindstrikeParticle));
+}
 
+void CModuleBillboards::clearFire() {
+    fire_particles_instances.clear();
+    thin_fire_particles_instances.clear();
 }

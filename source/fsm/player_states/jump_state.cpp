@@ -76,7 +76,6 @@ namespace FSM
 			}
 			else {				
 				VEC3 delta_move = new_pos - my_pos;
-				dbg("%f\n", delta_move.y);
 				PxShape* player_shape;
 				comp_collider->controller->getActor()->getShapes(&player_shape, 1);
 				PxFilterData filter_data = player_shape->getSimulationFilterData();
@@ -91,6 +90,7 @@ namespace FSM
 				else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 					// Cambio a idle
 					ctx.setVariable("is_grounded", true);
+                    player->change_animation(player->EAnimations::NajaJumpLand, true, 0.01, 0.1, false);
 				}
 			}
 		}			
@@ -151,8 +151,7 @@ namespace FSM
 	void JumpState::onFinish(CContext& ctx) const {	
 		ctx.setVariable("jump", false);
 		CEntity* e = ctx.getOwner();
-		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_animation(player->EAnimations::NajaJumpLand, true, 0.01, 0.1, false);  
+		TCompPlayerController* player = e->get<TCompPlayerController>();		
         player->previous_state = "jump";
 	}
 
