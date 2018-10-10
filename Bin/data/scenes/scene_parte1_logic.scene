@@ -87,6 +87,8 @@
         "trigger_type": "player_killer"
         ,
         "render": false
+        ,
+        "sound_name": "hit_sierras"
       }
       ,
       "collider":
@@ -192,6 +194,8 @@
         "trigger_type": "player_killer"
         ,
         "render": false
+        ,
+        "sound_name": "hit_sierras"
       }
       ,
       "collider":
@@ -297,6 +301,8 @@
         "trigger_type": "player_killer"
         ,
         "render": false
+        ,
+        "sound_name": "hit_sierras"
       }
       ,
       "collider":
@@ -321,7 +327,7 @@
       ,
       "transform":
       {
-        "pos": "-30.663 3.88301 -8.22896"
+        "pos": "-30.663 3.64821 -8.22896"
         ,
         "rotation": "0.0 -0.271197 0.0 -0.962524"
       }
@@ -348,6 +354,8 @@
         "trigger_type": "player_killer"
         ,
         "render": true
+        ,
+        "sound_name": "hit_pinchos"
       }
       ,
       "collider":
@@ -372,7 +380,7 @@
       ,
       "transform":
       {
-        "pos": "1.90735e-06 9.0 5.60272e-07"
+        "pos": "-22.3268 27.0 -20.0513"
         ,
         "rotation": "0.0 -0.99152 0.0 0.129958"
       }
@@ -398,7 +406,7 @@
       ,
       "transform":
       {
-        "pos": "1.90735e-06 4.5 7.56973e-07"
+        "pos": "-31.9735 24.75 -5.03496"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -477,16 +485,16 @@
       [
       ]
       ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
       "trigger":
       {
         "trigger_type": "player_killer"
         ,
         "render": false
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
       }
       ,
       "collider":
@@ -538,6 +546,8 @@
         "trigger_type": "player_killer"
         ,
         "render": true
+        ,
+        "sound_name": "hit_pinchos"
       }
       ,
       "collider":
@@ -589,6 +599,8 @@
         "trigger_type": "player_killer"
         ,
         "render": true
+        ,
+        "sound_name": "hit_pinchos"
       }
       ,
       "collider":
@@ -663,6 +675,8 @@
         "trigger_type": "player_killer"
         ,
         "render": true
+        ,
+        "sound_name": "hit_sierras"
       }
       ,
       "collider":
@@ -737,6 +751,8 @@
         "trigger_type": "player_killer"
         ,
         "render": true
+        ,
+        "sound_name": "hit_sierras"
       }
       ,
       "collider":

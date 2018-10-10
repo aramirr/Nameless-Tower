@@ -2,11 +2,39 @@
   {
     "entity":
     {
+      "name": "EstatuaSalaSorpresa"
+      ,
+      "transform":
+      {
+        "pos": "-10.5812 9.80279 14.6607"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EstatuaSalaSorpresa.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocaGris.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Plane002"
       ,
       "transform":
       {
-        "pos": "-11.4045 3.58191 26.176"
+        "pos": "-12.1646 3.58196 26.1344"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -32,7 +60,7 @@
       ,
       "transform":
       {
-        "pos": "-21.5019 3.58191 19.1436"
+        "pos": "-21.274 3.58196 19.6911"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -58,7 +86,7 @@
       ,
       "transform":
       {
-        "pos": "-9.44843 6.00795 19.4835"
+        "pos": "-9.43623 6.00795 19.4452"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -86,7 +114,7 @@
       ,
       "transform":
       {
-        "pos": "-15.6953 6.00795 14.8781"
+        "pos": "-15.648 6.00795 14.8303"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -698,7 +726,7 @@
   {
     "entity":
     {
-      "name": "arbol004"
+      "name": "arbolBajada03"
       ,
       "transform":
       {
@@ -710,11 +738,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/arbol004.mesh"
+          "mesh": "data/meshes/arbolBajada03.mesh"
           ,
           "materials":
           [
-            "data/materials/TreeMate.material"
+            "data/materials/ArbolMat.material"
           ]
         }
       ]
@@ -754,7 +782,7 @@
   {
     "entity":
     {
-      "name": "arbol004"
+      "name": "arbolBajada04"
       ,
       "transform":
       {
@@ -766,11 +794,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/arbol004.mesh"
+          "mesh": "data/meshes/arbolBajada04.mesh"
           ,
           "materials":
           [
-            "data/materials/TreeMate.material"
+            "data/materials/ArbolMat.material"
           ]
         }
       ]

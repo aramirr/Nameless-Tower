@@ -66,8 +66,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "group": "scenario"
       }
     }
   }
@@ -108,8 +106,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "group": "scenario"
       }
     }
   }
@@ -150,8 +146,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "group": "scenario"
       }
     }
   }
@@ -159,7 +153,7 @@
   {
     "entity":
     {
-      "name": "PodiumCollider"
+      "name": "PodiumCollider_Bajada"
       ,
       "transform":
       {
@@ -180,7 +174,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/PodiumCollider.col_mesh"
+        "mesh_src": "data/meshes/PodiumCollider_Bajada.col_mesh"
       }
     }
   }

@@ -2,6 +2,118 @@
   {
     "entity":
     {
+      "name": "ParedDestapada2"
+      ,
+      "transform":
+      {
+        "pos": "31.8584 45.0 -6.50055"
+        ,
+        "rotation": "0.0 -0.72498 0.0 -0.68877"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada2.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedDestapada7"
+      ,
+      "transform":
+      {
+        "pos": "18.2971 31.5 -18.5547"
+        ,
+        "rotation": "0.0 -0.98315 0.0 -0.182799"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada7.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte6F"
+      ,
+      "transform":
+      {
+        "pos": "29.8337 51.75 7.76827"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte6F.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte6E"
+      ,
+      "transform":
+      {
+        "pos": "11.3804 33.75 -29.0378"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte6E.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Plataforma_008"
       ,
       "transform":
@@ -327,7 +439,7 @@
       ,
       "transform":
       {
-        "pos": "18.5739 51.75 -18.992"
+        "pos": "28.5285 54.0 -12.6813"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -355,7 +467,7 @@
       ,
       "transform":
       {
-        "pos": "29.7477 38.25 7.97215"
+        "pos": "29.7477 27.0 7.97216"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -383,7 +495,7 @@
       ,
       "transform":
       {
-        "pos": "17.3246 31.5 -19.6303"
+        "pos": "27.3296 33.75 -13.8913"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -488,6 +600,8 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "collider":
       {
         "shape": "box"
@@ -500,8 +614,6 @@
         ,
         "is_trigger": false
       }
-      ,
-      "abs_aabb": true
     }
   }
   ,
@@ -822,7 +934,7 @@
       ,
       "transform":
       {
-        "pos": "29.8198 32.1827 -1.72901"
+        "pos": "29.5681 32.1827 -2.34729"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -863,62 +975,6 @@
           "materials":
           [
             "data/materials/grass_Thin.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "grass_Tropical_006"
-      ,
-      "transform":
-      {
-        "pos": "30.1138 32.1472 -1.30093"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/grass_Tropical_006.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/grass_Tropical_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "grass_Gamba_016"
-      ,
-      "transform":
-      {
-        "pos": "28.5969 35.0679 2.90646"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/grass_Gamba_016.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/grass_Gamba.material"
           ]
         }
       ]
@@ -1494,6 +1550,62 @@
   {
     "entity":
     {
+      "name": "Puerta_Abatible_Madera_003"
+      ,
+      "transform":
+      {
+        "pos": "4.88714 33.6433 -30.1404"
+        ,
+        "rotation": "-0.0404183 -0.987891 -0.109415 0.102301"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Abatible_Madera_003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puerta_Cerrada_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Puerta_Abatible_Madera_Bajada002"
+      ,
+      "transform":
+      {
+        "pos": "29.7119 33.4623 -1.67336"
+        ,
+        "rotation": "0.138961 -0.819173 -0.159624 -0.533072"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Abatible_Madera_Bajada002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puerta_Cerrada_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "A_Suelos_SalaPuente_02"
       ,
       "transform":
@@ -1630,6 +1742,240 @@
       ]
       ,
       "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Movil03_Bajada"
+      ,
+      "transform":
+      {
+        "pos": "30.2763 42.2095 -8.17923"
+        ,
+        "rotation": "0.0 0.43062 0.0 -0.902533"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Movil03_Bajada.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.471604 0.341846 0.360126"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Estatua02"
+      ,
+      "transform":
+      {
+        "pos": "30.0131 43.9342 -8.34039"
+        ,
+        "rotation": "0.0 0.43062 0.0 -0.902533"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Estatua02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaCabezaOutMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.319037 0.606354 0.414331"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Movil02_Bajada"
+      ,
+      "transform":
+      {
+        "pos": "27.8494 37.7039 14.0276"
+        ,
+        "rotation": "0.0 0.797226 0.0 -0.603681"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Movil02_Bajada.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.471604 0.341846 0.360125"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Estatua03"
+      ,
+      "transform":
+      {
+        "pos": "27.8214 39.4286 13.7427"
+        ,
+        "rotation": "0.0 0.797226 0.0 -0.603681"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Estatua03.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaCabezaOutMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.319037 0.606354 0.414332"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Estatico03"
+      ,
+      "transform":
+      {
+        "pos": "27.8844 37.4282 13.7275"
+        ,
+        "rotation": "0.0 0.797226 0.0 -0.603682"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Estatico03.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.965661 1.44805 0.988708"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Estatico02"
+      ,
+      "transform":
+      {
+        "pos": "30.0371 41.9338 -8.40063"
+        ,
+        "rotation": "0.0 0.43062 0.0 -0.902533"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Estatico02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.965661 1.44805 0.988708"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
     }
   }
   ,

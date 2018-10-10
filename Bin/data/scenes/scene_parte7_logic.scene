@@ -6,7 +6,7 @@
       ,
       "transform":
       {
-        "pos": "1.90735e-06 9.0 5.60272e-07"
+        "pos": "-22.3268 27.0 -20.0513"
         ,
         "rotation": "0.0 -0.99152 0.0 0.129958"
       }
@@ -32,7 +32,7 @@
       ,
       "transform":
       {
-        "pos": "1.90735e-06 4.5 7.56973e-07"
+        "pos": "-31.9735 24.75 -5.03496"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -48,50 +48,6 @@
           ]
         }
       ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Puerta_Abatible_Madera_01"
-      ,
-      "transform":
-      {
-        "pos": "-29.1321 22.5 -8.91518"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Puerta_Cerrada_01.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "convex_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
-      }
-      ,
-      "abs_aabb": true
-      ,
-      "door":
-      {
-        "up": false
-      }
     }
   }
   ,
@@ -312,13 +268,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/PinchosA.mesh"
+          "mesh": "data/meshes/PinchosC.mesh"
           ,
           "materials":
           [
-            "data/materials/PinchosM.material"
-            ,
-            "data/materials/PinchosSangreM.material"
+            "data/materials/RocaVerde.material"
           ]
         }
       ]
@@ -333,6 +287,8 @@
         "trigger_type": "player_killer"
         ,
         "render": true
+        ,
+        "sound_name": "hit_pinchos"
       }
       ,
       "collider":
