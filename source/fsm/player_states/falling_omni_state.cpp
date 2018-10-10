@@ -40,7 +40,7 @@ namespace FSM
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		assert(c_my_transform);
 		VEC3 my_pos = c_my_transform->getPosition();
-		VEC3 new_pos = my_pos + (player->omnidash_vector * dt);;
+		VEC3 new_pos = my_pos + (player->omnidash_vector * dt);
 		float y_speed;		
 		y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt * 2);
 		if (player->y_speed_factor > -12)
@@ -48,6 +48,7 @@ namespace FSM
 		new_pos.y += y_speed;
 
 		if (EngineInput["left"].isPressed()) {
+            player->omnidash_arrow = VEC2(0, 0);
 			if (!player->looking_left) {
 				player->looking_left = true;
 				player->move_player(false, true, dt, y_speed, _x_speed);
@@ -57,6 +58,7 @@ namespace FSM
 			}
 		}
 		else if (EngineInput["right"].isPressed()) {
+            player->omnidash_arrow = VEC2(0, 0);
 			if (!player->looking_left) {
 				player->move_player(true, false, dt, y_speed, _x_speed);
 			}
@@ -96,11 +98,9 @@ namespace FSM
 					ctx.setVariable("hit", true);
 				}
 				ctx.setVariable("is_grounded", true);
+                player->change_animation(player->EAnimations::NajaJumpLand, true, 0.01, 0.1, false);
 				ctx.setVariable("can_omni", true);
 				ctx.setVariable("can_dash", true);
-			}
-			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {				
-				ctx.setVariable("is_falling", true);
 			}
 		}		
 		return false;

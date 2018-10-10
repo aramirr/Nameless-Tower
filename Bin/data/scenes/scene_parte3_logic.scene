@@ -2,11 +2,725 @@
   {
     "entity":
     {
+      "name": "Destruible3_Pre"
+      ,
+      "transform":
+      {
+        "pos": "26.5196 75.2524 -16.9322"
+        ,
+        "rotation": "0.0 -0.148491 0.0 -0.988914"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Destruible.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+        ,
+        {
+          "mesh": "data/meshes/Destruible_post.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_destroyable":
+      {
+        "trigger_actor": "The Player"
+        ,
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.25557 0.153804 1.7009"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible3_Pre_trigger"
+      ,
+      "transform":
+      {
+        "pos": "26.5196 75.2524 -16.9322"
+        ,
+        "rotation": "0.0 -0.148491 0.0 -0.988914"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "destroyable"
+        ,
+        "collider_entity": "Destruible3_Pre"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.25477 0.5 1.69847"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible3_Post_Fija"
+      ,
+      "transform":
+      {
+        "pos": "26.5114 75.2442 -16.9576"
+        ,
+        "rotation": "0.0 -0.148491 0.0 -0.988914"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Destruible3_Post_Fija.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMusgoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible1_Pre"
+      ,
+      "transform":
+      {
+        "pos": "29.5752 72.7276 -9.40658"
+        ,
+        "rotation": "0.0 -0.0453033 0.0 -0.998973"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Destruible.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+        ,
+        {
+          "mesh": "data/meshes/Destruible_post.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_destroyable":
+      {
+        "trigger_actor": "The Player"
+        ,
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.25557 0.153804 1.7009"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible1_Pre_trigger"
+      ,
+      "transform":
+      {
+        "pos": "29.5752 72.7276 -9.40658"
+        ,
+        "rotation": "0.0 -0.0453033 0.0 -0.998973"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "destroyable"
+        ,
+        "collider_entity": "Destruible1_Pre"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.25477 0.5 1.69847"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible1_Post_Fija"
+      ,
+      "transform":
+      {
+        "pos": "29.5724 72.7195 -9.43313"
+        ,
+        "rotation": "0.0 -0.0453033 0.0 -0.998973"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Destruible1_Post_Fija.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMusgoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible2_Pre"
+      ,
+      "transform":
+      {
+        "pos": "27.9375 69.3469 -13.7857"
+        ,
+        "rotation": "0.0 -0.102384 0.0 -0.994745"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Destruible.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+        ,
+        {
+          "mesh": "data/meshes/Destruible_post.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_destroyable":
+      {
+        "trigger_actor": "The Player"
+        ,
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.25557 0.153804 1.7009"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible2_Pre_trigger"
+      ,
+      "transform":
+      {
+        "pos": "27.9375 69.3469 -13.7857"
+        ,
+        "rotation": "0.0 -0.102384 0.0 -0.994745"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "destroyable"
+        ,
+        "collider_entity": "Destruible2_Pre"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.25477 0.5 1.69847"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible2_Post_Fija"
+      ,
+      "transform":
+      {
+        "pos": "27.9317 69.3388 -13.8118"
+        ,
+        "rotation": "0.0 -0.102384 0.0 -0.994745"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Destruible2_Post_Fija.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMusgoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TFAntorcha03"
+      ,
+      "transform":
+      {
+        "pos": "30.5698 68.7333 7.49791"
+        ,
+        "rotation": "0.0 -0.636836 0.0 -0.770999"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TFAntorcha03.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TriggerAccionMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.55256 0.928047 0.853696"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TFAntorcha02"
+      ,
+      "transform":
+      {
+        "pos": "24.4333 69.8693 19.9079"
+        ,
+        "rotation": "0.0 -0.415587 0.0 -0.909553"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TFAntorcha02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TriggerAccionMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.55256 0.928047 0.853696"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TFAntorcha1"
+      ,
+      "transform":
+      {
+        "pos": "11.2812 69.3165 29.7615"
+        ,
+        "rotation": "0.0 -0.166016 0.0 -0.986123"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TFAntorcha1.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TriggerAccionMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.55256 0.928047 0.853696"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TorchPuzzle"
+      ,
+      "transform":
+      {
+        "pos": "30.6147 65.1923 6.27989"
+        ,
+        "rotation": "0.0 -0.636836 0.0 -0.770999"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ai_torch_puzzle":
+      {
+        "time_limit": 15.0
+        ,
+        "door": "Puerta_Reja_02"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible4_Post_Fija"
+      ,
+      "transform":
+      {
+        "pos": "24.4748 71.3991 -19.3859"
+        ,
+        "rotation": "0.0 -0.241554 0.0 -0.970387"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Destruible4_Post_Fija.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMusgoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible4_Pre"
+      ,
+      "transform":
+      {
+        "pos": "24.4877 71.4072 -19.3625"
+        ,
+        "rotation": "0.0 -0.241554 0.0 -0.970387"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Destruible.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+        ,
+        {
+          "mesh": "data/meshes/Destruible_post.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_destroyable":
+      {
+        "trigger_actor": "The Player"
+        ,
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.25557 0.153804 1.7009"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible4_Pre_trigger"
+      ,
+      "transform":
+      {
+        "pos": "24.4877 71.4072 -19.3625"
+        ,
+        "rotation": "0.0 -0.241554 0.0 -0.970387"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "destroyable"
+        ,
+        "collider_entity": "Destruible4_Pre"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.25477 0.5 1.69847"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "SalaEstatuaPinchos"
+      ,
+      "transform":
+      {
+        "pos": "26.1949 61.1154 15.7051"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocaVerde.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+        ,
+        "sound_name": "hit_pinchos"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "ParedTapada10"
       ,
       "transform":
       {
-        "pos": "1.90735e-06 40.5 -8.16637e-07"
+        "pos": "20.0687 67.5 12.736"
         ,
         "rotation": "0.0 0.0267501 0.0 -0.999642"
       }
@@ -76,7 +790,7 @@
       ,
       "transform":
       {
-        "pos": "27.2495 60.1875 -13.8358"
+        "pos": "27.2495 59.9889 -13.8358"
         ,
         "rotation": "0.0 -0.258819 0.0 -0.965926"
       }
@@ -103,7 +817,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.98433 1.6875 8.40013"
+        "halfExtent": "1.98433 1.48889 8.40013"
         ,
         "is_dynamic": false
         ,
@@ -280,386 +994,6 @@
   {
     "entity":
     {
-      "name": "Destruible007"
-      ,
-      "transform":
-      {
-        "pos": "24.1846 71.1323 -19.6077"
-        ,
-        "rotation": "0.0 -0.943544 0.0 0.331248"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-      ]
-      ,
-      "ai_destroyable":
-      {
-        "trigger_actor": "The Player"
-        ,
-        "destroy_time": 1.0
-        ,
-        "recover_time": 5.0
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.25557 0.153804 1.7009"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Destruible007_trigger"
-      ,
-      "transform":
-      {
-        "pos": "24.1846 71.1323 -19.6077"
-        ,
-        "rotation": "0.0 -0.943544 0.0 0.331248"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "destroyable"
-        ,
-        "collider_entity": "Destruible007"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.25477 0.5 1.69847"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Destruible006"
-      ,
-      "transform":
-      {
-        "pos": "29.7046 72.5393 -9.63921"
-        ,
-        "rotation": "0.0 -0.986354 0.0 0.164636"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-      ]
-      ,
-      "ai_destroyable":
-      {
-        "trigger_actor": "The Player"
-        ,
-        "destroy_time": 1.0
-        ,
-        "recover_time": 5.0
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.25557 0.153804 1.7009"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Destruible006_trigger"
-      ,
-      "transform":
-      {
-        "pos": "29.7046 72.5393 -9.63921"
-        ,
-        "rotation": "0.0 -0.986354 0.0 0.164636"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "destroyable"
-        ,
-        "collider_entity": "Destruible006"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.25477 0.5 1.69847"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Destruible004"
-      ,
-      "transform":
-      {
-        "pos": "27.7401 69.0639 -14.1364"
-        ,
-        "rotation": "0.0 -0.973 0.0 0.230806"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-      ]
-      ,
-      "ai_destroyable":
-      {
-        "trigger_actor": "The Player"
-        ,
-        "destroy_time": 1.0
-        ,
-        "recover_time": 5.0
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.25557 0.153804 1.7009"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Destruible004_trigger"
-      ,
-      "transform":
-      {
-        "pos": "27.7401 69.0639 -14.1364"
-        ,
-        "rotation": "0.0 -0.973 0.0 0.230806"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "destroyable"
-        ,
-        "collider_entity": "Destruible004"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.25477 0.5 1.69847"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Destruible003"
-      ,
-      "transform":
-      {
-        "pos": "26.199 74.9937 -16.9053"
-        ,
-        "rotation": "0.0 -0.956263 0.0 0.29251"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-      ]
-      ,
-      "ai_destroyable":
-      {
-        "trigger_actor": "The Player"
-        ,
-        "destroy_time": 1.0
-        ,
-        "recover_time": 5.0
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.25557 0.153804 1.7009"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Destruible003_trigger"
-      ,
-      "transform":
-      {
-        "pos": "26.199 74.9937 -16.9053"
-        ,
-        "rotation": "0.0 -0.956263 0.0 0.29251"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "destroyable"
-        ,
-        "collider_entity": "Destruible003"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.25477 0.5 1.69847"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Proyectil002"
       ,
       "transform":
@@ -696,73 +1030,6 @@
   {
     "entity":
     {
-      "name": "Lanzas003"
-      ,
-      "transform":
-      {
-        "pos": "27.1593 65.2717 4.16433"
-        ,
-        "rotation": "-0.706777 0.70065 -0.0215813 0.0953413"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Lanzas003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/LanzasMat.material"
-          ]
-        }
-      ]
-      ,
-      "ai_linear_patrol":
-      {
-        "speed": 3.5
-        ,
-        "delay": 0.5
-        ,
-        "wake": 1.0
-        ,
-        "waypoints":
-        [
-          "27.1593 65.2717 4.16433"
-          ,
-          "29.5555 65.2717 4.56523"
-        ]
-      }
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1.38794 2.28628 1.0167"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Lanzas002"
       ,
       "transform":
@@ -783,6 +1050,13 @@
           ]
         }
       ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
       ,
       "ai_linear_patrol":
       {
@@ -805,13 +1079,6 @@
         "kill_enabled": true
       }
       ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": false
-      }
-      ,
       "collider":
       {
         "shape": "box"
@@ -824,112 +1091,6 @@
         ,
         "is_trigger": true
       }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Pinchos010"
-      ,
-      "transform":
-      {
-        "pos": "27.8162 61.3379 14.5808"
-        ,
-        "rotation": "0.0 -0.43368 0.0 -0.901067"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/PinchosA.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/PinchosM.material"
-            ,
-            "data/materials/PinchosSangreM.material"
-          ]
-        }
-      ]
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": true
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.2417 0.804776 1.58385"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Pinchos009"
-      ,
-      "transform":
-      {
-        "pos": "25.0152 61.7269 16.4257"
-        ,
-        "rotation": "0.0 -0.648791 0.0 -0.760967"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/PinchosA.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/PinchosM.material"
-            ,
-            "data/materials/PinchosSangreM.material"
-          ]
-        }
-      ]
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": true
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.2417 0.804776 1.58385"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "abs_aabb": true
     }
   }
 ]

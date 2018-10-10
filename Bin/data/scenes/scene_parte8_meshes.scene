@@ -2,6 +2,198 @@
   {
     "entity":
     {
+      "name": "EstatuaSalaSorpresa"
+      ,
+      "transform":
+      {
+        "pos": "-10.5812 9.80279 14.6607"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EstatuaSalaSorpresa.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocaGris.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Plane002"
+      ,
+      "transform":
+      {
+        "pos": "-12.1646 3.58196 26.1344"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plane002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LavaBaseMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Plane001"
+      ,
+      "transform":
+      {
+        "pos": "-21.274 3.58196 19.6911"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plane001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LavaBaseMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CabezaDragon001"
+      ,
+      "transform":
+      {
+        "pos": "-9.43623 6.00795 19.4452"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CabezaDragon001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DragonMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CabezaDragon"
+      ,
+      "transform":
+      {
+        "pos": "-15.648 6.00795 14.8303"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CabezaDragon.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DragonMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Arriba008"
+      ,
+      "transform":
+      {
+        "pos": "-8.91095 9.40595 18.3768"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Arriba008.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CabarribaIntMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Arriba007"
+      ,
+      "transform":
+      {
+        "pos": "-14.7794 9.31647 14.0607"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Arriba007.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CabarribaIntMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Pinchos_006"
       ,
       "transform":
@@ -18,17 +210,19 @@
           ,
           "materials":
           [
-            "data/materials/Pinchos_salaEstatuaFEa_00.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
   {
     "entity":
     {
-      "name": "Suelo_SalaSorpresa"
+      "name": "Suelo_SalaSorpresa_Escena08"
       ,
       "transform":
       {
@@ -40,7 +234,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Suelo_SalaSorpresa.mesh"
+          "mesh": "data/meshes/Suelo_SalaSorpresa_Escena08.mesh"
           ,
           "materials":
           [
@@ -48,6 +242,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -74,6 +270,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -96,10 +294,12 @@
           ,
           "materials":
           [
-            "data/materials/RocaGris.material"
+            "data/materials/CabarribaIntMat.material"
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -126,6 +326,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -152,6 +354,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -178,32 +382,8 @@
           ]
         }
       ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Pinchos_005"
       ,
-      "transform":
-      {
-        "pos": "-11.9211 3.94949 25.821"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Pinchos_005.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pinchos_salaEstatuaFEa_00.material"
-          ]
-        }
-      ]
+      "abs_aabb": true
     }
   }
   ,
@@ -230,6 +410,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -256,6 +438,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -282,6 +466,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -308,6 +494,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -334,6 +522,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -360,6 +550,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -386,6 +578,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -412,6 +606,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -438,6 +634,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -464,6 +662,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -490,6 +690,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -516,13 +718,15 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
   {
     "entity":
     {
-      "name": "arbol004"
+      "name": "arbolBajada03"
       ,
       "transform":
       {
@@ -534,14 +738,16 @@
       "render":
       [
         {
-          "mesh": "data/meshes/arbol004.mesh"
+          "mesh": "data/meshes/arbolBajada03.mesh"
           ,
           "materials":
           [
-            "data/materials/TreeMate.material"
+            "data/materials/ArbolMat.material"
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -568,13 +774,15 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
   {
     "entity":
     {
-      "name": "arbol004"
+      "name": "arbolBajada04"
       ,
       "transform":
       {
@@ -586,14 +794,16 @@
       "render":
       [
         {
-          "mesh": "data/meshes/arbol004.mesh"
+          "mesh": "data/meshes/arbolBajada04.mesh"
           ,
           "materials":
           [
-            "data/materials/TreeMate.material"
+            "data/materials/ArbolMat.material"
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -620,6 +830,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -630,7 +842,7 @@
       ,
       "transform":
       {
-        "pos": "-9.92584 12.8592 24.3206"
+        "pos": "-16.6634 8.40436 21.6386"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -642,62 +854,12 @@
           ,
           "materials":
           [
-            "data/materials/Pinchos_salaEstatuaFEa_00.material"
+            "data/materials/RocaGris.material"
           ]
         }
       ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Pinchos_003"
       ,
-      "transform":
-      {
-        "pos": "-21.1987 3.94948 19.635"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Pinchos_003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pinchos_salaEstatuaFEa_00.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Pinchos_002"
-      ,
-      "transform":
-      {
-        "pos": "-20.4868 12.8592 16.955"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Pinchos_002.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pinchos_salaEstatuaFEa_00.material"
-          ]
-        }
-      ]
+      "abs_aabb": true
     }
   }
   ,
@@ -724,6 +886,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -750,6 +914,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -776,6 +942,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -802,6 +970,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -828,114 +998,8 @@
           ]
         }
       ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Estatua_Columna_018"
       ,
-      "transform":
-      {
-        "pos": "-8.84653 9.40595 18.3129"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Estatua_Columna_018.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RocaGris.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Estatua_Columna_017"
-      ,
-      "transform":
-      {
-        "pos": "-14.6488 9.39301 14.059"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Estatua_Columna_017.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RocaGris.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Dragon001"
-      ,
-      "transform":
-      {
-        "pos": "-9.43601 6.00795 19.5998"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Dragon001.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CabezaM.material"
-            ,
-            "data/materials/ColmillosM.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Dragon"
-      ,
-      "transform":
-      {
-        "pos": "-15.7519 6.00795 14.9584"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Dragon.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CabezaM.material"
-            ,
-            "data/materials/ColmillosM.material"
-          ]
-        }
-      ]
+      "abs_aabb": true
     }
   }
   ,
@@ -962,6 +1026,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
 ]

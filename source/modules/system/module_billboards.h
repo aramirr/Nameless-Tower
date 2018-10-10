@@ -32,17 +32,29 @@ class CModuleBillboards : public IModule
   };
 	CRenderMeshInstanced* particles_instances_mesh = nullptr;
     CRenderMeshInstanced* fire_particles_instances_mesh = nullptr;
+    CRenderMeshInstanced* fire_particles_violeta_instances_mesh = nullptr;
+    CRenderMeshInstanced* fire_particles_azul_instances_mesh = nullptr;
     CRenderMeshInstanced* thin_fire_particles_instances_mesh = nullptr;
+    CRenderMeshInstanced* thin_fire_violeta_particles_instances_mesh = nullptr;
+    CRenderMeshInstanced* thin_fire_azul_particles_instances_mesh = nullptr;
 	CRenderMeshInstanced* smoke_particles_instances_mesh = nullptr;
 	CRenderMeshInstanced* thin_smoke_particles_instances_mesh = nullptr;
 	std::vector< TRenderParticle > particles_instances;
     std::vector< TRenderParticle > fire_particles_instances;
+    std::vector< TRenderParticle > fire_azul_particles_instances;
+    std::vector< TRenderParticle > fire_violeta_particles_instances;
     std::vector< TRenderParticle > thin_fire_particles_instances;
+    std::vector< TRenderParticle > thin_fire_violeta_particles_instances;
+    std::vector< TRenderParticle > thin_fire_azul_particles_instances;
     std::vector< TRenderParticle > smoke_particles_instances;
     std::vector< TRenderParticle > thin_smoke_particles_instances;
 	std::vector< int > particles_ids;
     std::vector< int > fire_particles_ids;
+    std::vector< int > fire_violeta_particles_ids;
+    std::vector< int > fire_azul_particles_ids;
     std::vector< int > thin_fire_particles_ids;
+    std::vector< int > thin_fire_violeta_particles_ids;
+    std::vector< int > thin_fire_azul_particles_ids;
     std::vector< int > smoke_particles_ids;
     std::vector< int > thin_smoke_particles_ids;
 
@@ -54,8 +66,24 @@ class CModuleBillboards : public IModule
   CRenderMeshInstanced* grass_instances_mesh = nullptr;
   std::vector< TGrassParticle > grass_instances;
 
+
+  // -------------------------------------------------------------------
+  struct TWindstrikeParticle {
+	  VEC3  pos;      // Maps to iCenter.xyz
+	  float angle;    // Maps to iCenter.w
+	  VEC4  color;
+	  float scale_x;
+	  float scale_y;
+	  float nframe;
+  };
+  CRenderMeshInstanced* windstrike_instances_mesh = nullptr;
+  std::vector< TWindstrikeParticle > windstrike_instances;
+  std::vector< int > windstrike_ids;
+
+
 public:
-	int max_id = 0;
+	int fuego_max_id = 0;
+	int windstrike_max_id = 0;
 
   CModuleBillboards (const std::string& name)
 		: IModule(name)
@@ -63,9 +91,15 @@ public:
   bool start() override;
   void update(float delta) override;
   int addFuegoTest(VEC3 position, float scale, bool thin);
+  int addFuegoVioleta(VEC3 position, float scale, bool thin);
   void apagarFuego(int id, float scale, bool thin);
   void encenderFuego(int id, float scale, bool thin);
+  void encenderFuegoVioleta(int id, float scale, bool thin);
   void addGrass(VEC3 position, float width, float length, int total);
   void addGrassByAngle(VEC3 pos1, VEC3 pos2, int total, float radius1, float radius2);
   void calculateAngles(VEC3 pos1, VEC3 pos2, float& alpha, float& beta, float& charlie);
+  int addWindstrike(VEC3 position);
+  void clearFire();
+  void deleteWindstrike(int id);
+  void moveWindstrike(VEC3 position, int id);
 };

@@ -3,6 +3,7 @@
 #include "comp_trigger.h"
 #include "components/juan/comp_transform.h"
 #include "components/fsm/comp_fsm.h"
+#include "components/sound/comp_sound.h"
 #include "components/ui/ui_mouse_pos.h"
 #include "entity/common_msgs.h"
 
@@ -47,6 +48,8 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 
 			TMsgKillPlayer kill_player_message;
 			entity->sendMsg(kill_player_message);
+            TCompSound* sound = e_other_entity->get<TCompSound>();
+            sound->playSound(sound_name);
 		}
 		else if (trigger_type == "destroyable") {
 			TMsgDestroy destroy_msg;
@@ -131,7 +134,8 @@ void TCompTrigger::registerMsgs() {
 void TCompTrigger::load(const json& j, TEntityParseContext& ctx) {
 
 	h_entity = ctx.current_entity;
-	trigger_type = j.value("trigger_type", "none");
+    trigger_type = j.value("trigger_type", "none");
+    sound_name = j.value("sound_name", "none");
 
 	if (trigger_type == "checkpoint" or trigger_type == "runner_appear") {
     if (j.count("appearing_position")) {

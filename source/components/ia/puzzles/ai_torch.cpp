@@ -17,7 +17,7 @@ void CAITorch::Init()
 
 	AddState("active", (statehandler)&CAITorch::ActiveState);
 	AddState("inactive", (statehandler)&CAITorch::InactiveState);
-	ChangeState("active");
+    ChangeState("active");
 }
 
 void CAITorch::debugInMenu() {
@@ -66,30 +66,40 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
 	radius = j.value("radius", radius);
     scale = j.value("scale", scale);
     thin = j.value("thin", thin);
+    violeta = j.value("violeta", false);
     initial_radius = radius;
-
+    render = j.value("render", true);
+    //if (render)
     Init();
 }
 
 void CAITorch::registerMsgs() {
-DECL_MSG(CAITorch, TMsgDeactivateTorch, deactivate);
+    DECL_MSG(CAITorch, TMsgDeactivateTorch, deactivate);
+    DECL_MSG(CAITorch, TMsgActivateTorch, activateMsg);
 }
 
 
 void CAITorch::ActiveState(float dt)
 {	
-    TCompTransform* my_transform = getMyTransform();
-    if (on_start) {
-        fire_position = my_transform->getPosition();
-        fire_position.y += y_offset;
-        fire_position.z += z_offset;
-        fire_position.x += x_offset;
-        on_start = false;
-    }
-    if (b_fuego) {
-        id = EngineBillboards.addFuegoTest(fire_position, scale, thin);
-        b_fuego = false;
-    }
+    if (render) {
+        TCompTransform* my_transform = getMyTransform();
+        if (on_start) {
+            fire_position = my_transform->getPosition();
+            fire_position.y += y_offset;
+            fire_position.z += z_offset;
+            fire_position.x += x_offset;
+            on_start = false;
+        }
+        if (b_fuego) {
+            if (violeta) {
+                id = EngineBillboards.addFuegoVioleta(fire_position, scale, thin);
+            }
+            else {
+                id = EngineBillboards.addFuegoTest(fire_position, scale, thin);
+            }
+            b_fuego = false;
+        }
+    }  
     
 }
 
@@ -99,17 +109,21 @@ void CAITorch::InactiveState(float dt)
 	if (in_puzzle) {
 		timer += DT;
 		if (timer > timer_limit) {
-			activate();
+			//activate();
 		}
 	}	
 }
 
 void CAITorch::activate() {
 	active = true;
+    render = true;
 	//TCompRender *my_render = getMyRender();
 	//my_render->self_illumination = 1;
 	TCompTransform* my_transform = getMyTransform();
-	EngineBillboards.encenderFuego(id, scale, thin);
+    if (violeta)
+        EngineBillboards.encenderFuegoVioleta(id, scale, thin);
+    else
+        EngineBillboards.encenderFuego(id, scale, thin);
     
 	ChangeState("active");
 }
@@ -127,11 +141,18 @@ void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
 		if (in_puzzle) {
 			TMsgActivateTorchPuzzle activate_msg;
 			CEntity* e_collider_entity = (CEntity*)getEntityByName(puzzle_name);
-      CEntity* e = h_entity;
+            CEntity* e = h_entity;
 			e_collider_entity->sendMsg(activate_msg);
-      attached = true;
+            attached = true;
 		}
 	}	
+}
+
+
+void CAITorch::activateMsg(const TMsgActivateTorch& msg) {
+    if (!active || !render) {
+        activate();
+    }
 }
 
 void CAITorch::simulateLight() {

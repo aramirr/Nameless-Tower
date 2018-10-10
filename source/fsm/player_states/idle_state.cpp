@@ -73,6 +73,7 @@ namespace FSM
                 c_particles->emit();
                 player->is_grounded = true;
                 player->_sound_land->start();
+                player->change_animation(player->EAnimations::NajaJumpLand, true, 0.01, 0.1, false);
 				ctx.setVariable("is_grounded", true);
 				ctx.setVariable("can_omni", true);
 				ctx.setVariable("can_dash", true);

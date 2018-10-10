@@ -54,7 +54,11 @@ struct TMsgCheckpoint {
 	DECL_MSG_ID();
 };
 
-struct TMsgOpenDoor{
+struct TMsgCloseDoor{
+    DECL_MSG_ID();
+};
+
+struct TMsgOpenDoor {
     DECL_MSG_ID();
 };
 
@@ -101,6 +105,10 @@ struct TMsgDestroy {
 
 struct TMsgDeactivateTorch {
 	DECL_MSG_ID();
+};
+
+struct TMsgActivateTorch {
+    DECL_MSG_ID();
 };
 
 struct TMsgActivateTorchPuzzle {
@@ -170,6 +178,10 @@ struct TMsgPlayerOut {
 
 struct TMsgCheckPlayerIn {
   DECL_MSG_ID();
+};
+
+struct TMsgPlaySound{
+    DECL_MSG_ID();
 };
 
 struct TMsgChangeDirectionUp {

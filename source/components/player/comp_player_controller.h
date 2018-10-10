@@ -15,7 +15,8 @@ public:
     bool    can_die;
     bool    run_sprite = true;
     bool    left_key = false;
-	float   gravity;
+    float   gravity;
+    float   omni_angle;
 	float   y_speed_factor = 0.f;
 	float	jumping_start_height;
 	float	jumping_death_height;
@@ -74,7 +75,8 @@ public:
 		, NajaDead
 		, NajaBreak
         , NajaLookDn
-        , NajaLookUp,
+        , NajaLookUp
+        , NajaScare,
 		EAnimations
 	};
 

@@ -11,13 +11,25 @@ namespace FSM
 	void WindstrikeState::onStart(CContext& ctx) const
 	{				
 		CEntity* e = ctx.getOwner();
+        TCompTransform* transform = e->get<TCompTransform>();
+        TCompPlayerController* player= e->get<TCompPlayerController>();
 		TEntityParseContext ctx_w;
+        float current_yaw;
+        float current_pitch;
+        float current_roll;
+        transform->getYawPitchRoll(&current_yaw, &current_pitch, &current_roll);
 		ctx_w.entity_starting_the_parse = e;
-		ctx_w.root_transform = *(TCompTransform*)e->get<TCompTransform>();;
+		ctx_w.root_transform = *(TCompTransform*)transform;
+        current_yaw = player->looking_left ? current_yaw - deg2rad(90) : current_yaw + deg2rad(90);
+        current_roll = player->looking_left ? current_roll + deg2rad(180) : current_roll;
+        if (player->looking_left) {
+            ctx_w.root_transform.setPosition(ctx_w.root_transform.getPosition() + VEC3(0,2,0));
+        }
+        ctx_w.root_transform.setYawPitchRoll(current_yaw, current_pitch, current_roll);
+        //ctx_w.front = ctx_w.root_transform.getFront();
 		if (parseScene("data/prefabs/windstrike.prefab", ctx_w)) {
 			assert(!ctx_w.entities_loaded.empty());                        
 		}
-		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->change_animation(player->EAnimations::NajaWindstrikeA, _is_action, _delay_in, _delay_out, true);
 
 		CEntity* trail = (CEntity *)getEntityByName("windstrike_trail");

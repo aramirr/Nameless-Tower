@@ -22,6 +22,7 @@
 #include "fsm/player_states/turn_around_state.h"
 #include "fsm/player_states/look_up_state.h"
 #include "fsm/player_states/look_down_state.h"
+#include "fsm/player_states/scared_state.h"
 #include "fsm/custom_transitions.h"
 
 CModuleFSM::CModuleFSM(const std::string& name)
@@ -51,6 +52,7 @@ bool CModuleFSM::start()
     _factory.registerInstancer("TurnAroundState", new FSM::StateInstancer<FSM::TurnAroundState>());
     _factory.registerInstancer("LookUpState", new FSM::StateInstancer<FSM::LookUpState>());
     _factory.registerInstancer("LookDownState", new FSM::StateInstancer<FSM::LookDownState>());
+    _factory.registerInstancer("ScaredState", new FSM::StateInstancer<FSM::ScaredState>());
   
 	_factory.registerInstancer("VariableTransition", new FSM::TransitionInstancer<FSM::VariableTransition>());
 	_factory.registerInstancer("LogicTransition", new FSM::TransitionInstancer<FSM::LogicTransition>());

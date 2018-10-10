@@ -42,7 +42,8 @@ public:
   const void setAmbientAdjustment(float ambient);
   const void setExposureAdjustment(float exposure);
 	const void setBandsCinematics(bool _band);
-  const void openDoor(const std::string& name);
+    const void openDoor(const std::string& name);
+    const void closeDoor(const std::string& name);
 	const void activateAnim(const std::string& name);
   const void activateCinematic(const std::string& name);
   const void deactivateCinematic(const std::string& name);

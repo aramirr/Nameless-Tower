@@ -7,6 +7,7 @@
 #include "modules/system/module_physics.h"
 #include "components/physics/controller_filter.h"
 #include "components/physics/query_filter.h"
+#include "../sound/comp_sound.h"
 
 using namespace physx;
 
@@ -117,6 +118,9 @@ void CAICompresora::SleepState()
     acum_delay += DT;
     if (wake_time < acum_delay) {
       ChangeState("move_down");
+      CEntity* e = CHandle(this).getOwner();
+      TMsgPlaySound msg;
+      e->sendMsg(msg);
     }
   }
 }
@@ -135,9 +139,15 @@ void CAICompresora::WaitState()
 	}
     if (going_up) {
       ChangeState("move_up");
+      CEntity* e = CHandle(this).getOwner();
+      TMsgPlaySound msg;
+      e->sendMsg(msg);
     }
     else if (!going_up) {
       ChangeState("move_down");
+      CEntity* e = CHandle(this).getOwner();
+      TMsgPlaySound msg;
+      e->sendMsg(msg);
     }
   }
 }
@@ -150,6 +160,8 @@ void CAICompresora::checkIfTouchingPlayer(const TMsgCheckPlayerIn& msg) {
     deadMsg.variant.setName("hit");
     deadMsg.variant.setBool(true);
     player->sendMsg(deadMsg);
+    TCompSound* sound = get<TCompSound>();
+    sound->playSound("hit");
   }
 }
 

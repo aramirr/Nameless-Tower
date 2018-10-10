@@ -26,7 +26,6 @@ bool CModuleLevel1::start()
 	// Auto load some scenes
 	std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];
 	for (auto& scene_name : scenes_to_auto_load) {
-		dbg("Autoloading scene %s\n", scene_name.c_str());
 		TEntityParseContext ctx;
 		parseScene(scene_name, ctx);
 	}
@@ -89,19 +88,23 @@ bool CModuleLevel1::start()
 }
 
 bool CModuleLevel1::stop()
-{
-	//cb_light.destroy();
-	//cb_camera.destroy();
-	//cb_object.destroy();
-	//cb_globals.destroy();
-	//cb_blur.destroy();
-		//cb_gui.destroy();
-	//Engine.getEntities().destroyAllEntities();
-	//Engine.getCameras().destroyAllCameras();    
+{	
 	TEntityParseContext ctx;
-	//deleteScene("data/scenes/Torre4Milestone.scene", ctx);
-	deleteScene("data/scenes/lights.scene", ctx);
-	deleteScene("data/scenes/compresoras.scene", ctx);
+    EngineBillboards.clearFire();
+    deleteScene("data/scenes/lights.scene", ctx);
+    deleteScene("data/scenes/scene_luces.scene", ctx);
+    deleteScene("data/scenes/compresoras.scene", ctx);
+    deleteScene("data/scenes/scene_parte1_colltrig.scene", ctx);
+    deleteScene("data/scenes/scene_parte1_logic.scene", ctx);
+    deleteScene("data/scenes/scene_parte1_meshes.scene", ctx);
+    deleteScene("data/scenes/scene_parte2_colltrig.scene", ctx);
+    deleteScene("data/scenes/scene_parte2_logic.scene", ctx);
+    deleteScene("data/scenes/scene_parte2_meshes.scene", ctx);
+    deleteScene("data/scenes/scene_parte3_colltrig.scene", ctx);
+    deleteScene("data/scenes/scene_parte3_logic.scene", ctx);
+    deleteScene("data/scenes/scene_parte3_meshes.scene", ctx);
+    deleteScene("data/scenes/scene_parte3_colltrig.scene", ctx);
+    
 	return true;
 }
 
@@ -161,18 +164,8 @@ void CModuleLevel1::update(float delta)
 
 void CModuleLevel1::render()
 {
-
 	// Render the grid
 	cb_object.obj_world = MAT44::Identity;
 	cb_object.obj_color = VEC4(1, 1, 1, 1);
-	cb_object.updateGPU();
-	/*
-	auto solid = Resources.get("data/materials/solid.material")->as<CMaterial>();
-	solid->activate();
-
-	auto grid = Resources.get("grid.mesh")->as<CRenderMesh>();
-	grid->activateAndRender();
-	auto axis = Resources.get("axis.mesh")->as<CRenderMesh>();
-	axis->activateAndRender();
-	*/
+	cb_object.updateGPU();	
 }

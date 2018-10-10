@@ -13,7 +13,6 @@ namespace FSM
 		TCompTransform* my_pos = e->get<TCompTransform>();
 		TCompCollider* comp_collider = e->get<TCompCollider>();
 		VEC3 position;
-		dbg("initial\n");
 		if (comp_collider && comp_collider->controller) {
 			if (Engine.getTower().getLastCheckpoint().x) {
 				VEC3 checkpoint = Engine.getTower().getLastCheckpoint();

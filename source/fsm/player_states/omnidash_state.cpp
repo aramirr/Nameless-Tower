@@ -13,7 +13,7 @@ namespace FSM
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->anim1 = calculateAnimation(e);
-		player->clear_animations(0.3f);
+		player->clear_animations(0);
 		player->change_animation(player->anim1, _is_action, _delay_in, _delay_out, true);
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		player->jumping_start_height = c_my_transform->getPosition().y;
@@ -124,6 +124,7 @@ namespace FSM
 		EngineUI.setOmindash(false);
 
         CEntity* e_camera = EngineCameras.getOutputCamera();
+        TCompCamera* c_camera = e_camera->get< TCompCamera >();
         TCompRenderBlurRadial* c_render_blur_radial = e_camera->get< TCompRenderBlurRadial >();
         if (c_render_blur_radial)
         {
@@ -132,11 +133,8 @@ namespace FSM
        
         TCompTransform *c_my_transform = e_player->get<TCompTransform>();
 		const Input::TInterface_Mouse& mouse = EngineInput.mouse();
-		
-
 		player->omnidash_arrow = mouse._position - VEC2(player->player_position.x, player->player_position.y);
 		player->omnidash_arrow.Normalize();
-
 		player->y_speed_factor = 0;
 
 		TEntityParseContext ctx1;
@@ -149,7 +147,21 @@ namespace FSM
 			omni_vector *= player->omnidash_arrow.x * -1;
        
 		omni_vector.y += player->omnidash_arrow.y;
+        float current_yaw;
+        float current_pitch;
+        float current_roll;
+        c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch, &current_roll);
+        ctx1.root_transform = *(TCompTransform*)c_my_transform;
+        current_yaw = player->looking_left ? current_yaw - deg2rad(90) : current_yaw + deg2rad(90);
+        
+        current_roll = current_roll + player->omni_angle;        
+        ctx1.root_transform.setYawPitchRoll(current_yaw, current_pitch, current_roll);
 		ctx1.front = -omni_vector;
+
+        float up_multiplier = ctx1.root_transform.getUp().y > 0 ? 0 : 1.5;
+        ctx1.root_transform.setPosition(ctx1.root_transform.getPosition() - ctx1.root_transform.getUp() * up_multiplier);
+        dbg("%f, %f, %f \n", ctx1.root_transform.getUp().x, ctx1.root_transform.getUp().y, ctx1.root_transform.getUp().z);
+
 		if (parseScene("data/prefabs/windstrike.prefab", ctx1)) {
 			assert(!ctx1.entities_loaded.empty());			
 		}

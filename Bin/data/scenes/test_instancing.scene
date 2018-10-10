@@ -65,6 +65,38 @@
       ]
     }
   }
+  , {
+    "entity": {
+      "name": "Instanced Fire violeta",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_15_violeta.instanced_mesh",
+          "materials": [
+            "data/materials/particles_fire_instanced_15_violeta.material"
+          ]
+        }
+      ]
+    }
+  }
+  , {
+    "entity": {
+      "name": "Instanced Thin Fire violeta",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_thin_15_violeta.instanced_mesh",
+          "materials": [
+            "data/materials/particles_thin_fire_instanced_15_violeta.material"
+          ]
+        }
+      ]
+    }
+  }
   , 
   {
     "entity": {
@@ -94,6 +126,23 @@
           "mesh": "data/meshes/grass.instanced_mesh",
           "materials": [
             "data/materials/grass_instanced.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity": {
+      "name": "Instanced Windstrike",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/windstrike.instanced_mesh",
+          "materials": [
+            "data/materials/windstrike_instanced.material"
           ]
         }
       ]
