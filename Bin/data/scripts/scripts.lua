@@ -29,7 +29,7 @@ function OnLevel1Start()
 end
 
 function OnLevel2Start()
-	lm:set_exposure(0.36)
+	--lm:set_exposure(0.36)
 	lm:set_dir_light_intensity("LightDir00", 0, false)
 	lm:set_dir_light_intensity("LightDir01", 0, false)
 	lm:set_dir_light_intensity("LightDir02", 0, false)
