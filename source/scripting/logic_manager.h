@@ -49,6 +49,7 @@ public:
   bool applyFunction(bool left);
   void playAmbientSound(bool left);
   void playInteriorSound(bool left);
+  void playPositionalSound(std::string name, std::string entityName);
   void playSound(bool left, std::string name);
   void stopSound(bool left, std::string name);
   void activateTorch(std::string name);

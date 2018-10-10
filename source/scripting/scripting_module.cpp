@@ -48,6 +48,7 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
         .set("stop_sound", &LogicManager::stopSound)
         .set("activate_torch", &LogicManager::activateTorch)
         .set("scare_player", &LogicManager::scarePlayer)
+        .set("play_positional_sound", &LogicManager::playPositionalSound)
 		;
 }
 
