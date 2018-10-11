@@ -253,8 +253,6 @@ void CModuleRender::generateFrame() {
 
 		CRenderManager::get().renderCategory("opacity");
 
-		CRenderManager::get().renderCategory("particles");
-
 		//CRenderManager::get().renderCategory("distorsions");
 
 		// Apply postFX
@@ -298,6 +296,8 @@ void CModuleRender::generateFrame() {
 
 		renderFullScreenQuad("dump_texture.tech", curr_rt);
 
+		CRenderManager::get().renderCategory("particles");
+		CRenderManager::get().renderCategory("particlesA");
 		// Debug render
 		{
 			PROFILE_FUNCTION("Modules");
