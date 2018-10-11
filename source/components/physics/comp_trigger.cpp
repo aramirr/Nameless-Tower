@@ -72,6 +72,12 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
       TMsgPlayerIn msg_in;
       e->sendMsg(msg_in);
     }
+		else if (trigger_type == "catarata_grande") {
+			//BLOQUEAR CAMARA
+			CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
+			TMsgBlockCamera msg;
+			e->sendMsg(msg);
+		}
 	}
 	else if (other_entity_name == "windstrike") {
 		EngineScripting.ExecEvent(ScriptEvents::windstrike_activate, params);
