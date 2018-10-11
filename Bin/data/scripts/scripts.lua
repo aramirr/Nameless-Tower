@@ -40,56 +40,46 @@ end
 
 function OnWindstrikeActivateTDWindstrike()
 	lm:open_door("Puerta_Abatible_Madera_01")
-	lm:play_sound(false, "puerta_madera")
+	lm:play_positional_sound("puerta_madera", "Puerta_Abatible_Madera_01")
 	lm:play_sound(true, "puerta_madera")
 end
 
 function OnWindstrikeActivateTDEscaleras2()
 	lm:open_door("Puerta_Abatible_Madera_003")
-	lm:play_sound(false, "puerta_madera")
-	lm:play_sound(true, "puerta_madera")
+	lm:play_positional_sound("puerta_madera", "Puerta_Abatible_Madera_003")
 end
 
 function OnWindstrikeActivateTDTechos()
 	lm:open_door("Puerta_Abatible_Madera_002")
-	lm:play_sound(false, "puerta_madera")
-	lm:play_sound(true, "puerta_madera")
+	lm:play_positional_sound("puerta_madera", "Puerta_Abatible_Madera_002")
 end
 
 function OnWindstrikeActivateTAPuertasPrimera()
 	lm:open_door("Puerta_Reja_01")
 	lm:activate_anim("Activador_Movil03")
-	lm:play_sound(false, "activador_movil")
-	lm:play_sound(true, "activador_movil")
-	lm:play_sound(false, "puerta_reja")
-	lm:play_sound(true, "puerta_reja")
+	lm:play_positional_sound("activador_movil", "Activador_Movil03")
+	lm:play_positional_sound("puerta_reja", "Puerta_Reja_01")
 end
 
 function OnWindstrikeActivateTAPuertasAbajo()
 	lm:open_door("Puerta_Reja_005")
 	lm:activate_anim("Activador_Movil02")
-	lm:play_sound(false, "activador_movil")
-	lm:play_sound(true, "activador_movil")
-	lm:play_sound(false, "puerta_reja")
-	lm:play_sound(true, "puerta_reja")
+	lm:play_positional_sound("activador_movil", "Activador_Movil02")
+	lm:play_positional_sound("puerta_reja", "Puerta_Reja_005")
 end
 
 function OnWindstrikeActivateTAPuertasArriba()
 	lm:open_door("Puerta_Reja_04")
 	lm:activate_anim("Activador_Movil04")
-	lm:play_sound(false, "activador_movil")
-	lm:play_sound(true, "activador_movil")
-	lm:play_sound(false, "puerta_reja")
-	lm:play_sound(true, "puerta_reja")
+	lm:play_positional_sound("activador_movil", "Activador_Movil04")
+	lm:play_positional_sound("puerta_reja", "Puerta_Reja_04")
 end
 
 function OnWindstrikeActivateTARunner()
 	lm:open_door("Puerta_Reja_02")
 	lm:activate_anim("Activador_Movil01")
-	lm:play_sound(false, "activador_movil")
-	lm:play_sound(true, "activador_movil")
-	lm:play_sound(false, "puerta_reja")
-	lm:play_sound(true, "puerta_reja")
+	lm:play_positional_sound("activador_movil", "Activador_Movil01")
+	lm:play_positional_sound("puerta_reja", "Puerta_Reja_02")
 end
 
 

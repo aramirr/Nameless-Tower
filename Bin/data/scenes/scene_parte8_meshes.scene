@@ -2,6 +2,34 @@
   {
     "entity":
     {
+      "name": "ParedExteriorParte8A"
+      ,
+      "transform":
+      {
+        "pos": "-13.965 13.5 27.2712"
+        ,
+        "rotation": "0.0 0.0267501 0.0 -0.999642"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte8A.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "EstatuaSalaSorpresa"
       ,
       "transform":

@@ -100,6 +100,55 @@
   , 
   {
     "entity": {
+      "name": "Instanced Fire azul",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_15_azul.instanced_mesh",
+          "materials": [
+            "data/materials/particles_fire_instanced_15_azul.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity": {
+      "name": "Instanced Fire azul apagando",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_3_azul_apagando.instanced_mesh",
+          "materials": [
+            "data/materials/particles_fire_instanced_azul_apagando.material"
+          ]
+        }
+      ]
+    }
+  }
+  , {
+    "entity": {
+      "name": "Instanced Thin Fire azul",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_thin_15_azul.instanced_mesh",
+          "materials": [
+            "data/materials/particles_thin_fire_instanced_15_azul.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
       "name": "Instanced Smoke",
       "transform": {
         "pos": "0 0 0"
@@ -109,6 +158,22 @@
           "mesh": "data/meshes/particles_14.instanced_mesh",
           "materials": [
             "data/materials/particles_smoke_instanced_14.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,{
+    "entity": {
+      "name": "Instanced thin Smoke",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_thin_14.instanced_mesh",
+          "materials": [
+            "data/materials/particles_thin_smoke_instanced_14.material"
           ]
         }
       ]

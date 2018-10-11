@@ -2,7 +2,66 @@
   {
     "entity":
     {
-      "name": "ParedDestapada1"
+      "name": "Box004"
+      ,
+      "transform":
+      {
+        "pos": "-30.2412 8.93762 2.70436"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Box004.col_mesh"
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CaretaSala"
+      ,
+      "transform":
+      {
+        "pos": "-22.6079 26.4423 -11.6115"
+        ,
+        "rotation": "0.0 -0.887303 0.0 -0.461187"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CaretaSala.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Careta_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedDestapada1B"
       ,
       "transform":
       {
@@ -14,7 +73,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/ParedDestapada1.mesh"
+          "mesh": "data/meshes/ParedDestapada1B.mesh"
           ,
           "materials":
           [
@@ -30,7 +89,7 @@
   {
     "entity":
     {
-      "name": "ParedDestapada5"
+      "name": "ParedDestapada5B"
       ,
       "transform":
       {
@@ -42,7 +101,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/ParedDestapada5.mesh"
+          "mesh": "data/meshes/ParedDestapada5B.mesh"
           ,
           "materials":
           [
@@ -58,7 +117,7 @@
   {
     "entity":
     {
-      "name": "ParedDestapada4"
+      "name": "ParedDestapada4B"
       ,
       "transform":
       {
@@ -70,7 +129,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/ParedDestapada4.mesh"
+          "mesh": "data/meshes/ParedDestapada4B.mesh"
           ,
           "materials":
           [
@@ -223,8 +282,62 @@
     }
   }
   ,
-   
-   
+  {
+    "entity":
+    {
+      "name": "Telas4"
+      ,
+      "transform":
+      {
+        "pos": "-31.2233 18.9515 3.456"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Telas4.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Telas3"
+      ,
+      "transform":
+      {
+        "pos": "-22.1442 30.529 -16.8477"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Telas3.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
   {
     "entity":
     {
@@ -583,34 +696,6 @@
             "data/materials/MarcoMater.material"
             ,
             "data/materials/ArcoMater.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sala_EstatuaFea_073"
-      ,
-      "transform":
-      {
-        "pos": "-22.5456 26.452 -11.4773"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_073.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Careta_01.material"
           ]
         }
       ]

@@ -156,45 +156,6 @@
   {
     "entity":
     {
-      "name": "Luces_Fuego_07"
-      ,
-      "transform":
-      {
-        "pos": "23.967 69.386 10.243"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "light_point_shadows": {
-        "intensity": 0,
-        "color" :  "0.051 0.0509804 1 1.0",
-        "z_near" : 0.462,
-        "z_far" : 7.100,
-        "shadows_step" : 0.620,
-        "shadows_resolution" : 256,
-        "shadows_fmt" : "R32_TYPELESS",
-        "color_fmt" : "none",
-        "has_culling": true
-      },
-        "culling":{},
-      "ai_torch":
-      {
-        "time_limit": 2, "violeta": true,
-        "intensity": 10,
-        "color" :  "0.051 0.0509804 1 1.0",
-        "radius" : 3,
-        "scale" : 3,
-        "thin": false,
-        "y_offset": -1.5,
-        "x_offset": -1,
-        "z_offset": 0.0
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Luces_Fuego_06"
       ,
       "transform":

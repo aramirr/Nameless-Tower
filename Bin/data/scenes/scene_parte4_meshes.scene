@@ -27,7 +27,34 @@
     }
   }
   ,
-   
+  {
+    "entity":
+    {
+      "name": "Telas5"
+      ,
+      "transform":
+      {
+        "pos": "2.97757 95.9629 -28.2061"
+        ,
+        "rotation": "0.0 -0.496893 0.0 -0.867812"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Telas5.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
   {
     "entity":
     {

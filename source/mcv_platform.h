@@ -33,6 +33,7 @@ using json = nlohmann::json;
 
 #include "profiling/profiling.h"
 #include "geometry/geometry.h"
+#include "geometry/transform.h"
 #include "render/render.h"
 #include "utils/utils.h"
 #include "utils/timer.h"
@@ -40,5 +41,6 @@ using json = nlohmann::json;
 #include "camera/camera.h"
 #include "engine.h"
 #include "resources/resources_manager.h"
+#include "components/juan/comp_transform.h"
 
 #endif

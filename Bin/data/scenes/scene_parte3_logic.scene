@@ -6,7 +6,7 @@
       ,
       "transform":
       {
-        "pos": "26.5114 75.2442 -16.9576"
+        "pos": "26.5196 75.2524 -16.9322"
         ,
         "rotation": "0.0 -0.148491 0.0 -0.988914"
       }
@@ -14,11 +14,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Destruible3_Post_Fija.mesh"
+          "mesh": "data/meshes/Destruible.mesh"
           ,
           "materials":
           [
-            "data/materials/MaderaMusgoMat.material"
+            "data/materials/DestruibleMat.material"
           ]
         }
         ,
@@ -129,7 +129,7 @@
       ,
       "transform":
       {
-        "pos": "29.5724 72.7195 -9.43313"
+        "pos": "29.5752 72.7276 -9.40658"
         ,
         "rotation": "0.0 -0.0453033 0.0 -0.998973"
       }
@@ -137,11 +137,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Destruible1_Post_Fija.mesh"
+          "mesh": "data/meshes/Destruible.mesh"
           ,
           "materials":
           [
-            "data/materials/MaderaMusgoMat.material"
+            "data/materials/DestruibleMat.material"
           ]
         }
         ,
@@ -252,7 +252,7 @@
       ,
       "transform":
       {
-         "pos": "27.9317 69.3388 -13.8118"
+        "pos": "27.9375 69.3469 -13.7857"
         ,
         "rotation": "0.0 -0.102384 0.0 -0.994745"
       }
@@ -260,11 +260,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Destruible2_Post_Fija.mesh"
+          "mesh": "data/meshes/Destruible.mesh"
           ,
           "materials":
           [
-            "data/materials/MaderaMusgoMat.material"
+            "data/materials/DestruibleMat.material"
           ]
         }
         ,
@@ -375,7 +375,7 @@
       ,
       "transform":
       {
-        "pos": "30.5698 72.6763 7.49791"
+        "pos": "30.5698 68.7333 7.49791"
         ,
         "rotation": "0.0 -0.636836 0.0 -0.770999"
       }
@@ -423,7 +423,7 @@
       ,
       "transform":
       {
-        "pos": "23.6904 69.8693 19.2698"
+        "pos": "24.4333 69.8693 19.9079"
         ,
         "rotation": "0.0 -0.415587 0.0 -0.909553"
       }
@@ -572,7 +572,7 @@
       ,
       "transform":
       {
-        "pos": "24.4748 71.3991 -19.3859"
+        "pos": "24.4877 71.4072 -19.3625"
         ,
         "rotation": "0.0 -0.241554 0.0 -0.970387"
       }
@@ -580,11 +580,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Destruible4_Post_Fija.mesh"
+          "mesh": "data/meshes/Destruible.mesh"
           ,
           "materials":
           [
-            "data/materials/MaderaMusgoMat.material"
+            "data/materials/DestruibleMat.material"
           ]
         }
         ,
@@ -720,7 +720,7 @@
       ,
       "transform":
       {
-        "pos": "19.5038 67.5 19.5272"
+        "pos": "20.0687 67.5 12.736"
         ,
         "rotation": "0.0 0.0267501 0.0 -0.999642"
       }
@@ -733,9 +733,13 @@
           "materials":
           [
             "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedExteriorDentroMat.material"
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,

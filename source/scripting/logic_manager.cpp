@@ -187,6 +187,10 @@ void LogicManager::playSound(bool left, std::string name) {
     }
 }
 
+void LogicManager::playPositionalSound(std::string name, std::string entityName) {    
+    EngineSound.emitPositionalEvent(name, entityName);
+}
+
 void LogicManager::stopSound(bool left, std::string name) {
     if (applyFunction(left)) {
         EngineSound.stopEvent(name);

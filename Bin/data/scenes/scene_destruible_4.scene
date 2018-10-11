@@ -32,11 +32,6 @@
         "speed_factor": 1.0
         ,
         "loops": false
-      },
-      "destoyable_son":
-      {
-        "father": "Destruible4_Pre",
-        "me": "Destruible4_Post_12"
       }
     }
   }
@@ -74,11 +69,6 @@
         "speed_factor": 1.0
         ,
         "loops": false
-      },
-      "destoyable_son":
-      {
-        "father": "Destruible4_Pre",
-        "me": "Destruible4_Post_11"
       }
     }
   }
@@ -116,11 +106,6 @@
         "speed_factor": 1.0
         ,
         "loops": false
-      },
-      "destoyable_son":
-      {
-        "father": "Destruible4_Pre",
-        "me": "Destruible4_Post_10"
       }
     }
   }
@@ -158,11 +143,6 @@
         "speed_factor": 1.0
         ,
         "loops": false
-      },
-      "destoyable_son":
-      {
-        "father": "Destruible4_Pre",
-        "me": "Destruible4_Post_09"
       }
     }
   }
@@ -200,11 +180,6 @@
         "speed_factor": 1.0
         ,
         "loops": false
-      },
-      "destoyable_son":
-      {
-        "father": "Destruible4_Pre",
-        "me": "Destruible4_Post_08"
       }
     }
   }
@@ -242,11 +217,6 @@
         "speed_factor": 1.0
         ,
         "loops": false
-      },
-      "destoyable_son":
-      {
-        "father": "Destruible4_Pre",
-        "me": "Destruible4_Post_07"
       }
     }
   }
@@ -284,11 +254,6 @@
         "speed_factor": 1.0
         ,
         "loops": false
-      },
-      "destoyable_son":
-      {
-        "father": "Destruible4_Pre",
-        "me": "Destruible4_Post_06"
       }
     }
   }
@@ -326,11 +291,6 @@
         "speed_factor": 1.0
         ,
         "loops": false
-      },
-      "destoyable_son":
-      {
-        "father": "Destruible4_Pre",
-        "me": "Destruible4_Post_05"
       }
     }
   }
@@ -368,95 +328,6 @@
         "speed_factor": 1.0
         ,
         "loops": false
-      },
-      "destoyable_son":
-      {
-        "father": "Destruible4_Pre",
-        "me": "Destruible4_Post_04"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Destruible4_Post_03"
-      ,
-      "transform":
-      {
-        "pos": "24.611 70.6167 -18.2144"
-        ,
-        "rotation": "0.0 -0.241554 0.0 -0.970387"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible4_Post_03.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "rigid_anim":
-      {
-        "src": "data/anims/PlataformasDestruibles.anims"
-        ,
-        "speed_factor": 1.0
-        ,
-        "loops": false
-      },
-      "destoyable_son":
-      {
-        "father": "Destruible4_Pre",
-        "me": "Destruible4_Post_03"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Destruible4_Post_02"
-      ,
-      "transform":
-      {
-        "pos": "23.6522 71.2205 -18.4993"
-        ,
-        "rotation": "0.0 -0.241554 0.0 -0.970387"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible4_Post_02.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "rigid_anim":
-      {
-        "src": "data/anims/PlataformasDestruibles.anims"
-        ,
-        "speed_factor": 1.0
-        ,
-        "loops": false
-      },
-      "destoyable_son":
-      {
-        "father": "Destruible4_Pre",
-        "me": "Destruible4_Post_02"
       }
     }
   }
@@ -494,11 +365,80 @@
         "speed_factor": 1.0
         ,
         "loops": false
-      },
-      "destoyable_son":
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible4_Post_03"
+      ,
+      "transform":
       {
-        "father": "Destruible4_Pre",
-        "me": "Destruible4_Post_01"
+        "pos": "24.611 70.6167 -18.2144"
+        ,
+        "rotation": "0.0 -0.241554 0.0 -0.970387"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Destruible4_Post_03.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMusgoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PlataformasDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible4_Post_02"
+      ,
+      "transform":
+      {
+        "pos": "23.6522 71.2205 -18.4993"
+        ,
+        "rotation": "0.0 -0.241554 0.0 -0.970387"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Destruible4_Post_02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMusgoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PlataformasDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
       }
     }
   }

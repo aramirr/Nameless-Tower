@@ -50,7 +50,7 @@
       ,
       "transform":
       {
-        "pos": "18.8302 87.75 -25.9647"
+        "pos": "18.8295 87.75 -25.9643"
         ,
         "rotation": "0.0 -0.852341 0.0 -0.522987"
       }
@@ -63,9 +63,13 @@
           "materials":
           [
             "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedExteriorDentroMat.material"
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
 ]
