@@ -1,5 +1,7 @@
 #include "common.fx"
 
+#define SUPERSAMPLING 4.
+
 //--------------------------------------------------------------------------------------
 // Alpha generation pass. Vertex
 //--------------------------------------------------------------------------------------
@@ -44,6 +46,59 @@ void VS_Alpha(
  //   oTex1 = iTex1;
  //   oWorldPos = world_pos.xyz;
 }
+
+//--------------------------------------------------------------------------------------
+// Tela generation pass. Vertex
+//--------------------------------------------------------------------------------------
+void VS_Tela(
+  in float4 iPos : POSITION
+	, in float3 iNormal : NORMAL0
+	, in float2 iTex0 : TEXCOORD0
+	, in float2 iTex1 : TEXCOORD1
+	, in float4 iTangent : NORMAL1
+
+	, out float4 oPos : SV_POSITION
+	, out float3 oNormal : NORMAL0
+	, out float4 oTangent : NORMAL1
+	, out float2 oTex0 : TEXCOORD0
+	, out float2 oTex1 : TEXCOORD1
+	, out float3 oWorldPos : TEXCOORD2
+)
+{
+    float4 world_pos = mul(iPos, obj_world);
+    oPos = mul(world_pos, camera_view_proj);
+
+  // Rotar la normal segun la transform del objeto
+    oNormal = mul(iNormal, (float3x3) obj_world);
+    oTangent.xyz = mul(iTangent.xyz, (float3x3) obj_world);
+    oTangent.w = iTangent.w;
+
+  // Las uv's se pasan directamente al ps
+    
+    float2 pv = iTex0;
+
+
+    float2 cv = iTex0;
+    //pv.y = iTex0.y + (.3 + cv.x) * pow(sin(cv.x * 6. - global_world_time * 6.0), 2.) * .032;
+    pv.x = iTex0.x + cv.y * cos(cv.x - cv.y * 2. - global_world_time * 1.5) * .05;
+    oTex0 = pv;
+    oTex1 = iTex1;
+    oWorldPos = world_pos.xyz;
+ //   float4 world_pos = mul(iPos, obj_world);
+
+	//// Rotar la normal segun la transform del objeto
+ //   oNormal = mul(iNormal, (float3x3) obj_world);
+ //   oTangent.xyz = mul(iTangent.xyz, (float3x3) obj_world);
+ //   oTangent.w = iTangent.w;
+
+ //   oPos = mul(world_pos, camera_view_proj);
+
+	//// Las uv's se pasan directamente al ps
+ //   oTex0 = iTex0;
+ //   oTex1 = iTex1;
+ //   oWorldPos = world_pos.xyz;
+}
+
 
 //--------------------------------------------------------------------------------------
 // Alpha generation pass. Pixel shader
@@ -96,9 +151,21 @@ float4 PS_Alpha(
     //    return final_color;
     //}
     //final_color = float4(final_color.xyz, 1.0f);
-    final_color.a = alpha_color.r;
-    if (final_color.a < 0.3) 
+    //final_color.a = alpha_color.r;
+    if (alpha_color.r < 0.3) 
         discard;
+
+    float4 col = float4(0, 0, 0, 0);
+    float ee = 1. / min(global_resolution_Y, global_resolution_X);
+    for (float i = -SUPERSAMPLING; i < SUPERSAMPLING; ++i)
+    {
+        for (float j = -SUPERSAMPLING; j < SUPERSAMPLING; ++j)
+        {
+            col += (final_color * (ee / SUPERSAMPLING)) / (4. * SUPERSAMPLING * SUPERSAMPLING);
+        }
+    }
+    final_color = col;
+
     if (global_ambient_adjustment > 0.2f)
       return final_color * global_ambient_adjustment;
     else
