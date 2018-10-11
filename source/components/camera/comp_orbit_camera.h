@@ -42,9 +42,11 @@ class TCompOrbitCamera : public TCompBase {
   bool carga;
 
   bool active;
+	bool block;
 
   void activateCamera(const TMsgActiveCamera& msg);
   void deactivateCamera(const TMsgDeactiveCamera& msg);
+	void blockCamera(const TMsgBlockCamera& msg);
 
 public:
   static void registerMsgs();

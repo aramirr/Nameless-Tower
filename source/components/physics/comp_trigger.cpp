@@ -75,7 +75,7 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		else if (trigger_type == "catarata_grande") {
 			//BLOQUEAR CAMARA
 			CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
-			TMsgDeactiveCamera msg;
+			TMsgBlockCamera msg;
 			e->sendMsg(msg);
 		}
 	}

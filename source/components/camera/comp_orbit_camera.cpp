@@ -6,240 +6,254 @@
 DECL_OBJ_MANAGER("orbitCamera", TCompOrbitCamera);
 
 bool TCompOrbitCamera::isForward() {
-  TCompPlayerController* pc = player->get<TCompPlayerController>();
-  return !pc->isForward();
+	TCompPlayerController* pc = player->get<TCompPlayerController>();
+	return !pc->isForward();
 }
 
 bool TCompOrbitCamera::isGrounded() {
-  TCompPlayerController* pc = player->get<TCompPlayerController>();
-  return pc->isGrounded();
+	TCompPlayerController* pc = player->get<TCompPlayerController>();
+	return pc->isGrounded();
 
 }
 
 void TCompOrbitCamera::activateCamera(const TMsgActiveCamera & msg)
 {
-  active = true;
+	active = true;
 }
 
 void TCompOrbitCamera::deactivateCamera(const TMsgDeactiveCamera & msg)
 {
-  active = false;
+	active = false;
+}
+
+void TCompOrbitCamera::blockCamera(const TMsgBlockCamera & msg)
+{
+	block = true;
 }
 
 void TCompOrbitCamera::registerMsgs() {
-  DECL_MSG(TCompOrbitCamera, TMsgActiveCamera, activateCamera);
-  DECL_MSG(TCompOrbitCamera, TMsgDeactiveCamera, deactivateCamera);
+	DECL_MSG(TCompOrbitCamera, TMsgActiveCamera, activateCamera);
+	DECL_MSG(TCompOrbitCamera, TMsgDeactiveCamera, deactivateCamera);
+	DECL_MSG(TCompOrbitCamera, TMsgBlockCamera, blockCamera);
 }
 
 void TCompOrbitCamera::debugInMenu() {
-  ImGui::Text("Delante: %s", isForward() ? "Si" : "No");
-  ImGui::Text("Suelo: %s", isGrounded() ? "Si" : "No");
-  ImGui::Text("Active: %s", active ? "Si" : "No");
-  ImGui::DragFloat("Distancia", &distance, 0.1f, -200.f, 200.f);
-  ImGui::DragFloat("AP", &apertura, 0.1f, -2000.f, 2000.f);
-  ImGui::DragFloat("Altura", &height, 0.1f, -20.f, 20.f);
-  ImGui::DragFloat("Fov", &fov_deg, 0.1f, -1000.f, 1000.f);
-  ImGui::DragFloat("Look_X", &X, 0.1f, -100.f, 100.f);
-  ImGui::DragFloat("Look_Y", &Y, 0.1f, -100.f, 100.f);
-  ImGui::DragFloat("Look_Z", &Z, 0.1f, -100.f, 100.f);
-  ImGui::DragFloat("Radio", &radio, 0.1f, -100.f, 100.f);
+	ImGui::Text("Delante: %s", isForward() ? "Si" : "No");
+	ImGui::Text("Suelo: %s", isGrounded() ? "Si" : "No");
+	ImGui::Text("Active: %s", active ? "Si" : "No");
+	ImGui::DragFloat("Distancia", &distance, 0.1f, -200.f, 200.f);
+	ImGui::DragFloat("AP", &apertura, 0.1f, -2000.f, 2000.f);
+	ImGui::DragFloat("Altura", &height, 0.1f, -20.f, 20.f);
+	ImGui::DragFloat("Fov", &fov_deg, 0.1f, -1000.f, 1000.f);
+	ImGui::DragFloat("Look_X", &X, 0.1f, -100.f, 100.f);
+	ImGui::DragFloat("Look_Y", &Y, 0.1f, -100.f, 100.f);
+	ImGui::DragFloat("Look_Z", &Z, 0.1f, -100.f, 100.f);
+	ImGui::DragFloat("Radio", &radio, 0.1f, -100.f, 100.f);
 
 }
 
 void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
 
-  // ..
-  player = (CEntity *)getEntityByName("The Player");
+	// ..
+	player = (CEntity *)getEntityByName("The Player");
 
-  fov_deg = j.value("fov", 75.f);
-  z_near = j.value("z_near", 0.1f);
-  z_far = j.value("z_far", 1000.f);
-  distance = j.value("distance", 25.5f);
-  height = j.value("height", 2.7f);
-  radio = j.value("radio", 20.f);
-  apertura = j.value("apertura", -278.f);
+	fov_deg = j.value("fov", 75.f);
+	z_near = j.value("z_near", 0.1f);
+	z_far = j.value("z_far", 1000.f);
+	distance = j.value("distance", 25.5f);
+	height = j.value("height", 2.7f);
+	radio = j.value("radio", 20.f);
+	apertura = j.value("apertura", -278.f);
 
-  X = j.value("x", 0);
-  Y = j.value("y", 0);
-  Z = j.value("z", 0);
+	X = j.value("x", 0);
+	Y = j.value("y", 0);
+	Z = j.value("z", 0);
 
-  TCompTransform* p = player->get<TCompTransform>();
-  assert(p);
-  VEC3 pPos = p->getPosition();
+	TCompTransform* p = player->get<TCompTransform>();
+	assert(p);
+	VEC3 pPos = p->getPosition();
 
-  playerY = pPos.y;
-  currentPlayerY = pPos.y;
+	playerY = pPos.y;
+	currentPlayerY = pPos.y;
 
-  offset = deg2rad(((2 * 3.14159f * radio) / 360) * apertura);
+	offset = deg2rad(((2 * 3.14159f * radio) / 360) * apertura);
 
-  speedCaida = 0.f;
-  pesoOldPosition = 0.75f;
+	speedCaida = 0.f;
+	pesoOldPosition = 0.75f;
 
-  carga = true;
-  active = true;
+	carga = true;
+	active = true;
+	block = false;
 
-  camera = get<TCompCamera>();
+	camera = get<TCompCamera>();
 }
 
 void TCompOrbitCamera::update(float dt) {
-  offset = deg2rad(((2 * 3.14159f * radio) / 360) * apertura);
+	offset = deg2rad(((2 * 3.14159f * radio) / 360) * apertura);
 
-  TCompTransform* c = get<TCompTransform>();
-  assert(c);
-  VEC3 pos = c->getPosition();
+	TCompTransform* c = get<TCompTransform>();
+	assert(c);
+	VEC3 pos = c->getPosition();
 
-  VEC3 newPos;
+	VEC3 newPos;
 
-  bool b_caida = false;
+	bool b_caida = false;
 
-  TCompTransform* p = player->get<TCompTransform>();
-  assert(p);
-  VEC3 pPos = p->getPosition();
+	TCompTransform* p = player->get<TCompTransform>();
+	assert(p);
+	VEC3 pPos = p->getPosition();
 
-  float dY = abs(oldPos.y - pPos.y);
+	float dY = abs(oldPos.y - pPos.y);
 
-  if (currentPlayerY < pPos.y - 0.1f) {
-	  //b_caida = false;
-    if (dY > height + height + 1.5f) {
-      currentPlayerY += 1.5f;
-      speedCaida = 40.f;
-    }
-    else if (dY > height + (height / 2) + 1.5f) {
-      currentPlayerY += 1.5f;
-      speedCaida = 40.f;
-    }
-    else if (dY > height + (height / 3) + 1.5f) {
-      currentPlayerY += 1.5f;
-      speedCaida = 40.f;
-    }
-    else if (dY > height + (height / 4) + 1.5f) {
-      currentPlayerY += 1.5f;
-      speedCaida = 40.f;
-    }
-    else {
-			//Raycast looking for walls
-			VEC3 player_position = p->getPosition();
-			VEC3 player_Up = p->getUp();
+	VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
 
-			//DOWN
-			VEC3 posef = player_position - player_Up * 0.3f;
-			PxVec3 originf = PxVec3(posef.x, posef.y + 0.5f, posef.z);
-			PxVec3 unitDirf = PxVec3(-player_Up.x, -player_Up.y, -player_Up.z);
-
-			PxReal maxDistance = 4.0f;
-			PxRaycastBuffer hit;
-
-			bool stairs = false;
-
-			if (EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) {
-				PxFilterData filter_data = hit.block.shape->getSimulationFilterData();
-				if (filter_data.word0 == CModulePhysics::FilterGroup::Stairs) {
-					stairs = true;
-				}
+	if (!block) {
+		if (currentPlayerY < pPos.y - 0.1f) {
+			//b_caida = false;
+			if (dY > height + height + 1.5f) {
+				currentPlayerY += 1.5f;
+				speedCaida = 40.f;
 			}
-			
-			if (stairs) currentPlayerY += 0.05f;
-      else currentPlayerY = pPos.y;
-      speedCaida = 0.f;
-    }
-  }
-  else if (currentPlayerY > pPos.y + 0.1f) {
-    if (dY > height + height + 1.5f) speedCaida = 40.f;
-		else if (dY > height + (height / 2) + 1.5f) {
-			currentPlayerY = pPos.y;
-			speedCaida = 30.f;
-		}	
-		else if (dY > height + (height / 3) + 1.5f) {
-			currentPlayerY = pPos.y;
-			speedCaida = 20.f;
+			else if (dY > height + (height / 2) + 1.5f) {
+				currentPlayerY += 1.5f;
+				speedCaida = 40.f;
+			}
+			else if (dY > height + (height / 3) + 1.5f) {
+				currentPlayerY += 1.5f;
+				speedCaida = 40.f;
+			}
+			else if (dY > height + (height / 4) + 1.5f) {
+				currentPlayerY += 1.5f;
+				speedCaida = 40.f;
+			}
+			else {
+				//Raycast looking for walls
+				VEC3 player_position = p->getPosition();
+				VEC3 player_Up = p->getUp();
+
+				//DOWN
+				VEC3 posef = player_position - player_Up * 0.3f;
+				PxVec3 originf = PxVec3(posef.x, posef.y + 0.5f, posef.z);
+				PxVec3 unitDirf = PxVec3(-player_Up.x, -player_Up.y, -player_Up.z);
+
+				PxReal maxDistance = 4.0f;
+				PxRaycastBuffer hit;
+
+				bool stairs = false;
+
+				if (EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) {
+					PxFilterData filter_data = hit.block.shape->getSimulationFilterData();
+					if (filter_data.word0 == CModulePhysics::FilterGroup::Stairs) {
+						stairs = true;
+					}
+				}
+
+				if (stairs) currentPlayerY += 0.05f;
+				else currentPlayerY = pPos.y;
+				speedCaida = 0.f;
+			}
 		}
-		else if (dY > height + (height / 4) + 1.5f) {
-			currentPlayerY = pPos.y;
-			speedCaida = 10.f;
+		else if (currentPlayerY > pPos.y + 0.1f) {
+			if (dY > height + height + 1.5f) speedCaida = 40.f;
+			else if (dY > height + (height / 2) + 1.5f) {
+				currentPlayerY = pPos.y;
+				speedCaida = 30.f;
+			}
+			else if (dY > height + (height / 3) + 1.5f) {
+				currentPlayerY = pPos.y;
+				speedCaida = 20.f;
+			}
+			else if (dY > height + (height / 4) + 1.5f) {
+				currentPlayerY = pPos.y;
+				speedCaida = 10.f;
+			}
+			else if (dY > height + (height / 5) + 1.5f) {
+				currentPlayerY = pPos.y;
+				speedCaida = 5.f;
+			}
+			else {
+				//Raycast looking for walls
+				VEC3 player_position = p->getPosition();
+				VEC3 player_Up = p->getUp();
+
+				//DOWN
+				VEC3 posef = player_position - player_Up * 0.3f;
+				PxVec3 originf = PxVec3(posef.x, posef.y + 0.5f, posef.z);
+				PxVec3 unitDirf = PxVec3(-player_Up.x, -player_Up.y, -player_Up.z);
+
+				PxReal maxDistance = 4.0f;
+				PxRaycastBuffer hit;
+
+				bool stairs = false;
+
+				if (EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) {
+					PxFilterData filter_data = hit.block.shape->getSimulationFilterData();
+					if (filter_data.word0 == CModulePhysics::FilterGroup::Stairs) {
+						stairs = true;
+					}
+				}
+
+				if (stairs) currentPlayerY -= 0.04f;
+				else currentPlayerY = pPos.y;
+				speedCaida = 0.f;
+			}
+			b_caida = true;
 		}
-		else if (dY > height + (height / 5) + 1.5f) {
-			currentPlayerY = pPos.y;
-			speedCaida = 5.f;
+
+		center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
+
+		if (active) {
+			float d = VEC3::Distance(center, pPos);
+			float _d = (d - distance) / d;
+			float x = pPos.x - _d * (center.x - pPos.x);
+			float z = pPos.z - _d * (center.z - pPos.z);
+
+			pos.x = x;
+			pos.y = currentPlayerY + height;
+			pos.z = z;
+
+			float _distance = VEC3::Distance(center, pos);
+
+			if (isForward())offset *= -1;
+
+			float y, p2, _y, _p2;
+			c->getYawPitchRoll(&y, &p2);
+			p->getYawPitchRoll(&_y, &_p2);
+
+			c->setPosition(center);
+
+			y = _y + offset;
+			c->setYawPitchRoll(y, p2);
+			newPos = c->getPosition() - (c->getFront() * _distance);
+			newPos.y = currentPlayerY + height;
 		}
 		else {
-			//Raycast looking for walls
-			VEC3 player_position = p->getPosition();
-			VEC3 player_Up = p->getUp();
-
-			//DOWN
-			VEC3 posef = player_position - player_Up * 0.3f;
-			PxVec3 originf = PxVec3(posef.x, posef.y + 0.5f, posef.z);
-			PxVec3 unitDirf = PxVec3(-player_Up.x, -player_Up.y, -player_Up.z);
-
-			PxReal maxDistance = 4.0f;
-			PxRaycastBuffer hit;
-
-			bool stairs = false;
-
-			if (EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) {
-				PxFilterData filter_data = hit.block.shape->getSimulationFilterData();
-				if (filter_data.word0 == CModulePhysics::FilterGroup::Stairs) {
-					stairs = true;
-				}
-			}
-
-			if (stairs) currentPlayerY -= 0.04f;
-			else currentPlayerY = pPos.y;
-			speedCaida = 0.f;
+			newPos = oldPos;
+			newPos.y = currentPlayerY + height;
 		}
-	b_caida = true;
-  }
+	}
+	else {
+		newPos = oldPos;
+		newPos.y = currentPlayerY + height;
+	}
+	if (!carga) {
+		actualPos = VEC3::Lerp(oldPos, newPos, dt *(10 + speedCaida));
+		if (b_caida == true) {
+			pesoOldPosition = 0.1f;
+		}
+		else {
+			pesoOldPosition = 0.75f;
+		}
+		float pesoNewPosition = (1 - pesoOldPosition);
+		//newPos = pesoOldPosition * oldPos + (1 - pesoOldPosition) * actualPos;
+		newPos = VEC3(0.75f * oldPos.x, pesoOldPosition * oldPos.y, 0.75f * oldPos.z) + VEC3(0.25f * actualPos.x, pesoNewPosition * actualPos.y, 0.25f * actualPos.z);
+	}
+	else carga = false;
 
-  VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
+	oldPos = newPos;
 
-  if (active) {
-    float d = VEC3::Distance(center, pPos);
-    float _d = (d - distance) / d;
-    float x = pPos.x - _d * (center.x - pPos.x);
-    float z = pPos.z - _d * (center.z - pPos.z);
-
-    pos.x = x;
-    pos.y = currentPlayerY + height;
-    pos.z = z;
-
-    float _distance = VEC3::Distance(center, pos);
-
-    if (isForward())offset *= -1;
-
-    float y, p2, _y, _p2;
-    c->getYawPitchRoll(&y, &p2);
-    p->getYawPitchRoll(&_y, &_p2);
-
-    c->setPosition(center);
-
-    y = _y + offset;
-    c->setYawPitchRoll(y, p2);
-    newPos = c->getPosition() - (c->getFront() * _distance);
-    newPos.y = currentPlayerY + height;
-  }
-  else {
-    newPos = oldPos;
-    newPos.y = currentPlayerY + height;
-  }
-
-  if (!carga) {
-    actualPos = VEC3::Lerp(oldPos, newPos, dt *(10 + speedCaida));
-    if (b_caida == true) {
-      pesoOldPosition = 0.1f;
-    }
-    else {
-      pesoOldPosition = 0.75f;
-    }
-	float pesoNewPosition = (1 - pesoOldPosition);
-    //newPos = pesoOldPosition * oldPos + (1 - pesoOldPosition) * actualPos;
-	newPos = VEC3(0.75f * oldPos.x, pesoOldPosition * oldPos.y, 0.75f * oldPos.z) + VEC3(0.25f * actualPos.x, pesoNewPosition * actualPos.y, 0.25f * actualPos.z);
-  }
-  else carga = false;
-
-  oldPos = newPos;
-
-  c->setPosition(newPos);
-  c->lookAt(newPos, center);
+	c->setPosition(newPos);
+	c->lookAt(newPos, center);
 }
 
 void TCompOrbitCamera::setPosition(VEC3 position)
@@ -254,4 +268,5 @@ void TCompOrbitCamera::setPosition(VEC3 position)
 	c->lookAt(position, center);
 	carga = true;
 	active = true;
+	block = false;
 }

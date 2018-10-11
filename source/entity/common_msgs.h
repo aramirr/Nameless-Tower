@@ -177,6 +177,10 @@ struct TMsgDeactiveCamera {
   DECL_MSG_ID();
 };
 
+struct TMsgBlockCamera {
+	DECL_MSG_ID();
+};
+
 struct TMsgPlayerIn {
   DECL_MSG_ID();
 };
