@@ -71,7 +71,7 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
     azul = j.value("azul", false);
     initial_radius = radius;
     render = j.value("render", true);
-    frames = j.value("frames", 10);
+    frames = j.value("frames", 20);
     Init();
 }
 
