@@ -72,6 +72,7 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
     initial_radius = radius;
     render = j.value("render", true);
     frames = j.value("frames", 20);
+    smoke_frames = j.value("smoke_frames", 20);
     Init();
 }
 
@@ -112,15 +113,23 @@ void CAITorch::InactiveState(float dt)
 	if (in_puzzle) {
 		timer += DT;
         current_frames += 1;
-		if (current_frames > frames) {
+		if (!apagando && current_frames > frames) {
 			EngineBillboards.apagarFuegoAzul(id, scale);
+            apagando = true;
+            current_frames = 0;
 		}
+        if (apagando && current_frames > smoke_frames) {
+            EngineBillboards.prendiendoHumo(id, scale);
+            apagando = false;
+            current_frames = 0;
+        }
 	}	
 }
 
 void CAITorch::activate() {
 	active = true;
     render = true;    
+    apagando = false;
 	TCompTransform* my_transform = getMyTransform();
     if (violeta)
         EngineBillboards.encenderFuegoVioleta(id, scale, thin);
