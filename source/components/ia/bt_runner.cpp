@@ -76,6 +76,7 @@ void bt_runner::debugInMenu() {
 	if (actual_waypoint >= 0 && path.size() > 0) {
 		ImGui::Text("actual_waypoint type %s", waypoints_map[path[actual_waypoint]].type.c_str());
 		ImGui::Text("actual_waypoint %i", path[actual_waypoint]);
+		if (next_waypoint >= 0) ImGui::Text("next_waypoint %i", path[next_waypoint]);
 	}
   anim_debug_changed = ImGui::DragInt("ANIM", &anim_id, 0.1f, 0, 8);
 
@@ -750,7 +751,7 @@ void bt_runner::recalculate_path() {
 	TCompTransform *c_p_transform = player->get<TCompTransform>();
 	int target_pos = findClosestWaypoint(c_p_transform->getPosition());
 
-	findPath(origin, 60);
+	findPath(origin, 104);
 	actual_waypoint = path.size() -1;
 	next_waypoint = actual_waypoint -1;
 	target == "waypoint";
