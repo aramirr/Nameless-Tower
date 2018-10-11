@@ -46,6 +46,7 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
     setEntity(ctx.current_entity);
     timer_limit = j.value("time_limit", 5.0f);
     y_offset = j.value("y_offset", 0.f);
+    smoke_y_offset = j.value("smoke_y_offset", 0.f);
     z_offset = j.value("z_offset", 0.f);
     x_offset = j.value("x_offset", 0.f);
 	puzzle_name = j.value("puzzle", "");
@@ -67,6 +68,7 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
     scale = j.value("scale", scale);
     thin = j.value("thin", thin);
     violeta = j.value("violeta", false);
+    azul = j.value("azul", false);
     initial_radius = radius;
     render = j.value("render", true);
     //if (render)
@@ -94,9 +96,10 @@ void CAITorch::ActiveState(float dt)
             if (violeta) {
                 id = EngineBillboards.addFuegoVioleta(fire_position, scale, thin);
             }
-            else {
+            else if (azul){
+                id = EngineBillboards.addFuegoAzul(fire_position, scale, thin, smoke_y_offset);
+            } else
                 id = EngineBillboards.addFuegoTest(fire_position, scale, thin);
-            }
             b_fuego = false;
         }
     }  
@@ -122,9 +125,11 @@ void CAITorch::activate() {
 	TCompTransform* my_transform = getMyTransform();
     if (violeta)
         EngineBillboards.encenderFuegoVioleta(id, scale, thin);
+    else if (azul) {
+        EngineBillboards.encenderFuegoAzul(id, scale, thin);
+    }
     else
         EngineBillboards.encenderFuego(id, scale, thin);
-    
 	ChangeState("active");
 }
 
@@ -133,7 +138,7 @@ void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
 	if (active) {
 		active = false;
 		TCompTransform* my_transform = getMyTransform();
-		EngineBillboards.apagarFuego(id, scale, thin);
+		EngineBillboards.apagarFuegoAzul(id, scale, thin);
 		//TCompRender *my_render = getMyRender();
 		//my_render->self_illumination = 1;
 		timer = 0;

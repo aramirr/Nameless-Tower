@@ -92,9 +92,12 @@ public:
   void update(float delta) override;
   int addFuegoTest(VEC3 position, float scale, bool thin);
   int addFuegoVioleta(VEC3 position, float scale, bool thin);
+  int addFuegoAzul(VEC3 position, float scale, bool thin, float smoke_y_offset);
   void apagarFuego(int id, float scale, bool thin);
+  void apagarFuegoAzul(int id, float scale, bool thin);
   void encenderFuego(int id, float scale, bool thin);
   void encenderFuegoVioleta(int id, float scale, bool thin);
+  void encenderFuegoAzul(int id, float scale, bool thin);
   void addGrass(VEC3 position, float width, float length, int total);
   void addGrassByAngle(VEC3 pos1, VEC3 pos2, int total, float radius1, float radius2);
   void calculateAngles(VEC3 pos1, VEC3 pos2, float& alpha, float& beta, float& charlie);
