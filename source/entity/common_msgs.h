@@ -66,6 +66,10 @@ struct TMsgActivateAnim{
 	DECL_MSG_ID();
 };
 
+struct TMsgDesactivateAnim {
+	DECL_MSG_ID();
+};
+
 struct TMsgWindstrike {
 	DECL_MSG_ID();
 }; 
@@ -100,6 +104,11 @@ struct TMsgKillPlayer {
 };
 
 struct TMsgDestroy {
+	DECL_MSG_ID();
+};
+
+struct TMsgRegisterDestoyableSon {
+	std::string name;
 	DECL_MSG_ID();
 };
 

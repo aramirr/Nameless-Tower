@@ -2,6 +2,60 @@
   {
     "entity":
     {
+      "name": "CaretaTemploAgua"
+      ,
+      "transform":
+      {
+        "pos": "21.2819 60.7094 19.257"
+        ,
+        "rotation": "0.0 -0.987688 0.0 0.156434"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CaretaTemploAgua.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Careta_01.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CaretaCascada"
+      ,
+      "transform":
+      {
+        "pos": "19.874 98.0412 -9.95998"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CaretaCascada.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Careta_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Caldero_Colgado02"
       ,
       "transform":
@@ -73,7 +127,7 @@
   {
     "entity":
     {
-      "name": "ParedDestapada10"
+      "name": "ParedDestapada10B"
       ,
       "transform":
       {
@@ -85,7 +139,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/ParedDestapada10.mesh"
+          "mesh": "data/meshes/ParedDestapada10B.mesh"
           ,
           "materials":
           [
@@ -251,8 +305,62 @@
     }
   }
   ,
-   
-   
+  {
+    "entity":
+    {
+      "name": "Telas2"
+      ,
+      "transform":
+      {
+        "pos": "16.1965 70.587 22.7278"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Telas2.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Telas_1"
+      ,
+      "transform":
+      {
+        "pos": "24.3054 75.2353 10.7636"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Telas_1.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
   {
     "entity":
     {
@@ -732,34 +840,6 @@
   {
     "entity":
     {
-      "name": "Cara"
-      ,
-      "transform":
-      {
-        "pos": "19.9535 98.0595 -10.3761"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Cara.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Careta_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "ParedExteriorParte5G"
       ,
       "transform":
@@ -951,9 +1031,8 @@
       ,
       "abs_aabb": true
     }
-  }
+  } 
   ,
-   
   {
     "entity":
     {
@@ -982,7 +1061,6 @@
     }
   }
   ,
-   
   {
     "entity":
     {
@@ -1014,7 +1092,7 @@
   {
     "entity":
     {
-      "name": "Sala_EstatuaFea_04"
+      "name": "CaretaCaida"
       ,
       "transform":
       {
@@ -1026,7 +1104,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Sala_EstatuaFea_04.mesh"
+          "mesh": "data/meshes/CaretaCaida.mesh"
           ,
           "materials":
           [
@@ -2278,34 +2356,6 @@
           "materials":
           [
             "data/materials/Suelo_Estatua_fea.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sala_EstatuaFea_03"
-      ,
-      "transform":
-      {
-        "pos": "21.3141 60.7576 19.2471"
-        ,
-        "rotation": "0.0 -0.618362 0.0 -0.785893"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_03.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Careta_01.material"
           ]
         }
       ]

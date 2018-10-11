@@ -422,9 +422,13 @@
           "materials":
           [
             "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedExteriorDentroMat.material"
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,

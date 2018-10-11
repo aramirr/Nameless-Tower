@@ -6,7 +6,7 @@
       ,
       "transform":
       {
-        "pos": "-22.3268 27.0 -20.0513"
+        "pos": "-22.3265 27.0 -20.0501"
         ,
         "rotation": "0.0 -0.99152 0.0 0.129958"
       }
@@ -19,9 +19,13 @@
           "materials":
           [
             "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedExteriorDentroMat.material"
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -32,7 +36,7 @@
       ,
       "transform":
       {
-        "pos": "-31.9735 24.75 -5.03496"
+        "pos": "-31.973 24.75 -5.03471"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -45,9 +49,13 @@
           "materials":
           [
             "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedExteriorDentroMat.material"
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,

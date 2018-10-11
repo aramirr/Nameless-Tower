@@ -27,6 +27,7 @@ public:
     void openDoor(const char* name);
     void closeDoor(const char* name);
 	void activateAnim(const char* name);
+	void setTemblor(bool temblor, bool left);
 
   // UI
 	void activateText(const char* name);
