@@ -138,7 +138,7 @@ void TCompOrbitCamera::update(float dt) {
 				}
 			}
 			
-			if (stairs) currentPlayerY -= 0.05f;
+			if (stairs) currentPlayerY += 0.05f;
       else currentPlayerY = pPos.y;
       speedCaida = 0.f;
     }
@@ -183,7 +183,7 @@ void TCompOrbitCamera::update(float dt) {
 				}
 			}
 
-			if (stairs) currentPlayerY -= 0.05f;
+			if (stairs) currentPlayerY -= 0.04f;
 			else currentPlayerY = pPos.y;
 			speedCaida = 0.f;
 		}

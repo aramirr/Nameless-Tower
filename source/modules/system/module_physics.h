@@ -20,7 +20,7 @@ public:
         Scenario = Wall | Floor,
         Characters = Player | Enemy,
 		AllUnlessPlayer = -Player,
-		PlayerMask = Scenario | Projectile,
+		PlayerMask = Scenario | Projectile | Stairs,
         All = -1
     };
 
