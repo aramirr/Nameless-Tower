@@ -114,6 +114,23 @@
       ]
     }
   }
+  ,
+  {
+    "entity": {
+      "name": "Instanced Fire azul apagando",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_3_azul_apagando.instanced_mesh",
+          "materials": [
+            "data/materials/particles_fire_instanced_azul_apagando.material"
+          ]
+        }
+      ]
+    }
+  }
   , {
     "entity": {
       "name": "Instanced Thin Fire azul",

@@ -37,6 +37,7 @@ class CModuleBillboards : public IModule
     CRenderMeshInstanced* thin_fire_particles_instances_mesh = nullptr;
     CRenderMeshInstanced* thin_fire_violeta_particles_instances_mesh = nullptr;
     CRenderMeshInstanced* thin_fire_azul_particles_instances_mesh = nullptr;
+    CRenderMeshInstanced* thin_fire_azul_apagando_particles_instances_mesh = nullptr;
 	CRenderMeshInstanced* smoke_particles_instances_mesh = nullptr;
 	CRenderMeshInstanced* thin_smoke_particles_instances_mesh = nullptr;
 	std::vector< TRenderParticle > particles_instances;
@@ -46,6 +47,7 @@ class CModuleBillboards : public IModule
     std::vector< TRenderParticle > thin_fire_particles_instances;
     std::vector< TRenderParticle > thin_fire_violeta_particles_instances;
     std::vector< TRenderParticle > thin_fire_azul_particles_instances;
+    std::vector< TRenderParticle > thin_fire_azul_apagando_particles_instances;
     std::vector< TRenderParticle > smoke_particles_instances;
     std::vector< TRenderParticle > thin_smoke_particles_instances;
 	std::vector< int > particles_ids;
@@ -55,6 +57,7 @@ class CModuleBillboards : public IModule
     std::vector< int > thin_fire_particles_ids;
     std::vector< int > thin_fire_violeta_particles_ids;
     std::vector< int > thin_fire_azul_particles_ids;
+    std::vector< int > thin_fire_azul_apagando_particles_ids;
     std::vector< int > smoke_particles_ids;
     std::vector< int > thin_smoke_particles_ids;
 
@@ -92,12 +95,13 @@ public:
   void update(float delta) override;
   int addFuegoTest(VEC3 position, float scale, bool thin);
   int addFuegoVioleta(VEC3 position, float scale, bool thin);
-  int addFuegoAzul(VEC3 position, float scale, bool thin, float smoke_y_offset);
+  int addFuegoAzul(VEC3 position, float scale, float smoke_y_offset);
   void apagarFuego(int id, float scale, bool thin);
-  void apagarFuegoAzul(int id, float scale, bool thin);
+  void apagarFuegoAzul(int id, float scale);
+  void apagandoFuegoAzul(int id, float scale);
   void encenderFuego(int id, float scale, bool thin);
   void encenderFuegoVioleta(int id, float scale, bool thin);
-  void encenderFuegoAzul(int id, float scale, bool thin);
+  void encenderFuegoAzul(int id, float scale);
   void addGrass(VEC3 position, float width, float length, int total);
   void addGrassByAngle(VEC3 pos1, VEC3 pos2, int total, float radius1, float radius2);
   void calculateAngles(VEC3 pos1, VEC3 pos2, float& alpha, float& beta, float& charlie);
