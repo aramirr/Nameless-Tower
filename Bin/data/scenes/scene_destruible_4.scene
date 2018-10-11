@@ -32,6 +32,11 @@
         "speed_factor": 1.0
         ,
         "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Destruible4_Pre",
+        "me": "Destruible4_Post_12"
       }
     }
   }
@@ -69,6 +74,11 @@
         "speed_factor": 1.0
         ,
         "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Destruible4_Pre",
+        "me": "Destruible4_Post_11"
       }
     }
   }
@@ -106,6 +116,11 @@
         "speed_factor": 1.0
         ,
         "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Destruible4_Pre",
+        "me": "Destruible4_Post_10"
       }
     }
   }
@@ -143,6 +158,11 @@
         "speed_factor": 1.0
         ,
         "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Destruible4_Pre",
+        "me": "Destruible4_Post_09"
       }
     }
   }
@@ -180,6 +200,11 @@
         "speed_factor": 1.0
         ,
         "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Destruible4_Pre",
+        "me": "Destruible4_Post_08"
       }
     }
   }
@@ -217,6 +242,11 @@
         "speed_factor": 1.0
         ,
         "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Destruible4_Pre",
+        "me": "Destruible4_Post_07"
       }
     }
   }
@@ -254,6 +284,11 @@
         "speed_factor": 1.0
         ,
         "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Destruible4_Pre",
+        "me": "Destruible4_Post_06"
       }
     }
   }
@@ -291,6 +326,11 @@
         "speed_factor": 1.0
         ,
         "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Destruible4_Pre",
+        "me": "Destruible4_Post_05"
       }
     }
   }
@@ -328,43 +368,11 @@
         "speed_factor": 1.0
         ,
         "loops": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Destruible4_Post_01"
-      ,
-      "transform":
+      },
+      "destoyable_son":
       {
-        "pos": "22.9369 71.2287 -19.2971"
-        ,
-        "rotation": "0.0 -0.241554 0.0 -0.970387"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible4_Post_01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "rigid_anim":
-      {
-        "src": "data/anims/PlataformasDestruibles.anims"
-        ,
-        "speed_factor": 1.0
-        ,
-        "loops": false
+        "father": "Destruible4_Pre",
+        "me": "Destruible4_Post_04"
       }
     }
   }
@@ -402,6 +410,11 @@
         "speed_factor": 1.0
         ,
         "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Destruible4_Pre",
+        "me": "Destruible4_Post_03"
       }
     }
   }
@@ -439,6 +452,53 @@
         "speed_factor": 1.0
         ,
         "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Destruible4_Pre",
+        "me": "Destruible4_Post_02"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Destruible4_Post_01"
+      ,
+      "transform":
+      {
+        "pos": "22.9369 71.2287 -19.2971"
+        ,
+        "rotation": "0.0 -0.241554 0.0 -0.970387"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Destruible4_Post_01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMusgoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PlataformasDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Destruible4_Pre",
+        "me": "Destruible4_Post_01"
       }
     }
   }

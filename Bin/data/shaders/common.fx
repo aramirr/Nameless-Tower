@@ -187,10 +187,14 @@ float4 fog(float4 _finalColor, float4 iPosition)
 
     // Exponential fog
 
-    fogFactor = 1.0f / exp(global_fogDist_adjustment * global_fogDensity_adjustment);
+    float dist = iPosition.z / iPosition.w;
+
+    fogFactor = 1.0f / exp(dist * global_fogDensity_adjustment);
     fogFactor = clamp(fogFactor, 0.0f, 1.0f);
 
-    return float4(fogColor * (1 - fogFactor) + _finalColor.rgb * fogFactor, 1.0f);
+    //return float4(fogColor * (1 - fogFactor) + _finalColor.rgb * fogFactor, 1.0f);
+    return float4(lerp(fogColor, _finalColor.rgb, fogFactor), 1.f);
+
 }
 
 //--------------------------------------------------------------------------------------
@@ -211,7 +215,7 @@ float3 postprocesado(float3 c, float2 iUV, float4 iPosition)
     float4 dstColor = float4((r.rgb - (float3) (0.5)) * contrast + (float3)(0.5), 1.0);
     float4 finalColor = clamp(dstColor, 0.0, 1.0);
 
-    finalColor = fog(finalColor, iPosition);
+    //finalColor = fog(finalColor, iPosition);
 
     //VIGNETTING
     //float2 uv = fragCoord.xy / iResolution.xy;
@@ -227,10 +231,10 @@ float3 postprocesado(float3 c, float2 iUV, float4 iPosition)
        
     if (iUV.y >= 1 - global_bandMin_adjustment || iUV.y < global_bandMax_adjustment)
     {
-        return float4(0.f, 0.f, 0.f, 1.f);
+        return float3(0.f, 0.f, 0.f);
     }
 
-    return float4(finalColor.rgb * e, 1.0);
+    return finalColor.rgb * e;
 
 }
 

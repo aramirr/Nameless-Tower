@@ -18,6 +18,7 @@ struct TCompRigidAnim : public TCompBase {
   static void registerMsgs();
   void onGroupCreated(const TMsgEntitiesGroupCreated& msg);
 	void activate(const TMsgActivateAnim& msg);
+	void desactivate(const TMsgDesactivateAnim& msg);
   DECL_SIBLING_ACCESS();
 };
 
