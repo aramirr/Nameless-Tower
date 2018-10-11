@@ -452,6 +452,7 @@ void decodeGBuffer(
    , out float3 view_dir
    , out bool cell_shading
    , out float ao
+   , out float celltype
    )
 {
 
@@ -504,8 +505,15 @@ void decodeGBuffer(
 
   // Comprobamos si el objeto se pinta con PBR o Cell Shading
     if ((txGBufferCell.Load(ss_load_coords)).x < 0.49f)
+    {
         cell_shading = false;
-    else cell_shading = true;
+        celltype = 0.f;
+    }
+    else
+    {
+        celltype = (txGBufferCell.Load(ss_load_coords)).x;
+        cell_shading = true;
+    }
 }
 
 float NormalDistribution_GGX(float a, float NdH)
@@ -570,7 +578,8 @@ float4 PS_ambient(
     float3 wPos, N, specular_color, reflected_dir, view_dir;
     float roughness, ao;
     bool cell;
-    decodeGBuffer(iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir, cell, ao);
+    float celltype;
+    decodeGBuffer(iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir, cell, ao, celltype);
 
   // if roughness = 0 -> I want to use the miplevel 0, the all-detailed image
   // if roughness = 1 -> I will use the most blurred image, the 8-th mipmap, If image was 256x256 => 1x1
@@ -615,6 +624,8 @@ float4 PS_ambient(
 
     float4 final_color;
 
+    float3 fogColor = float3(0.5f, 0.5f, 0.5f);
+
     if (cell)
     {
         final_color = float4( /*env_fresnel * env * g_ReflectionIntensity +*/
@@ -637,6 +648,19 @@ float4 PS_ambient(
             final_color = float4(0.35, 0.35, 0.35, 1.0) * final_color; //float4(albedo, 1);
         else
             final_color = float4(0.7, 0.7, 0.7, 1.0) * final_color; //float4(albedo, 1);
+        
+        if ((global_naja_interior == 0 && cell == 1.f) || (global_runner_interior == 0 && cell == 0.75f))
+            final_color = float4(lerp(fogColor, final_color.rgb, visibility), final_color.a);
+        else if (cell == 0.5f)
+            final_color = float4(lerp(fogColor, final_color.rgb, visibility), final_color.a);
+        else if (global_fogDensity_adjustment > 0.f){
+            visibility = 1.0f / exp(distancet * 0.004f);
+            visibility = clamp(visibility, 0.0f, 1.0f);
+            final_color = float4(lerp(fogColor/3, final_color.rgb, visibility), final_color.a);
+            final_color = final_color * global_ambient_adjustment / 2;
+
+        }
+            
     }
     else
     {
@@ -648,9 +672,11 @@ float4 PS_ambient(
         final_color = final_color * global_ambient_adjustment * ao;
         final_color = lerp(float4(env, 1), final_color, 1) + float4(self_illum.xyz, 1) * global_ambient_adjustment;
 
+        final_color = float4(lerp(fogColor, final_color.rgb, visibility), final_color.a);
+
     }
     //return final_color;
-    float3 fogColor = float3(0.5f, 0.5f, 0.5f);
+    
    
     //Get light
     //an view
@@ -669,7 +695,7 @@ float4 PS_ambient(
     //fogFactor = clamp(fogFactor, 0.0f, 1.0f);
 
     //return float4(fogColor * (1 - fogFactor) + _finalColor.rgb * fogFactor, 1.0f);
-    return float4(lerp(fogColor, final_color.rgb, visibility), final_color.a);
+    return final_color;
 
 }
 
@@ -707,7 +733,8 @@ float4 shade(
     float3 wPos, N, specular_color, reflected_dir, view_dir;
     float roughness, ao;
     bool cell;
-    decodeGBuffer(iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir, cell, ao);
+    float celltype;
+    decodeGBuffer(iPosition.xy, wPos, N, albedo, specular_color, roughness, reflected_dir, view_dir, cell, ao, celltype);
     N = normalize(N);
   // Shadow factor entre 0 (totalmente en sombra) y 1 (no ocluido)
     float shadow_factor = use_shadows ? computeShadowFactor(wPos) : 1.; // shadow factor
