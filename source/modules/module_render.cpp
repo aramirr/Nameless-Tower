@@ -249,9 +249,14 @@ void CModuleRender::generateFrame() {
 
 		//CRenderManager::get().renderCategory("cell");
 
-		CRenderManager::get().renderCategory("alpha");
+		TCompCulling* culling;
+		CEntity* e = h_e_camera;
+		culling = e->get<TCompCulling>();
+		assert(culling);
 
-		CRenderManager::get().renderCategory("opacity");
+		CRenderManager::get().renderCategory("alpha", culling);
+
+		CRenderManager::get().renderCategory("opacity", culling);
 
 		//CRenderManager::get().renderCategory("distorsions");
 
@@ -296,8 +301,8 @@ void CModuleRender::generateFrame() {
 
 		renderFullScreenQuad("dump_texture.tech", curr_rt);
 
-		CRenderManager::get().renderCategory("particles");
-		CRenderManager::get().renderCategory("particlesA");
+		CRenderManager::get().renderCategory("particles", culling);
+		CRenderManager::get().renderCategory("particlesA", culling);
 		// Debug render
 		{
 			PROFILE_FUNCTION("Modules");
@@ -338,6 +343,6 @@ void CModuleRender::generateFrame() {
 	// Present the information rendered to the back buffer to the front buffer (the screen)
 	{
 		PROFILE_FUNCTION("Render.swapChain");
-		Render.swapChain->Present(0, 0);
+		Render.swapChain->Present(1, 0);
 	}
 }
