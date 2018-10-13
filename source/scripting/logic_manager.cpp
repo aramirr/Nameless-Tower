@@ -7,6 +7,7 @@
 #include "components/juan/comp_render.h"
 #include "components/comp_particles.h"
 #include "components/camera/comp_camera_manager.h"
+#include "components/controllers/comp_curve.h"
 #include "render\render_objects.h"
 #include "ctes.h"
 #include "render/cte_buffer.h"
@@ -245,4 +246,10 @@ void LogicManager::scarePlayer() {
     scareMsg.variant.setName("scared");
     scareMsg.variant.setBool(true);
     e->sendMsg(scareMsg);
+}
+
+void LogicManager::playCurve(std::string name) {
+    CEntity* entity = getEntityByName(name);
+    TCompCurve* t = entity->get<TCompCurve>();
+    t->activate();
 }

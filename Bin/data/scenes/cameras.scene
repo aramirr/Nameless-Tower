@@ -193,5 +193,22 @@
 			},
 		    "culling":true	
 		}
+	},
+	{
+		"entity": {
+			"name": "camara_cinematica_inicial",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+		    "culling":true,
+			"hierarchy":
+		      {
+		        "parent": "cinematica_inicial_curve"
+		      }		
+		}
 	}
 ]

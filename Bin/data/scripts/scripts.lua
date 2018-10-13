@@ -25,12 +25,7 @@ function OnLevel1Start()
 	lm:stop_emiter("hojas_jardin_1", false)
 	lm:stop_emiter("hojas_jardin_2", false)
 	lm:stop_emiter("hojas_viento", false)
-	lm:stop_emiter("particulas_top_cascada", false)
-	
-	--lm:activate_cinematic_bands(false)
-	--lm:pause_player()
-	--lm:play_animation(32)
-	--lm:regain_control(25)
+	lm:stop_emiter("particulas_top_cascada", false)	
 	
 end
 
@@ -406,13 +401,18 @@ end
 
 
 function OnTriggerExitLuaCinematicTest()
-	lm:activate_cinematic_bands(false)
-	lm:pause_player()
+	--lm:activate_cinematic_bands(false)
+	--lm:pause_player()
 	--If camera needs to be moved
-	lm:activate_cinematic("cinematic_first_door", false)
+	--lm:activate_cinematic("cinematic_first_door", false)
+	--lm:play_animation(32)
+	--lm:regain_control(25)
+	--lm:kill_entity("LuaCinematicTest")
+	lm:activate_cinematic_bands(false)
+	lm:activate_cinematic("cinematica_inicial", false)
+	lm:pause_player()
 	lm:play_animation(32)
 	lm:regain_control(25)
-	lm:kill_entity("LuaCinematicTest")
 end
 -- NIVEL BAJADA
 

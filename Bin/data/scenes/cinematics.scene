@@ -123,6 +123,24 @@
 			},
 		    "culling":true
 		}
+	},
+	{
+		"entity": {
+			"name": "cinematica_inicial",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"
+			},
+			"cinematic" :
+			{
+				"camera_name" : "camara_cinematica_inicial",
+				"time": 15,
+				"blend_time": 0,
+				"spline_name": "cinematica_inicial_curve",
+				"camera_name": "camara_cinematica_inicial"
+			},
+		    "culling":true
+		}
 	}
 ]
 
