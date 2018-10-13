@@ -103,9 +103,11 @@
     <ClCompile Include="components\comp_particles.cpp" />
     <ClCompile Include="components\controllers\bone_anchor.cpp" />
     <ClCompile Include="components\ia\ai_compresora.cpp" />
+    <ClCompile Include="components\ia\comp_destoyable_son.cpp" />
     <ClCompile Include="components\lights\comp_light_point_shadows.cpp" />
     <ClCompile Include="components\lights\comp_light_spot.cpp" />
     <ClCompile Include="components\controllers\comp_curve.cpp" />
+    <ClCompile Include="components\controllers\comp_render_windstrike.cpp" />
     <ClCompile Include="components\controllers\comp_door.cpp" />
     <ClCompile Include="components\controllers\comp_projectile_controller.cpp" />
     <ClCompile Include="components\lights\comp_light_dir.cpp" />
@@ -190,6 +192,7 @@
     <ClCompile Include="fsm\player_states\omnijump_state.cpp" />
     <ClCompile Include="fsm\player_states\pause_state.cpp" />
     <ClCompile Include="fsm\player_states\run_state.cpp" />
+    <ClCompile Include="fsm\player_states\scared_state.cpp" />
     <ClCompile Include="fsm\player_states\turn_around_state.cpp" />
     <ClCompile Include="fsm\player_states\windstrike_state.cpp" />
     <ClCompile Include="geometry\angular.cpp" />
@@ -293,11 +296,13 @@
     <ClInclude Include="components\comp_emission_controller.h" />
     <ClInclude Include="components\comp_particles.h" />
     <ClInclude Include="components\controllers\bone_anchor.h" />
+    <ClInclude Include="components\ia\comp_destoyable_son.h" />
     <ClInclude Include="components\juan\comp_render_cube.h" />
     <ClInclude Include="components\ia\ai_compresora.h" />
     <ClInclude Include="components\lights\comp_light_point_shadows.h" />
     <ClInclude Include="components\lights\comp_light_spot.h" />
     <ClInclude Include="components\controllers\comp_curve.h" />
+    <ClInclude Include="components\controllers\comp_render_windstrike.h" />
     <ClInclude Include="components\controllers\comp_door.h" />
     <ClInclude Include="components\controllers\comp_projectile_controller.h" />
     <ClInclude Include="components\controllers\comp_rigid_anim.h" />
@@ -386,6 +391,7 @@
     <ClInclude Include="fsm\player_states\pause_state.h" />
     <ClInclude Include="fsm\player_states\player_state.h" />
     <ClInclude Include="fsm\player_states\run_state.h" />
+    <ClInclude Include="fsm\player_states\scared_state.h" />
     <ClInclude Include="fsm\player_states\turn_around_state.h" />
     <ClInclude Include="fsm\player_states\windstrike_state.h" />
     <ClInclude Include="fsm\state.h" />

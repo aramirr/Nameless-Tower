@@ -19,6 +19,8 @@ class TCompCameraManager : public TCompBase {
 		CINEMATICAS
 	*/
 
+	bool temblor;
+
 	bool onCinematics;
 	bool cinemating;
 
@@ -48,6 +50,9 @@ public:
 	void activateCinematic(std::string name);
 //  void stopCamera(const TMsgDesactiveCamera & msg);
   //void startCamera(const TMsgActiveCamera & msg);
+
+	void activarTemblor();
+	void desactivarTemblor();
 
 	void debugInMenu();
 	void load(const json& j, TEntityParseContext& ctx);

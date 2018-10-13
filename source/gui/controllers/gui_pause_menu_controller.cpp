@@ -12,7 +12,6 @@ namespace GUI
     if (carga) {
 
       auto resumeGameCB = []() {
-        dbg("RESUMING GAME\n");
         EngineTimer.setTimeSlower(1.f);
         //Engine.getModules().changeGameState("test_axis");
         EngineUI.desactivateWidget("menu_pausa");
@@ -28,7 +27,6 @@ namespace GUI
         
       };
       auto exitCB = []() {
-        dbg("LOADING GAME\n");
 
         exit(0);
       };

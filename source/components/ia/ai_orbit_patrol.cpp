@@ -99,6 +99,9 @@ void CAIOrbitPatrol::NextWaypointState()
 	currentWaypoint = (currentWaypoint + 1) % _waypoints.size();
 	TCompTransform *c_my_transform = get<TCompTransform>();
 	move_left = c_my_transform->isInLeft(getWaypoint());
+    CEntity* e = CHandle(this).getOwner();
+    TMsgPlaySound msg;
+    e->sendMsg(msg);
 	ChangeState("move_to_waypoint");
 }
 

@@ -2,6 +2,7 @@
 #include "initial_state.h"
 #include "fsm/context.h"
 #include "components/player/comp_player_controller.h"
+#include "components\camera\comp_orbit_camera.h"
 
 namespace FSM
 {
@@ -12,12 +13,15 @@ namespace FSM
 		TCompTransform* my_pos = e->get<TCompTransform>();
 		TCompCollider* comp_collider = e->get<TCompCollider>();
 		VEC3 position;
-		dbg("initial\n");
 		if (comp_collider && comp_collider->controller) {
 			if (Engine.getTower().getLastCheckpoint().x) {
 				VEC3 checkpoint = Engine.getTower().getLastCheckpoint();
 				comp_collider->controller->setPosition(physx::PxExtendedVec3(checkpoint.x, checkpoint.y + 0.5, checkpoint.z));
 				position = VEC3(checkpoint.x, checkpoint.y, checkpoint.z);
+
+				CEntity* camera = (CEntity*)getEntityByName("camera_orbit_IZQ");
+				TCompOrbitCamera* o = camera->get<TCompOrbitCamera>();
+				o->setPosition(position);
 			}				
 			else {
 				player->checkpoint = my_pos->getPosition();

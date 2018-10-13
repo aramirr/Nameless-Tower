@@ -5,9 +5,9 @@
   ,
   "textures":
   {
-    "albedo": "data/textures/puente_BaseColor.dds"
+    "albedo": "data/textures/puente_Madera_BaseColor.dds"
     ,
-    "normal": "data/textures/puente_Normal.dds"
+    "normal": "data/textures/puente_Madera_Normal.dds"
     ,
     "emissive": "data/textures/null_emissive.dds"
     ,
@@ -17,6 +17,6 @@
     ,
     "height": "data/textures/null_height.dds"
     ,
-    "ao": "data/textures/null_ambientOcclusion.dds"
+    "orm": "data/textures/puente_Madera_OcclusionRoughnessMetallic.dds"
   }
 }

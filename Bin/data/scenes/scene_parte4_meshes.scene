@@ -2,6 +2,146 @@
   {
     "entity":
     {
+      "name": "ParedExteriorParte4B"
+      ,
+      "transform":
+      {
+        "pos": "1.54663 94.5 -30.5999"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte4B.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Telas5"
+      ,
+      "transform":
+      {
+        "pos": "2.97757 95.9629 -28.2061"
+        ,
+        "rotation": "0.0 -0.496893 0.0 -0.867812"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Telas5.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedDestapada12"
+      ,
+      "transform":
+      {
+        "pos": "18.8395 87.75 -25.8784"
+        ,
+        "rotation": "0.0 -0.65264 0.0 -0.757668"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada12.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla014"
+      ,
+      "transform":
+      {
+        "pos": "3.81943 91.931 -24.1759"
+        ,
+        "rotation": "0.707064 -0.00778417 -0.00778417 -0.707064"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla014.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla013"
+      ,
+      "transform":
+      {
+        "pos": "3.99993 91.931 -24.9872"
+        ,
+        "rotation": "0.707064 -0.00778417 -0.00778417 -0.707064"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla013.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Puerta_Abierta_Madera_043"
       ,
       "transform":
@@ -34,7 +174,7 @@
       ,
       "transform":
       {
-        "pos": "12.4033 87.321 -32.1258"
+        "pos": "12.3811 87.321 -32.2257"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -62,7 +202,7 @@
       ,
       "transform":
       {
-        "pos": "-1.78015 87.3814 -33.9054"
+        "pos": "-1.68615 87.3814 -34.0316"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -170,34 +310,6 @@
   {
     "entity":
     {
-      "name": "Ropita_Colgada_007"
-      ,
-      "transform":
-      {
-        "pos": "5.08027 97.1779 -31.6749"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Ropita_Colgada_007.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Ropa_Colgada_Mat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Valla001"
       ,
       "transform":
@@ -282,36 +394,6 @@
   {
     "entity":
     {
-      "name": "ParedDestapada12"
-      ,
-      "transform":
-      {
-        "pos": "18.8395 87.75 -25.8784"
-        ,
-        "rotation": "0.0 -0.65264 0.0 -0.757668"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedDestapada12.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-            ,
-            "data/materials/ParedModeladaInteriores.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Suelo_Pasillo_003"
       ,
       "transform":
@@ -329,202 +411,6 @@
           "materials":
           [
             "data/materials/Suelo_Pasillo_02.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Line039"
-      ,
-      "transform":
-      {
-        "pos": "6.91658 93.2449 -23.5644"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Line039.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Line038"
-      ,
-      "transform":
-      {
-        "pos": "0.55981 93.1636 -24.7703"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Line038.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Line037"
-      ,
-      "transform":
-      {
-        "pos": "-0.60218 93.0183 -30.9731"
-        ,
-        "rotation": "0.0 -1.74846e-07 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Line037.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Line036"
-      ,
-      "transform":
-      {
-        "pos": "10.0963 93.0167 -29.3828"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Line036.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Line034"
-      ,
-      "transform":
-      {
-        "pos": "9.03785 93.1505 -25.3573"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Line034.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Line031"
-      ,
-      "transform":
-      {
-        "pos": "3.81499 92.8841 -24.1571"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Line031.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Line030"
-      ,
-      "transform":
-      {
-        "pos": "-0.658627 93.004 -26.8052"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Line030.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RopaMat.material"
           ]
         }
       ]
@@ -928,34 +814,6 @@
   {
     "entity":
     {
-      "name": "Object054"
-      ,
-      "transform":
-      {
-        "pos": "19.3873 99.0378 -10.2732"
-        ,
-        "rotation": "0.0 -0.983359 0.0 0.181672"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Object054.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "ParedesExtraEscena04"
       ,
       "transform":
@@ -1016,7 +874,7 @@
       ,
       "transform":
       {
-        "pos": "5.77448 94.5 -27.0458"
+        "pos": "18.8786 94.5 -25.9244"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }

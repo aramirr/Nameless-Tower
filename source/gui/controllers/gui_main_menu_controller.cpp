@@ -19,7 +19,6 @@ namespace GUI
       player->sendMsg(pauseMsg);
 
       auto newGameCB = []() {
-        dbg("STARTING GAME\n");
         //Engine.getModules().changeGameState("test_axis");
         EngineUI.desactivateWidget("pantallaInicio");
         EngineUI.desactiveMainMenu();
@@ -35,7 +34,6 @@ namespace GUI
         EngineTimer.setTimeSlower(1.f);
       };
       auto exitCB = []() {
-        dbg("LOADING GAME\n");
 
         exit(0);
       };

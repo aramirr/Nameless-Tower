@@ -87,6 +87,7 @@ namespace FSM
 				ctx.setVariable("is_grounded", true);
 				ctx.setVariable("can_omni", true);
 				ctx.setVariable("can_dash", true);
+                player->change_animation(player->EAnimations::NajaJumpLand, true, 0.01, 0.1, false);
 			}
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
 				ctx.setVariable("idle", true);

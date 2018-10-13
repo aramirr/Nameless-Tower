@@ -63,7 +63,21 @@ void TCompRigidAnim::activate(const TMsgActivateAnim& msg) {
 	is_moving = true;
 }
 
+void TCompRigidAnim::desactivate(const TMsgDesactivateAnim & msg)
+{
+	is_moving = false;
+	current_time = 0;
+	RigidAnims::TKey k;
+	TCompTransform* c_trans = get< TCompTransform >();
+	controller.sample(&k, current_time);
+
+	c_trans->setPosition(k.pos);
+	c_trans->setRotation(k.rot);
+	c_trans->setScale(k.scale);
+}
+
 void TCompRigidAnim::registerMsgs() {
 	DECL_MSG(TCompRigidAnim, TMsgEntitiesGroupCreated, onGroupCreated);
 	DECL_MSG(TCompRigidAnim, TMsgActivateAnim, activate);
+	DECL_MSG(TCompRigidAnim, TMsgDesactivateAnim, desactivate);
 }

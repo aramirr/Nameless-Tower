@@ -10,12 +10,18 @@ class CAITorch : public IAIController
   DECL_SIBLING_ACCESS();
 
   float timer = 0.f;
+  int frames;
+  int current_frames;
   float y_offset = 0.f;
+  float smoke_y_offset = 0.f;
   float x_offset = 0.f;
   float z_offset = 0.f;
 	float timer_limit;
-	bool in_puzzle;
+    bool in_puzzle;
+    bool violeta;
+    bool azul;
     bool active = true;
+    bool render;
     bool attached = false;
 	std::string puzzle_name;
 
@@ -46,6 +52,7 @@ public:
   static void registerMsgs();
   void activate();
   void deactivate(const TMsgDeactivateTorch& msg);
+  void activateMsg(const TMsgActivateTorch& msg);
 
   MAT44 getWorld();
   void renderDebug();

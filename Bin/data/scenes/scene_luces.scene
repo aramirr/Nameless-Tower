@@ -13,7 +13,7 @@
       ,
       "light_point_shadows": {
         "intensity": 0,
-        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "color" :  "1.0 0.218 0.0509804 1.0",
         "z_near" : 0.462,
         "z_far" : 3.800,
         "shadows_step" : 0.0,
@@ -34,7 +34,11 @@
         "y_offset": 0.15,
         "z_offset": 0.1,
         "x_offset": -0.1
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -52,7 +56,7 @@
       ,
       "light_point_shadows": {
         "intensity": 0,
-        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "color" :  "1.0 0.218 0.0509804 1.0",
         "z_near" : 0.462,
         "z_far" : 3.800,
         "shadows_step" : 0.0,
@@ -73,7 +77,11 @@
         "y_offset": 0.10,
         "z_offset": 0.05,
         "x_offset": -0.3
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -91,7 +99,7 @@
       ,
       "light_point_shadows": {
         "intensity": 0,
-        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "color" :  "1.0 0.218 0.0509804 1.0",
         "z_near" : 0.462,
         "z_far" : 3.800,
         "shadows_step" : 0.620,
@@ -110,7 +118,11 @@
         "scale" : 1.7,
         "thin": true,
         "y_offset": -0.5
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -128,7 +140,7 @@
       ,
       "light_point_shadows": {
         "intensity": 0,
-        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "color" :  "1.0 0.218 0.0509804 1.0",
         "z_near" : 0.462,
         "z_far" : 3.800,
         "shadows_step" : 0.620,
@@ -147,7 +159,11 @@
         "scale" : 1.7,
         "thin": true,
         "y_offset": -0.4
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -165,7 +181,7 @@
       ,
       "light_point_shadows": {
         "intensity": 0,
-        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "color" :  "1.0 0.218 0.0509804 1.0",
         "z_near" : 0.462,
         "z_far" : 3.100,
         "shadows_step" : 0.620,
@@ -186,7 +202,11 @@
         "y_offset": -0.05,
         "z_offset": -0.25,
         "x_offset": -0.2
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -204,7 +224,7 @@
       ,
       "light_point_shadows": {
         "intensity": 0,
-        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "color" :  "1.0 0.218 0.0509804 1.0",
         "z_near" : 0.462,
         "z_far" : 7.100,
         "shadows_step" : 0.620,
@@ -225,7 +245,11 @@
         "y_offset": -1.5,
         "x_offset": -1,
         "z_offset": 0.0
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/FuegoGrande_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -243,7 +267,7 @@
       ,
      "light_point_shadows": {
         "intensity": 0,
-        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "color" :  "1.0 0.218 0.0509804 1.0",
         "z_near" : 0.462,
         "z_far" : 2.5,
         "shadows_step" : 0.620,
@@ -264,7 +288,11 @@
         "y_offset": -0.14,
         "z_offset": 0.25,
         "x_offset": -0.4
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -282,7 +310,7 @@
       ,
       "light_point_shadows": {
         "intensity": 0,
-        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "color" :  "1.0 0.218 0.0509804 1.0",
         "z_near" : 0.462,
         "z_far" : 2.5,
         "shadows_step" : 0.620,
@@ -303,7 +331,11 @@
         "y_offset": -0.14,
         "z_offset": 0.35,
         "x_offset": -0.35
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -321,7 +353,7 @@
       ,
       "light_point_shadows": {
         "intensity": 0,
-        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "color" :  "1.0 0.218 0.0509804 1.0",
         "z_near" : 0.462,
         "z_far" : 2.5,
         "shadows_step" : 0.620,
@@ -342,7 +374,11 @@
         "y_offset": 0.02,
         "z_offset": 0.5,
         "x_offset": -0.25
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -360,7 +396,7 @@
       ,
       "light_point_shadows": {
         "intensity": 0,
-        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "color" :  "1.0 0.218 0.0509804 1.0",
         "z_near" : 0.462,
         "z_far" : 2.5,
         "shadows_step" : 0.620,
@@ -381,7 +417,11 @@
         "y_offset": -0.05,
         "z_offset": 0.3,
         "x_offset": -0.05
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_A", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
   ,
@@ -399,7 +439,7 @@
       ,
        "light_point_shadows": {
         "intensity": 0,
-        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "color" :  "1.0 0.218 0.0509804 1.0",
         "z_near" : 0.233,
         "z_far" : 2.900,
         "shadows_step" : 0.620,
@@ -420,9 +460,13 @@
         "y_offset": 0.5,
         "z_offset": 0.18,
         "x_offset": 0.08
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_C", "positional": true, "on_start": true}
+           ]
+          }
     }
-    }  ,
+    },
     {
     "entity":
     {
@@ -437,7 +481,7 @@
       ,
        "light_point_shadows": {
         "intensity": 0,
-        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "color" :  "1.0 0.218 0.0509804 1.0",
         "z_near" : 0.233,
         "z_far" : 4.200,
         "shadows_step" : 0.620,
@@ -456,7 +500,11 @@
         "scale" : 1.7,
         "thin": true,
         "y_offset": -0.5
-      }
+      },"sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Scene/Fuego_C", "positional": true, "on_start": true}
+           ]
+          }
     }
   }
 ]

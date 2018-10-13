@@ -15,9 +15,9 @@ void TCompPlayerInput::load(const json& j, TEntityParseContext& ctx) {
 void TCompPlayerInput::update(float dt)
 {
 	CEntity* e = CHandle(this).getOwner();
-	windstrike_time += dt;
-	dash_time += dt;
-
+   
+    windstrike_time += dt;
+    dash_time += dt;
 
     TMsgSetFSMVariable glideMsg;
     glideMsg.variant.setName("glide");
@@ -32,54 +32,54 @@ void TCompPlayerInput::update(float dt)
     jumpMsg.variant.setBool(EngineInput["jump"].isPressed());
     if (EngineInput["jump"].hasChanged())
     {
-    
-    e->sendMsg(jumpMsg);
+
+        e->sendMsg(jumpMsg);
     }
 
-	TMsgSetFSMVariable dashMsg;
-	dashMsg.variant.setName("dash");
-	dashMsg.variant.setBool(EngineInput["dash"].isPressed());
-	if (EngineInput["dash"].hasChanged() && dash_time > dash_wait_time)
-	{
-		if (EngineInput["dash"].isPressed())
-			dash_time = 0;
-		e->sendMsg(dashMsg);
-	}
+    TMsgSetFSMVariable dashMsg;
+    dashMsg.variant.setName("dash");
+    dashMsg.variant.setBool(EngineInput["dash"].isPressed());
+    if (EngineInput["dash"].hasChanged() && dash_time > dash_wait_time)
+    {
+        if (EngineInput["dash"].isPressed())
+            dash_time = 0;
+        e->sendMsg(dashMsg);
+    }
 
-	TMsgSetFSMVariable windstrikeMsg;
-	windstrikeMsg.variant.setName("windstrike");
-	windstrikeMsg.variant.setBool(EngineInput["windstrike"].isPressed());
-	if (EngineInput["windstrike"].hasChanged() && windstrike_time > windstrike_wait_time)
-	{
-		if (EngineInput["windstrike"].isPressed())
-			windstrike_time = 0;
-		e->sendMsg(windstrikeMsg);
-	}
+    TMsgSetFSMVariable windstrikeMsg;
+    windstrikeMsg.variant.setName("windstrike");
+    windstrikeMsg.variant.setBool(EngineInput["windstrike"].isPressed());
+    if (EngineInput["windstrike"].hasChanged() && windstrike_time > windstrike_wait_time)
+    {
+        if (EngineInput["windstrike"].isPressed())
+            windstrike_time = 0;
+        e->sendMsg(windstrikeMsg);
+    }
 
-	TMsgSetFSMVariable omnidashMsg;
-	omnidashMsg.variant.setName("omnidash");
-	omnidashMsg.variant.setBool(EngineInput["omnidash"].isPressed());
-	if (EngineInput["omnidash"].hasChanged())
-	{
-		e->sendMsg(omnidashMsg);
-	}
+    TMsgSetFSMVariable omnidashMsg;
+    omnidashMsg.variant.setName("omnidash");
+    omnidashMsg.variant.setBool(EngineInput["omnidash"].isPressed());
+    if (EngineInput["omnidash"].hasChanged())
+    {
+        e->sendMsg(omnidashMsg);
+    }
 
-	TMsgSetFSMVariable runMsg;
-	runMsg.variant.setName("run");
-	runMsg.variant.setBool(EngineInput["left"].isPressed());
-	if (EngineInput["left"].isPressed())
-	{
+    TMsgSetFSMVariable runMsg;
+    runMsg.variant.setName("run");
+    runMsg.variant.setBool(EngineInput["left"].isPressed());
+    if (EngineInput["left"].isPressed())
+    {
         TCompPlayerController* player = e->get<TCompPlayerController>();
         player->left_key = true;
-		e->sendMsg(runMsg);
-	}
-	runMsg.variant.setBool(EngineInput["right"].isPressed());
-	if (EngineInput["right"].isPressed())
-	{
+        e->sendMsg(runMsg);
+    }
+    runMsg.variant.setBool(EngineInput["right"].isPressed());
+    if (EngineInput["right"].isPressed())
+    {
         TCompPlayerController* player = e->get<TCompPlayerController>();
         player->left_key = false;
-		e->sendMsg(runMsg);
-	}
+        e->sendMsg(runMsg);
+    }
 
     TMsgSetFSMVariable lookUpMsg;
     lookUpMsg.variant.setName("look_up");
@@ -87,7 +87,7 @@ void TCompPlayerInput::update(float dt)
     if (EngineInput["look_up"].isPressed())
     {
         e->sendMsg(lookUpMsg);
-    }   
+    }
 
     TMsgSetFSMVariable lookDownMsg;
     lookDownMsg.variant.setName("look_down");
@@ -95,38 +95,37 @@ void TCompPlayerInput::update(float dt)
     if (EngineInput["look_down"].isPressed())
     {
         e->sendMsg(lookDownMsg);
-    }	
+    }
 
-	TMsgSetFSMVariable respawnMsg;
-	respawnMsg.variant.setName("initial");
-	respawnMsg.variant.setBool(true);
-	if (EngineInput["respawn_player"].hasChanged())
-	{
-		e->sendMsg(respawnMsg);
-	}
+    TMsgSetFSMVariable respawnMsg;
+    respawnMsg.variant.setName("initial");
+    respawnMsg.variant.setBool(true);
+    if (EngineInput["respawn_player"].hasChanged())
+    {
+        e->sendMsg(respawnMsg);
+    }
 
-	TMsgSetFSMVariable deadMsg;
-	deadMsg.variant.setName("hit");
-	deadMsg.variant.setBool(true);
-	if (EngineInput["kill"].hasChanged())
-	{
-		e->sendMsg(deadMsg);
-	}
+    TMsgSetFSMVariable deadMsg;
+    deadMsg.variant.setName("hit");
+    deadMsg.variant.setBool(true);
+    if (EngineInput["kill"].hasChanged())
+    {
+        e->sendMsg(deadMsg);
+    }
 
 
     if (EngineInput["level_2"].getsPressed())
-    {       
+    {
         //EngineTower.setExposureAdjustment(0);
         CEngine::get().getModules().changeGameState("level_2");
     }
-	
-	TMsgSetFSMVariable pauseMsg;
-	pauseMsg.variant.setName("pause");
-	pauseMsg.variant.setBool(EngineInput["pause"].getsPressed());
-	if (EngineInput["pause"].hasChanged())
-	{
-		CEntity* e = CHandle(this).getOwner();
-		e->sendMsg(pauseMsg);
-	}
-	
+
+    TMsgSetFSMVariable pauseMsg;
+    pauseMsg.variant.setName("pause");
+    pauseMsg.variant.setBool(EngineInput["pause"].getsPressed());
+    if (EngineInput["pause"].hasChanged())
+    {
+        CEntity* e = CHandle(this).getOwner();
+        e->sendMsg(pauseMsg);
+    }
 }

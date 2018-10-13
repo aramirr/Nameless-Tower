@@ -64,9 +64,13 @@ void CModuleTower::update(float delta)
 		cb_globals.global_bandMin_adjustment = bandsValue;
 	}
 	else if (!bandCinematics && bandsValue > 0.f) {
+		if (bandsValue >= 0.15f) EngineUI.desactivateWidget("barras_cinematicas");
 		bandsValue -= 0.01f;
 		cb_globals.global_bandMax_adjustment = bandsValue;
 		cb_globals.global_bandMin_adjustment = bandsValue;
+	}
+	else if (bandCinematics) {
+		EngineUI.activateWidget("barras_cinematicas");
 	}
 }
 
@@ -102,35 +106,43 @@ const bool CModuleTower::getLastCheckpointLeft()
 }
 
 const void CModuleTower::setLastCheckpointLeft(bool checkpoint_left) {
-	last_checkpoint_looking_left = checkpoint_left;	
+	last_checkpoint_looking_left = checkpoint_left;
 }
 
 const void CModuleTower::disappearEntity(const std::string& name) {
   CEntity* entity = (CEntity*)getEntityByName(name);
-  TCompRender* h_render = entity->get< TCompRender >();
-  h_render->is_active = false;
-  h_render->refreshMeshesInRenderManager();
+  if (entity) {
+      TCompRender* h_render = entity->get< TCompRender >();
+      h_render->is_active = false;
+      h_render->refreshMeshesInRenderManager();
+  }
 }
 
 const void CModuleTower::appearEntity(const std::string& name) {
   CEntity* entity = (CEntity*)getEntityByName(name);
-  TCompRender* h_render = entity->get< TCompRender >();
-  h_render->is_active = true;
-  h_render->refreshMeshesInRenderManager();
+  if (entity) {
+      TCompRender* h_render = entity->get< TCompRender >();
+      h_render->is_active = true;
+      h_render->refreshMeshesInRenderManager();
+  }
 }
 
 const void CModuleTower::renderOnlyShadows(const std::string& name) {
   CEntity* entity = (CEntity*)getEntityByName(name);
-  TCompRender* h_render = entity->get< TCompRender >();
-  h_render->only_shadows = true;
-  h_render->refreshMeshesInRenderManager();
+  if (entity) {
+      TCompRender* h_render = entity->get< TCompRender >();
+      h_render->only_shadows = true;
+      h_render->refreshMeshesInRenderManager();
+  }
 }
 
 const void CModuleTower::renderEverything(const std::string& name) {
   CEntity* entity = (CEntity*)getEntityByName(name);
-  TCompRender* h_render = entity->get< TCompRender >();
-  h_render->only_shadows = false;
-  h_render->refreshMeshesInRenderManager();
+  if (entity) {
+      TCompRender* h_render = entity->get< TCompRender >();
+      h_render->only_shadows = false;
+      h_render->refreshMeshesInRenderManager();
+  }
 }
 
 
@@ -153,7 +165,7 @@ const void CModuleTower::setAmbientAdjustment(float ambient) {
 }
 
 const void CModuleTower::setExposureAdjustment(float exposure) {
-    cb_globals.global_exposure_adjustment = exposure;
+	cb_globals.global_exposure_adjustment = exposure;
 
 }
 const void CModuleTower::setBandsCinematics(bool _band)
@@ -162,22 +174,26 @@ const void CModuleTower::setBandsCinematics(bool _band)
 }
 const void CModuleTower::setDirLightIntensity(const std::string& name, float intensity) {
   CEntity* entity = (CEntity*)getEntityByName(name);
-  TCompLightDir* light_dir = entity->get<TCompLightDir>();
-  light_dir->setIntensity(intensity);
+  if (entity) {
+      TCompLightDir* light_dir = entity->get<TCompLightDir>();
+      light_dir->setIntensity(intensity);
+  }
 }
 
 const void CModuleTower::setPointLightIntensity(const std::string& name, float intensity) {
   CEntity* entity = (CEntity*)getEntityByName(name);
-  TCompLightPointShadows* light_point = entity->get<TCompLightPointShadows>();
-  light_point->setIntensity(intensity);
+  if (entity) {
+      TCompLightPointShadows* light_point = entity->get<TCompLightPointShadows>();
+      light_point->setIntensity(intensity);
+  }  
 }
 
 float CModuleTower::checkAngle(float alpha, VEC3 pos1) {
-  if (alpha < 0.f) alpha += deg2rad(360.f);
+	if (alpha < 0.f) alpha += deg2rad(360.f);
 
-  float cosa = cos(alpha);
-  float sina = sin(alpha);
-  float aux = rad2deg(alpha);
+	float cosa = cos(alpha);
+	float sina = sin(alpha);
+	float aux = rad2deg(alpha);
 
   if (pos1.x > 0.f and pos1.z > 0.f) {
     if (cos(alpha) < 0) {
@@ -204,11 +220,16 @@ float CModuleTower::checkAngle(float alpha, VEC3 pos1) {
 }
 
 const void CModuleTower::openDoor(const std::string& name) {
-    CEntity* entity = (CEntity*)getEntityByName(name);
-    TMsgOpenDoor msg;
-    entity->sendMsg(msg);
+	CEntity* entity = (CEntity*)getEntityByName(name);
+	TMsgOpenDoor msg;
+	entity->sendMsg(msg);
 }
 
+const void CModuleTower::closeDoor(const std::string& name) {
+    CEntity* entity = (CEntity*)getEntityByName(name);
+    TMsgCloseDoor msg;
+    entity->sendMsg(msg);
+}
 
 const void CModuleTower::activateAnim(const std::string& name) {
 	CEntity* entity = (CEntity*)getEntityByName(name);

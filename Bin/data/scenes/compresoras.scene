@@ -34,7 +34,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -73,7 +78,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -112,7 +122,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -151,7 +166,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -190,7 +210,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -229,7 +254,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -268,7 +298,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -307,7 +342,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -346,7 +386,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -385,7 +430,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -424,7 +474,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -482,7 +537,12 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
   ,
@@ -528,7 +588,11 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      }, "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -586,7 +650,12 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
   ,
@@ -632,7 +701,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -690,7 +764,12 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
   ,
@@ -736,7 +815,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -794,7 +878,12 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
   ,
@@ -840,7 +929,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -898,7 +992,12 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
   ,
@@ -944,7 +1043,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -1002,7 +1106,12 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
   ,
@@ -1048,7 +1157,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -1106,7 +1220,12 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
   ,
@@ -1152,7 +1271,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -1210,7 +1334,12 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
   ,
@@ -1256,7 +1385,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -1314,7 +1448,12 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
   ,
@@ -1360,7 +1499,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -1418,7 +1562,12 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
   ,
@@ -1464,7 +1613,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
   ,
@@ -1522,7 +1676,12 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
   ,
@@ -1568,7 +1727,12 @@
       "trigger":
       {
         "trigger_type": "compresora"
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            ]
+            }
     }
   }
 ]

@@ -43,10 +43,10 @@ float4 compute(float4 iPosition, float2 iUV, float1 cell)
 
     float3 hdrColor = txAccLights.Load(ss_load_coords).xyz;
 
-    if (cell == 0)
+    if (cell <= 0.5f)
         hdrColor *= global_exposure_adjustment;
-    else if (global_naja_interior == 0)
-        hdrColor *= global_exposure_adjustment / 1.2;
+    else if ((global_naja_interior == 0 && cell == 1.f) || (global_runner_interior == 0 && cell == 0.75f))
+        hdrColor *= global_exposure_adjustment / 1.2f;
     else
         hdrColor *= 1;
 

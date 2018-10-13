@@ -1,5 +1,6 @@
 #include "mcv_platform.h"
 #include "comp_fsm.h"
+#include "../player/comp_player_controller.h"
 
 DECL_OBJ_MANAGER("fsm", TCompFSM);
 
@@ -62,5 +63,9 @@ void TCompFSM::onCreate(const TMsgEntityCreated& msg) {
 
 void TCompFSM::onVariableValue(const TMsgSetFSMVariable& msg)
 {
-  _context.setVariable(msg.variant.getName(), msg.variant);
+    CEntity* e_player = (CEntity*)getEntityByName("The Player");
+    TCompPlayerController* player = e_player->get<TCompPlayerController>();
+    if (player->can_die) {
+        _context.setVariable(msg.variant.getName(), msg.variant);
+    }
 }

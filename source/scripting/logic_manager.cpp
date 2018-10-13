@@ -83,8 +83,25 @@ void LogicManager::openDoor(const char* name) {
   EngineTower.openDoor(name);
 }
 
+void LogicManager::closeDoor(const char* name) {
+    EngineTower.closeDoor(name);
+}
+
 void LogicManager::activateAnim(const char* name) {
   EngineTower.activateAnim(name);
+}
+
+void LogicManager::setTemblor(bool temblor, bool left)
+{
+	if (applyFunction(left)) {
+		CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+
+		TCompCameraManager* cm = cam->get<TCompCameraManager>();
+		assert(cm);
+
+		if(temblor)cm->activarTemblor();
+		else cm->desactivarTemblor();
+	}
 }
 
 // UI
@@ -154,32 +171,29 @@ bool LogicManager::applyFunction(bool left) {
 
 void LogicManager::playAmbientSound(bool left) {
     if (applyFunction(left)) {
-        CEntity* e = getEntityByName("The Player");
-        TCompSound* sound = e->get<TCompSound>();
-        sound->playAmbient();
+        EngineSound.playAmbient();
     }
 }
 
 void LogicManager::playInteriorSound(bool left) {
     if (applyFunction(left)) {
-        CEntity* e = getEntityByName("The Player");
-        TCompSound* sound = e->get<TCompSound>();
-        sound->playInterior();
+        EngineSound.playInterior();
     }
 }
 
 void LogicManager::playSound(bool left, std::string name) {
     if (applyFunction(left)) {
-        CEntity* e = getEntityByName("The Player");
-        TCompSound* sound = e->get<TCompSound>();
-        sound->playSound(name);
+        EngineSound.emitEvent(name);
     }
 }
+
+void LogicManager::playPositionalSound(std::string name, std::string entityName) {    
+    EngineSound.emitPositionalEvent(name, entityName);
+}
+
 void LogicManager::stopSound(bool left, std::string name) {
     if (applyFunction(left)) {
-        CEntity* e = getEntityByName("The Player");
-        TCompSound* sound = e->get<TCompSound>();
-        sound->stopSound(name);
+        EngineSound.stopEvent(name);
     }
 }
 
@@ -204,7 +218,7 @@ void LogicManager::pausePlayer() {
 void LogicManager::setAnim(int anim_id) {
 	CEntity* player = getEntityByName("The Player");
 	TCompPlayerController * controller = player->get<TCompPlayerController>();
-	controller->change_animation(anim_id, false, 0.5, 0.5, true);
+	controller->change_animation(anim_id, true, 0.5, 0.5, true);
 }
 
 void LogicManager::regainControl(float time_to_wait) {
@@ -213,8 +227,22 @@ void LogicManager::regainControl(float time_to_wait) {
 }
 
 void LogicManager::killEntity(std::string name) {
-	CEntity* entity = getEntityByName(name);
-	if (entity) {
-		CHandle(entity).destroy();
-	}
+    CEntity* entity = getEntityByName(name);
+    if (entity) {
+        CHandle(entity).destroy();
+    }
+}
+
+void LogicManager::activateTorch(std::string name) {
+    CEntity* e = getEntityByName(name);
+    TMsgActivateTorch msg;
+    e->sendMsg(msg);
+}
+
+void LogicManager::scarePlayer() {
+    CEntity* e = getEntityByName("The Player");
+    TMsgSetFSMVariable scareMsg;
+    scareMsg.variant.setName("scared");
+    scareMsg.variant.setBool(true);
+    e->sendMsg(scareMsg);
 }
