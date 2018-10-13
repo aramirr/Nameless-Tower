@@ -11,7 +11,7 @@
 						"name" : "fondoA",
 						"type" : "image",
 						"size" : "1920 1080",
-						"texture" : "data/textures/gui/Menu.dds",
+						"texture" : "data/textures/gui/Menu_prueba.dds",
 						"minUV" : "0 0",
 						"maxUV" : "1 1"
 					}
@@ -26,39 +26,39 @@
 						"name" : "new_game",
 						"type" : "button",
 						"position" : "1193 660",
-						"size" : "332 148",
-						"texture" : "data/textures/gui/playNormal.dds",
+						"size" : "200 48",
+						"texture" : "data/textures/gui/Boton_NG_1.dds",
 						"selected" : {
-							"texture" : "data/textures/gui/playClick.dds"
+							"texture" : "data/textures/gui/Boton_NG_2.dds"
 						},
 						"pressed" : {
-							"texture" : "data/textures/gui/playClick.dds"
+							"texture" : "data/textures/gui/Boton_NG_3.dds"
 						}
 					},
 					{
 						"name" : "options",
 						"type" : "button",
 						"position" : "1248 795",
-						"size" : "268 128",
-						"texture" : "data/textures/gui/OptionNormal.dds",
+						"size" : "180 48",
+						"texture" : "data/textures/gui/Boton_OP_1.dds",
 						"selected" : {
-							"texture" : "data/textures/gui/OptionClick.dds"
+							"texture" : "data/textures/gui/Boton_OP_2.dds"
 						},
 						"pressed" : {
-							"texture" : "data/textures/gui/OptionClick.dds"
+							"texture" : "data/textures/gui/Boton_OP_3.dds"
 						}
 					},
 					{
 						"name" : "exit",
 						"type" : "button",
 						"position" : "1358 920",
-						"size" : "176 124",
-						"texture" : "data/textures/gui/ExitNormal.dds",
+						"size" : "100 48",
+						"texture" : "data/textures/gui/Boton_E_1.dds",
 						"selected" : {
-							"texture" : "data/textures/gui/ExitClick.dds"
+							"texture" : "data/textures/gui/Boton_EX_2.dds"
 						},
 						"pressed" : {
-							"texture" : "data/textures/gui/ExitClick.dds"
+							"texture" : "data/textures/gui/Boton_EX_3.dds"
 						}
 					}
 				]
