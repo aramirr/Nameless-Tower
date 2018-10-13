@@ -202,6 +202,11 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
 	float global_bandMin_adjustment;
 	float global_bandMax_adjustment;
 
+	float global_fog_percentage_horizontal;
+	float global_fog_percentage_vertical;
+	float global_dummy1;
+	float global_dummy2;
+
 };
 
 CB_DEF(CCteMaterial, CB_MATERIAL)
