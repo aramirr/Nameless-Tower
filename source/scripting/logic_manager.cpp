@@ -211,3 +211,10 @@ void LogicManager::regainControl(float time_to_wait) {
 	// La function debe devolver el control al personaje, sacar las barras y 
 	EngineTower.wait_seconds(time_to_wait);
 }
+
+void LogicManager::killEntity(std::string name) {
+	CEntity* entity = getEntityByName(name);
+	if (entity) {
+		CHandle(entity).destroy();
+	}
+}

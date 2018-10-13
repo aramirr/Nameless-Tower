@@ -56,5 +56,6 @@ public:
   void setAnim(int anim_id);
   void setCinematicBars();
   void regainControl(float time_to_wait);
+	void killEntity(std::string name);
 
 };
