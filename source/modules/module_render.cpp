@@ -134,6 +134,9 @@ void CModuleRender::render()
 	if (ImGui::SmallButton("Start CPU Trace Capturing")) {
 		PROFILE_SET_NFRAMES(nframes);
 	}
+	const Input::TInterface_Mouse& mouse = EngineInput.mouse();
+	int _mouse[2] = { mouse._position.x,mouse._position.y };
+	ImGui::DragInt2("MOUSE: ", _mouse);
 
 	// Edit the Background color
 	//ImGui::ColorEdit4("Background Color", &_backgroundColor.x);
