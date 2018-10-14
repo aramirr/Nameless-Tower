@@ -135,6 +135,20 @@ void LogicManager::stopEmiter(const char* name, bool left) {
 	}
 }
 
+void LogicManager::addGrass(int id, bool left) {
+	if (applyFunction(left))
+		EngineBillboards.add_grass_id(id);
+}
+
+void LogicManager::deleteGrass(int id, bool left) {
+	if (applyFunction(left))
+		EngineBillboards.delete_grass_id(id);
+}
+
+void LogicManager::updateGrassRender() {
+	EngineBillboards.set_grass_instances_2_render();
+}
+
 // Change Level
 void LogicManager::changeGameState(const char* name) {
     

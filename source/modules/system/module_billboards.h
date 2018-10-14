@@ -53,6 +53,12 @@ class CModuleBillboards : public IModule
   };
   CRenderMeshInstanced* grass_instances_mesh = nullptr;
   std::vector< TGrassParticle > grass_instances;
+	std::vector< std::vector<TGrassParticle>> grass_intances_vector;
+	std::vector<int> grass_vectors_2_render;
+	std::vector< TGrassParticle > grass_instances_2_render;
+
+	
+
 
 
   // -------------------------------------------------------------------
@@ -82,9 +88,15 @@ public:
   void apagarFuego(int id, float scale, bool thin);
   void encenderFuego(int id, float scale, bool thin);
   void addGrass(VEC3 position, float width, float length, int total);
-  void addGrassByAngle(VEC3 pos1, VEC3 pos2, int total, float radius1, float radius2);
+  void addGrassByAngle(VEC3 pos1, VEC3 pos2, int total, float radius1, float radius2, int id);
   void calculateAngles(VEC3 pos1, VEC3 pos2, float& alpha, float& beta, float& charlie);
   int addWindstrike(VEC3 position);
   void deleteWindstrike(int id);
   void moveWindstrike(VEC3 position, int id);
+
+	void set_grass_instances_2_render();
+	void set_grass_ids_2_render(std::vector<int>& ids);
+
+	void add_grass_id(int id);
+	void delete_grass_id(int id);
 };

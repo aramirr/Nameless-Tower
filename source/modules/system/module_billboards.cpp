@@ -192,11 +192,15 @@ void CModuleBillboards::addGrass(VEC3 position, float width, float length, int t
 	grass_instances_mesh->setInstancesData(grass_instances.data(), grass_instances.size(), sizeof(TGrassParticle));
 }
 
-void CModuleBillboards::addGrassByAngle(VEC3 pos1, VEC3 pos2, int total, float radius1, float radius2) {
+void CModuleBillboards::addGrassByAngle(VEC3 pos1, VEC3 pos2, int total, float radius1, float radius2, int id) {
   float alpha = asin(pos1.z / EngineTower.getTowerRadius());
   alpha = EngineTower.checkAngle(alpha, pos1);
   float beta = asin(pos2.z / EngineTower.getTowerRadius());
   beta = EngineTower.checkAngle(beta, pos2);
+	
+	while (!grass_instances.empty()) {
+		grass_instances.pop_back();
+	}
 
   for (int i = 0; i < total; ++i) {
     float charlie;
@@ -219,10 +223,51 @@ void CModuleBillboards::addGrassByAngle(VEC3 pos1, VEC3 pos2, int total, float r
     new_instance.pos = new_position;
     grass_instances.push_back(new_instance);
   }
-  grass_instances_mesh->setInstancesData(grass_instances.data(), grass_instances.size(), sizeof(TGrassParticle));
+	grass_intances_vector.push_back(grass_instances);
 }
 
+void CModuleBillboards::set_grass_ids_2_render(std::vector<int>& ids) {
+	while (!grass_vectors_2_render.empty()) {
+		grass_vectors_2_render.pop_back();
+	}
+	for (auto& a : ids) {
+		grass_vectors_2_render.push_back(a);
+	}
+}
 
+void CModuleBillboards::add_grass_id(int id) {
+	bool found = false;
+	for (auto& i : grass_vectors_2_render) {
+		if (i == id) 
+			found = true;
+	}
+	if (!found)
+		grass_vectors_2_render.push_back(id);
+}
+
+void CModuleBillboards::delete_grass_id(int id) {
+	bool found = false;
+	for (auto& i : grass_vectors_2_render) {
+		if (i == id) {
+			found = true;
+			break;
+		}
+	}
+	if (found)
+		grass_vectors_2_render.erase(std::find(grass_vectors_2_render.begin(), grass_vectors_2_render.end(), id));
+}
+
+void CModuleBillboards::set_grass_instances_2_render() {
+	while (!grass_instances_2_render.empty()) {
+		grass_instances_2_render.pop_back();
+	}
+
+	for (int i = 0; i < grass_vectors_2_render.size(); ++i) {
+		for (int j = 0; j < grass_intances_vector[grass_vectors_2_render[i]].size(); ++j) {
+			grass_instances_2_render.push_back(grass_intances_vector[grass_vectors_2_render[i]][j]);
+		}
+	}
+}
 
 void CModuleBillboards::update(float delta)
 {
@@ -380,11 +425,12 @@ void CModuleBillboards::update(float delta)
   blood_instances_mesh->setInstancesData(blood_instances.data(), blood_instances.size(), sizeof(TInstanceBlood));
   
 	particles_instances_mesh->setInstancesData(particles_instances.data(), particles_instances.size(), sizeof(TRenderParticle));
-    fire_particles_instances_mesh->setInstancesData(fire_particles_instances.data(), fire_particles_instances.size(), sizeof(TRenderParticle));
-    thin_fire_particles_instances_mesh->setInstancesData(thin_fire_particles_instances.data(), thin_fire_particles_instances.size(), sizeof(TRenderParticle));
-    smoke_particles_instances_mesh->setInstancesData(smoke_particles_instances.data(), smoke_particles_instances.size(), sizeof(TRenderParticle));
-    thin_smoke_particles_instances_mesh->setInstancesData(thin_smoke_particles_instances.data(), thin_smoke_particles_instances.size(), sizeof(TRenderParticle));
+  fire_particles_instances_mesh->setInstancesData(fire_particles_instances.data(), fire_particles_instances.size(), sizeof(TRenderParticle));
+  thin_fire_particles_instances_mesh->setInstancesData(thin_fire_particles_instances.data(), thin_fire_particles_instances.size(), sizeof(TRenderParticle));
+  smoke_particles_instances_mesh->setInstancesData(smoke_particles_instances.data(), smoke_particles_instances.size(), sizeof(TRenderParticle));
+  thin_smoke_particles_instances_mesh->setInstancesData(thin_smoke_particles_instances.data(), thin_smoke_particles_instances.size(), sizeof(TRenderParticle));
 
   windstrike_instances_mesh->setInstancesData(windstrike_instances.data(), windstrike_instances.size(), sizeof(TWindstrikeParticle));
 
+	grass_instances_mesh->setInstancesData(grass_instances_2_render.data(), grass_instances_2_render.size(), sizeof(TGrassParticle));
 }

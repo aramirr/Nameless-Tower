@@ -40,6 +40,9 @@ public:
 	// Particles
 	void startEmiter(const char* name, bool left);
 	void stopEmiter(const char* name, bool left);
+	void addGrass(int id, bool left);
+	void deleteGrass(int id, bool left);
+	void updateGrassRender();
 
   // Change level
   void changeGameState(const char* name);

@@ -79,6 +79,19 @@ function OnTriggerExitTSCabezaTutorial()
 
 	lm:set_dir_light_intensity("LightDir02", 0, true)
 	lm:stop_emiter("hojas_estatua", true)
+
+	lm:insert_grass(0, true)
+	lm:insert_grass(1, true)
+	lm:delete_grass(2, true)
+	lm:delete_grass(3, true)
+
+	lm:delete_grass(0, false)
+	lm:delete_grass(1, false)
+	lm:insert_grass(2, false)
+	lm:insert_grass(3, false)
+
+	lm:update_grass_render()
+
 end
 
 -- Sala 2-3
