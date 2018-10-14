@@ -54,7 +54,7 @@ void bt_runner::load(const json& j, TEntityParseContext& ctx) {
     load_waypoint(j_waypoints[i]);
   }
   actual_waypoint = 0;
-
+	calculate_distances_graph();
   create("runner");
 }
 
@@ -212,9 +212,18 @@ int bt_runner::actionChase() {
 	
 	//chase_waypoint();
 
-  if (on_jump) chase_waypoint();
-	else if (distance_to_waypoint < distance_to_player) chase_waypoint();
-	else chase_player();
+	if (on_jump) {
+		//dbg("JENIFFER\n");
+		chase_waypoint();
+	}
+	else if (distance_to_waypoint < distance_to_player) {
+		//dbg("JANINE\n");
+		chase_waypoint();
+	}
+	else {
+		//dbg("JESS\n");
+		chase_player();
+	}
 	
   if (conditionAttack()) {
     return LEAVE;
@@ -370,7 +379,7 @@ void bt_runner::calculate_distances_graph() {
 }
 
 void bt_runner::findPath(int origin, int destiny){
-	calculate_distances_graph();
+	//calculate_distances_graph();
 	int n = waypoints_map.size();
 	vector<float> d (n, INFINITE);
 	d[origin] = 0;
@@ -431,24 +440,19 @@ void bt_runner::chase_player() {
 		//next_waypoint = findSecondClosestWaypoint(player_transform->getPosition(), actual_waypoint);
 		if (waypoints_map[second_closest_waypoint].type == "edge") {
 			target = "player";
+			//dbg("JONAS\n");
 			jump();
 		}
 		else {
-			if (anim_state != "chase_player") {
-				anim_state = "chase_player";
-				change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
-			}
 			target = "player";
+			//dbg("JONI\n");
 			walk();
 		}
 
 	}
 	else {
-		if (anim_state != "chase_player") {
-			anim_state = "chase_player";
-			change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
-		}
 		target = "player";
+		//dbg("JOSUE\n");
 		walk();
 	}
 	
@@ -467,6 +471,7 @@ void bt_runner::chase_waypoint() {
 				jump();
 			}
 			else if (target == "player" && waypoints_map[second_closest_waypoint].type == "edge") {
+				//dbg("******************JONATHAN****************  %i - %i \n", path[actual_waypoint], second_closest_waypoint);
 				jump();
 			}
 			else if (target == "waypoint") {
@@ -476,7 +481,8 @@ void bt_runner::chase_waypoint() {
 	}
 
 	TCompTransform* my_transform = getMyTransform();
-	if (target == "waypoint" && (next_waypoint < 0 || VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position) <= 0.5f)) {
+	if ((target == "waypoint" && (next_waypoint < 0 || VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position) <= 0.5f)) ||
+			 target == "player" && VEC3::Distance(my_transform->getPosition(), waypoints_map[second_closest_waypoint].position) <= 0.5f) {
 		//dbg("--------------------- aw: %i - nw: %i - d: %f\n", path[actual_waypoint], path[next_waypoint], VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position));
 		if (on_jump && (anim_state != "jump_land")) {
 			change_animation(ERunnerAnimations::RunnerJumpLand, true, 0.1f, 0.f, true);
