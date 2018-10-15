@@ -14,6 +14,17 @@ public:
   VEC3 evaluate(float ratio) const;
   VEC3 evaluateAsCatmull(float ratio) const;
 
+	/*int nsegments;
+	float ratioPerSegment;
+	int currentSegment;
+	float segmentRatio;*/
+
+
+
+	int getKnotSize() const{
+		return _knots.size();
+	}
+
 private:
   std::vector<VEC3> _knots;
   EType _type = EType::UNKNOWN;

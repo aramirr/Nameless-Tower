@@ -67,17 +67,17 @@ VEC3 CCurve::evaluate(float ratio) const
 VEC3 CCurve::evaluateAsCatmull(float ratio) const
 {
   ratio = clamp(ratio, 0.f, 0.99999f);
-  int nsegments = (int)_knots.size() - 3;
+  int nsegments = (int)_knots.size() - 1;
   float ratioPerSegment = 1.f / (float)nsegments;
   int currentSegment = (int)(ratio / ratioPerSegment);
   float segmentRatio = fmodf(ratio, ratioPerSegment) / ratioPerSegment;
 
   int idx = currentSegment + 1;
 
-  VEC3 p1 = _knots[idx - 1];
-  VEC3 p2 = _knots[idx];
-  VEC3 p3 = _knots[idx + 1];
-  VEC3 p4 = _knots[idx + 2];
+  VEC3 p1 = _knots[fmodf(idx - 1, nsegments)];
+  VEC3 p2 = _knots[fmodf(idx, nsegments)];
+  VEC3 p3 = _knots[fmodf(idx + 1, nsegments)];
+  VEC3 p4 = _knots[fmodf(idx + 2, nsegments)];
 
   return VEC3::CatmullRom(p1, p2, p3, p4, segmentRatio);
 }

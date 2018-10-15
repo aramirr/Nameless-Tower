@@ -12,6 +12,17 @@ void TCompCurve::debugInMenu() {
 		"Static\0"
 		"\0";
 
+	int nsegments = _curve->getKnotSize() - 1;
+	float ratioPerSegment = 1.f / (float)nsegments;
+	int currentSegment = (int)(_percentage / ratioPerSegment);
+	float segmentRatio = fmodf(_percentage, ratioPerSegment) / ratioPerSegment;
+
+	ImGui::Text("knots_size %i", _curve->getKnotSize());
+	ImGui::Text("num segments %i", nsegments); 
+	ImGui::Text("ratioPerSegment %f", ratioPerSegment); 
+	ImGui::Text("current_segment %i", currentSegment);
+	ImGui::Text("segmentRatio %f", segmentRatio);
+
 	ImGui::DragFloat("Percent", &_percentage, 0.01f, 0.001f, 1.f);
 	ImGui::DragFloat("Speed", &_speed, 0.01f);
 	ImGui::Checkbox("Enabled", &_automove);
@@ -88,19 +99,6 @@ void TCompCurve::update(float DT)
 				  _percentage = 0.0f;
 			  }
 		  }
-	  }
-
-
-	  // actualizar la transform con la nueva posicion
-	  // evaluar curva con dicho ratio
-	  VEC3 pos = _curve->evaluateAsCatmull(_percentage);
-	  TCompTransform* c_transform = get<TCompTransform>();
-	  c_transform->setPosition(pos);
-
-	  _target = getEntityByName(_targetName);
- 	  if (_target.isValid())
-	  {
-		  c_transform->lookAt(pos, getTargetPos());
 	  }
   }
   else
