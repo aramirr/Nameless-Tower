@@ -1,0 +1,96 @@
+[
+	{
+		"name" : "menu_options",
+		"type" : "widget",
+		"size" : "1920 1080",
+		"children" : [
+			{
+				"name" : "background",
+				"children" : [
+					{
+						"name" : "fondoA",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/OptionMenu/Menu_Options_Prueba.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1"
+					},
+					{
+						"name" : "particulasA",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/MainMenu/Menu_Fondo_Particulas.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1",
+						"effects" : [
+							{
+								"type" : "animate_uv",
+								"speed" : "0.0125 0.0125"
+							}
+						]
+					},
+					{
+						"name" : "particulasB",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/MainMenu/Menu_Fondo_Particulas_2.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1",
+						"effects" : [
+							{
+								"type" : "animate_uv",
+								"speed" : "0.0250 0.0250"
+							}
+						]
+					}
+				]
+			},
+			{
+				"name" : "test_buttons",
+				"type" : "widget",
+				"position" : "0 0",
+				"children" : [
+					{
+						"name" : "keyboard",
+						"type" : "button",
+						"position" : "973 353",
+						"size" : "240 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_Key_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_Key_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_Key_3.dds"
+						}
+					},
+					{
+						"name" : "full_screen_ON",
+						"type" : "button",
+						"position" : "965 471",
+						"size" : "100 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_ON_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_ON_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_ON_3.dds"
+						}
+					},
+					{
+						"name" : "full_screen_OFF",
+						"type" : "button",
+						"position" : "1103 471",
+						"size" : "100 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_OFF_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_OFF_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_OFF_3.dds"
+						}
+					}
+				]
+			}
+		]
+	}
+]

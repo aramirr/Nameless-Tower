@@ -188,6 +188,7 @@
     <ClCompile Include="components\lights\comp_light_point_shadows.cpp" />
     <ClCompile Include="gui\controllers\gui_pause_menu_controller.cpp" />
     <ClCompile Include="components\controllers\bone_anchor.cpp" />
+    <ClCompile Include="gui\controllers\gui_option_menu_controller.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera\camera.h" />
@@ -437,6 +438,7 @@
     <ClInclude Include="components\lights\comp_light_point_shadows.h" />
     <ClInclude Include="gui\controllers\gui_pause_menu_controller.h" />
     <ClInclude Include="components\controllers\bone_anchor.h" />
+    <ClInclude Include="gui\controllers\gui_option_menu_controller.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry\SimpleMath.inl" />

@@ -137,14 +137,14 @@ void CModuleLevel1::update(float delta)
 	{
 		pausa = !pausa;
 		if (pausa) {
-			EngineUI.activateWidget("menu_pausa");
-			EngineUI.activePauseMenu();
+			EngineUI.activateWidget("menu_options");				//TEMPORAL 
+			EngineUI.activeOptionMenu();
 		}
 		else {
 			EngineTimer.setTimeSlower(1.f);
 			//Engine.getModules().changeGameState("test_axis");
-			EngineUI.desactivateWidget("menu_pausa");
-			EngineUI.desactivePauseMenu();
+			EngineUI.desactivateWidget("menu_options");
+			EngineUI.desactiveOptionMenu();
 
 			CEntity* player = (CEntity*)getEntityByName("The Player");
 

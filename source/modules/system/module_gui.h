@@ -7,6 +7,7 @@
 #include "gui/controllers/gui_main_menu_controller.h"
 #include "gui/controllers/gui_omnidash_arrow_controller.h"
 #include "gui/controllers/gui_pause_menu_controller.h"
+#include "gui/controllers/gui_option_menu_controller.h"
 
 using namespace GUI;
 
@@ -25,6 +26,8 @@ public:
   void activeMainMenu();
   void desactivePauseMenu();
   void activePauseMenu();
+	void desactiveOptionMenu();
+	void activeOptionMenu();
   void setOmindash(bool omnidash);
 
   // widget management
@@ -52,6 +55,7 @@ private:
   
   CMainMenuController* mmc;
   CPauseMenuController* pmc;
+	COptionMenuController* omc;
   COmnidashArrowController* odc;
 
   GUI::VWidgets _registeredWidgets;
