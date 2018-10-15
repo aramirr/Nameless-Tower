@@ -485,45 +485,5 @@
         "ortho_height": 20.000
       }    
     }
-  },
-  {
-    "entity": {
-      "name": "spline_loro",
-      "transform": {
-        "pos": "0 0 0",
-        "lookat": "0 0 0"
-      },
-      "curve_controller" :
-      {
-        "curve" : "data/curves/test_curve.curve",
-        "speed" : 0.05,
-        "loop": true,
-        "automove": true,
-        "mode": "static"
-      },
-      "render" : {}
-    }
-  },
-  {
-    "entity": {
-      "name": "loro",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "hierarchy": {
-        "parent": "spline_loro"
-      },
-      "render":
-      [
-        {
-          "mesh": "unit_quad_pos_xy.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/sprites_test.material"
-          ]
-        }
-      ]
-    }
   }
 ]
