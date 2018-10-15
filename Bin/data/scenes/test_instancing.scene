@@ -123,9 +123,26 @@
       },
       "render" : [
         {
-          "mesh": "data/meshes/particles_3_azul_apagando.instanced_mesh",
+          "mesh": "data/meshes/particles_4_azul_apagando.instanced_mesh",
           "materials": [
             "data/materials/particles_fire_instanced_azul_apagando.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity": {
+      "name": "Instanced Smoke azul prendiendo",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_4_smoke_prendiendo.instanced_mesh",
+          "materials": [
+            "data/materials/particles_smoke_instanced_azul_prendiendo.material"
           ]
         }
       ]

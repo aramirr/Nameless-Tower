@@ -11,12 +11,15 @@ class CAITorch : public IAIController
 
   float timer = 0.f;
   int frames;
+  int smoke_frames;
   int current_frames;
   float y_offset = 0.f;
   float smoke_y_offset = 0.f;
   float x_offset = 0.f;
   float z_offset = 0.f;
 	float timer_limit;
+    bool apagando;
+    bool apagado;
     bool in_puzzle;
     bool violeta;
     bool azul;
