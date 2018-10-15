@@ -66,11 +66,11 @@ namespace GUI
       {
         setCurrentOption(_currentOption - 1);
       }
-      if (EngineInput[VK_SPACE].getsPressed())
+      if (EngineInput[VK_RETURN].getsPressed())
       {
         _options[_currentOption].button->setCurrentState(CButton::EState::ST_Pressed);
       }
-      if (EngineInput[VK_SPACE].getsReleased())
+      if (EngineInput[VK_RETURN].getsReleased())
       {
         _options[_currentOption].button->setCurrentState(CButton::EState::ST_Selected);
         _options[_currentOption].callback();
