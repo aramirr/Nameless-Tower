@@ -10,14 +10,15 @@ class CAITorch : public IAIController
   DECL_SIBLING_ACCESS();
 
   float timer = 0.f;
-  int frames;
-  int smoke_frames;
-  int current_frames;
+  float frames;
+  float smoke_frames;
+  float current_frames;
   float y_offset = 0.f;
   float smoke_y_offset = 0.f;
   float x_offset = 0.f;
   float z_offset = 0.f;
   bool apagando = false;
+  bool apagado = false;
   float timer_limit;
     bool in_puzzle;
     bool violeta;

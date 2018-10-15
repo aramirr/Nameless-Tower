@@ -1,0 +1,42 @@
+[
+  {
+    "entity":
+    {
+      "name": "PinchosB"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocaVerde.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 -0.2 0.0"
+        ,
+        "halfExtent": "1.53257 0.4 1.70484"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+]

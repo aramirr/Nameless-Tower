@@ -14,11 +14,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          "mesh": "data/meshes/PuertaB.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_Cerrada_01.material"
+            "data/materials/MaderaMat.material"
           ]
         }
       ]
@@ -31,7 +31,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+        "mesh_src": "data/meshes/PuertaB.col_mesh"
       }
       ,
       "abs_aabb": true

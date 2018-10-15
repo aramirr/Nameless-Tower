@@ -99,33 +99,36 @@ void CModuleBillboards::apagarFuego(int id, float scale, bool thin) {
 
 void CModuleBillboards::apagarFuegoAzul(int id, float scale) {
     for (int i = 0; i < thin_fire_azul_apagando_particles_instances.size(); ++i) {
-        if (thin_fire_azul_particles_ids[i] == id) {
-            thin_fire_azul_apagando_particles_instances[i].scale_x = 0.f;
-            thin_fire_azul_apagando_particles_instances[i].scale_y = 0.f;
+        if (thin_fire_azul_particles_ids[i] == id) {            
             smoke_4_prendiendo_particles_instances[i].scale_x = scale;
             smoke_4_prendiendo_particles_instances[i].scale_y = scale;
+            smoke_4_prendiendo_particles_instances[i].nframe = 0;
+            thin_fire_azul_apagando_particles_instances[i].scale_x = 0.f;
+            thin_fire_azul_apagando_particles_instances[i].scale_y = 0.f;
         }
     }   
 }
 
 void CModuleBillboards::apagandoFuegoAzul(int id, float scale) {
     for (int i = 0; i < thin_fire_azul_particles_instances.size(); ++i) {
-        if (thin_fire_azul_particles_ids[i] == id) {
+        if (thin_fire_azul_particles_ids[i] == id) {            
+            thin_fire_azul_apagando_particles_instances[i].scale_x = scale;
+            thin_fire_azul_apagando_particles_instances[i].nframe = 0;
+            thin_fire_azul_apagando_particles_instances[i].scale_y = scale;
             thin_fire_azul_particles_instances[i].scale_x = 0.f;
             thin_fire_azul_particles_instances[i].scale_y = 0.f;
-            thin_fire_azul_apagando_particles_instances[i].scale_x = scale;
-            thin_fire_azul_apagando_particles_instances[i].scale_y = scale;
         }
     }
 }
 
 void CModuleBillboards::prendiendoHumo(int id, float scale) {
     for (int i = 0; i < thin_fire_azul_particles_instances.size(); ++i) {
-        if (thin_fire_azul_particles_ids[i] == id) {
-            smoke_4_prendiendo_particles_instances[i].scale_x = 0.f;
-            smoke_4_prendiendo_particles_instances[i].scale_y = 0.f;
+        if (thin_fire_azul_particles_ids[i] == id) {            
             thin_smoke_particles_instances[i].scale_x = scale;
             thin_smoke_particles_instances[i].scale_y = scale;
+            thin_smoke_particles_instances[i].nframe = 0;
+            smoke_4_prendiendo_particles_instances[i].scale_x = 0.f;
+            smoke_4_prendiendo_particles_instances[i].scale_y = 0.f;
         }
     }
 }
@@ -263,7 +266,7 @@ int CModuleBillboards::addFuegoAzul(VEC3 position, float scale, float smoke_y_of
     new_instance.scale_x = scale;
     new_instance.scale_y = new_instance.scale_x;
     new_instance.pos = position;
-    new_instance.nframe = randomFloat(0.f, 16.f);
+    new_instance.nframe = 0;
     new_instance.angle = deg2rad(randomFloat(0, 360));
     new_instance.color.x = unitRandom();
     new_instance.color.y = unitRandom();
@@ -274,7 +277,7 @@ int CModuleBillboards::addFuegoAzul(VEC3 position, float scale, float smoke_y_of
     smoke_instance.scale_x = 0.f;
     smoke_instance.scale_y = smoke_instance.scale_x;
     smoke_instance.pos = position + VEC3(0, smoke_y_offset, 0);
-    smoke_instance.nframe = randomFloat(0.f, 16.f);
+    smoke_instance.nframe = 0;
     smoke_instance.angle = deg2rad(randomFloat(0, 360));
     smoke_instance.color.x = unitRandom();
     smoke_instance.color.y = unitRandom();
@@ -285,7 +288,7 @@ int CModuleBillboards::addFuegoAzul(VEC3 position, float scale, float smoke_y_of
     fire_apagando_instance.scale_x = 0.f;
     fire_apagando_instance.scale_y = fire_apagando_instance.scale_x;
     fire_apagando_instance.pos = position;
-    fire_apagando_instance.nframe = randomFloat(0.f, 16.f);
+    fire_apagando_instance.nframe = 0;
     fire_apagando_instance.angle = deg2rad(randomFloat(0, 360));
     fire_apagando_instance.color.x = unitRandom();
     fire_apagando_instance.color.y = unitRandom();
@@ -295,8 +298,8 @@ int CModuleBillboards::addFuegoAzul(VEC3 position, float scale, float smoke_y_of
     //new_instance.id = new_id;
     humo_prendiendo_instance.scale_x = 0.f;
     humo_prendiendo_instance.scale_y = humo_prendiendo_instance.scale_x;
-    humo_prendiendo_instance.pos = position;
-    humo_prendiendo_instance.nframe = randomFloat(0.f, 16.f);
+    humo_prendiendo_instance.pos = position + VEC3(0.1, smoke_y_offset, 0);
+    humo_prendiendo_instance.nframe = 0;
     humo_prendiendo_instance.angle = deg2rad(randomFloat(0, 360));
     humo_prendiendo_instance.color.x = unitRandom();
     humo_prendiendo_instance.color.y = unitRandom();
@@ -554,6 +557,7 @@ void CModuleBillboards::update(float delta)
     thin_fire_violeta_particles_instances_mesh->setInstancesData(thin_fire_violeta_particles_instances.data(), thin_fire_violeta_particles_instances.size(), sizeof(TRenderParticle));
     thin_fire_azul_particles_instances_mesh->setInstancesData(thin_fire_azul_particles_instances.data(), thin_fire_azul_particles_instances.size(), sizeof(TRenderParticle));
     thin_fire_azul_apagando_particles_instances_mesh->setInstancesData(thin_fire_azul_apagando_particles_instances.data(), thin_fire_azul_apagando_particles_instances.size(), sizeof(TRenderParticle));
+    smoke_4_prendiendo_particles_instances_mesh->setInstancesData(smoke_4_prendiendo_particles_instances.data(), smoke_4_prendiendo_particles_instances.size(), sizeof(TRenderParticle));
     //smoke_particles_instances_mesh->setInstancesData(smoke_particles_instances.data(), smoke_particles_instances.size(), sizeof(TRenderParticle));
     thin_smoke_particles_instances_mesh->setInstancesData(thin_smoke_particles_instances.data(), thin_smoke_particles_instances.size(), sizeof(TRenderParticle));
     windstrike_instances_mesh->setInstancesData(windstrike_instances.data(), windstrike_instances.size(), sizeof(TWindstrikeParticle));

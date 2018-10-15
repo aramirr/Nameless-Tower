@@ -1,0 +1,106 @@
+[
+  {
+    "entity":
+    {
+      "name": "PlataformaZ"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PlataformaZ.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PlataformaZMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.28498 0.5775 1.70083"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EngranajeIz"
+      ,
+      "transform":
+      {
+        "pos": "0.258845 -0.058319 1.56799"
+        ,
+        "rotation": "-0.694459 0.0 -0.719532 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EngranajeIz.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EngraneMat.material"
+          ]
+        }
+      ]
+      ,
+      "circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "X"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EngranajeDe"
+      ,
+      "transform":
+      {
+        "pos": "0.13074 -0.02476 -1.5849"
+        ,
+        "rotation": "0.685607 -0.0423768 -0.725209 -0.0471147"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EngranajeDe.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EngraneMat.material"
+          ]
+        }
+      ]
+      ,
+      "circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "X"
+      }
+    }
+  }
+]

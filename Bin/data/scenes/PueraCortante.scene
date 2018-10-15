@@ -1,0 +1,83 @@
+[
+  {
+    "entity":
+    {
+      "name": "PuertaCortante_Down"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PuertaCortante_Down.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/cut_door_up_mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.26775 0.475069 0.61501"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PuertaCortante_Up"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PuertaCortante_Up.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/cut_door_down_mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.26775 1.8498 0.725119"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+]
