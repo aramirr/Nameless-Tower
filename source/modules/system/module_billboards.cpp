@@ -114,8 +114,9 @@ void CModuleBillboards::apagarFuegoAzul(int id, float scale, VEC3 position, floa
             smoke_4_prendiendo_particles_instances.push_back(humo_prendiendo_instance);
             smoke_prendiendo_particles_ids.push_back(id);
             auto it = thin_fire_azul_apagando_particles_instances.begin();
-            while (it != _particles.end())
+            while (it != thin_fire_azul_apagando_particles_instances.end())
             {
+
             thin_fire_azul_apagando_particles_instances.erase(thin_fire_azul_apagando_particles_instances[thin_fire_azul_apagando_particles_ids.begin() + i]);
         }
     }   
