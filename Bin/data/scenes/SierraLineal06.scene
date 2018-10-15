@@ -1,0 +1,40 @@
+[
+  {
+    "entity":
+    {
+      "name": "SierraLineal"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 -1.50996e-07 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/SierraLineal.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SierraMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "convex_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+        ,
+        "mesh_src": "data/meshes/SierraLineal.col_mesh"
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+]

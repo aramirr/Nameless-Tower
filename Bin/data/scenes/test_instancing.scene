@@ -195,6 +195,22 @@
         }
       ]
     }
+  },
+  {
+    "entity": {
+      "name": "Instanced Smoke prendiendo",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/smoke_4_prendiendo.instanced_mesh",
+          "materials": [
+            "data/materials/particles_4_smoke_prendiendo.material"
+          ]
+        }
+      ]
+    }
   }
   ,
   {

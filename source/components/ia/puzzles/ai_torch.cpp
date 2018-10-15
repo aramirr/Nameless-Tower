@@ -71,8 +71,8 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
     azul = j.value("azul", false);
     initial_radius = radius;
     render = j.value("render", true);
-    frames = j.value("frames", 20);
-    smoke_frames = j.value("frames", 20);
+    frames = j.value("frames", 0.5f);
+    smoke_frames = j.value("smoke_frames", 0.55f);
     Init();
 }
 
@@ -80,7 +80,6 @@ void CAITorch::registerMsgs() {
     DECL_MSG(CAITorch, TMsgDeactivateTorch, deactivate);
     DECL_MSG(CAITorch, TMsgActivateTorch, activateMsg);
 }
-
 
 void CAITorch::ActiveState(float dt)
 {	
@@ -107,12 +106,11 @@ void CAITorch::ActiveState(float dt)
     
 }
 
-
 void CAITorch::InactiveState(float dt)
 {	
 	if (in_puzzle) {
 		timer += DT;
-        current_frames += 1;
+        current_frames += DT;
 		if (!apagando && current_frames > frames) {
 			EngineBillboards.apagarFuegoAzul(id, scale);
             apagando = true;
@@ -120,7 +118,6 @@ void CAITorch::InactiveState(float dt)
 		}
         if (apagando && !apagado && current_frames > smoke_frames) {
             EngineBillboards.prendiendoHumo(id, scale);
-            apagando = false;
             apagado = true;
             current_frames = 0;
         }
@@ -130,6 +127,7 @@ void CAITorch::InactiveState(float dt)
 void CAITorch::activate() {
 	active = true;
     render = true;    
+    apagando = false;
 	TCompTransform* my_transform = getMyTransform();
     if (violeta)
         EngineBillboards.encenderFuegoVioleta(id, scale, thin);
@@ -141,10 +139,9 @@ void CAITorch::activate() {
 	ChangeState("active");
 }
 
-
 void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
 	if (active) {
-		active = false;
+        active = false;
         apagando = false;
         apagado = false;
 		TCompTransform* my_transform = getMyTransform();
@@ -161,7 +158,6 @@ void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
 		}
 	}	
 }
-
 
 void CAITorch::activateMsg(const TMsgActivateTorch& msg) {
     if (!active || !render) {

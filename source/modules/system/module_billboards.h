@@ -38,7 +38,7 @@ class CModuleBillboards : public IModule
     CRenderMeshInstanced* thin_fire_violeta_particles_instances_mesh = nullptr;
     CRenderMeshInstanced* thin_fire_azul_particles_instances_mesh = nullptr;
     CRenderMeshInstanced* thin_fire_azul_apagando_particles_instances_mesh = nullptr;
-    CRenderMeshInstanced* thin_smoke_azul_prendiendo_particles_instances_mesh = nullptr;
+    CRenderMeshInstanced* smoke_4_prendiendo_particles_instances_mesh = nullptr;
 	CRenderMeshInstanced* smoke_particles_instances_mesh = nullptr;
 	CRenderMeshInstanced* thin_smoke_particles_instances_mesh = nullptr;
 	std::vector< TRenderParticle > particles_instances;
@@ -49,7 +49,7 @@ class CModuleBillboards : public IModule
     std::vector< TRenderParticle > thin_fire_violeta_particles_instances;
     std::vector< TRenderParticle > thin_fire_azul_particles_instances;
     std::vector< TRenderParticle > thin_fire_azul_apagando_particles_instances;
-    std::vector< TRenderParticle > thin_smoke_azul_prendiendo_particles_instances;
+    std::vector< TRenderParticle > smoke_4_prendiendo_particles_instances;
     std::vector< TRenderParticle > smoke_particles_instances;
     std::vector< TRenderParticle > thin_smoke_particles_instances;
 	std::vector< int > particles_ids;
@@ -60,7 +60,7 @@ class CModuleBillboards : public IModule
     std::vector< int > thin_fire_violeta_particles_ids;
     std::vector< int > thin_fire_azul_particles_ids;
     std::vector< int > thin_fire_azul_apagando_particles_ids;
-    std::vector< int > thin_smoke_azul_prendiendo_particles_ids;
+    std::vector< int > smoke_prendiendo_particles_ids;
     std::vector< int > smoke_particles_ids;
     std::vector< int > thin_smoke_particles_ids;
 

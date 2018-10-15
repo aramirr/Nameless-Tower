@@ -244,7 +244,7 @@
       ,
       "rigid_anim":
       {
-        "src": "data/anims/none"
+        "src": "data/anims/Activadores.anims"
         ,
         "speed_factor": 1.0
         ,
@@ -447,11 +447,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/PuertaA.mesh"
+          "mesh": "data/meshes/Puerta_Reja.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_Cerrada_01.material"
+            "data/materials/RejaMate.material"
           ]
         }
       ]
@@ -464,7 +464,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/PuertaA.col_mesh"
+        "mesh_src": "data/meshes/Puerta_Reja.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -579,11 +579,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/PuertaA.mesh"
+          "mesh": "data/meshes/Puerta_Reja.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_Cerrada_01.material"
+            "data/materials/RejaMate.material"
           ]
         }
       ]
@@ -596,7 +596,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/PuertaA.col_mesh"
+        "mesh_src": "data/meshes/Puerta_Reja.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -623,11 +623,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/PuertaA.mesh"
+          "mesh": "data/meshes/Puerta_Reja.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_Cerrada_01.material"
+            "data/materials/RejaMate.material"
           ]
         }
       ]
@@ -640,7 +640,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/PuertaA.col_mesh"
+        "mesh_src": "data/meshes/Puerta_Reja.col_mesh"
       }
       ,
       "abs_aabb": true
