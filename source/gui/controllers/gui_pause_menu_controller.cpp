@@ -27,14 +27,29 @@ namespace GUI
         player->sendMsg(pauseMsg);
         
       };
+
+			auto restartLevelCB = []() {
+				dbg("RESTART LEVEL\n");
+				exit(0);
+
+			};
+
+			auto optionsCB = []() {
+				dbg("options\n");
+				exit(0);
+
+			};
+
       auto exitCB = []() {
-        dbg("LOADING GAME\n");
+        dbg("EXIT\n");
 
         exit(0);
       };
 
       registerOption("resume_game", resumeGameCB);
-      registerOption("exit_2", exitCB);
+			registerOption("restart_level", restartLevelCB);
+			registerOption("options_pause", optionsCB);
+      registerOption("exit_pause", exitCB);
       setCurrentOption(0);
 
       carga = false;
@@ -51,11 +66,11 @@ namespace GUI
       {
         setCurrentOption(_currentOption - 1);
       }
-      if (EngineInput[VK_SPACE].getsPressed())
+      if (EngineInput[VK_RETURN].getsPressed())
       {
         _options[_currentOption].button->setCurrentState(CButton::EState::ST_Pressed);
       }
-      if (EngineInput[VK_SPACE].getsReleased())
+      if (EngineInput[VK_RETURN].getsReleased())
       {
         _options[_currentOption].button->setCurrentState(CButton::EState::ST_Selected);
         _options[_currentOption].callback();
