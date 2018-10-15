@@ -65,10 +65,14 @@ float4 PS_FogRight(
 	
     final_color.a = alpha_color.r;
 		
-	if (iTex1.x < 0.15)
-		final_color.w = final_color.w * (iTex1.x /0.15);
-	if (iTex1.x > 0.85)
-		final_color.w = final_color.w * ((1-iTex1.x) /0.15);
+    if (iTex1.x < global_fog_percentage_horizontal)
+        final_color.w = final_color.w * (iTex1.x / global_fog_percentage_horizontal);
+    if (iTex1.x > 1 - global_fog_percentage_horizontal)
+        final_color.w = final_color.w * ((1 - iTex1.x) / global_fog_percentage_horizontal);
+    if (iTex1.y < global_fog_percentage_vertical)
+        final_color.w = final_color.w * (iTex1.y / global_fog_percentage_vertical);
+    if (iTex1.y > 1 - global_fog_percentage_vertical)
+        final_color.w = final_color.w * ((1 - iTex1.y) / global_fog_percentage_vertical);
 		
     return final_color;
  

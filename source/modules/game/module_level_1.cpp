@@ -71,6 +71,9 @@ bool CModuleLevel1::start()
 	cb_globals.global_bandMin_adjustment = 0.f;
 	cb_globals.global_bandMax_adjustment = 0.f;
 
+	cb_globals.global_fog_percentage_horizontal = 0.15f;
+	cb_globals.global_fog_percentage_vertical = 0.15f;
+
 	cb_light.activate();
 	cb_object.activate();
 	cb_globals.activate();
