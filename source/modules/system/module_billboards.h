@@ -100,9 +100,9 @@ public:
   int addFuegoVioleta(VEC3 position, float scale, bool thin);
   int addFuegoAzul(VEC3 position, float scale, float smoke_y_offset);
   void apagarFuego(int id, float scale, bool thin);
-  void apagarFuegoAzul(int id, float scale);
-  void apagandoFuegoAzul(int id, float scale);
-  void prendiendoHumo(int id, float scale);
+  void apagarFuegoAzul(int id, float scale, VEC3 position, float y_offset);
+  void apagandoFuegoAzul(int id, float scale, VEC3 position, float y_offset);
+  void prendiendoHumo(int id, float scale, VEC3 position, float y_offset);
   void encenderFuego(int id, float scale, bool thin);
   void encenderFuegoVioleta(int id, float scale, bool thin);
   void encenderFuegoAzul(int id, float scale);

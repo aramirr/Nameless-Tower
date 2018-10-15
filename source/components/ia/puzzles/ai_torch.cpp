@@ -112,12 +112,12 @@ void CAITorch::InactiveState(float dt)
 		timer += DT;
         current_frames += DT;
 		if (!apagando && current_frames > frames) {
-			EngineBillboards.apagarFuegoAzul(id, scale);
+			EngineBillboards.apagarFuegoAzul(id, scale, fire_position, smoke_y_offset);
             apagando = true;
             current_frames = 0;
 		}
         if (apagando && !apagado && current_frames > smoke_frames) {
-            EngineBillboards.prendiendoHumo(id, scale);
+            EngineBillboards.prendiendoHumo(id, scale, fire_position, smoke_y_offset);
             apagado = true;
             current_frames = 0;
         }
@@ -145,7 +145,7 @@ void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
         apagando = false;
         apagado = false;
 		TCompTransform* my_transform = getMyTransform();
-        EngineBillboards.apagandoFuegoAzul(id, scale);
+        EngineBillboards.apagandoFuegoAzul(id, scale, fire_position, 0);
 		timer = 0;
         current_frames = 0;
 		ChangeState("inactive");
