@@ -27,14 +27,29 @@ namespace GUI
         player->sendMsg(pauseMsg);
         
       };
+
+			auto restartLevelCB = []() {
+				dbg("RESTART LEVEL\n");
+				exit(0);
+
+			};
+
+			auto optionsCB = []() {
+				dbg("options\n");
+				exit(0);
+
+			};
+
       auto exitCB = []() {
-        dbg("LOADING GAME\n");
+        dbg("EXIT\n");
 
         exit(0);
       };
 
       registerOption("resume_game", resumeGameCB);
-      registerOption("exit_2", exitCB);
+			registerOption("restart_level", restartLevelCB);
+			registerOption("options_pause", optionsCB);
+      registerOption("exit_pause", exitCB);
       setCurrentOption(0);
 
       carga = false;

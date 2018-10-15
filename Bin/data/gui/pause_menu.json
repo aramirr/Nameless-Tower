@@ -11,79 +11,67 @@
 						"name" : "fondoA",
 						"type" : "image",
 						"size" : "1920 1080",
-						"texture" : "data/textures/gui/MenuFondo.dds",
+						"texture" : "data/textures/gui/PauseMenu/Towerpause_menu_BN.dds",
 						"minUV" : "0 0",
-						"maxUV" : "0.5 1",
-						"effects" : [
-							{
-								"type" : "animate_uv",
-								"speed" : "0.0125 0"
-							}
-						]
-					},
-					{
-						"name" : "fondoB",
-						"type" : "image",
-						"size" : "1920 1080",
-						"texture" : "data/textures/gui/menu_anim_background1.dds",
-						"minUV" : "0 0",
-						"maxUV" : "0.5 1",
-						"effects" : [
-							{
-								"type" : "animate_uv",
-								"speed" : "-0.025 0"
-							}
-						]
+						"maxUV" : "1 1"
 					}
 				]
 			},
 			{
 				"name" : "test_buttons",
 				"type" : "widget",
-				"position" : "810 650",
+				"position" : "0 0",
 				"children" : [
 					{
 						"name" : "resume_game",
 						"type" : "button",
-						"position" : "0 0",
-						"size" : "300 50",
-						"texture" : "data/textures/gui/menu_boton.dds",
-						"font_size" : 32.0,
-						"text" : "RESUME GAME",
-						"halign" : "center",
-						"valign" : "center",
-						"color" : "0.5 0.5 0.5 1",
+						"position" : "605 364",
+						"size" : "200 48",
+						"texture" : "data/textures/gui/PauseMenu/Boton_PAUSE_1.dds",
 						"selected" : {
-							"position" : "30 0",
-							"font_size" : 36.0,
-							"color" : "1 1 1 1"
+							"texture" : "data/textures/gui/PauseMenu/Boton_PAUSE_2.dds"
 						},
 						"pressed" : {
-							"position" : "30 0",
-							"font_size" : 36.0,
-							"font_color" : "0.8 0.8 1 1"
+							"texture" : "data/textures/gui/PauseMenu/Boton_PAUSE_3.dds"
 						}
 					},
 					{
-						"name" : "exit_2",
+						"name" : "restart_level",
 						"type" : "button",
-						"position" : "0 80",
-						"size" : "300 50",
-						"texture" : "data/textures/gui/menu_boton.dds",
-						"font_size" : 32.0,
-						"text" : "EXIT",
-						"halign" : "center",
-						"valign" : "center",
-						"color" : "0.5 0.5 0.5 1",
+						"position" : "607 424",
+						"size" : "340 48",
+						"texture" : "data/textures/gui/PauseMenu/Boton_PAUSE_RL_1.dds",
 						"selected" : {
-							"position" : "30 80",
-							"font_size" : 36.0,
-							"color" : "1 1 1 1"
+							"texture" : "data/textures/gui/PauseMenu/Boton_PAUSE_RL_2.dds"
 						},
 						"pressed" : {
-							"position" : "30 80",
-							"font_size" : 36.0,
-							"font_color" : "0.8 0.8 1 1"
+							"texture" : "data/textures/gui/PauseMenu/Boton_PAUSE_RL_3.dds"
+						}
+					},
+					{
+						"name" : "options_pause",
+						"type" : "button",
+						"position" : "606 481",
+						"size" : "200 48",
+						"texture" : "data/textures/gui/PauseMenu/Boton_PAUSE_Op_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/PauseMenu/Boton_PAUSE_Op_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/PauseMenu/Boton_PAUSE_Op_3.dds"
+						}
+					},
+					{
+						"name" : "exit_pause",
+						"type" : "button",
+						"position" : "610 534",
+						"size" : "100 48",
+						"texture" : "data/textures/gui/PauseMenu/Boton_PAUSE_EX_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/PauseMenu/Boton_PAUSE_EX_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/PauseMenu/Boton_PAUSE_EX_3.dds"
 						}
 					}
 				]
