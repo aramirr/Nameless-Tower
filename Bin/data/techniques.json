@@ -404,6 +404,7 @@
     "ps_entry_point": "PS_GBuffer_Viento",
     "vertex_type": "PosNUvUvT",
     "category": "gbuffer",
+    "z" : "test_but_no_write",
     "blend": "alpha",
     "priority" : 150,
     "comment" : "This needs to go after the pbr's solids, but just before the object to render"

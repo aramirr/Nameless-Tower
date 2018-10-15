@@ -248,6 +248,9 @@ void CModuleRender::generateFrame() {
 		deferred.render(rt_main, h_e_camera);
 
 		//CRenderManager::get().renderCategory("cell");
+		//CRenderManager::get().renderCategory("particles");
+
+		CRenderManager::get().renderCategory("particles");
 
 		CRenderManager::get().renderCategory("alpha");
 
@@ -295,9 +298,10 @@ void CModuleRender::generateFrame() {
 		Render.startRenderInBackbuffer();
 
 		renderFullScreenQuad("dump_texture.tech", curr_rt);
-
-		CRenderManager::get().renderCategory("particles");
-		CRenderManager::get().renderCategory("particlesA");
+		
+		/*activateRSConfig(RSCFG_DEFAULT);
+		activateZConfig(ZCFG_DEFAULT);
+		activateBlendConfig(BLEND_CFG_DEFAULT);*/
 		// Debug render
 		{
 			PROFILE_FUNCTION("Modules");
