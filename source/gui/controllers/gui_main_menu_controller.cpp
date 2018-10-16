@@ -56,6 +56,7 @@ namespace GUI
       registerOption("exit", exitCB);
       setCurrentOption(0);
 
+			cb_gui.main = 1.f;
       carga = false;
     }
 

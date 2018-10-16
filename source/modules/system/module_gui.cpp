@@ -116,6 +116,11 @@ void CModuleGUI::activePauseMenu()
   pmc->setActive(true);
 }
 
+void CModuleGUI::resetPauseMenu()
+{
+	pmc->resetOptions();
+}
+
 void CModuleGUI::desactiveOptionMenu()
 {
 	omc->setActive(false);

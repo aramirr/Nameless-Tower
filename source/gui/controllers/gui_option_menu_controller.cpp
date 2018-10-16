@@ -20,13 +20,13 @@ namespace GUI
 
 			auto fullScreenONCB = []() {
 				dbg("FULLSCREEN ON\n");
-
+				Render.swapChain->SetFullscreenState(true, nullptr);
 
 			};
 
 			auto fullScreenOFFCB = []() {
 				dbg("FULLSCREEN OFF\n");
-
+				Render.swapChain->SetFullscreenState(false, nullptr);
 			};
 
 			auto res1920CB = []() {
@@ -77,7 +77,10 @@ namespace GUI
 			auto exitOptionsCB = []() {
 				dbg("EXIT OPTIONS\n");
 
-				exit(0);
+				EngineUI.desactivateWidget("menu_options");
+				EngineUI.desactiveOptionMenu();
+				if (cb_gui.main > 0.f) EngineUI.activeMainMenu();
+				else EngineUI.activePauseMenu();
 			};
 
 			registerOption("keyboard", keyboardCB, 0);
@@ -201,6 +204,9 @@ namespace GUI
 			pauseMsg.variant.setBool(true);
 
 			player->sendMsg(pauseMsg);*/
+
+			setCurrentSection(0);
+			setCurrentOption(0);
 
 			EngineUI.activateWidget("menu_options");
 			cb_gui.options = 1.f;

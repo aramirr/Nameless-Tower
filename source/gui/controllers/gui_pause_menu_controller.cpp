@@ -27,13 +27,29 @@ namespace GUI
         player->sendMsg(pauseMsg);
         
       };
+
+			auto restartCB = []() {
+				dbg("RESTART\n");
+				
+			};
+
+			auto optionsCB = []() {
+				dbg("OPTIONS\n");
+				cb_gui.options = 1.f;
+				EngineUI.activateWidget("menu_options");
+				EngineUI.activeOptionMenu();
+				EngineUI.desactivePauseMenu();
+			};
+
       auto exitCB = []() {
 
         exit(0);
       };
 
       registerOption("resume_game", resumeGameCB);
-      registerOption("exit_2", exitCB);
+			registerOption("restart_level", restartCB);
+			registerOption("options_pause", optionsCB);
+      registerOption("exit_pause", exitCB);
       setCurrentOption(0);
 
       carga = false;
@@ -50,11 +66,11 @@ namespace GUI
       {
         setCurrentOption(_currentOption - 1);
       }
-      if (EngineInput[VK_SPACE].getsPressed())
+      if (EngineInput[VK_RETURN].getsPressed())
       {
         _options[_currentOption].button->setCurrentState(CButton::EState::ST_Pressed);
       }
-      if (EngineInput[VK_SPACE].getsReleased())
+      if (EngineInput[VK_RETURN].getsReleased())
       {
         _options[_currentOption].button->setCurrentState(CButton::EState::ST_Selected);
         _options[_currentOption].callback();
@@ -121,6 +137,11 @@ namespace GUI
       EngineUI.desactivateWidget("menu_pausa");
     }
   }
+
+	void CPauseMenuController::resetOptions()
+	{
+		setCurrentOption(0);
+	}
 
   int CPauseMenuController::getCurrentOption()
   {

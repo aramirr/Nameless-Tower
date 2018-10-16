@@ -26,6 +26,7 @@ public:
   void activeMainMenu();
   void desactivePauseMenu();
   void activePauseMenu();
+	void resetPauseMenu();
 	void desactiveOptionMenu();
 	void activeOptionMenu();
   void setOmindash(bool omnidash);

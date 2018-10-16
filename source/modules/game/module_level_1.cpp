@@ -140,7 +140,7 @@ void CModuleLevel1::update(float delta)
 	if (EngineInput[VK_ESCAPE].getsPressed())
 	{
 		if (cb_gui.options > 0.f) {
-			EngineTimer.setTimeSlower(1.f);
+			//EngineTimer.setTimeSlower(1.f);
 			//Engine.getModules().changeGameState("test_axis");
 			EngineUI.desactivateWidget("menu_options");
 			EngineUI.desactiveOptionMenu();
@@ -159,6 +159,7 @@ void CModuleLevel1::update(float delta)
 				//Engine.getModules().changeGameState("test_axis");
 				EngineUI.desactivateWidget("pause_menu");
 				EngineUI.desactivePauseMenu();
+				EngineUI.resetPauseMenu();
 
 				CEntity* player = (CEntity*)getEntityByName("The Player");
 
