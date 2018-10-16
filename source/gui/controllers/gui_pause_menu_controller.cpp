@@ -1,5 +1,6 @@
 #include "mcv_platform.h"
 #include "gui_pause_menu_controller.h"
+#include "render/render_objects.h"
 #include "gui/widgets/gui_button.h"
 
 namespace GUI
@@ -12,7 +13,6 @@ namespace GUI
     if (carga) {
 
       auto resumeGameCB = []() {
-        dbg("RESUMING GAME\n");
         EngineTimer.setTimeSlower(1.f);
         //Engine.getModules().changeGameState("test_axis");
         EngineUI.desactivateWidget("menu_pausa");
@@ -27,29 +27,13 @@ namespace GUI
         player->sendMsg(pauseMsg);
         
       };
-
-			auto restartLevelCB = []() {
-				dbg("RESTART LEVEL\n");
-				exit(0);
-
-			};
-
-			auto optionsCB = []() {
-				dbg("options\n");
-				exit(0);
-
-			};
-
       auto exitCB = []() {
-        dbg("EXIT\n");
 
         exit(0);
       };
 
       registerOption("resume_game", resumeGameCB);
-			registerOption("restart_level", restartLevelCB);
-			registerOption("options_pause", optionsCB);
-      registerOption("exit_pause", exitCB);
+      registerOption("exit_2", exitCB);
       setCurrentOption(0);
 
       carga = false;
@@ -66,11 +50,11 @@ namespace GUI
       {
         setCurrentOption(_currentOption - 1);
       }
-      if (EngineInput[VK_RETURN].getsPressed())
+      if (EngineInput[VK_SPACE].getsPressed())
       {
         _options[_currentOption].button->setCurrentState(CButton::EState::ST_Pressed);
       }
-      if (EngineInput[VK_RETURN].getsReleased())
+      if (EngineInput[VK_SPACE].getsReleased())
       {
         _options[_currentOption].button->setCurrentState(CButton::EState::ST_Selected);
         _options[_currentOption].callback();
@@ -129,10 +113,11 @@ namespace GUI
       player->sendMsg(pauseMsg);*/
 
       EngineUI.activateWidget("menu_pausa");
-
+			cb_gui.pause = 1.f;
       EngineTimer.setTimeSlower(0.f);
     }
     else {
+			cb_gui.pause = 0.f;
       EngineUI.desactivateWidget("menu_pausa");
     }
   }

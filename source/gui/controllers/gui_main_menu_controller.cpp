@@ -1,4 +1,6 @@
 #include "mcv_platform.h"
+#include "ctes.h"
+#include "render/render_objects.h"
 #include "gui_main_menu_controller.h"
 #include "gui/widgets/gui_button.h"
 
@@ -10,6 +12,7 @@ namespace GUI
     //-----------------------------------------------------------------------------------
 
     if (carga) {
+
       CEntity* player = (CEntity*)getEntityByName("The Player");
 
       TMsgSetFSMVariable pauseMsg;
@@ -19,7 +22,7 @@ namespace GUI
       player->sendMsg(pauseMsg);
 
       auto newGameCB = []() {
-        dbg("STARTING GAME\n");
+				dbg("STARTING GAME\n");
         //Engine.getModules().changeGameState("test_axis");
         EngineUI.desactivateWidget("pantallaInicio");
         EngineUI.desactiveMainMenu();
@@ -31,13 +34,16 @@ namespace GUI
         pauseMsg.variant.setBool(true);
 
         player->sendMsg(pauseMsg);
-
+			
+				cb_gui.main = 0.f;
         EngineTimer.setTimeSlower(1.f);
       };
 			auto optionsCB = []() {
 				dbg("OPTIONES\n");
-				//TO DO: Iniciar Menu de Opciones
-				//...
+				cb_gui.options = 1.f;
+				EngineUI.activateWidget("menu_options");
+				EngineUI.activeOptionMenu();
+				EngineUI.desactiveMainMenu();
 			};
       auto exitCB = []() {
         dbg("EXIT\n");

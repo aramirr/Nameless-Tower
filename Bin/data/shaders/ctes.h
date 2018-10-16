@@ -252,6 +252,11 @@ CB_DEF(CCteGUI, CB_GUI)
 	VEC2 minUV;
 	VEC2 maxUV;
 	VEC4 tint_color;
+
+	float main;
+	float pause;
+	float options;
+	float guidummy;
 };
 
 CB_DEF(CCteParticle, CB_PARTICLE)
@@ -260,6 +265,5 @@ CB_DEF(CCteParticle, CB_PARTICLE)
 	VEC2 particle_maxUV;
 	VEC4 particle_color;
 };
-
 
 #endif

@@ -1,5 +1,6 @@
 #include "mcv_platform.h"
 #include "gui_option_menu_controller.h"
+#include "render/render_objects.h"
 #include "gui/widgets/gui_button.h"
 
 namespace GUI
@@ -202,10 +203,11 @@ namespace GUI
 			player->sendMsg(pauseMsg);*/
 
 			EngineUI.activateWidget("menu_options");
-
+			cb_gui.options = 1.f;
 			EngineTimer.setTimeSlower(0.f);
 		}
 		else {
+			cb_gui.options = 0.f;
 			EngineUI.desactivateWidget("menu_options");
 		}
 	}

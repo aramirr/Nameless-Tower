@@ -102,6 +102,7 @@ void CModuleGUI::desactiveMainMenu()
 
 void CModuleGUI::activeMainMenu()
 {
+	cb_gui.main = 1.f;
   registerController(mmc);
 }
 
