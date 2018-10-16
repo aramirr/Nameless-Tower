@@ -104,7 +104,7 @@ void CModuleBillboards::apagarFuegoAzul(int id, float scale, VEC3 position, floa
             humo_prendiendo_instance.scale_x = scale;
             humo_prendiendo_instance.scale_y = humo_prendiendo_instance.scale_x;
             humo_prendiendo_instance.pos = position + VEC3(0.1, y_offset, 0);
-            humo_prendiendo_instance.nframe = 0;
+            humo_prendiendo_instance.nframe = 1.f;
             humo_prendiendo_instance.angle = deg2rad(randomFloat(0, 360));
             humo_prendiendo_instance.color.x = unitRandom();
             humo_prendiendo_instance.color.y = unitRandom();
@@ -116,8 +116,12 @@ void CModuleBillboards::apagarFuegoAzul(int id, float scale, VEC3 position, floa
             auto it = thin_fire_azul_apagando_particles_instances.begin();
             while (it != thin_fire_azul_apagando_particles_instances.end())
             {
-
-            thin_fire_azul_apagando_particles_instances.erase(thin_fire_azul_apagando_particles_instances[thin_fire_azul_apagando_particles_ids.begin() + i]);
+                TRenderParticle& p = *it;
+                if (p.pos == position) {
+                    thin_fire_azul_apagando_particles_instances.erase(it);
+                    break;
+                }
+            }            
         }
     }   
 }
@@ -129,7 +133,7 @@ void CModuleBillboards::apagandoFuegoAzul(int id, float scale, VEC3 position, fl
             fire_apagando_instance.scale_x = scale;
             fire_apagando_instance.scale_y = fire_apagando_instance.scale_x;
             fire_apagando_instance.pos = position;
-            fire_apagando_instance.nframe = 0;
+            fire_apagando_instance.nframe = 1.f;
             fire_apagando_instance.angle = deg2rad(randomFloat(0, 360));
             fire_apagando_instance.color.x = unitRandom();
             fire_apagando_instance.color.y = unitRandom();
@@ -151,7 +155,7 @@ void CModuleBillboards::prendiendoHumo(int id, float scale, VEC3 position, float
             smoke_instance.scale_x = scale;
             smoke_instance.scale_y = smoke_instance.scale_x;
             smoke_instance.pos = position + VEC3(0, y_offset, 0);
-            smoke_instance.nframe = 0;
+            smoke_instance.nframe = 1.f;
             smoke_instance.angle = deg2rad(randomFloat(0, 360));
             smoke_instance.color.x = unitRandom();
             smoke_instance.color.y = unitRandom();
@@ -160,8 +164,15 @@ void CModuleBillboards::prendiendoHumo(int id, float scale, VEC3 position, float
 
             thin_smoke_particles_instances.push_back(smoke_instance);
             thin_smoke_particles_ids.push_back(id);
-            smoke_prendiendo_particles_ids.erase(smoke_prendiendo_particles_ids.begin() + i);
-            smoke_4_prendiendo_particles_instances.erase(smoke_4_prendiendo_particles_instances[smoke_prendiendo_particles_ids.begin() + i]);
+            auto it = smoke_4_prendiendo_particles_instances.begin();
+            while (it != smoke_4_prendiendo_particles_instances.end())
+            {
+                TRenderParticle& p = *it;
+                if (p.pos == position + VEC3(0.1, y_offset, 0)) {
+                    smoke_4_prendiendo_particles_instances.erase(it);
+                    break;
+                }
+            }
         }
     }
 }
@@ -225,7 +236,6 @@ int CModuleBillboards::addFuegoTest(VEC3 position, float scale, bool thin) {
 	int fire_new_id = fuego_max_id;
 	++fuego_max_id;
 	TRenderParticle new_instance;
-	//new_instance.id = new_id;
 	new_instance.scale_x = scale;
   new_instance.scale_y = new_instance.scale_x;
   new_instance.pos = position;
@@ -236,7 +246,6 @@ int CModuleBillboards::addFuegoTest(VEC3 position, float scale, bool thin) {
   new_instance.color.z = 1 - new_instance.color.x - new_instance.color.y;
   new_instance.color.w = 1;
 	TRenderParticle smoke_instance;
-	//new_instance.id = new_id;
 	smoke_instance.scale_x = 0.f;
 	smoke_instance.scale_y = smoke_instance.scale_x;
 	smoke_instance.pos = position;
@@ -262,7 +271,6 @@ int CModuleBillboards::addFuegoVioleta(VEC3 position, float scale, bool thin) {
     int fire_new_id = fuego_max_id;
     ++fuego_max_id;
     TRenderParticle new_instance;
-    //new_instance.id = new_id;
     new_instance.scale_x = scale;
     new_instance.scale_y = new_instance.scale_x;
     new_instance.pos = position;
@@ -273,7 +281,6 @@ int CModuleBillboards::addFuegoVioleta(VEC3 position, float scale, bool thin) {
     new_instance.color.z = 1 - new_instance.color.x - new_instance.color.y;
     new_instance.color.w = 1;
     TRenderParticle smoke_instance;
-    //new_instance.id = new_id;
     smoke_instance.scale_x = 0.f;
     smoke_instance.scale_y = smoke_instance.scale_x;
     smoke_instance.pos = position;
@@ -299,16 +306,15 @@ int CModuleBillboards::addFuegoAzul(VEC3 position, float scale, float smoke_y_of
     int fire_new_id = fuego_max_id;
     ++fuego_max_id;
     TRenderParticle new_instance;
-    //new_instance.id = new_id;
     new_instance.scale_x = scale;
     new_instance.scale_y = new_instance.scale_x;
     new_instance.pos = position;
-    new_instance.nframe = 0;
+    new_instance.nframe = randomFloat(0.f, 16.f);
     new_instance.angle = deg2rad(randomFloat(0, 360));
     new_instance.color.x = unitRandom();
     new_instance.color.y = unitRandom();
     new_instance.color.z = 1 - new_instance.color.x - new_instance.color.y;
-    new_instance.color.w = 1;       
+    new_instance.color.w = 1;
 
     thin_fire_azul_particles_instances.push_back(new_instance);
     thin_fire_azul_particles_ids.push_back(fire_new_id);
