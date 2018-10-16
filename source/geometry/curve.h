@@ -14,13 +14,6 @@ public:
   VEC3 evaluate(float ratio, bool loop = false) const;
   VEC3 evaluateAsCatmull(float ratio, bool loop = false) const;
 
-	/*int nsegments;
-	float ratioPerSegment;
-	int currentSegment;
-	float segmentRatio;*/
-
-
-
 	int getKnotSize() const{
 		return _knots.size();
 	}

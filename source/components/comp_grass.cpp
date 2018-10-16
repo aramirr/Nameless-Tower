@@ -59,6 +59,19 @@ void TCompGrass::update(float dt) {
 		v.push_back(2);
 		v.push_back(3);
 		v.push_back(4);
+		/*v.push_back(5);
+		v.push_back(6);
+		v.push_back(7);
+		v.push_back(8);
+		v.push_back(9);
+		v.push_back(10);
+		v.push_back(11);
+		v.push_back(12);
+		v.push_back(13);
+		v.push_back(14);
+		v.push_back(15);
+		v.push_back(16);
+		v.push_back(17);*/
 		EngineBillboards.set_grass_ids_2_render(v);
 		EngineBillboards.set_grass_instances_2_render();
 	}
