@@ -88,6 +88,136 @@
 						"pressed" : {
 							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_OFF_3.dds"
 						}
+					},
+					{
+						"name" : "res_1920",
+						"type" : "button",
+						"position" : "962 589",
+						"size" : "200 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1920_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1920_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1920_3.dds"
+						}
+					},
+					{
+						"name" : "res_1366",
+						"type" : "button",
+						"position" : "1191 589",
+						"size" : "156 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1633_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1633_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1633_2.dds"
+						}
+					},
+					{
+						"name" : "res_1024",
+						"type" : "button",
+						"position" : "1380 589",
+						"size" : "164 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1024_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1024_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1024_3.dds"
+						}
+					},
+					{
+						"name" : "graphics_LOW",
+						"type" : "button",
+						"position" : "972 704",
+						"size" : "120 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_LOW_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_LOW_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_LOW_3.dds"
+						}
+					},
+					{
+						"name" : "graphics_MEDIUM",
+						"type" : "button",
+						"position" : "1166 704",
+						"size" : "196 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_Medium_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_Medium_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_Medium_3.dds"
+						}
+					},
+					{
+						"name" : "graphics_HIGH",
+						"type" : "button",
+						"position" : "1424 704",
+						"size" : "120 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_High_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_High_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_High_3.dds"
+						}
+					},
+					{
+						"name" : "volumen_LOW",
+						"type" : "button",
+						"position" : "972 823",
+						"size" : "120 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_LOW_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_LOW_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_LOW_3.dds"
+						}
+					},
+					{
+						"name" : "volumen_MEDIUM",
+						"type" : "button",
+						"position" : "1168 823",
+						"size" : "196 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_Medium_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_Medium_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_Medium_3.dds"
+						}
+					},
+					{
+						"name" : "volumen_HIGH",
+						"type" : "button",
+						"position" : "1424 823",
+						"size" : "120 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_High_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_High_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_High_3.dds"
+						}
+					},
+					{
+						"name" : "exit_options",
+						"type" : "button",
+						"position" : "1385 948",
+						"size" : "100 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_EXIT_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_EXIT_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_EXIT_3.dds"
+						}
 					}
 				]
 			}

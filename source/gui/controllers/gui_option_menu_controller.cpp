@@ -28,8 +28,53 @@ namespace GUI
 
 			};
 
-			auto exitCB = []() {
-				dbg("EXIT\n");
+			auto res1920CB = []() {
+				dbg("RESOLUTION 1920\n");
+
+			};
+
+			auto res1366CB = []() {
+				dbg("RESOLUTION 1366\n");
+
+			};
+
+			auto res1024CB = []() {
+				dbg("RESOLUTION 1024\n");
+
+			};
+
+			auto graphicsLOWCB = []() {
+				dbg("GRAPHICS LOW\n");
+
+			};
+
+			auto graphicsMEDIUMCB = []() {
+				dbg("GRAPHICS MEDIUM\n");
+
+			};
+
+			auto graphicsHIGHCB = []() {
+				dbg("GRAPHICS HIGH\n");
+
+			};
+
+			auto volumenLOWCB = []() {
+				dbg("VOLUMEN LOW\n");
+
+			};
+
+			auto volumenMEDIUMCB = []() {
+				dbg("VOLUMEN MEDIUM\n");
+
+			};
+
+			auto volumenHIGHCB = []() {
+				dbg("VOLUMEN HIGH\n");
+
+			};
+
+			auto exitOptionsCB = []() {
+				dbg("EXIT OPTIONS\n");
 
 				exit(0);
 			};
@@ -37,7 +82,16 @@ namespace GUI
 			registerOption("keyboard", keyboardCB, 0);
 			registerOption("full_screen_ON", fullScreenONCB, 1);
 			registerOption("full_screen_OFF", fullScreenOFFCB, 1);
-			//registerOption("exit_pause", exitCB);
+			registerOption("res_1920", res1920CB, 2);
+			registerOption("res_1366", res1366CB, 2);
+			registerOption("res_1024", res1024CB, 2);
+			registerOption("graphics_LOW", graphicsLOWCB, 3);
+			registerOption("graphics_MEDIUM", graphicsMEDIUMCB, 3);
+			registerOption("graphics_HIGH", graphicsHIGHCB, 3);
+			registerOption("volumen_LOW", volumenLOWCB, 4);
+			registerOption("volumen_MEDIUM", volumenMEDIUMCB, 4);
+			registerOption("volumen_HIGH", volumenHIGHCB, 4);
+			registerOption("exit_options", exitOptionsCB, 5);
 			setCurrentSection(0);
 			setCurrentOption(0);
 
