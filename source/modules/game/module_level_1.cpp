@@ -49,7 +49,7 @@ bool CModuleLevel1::start()
 	if (!cb_particles.create(CB_PARTICLE))
 		return false;
 
-	cb_globals.global_exposure_adjustment = 0.1f;
+	cb_globals.global_exposure_adjustment = 0.440f;
 	cb_globals.global_ambient_adjustment = 1.f;
 	//cb_globals.global_exposure_adjustment = 2.010f;
 	//cb_globals.global_ambient_adjustment = 0.150f;
