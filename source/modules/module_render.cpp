@@ -253,6 +253,9 @@ void CModuleRender::generateFrame() {
 		deferred.render(rt_main, h_e_camera);
 
 		//CRenderManager::get().renderCategory("cell");
+		//CRenderManager::get().renderCategory("particles");
+
+		CRenderManager::get().renderCategory("particles");
 
 		TCompCulling* culling;
 		CEntity* e = h_e_camera;
