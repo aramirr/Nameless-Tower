@@ -73,7 +73,7 @@
   {
     "entity":
     {
-      "name": "TCAguaMuerte"
+      "name": "catarata_grande"
       ,
       "transform":
       {
@@ -88,7 +88,7 @@
       ,
       "trigger":
       {
-        "trigger_type": "catarata_grande"
+        "trigger_type": "none"
         ,
         "collider_entity": "none"
         ,
@@ -164,37 +164,6 @@
         "is_trigger": false
         ,
         "mesh_src": "data/meshes/Solidos_Escena03.col_mesh"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Paredes_Escena03"
-      ,
-      "transform":
-      {
-        "pos": "12.7217 83.25 0.286607"
-        ,
-        "rotation": "0.0 -0.258819 0.0 -0.965926"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "tri_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/Paredes_Escena03.col_mesh"
-        ,
-        "group": "scenario"
       }
     }
   }

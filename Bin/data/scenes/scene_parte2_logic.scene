@@ -441,17 +441,17 @@
       {
         "pos": "11.5514 33.6817 28.9688"
         ,
-        "rotation": "0.0 -0.835548 0.0 -0.549417"
+        "rotation": "0.0 0.549417 0.0 -0.835548"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/PuertaA.mesh"
+          "mesh": "data/meshes/Puerta_Reja.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_Cerrada_01.material"
+            "data/materials/RejaMate.material"
           ]
         }
       ]
@@ -464,7 +464,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/PuertaA.col_mesh"
+        "mesh_src": "data/meshes/Puerta_Reja.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -617,7 +617,7 @@
       {
         "pos": "8.46461 33.6817 30.0161"
         ,
-        "rotation": "0.0 -0.821675 0.0 -0.569956"
+        "rotation": "0.0 0.569956 0.0 -0.821675"
       }
       ,
       "render":

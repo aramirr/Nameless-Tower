@@ -2,6 +2,174 @@
   {
     "entity":
     {
+      "name": "BordesParte3E"
+      ,
+      "transform":
+      {
+        "pos": "31.5263 83.2528 -4.98145"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte3E.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BordesParte3D"
+      ,
+      "transform":
+      {
+        "pos": "31.5617 71.9968 -6.47201"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte3D.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BordesParte3C"
+      ,
+      "transform":
+      {
+        "pos": "31.8085 83.2468 3.68245"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte3C.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte3K"
+      ,
+      "transform":
+      {
+        "pos": "32.2289 83.25 -5.1465"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte3K.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte3J"
+      ,
+      "transform":
+      {
+        "pos": "19.9012 76.5 24.6485"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte3J.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla015"
+      ,
+      "transform":
+      {
+        "pos": "13.5442 64.8474 20.9552"
+        ,
+        "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla015.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "CaretaTemplo"
       ,
       "transform":
@@ -107,17 +275,6 @@
         }
       ]
       ,
-      "collider":
-      {
-        "shape": "convex_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/Caldero_Colgado02.col_mesh"
-      }
-      ,
       "abs_aabb": true
     }
   }
@@ -215,7 +372,7 @@
       ,
       "transform":
       {
-        "pos": "29.4913 60.75 6.27343"
+        "pos": "28.7225 60.75 7.77796"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -385,7 +542,7 @@
       {
         "pos": "24.4249 70.4585 19.9571"
         ,
-        "rotation": "0.0 -0.156434 0.0 -0.987688"
+        "rotation": "0.0 -0.156435 0.0 -0.987688"
       }
       ,
       "render":
@@ -401,6 +558,19 @@
           ]
         }
       ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 -1.5 0.0"
+        ,
+        "halfExtent": "0.762022 0.2 0.762022"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
       ,
       "abs_aabb": true
     }
@@ -465,62 +635,6 @@
   {
     "entity":
     {
-      "name": "HojasArbolcascada"
-      ,
-      "transform":
-      {
-        "pos": "27.7108 92.5844 -14.7676"
-        ,
-        "rotation": "-0.0772245 -0.964696 -0.0142851 -0.251383"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/HojasArbolcascada.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/HojaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "arboles_cascada"
-      ,
-      "transform":
-      {
-        "pos": "27.075 90.4784 -11.2212"
-        ,
-        "rotation": "-0.117799 -0.670423 0.664336 -0.308729"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/arboles_cascada.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "ParedDestapada10"
       ,
       "transform":
@@ -543,6 +657,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -569,6 +685,21 @@
           ]
         }
       ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.727887 1.94406 0.749662"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "group": "scenario"
+      }
       ,
       "abs_aabb": true
     }
@@ -598,33 +729,20 @@
         }
       ]
       ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Niebla012"
-      ,
-      "transform":
+      "collider":
       {
-        "pos": "22.9359 69.4886 11.6057"
+        "shape": "box"
         ,
-        "rotation": "-0.419661 -0.569109 -0.569109 0.419661"
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.879079 0.2 0.781475"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "group": "scenario"
       }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Niebla012.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/nieblaAMat.material"
-          ]
-        }
-      ]
       ,
       "abs_aabb": true
     }
@@ -637,7 +755,7 @@
       ,
       "transform":
       {
-        "pos": "19.7905 69.4886 9.74574"
+        "pos": "21.6048 69.4886 6.50773"
         ,
         "rotation": "-0.419661 -0.569109 -0.569109 0.419661"
       }
@@ -665,7 +783,7 @@
       ,
       "transform":
       {
-        "pos": "16.1817 64.8474 21.9838"
+        "pos": "13.6541 64.8474 21.1899"
         ,
         "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
       }
@@ -678,34 +796,6 @@
           "materials":
           [
             "data/materials/nieblaBMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Niebla009"
-      ,
-      "transform":
-      {
-        "pos": "13.5562 64.8474 20.7435"
-        ,
-        "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Niebla009.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/nieblaAMat.material"
           ]
         }
       ]
@@ -977,7 +1067,7 @@
       ,
       "transform":
       {
-        "pos": "19.6482 72.0087 -24.5457"
+        "pos": "15.7009 69.7587 -27.725"
         ,
         "rotation": "0.0 0.84058 0.0 -0.541687"
       }
@@ -1005,7 +1095,7 @@
       ,
       "transform":
       {
-        "pos": "31.0322 90.0 3.40046"
+        "pos": "31.0339 92.25 3.40133"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -1033,7 +1123,7 @@
       ,
       "transform":
       {
-        "pos": "15.8456 69.75 -27.4742"
+        "pos": "15.8456 67.5 -27.4742"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -1061,7 +1151,7 @@
       ,
       "transform":
       {
-        "pos": "8.22982 69.75 25.3364"
+        "pos": "1.64593 72.0 30.6057"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -1089,7 +1179,7 @@
       ,
       "transform":
       {
-        "pos": "21.5397 56.25 -17.4765"
+        "pos": "28.5285 56.25 -12.6813"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -1677,7 +1767,7 @@
       ,
       "transform":
       {
-        "pos": "30.2438 83.5927 -1.23698"
+        "pos": "30.2438 83.6202 -1.23698"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -1705,7 +1795,7 @@
       ,
       "transform":
       {
-        "pos": "18.4835 69.1715 -23.4013"
+        "pos": "18.5979 69.1715 -23.4013"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -2346,7 +2436,7 @@
           ,
           "materials":
           [
-            "data/materials/Pared_Ladrillo_01.material"
+            "data/materials/ParedLadrillosMat.material"
           ]
         }
       ]
@@ -3064,7 +3154,7 @@
       ,
       "transform":
       {
-        "pos": "31.6096 85.4968 -1.36656"
+        "pos": "31.5617 96.7468 -6.47201"
         ,
         "rotation": "0.0 0.84058 0.0 -0.541687"
       }
@@ -3160,7 +3250,7 @@
           ,
           "materials":
           [
-            "data/materials/Pared_Ladrillo_01.material"
+            "data/materials/ParedLadrillosMat.material"
           ]
         }
       ]
@@ -3188,7 +3278,7 @@
           ,
           "materials":
           [
-            "data/materials/Pared_Ladrillo_01.material"
+            "data/materials/ParedLadrillosMat.material"
           ]
         }
       ]
@@ -3216,7 +3306,7 @@
           ,
           "materials":
           [
-            "data/materials/Pared_Ladrillo_01.material"
+            "data/materials/ParedLadrillosMat.material"
           ]
         }
       ]

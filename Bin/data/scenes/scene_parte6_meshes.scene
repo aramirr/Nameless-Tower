@@ -2,6 +2,439 @@
   {
     "entity":
     {
+      "name": "BordesParte6F"
+      ,
+      "transform":
+      {
+        "pos": "31.893 51.7587 -3.61417"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte6F.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BordesParte6E"
+      ,
+      "transform":
+      {
+        "pos": "27.3632 47.2528 15.9104"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte6E.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BordesParte6D"
+      ,
+      "transform":
+      {
+        "pos": "15.8667 42.7468 28.1604"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte6D.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte6H"
+      ,
+      "transform":
+      {
+        "pos": "27.9198 27.0 16.1248"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte6H.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte6G"
+      ,
+      "transform":
+      {
+        "pos": "11.6349 45.0 30.1637"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte6G.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedDestapada3"
+      ,
+      "transform":
+      {
+        "pos": "13.5129 51.75 29.5675"
+        ,
+        "rotation": "0.0 -0.649012 0.0 -0.760778"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada3.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BordesParte6C"
+      ,
+      "transform":
+      {
+        "pos": "23.8249 33.7587 21.263"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte6C.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Dracaena_Trunk_008"
+      ,
+      "transform":
+      {
+        "pos": "10.9696 50.724 25.6311"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Dracaena_Trunk_008.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/palm_Dracaena.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "areca_Stems006"
+      ,
+      "transform":
+      {
+        "pos": "11.6175 51.1418 26.9238"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/areca_Stems006.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Areca.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "grass_thin026"
+      ,
+      "transform":
+      {
+        "pos": "12.5844 49.941 24.9202"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/grass_thin026.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/grass_Thin.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "grass_thin023"
+      ,
+      "transform":
+      {
+        "pos": "10.3987 50.2555 26.2298"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/grass_thin023.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/grass_Thin.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "grass_thin022"
+      ,
+      "transform":
+      {
+        "pos": "10.3269 50.2555 30.4163"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/grass_thin022.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/grass_Thin.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_Hanging_Ivy023"
+      ,
+      "transform":
+      {
+        "pos": "10.8617 51.9531 25.2974"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_Hanging_Ivy023.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Hanging_Ivy.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Paredes_Exteriores_Parte6"
+      ,
+      "transform":
+      {
+        "pos": "20.2878 42.7503 10.433"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Paredes_Exteriores_Parte6.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pared_Ladrillo_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Puerta_Reja"
+      ,
+      "transform":
+      {
+        "pos": "25.8625 51.6346 17.285"
+        ,
+        "rotation": "-0.105606 0.368697 -0.0112461 -0.923463"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Reja.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RejaMate.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.15628 2.31664 0.172981"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "ParedDestapada2B"
       ,
       "transform":
@@ -24,6 +457,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -52,6 +487,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -282,47 +719,6 @@
   {
     "entity":
     {
-      "name": "Puerta_Reja_01_Bajada"
-      ,
-      "transform":
-      {
-        "pos": "25.8625 51.6346 17.285"
-        ,
-        "rotation": "-0.105606 0.368697 -0.0112461 -0.923463"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Puerta_Reja_01_Bajada.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Puerta_reja_00.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1.16819 2.31664 0.175526"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "plant_HangingFern_Long"
       ,
       "transform":
@@ -351,39 +747,11 @@
   {
     "entity":
     {
-      "name": "BordesParte6C"
-      ,
-      "transform":
-      {
-        "pos": "24.8533 40.5087 19.9044"
-        ,
-        "rotation": "0.0 0.84058 0.0 -0.541687"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/BordesParte6C.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedBordeMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "BordesParte6B"
       ,
       "transform":
       {
-        "pos": "30.4503 42.7528 4.85664"
+        "pos": "31.6343 36.0028 1.66976"
         ,
         "rotation": "0.0 0.84058 0.0 -0.541687"
       }
@@ -467,7 +835,7 @@
       ,
       "transform":
       {
-        "pos": "29.7477 27.0 7.97216"
+        "pos": "31.8949 27.0 3.31648"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -1238,34 +1606,6 @@
   {
     "entity":
     {
-      "name": "AlmenaParte6_05"
-      ,
-      "transform":
-      {
-        "pos": "20.6522 31.7451 24.6008"
-        ,
-        "rotation": "0.0 -0.922377 0.0 0.386292"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/AlmenaParte6_05.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Almena_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "AlmenaParte6_04"
       ,
       "transform":
@@ -1408,62 +1748,6 @@
   {
     "entity":
     {
-      "name": "LavaEstanqueCaida_Caustica"
-      ,
-      "transform":
-      {
-        "pos": "21.3106 59.1619 19.2058"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/LavaEstanqueCaida_Caustica.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/lavaRocas.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "LavaEstanqueCaida"
-      ,
-      "transform":
-      {
-        "pos": "21.3109 59.1606 19.2054"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/LavaEstanqueCaida.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/LavaBaseMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "SuelosInteriores_Escena06"
       ,
       "transform":
@@ -1526,7 +1810,7 @@
       ,
       "transform":
       {
-        "pos": "16.8734 40.5 25.6186"
+        "pos": "16.8732 58.5 25.6192"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -1554,9 +1838,9 @@
       ,
       "transform":
       {
-        "pos": "4.88714 33.6433 -30.1404"
+        "pos": "5.86651 32.3308 -29.5679"
         ,
-        "rotation": "-0.0404183 -0.987891 -0.109415 0.102301"
+        "rotation": "-0.672222 -0.705426 -0.213987 0.0685714"
       }
       ,
       "render":
@@ -1679,34 +1963,6 @@
           "materials":
           [
             "data/materials/Suelos_SalaPuente.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Paredes_Exteriores_Parte6"
-      ,
-      "transform":
-      {
-        "pos": "24.576 42.7484 5.85175"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Paredes_Exteriores_Parte6.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Ladrillo_01.material"
           ]
         }
       ]

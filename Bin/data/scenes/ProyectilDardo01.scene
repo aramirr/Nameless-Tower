@@ -1,0 +1,42 @@
+[
+  {
+    "entity":
+    {
+      "name": "ProyectilDardo"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ProyectilDardo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DardoMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.05 0.111861 0.590032"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+]

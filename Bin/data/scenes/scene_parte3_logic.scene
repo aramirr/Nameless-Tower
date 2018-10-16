@@ -2,6 +2,577 @@
   {
     "entity":
     {
+      "name": "OndasRoca"
+      ,
+      "transform":
+      {
+        "pos": "28.4193 59.5525 -14.5623"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/OndasRoca.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaDobleAgua.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EngranajeDe002"
+      ,
+      "transform":
+      {
+        "pos": "15.4685 68.0051 -25.6174"
+        ,
+        "rotation": "0.279448 -0.0591996 -0.958067 -0.0226053"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EngranajeDe002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EngraneMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_rotator":
+      {
+        "configs":
+        [
+          {
+            "speed": 0.1
+            ,
+            "wait_time": 1.0
+            ,
+            "degrees": 0.0
+            ,
+            "axis": "X"
+            ,
+            "increase": true
+          }
+          ,
+          {
+            "speed": 0.1
+            ,
+            "wait_time": 1.0
+            ,
+            "degrees": 0.0
+            ,
+            "axis": "X"
+            ,
+            "increase": false
+          }
+        ]
+      }
+      ,
+      "circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "X"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EngranajeIz"
+      ,
+      "transform":
+      {
+        "pos": "29.9094 81.5042 2.40974"
+        ,
+        "rotation": "-0.67521 0.0 -0.737626 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EngranajeIz.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EngraneMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_rotator":
+      {
+        "configs":
+        [
+          {
+            "speed": 0.1
+            ,
+            "wait_time": 1.0
+            ,
+            "degrees": 0.0
+            ,
+            "axis": "X"
+            ,
+            "increase": true
+          }
+          ,
+          {
+            "speed": 0.1
+            ,
+            "wait_time": 1.0
+            ,
+            "degrees": 0.0
+            ,
+            "axis": "X"
+            ,
+            "increase": false
+          }
+        ]
+      }
+      ,
+      "circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "X"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EngranajeDe"
+      ,
+      "transform":
+      {
+        "pos": "29.948 81.5377 -0.745508"
+        ,
+        "rotation": "0.704525 -0.0411174 -0.706845 -0.0482177"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EngranajeDe.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EngraneMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_rotator":
+      {
+        "configs":
+        [
+          {
+            "speed": 0.1
+            ,
+            "wait_time": 1.0
+            ,
+            "degrees": 0.0
+            ,
+            "axis": "X"
+            ,
+            "increase": true
+          }
+          ,
+          {
+            "speed": 0.1
+            ,
+            "wait_time": 1.0
+            ,
+            "degrees": 0.0
+            ,
+            "axis": "X"
+            ,
+            "increase": false
+          }
+        ]
+      }
+      ,
+      "circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "X"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EngranajeIz001"
+      ,
+      "transform":
+      {
+        "pos": "21.1595 72.5042 -21.1979"
+        ,
+        "rotation": "-0.923814 0.0 -0.382841 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EngranajeIz001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EngraneMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_rotator":
+      {
+        "configs":
+        [
+          {
+            "speed": 0.1
+            ,
+            "wait_time": 1.0
+            ,
+            "degrees": 0.0
+            ,
+            "axis": "X"
+            ,
+            "increase": true
+          }
+          ,
+          {
+            "speed": 0.1
+            ,
+            "wait_time": 1.0
+            ,
+            "degrees": 0.0
+            ,
+            "axis": "X"
+            ,
+            "increase": false
+          }
+        ]
+      }
+      ,
+      "circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "X"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EngranajeDe001"
+      ,
+      "transform":
+      {
+        "pos": "18.7658 72.5377 -23.254"
+        ,
+        "rotation": "0.339466 -0.0576518 -0.938481 -0.0263032"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EngranajeDe001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EngraneMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_rotator":
+      {
+        "configs":
+        [
+          {
+            "speed": 0.1
+            ,
+            "wait_time": 1.0
+            ,
+            "degrees": 0.0
+            ,
+            "axis": "X"
+            ,
+            "increase": true
+          }
+          ,
+          {
+            "speed": 0.1
+            ,
+            "wait_time": 1.0
+            ,
+            "degrees": 0.0
+            ,
+            "axis": "X"
+            ,
+            "increase": false
+          }
+        ]
+      }
+      ,
+      "circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "X"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EngranajeIz002"
+      ,
+      "transform":
+      {
+        "pos": "18.1025 67.9716 -23.8799"
+        ,
+        "rotation": "-0.946172 0.0 -0.323663 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EngranajeIz002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EngraneMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_rotator":
+      {
+        "configs":
+        [
+          {
+            "speed": 0.1
+            ,
+            "wait_time": 1.0
+            ,
+            "degrees": 0.0
+            ,
+            "axis": "X"
+            ,
+            "increase": true
+          }
+          ,
+          {
+            "speed": 0.1
+            ,
+            "wait_time": 1.0
+            ,
+            "degrees": 0.0
+            ,
+            "axis": "X"
+            ,
+            "increase": false
+          }
+        ]
+      }
+      ,
+      "circular_controller":
+      {
+        "speed": 1.0
+        ,
+        "eje": "X"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PlataformaZ01"
+      ,
+      "transform":
+      {
+        "pos": "16.6786 68.0299 -24.5856"
+        ,
+        "rotation": "0.0 -0.456031 0.0 -0.889964"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PlataformaZ.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PlataformaZMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 5.0
+        ,
+        "delay": 0.5
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "16.6786 68.0299 -24.5856"
+          ,
+          "17.802 68.0299 -26.2416"
+        ]
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PlataformaZ02"
+      ,
+      "transform":
+      {
+        "pos": "19.836 72.5625 -22.0777"
+        ,
+        "rotation": "0.0 -0.398847 0.0 -0.917018"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PlataformaZ.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PlataformaZMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 5.0
+        ,
+        "delay": 0.5
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "19.836 72.5625 -22.0777"
+          ,
+          "21.1011 72.5625 -23.4858"
+        ]
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PlataformaZ03"
+      ,
+      "transform":
+      {
+        "pos": "29.7337 81.5892 0.830273"
+        ,
+        "rotation": "0.0 0.0264161 0.0 -0.999651"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PlataformaZ.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PlataformaZMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.2417 0.804776 1.58385"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 5.0
+        ,
+        "delay": 0.5
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "29.7337 81.5892 0.830273"
+          ,
+          "31.4456 81.5892 0.878077"
+        ]
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Destruible3_Pre"
       ,
       "transform":
@@ -734,11 +1305,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/PuertaA.mesh"
+          "mesh": "data/meshes/Puerta_Reja.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_Cerrada_01.material"
+            "data/materials/RejaMate.material"
           ]
         }
       ]
@@ -751,7 +1322,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/PuertaA.col_mesh"
+        "mesh_src": "data/meshes/Puerta_Reja.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -802,171 +1373,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "PlatZ002"
-      ,
-      "transform":
-      {
-        "pos": "31.1677 81.5625 1.69792"
-        ,
-        "rotation": "0.0 0.707107 0.0 -0.707107"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/PlatZ002.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Ladrillo_01.material"
-          ]
-        }
-      ]
-      ,
-      "ai_linear_patrol":
-      {
-        "speed": 2.15
-        ,
-        "delay": 0.4
-        ,
-        "wake": 1.0
-        ,
-        "waypoints":
-        [
-          "31.1677 81.5625 1.69792"
-          ,
-          "28.7681 81.5625 1.69792"
-        ]
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1.69864 0.5625 1.33116"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "PlatZ001"
-      ,
-      "transform":
-      {
-        "pos": "20.9289 72.5625 -23.1527"
-        ,
-        "rotation": "0.0 0.342015 0.0 -0.939695"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/PlatZ001.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Ladrillo_01.material"
-          ]
-        }
-      ]
-      ,
-      "ai_linear_patrol":
-      {
-        "speed": 1.75
-        ,
-        "delay": 0.25
-        ,
-        "wake": 0.8
-        ,
-        "waypoints":
-        [
-          "20.9289 72.5625 -23.1527"
-          ,
-          "19.4245 72.5625 -21.3597"
-        ]
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1.69864 0.5625 1.33116"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "PlatZ"
-      ,
-      "transform":
-      {
-        "pos": "17.0543 68.0578 -26.1431"
-        ,
-        "rotation": "0.0 0.258819 0.0 -0.965926"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/PlatZ.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Ladrillo_01.material"
-          ]
-        }
-      ]
-      ,
-      "ai_linear_patrol":
-      {
-        "speed": 1.5
-        ,
-        "delay": 0.5
-        ,
-        "wake": 0.0
-        ,
-        "waypoints":
-        [
-          "17.0543 68.0578 -26.1431"
-          ,
-          "15.8608 68.0578 -24.076"
-        ]
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1.69864 0.5625 1.33116"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
       }
     }
   }

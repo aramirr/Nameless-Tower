@@ -1,0 +1,44 @@
+[
+  {
+    "entity":
+    {
+      "name": "CabezaDragon"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CabezaDragon.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DragonMate.material"
+            ,
+            "data/materials/ColmilloMate.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.686809 0.728486 1.05948"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+]

@@ -2,11 +2,179 @@
   {
     "entity":
     {
-      "name": "Box004"
+      "name": "BordesParte7C"
       ,
       "transform":
       {
-        "pos": "-30.2412 8.93762 2.70436"
+        "pos": "-30.9523 13.5028 6.46729"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte7C.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte7I"
+      ,
+      "transform":
+      {
+        "pos": "-31.9736 2.24996 -5.0349"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte7I.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte7H"
+      ,
+      "transform":
+      {
+        "pos": "-28.2489 33.75 14.3683"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte7H.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RioLavaRocas"
+      ,
+      "transform":
+      {
+        "pos": "-22.2449 23.8722 -16.3626"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RioLavaRocas.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/lavaRocas.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RioLava"
+      ,
+      "transform":
+      {
+        "pos": "-22.2449 23.8682 -16.3626"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RioLava.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LavaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RioLava_Espuma"
+      ,
+      "transform":
+      {
+        "pos": "-22.2449 22.1151 -16.3626"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RioLava_Espuma.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LavaOrillasMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EstatuaBajadaColliders"
+      ,
+      "transform":
+      {
+        "pos": "-29.7583 8.93762 5.20995"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -23,9 +191,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Box004.col_mesh"
-        ,
-        "group": "scenario"
+        "mesh_src": "data/meshes/EstatuaBajadaColliders.col_mesh"
       }
     }
   }
@@ -83,6 +249,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -111,6 +279,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -139,6 +309,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -177,7 +349,7 @@
       ,
       "transform":
       {
-        "pos": "-31.9735 11.25 -5.03496"
+        "pos": "-31.9538 15.75 -5.22015"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -205,7 +377,7 @@
       ,
       "transform":
       {
-        "pos": "-27.8546 33.75 5.94458"
+        "pos": "-31.6385 33.75 -1.61766"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -625,7 +797,7 @@
       ,
       "transform":
       {
-        "pos": "-30.9523 20.2528 6.46729"
+        "pos": "-30.9523 24.7528 6.46729"
         ,
         "rotation": "0.0 0.84058 0.0 -0.541687"
       }
@@ -918,34 +1090,6 @@
       [
         {
           "mesh": "data/meshes/arrowheadLeaf_013.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/plant_Arrowhead_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "arrowheadLeaf_025"
-      ,
-      "transform":
-      {
-        "pos": "-29.6046 3.61405 -7.25919"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/arrowheadLeaf_025.mesh"
           ,
           "materials":
           [
@@ -1353,7 +1497,7 @@
   {
     "entity":
     {
-      "name": "plant_Hanging_Ivy010"
+      "name": "plant_Hanging_Ivy_Bajada"
       ,
       "transform":
       {
@@ -1365,7 +1509,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/plant_Hanging_Ivy010.mesh"
+          "mesh": "data/meshes/plant_Hanging_Ivy_Bajada.mesh"
           ,
           "materials":
           [
@@ -1409,7 +1553,7 @@
   {
     "entity":
     {
-      "name": "plant_HangingFern_Long012"
+      "name": "plant_HangingFern_Long012_Bajada"
       ,
       "transform":
       {
@@ -1421,7 +1565,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/plant_HangingFern_Long012.mesh"
+          "mesh": "data/meshes/plant_HangingFern_Long012_Bajada.mesh"
           ,
           "materials":
           [
@@ -1667,9 +1811,9 @@
       ,
       "transform":
       {
-        "pos": "-29.9288 5.27992 11.8636"
+        "pos": "-29.4208 4.93916 12.9862"
         ,
-        "rotation": "-0.0120149 -0.11495 0.40769 -0.905776"
+        "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
       "render":
@@ -1683,6 +1827,19 @@
           ]
         }
       ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.17474 0.5 0.807681"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
       ,
       "abs_aabb": true
     }
@@ -1708,174 +1865,6 @@
           "materials":
           [
             "data/materials/BaseMate.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "RioLavaCaida_Caustica"
-      ,
-      "transform":
-      {
-        "pos": "-18.6896 23.8154 -21.6694"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RioLavaCaida_Caustica.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/lavaRocas.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "RioLavaPila_Caustica"
-      ,
-      "transform":
-      {
-        "pos": "-18.0923 25.5689 -22.2515"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RioLavaPila_Caustica.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/lavaRocas.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "RioLavaPilate"
-      ,
-      "transform":
-      {
-        "pos": "-18.0923 25.5664 -22.2515"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RioLavaPilate.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/LavaBaseMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "RioLavaCaida_Base"
-      ,
-      "transform":
-      {
-        "pos": "-18.6895 23.8144 -21.6695"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RioLavaCaida_Base.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/LavaBaseMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "RioLava_Espuma"
-      ,
-      "transform":
-      {
-        "pos": "-22.2449 22.1151 -16.3626"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RioLava_Espuma.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/LavaOrillasMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "RioLava_Caustica"
-      ,
-      "transform":
-      {
-        "pos": "-22.2449 22.1126 -16.3626"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RioLava_Caustica.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/lavaRocas.material"
           ]
         }
       ]
@@ -2335,34 +2324,6 @@
   {
     "entity":
     {
-      "name": "RioLava_Base"
-      ,
-      "transform":
-      {
-        "pos": "-22.2449 22.1101 -16.3626"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RioLava_Base.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/LavaBaseMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Object014"
       ,
       "transform":
@@ -2576,62 +2537,6 @@
           "materials":
           [
             "data/materials/Escalera_Sala_Caldero.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Agua_03Espuma"
-      ,
-      "transform":
-      {
-        "pos": "-29.3707 5.94852 -7.96209"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Agua_03Espuma.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/lavaRocas.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Agua_03Caustica"
-      ,
-      "transform":
-      {
-        "pos": "-29.3659 5.9435 -7.96081"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Agua_03Caustica.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/lavaRocas.material"
           ]
         }
       ]
@@ -2940,34 +2845,6 @@
           "materials":
           [
             "data/materials/Relieve_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Agua_03"
-      ,
-      "transform":
-      {
-        "pos": "-29.3586 5.93598 -7.95888"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Agua_03.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/lavaRocas.material"
           ]
         }
       ]

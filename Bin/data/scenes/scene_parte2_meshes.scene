@@ -2,11 +2,207 @@
   {
     "entity":
     {
+      "name": "BordesParteH"
+      ,
+      "transform":
+      {
+        "pos": "31.893 51.7587 -3.61417"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParteH.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BordesParte2G"
+      ,
+      "transform":
+      {
+        "pos": "28.9599 47.2468 13.4821"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte2G.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BordesParte2F"
+      ,
+      "transform":
+      {
+        "pos": "25.9169 47.2587 18.5838"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte2F.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BordesParte2E"
+      ,
+      "transform":
+      {
+        "pos": "23.8249 33.7587 21.263"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte2E.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte2K"
+      ,
+      "transform":
+      {
+        "pos": "16.8732 56.25 25.6192"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte2K.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte2J"
+      ,
+      "transform":
+      {
+        "pos": "19.9015 29.25 24.6479"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte2J.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte2I"
+      ,
+      "transform":
+      {
+        "pos": "-5.03498 33.75 31.9735"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte2I.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "ParedExteriorParte2H"
       ,
       "transform":
       {
-        "pos": "13.2624 27.0 26.1101"
+        "pos": "6.67826 27.0 31.38"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -34,7 +230,7 @@
       ,
       "transform":
       {
-        "pos": "16.8732 47.25 25.6192"
+        "pos": "11.6349 45.0 30.1637"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -118,7 +314,7 @@
       ,
       "transform":
       {
-        "pos": "11.3804 31.5 -29.0378"
+        "pos": "11.3804 33.75 -29.0378"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -164,6 +360,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -192,9 +390,41 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
-  ,  
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedDestapada015"
+      ,
+      "transform":
+      {
+        "pos": "11.6162 33.75 30.2002"
+        ,
+        "rotation": "0.0 -0.129958 0.0 -0.99152"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada015.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
   {
     "entity":
     {
@@ -220,6 +450,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -542,7 +774,7 @@
       ,
       "transform":
       {
-        "pos": "20.9631 40.5087 23.635"
+        "pos": "15.8667 42.7468 28.1604"
         ,
         "rotation": "0.0 0.84058 0.0 -0.541687"
       }
@@ -570,7 +802,7 @@
       ,
       "transform":
       {
-        "pos": "30.4503 42.7528 4.85664"
+        "pos": "31.6343 36.0028 1.66976"
         ,
         "rotation": "0.0 0.84058 0.0 -0.541687"
       }
@@ -626,7 +858,7 @@
       ,
       "transform":
       {
-        "pos": "29.7477 27.0 7.97216"
+        "pos": "29.7477 29.25 7.97215"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -654,7 +886,7 @@
       ,
       "transform":
       {
-        "pos": "27.3296 31.5 -13.8913"
+        "pos": "27.3296 33.75 -13.8913"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -2187,7 +2419,7 @@
       ,
       "transform":
       {
-        "pos": "-5.03498 40.5 31.9735"
+        "pos": "-5.22016 54.0 31.9538"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -2311,7 +2543,7 @@
           ,
           "materials":
           [
-            "data/materials/Pared_Ladrillo_01.material"
+            "data/materials/ParedLadrillosMat.material"
           ]
         }
       ]

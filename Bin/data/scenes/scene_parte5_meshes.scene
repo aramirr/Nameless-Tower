@@ -2,6 +2,258 @@
   {
     "entity":
     {
+      "name": "BordesParte5E"
+      ,
+      "transform":
+      {
+        "pos": "15.7009 69.7587 -27.725"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte5E.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BordesParte5D"
+      ,
+      "transform":
+      {
+        "pos": "31.5617 96.7468 -6.47201"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte5D.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BordesParte5C"
+      ,
+      "transform":
+      {
+        "pos": "31.5617 71.9968 -6.47201"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte5C.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte5K"
+      ,
+      "transform":
+      {
+        "pos": "15.6711 75.7959 -27.6333"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte5K.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte5J"
+      ,
+      "transform":
+      {
+        "pos": "24.3055 105.75 -17.5824"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte5J.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte5I"
+      ,
+      "transform":
+      {
+        "pos": "32.2289 83.25 -5.1465"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte5I.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte5H"
+      ,
+      "transform":
+      {
+        "pos": "32.4128 67.5 -3.41458"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte5H.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EstanqueLavaRocas"
+      ,
+      "transform":
+      {
+        "pos": "18.0412 59.0852 22.0929"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EstanqueLavaRocas.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/lavaRocas.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EstanqueLava"
+      ,
+      "transform":
+      {
+        "pos": "18.0416 59.0803 22.0947"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EstanqueLava.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LavaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "CaretaTemploAgua"
       ,
       "transform":
@@ -149,6 +401,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -200,7 +454,7 @@
       ,
       "transform":
       {
-        "pos": "19.9012 72.0 24.6485"
+        "pos": "19.9012 78.75 24.6485"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -228,7 +482,7 @@
       ,
       "transform":
       {
-        "pos": "24.6058 99.0 -12.4876"
+        "pos": "32.3331 99.0 -1.71122"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -788,7 +1042,7 @@
       ,
       "transform":
       {
-        "pos": "7.01134 60.7479 25.225"
+        "pos": "7.6076 60.7479 25.2023"
         ,
         "rotation": "0.0 -0.0104551 0.0 -0.999945"
       }
@@ -1031,7 +1285,13 @@
       ,
       "abs_aabb": true
     }
-  } 
+  }
+  ,
+  {
+    "entity":
+    {
+    }
+  }
   ,
   {
     "entity":
@@ -1058,6 +1318,12 @@
       ]
       ,
       "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
     }
   }
   ,
@@ -1124,7 +1390,7 @@
       ,
       "transform":
       {
-        "pos": "19.6482 72.0087 -24.5457"
+        "pos": "23.7093 78.7587 -21.4718"
         ,
         "rotation": "0.0 0.84058 0.0 -0.541687"
       }
@@ -1152,7 +1418,7 @@
       ,
       "transform":
       {
-        "pos": "29.4917 90.0 6.46811"
+        "pos": "29.7264 90.0 11.4105"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -1180,7 +1446,7 @@
       ,
       "transform":
       {
-        "pos": "15.8456 67.5 -27.4742"
+        "pos": "15.8456 62.3592 -27.4742"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -2113,6 +2379,62 @@
   {
     "entity":
     {
+      "name": "LavaEstanqueCaida_Caustica"
+      ,
+      "transform":
+      {
+        "pos": "21.3106 59.1619 19.2058"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/LavaEstanqueCaida_Caustica.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/lavaRocas.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "LavaEstanqueCaida"
+      ,
+      "transform":
+      {
+        "pos": "21.3109 59.1606 19.2054"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/LavaEstanqueCaida.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LavaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "LavaEstanque_Espuma"
       ,
       "transform":
@@ -2130,62 +2452,6 @@
           "materials":
           [
             "data/materials/LavaOrillasMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "LavaEstanque_Caustica"
-      ,
-      "transform":
-      {
-        "pos": "18.0509 58.117 22.1018"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/LavaEstanque_Caustica.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/lavaRocas.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "LavaEstanque"
-      ,
-      "transform":
-      {
-        "pos": "18.0511 58.1145 22.1018"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/LavaEstanque.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/LavaBaseMat.material"
           ]
         }
       ]
@@ -2257,7 +2523,7 @@
       ,
       "transform":
       {
-        "pos": "29.4913 69.75 6.27346"
+        "pos": "29.8263 69.75 9.69076"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -2819,7 +3085,7 @@
       ,
       "transform":
       {
-        "pos": "31.6096 85.4968 -1.36656"
+        "pos": "31.6096 83.2468 -1.36656"
         ,
         "rotation": "0.0 0.84058 0.0 -0.541687"
       }

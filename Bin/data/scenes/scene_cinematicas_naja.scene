@@ -1,0 +1,35 @@
+[
+  {
+    "entity":
+    {
+      "name": "PaiPaiPlaceholder"
+      ,
+      "transform":
+      {
+        "pos": "9.07777 4.56728 -29.6615"
+        ,
+        "rotation": "-0.70241 -0.694717 0.117666 0.100711"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PaiPaiPlaceholder.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PaipaiMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+    }
+  }
+]

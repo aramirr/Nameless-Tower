@@ -6,7 +6,7 @@
       ,
       "transform":
       {
-        "pos": "18.5739 31.5 -18.992"
+        "pos": "18.5739 31.5332 -18.992"
         ,
         "rotation": "0.0 -0.972236 0.0 -0.234003"
       }
@@ -44,15 +44,13 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Dragon01.mesh"
+          "mesh": "data/meshes/CabezaDragon.mesh"
           ,
           "materials":
           [
-            "data/materials/CabezaDragonCabezaMat.material"
+            "data/materials/DragonMate.material"
             ,
-            "data/materials/CabezaDragonColmillosMat.material"
-            ,
-            "data/materials/CabezaDragonAdornoMat.material"
+            "data/materials/ColmilloMate.material"
           ]
         }
       ]
