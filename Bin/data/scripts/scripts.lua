@@ -80,16 +80,12 @@ function OnTriggerExitTSCabezaTutorial()
 	lm:set_dir_light_intensity("LightDir02", 0, true)
 	lm:stop_emiter("hojas_estatua", true)
 
-	lm:insert_grass(0, true)
-	lm:insert_grass(1, true)
-	lm:delete_grass(2, true)
-	lm:delete_grass(3, true)
-
-	lm:delete_grass(0, false)
-	lm:delete_grass(1, false)
-	lm:insert_grass(2, false)
-	lm:insert_grass(3, false)
-
+	lm:insert_grass(5, false)
+	lm:insert_grass(6, false)
+	lm:insert_grass(7, false)
+	lm:delete_grass(5, true)
+	lm:delete_grass(6, true)
+	lm:delete_grass(7, true)
 	lm:update_grass_render()
 
 end
@@ -101,6 +97,17 @@ function OnTriggerExitTPTutorialEstatua()
 
 	lm:set_dir_light_intensity("LightDir00", 0, false)
 	lm:stop_emiter("hojas_inicio", true)
+
+	lm:insert_grass(0, true)
+	lm:insert_grass(1, true)
+	lm:insert_grass(2, true)
+	lm:insert_grass(3, true)
+	lm:delete_grass(0, false)
+	lm:delete_grass(1, false)
+	lm:delete_grass(2, false)
+	lm:delete_grass(3, false)
+	lm:update_grass_render()
+
 end
 
 -- Sala 3-4
@@ -123,6 +130,11 @@ function OnTriggerExitTSEstatuaWindstrike()
 	lm:start_emiter("hojas_estatua", false)	
 	lm:stop_emiter("hojas_puente", false)
 
+	lm:insert_grass(4, false)
+	lm:insert_grass(5, false)
+	lm:insert_grass(6, false)
+	lm:insert_grass(7, false)
+
 	--Interior
 	lm:set_exposure(0.05, true)
 	lm:play_interior_sound(true)
@@ -139,6 +151,14 @@ function OnTriggerExitTSEstatuaWindstrike()
 	lm:activate_cinematic("cinematic_first_door", true)
 	lm:stop_emiter("hojas_estatua", true)	
 	lm:start_emiter("hojas_puente", true)
+
+	lm:delete_grass(4, true)
+	lm:delete_grass(5, true)
+	lm:delete_grass(6, true)
+	lm:delete_grass(7, true)
+
+	--both
+	lm:update_grass_render()
 end
 
 -- Sala 4-5
@@ -228,6 +248,20 @@ function OnTriggerExitTSEscaleras2Pasillo()
 	lm:start_emiter("hojas_jardin_1", true)
 end
 
+-- Mitad Pasillo Compresoras
+function OnTriggerExitTSLucesCompresoras()
+	lm:insert_grass(8, true)
+	lm:insert_grass(9, true)
+	lm:insert_grass(10, true)
+	lm:insert_grass(11, true)
+
+	lm:delete_grass(8, false)
+	lm:delete_grass(9, false)
+	lm:delete_grass(10, false)
+	lm:delete_grass(11, false)
+	lm:update_grass_render()
+end	
+
 -- Sala 7-8
 function OnTriggerExitTPTechosPuertas()
 	--Interior
@@ -247,6 +281,10 @@ function OnTriggerExitTPTechosPuertas()
 	lm:set_point_light_intensity("Luces_Fuego_08", 0, false)
 	lm:set_point_light_intensity("Luces_Fuego_09", 0, false)
 	lm:start_emiter("hojas_puente", false)	
+
+	lm:delete_grass(12, false)
+	lm:delete_grass(13, false)
+	lm:delete_grass(14, false)
 	
 	--Exterior
 	lm:set_exposure(0.4, true)
@@ -268,6 +306,13 @@ function OnTriggerExitTPTechosPuertas()
 	lm:stop_emiter("hojas_puente", true)
 	lm:start_emiter("hojas_jardin_2", true)
 	lm:start_emiter("hojas_viento", true)
+
+	lm:insert_grass(12, true)
+	lm:insert_grass(13, true)
+	lm:insert_grass(14, true)
+
+	--both
+	lm:update_grass_render()
 end
 
 -- Sala 8-9
@@ -279,7 +324,13 @@ function OnTriggerExitTSPuertasArbol()
 	lm:deactivate_cinematic("cinematic_vientos", false)
 	lm:play_interior_sound(false)
 	lm:start_emiter("hojas_jardin_1", false)
+
+	lm:insert_grass(8, false)
+	lm:insert_grass(9, false)
+	lm:insert_grass(10, false)
+	lm:insert_grass(11, false)
 	
+
 	lm:play_ambient_sound(true)
 	lm:activate_cinematic("cinematic_vientos", true)
 	lm:set_dir_light_intensity("LightDir06", 0, true)
@@ -287,6 +338,13 @@ function OnTriggerExitTSPuertasArbol()
 	lm:set_dir_light_intensity("LightDir10", 11, true)
 	lm:set_point_light_intensity("Luces_Fuego_08", 0, true)
 	lm:stop_emiter("hojas_jardin_1", true)
+
+	lm:delete_grass(8, true)
+	lm:delete_grass(9, true)
+	lm:delete_grass(10, true)
+	lm:delete_grass(11, true)
+
+	lm:update_grass_render()
 end
 
 -- Sala 9-10
@@ -306,6 +364,11 @@ function OnTriggerExitTSArbolRunner()
 	lm:play_ambient_sound(true)
 	lm:start_emiter("hojas_jardin_2", true)
 
+	lm:insert_grass(12, true)
+	lm:insert_grass(13, true)
+	lm:insert_grass(14, true)
+	lm:delete_grass(15, true)
+
 	--Interior
 	lm:set_exposure(0.05, false)
 	lm:set_naja_int(false)
@@ -320,6 +383,14 @@ function OnTriggerExitTSArbolRunner()
 	lm:set_point_light_intensity("Luces_Fuego_09", 10, false)
 	lm:set_point_light_intensity("Luces_Fuego_010", 10, false)
 	lm:stop_emiter("hojas_jardin_2", false)
+
+	lm:delete_grass(12, false)
+	lm:delete_grass(13, false)
+	lm:delete_grass(14, false)
+	lm:insert_grass(15, false)
+
+	--both
+	lm:update_grass_render()
 end
 
 function OnTriggerExitTSRunnerCascada()
@@ -339,6 +410,9 @@ function OnTriggerExitTSRunnerCascada()
 	lm:stop_emiter("particulas_top_cascada", true)
 	lm:stop_sound(true, "cascade")
 
+	lm:delete_grass(16, true)
+	lm:delete_grass(17, true)
+
 	--Exterior
 	lm:set_exposure(0.4, false)
 	lm:set_naja_ext(false)
@@ -354,6 +428,12 @@ function OnTriggerExitTSRunnerCascada()
 	lm:set_point_light_intensity("Luces_Fuego_010", 0, false)
 	lm:stop_emiter("hojas_viento", false)
 	lm:start_emiter("particulas_top_cascada", false)
+
+	lm:insert_grass(16, false)
+	lm:insert_grass(17, false)
+
+	--both
+	lm:update_grass_render()
 end
 
 function OnTriggerExitTSCascadaAntorchas()
@@ -367,6 +447,10 @@ function OnTriggerExitTSCascadaAntorchas()
 	lm:play_ambient_sound(true)
 	lm:play_sound(true, "cascade")
 
+	lm:insert_grass(15, true)
+	lm:insert_grass(16, true)
+	lm:insert_grass(17, true)
+
 	
 	lm:stop_sound(false, "cascade")
 	lm:play_interior_sound(false)
@@ -377,22 +461,10 @@ function OnTriggerExitTSCascadaAntorchas()
 	lm:set_dir_light_intensity("LightDir11", 0, false)
 	lm:set_point_light_intensity("Luces_Fuego_011", 10, false)
 	lm:set_point_light_intensity("Luces_Fuego_012", 10, false)
-end
 
+	lm:delete_grass(15, false)
+	lm:delete_grass(16, false)
+	lm:delete_grass(17, false)
 
-function OnTriggerEnterTSCascadaArriba()
-	lm:render_everything("ParedDestapada12", true)
-	lm:render_only_shadows("ParedTapada12", true)
-	lm:hide_mesh("ParedDestapada13", true)
-	lm:unhide_mesh("ParedTapada13", true)
-	lm:set_point_light_intensity("Luces_Fuego_011", 10, true)
-	lm:set_point_light_intensity("Luces_Fuego_012", 10, true)
-	lm:set_dir_light_intensity("LightInteriorSSalaFinal", 1, true)
-	lm:play_ambient_sound(true)
-
-	lm:play_interior_sound(false)
-	lm:render_only_shadows("ParedDestapada12", false)
-	lm:render_everything("ParedTapada12", false)
-	lm:render_everything("ParedDestapada13", false)
-	lm:render_only_shadows("ParedTapada13", false)
+	lm:update_grass_render()
 end
