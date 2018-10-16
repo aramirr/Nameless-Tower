@@ -120,7 +120,7 @@ void TCompCurve::update(float DT)
 
   // actualizar la transform con la nueva posicion
   // evaluar curva con dicho ratio
-  VEC3 pos = _curve->evaluateAsCatmull(_percentage);
+  VEC3 pos = _curve->evaluateAsCatmull(_percentage, loop);
   TCompTransform* c_transform = get<TCompTransform>();
   c_transform->setPosition(pos);
   _target = getEntityByName(_targetName);

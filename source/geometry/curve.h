@@ -11,8 +11,8 @@ public:
   bool load(const std::string& name);
   void clear();
   void addKnot(const VEC3& point);
-  VEC3 evaluate(float ratio) const;
-  VEC3 evaluateAsCatmull(float ratio) const;
+  VEC3 evaluate(float ratio, bool loop = false) const;
+  VEC3 evaluateAsCatmull(float ratio, bool loop = false) const;
 
 	/*int nsegments;
 	float ratioPerSegment;
