@@ -621,10 +621,10 @@ void bt_runner::jump() {
 	else {
 		if (anim_state != "jump_up") {
 			anim_state = "jump_up";
-			change_animation(ERunnerAnimations::RunnerJumpLoop, false, 0.f, 0.f, true);
+			change_animation(ERunnerAnimations::RunnerJumpLoop, false, 0.1f, 0.f, true);
 			if (waypoints_map[path[actual_waypoint]].position.y > target_position.y + 2.0f)
-				change_animation(ERunnerAnimations::RunnerJumpShort, true, 0.f, 0.f, true);
-			else change_animation(ERunnerAnimations::RunnerJumpUp, true, 0.f, 0.f, true);
+				change_animation(ERunnerAnimations::RunnerJumpShort, true, 0.1f, 0.f, true);
+			else change_animation(ERunnerAnimations::RunnerJumpUp, true, 0.1f, 0.f, true);
 		}
 
 		float amount_moved = speed * DT + 0.05f *DT*DT;
@@ -699,7 +699,7 @@ void bt_runner::jump() {
 				going_up = true;
         if (anim_state != "jump_land") {
           anim_state = "jump_land";
-          change_animation(ERunnerAnimations::RunnerJumpLand, true, 0.f, 0.f, true);
+          change_animation(ERunnerAnimations::RunnerJumpLand, true, 0.1f, 0.f, true);
         }
       }
 		}

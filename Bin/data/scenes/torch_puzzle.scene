@@ -1,0 +1,216 @@
+[
+{
+    "entity":
+    {
+      "name": "TorchPuzzle"
+      ,
+      "transform":
+      {
+        "pos": "30.6147 65.1923 6.27989"
+        ,
+        "rotation": "0.0 -0.636836 0.0 -0.770999"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "ai_torch_puzzle":
+      {
+        "time_limit": 15.0
+        ,
+        "door1": "Puerta_Reja_02"
+      }
+    }
+  },
+{
+    "entity":
+    {
+      "name": "TFAntorcha03"
+      ,
+      "transform":
+      {
+        "pos": "30.5698 68.7333 7.49791"
+        ,
+        "rotation": "0.0 -0.636836 0.0 -0.770999"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TFAntorcha03.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TriggerAccionMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "torch"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.55256 0.928047 0.853696"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      },
+      "ai_torch":
+      {
+        "time_limit": 2,
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "radius" : 3,
+        "scale" : 1.3,
+        "thin": true,
+        "y_offset": 0.15,
+        "z_offset": 0.1,
+        "x_offset": -0.1,
+        "puzzle": "TorchPuzzle",
+        "render": false,
+        "azul": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TFAntorcha02"
+      ,
+      "transform":
+      {
+        "pos": "24.4333 69.8693 19.9079"
+        ,
+        "rotation": "0.0 -0.415587 0.0 -0.909553"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TFAntorcha02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TriggerAccionMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "torch"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.55256 0.928047 0.853696"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      },
+      "ai_torch":
+      {
+        "time_limit": 2,
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "radius" : 3,
+        "scale" : 1.3,
+        "thin": true,
+        "y_offset": -0.05,
+        "smoke_y_offset": 0.1,
+        "z_offset": 0.1,
+        "x_offset": -0.1,
+        "puzzle": "TorchPuzzle",
+        "render": false,
+        "azul": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TFAntorcha1"
+      ,
+      "transform":
+      {
+        "pos": "11.2812 69.3165 29.7615"
+        ,
+        "rotation": "0.0 -0.166016 0.0 -0.986123"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TFAntorcha1.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/TriggerAccionMat.material"
+          ]
+        }
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "torch"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.55256 0.928047 0.853696"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      },
+      "ai_torch":
+      {
+        "time_limit": 2,
+        "intensity": 10,
+        "color" :  "1.0 0.0509804 0.0509804 1.0",
+        "radius" : 3,
+        "scale" : 1.3,
+        "thin": true,
+        "y_offset": 0.15,
+        "z_offset": 0.1,
+        "x_offset": -0.1,
+        "puzzle": "TorchPuzzle",
+        "render": false,
+        "azul": true,
+        "smoke_y_offset": 0.5
+      }
+    }
+  }  
+]

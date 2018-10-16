@@ -63,10 +63,29 @@ void TCompDoor::update(float DT) {
         PxTransform tr = rigidActor->getGlobalPose();
         tr.p = PxVec3(my_pos.x, my_pos.y, my_pos.z);
         tr.q = PxQuat(newRot.x, newRot.y, newRot.z, newRot.w);
-        rigidActor->setGlobalPose(tr);
-
+        rigidActor->setGlobalPose(tr);        
+    } else	
+    if (closing && !is_closed) {
+        CEntity *e = h_entity;
+        if (!h_entity.isValid()) return;
+        TCompTransform *my_transform = e->get<TCompTransform>();
+        TCompCollider *my_collider = e->get<TCompCollider>();
+        VEC3 my_pos = my_transform->getPosition();
         
-    }	
+        current_height -= DT;
+        if (current_height <= -height/8)
+            is_closed= true;
+        my_pos.y -= DT*8;
+        my_transform->setPosition(my_pos);
+
+        QUAT newRot = my_transform->getRotation();
+
+        PxRigidActor* rigidActor = ((PxRigidActor*)my_collider->actor);
+        PxTransform tr = rigidActor->getGlobalPose();
+        tr.p = PxVec3(my_pos.x, my_pos.y, my_pos.z);
+        tr.q = PxQuat(newRot.x, newRot.y, newRot.z, newRot.w);
+        rigidActor->setGlobalPose(tr);
+    }
 }
 
 
@@ -106,6 +125,11 @@ void TCompDoor::open(const TMsgOpenDoor& msg)
     opening = true;
 }
 
+void TCompDoor::close(const TMsgCloseDoor& msg)
+{
+    closing = true;
+}
 void TCompDoor::registerMsgs() {
     DECL_MSG(TCompDoor, TMsgOpenDoor, open);
+    DECL_MSG(TCompDoor, TMsgCloseDoor, close);
 }

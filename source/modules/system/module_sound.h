@@ -10,6 +10,16 @@ using namespace FMOD;
 class CModuleSound : public IModule
 {
 public:
+    struct Sound {
+        FMOD::Studio::EventDescription* eventDescriptor = nullptr;
+        FMOD::Studio::EventInstance* eventInstance;
+        CEntity* entity;
+        bool stopFadeOut = false;
+        bool positional = false;
+        bool onStart = false;
+        bool hasTransform = false;
+    };
+
 	CModuleSound(const std::string& name);
     bool start() override;
     bool stop() override;
@@ -17,13 +27,17 @@ public:
 
 	FMOD_RESULT res;
 	Studio::System* system = NULL;
-    std::map<std::string, Studio::EventInstance*> events;
+    std::map<std::string, Sound> events;
     FMOD::Studio::System* getSystem();
     void stopEvent(FMOD::Studio::EventInstance * instance, bool fadeout = false);
     void playInterior();
     void playAmbient();
+    void updatePositionalEvents();
+    void emitPositionalEvent(const std::string& sound, const std::string& entityName);
     void emitEvent(const std::string& sound);
     void stopEvent(const std::string& sound);
+    FMOD_3D_ATTRIBUTES toFMODAttributes(CTransform t);
+    FMOD_VECTOR toFMODVector(VEC3 v);
 private:
     struct FollowingEvent {
         FMOD::Studio::EventInstance* eventInstance = nullptr;
@@ -37,7 +51,4 @@ private:
     std::vector<FollowingEvent> followingEvents;
 
     void updateListenerAttributes();
-    FMOD_3D_ATTRIBUTES toFMODAttributes(CTransform t);
-    
-    FMOD_VECTOR toFMODVector(VEC3 v);
-};
+ };

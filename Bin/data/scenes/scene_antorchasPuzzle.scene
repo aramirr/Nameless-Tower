@@ -1,0 +1,88 @@
+[
+  {
+    "entity":
+    {
+      "name": "Antorcha03"
+      ,
+      "transform":
+      {
+        "pos": "30.4852 72.0655 7.36593"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "ai_torch":
+      {
+        "intensity": 1.0
+        ,
+        "color": "1.0 1.0 1.0 1.0"
+        ,
+        "radius": 1.0
+        ,
+        "time_limit": 2
+        ,
+        "scale": 1
+        ,
+        "thin": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Antorcha02"
+      ,
+      "transform":
+      {
+        "pos": "23.576 69.3859 19.2794"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "ai_torch":
+      {
+        "intensity": 1.0
+        ,
+        "color": "1.0 1.0 1.0 1.0"
+        ,
+        "radius": 1.0
+        ,
+        "time_limit": 2
+        ,
+        "scale": 1
+        ,
+        "thin": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Antorcha01"
+      ,
+      "transform":
+      {
+        "pos": "10.9102 68.5483 29.6948"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "ai_torch":
+      {
+        "intensity": 1.0
+        ,
+        "color": "1.0 1.0 1.0 1.0"
+        ,
+        "radius": 1.0
+        ,
+        "time_limit": 2
+        ,
+        "scale": 1
+        ,
+        "thin": false
+      }
+    }
+  }
+]

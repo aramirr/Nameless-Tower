@@ -150,8 +150,9 @@ void CModuleRender::render()
 		//ImGui::DragFloat("Brightness", &cb_globals.global_brightness_adjustment, 0.01f, -100.f, 100.f);
 		ImGui::DragFloat("Contrast", &cb_globals.global_contrast_adjustment, 0.005f, 0.0f, 1.f);
 		ImGui::DragFloat("Vignetting", &cb_globals.global_vignetting_adjustment, 0.005f, 0.0f, 1.f);
-		ImGui::DragFloat("Fog Distance", &cb_globals.global_fogDist_adjustment, 0.005f, 0.0f, 1000.f);
-		ImGui::DragFloat("Fog Density", &cb_globals.global_fogDensity_adjustment, 0.005f, 0.0f, 1000.f);
+		ImGui::DragFloat("Fog Density", &cb_globals.global_fogDensity_adjustment, 0.0001f, 0.0f, 0.15f);
+		ImGui::DragFloat("Fog Horizontal", &cb_globals.global_fog_percentage_horizontal, 0.01f, 0.0f, 1.f);
+		ImGui::DragFloat("Fog Vertical", &cb_globals.global_fog_percentage_vertical, 0.01f, 0.0f, 1.f);
 		ImGui::DragFloat("Band Up", &cb_globals.global_bandMax_adjustment, 0.01f, 0.0f, 0.15f);
 		ImGui::DragFloat("Band Down", &cb_globals.global_bandMin_adjustment, 0.01f, 0.0f, 0.15f);
 		//ImGui::DragFloat("Saturation", &cb_globals.global_saturation_adjustment, 0.01f, -100.f, 100.f);
@@ -165,6 +166,9 @@ void CModuleRender::render()
 
 			cb_globals.global_bandMin_adjustment = 0.f;
 			cb_globals.global_bandMax_adjustment = 0.f;
+
+			cb_globals.global_fog_percentage_horizontal = 0.15f;
+			cb_globals.global_fog_percentage_vertical = 0.15f;
 		}
 
 		// Must be in the same order as the RO_* ctes
@@ -249,12 +253,18 @@ void CModuleRender::generateFrame() {
 		deferred.render(rt_main, h_e_camera);
 
 		//CRenderManager::get().renderCategory("cell");
-
-		CRenderManager::get().renderCategory("alpha");
-
-		CRenderManager::get().renderCategory("opacity");
+		//CRenderManager::get().renderCategory("particles");
 
 		CRenderManager::get().renderCategory("particles");
+
+		TCompCulling* culling;
+		CEntity* e = h_e_camera;
+		culling = e->get<TCompCulling>();
+		assert(culling);
+
+		CRenderManager::get().renderCategory("alpha", culling);
+
+		CRenderManager::get().renderCategory("opacity", culling);
 
 		//CRenderManager::get().renderCategory("distorsions");
 
@@ -299,6 +309,8 @@ void CModuleRender::generateFrame() {
 
 		renderFullScreenQuad("dump_texture.tech", curr_rt);
 
+		CRenderManager::get().renderCategory("particles", culling);
+		CRenderManager::get().renderCategory("particlesA", culling);
 		// Debug render
 		{
 			PROFILE_FUNCTION("Modules");
@@ -339,6 +351,6 @@ void CModuleRender::generateFrame() {
 	// Present the information rendered to the back buffer to the front buffer (the screen)
 	{
 		PROFILE_FUNCTION("Render.swapChain");
-		Render.swapChain->Present(0, 0);
+		Render.swapChain->Present(1, 0);
 	}
 }

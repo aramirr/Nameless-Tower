@@ -1,0 +1,40 @@
+[
+  {
+    "entity":
+    {
+      "name": "Puerta_Reja"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Reja.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RejaMate.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Puerta_Reja.col_mesh"
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+]

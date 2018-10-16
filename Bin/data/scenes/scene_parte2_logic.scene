@@ -2,13 +2,323 @@
   {
     "entity":
     {
-      "name": "Vientos01"
+      "name": "Activador_Estatua03"
       ,
       "transform":
       {
-        "pos": "3.25849 47.25 30.997"
+        "pos": "28.0797 39.4286 13.9262"
         ,
-        "rotation": "0.0 -0.052336 0.0 -0.99863"
+        "rotation": "0.0 -0.881847 0.0 0.471536"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Estatua03.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaCabezaOutMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.319037 0.606354 0.414332"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Movil02"
+      ,
+      "transform":
+      {
+        "pos": "27.7468 37.7039 14.659"
+        ,
+        "rotation": "0.0 -0.881847 0.0 0.471536"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Movil02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/Activadores.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.471604 0.341846 0.360125"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Movil04"
+      ,
+      "transform":
+      {
+        "pos": "11.7716 51.2029 29.0014"
+        ,
+        "rotation": "-0.00186421 -0.156424 -0.0117701 -0.987618"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Movil04.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/Activadores.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.471604 0.341846 0.360126"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Estatua01"
+      ,
+      "transform":
+      {
+        "pos": "11.0708 52.9276 29.3709"
+        ,
+        "rotation": "0.0 -0.156435 0.0 -0.987688"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Estatua01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaCabezaOutMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.319036 0.606354 0.414331"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Estatua02"
+      ,
+      "transform":
+      {
+        "pos": "30.2446 43.9342 -8.40789"
+        ,
+        "rotation": "0.0 0.64954 0.0 -0.760327"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Estatua02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaCabezaOutMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.319037 0.606354 0.414331"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Movil03"
+      ,
+      "transform":
+      {
+        "pos": "30.4971 42.2095 -7.64367"
+        ,
+        "rotation": "0.0 0.64954 0.0 -0.760327"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Movil03.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/Activadores.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.471604 0.341846 0.360126"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Activador_Estatico02"
+      ,
+      "transform":
+      {
+        "pos": "30.2956 41.9338 -8.44802"
+        ,
+        "rotation": "0.0 0.64954 0.0 -0.760327"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Activador_Estatico02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.965661 1.44805 0.988708"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoVertical"
+      ,
+      "transform":
+      {
+        "pos": "3.14173 47.25 30.2262"
+        ,
+        "rotation": "0.0 -0.052335 0.0 -0.99863"
       }
       ,
       "render":
@@ -35,7 +345,7 @@
   {
     "entity":
     {
-      "name": "Vientos01Trigger"
+      "name": "VientoVerticalTrigger"
       ,
       "transform":
       {
@@ -44,7 +354,7 @@
       ,
       "render":
       {
-        "mesh": "data/meshes/VientoVertical004.mesh"
+        "mesh": "data/meshes/VientoVertical.mesh"
         ,
         "materials":
         [
@@ -54,9 +364,9 @@
       ,
       "hierarchy":
       {
-        "parent": "Vientos01"
+        "parent": "VientoVertical"
         ,
-        "pos": "0.0 0.0 1.90735e-06"
+        "pos": "0.0 0.0 0.0"
       }
       ,
       "ai_fan":
@@ -99,7 +409,7 @@
       ,
       "transform":
       {
-        "pos": "1.90735e-06 13.5 3.63571e-07"
+        "pos": "18.5739 31.5 -18.992"
         ,
         "rotation": "0.0 -0.972236 0.0 -0.234003"
       }
@@ -112,9 +422,13 @@
           "materials":
           [
             "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedExteriorDentroMat.material"
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -125,15 +439,15 @@
       ,
       "transform":
       {
-        "pos": "11.517 33.6817 28.8891"
+        "pos": "11.5514 33.6817 28.9688"
         ,
-        "rotation": "0.0 -0.202326 0.0 -0.979318"
+        "rotation": "0.0 -0.835548 0.0 -0.549417"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          "mesh": "data/meshes/PuertaA.mesh"
           ,
           "materials":
           [
@@ -150,7 +464,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+        "mesh_src": "data/meshes/PuertaA.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -169,15 +483,15 @@
       ,
       "transform":
       {
-        "pos": "3.30994 31.4999 -30.0799"
+        "pos": "3.31548 31.4999 -30.209"
         ,
-        "rotation": "0.0 0.626226 0.0 -0.779642"
+        "rotation": "0.0 0.722111 0.0 -0.691777"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          "mesh": "data/meshes/PuertaA.mesh"
           ,
           "materials":
           [
@@ -194,7 +508,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+        "mesh_src": "data/meshes/PuertaA.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -213,15 +527,15 @@
       ,
       "transform":
       {
-        "pos": "30.4337 31.4999 -3.12938"
+        "pos": "30.3444 31.4999 -3.18928"
         ,
-        "rotation": "0.0 -0.974216 0.0 0.225617"
+        "rotation": "0.0 -0.997194 0.0 0.074861"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          "mesh": "data/meshes/PuertaA.mesh"
           ,
           "materials":
           [
@@ -238,7 +552,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+        "mesh_src": "data/meshes/PuertaA.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -257,7 +571,7 @@
       ,
       "transform":
       {
-        "pos": "26.8535 51.6346 15.6878"
+        "pos": "26.8971 51.6346 15.7102"
         ,
         "rotation": "0.0 0.234898 0.0 -0.97202"
       }
@@ -265,11 +579,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          "mesh": "data/meshes/Puerta_Reja.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_Cerrada_01.material"
+            "data/materials/RejaMate.material"
           ]
         }
       ]
@@ -282,7 +596,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+        "mesh_src": "data/meshes/Puerta_Reja.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -301,19 +615,19 @@
       ,
       "transform":
       {
-        "pos": "8.43416 33.6817 29.9346"
+        "pos": "8.46461 33.6817 30.0161"
         ,
-        "rotation": "0.0 -0.177992 0.0 -0.984032"
+        "rotation": "0.0 -0.821675 0.0 -0.569956"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          "mesh": "data/meshes/Puerta_Reja.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_Cerrada_01.material"
+            "data/materials/RejaMate.material"
           ]
         }
       ]
@@ -326,7 +640,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+        "mesh_src": "data/meshes/Puerta_Reja.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -341,265 +655,13 @@
   {
     "entity":
     {
-      "name": "Activador_Movil04"
-      ,
-      "transform":
-      {
-        "pos": "11.7615 51.2029 29.1596"
-        ,
-        "rotation": "0.0 0.0 -0.0119168 -0.999929"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Activador_Movil04.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ColumnaBaseMat.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.471604 0.341846 0.360126"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      },
-      "rigid_anim" : 
-      {
-        "src" : "data/anims/AnimsActivadores.anims",
-        "loops": false,
-        "speed_factor": 0.15
-      } 
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Activador_Estatua01"
-      ,
-      "transform":
-      {
-        "pos": "10.9673 52.9276 29.2897"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Activador_Estatua01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ColumnaCabezaOutMat.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.319036 0.606354 0.414331"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Activador_Movil03"
-      ,
-      "transform":
-      {
-        "pos": "30.6139 42.2095 -7.80482"
-        ,
-        "rotation": "0.0 0.43062 0.0 -0.902533"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Activador_Movil03.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ColumnaBaseMat.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.471604 0.341846 0.360126"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      },
-      "rigid_anim" : 
-      {
-        "src" : "data/anims/AnimsActivadores.anims",
-        "loops": false,
-        "speed_factor": 0.15
-      } 
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Activador_Estatua02"
-      ,
-      "transform":
-      {
-        "pos": "30.0131 43.9342 -8.34039"
-        ,
-        "rotation": "0.0 0.43062 0.0 -0.902533"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Activador_Estatua02.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ColumnaCabezaOutMat.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.319037 0.606354 0.414331"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Activador_Movil02"
-      ,
-      "transform":
-      {
-        "pos": "27.7312 37.7039 14.5425"
-        ,
-        "rotation": "0.0 0.797226 0.0 -0.603681"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Activador_Movil02.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ColumnaBaseMat.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.471604 0.341846 0.360125"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      },
-      "rigid_anim" : 
-      {
-        "src" : "data/anims/AnimsActivadores.anims",
-        "loops": false,
-        "speed_factor": 0.15
-      } 
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Activador_Estatua03"
-      ,
-      "transform":
-      {
-        "pos": "27.8214 39.4286 13.7427"
-        ,
-        "rotation": "0.0 0.797226 0.0 -0.603681"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Activador_Estatua03.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ColumnaCabezaOutMat.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.319037 0.606354 0.414332"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Activador_Estatico03"
       ,
       "transform":
       {
-        "pos": "27.8844 37.4282 13.7275"
+        "pos": "28.1444 37.4282 13.9313"
         ,
-        "rotation": "0.0 0.797226 0.0 -0.603682"
+        "rotation": "0.0 -0.881847 0.0 0.471536"
       }
       ,
       "render":
@@ -632,52 +694,13 @@
   {
     "entity":
     {
-      "name": "Activador_Estatico02"
-      ,
-      "transform":
-      {
-        "pos": "30.0371 41.9338 -8.40063"
-        ,
-        "rotation": "0.0 0.43062 0.0 -0.902533"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Activador_Estatico02.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ColumnaBaseMat.material"
-          ]
-        }
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "0.965661 1.44805 0.988708"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Activador_Estatico01"
       ,
       "transform":
       {
-        "pos": "10.9356 50.9272 29.2331"
+        "pos": "11.0231 50.9272 29.3268"
         ,
-        "rotation": "0.0 0.0 0.0 -1.0"
+        "rotation": "0.0 -0.156435 0.0 -0.987688"
       }
       ,
       "render":
@@ -703,6 +726,8 @@
         "is_dynamic": false
         ,
         "is_trigger": false
+        ,
+        "group": "scenario"
       }
     }
   }
@@ -722,15 +747,13 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Dragon01.mesh"
+          "mesh": "data/meshes/CabezaDragon.mesh"
           ,
           "materials":
           [
-            "data/materials/CabezaDragonCabezaMat.material"
+            "data/materials/DragonMate.material"
             ,
-            "data/materials/CabezaDragonColmillosMat.material"
-            ,
-            "data/materials/CabezaDragonAdornoMat.material"
+            "data/materials/ColmilloMate.material"
           ]
         }
       ]

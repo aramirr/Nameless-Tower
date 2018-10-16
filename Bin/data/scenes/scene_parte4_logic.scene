@@ -8,17 +8,17 @@
       {
         "pos": "12.5221 85.5 -27.6563"
         ,
-        "rotation": "0.167012 0.0 -0.985955 0.0"
+        "rotation": "0.0 0.19459 0.0 -0.980885"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          "mesh": "data/meshes/PuertaB.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_Cerrada_01.material"
+            "data/materials/MaderaMat.material"
           ]
         }
       ]
@@ -31,7 +31,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+        "mesh_src": "data/meshes/PuertaB.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -50,7 +50,7 @@
       ,
       "transform":
       {
-        "pos": "18.8302 87.75 -25.9647"
+        "pos": "18.8295 87.75 -25.9643"
         ,
         "rotation": "0.0 -0.852341 0.0 -0.522987"
       }
@@ -63,9 +63,13 @@
           "materials":
           [
             "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedExteriorDentroMat.material"
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
 ]

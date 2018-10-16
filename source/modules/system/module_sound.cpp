@@ -1,8 +1,6 @@
 #include "mcv_platform.h"
 #include "module_sound.h"
-#include "render/render_objects.h"
 #include "components/camera/comp_camera.h"
-#include "components/juan/comp_transform.h"
 
 #pragma comment(lib, "fmod64_vc.lib")
 #pragma comment(lib, "fmodstudio64_vc.lib")
@@ -35,14 +33,16 @@ bool CModuleSound::start()
     // Carga eventos
     auto j = loadJson("data/fmod/sounds.json");
     for (auto& event : j["events"]) {
-        Studio::EventDescription* event_description = NULL;
+        Sound sound;
+        sound.eventDescriptor = NULL;
         std::string event_src = event["src"].get<std::string>();
         std::string event_name = event["name"].get<std::string>();
-        EngineSound.res = EngineSound.system->getEvent(event_src.c_str(), &event_description);
-
-        Studio::EventInstance* event_instance = NULL;
-        EngineSound.res = event_description->createInstance(&event_instance);
-        events.insert(std::make_pair(event_name, event_instance));
+        EngineSound.res = EngineSound.system->getEvent(event_src.c_str(), &sound.eventDescriptor);
+        sound.positional = event.value("positional", false);
+        sound.onStart = event.value("on_start", false);
+        sound.eventInstance = NULL;
+        EngineSound.res = sound.eventDescriptor->createInstance(&sound.eventInstance);
+        events.insert(std::make_pair(event_name, sound));
         assert(res == FMOD_OK);
     }
   return true;
@@ -57,6 +57,7 @@ bool CModuleSound::stop()
 void CModuleSound::update(float delta)
 {
     updateListenerAttributes();
+    updatePositionalEvents();
     system->update();
 }
 
@@ -81,23 +82,57 @@ void CModuleSound::updateListenerAttributes() {
     auto res = system->setListenerAttributes(0, &listenerAttributes);
 }
 
-void CModuleSound::emitEvent(const std::string& sound) {
-    events[sound]->start();
+void CModuleSound::updatePositionalEvents() {    
+    for (auto& p : events) {
+        auto& sound = p.second;        
+        if (sound.positional) {
+           if (sound.hasTransform) {
+               CHandle transform = sound.entity->get<TCompTransform>();           
+               TCompTransform* t = transform;
+               FMOD_3D_ATTRIBUTES attributes = toFMODAttributes(*t);
+               sound.eventInstance->set3DAttributes(&attributes);
+           }           
+        }
+    }
 }
 
+void CModuleSound::emitEvent(const std::string& sound) {
+    events[sound].eventInstance->start();
+}
+
+void CModuleSound::emitPositionalEvent(const std::string& sound, const std::string& entityName) {
+    CEntity* e = getEntityByName(entityName);
+    events[sound].hasTransform = true;
+    events[sound].entity = e;
+    events[sound].eventInstance->start();
+}
+
+
 void CModuleSound::stopEvent(const std::string& sound) {
-    events[sound]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+    events[sound].eventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
 }
 
 FMOD::Studio::System* CModuleSound::getSystem() {
     return system;
 }
 
+void CModuleSound::playInterior() {
+    events["ambient"].eventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+    events["interior"].eventInstance->start();
+}
+
+void CModuleSound::playAmbient() {
+    events["interior"].eventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+    events["ambient"].eventInstance->start();
+}
+
+
 FMOD_3D_ATTRIBUTES CModuleSound::toFMODAttributes(CTransform t) {
     FMOD_3D_ATTRIBUTES attr;
     attr.forward = toFMODVector(t.getFront());
     attr.velocity = FMOD_VECTOR();
     attr.position = toFMODVector(t.getPosition());
+    attr.up = toFMODVector(t.getUp());
     return attr;
 }
 
@@ -107,14 +142,4 @@ FMOD_VECTOR CModuleSound::toFMODVector(VEC3 v) {
     vec.y = v.y;
     vec.z = v.z;
     return vec;
-}
-
-void CModuleSound::playInterior() {
-    events["ambient"]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
-    events["interior"]->start();
-}
-
-void CModuleSound::playAmbient() {
-    events["interior"]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
-    events["ambient"]->start();
 }

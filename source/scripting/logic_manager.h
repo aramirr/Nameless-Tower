@@ -24,8 +24,10 @@ public:
 	void setAmbientAdjustment(float value);
   void setExposureAdjustment(float value, bool left);
 	void playLastCinematic();
-	void openDoor(const char* name);
+    void openDoor(const char* name);
+    void closeDoor(const char* name);
 	void activateAnim(const char* name);
+	void setTemblor(bool temblor, bool left);
 
   // UI
 	void activateText(const char* name);
@@ -51,7 +53,10 @@ public:
   bool applyFunction(bool left);
   void playAmbientSound(bool left);
   void playInteriorSound(bool left);
+  void playPositionalSound(std::string name, std::string entityName);
   void playSound(bool left, std::string name);
   void stopSound(bool left, std::string name);
+  void activateTorch(std::string name);
+  void scarePlayer();
 
 };

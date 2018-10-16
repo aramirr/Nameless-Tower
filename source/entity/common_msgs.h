@@ -54,11 +54,19 @@ struct TMsgCheckpoint {
 	DECL_MSG_ID();
 };
 
-struct TMsgOpenDoor{
+struct TMsgCloseDoor{
+    DECL_MSG_ID();
+};
+
+struct TMsgOpenDoor {
     DECL_MSG_ID();
 };
 
 struct TMsgActivateAnim{
+	DECL_MSG_ID();
+};
+
+struct TMsgDesactivateAnim {
 	DECL_MSG_ID();
 };
 
@@ -99,8 +107,17 @@ struct TMsgDestroy {
 	DECL_MSG_ID();
 };
 
+struct TMsgRegisterDestoyableSon {
+	std::string name;
+	DECL_MSG_ID();
+};
+
 struct TMsgDeactivateTorch {
 	DECL_MSG_ID();
+};
+
+struct TMsgActivateTorch {
+    DECL_MSG_ID();
 };
 
 struct TMsgActivateTorchPuzzle {
@@ -158,6 +175,10 @@ struct TMsgDeactivateCinematic {
 
 struct TMsgDeactiveCamera {
   DECL_MSG_ID();
+};
+
+struct TMsgBlockCamera {
+	DECL_MSG_ID();
 };
 
 struct TMsgPlayerIn {

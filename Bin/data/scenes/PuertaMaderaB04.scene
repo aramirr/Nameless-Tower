@@ -1,0 +1,40 @@
+[
+  {
+    "entity":
+    {
+      "name": "PuertaB"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "-0.0416296 0.0 -0.999133 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PuertaB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMat.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/PuertaB.col_mesh"
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+]

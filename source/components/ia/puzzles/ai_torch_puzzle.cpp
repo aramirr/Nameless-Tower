@@ -40,7 +40,7 @@ void CAITorchPuzzle::registerMsgs() {
 
 void CAITorchPuzzle::ActiveState(float dt)
 {	
-	timer += dt;
+	timer += DT;
 	if (timer > timer_limit) {
 		deactivate();
 	}
@@ -53,7 +53,7 @@ void CAITorchPuzzle::CompleteState(float dt)
   CEntity* door2 = (CEntity*)getEntityByName(door_name2);
   TMsgOpenDoor msg;
   door1->sendMsg(msg);
-  door2->sendMsg(msg);
+  //door2->sendMsg(msg);
 }
 
 

@@ -2,11 +2,51 @@
   {
     "entity":
     {
+      "name": "TSCinematicaMonolito"
+      ,
+      "transform":
+      {
+        "pos": "5.0202 88.1511 -31.5508"
+        ,
+        "rotation": "-0.0587086 0.0587086 0.704665 -0.704665"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.731102 0.812323 0.65241"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Solidos_Escena04"
       ,
       "transform":
       {
-        "pos": "7.35443 92.1386 -27.4429"
+        "pos": "7.35442 92.1386 -27.4429"
         ,
         "rotation": "0.0 -0.258819 0.0 -0.965926"
       }
@@ -95,8 +135,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "group": "scenario"
       }
     }
   }

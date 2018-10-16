@@ -90,6 +90,7 @@ namespace FSM
 				else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 					// Cambio a idle
 					ctx.setVariable("is_grounded", true);
+                    player->change_animation(player->EAnimations::NajaJumpLand, true, 0.01, 0.1, false);
 				}
 			}
 		}			
@@ -150,8 +151,7 @@ namespace FSM
 	void JumpState::onFinish(CContext& ctx) const {	
 		ctx.setVariable("jump", false);
 		CEntity* e = ctx.getOwner();
-		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_animation(player->EAnimations::NajaJumpLand, true, 0.01, 0.1, false);  
+		TCompPlayerController* player = e->get<TCompPlayerController>();		
         player->previous_state = "jump";
 	}
 

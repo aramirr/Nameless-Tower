@@ -15,16 +15,17 @@ DECL_OBJ_MANAGER("player_controller", TCompPlayerController);
 
 void TCompPlayerController::debugInMenu() {
 	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
-	ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
+    ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
+    ImGui::Text("Can die: %s", can_die ? "Si" : "No");
 }
 
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	setEntity(ctx.current_entity);
-	gravity = j.value("gravity", 75.f);	
+	gravity = j.value("gravity", 75.f);
 	center = VEC3(0.f, 0.f, 0.f);
 	tower_radius = j.value("tower_radius", 31.5f);
-    jumping_death_height = j.value("jumping_death_height", 9.f);
-    idle_max_time = j.value("idle_max_time", 10.f);
+	jumping_death_height = j.value("jumping_death_height", 9.f);
+	idle_max_time = j.value("idle_max_time", 10.f);
 	is_grounded = true;
 	looking_left = false;
     rayWall = false;
@@ -80,11 +81,11 @@ void TCompPlayerController::setEntity(CHandle new_entity) {
 }
 
 void TCompPlayerController::change_animation(int animation_id, bool is_action, float in_delay, float out_delay, bool clear = true) {
-  CEntity* e = h_entity;
-  TCompSkeleton* skeleton = e->get<TCompSkeleton>();
-  assert(skeleton);
-  
-  skeleton->playAnimation(animation_id, is_action, in_delay, out_delay, clear);
+	CEntity* e = h_entity;
+	TCompSkeleton* skeleton = e->get<TCompSkeleton>();
+	assert(skeleton);
+
+	skeleton->playAnimation(animation_id, is_action, in_delay, out_delay, clear);
 }
 
 void TCompPlayerController::remove_animation(int animation_id) {
@@ -110,7 +111,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 	// Current orientation
 	float current_yaw;
 	float current_pitch;
-	float amount_moved = x_speed *  dt;
+	float amount_moved = x_speed * dt;
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	VEC3 myPos = c_my_transform->getPosition();
@@ -126,7 +127,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 		turnMsg.variant.setBool(true);
 		CEntity* e = CHandle(this).getOwner();
 		e->sendMsg(turnMsg);
-        CEntity* particles_emiter;        
+		CEntity* particles_emiter;
 	}
 	else {
 		current_yaw = left ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
@@ -143,20 +144,20 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			PxFilterData filter_data = player_shape->getSimulationFilterData();
 			ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
 			BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
-     
+
 			//Raycast looking for walls
 			VEC3 player_position = c_my_transform->getPosition();
 			VEC3 player_front = c_my_transform->getFront();
-			
-          //FRONT
-            VEC3 posef = player_position + player_front * 0.3f;
-	        PxVec3 originf = PxVec3(posef.x, posef.y +0.5f, posef.z);
-            PxVec3 unitDirf = PxVec3(player_front.x, player_front.y, player_front.z);
-      
-          //BACK
-            VEC3 poseb = player_position - player_front * 0.3f;
-            PxVec3 originb = PxVec3(poseb.x, poseb.y + 0.5f, poseb.z);
-            PxVec3 unitDirb = PxVec3(-player_front.x, -player_front.y, -player_front.z);
+
+			//FRONT
+			VEC3 posef = player_position + player_front * 0.3f;
+			PxVec3 originf = PxVec3(posef.x, posef.y + 0.5f, posef.z);
+			PxVec3 unitDirf = PxVec3(player_front.x, player_front.y, player_front.z);
+
+			//BACK
+			VEC3 poseb = player_position - player_front * 0.3f;
+			PxVec3 originb = PxVec3(poseb.x, poseb.y + 0.5f, poseb.z);
+			PxVec3 unitDirb = PxVec3(-player_front.x, -player_front.y, -player_front.z);
 
 			PxReal maxDistance = 4.0f;
 			PxRaycastBuffer hit;
@@ -164,27 +165,35 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			if (EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) {
 				PxFilterData filter_data = hit.block.shape->getSimulationFilterData();
 
-                if (filter_data.word0 == CModulePhysics::FilterGroup::Scenario) {
-					        //TODO: Mandar mensaje a la camara para que se quede quieta -> MANUE el LLoron
-                  CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
-                  rayWall = true;
-                  TMsgDeactiveCamera msg;
-                  e->sendMsg(msg);
-                }
-        
+				if (filter_data.word0 == CModulePhysics::FilterGroup::Scenario) {
+					//TODO: Mandar mensaje a la camara para que se quede quieta -> MANUE el LLoron
+					CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
+					rayWall = true;
+					TMsgDeactiveCamera msg;
+					e->sendMsg(msg);
+					e = (CEntity*)getEntityByName("camera_look_up");
+					e->sendMsg(msg);
+					e = (CEntity*)getEntityByName("camera_look_down");
+					e->sendMsg(msg);
+				}
+
 			}
-            else if(rayWall && !EnginePhysics.gScene->raycast(originb, unitDirb, maxDistance / 2, hit)) {
-                CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
-                rayWall = false;
-                TMsgActiveCamera msg;
-                msg.blend_time = 2.f;
-                e->sendMsg(msg);
-            }
+			else if (rayWall && !EnginePhysics.gScene->raycast(originb, unitDirb, maxDistance / 2, hit)) {
+				CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
+				rayWall = false;
+				TMsgActiveCamera msg;
+				msg.blend_time = 2.f;
+				e->sendMsg(msg);
+				e = (CEntity*)getEntityByName("camera_look_up");
+				e->sendMsg(msg);
+				e = (CEntity*)getEntityByName("camera_look_down");
+				e->sendMsg(msg);
+			}
 
 			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, query_filter, filter_controller));
-			
+
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
-				if (jumping_start_height - c_my_transform->getPosition().y  > jumping_death_height) {
+				if (jumping_start_height - c_my_transform->getPosition().y > jumping_death_height) {
 					TMsgSetFSMVariable deadMsg;
 					deadMsg.variant.setName("hit");
 					deadMsg.variant.setBool(true);
@@ -196,6 +205,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
                 c_particles->emit();
 				is_grounded = true;				
                 _sound_land->start();
+                change_animation(EAnimations::NajaJumpLand, true, 0.01, 0.1, false);
 				TMsgSetFSMVariable groundMsg;
 				groundMsg.variant.setName("is_grounded");
 				groundMsg.variant.setBool(true);
@@ -211,37 +221,37 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				e->sendMsg(omniMsg);
 			}
 			else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && is_grounded) {
-                //FRONT
-                VEC3 posef = player_position;
-                PxVec3 originf = PxVec3(posef.x, posef.y, posef.z);
-                PxVec3 unitDirf = PxVec3(0,-1,0);
+				//FRONT
+				VEC3 posef = player_position;
+				PxVec3 originf = PxVec3(posef.x, posef.y, posef.z);
+				PxVec3 unitDirf = PxVec3(0, -1, 0);
 
-                PxReal maxDistance = 0.5f;
-                PxRaycastBuffer hit;
-                TMsgSetFSMVariable dashMsg;
-                dashMsg.variant.setName("can_dash");
-                dashMsg.variant.setBool(true);
-                CEntity* e = CHandle(this).getOwner();
-                e->sendMsg(dashMsg);
-                if (!EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) {
-                    is_grounded = false;
-                    y_speed_factor = 0;
-                    jumping_start_height = c_my_transform->getPosition().y;
-                    TMsgSetFSMVariable groundMsg;
-                    groundMsg.variant.setName("is_grounded");
-                    groundMsg.variant.setBool(false);
-                    CEntity* e = CHandle(this).getOwner();
-                    e->sendMsg(groundMsg);
-                    TMsgSetFSMVariable fallMsg;
-                    fallMsg.variant.setName("is_falling");
-                    fallMsg.variant.setBool(true);
-                    e->sendMsg(fallMsg);
-                }				
+				PxReal maxDistance = 0.5f;
+				PxRaycastBuffer hit;
+				TMsgSetFSMVariable dashMsg;
+				dashMsg.variant.setName("can_dash");
+				dashMsg.variant.setBool(true);
+				CEntity* e = CHandle(this).getOwner();
+				e->sendMsg(dashMsg);
+				if (!EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) {
+					is_grounded = false;
+					y_speed_factor = 0;
+					jumping_start_height = c_my_transform->getPosition().y;
+					TMsgSetFSMVariable groundMsg;
+					groundMsg.variant.setName("is_grounded");
+					groundMsg.variant.setBool(false);
+					CEntity* e = CHandle(this).getOwner();
+					e->sendMsg(groundMsg);
+					TMsgSetFSMVariable fallMsg;
+					fallMsg.variant.setName("is_falling");
+					fallMsg.variant.setBool(true);
+					e->sendMsg(fallMsg);
+				}
 			}
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
 				current_yaw = left ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
-				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);				
+				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 			}
 			else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
 				/*TMsgSetFSMVariable idleMsg;
@@ -262,5 +272,5 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 void TCompPlayerController::setCheckpoint(const TMsgCheckpoint& msg)
 {
 	dbg("Checkpoint\n");
-   	checkpoint = msg.appearing_position;
+	checkpoint = msg.appearing_position;
 }

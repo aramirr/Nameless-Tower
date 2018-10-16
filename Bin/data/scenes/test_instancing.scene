@@ -65,7 +65,105 @@
       ]
     }
   }
+  , {
+    "entity": {
+      "name": "Instanced Fire violeta",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_15_violeta.instanced_mesh",
+          "materials": [
+            "data/materials/particles_fire_instanced_15_violeta.material"
+          ]
+        }
+      ]
+    }
+  }
+  , {
+    "entity": {
+      "name": "Instanced Thin Fire violeta",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_thin_15_violeta.instanced_mesh",
+          "materials": [
+            "data/materials/particles_thin_fire_instanced_15_violeta.material"
+          ]
+        }
+      ]
+    }
+  }
   , 
+  {
+    "entity": {
+      "name": "Instanced Fire azul",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_15_azul.instanced_mesh",
+          "materials": [
+            "data/materials/particles_fire_instanced_15_azul.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity": {
+      "name": "Instanced Fire azul apagando",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_4_azul_apagando.instanced_mesh",
+          "materials": [
+            "data/materials/particles_fire_instanced_azul_apagando.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity": {
+      "name": "Instanced Smoke azul prendiendo",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_4_smoke_prendiendo.instanced_mesh",
+          "materials": [
+            "data/materials/particles_smoke_instanced_azul_prendiendo.material"
+          ]
+        }
+      ]
+    }
+  }
+  , {
+    "entity": {
+      "name": "Instanced Thin Fire azul",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_thin_15_azul.instanced_mesh",
+          "materials": [
+            "data/materials/particles_thin_fire_instanced_15_azul.material"
+          ]
+        }
+      ]
+    }
+  },
   {
     "entity": {
       "name": "Instanced Smoke",
@@ -77,6 +175,38 @@
           "mesh": "data/meshes/particles_14.instanced_mesh",
           "materials": [
             "data/materials/particles_smoke_instanced_14.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,{
+    "entity": {
+      "name": "Instanced thin Smoke",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_thin_14.instanced_mesh",
+          "materials": [
+            "data/materials/particles_thin_smoke_instanced_14.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "Instanced Smoke prendiendo",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/smoke_4_prendiendo.instanced_mesh",
+          "materials": [
+            "data/materials/particles_4_smoke_prendiendo.material"
           ]
         }
       ]

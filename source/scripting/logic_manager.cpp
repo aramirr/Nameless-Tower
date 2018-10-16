@@ -83,8 +83,25 @@ void LogicManager::openDoor(const char* name) {
   EngineTower.openDoor(name);
 }
 
+void LogicManager::closeDoor(const char* name) {
+    EngineTower.closeDoor(name);
+}
+
 void LogicManager::activateAnim(const char* name) {
   EngineTower.activateAnim(name);
+}
+
+void LogicManager::setTemblor(bool temblor, bool left)
+{
+	if (applyFunction(left)) {
+		CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+
+		TCompCameraManager* cm = cam->get<TCompCameraManager>();
+		assert(cm);
+
+		if(temblor)cm->activarTemblor();
+		else cm->desactivarTemblor();
+	}
 }
 
 // UI
@@ -183,9 +200,27 @@ void LogicManager::playSound(bool left, std::string name) {
         EngineSound.emitEvent(name);
     }
 }
+
+void LogicManager::playPositionalSound(std::string name, std::string entityName) {    
+    EngineSound.emitPositionalEvent(name, entityName);
+}
+
 void LogicManager::stopSound(bool left, std::string name) {
     if (applyFunction(left)) {
         EngineSound.stopEvent(name);
     }
 }
 
+void LogicManager::activateTorch(std::string name) {
+    CEntity* e = getEntityByName(name);
+    TMsgActivateTorch msg;
+    e->sendMsg(msg);
+}
+
+void LogicManager::scarePlayer() {
+    CEntity* e = getEntityByName("The Player");
+    TMsgSetFSMVariable scareMsg;
+    scareMsg.variant.setName("scared");
+    scareMsg.variant.setBool(true);
+    e->sendMsg(scareMsg);
+}
