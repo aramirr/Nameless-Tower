@@ -198,10 +198,13 @@ void CRenderManager::renderCategory(const char* category_name, const TCompCullin
   static TRenderKey null_key;
   const TRenderKey* prev_it = &null_key;
 
+	int count_painted = 0;
+	int count_not_painted = 0;
+	int count_total = 0;
   // For each key in the range of keys
   while (it != last) {
     //PROFILE_FUNCTION("Key");
-
+		++count_total;
     // Do the culling
     if (culling_bits) {
       TCompAbsAABB* aabb = it->h_aabb;
@@ -209,8 +212,12 @@ void CRenderManager::renderCategory(const char* category_name, const TCompCullin
         auto idx = it->h_aabb.getExternalIndex();
         if (!culling_bits->test(idx)) {
           ++it;
+					++count_not_painted;
           continue;
         }
+				else {
+					++count_painted;
+				}
       }
     }
 
@@ -258,6 +265,6 @@ void CRenderManager::renderCategory(const char* category_name, const TCompCullin
     prev_it = it;
     ++it;
   }
-
+	dbg("PAINTED %i entities. NOT PAINTED %i enitites. TOTAL %i. -- %s\n", count_painted, count_not_painted, count_total, category_name);
 }
 

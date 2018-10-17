@@ -211,7 +211,7 @@ void CModuleRender::activateMainCamera() {
 	CCamera* cam = &camera;
 
 	// Find the entity with name 'the_camera'
-	h_e_camera = getEntityByName("camera_orbit_IZQ");
+	h_e_camera = EngineCameras.getActiveCamera();
 	if (h_e_camera.isValid()) {
 		CEntity* e_camera = h_e_camera;
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
@@ -255,7 +255,7 @@ void CModuleRender::generateFrame() {
 		//CRenderManager::get().renderCategory("cell");
 		//CRenderManager::get().renderCategory("particles");
 
-		CRenderManager::get().renderCategory("particles");
+		//CRenderManager::get().renderCategory("particles");
 
 		TCompCulling* culling;
 		CEntity* e = h_e_camera;
@@ -320,7 +320,7 @@ void CModuleRender::generateFrame() {
 	}
 
 	{
-		CEntity* e_camera = getEntityByName("camera_orbit_IZQ");
+		CEntity* e_camera = EngineCameras.getActiveCamera();
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
 		CCamera* cam = c_camera;
 		activateCamera(*cam, Render.width, Render.height);
@@ -351,6 +351,6 @@ void CModuleRender::generateFrame() {
 	// Present the information rendered to the back buffer to the front buffer (the screen)
 	{
 		PROFILE_FUNCTION("Render.swapChain");
-		Render.swapChain->Present(1, 0);
+		Render.swapChain->Present(0, 0);
 	}
 }
