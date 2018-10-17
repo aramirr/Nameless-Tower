@@ -15,7 +15,7 @@ namespace GUI
 		void setCurrentSection(int newSection);
 
     void setActive(bool _active);
-
+		void changeResolution(int _x, int _y);
   private:
     struct TOption
     {
@@ -30,5 +30,6 @@ namespace GUI
 
     bool carga = true;
     bool active = false;
+
   };
 }

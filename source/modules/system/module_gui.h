@@ -31,6 +31,8 @@ public:
 	void activeOptionMenu();
   void setOmindash(bool omnidash);
 
+	void changeResolution(int _x, int _y);
+
   // widget management
   void registerWidget(GUI::CWidget* wdgt);
   GUI::CWidget* getWidget(const std::string& name, bool recursive = false) const;

@@ -223,9 +223,9 @@ bool CApp::createWindow(HINSTANCE new_hInstance, int nCmdShow) {
 
   // Create window
   RECT rc = { 0, 0, xres, yres };
-  AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE);
+  AdjustWindowRect(&rc, dwStyle, FALSE);
   hWnd = CreateWindow("MCVWindowsClass", "Direct3D 11 MCV Project",
-		WS_OVERLAPPEDWINDOW,
+		dwStyle,
     CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, NULL, NULL, hInstance,
     NULL);
   if (!hWnd)
@@ -274,13 +274,16 @@ bool CApp::readConfig() {
   /*xres = 1366;
   yres = 768;*/
 
-	 xres = 1920;
-  yres = 1080;
+	/* xres = 1024;
+  yres = 768;*/
+
+	xres = 1920;
+	yres = 1080;
 
   time_since_last_render.reset();
 
 	cb_globals.global_first_resolution_X = xres;
-	cb_globals.global_first_resolution_Y = xres;
+	cb_globals.global_first_resolution_Y = yres;
 
   CEngine::get().getRender().configure(xres, yres);
   return true;

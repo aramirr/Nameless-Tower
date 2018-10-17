@@ -51,7 +51,7 @@ bool parseTechniques() {
 
 bool CModuleRender::start()
 {
-	if (!Render.createDevice(_xres, _yres))
+	if (!Render.createDevice(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN)))
 		return false;
 
 	if (!CVertexDeclManager::get().create())
@@ -217,7 +217,7 @@ void CModuleRender::activateMainCamera() {
 	CCamera* cam = &camera;
 
 	// Find the entity with name 'the_camera'
-	h_e_camera = EngineCameras.getOutputCamera();
+	h_e_camera = getEntityByName("camera_orbit_IZQ");
 	if (h_e_camera.isValid()) {
 		CEntity* e_camera = h_e_camera;
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
@@ -226,7 +226,7 @@ void CModuleRender::activateMainCamera() {
 		CRenderManager::get().setEntityCamera(h_e_camera);
 	}
 
-	activateCamera(*cam, Render.width, Render.height);
+	activateCamera(*cam, cb_globals.global_first_resolution_X, cb_globals.global_first_resolution_Y);
 }
 
 
@@ -318,7 +318,7 @@ void CModuleRender::generateFrame() {
 	}
 
 	{
-		CEntity* e_camera = EngineCameras.getOutputCamera();
+		CEntity* e_camera = getEntityByName("camera_orbit_IZQ");
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
 		CCamera* cam = c_camera;
 		activateCamera(*cam, Render.width, Render.height);
@@ -332,7 +332,7 @@ void CModuleRender::generateFrame() {
 		activateZConfig(ZCFG_DISABLE_ALL);
 		activateBlendConfig(BLEND_CFG_COMBINATIVE);
 
-		activateCamera(CEngine::get().getGUI().getCamera(), Render.width, Render.height);
+		activateCamera(CEngine::get().getGUI().getCamera(), cb_globals.global_first_resolution_X, cb_globals.global_first_resolution_Y);
 		CEngine::get().getModules().renderGUI();
 
 		activateRSConfig(RSCFG_DEFAULT);

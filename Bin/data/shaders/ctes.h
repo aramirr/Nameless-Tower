@@ -261,7 +261,7 @@ CB_DEF(CCteGUI, CB_GUI)
 	float main;
 	float pause;
 	float options;
-	float guidummy;
+	float fullscreen;
 };
 
 CB_DEF(CCteParticle, CB_PARTICLE)

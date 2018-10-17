@@ -21,160 +21,35 @@ namespace GUI
 
 			auto fullScreenONCB = []() {
 				dbg("FULLSCREEN ON\n");
+				cb_gui.fullscreen = true;
 				Render.swapChain->SetFullscreenState(true, nullptr);
+				EngineUI.changeResolution(cb_globals.global_resolution_X, cb_globals.global_resolution_Y);
 
 			};
 
 			auto fullScreenOFFCB = []() {
 				dbg("FULLSCREEN OFF\n");
+				cb_gui.fullscreen = false;
 				Render.swapChain->SetFullscreenState(false, nullptr);
+				EngineUI.changeResolution(cb_globals.global_resolution_X, cb_globals.global_resolution_Y);
 			};
 
 			auto res1920CB = []() {
 				dbg("RESOLUTION 1920\n");
+				EngineUI.changeResolution(1920, 1080);
 				
-				HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
-
-				::SetWindowPos(handle, 0, 0, 0, 1920, 1080, SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE);
-
-				if (Render.swapChain)
-				{
-					Render.ctx->OMSetRenderTargets(0, 0, 0);
-
-					// Release all outstanding references to the swap chain's buffers.
-					Render.renderTargetView->Release();
-
-					HRESULT hr;
-					// Preserve the existing buffer count and format.
-					// Automatically choose the width and height to match the client rect for HWNDs.
-					hr = Render.swapChain->ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0);
-
-					// Perform error handling here!
-
-					// Get buffer and create a render-target-view.
-					ID3D11Texture2D* pBuffer;
-					hr = Render.swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D),
-						(void**)&pBuffer);
-					// Perform error handling here!
-
-					hr = Render.device->CreateRenderTargetView(pBuffer, NULL,
-						&Render.renderTargetView);
-					// Perform error handling here!
-					pBuffer->Release();
-
-					Render.ctx->OMSetRenderTargets(1, &Render.renderTargetView, NULL);
-
-					// Set up the viewport.
-					D3D11_VIEWPORT vp;
-					vp.Width = (FLOAT)1920;
-					vp.Height = (FLOAT)1080;
-					vp.MinDepth = 0.0f;
-					vp.MaxDepth = 1.0f;
-					vp.TopLeftX = 0;
-					vp.TopLeftY = 0;
-					Render.ctx->RSSetViewports(1, &vp);
-
-					CEngine::get().getRender().configure(1920, 1080);
-				}
 			};
 
 			auto res1366CB = []() {
 				dbg("RESOLUTION 1366\n");
+				EngineUI.changeResolution(1366, 768);
 				
-				HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
-
-				::SetWindowPos(handle, 0, 0, 0, 1366, 768, SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE);
-
-				if (Render.swapChain)
-				{
-					Render.ctx->OMSetRenderTargets(0, 0, 0);
-
-					// Release all outstanding references to the swap chain's buffers.
-					Render.renderTargetView->Release();
-
-					HRESULT hr;
-					// Preserve the existing buffer count and format.
-					// Automatically choose the width and height to match the client rect for HWNDs.
-					hr = Render.swapChain->ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0);
-
-					// Perform error handling here!
-
-					// Get buffer and create a render-target-view.
-					ID3D11Texture2D* pBuffer;
-					hr = Render.swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D),
-						(void**)&pBuffer);
-					// Perform error handling here!
-
-					hr = Render.device->CreateRenderTargetView(pBuffer, NULL,
-						&Render.renderTargetView);
-					// Perform error handling here!
-					pBuffer->Release();
-
-					Render.ctx->OMSetRenderTargets(1, &Render.renderTargetView, NULL);
-
-					// Set up the viewport.
-					D3D11_VIEWPORT vp;
-					vp.Width = (FLOAT)1366;
-					vp.Height = (FLOAT)768;
-					vp.MinDepth = 0.0f;
-					vp.MaxDepth = 1.0f;
-					vp.TopLeftX = 0;
-					vp.TopLeftY = 0;
-					Render.ctx->RSSetViewports(1, &vp);
-
-					CEngine::get().getRender().configure(1366, 768);
-				}
 			};
 
 			auto res1024CB = []() {
 				dbg("RESOLUTION 1024\n");
-
-				//DWORD dwStyle = (WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME);
-
-				HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
-
-				::SetWindowPos(handle, 0, 0, 0, 1024, 768, SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE);
-				//RedrawWindow(handle, NULL, NULL, RDW_INVALIDATE | RDW_NOERASE | RDW_INTERNALPAINT);
-				//DefWindowProc(handle, uMsg, wParam, lParam);
-				if (Render.swapChain)
-				{
-					Render.ctx->OMSetRenderTargets(0, 0, 0);
-
-					// Release all outstanding references to the swap chain's buffers.
-					Render.renderTargetView->Release();
-
-					HRESULT hr;
-					// Preserve the existing buffer count and format.
-					// Automatically choose the width and height to match the client rect for HWNDs.
-					hr = Render.swapChain->ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0);
-
-					// Perform error handling here!
-
-					// Get buffer and create a render-target-view.
-					ID3D11Texture2D* pBuffer;
-					hr = Render.swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D),
-						(void**)&pBuffer);
-					// Perform error handling here!
-
-					hr = Render.device->CreateRenderTargetView(pBuffer, NULL,
-						&Render.renderTargetView);
-					// Perform error handling here!
-					pBuffer->Release();
-
-					Render.ctx->OMSetRenderTargets(1, &Render.renderTargetView, NULL);
-
-					// Set up the viewport.
-					D3D11_VIEWPORT vp;
-					vp.Width = (FLOAT)1024;
-					vp.Height = (FLOAT)768;
-					vp.MinDepth = 0.0f;
-					vp.MaxDepth = 1.0f;
-					vp.TopLeftX = 0;
-					vp.TopLeftY = 0;
-					Render.ctx->RSSetViewports(1, &vp);
-
-					CEngine::get().getRender().configure(1024, 768);
-				}
+				EngineUI.changeResolution(1024, 768);
+				
 
 				
 			};
@@ -233,6 +108,8 @@ namespace GUI
 			registerOption("exit_options", exitOptionsCB, 5);
 			setCurrentSection(0);
 			setCurrentOption(0);
+
+			cb_gui.fullscreen = false;
 
 			carga = false;
 		}
@@ -355,8 +232,9 @@ namespace GUI
 
 	int COptionMenuController::getCurrentOption()
 	{
-		int mX = EngineInput.mouse()._position.x;
-		int mY = EngineInput.mouse()._position.y;
+		int mX = EngineInput.mouse()._position.x * cb_globals.global_first_resolution_X / cb_globals.global_resolution_X;
+		int mY = EngineInput.mouse()._position.y * cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y;
+		dbg("%f - %f\n", (float)mX, (float)mY);
 		for (int i = 0; i < _options.size(); i++) {
 			for (int j = 0; j < _options[i].size(); j++) {
 				int bmX = _options[i][j].button->getPosition().x;
@@ -372,5 +250,57 @@ namespace GUI
 		}
 		_currentOption = _currentOption;
 		return -1;
+	}
+	void COptionMenuController::changeResolution(int _x, int _y)
+	{
+
+		//EngineUI.getCamera().setOrthographic(_x, _y);
+
+		HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+
+		if(!cb_gui.fullscreen) ::SetWindowPos(handle, 0, 0, 0, _x, _y, SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE);
+		else ::SetWindowPos(handle, 0, 0, 0, _x, _y, SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE /*| SWP_NOSIZE*/);
+
+		if (Render.swapChain)
+		{
+			Render.ctx->OMSetRenderTargets(0, 0, 0);
+
+			// Release all outstanding references to the swap chain's buffers.
+			Render.renderTargetView->Release();
+
+			HRESULT hr;
+			// Preserve the existing buffer count and format.
+			// Automatically choose the width and height to match the client rect for HWNDs.
+			hr = Render.swapChain->ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0);
+
+			// Perform error handling here!
+
+			// Get buffer and create a render-target-view.
+			ID3D11Texture2D* pBuffer;
+			hr = Render.swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D),
+				(void**)&pBuffer);
+			// Perform error handling here!
+
+			hr = Render.device->CreateRenderTargetView(pBuffer, NULL,
+				&Render.renderTargetView);
+			// Perform error handling here!
+			pBuffer->Release();
+
+			Render.ctx->OMSetRenderTargets(1, &Render.renderTargetView, NULL);
+
+			// Set up the viewport.
+			D3D11_VIEWPORT vp;
+			vp.Width = (FLOAT)_x;
+			vp.Height = (FLOAT)_y;
+			vp.MinDepth = 0.0f;
+			vp.MaxDepth = 1.0f;
+			/*if(cb_gui.fullscreen) vp.TopLeftX = (GetSystemMetrics(SM_CXSCREEN) - _x)/2;
+			else*/ vp.TopLeftX = 0;
+			vp.TopLeftY = 0;
+			Render.ctx->RSSetViewports(1, &vp);
+
+			CEngine::get().getRender().configure(_x, _y);
+		}
+
 	}
 }

@@ -136,6 +136,15 @@ void CModuleGUI::setOmindash(bool omnidash)
   odc->setActive(omnidash);
 }
 
+void CModuleGUI::changeResolution(int _x, int _y)
+{
+	/*for (auto& wdgt : _registeredWidgets)
+	{
+		wdgt->resizeAll(_x, _y, Render.width, Render.height);
+	}*/
+	omc->changeResolution(_x, _y);
+}
+
 void CModuleGUI::registerWidget(CWidget* wdgt)
 {
   _registeredWidgets.push_back(wdgt);
