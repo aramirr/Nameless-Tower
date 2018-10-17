@@ -202,6 +202,11 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
 	float global_bandMin_adjustment;
 	float global_bandMax_adjustment;
 
+	float global_first_resolution_X;
+	float global_first_resolution_Y;
+	float global_dummy2;
+	float global_dummy3;
+
 };
 
 CB_DEF(CCteMaterial, CB_MATERIAL)

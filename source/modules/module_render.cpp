@@ -136,7 +136,11 @@ void CModuleRender::render()
 	}
 	const Input::TInterface_Mouse& mouse = EngineInput.mouse();
 	int _mouse[2] = { mouse._position.x,mouse._position.y };
-	ImGui::DragInt2("MOUSE: ", _mouse);
+	ImGui::DragInt2("MOUSE", _mouse);
+
+	int _res[2] = { cb_globals.global_resolution_X , cb_globals.global_resolution_Y };
+	ImGui::DragInt2("MOUSE", _res);
+
 
 	// Edit the Background color
 	//ImGui::ColorEdit4("Background Color", &_backgroundColor.x);
@@ -191,6 +195,9 @@ void CModuleRender::configure(int xres, int yres)
 	_xres = xres;
 	_yres = yres;
 
+	Render.width = xres;
+	Render.height = yres;
+
 	cb_globals.global_resolution_X = xres;
 	cb_globals.global_resolution_Y = yres;
 }
@@ -210,7 +217,7 @@ void CModuleRender::activateMainCamera() {
 	CCamera* cam = &camera;
 
 	// Find the entity with name 'the_camera'
-	h_e_camera = getEntityByName("camera_orbit_IZQ");
+	h_e_camera = EngineCameras.getOutputCamera();
 	if (h_e_camera.isValid()) {
 		CEntity* e_camera = h_e_camera;
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
@@ -311,7 +318,7 @@ void CModuleRender::generateFrame() {
 	}
 
 	{
-		CEntity* e_camera = getEntityByName("camera_orbit_IZQ");
+		CEntity* e_camera = EngineCameras.getOutputCamera();
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
 		CCamera* cam = c_camera;
 		activateCamera(*cam, Render.width, Render.height);

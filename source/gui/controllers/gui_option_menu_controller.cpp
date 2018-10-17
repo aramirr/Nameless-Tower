@@ -2,6 +2,7 @@
 #include "gui_option_menu_controller.h"
 #include "render/render_objects.h"
 #include "gui/widgets/gui_button.h"
+#include <windowsx.h>
 
 namespace GUI
 {
@@ -31,17 +32,151 @@ namespace GUI
 
 			auto res1920CB = []() {
 				dbg("RESOLUTION 1920\n");
+				
+				HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
 
+				::SetWindowPos(handle, 0, 0, 0, 1920, 1080, SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE);
+
+				if (Render.swapChain)
+				{
+					Render.ctx->OMSetRenderTargets(0, 0, 0);
+
+					// Release all outstanding references to the swap chain's buffers.
+					Render.renderTargetView->Release();
+
+					HRESULT hr;
+					// Preserve the existing buffer count and format.
+					// Automatically choose the width and height to match the client rect for HWNDs.
+					hr = Render.swapChain->ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0);
+
+					// Perform error handling here!
+
+					// Get buffer and create a render-target-view.
+					ID3D11Texture2D* pBuffer;
+					hr = Render.swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D),
+						(void**)&pBuffer);
+					// Perform error handling here!
+
+					hr = Render.device->CreateRenderTargetView(pBuffer, NULL,
+						&Render.renderTargetView);
+					// Perform error handling here!
+					pBuffer->Release();
+
+					Render.ctx->OMSetRenderTargets(1, &Render.renderTargetView, NULL);
+
+					// Set up the viewport.
+					D3D11_VIEWPORT vp;
+					vp.Width = (FLOAT)1920;
+					vp.Height = (FLOAT)1080;
+					vp.MinDepth = 0.0f;
+					vp.MaxDepth = 1.0f;
+					vp.TopLeftX = 0;
+					vp.TopLeftY = 0;
+					Render.ctx->RSSetViewports(1, &vp);
+
+					CEngine::get().getRender().configure(1920, 1080);
+				}
 			};
 
 			auto res1366CB = []() {
 				dbg("RESOLUTION 1366\n");
+				
+				HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
 
+				::SetWindowPos(handle, 0, 0, 0, 1366, 768, SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE);
+
+				if (Render.swapChain)
+				{
+					Render.ctx->OMSetRenderTargets(0, 0, 0);
+
+					// Release all outstanding references to the swap chain's buffers.
+					Render.renderTargetView->Release();
+
+					HRESULT hr;
+					// Preserve the existing buffer count and format.
+					// Automatically choose the width and height to match the client rect for HWNDs.
+					hr = Render.swapChain->ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0);
+
+					// Perform error handling here!
+
+					// Get buffer and create a render-target-view.
+					ID3D11Texture2D* pBuffer;
+					hr = Render.swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D),
+						(void**)&pBuffer);
+					// Perform error handling here!
+
+					hr = Render.device->CreateRenderTargetView(pBuffer, NULL,
+						&Render.renderTargetView);
+					// Perform error handling here!
+					pBuffer->Release();
+
+					Render.ctx->OMSetRenderTargets(1, &Render.renderTargetView, NULL);
+
+					// Set up the viewport.
+					D3D11_VIEWPORT vp;
+					vp.Width = (FLOAT)1366;
+					vp.Height = (FLOAT)768;
+					vp.MinDepth = 0.0f;
+					vp.MaxDepth = 1.0f;
+					vp.TopLeftX = 0;
+					vp.TopLeftY = 0;
+					Render.ctx->RSSetViewports(1, &vp);
+
+					CEngine::get().getRender().configure(1366, 768);
+				}
 			};
 
 			auto res1024CB = []() {
 				dbg("RESOLUTION 1024\n");
 
+				//DWORD dwStyle = (WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME);
+
+				HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+
+				::SetWindowPos(handle, 0, 0, 0, 1024, 768, SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE);
+				//RedrawWindow(handle, NULL, NULL, RDW_INVALIDATE | RDW_NOERASE | RDW_INTERNALPAINT);
+				//DefWindowProc(handle, uMsg, wParam, lParam);
+				if (Render.swapChain)
+				{
+					Render.ctx->OMSetRenderTargets(0, 0, 0);
+
+					// Release all outstanding references to the swap chain's buffers.
+					Render.renderTargetView->Release();
+
+					HRESULT hr;
+					// Preserve the existing buffer count and format.
+					// Automatically choose the width and height to match the client rect for HWNDs.
+					hr = Render.swapChain->ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0);
+
+					// Perform error handling here!
+
+					// Get buffer and create a render-target-view.
+					ID3D11Texture2D* pBuffer;
+					hr = Render.swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D),
+						(void**)&pBuffer);
+					// Perform error handling here!
+
+					hr = Render.device->CreateRenderTargetView(pBuffer, NULL,
+						&Render.renderTargetView);
+					// Perform error handling here!
+					pBuffer->Release();
+
+					Render.ctx->OMSetRenderTargets(1, &Render.renderTargetView, NULL);
+
+					// Set up the viewport.
+					D3D11_VIEWPORT vp;
+					vp.Width = (FLOAT)1024;
+					vp.Height = (FLOAT)768;
+					vp.MinDepth = 0.0f;
+					vp.MaxDepth = 1.0f;
+					vp.TopLeftX = 0;
+					vp.TopLeftY = 0;
+					Render.ctx->RSSetViewports(1, &vp);
+
+					CEngine::get().getRender().configure(1024, 768);
+				}
+
+				
 			};
 
 			auto graphicsLOWCB = []() {

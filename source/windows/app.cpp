@@ -4,6 +4,7 @@
 #include "input/devices/mouse.h"
 #include "profiling/profiling.h"
 #include <windowsx.h>
+#include "render/render_objects.h"
 
 CApp* CApp::app_instance = nullptr;
 
@@ -27,7 +28,6 @@ LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
     delete[] filename;
     break;
   }
-
   case WM_PAINT:
     // Validate screen repaint in os/windows 
     hdc = BeginPaint(hWnd, &ps);
@@ -50,11 +50,51 @@ LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 
 	case WM_SIZE:
 	{
-		dbg("aaaaaaa");
-		float xres = GetSystemMetrics(SM_CXSCREEN);
-		float yres = GetSystemMetrics(SM_CYSCREEN);
+		//dbg("aaaaaaa");
+		//float xres = GetSystemMetrics(SM_CXSCREEN);
+		//float yres = GetSystemMetrics(SM_CYSCREEN);
 
-		CEngine::get().getRender().configure(xres, yres);
+		//CEngine::get().getRender().configure(xres, yres);
+
+		//if (Render.swapChain)
+		//{
+		//	Render.ctx->OMSetRenderTargets(0, 0, 0);
+
+		//	// Release all outstanding references to the swap chain's buffers.
+		//	Render.renderTargetView->Release();
+
+		//	HRESULT hr;
+		//	// Preserve the existing buffer count and format.
+		//	// Automatically choose the width and height to match the client rect for HWNDs.
+		//	hr = Render.swapChain->ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0);
+
+		//	// Perform error handling here!
+
+		//	// Get buffer and create a render-target-view.
+		//	ID3D11Texture2D* pBuffer;
+		//	hr = Render.swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D),
+		//		(void**)&pBuffer);
+		//	// Perform error handling here!
+
+		//	hr = Render.device->CreateRenderTargetView(pBuffer, NULL,
+		//		&Render.renderTargetView);
+		//	// Perform error handling here!
+		//	pBuffer->Release();
+
+		//	Render.ctx->OMSetRenderTargets(1, &Render.renderTargetView, NULL);
+
+		//	// Set up the viewport.
+		//	D3D11_VIEWPORT vp;
+		//	vp.Width = (FLOAT)LOWORD(lParam);
+		//	vp.Height = (FLOAT)HIWORD(lParam);
+		//	vp.MinDepth = 0.0f;
+		//	vp.MaxDepth = 1.0f;
+		//	vp.TopLeftX = 0;
+		//	vp.TopLeftY = 0;
+		//	Render.ctx->RSSetViewports(1, &vp);
+
+		//	CEngine::get().getRender().configure(LOWORD(lParam), HIWORD(lParam));
+		//}
 	}
 	break;
 
@@ -179,11 +219,13 @@ bool CApp::createWindow(HINSTANCE new_hInstance, int nCmdShow) {
   if (!RegisterClassEx(&wcex))
     return false;
 
+	DWORD dwStyle = (WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU) ;
+
   // Create window
   RECT rc = { 0, 0, xres, yres };
   AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE);
   hWnd = CreateWindow("MCVWindowsClass", "Direct3D 11 MCV Project",
-    WS_OVERLAPPEDWINDOW,
+		WS_OVERLAPPEDWINDOW,
     CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, NULL, NULL, hInstance,
     NULL);
   if (!hWnd)
@@ -229,10 +271,16 @@ void CApp::mainLoop() {
 //--------------------------------------------------------------------------------------
 bool CApp::readConfig() {
   // ...
-  xres = GetSystemMetrics(SM_CXSCREEN);
-  yres = GetSystemMetrics(SM_CYSCREEN);
+  /*xres = 1366;
+  yres = 768;*/
+
+	 xres = 1920;
+  yres = 1080;
 
   time_since_last_render.reset();
+
+	cb_globals.global_first_resolution_X = xres;
+	cb_globals.global_first_resolution_Y = xres;
 
   CEngine::get().getRender().configure(xres, yres);
   return true;
