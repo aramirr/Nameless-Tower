@@ -102,7 +102,12 @@
         "mesh_src": "data/meshes/SierraOrbital.col_mesh"
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+      "sound": {
+          "events": [         
+             {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra",    "positional": true, "on_start": true}
+          ]
+        }   
     }
   }
   ,

@@ -2,6 +2,7 @@
 #include "dash_state.h"
 #include "fsm/context.h"
 #include "components/player/comp_player_controller.h"
+#include "components/sound/comp_sound.h"
 #include "components\comp_particles.h"
 
 namespace FSM
@@ -29,6 +30,8 @@ namespace FSM
 			TCompParticles* particle = (TCompParticles*)trail->get<TCompParticles>();
 			particle->_core->life.maxParticles = 200;
 		}
+        TCompSound* sound = e->get<TCompSound>();
+        sound->playSound("action");
 	}
 
 	bool DashState::load(const json& jData)

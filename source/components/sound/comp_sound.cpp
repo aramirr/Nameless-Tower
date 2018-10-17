@@ -40,7 +40,7 @@ void TCompSound::update(float dt) {
         if (sound.positional) {
             FMOD_3D_ATTRIBUTES attributes = toFMODAttributes(*transform);
             sound.eventInstance->set3DAttributes(&attributes);
-        }
+        }        
     }
 }
 
@@ -48,7 +48,7 @@ void TCompSound::debugInMenu() {
 }
 
 void TCompSound::playSound(std::string name) {
-    events[name].eventInstance->start();    
+    events[name].eventInstance->start();
 }
 void TCompSound::stopSound(std::string name) {
     events[name].eventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);

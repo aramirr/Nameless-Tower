@@ -3,6 +3,7 @@
 #include "fsm/context.h"
 #include "entity/entity_parser.h"
 #include "components/player/comp_player_controller.h"
+#include "components/sound/comp_sound.h"
 #include "components\comp_particles.h"
 
 
@@ -38,7 +39,9 @@ namespace FSM
 			TCompParticles* particle = (TCompParticles*)trail->get<TCompParticles>();
 			particle->_core->life.maxParticles = 200;
 		}
-        _sound->start();
+        _sound->start();  
+        TCompSound* sound = e->get<TCompSound>();
+        sound->playSound("windstrike");
 	}
 	
 	bool WindstrikeState::load(const json& jData)

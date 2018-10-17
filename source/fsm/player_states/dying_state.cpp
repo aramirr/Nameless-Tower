@@ -15,7 +15,8 @@ namespace FSM
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		if (player->can_die) {
             player->can_die = false;
-			player->change_animation(player->EAnimations::NajaDead, _is_action, _delay_in, _delay_out, true);            
+			player->change_animation(player->EAnimations::NajaDead, _is_action, _delay_in, _delay_out, true);  
+            _sound->start();
 		}		    
 	}
 
@@ -24,6 +25,12 @@ namespace FSM
 		_is_action = jData.value("is_action", true);
 		_delay_out = jData.value("delay_out", 0.01f);
 		_delay_in = jData.value("delay_in", 0.01f);
+        if (jData.count("sound")) {
+            Studio::EventDescription* event_description= NULL;
+            std::string event_name = jData["sound"];
+            EngineSound.system->getEvent(event_name.c_str(), &event_description);
+            event_description->createInstance(&_sound);
+        }
 		return true;
 	}
 
