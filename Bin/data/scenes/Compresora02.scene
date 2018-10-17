@@ -1,0 +1,42 @@
+[
+  {
+    "entity":
+    {
+      "name": "Compresora"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 -0.000323145 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Compresora.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Bloque_Compresor_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.68696 2.25 0.979161"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+]

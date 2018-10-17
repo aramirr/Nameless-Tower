@@ -14,7 +14,7 @@
 #include "components/ia/puzzles/ai_torch.h"
 #include "render/texture/render_to_cube.h"
 
-void CDeferredRenderer::renderGBuffer() {
+void CDeferredRenderer::renderGBuffer(CHandle h_camera) {
 	CTraceScoped gpu_scope("Deferred.GBuffer");
 
 	// Disable the gbuffer textures as we are going to update them
@@ -56,8 +56,13 @@ void CDeferredRenderer::renderGBuffer() {
 	 // Clear ZBuffer with the value 1.0 (far)
 	Render.ctx->ClearDepthStencilView(rt_acc_light->getDepthStencilView(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
+	TCompCulling* culling;
+	CEntity* e = EngineCameras.getActiveCamera();  // EDU: Realmente deberia ser "CEntity* e = h_camera;". Pero por otro erro se pone asi para no perder los BlendIn y Out
+	culling = e->get<TCompCulling>();
+	assert(culling);
+
 	// Render the solid objects that output to the G-Buffer
-	CRenderManager::get().renderCategory("gbuffer");
+	CRenderManager::get().renderCategory("gbuffer", culling);
 
 	// Disable rendering to all render targets.
 	ID3D11RenderTargetView* rt_nulls[nrender_targets];
@@ -75,7 +80,7 @@ void CDeferredRenderer::renderGBuffer() {
 }
 
 // --------------------------------------------------------------
-void CDeferredRenderer::renderGBufferDecals() {
+void CDeferredRenderer::renderGBufferDecals(CHandle h_camera) {
 	CTraceScoped gpu_scope("Deferred.GBuffer.Decals");
 
 	// Disable the gbuffer textures as we are going to update them
@@ -95,8 +100,13 @@ void CDeferredRenderer::renderGBufferDecals() {
 	Render.ctx->OMSetRenderTargets(nrender_targets, rts, rt_acc_light->getDepthStencilView());
 	rt_albedos->activateViewport();   // Any rt will do...
 
+	TCompCulling* culling;
+	CEntity* e = h_camera;
+	culling = e->get<TCompCulling>();
+	assert(culling);
+
 	// Render blending layer on top of gbuffer before adding lights
-	CRenderManager::get().renderCategory("gbuffer_decals");
+	CRenderManager::get().renderCategory("gbuffer_decals", culling);
 
 	// Disable rendering to all render targets.
 	ID3D11RenderTargetView* rt_nulls[nrender_targets];
@@ -303,8 +313,8 @@ void CDeferredRenderer::renderAO(CHandle h_camera) const {
 void CDeferredRenderer::render(CRenderToTexture* rt_destination, CHandle h_camera) {
 	assert(rt_destination);
 
-	renderGBuffer();
-	renderGBufferDecals();
+	renderGBuffer(h_camera);
+	renderGBufferDecals(h_camera);
 	renderAO(h_camera);
 
 	// Do the same with the acc light
@@ -320,15 +330,15 @@ void CDeferredRenderer::render(CRenderToTexture* rt_destination, CHandle h_camer
 }
 
 // --------------------------------------
-void CDeferredRenderer::renderToCubeFace(CRenderToCube* rt_destination, int face_idx) {
+void CDeferredRenderer::renderToCubeFace(CRenderToCube* rt_destination, int face_idx, CHandle h_camera) {
 	assert(rt_destination);
 
 	CCamera camera;
 	rt_destination->getCamera(face_idx, &camera);
 	activateCamera(camera, rt_destination->getWidth(), rt_destination->getHeight());
 
-	renderGBuffer();
-	renderGBufferDecals();
+	renderGBuffer(h_camera);
+	renderGBufferDecals(h_camera);
 	renderAO(CHandle());
 
 	// Do the same with the acc light

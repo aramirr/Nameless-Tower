@@ -18,8 +18,8 @@ public:
 	CRenderToTexture* rt_alpha= nullptr;;
   CRenderToTexture* rt_sublime = nullptr;;
 
-  void renderGBuffer();
-  void renderGBufferDecals();
+  void renderGBuffer(CHandle h_camera);
+  void renderGBufferDecals(CHandle h_camera);
   void renderAccLight();
   void renderAmbientPass();
   void renderDirectionalLights();
@@ -32,7 +32,7 @@ public:
 
   bool create( int xres, int yres, const char* prefix);
   void render( CRenderToTexture* rt_destination, CHandle h_camera);
-	void renderToCubeFace(CRenderToCube* rt_destination, int face_idx);
+	void renderToCubeFace(CRenderToCube* rt_destination, int face_idx, CHandle h_camera);
 
 };
 

@@ -1,0 +1,42 @@
+[
+  {
+    "entity":
+    {
+      "name": "PuertaA"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PuertaA.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puerta_Cerrada_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.838334 2.11675 0.0852417"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+]

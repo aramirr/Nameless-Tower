@@ -55,29 +55,45 @@ void CCurve::addKnot(const VEC3& point)
   _knots.push_back(point);
 }
 
-VEC3 CCurve::evaluate(float ratio) const
+VEC3 CCurve::evaluate(float ratio, bool loop) const
 {
   if (_type == EType::CATMULL_ROM)
   {
-    return evaluateAsCatmull(ratio);
+    return evaluateAsCatmull(ratio, loop);
   }
   return VEC3::Zero;
 }
 
-VEC3 CCurve::evaluateAsCatmull(float ratio) const
+VEC3 CCurve::evaluateAsCatmull(float ratio, bool loop) const
 {
   ratio = clamp(ratio, 0.f, 0.99999f);
-  int nsegments = (int)_knots.size() - 3;
+	int nsegments; 
+	if (loop) 
+		nsegments = (int)_knots.size() - 1;
+	else 
+		nsegments = (int)_knots.size() - 3;
   float ratioPerSegment = 1.f / (float)nsegments;
   int currentSegment = (int)(ratio / ratioPerSegment);
   float segmentRatio = fmodf(ratio, ratioPerSegment) / ratioPerSegment;
 
   int idx = currentSegment + 1;
 
-  VEC3 p1 = _knots[idx - 1];
-  VEC3 p2 = _knots[idx];
-  VEC3 p3 = _knots[idx + 1];
-  VEC3 p4 = _knots[idx + 2];
+	VEC3 p1; 
+	VEC3 p2; 
+	VEC3 p3; 
+	VEC3 p4; 
+	if (loop) {
+		p1 = _knots[fmodf(idx - 1, nsegments)];
+		p2 = _knots[fmodf(idx, nsegments)];
+		p3 = _knots[fmodf(idx + 1, nsegments)];
+		p4 = _knots[fmodf(idx + 2, nsegments)];
+	}
+	else {
+		p1 = _knots[idx - 1];
+		p2 = _knots[idx];
+		p3 = _knots[idx + 1];
+		p4 = _knots[idx + 2];
+	}
 
   return VEC3::CatmullRom(p1, p2, p3, p4, segmentRatio);
 }

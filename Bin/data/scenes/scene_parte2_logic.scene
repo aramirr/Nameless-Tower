@@ -316,9 +316,9 @@
       ,
       "transform":
       {
-        "pos": "3.25849 47.25 30.997"
+        "pos": "3.14173 47.25 30.2262"
         ,
-        "rotation": "0.0 6.75532e-07 0.0 -1.0"
+        "rotation": "0.0 -0.052335 0.0 -0.99863"
       }
       ,
       "render":
@@ -354,7 +354,7 @@
       ,
       "render":
       {
-        "mesh": "data/meshes/VientoVertical004.mesh"
+        "mesh": "data/meshes/VientoVertical.mesh"
         ,
         "materials":
         [
@@ -439,19 +439,19 @@
       ,
       "transform":
       {
-        "pos": "11.517 33.6817 28.8891"
+        "pos": "11.5514 33.6817 28.9688"
         ,
-        "rotation": "0.0 -0.202326 0.0 -0.979318"
+        "rotation": "0.0 0.549417 0.0 -0.835548"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          "mesh": "data/meshes/Puerta_Reja.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_Cerrada_01.material"
+            "data/materials/RejaMate.material"
           ]
         }
       ]
@@ -464,7 +464,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+        "mesh_src": "data/meshes/Puerta_Reja.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -483,15 +483,15 @@
       ,
       "transform":
       {
-        "pos": "3.30994 31.4999 -30.0799"
+        "pos": "3.31548 31.4999 -30.209"
         ,
-        "rotation": "0.0 0.626226 0.0 -0.779642"
+        "rotation": "0.0 0.722111 0.0 -0.691777"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          "mesh": "data/meshes/PuertaA.mesh"
           ,
           "materials":
           [
@@ -508,7 +508,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+        "mesh_src": "data/meshes/PuertaA.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -527,15 +527,15 @@
       ,
       "transform":
       {
-        "pos": "30.4337 31.4999 -3.12938"
+        "pos": "30.3444 31.4999 -3.18928"
         ,
-        "rotation": "0.0 -0.974216 0.0 0.225617"
+        "rotation": "0.0 -0.997194 0.0 0.074861"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          "mesh": "data/meshes/PuertaA.mesh"
           ,
           "materials":
           [
@@ -552,7 +552,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+        "mesh_src": "data/meshes/PuertaA.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -571,7 +571,7 @@
       ,
       "transform":
       {
-        "pos": "26.8535 51.6346 15.6878"
+        "pos": "26.8971 51.6346 15.7102"
         ,
         "rotation": "0.0 0.234898 0.0 -0.97202"
       }
@@ -579,11 +579,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          "mesh": "data/meshes/Puerta_Reja.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_Cerrada_01.material"
+            "data/materials/RejaMate.material"
           ]
         }
       ]
@@ -596,7 +596,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+        "mesh_src": "data/meshes/Puerta_Reja.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -615,19 +615,19 @@
       ,
       "transform":
       {
-        "pos": "8.43416 33.6817 29.9346"
+        "pos": "8.46461 33.6817 30.0161"
         ,
-        "rotation": "0.0 -0.177992 0.0 -0.984032"
+        "rotation": "0.0 0.569956 0.0 -0.821675"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          "mesh": "data/meshes/Puerta_Reja.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_Cerrada_01.material"
+            "data/materials/RejaMate.material"
           ]
         }
       ]
@@ -640,7 +640,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+        "mesh_src": "data/meshes/Puerta_Reja.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -747,15 +747,13 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Dragon01.mesh"
+          "mesh": "data/meshes/CabezaDragon.mesh"
           ,
           "materials":
           [
-            "data/materials/CabezaDragonCabezaMat.material"
+            "data/materials/DragonMate.material"
             ,
-            "data/materials/CabezaDragonColmillosMat.material"
-            ,
-            "data/materials/CabezaDragonAdornoMat.material"
+            "data/materials/ColmilloMate.material"
           ]
         }
       ]

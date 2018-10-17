@@ -14,11 +14,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Sierra003.mesh"
+          "mesh": "data/meshes/SierraOrbital.mesh"
           ,
           "materials":
           [
-            "data/materials/SierraLinealMat.material"
+            "data/materials/SierraMat.material"
           ]
         }
       ]
@@ -99,7 +99,7 @@
         ,
         "is_trigger": true
         ,
-        "mesh_src": "data/meshes/Sierra004.col_mesh"
+        "mesh_src": "data/meshes/SierraOrbital.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -121,11 +121,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Sierra003.mesh"
+          "mesh": "data/meshes/SierraOrbital.mesh"
           ,
           "materials":
           [
-            "data/materials/SierraLinealMat.material"
+            "data/materials/SierraMat.material"
           ]
         }
       ]
@@ -206,7 +206,7 @@
         ,
         "is_trigger": true
         ,
-        "mesh_src": "data/meshes/Sierra004.col_mesh"
+        "mesh_src": "data/meshes/SierraOrbital.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -228,11 +228,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Sierra003.mesh"
+          "mesh": "data/meshes/SierraOrbital.mesh"
           ,
           "materials":
           [
-            "data/materials/SierraLinealMat.material"
+            "data/materials/SierraMat.material"
           ]
         }
       ]
@@ -313,7 +313,7 @@
         ,
         "is_trigger": true
         ,
-        "mesh_src": "data/meshes/Sierra004.col_mesh"
+        "mesh_src": "data/meshes/SierraOrbital.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -442,13 +442,13 @@
       {
         "pos": "-29.1321 22.5 -8.91518"
         ,
-        "rotation": "0.0 0.0 0.0 -1.0"
+        "rotation": "0.0 0.155887 0.0 -0.987775"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Abatible_Madera_01.mesh"
+          "mesh": "data/meshes/PuertaA.mesh"
           ,
           "materials":
           [
@@ -465,7 +465,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Puerta_Abatible_Madera_01.col_mesh"
+        "mesh_src": "data/meshes/PuertaA.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -641,11 +641,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Sierra006.mesh"
+          "mesh": "data/meshes/SierraLineal.mesh"
           ,
           "materials":
           [
-            "data/materials/SierraLinealMat.material"
+            "data/materials/SierraMat.material"
           ]
         }
       ]
@@ -695,7 +695,7 @@
         ,
         "is_trigger": true
         ,
-        "mesh_src": "data/meshes/Sierra006.col_mesh"
+        "mesh_src": "data/meshes/SierraLineal.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -717,11 +717,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Sierra006.mesh"
+          "mesh": "data/meshes/SierraLineal.mesh"
           ,
           "materials":
           [
-            "data/materials/SierraLinealMat.material"
+            "data/materials/SierraMat.material"
           ]
         }
       ]
@@ -771,7 +771,7 @@
         ,
         "is_trigger": true
         ,
-        "mesh_src": "data/meshes/Sierra006.col_mesh"
+        "mesh_src": "data/meshes/SierraLineal.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -804,11 +804,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Cut_door_up.mesh"
+          "mesh": "data/meshes/PuertaCortante_Up.mesh"
           ,
           "materials":
           [
-            "data/materials/PuertaM.material"
+            "data/materials/cut_door_up_mat.material"
           ]
         }
       ]
@@ -855,11 +855,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Cut_door_down.mesh"
+          "mesh": "data/meshes/PuertaCortante_Down.mesh"
           ,
           "materials":
           [
-            "data/materials/PuertaM.material"
+            "data/materials/cut_door_down_mat.material"
           ]
         }
       ]

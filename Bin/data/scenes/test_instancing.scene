@@ -123,9 +123,26 @@
       },
       "render" : [
         {
-          "mesh": "data/meshes/particles_3_azul_apagando.instanced_mesh",
+          "mesh": "data/meshes/particles_4_azul_apagando.instanced_mesh",
           "materials": [
             "data/materials/particles_fire_instanced_azul_apagando.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity": {
+      "name": "Instanced Smoke azul prendiendo",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/particles_4_smoke_prendiendo.instanced_mesh",
+          "materials": [
+            "data/materials/particles_smoke_instanced_azul_prendiendo.material"
           ]
         }
       ]
@@ -174,6 +191,22 @@
           "mesh": "data/meshes/particles_thin_14.instanced_mesh",
           "materials": [
             "data/materials/particles_thin_smoke_instanced_14.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "Instanced Smoke prendiendo",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/smoke_4_prendiendo.instanced_mesh",
+          "materials": [
+            "data/materials/particles_4_smoke_prendiendo.material"
           ]
         }
       ]

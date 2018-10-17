@@ -49,7 +49,7 @@ bool CModuleLevel1::start()
 	if (!cb_particles.create(CB_PARTICLE))
 		return false;
 
-	cb_globals.global_exposure_adjustment = 0.1f;
+	cb_globals.global_exposure_adjustment = 0.440f;
 	cb_globals.global_ambient_adjustment = 1.f;
 	//cb_globals.global_exposure_adjustment = 2.010f;
 	//cb_globals.global_ambient_adjustment = 0.150f;
@@ -70,6 +70,9 @@ bool CModuleLevel1::start()
 
 	cb_globals.global_bandMin_adjustment = 0.f;
 	cb_globals.global_bandMax_adjustment = 0.f;
+
+	cb_globals.global_fog_percentage_horizontal = 0.15f;
+	cb_globals.global_fog_percentage_vertical = 0.15f;
 
 	cb_light.activate();
 	cb_object.activate();

@@ -151,6 +151,8 @@ void CModuleRender::render()
 		ImGui::DragFloat("Contrast", &cb_globals.global_contrast_adjustment, 0.005f, 0.0f, 1.f);
 		ImGui::DragFloat("Vignetting", &cb_globals.global_vignetting_adjustment, 0.005f, 0.0f, 1.f);
 		ImGui::DragFloat("Fog Density", &cb_globals.global_fogDensity_adjustment, 0.0001f, 0.0f, 0.15f);
+		ImGui::DragFloat("Fog Horizontal", &cb_globals.global_fog_percentage_horizontal, 0.01f, 0.0f, 1.f);
+		ImGui::DragFloat("Fog Vertical", &cb_globals.global_fog_percentage_vertical, 0.01f, 0.0f, 1.f);
 		ImGui::DragFloat("Band Up", &cb_globals.global_bandMax_adjustment, 0.01f, 0.0f, 0.15f);
 		ImGui::DragFloat("Band Down", &cb_globals.global_bandMin_adjustment, 0.01f, 0.0f, 0.15f);
 		//ImGui::DragFloat("Saturation", &cb_globals.global_saturation_adjustment, 0.01f, -100.f, 100.f);
@@ -164,6 +166,9 @@ void CModuleRender::render()
 
 			cb_globals.global_bandMin_adjustment = 0.f;
 			cb_globals.global_bandMax_adjustment = 0.f;
+
+			cb_globals.global_fog_percentage_horizontal = 0.15f;
+			cb_globals.global_fog_percentage_vertical = 0.15f;
 		}
 
 		// Must be in the same order as the RO_* ctes
@@ -206,7 +211,9 @@ void CModuleRender::activateMainCamera() {
 	CCamera* cam = &camera;
 
 	// Find the entity with name 'the_camera'
-	h_e_camera = getEntityByName("camera_orbit_IZQ");
+	h_e_camera = EngineCameras.getOutputCamera();
+	//h_e_camera = EngineCameras.getActiveCamera();
+	//h_e_camera = getEntityByName("camera_orbit_IZQ");
 	if (h_e_camera.isValid()) {
 		CEntity* e_camera = h_e_camera;
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
@@ -248,10 +255,18 @@ void CModuleRender::generateFrame() {
 		deferred.render(rt_main, h_e_camera);
 
 		//CRenderManager::get().renderCategory("cell");
+		//CRenderManager::get().renderCategory("particles");
 
-		CRenderManager::get().renderCategory("alpha");
+		//CRenderManager::get().renderCategory("particles");
 
-		CRenderManager::get().renderCategory("opacity");
+		TCompCulling* culling;
+		CEntity* e = EngineCameras.getActiveCamera();
+		culling = e->get<TCompCulling>();
+		assert(culling);
+
+		CRenderManager::get().renderCategory("alpha", culling);
+
+		CRenderManager::get().renderCategory("opacity", culling);
 
 		//CRenderManager::get().renderCategory("distorsions");
 
@@ -296,8 +311,8 @@ void CModuleRender::generateFrame() {
 
 		renderFullScreenQuad("dump_texture.tech", curr_rt);
 
-		CRenderManager::get().renderCategory("particles");
-		CRenderManager::get().renderCategory("particlesA");
+		CRenderManager::get().renderCategory("particles", culling);
+		CRenderManager::get().renderCategory("particlesA", culling);
 		// Debug render
 		{
 			PROFILE_FUNCTION("Modules");
@@ -307,7 +322,7 @@ void CModuleRender::generateFrame() {
 	}
 
 	{
-		CEntity* e_camera = getEntityByName("camera_orbit_IZQ");
+		CEntity* e_camera = EngineCameras.getActiveCamera();
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
 		CCamera* cam = c_camera;
 		activateCamera(*cam, Render.width, Render.height);

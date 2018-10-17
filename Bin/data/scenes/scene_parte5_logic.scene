@@ -386,15 +386,13 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Dragon01.mesh"
+          "mesh": "data/meshes/CabezaDragon.mesh"
           ,
           "materials":
           [
-            "data/materials/CabezaDragonCabezaMat.material"
+            "data/materials/DragonMate.material"
             ,
-            "data/materials/CabezaDragonColmillosMat.material"
-            ,
-            "data/materials/CabezaDragonAdornoMat.material"
+            "data/materials/ColmilloMate.material"
           ]
         }
       ]

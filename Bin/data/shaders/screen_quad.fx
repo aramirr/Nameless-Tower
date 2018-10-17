@@ -23,8 +23,8 @@ VS_FULL_OUTPUT VS(
 float4 PS(
   VS_FULL_OUTPUT input
   ) : SV_Target
-{
+{ 
     float4 self_illum = txSelfIllum.Sample(samLinear, input.UV);
-    float4 oDiffuse = txAlbedo.Sample(samLinear, input.UV) + self_illum;
-    return float4(postprocesado(oDiffuse.rgb, input.UV, input.Pos), oDiffuse.a);
+    float4 oDiffuse = txAlbedo.Sample(samLinear, input.UV) /*+ self_illum*/;
+    return oDiffuse; //float4(postprocesado(oDiffuse.rgb, input.UV, input.Pos), oDiffuse.a);
 }

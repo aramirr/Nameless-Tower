@@ -126,6 +126,41 @@
 	},
 	{
 		"entity": {
+			"name": "camara_cinematica_inicial",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+		    "culling":true,
+			"hierarchy":
+		      {
+		        "parent": "cinematica_inicial_curve"
+		      }		
+		}
+	},
+	{
+		"entity": {
+			"name": "cinematica_inicial_curve",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"
+			},
+			"curve_controller" :
+			{
+				"curve" : "data/curves/CamaraIntro.curve",
+				"speed" : 0.25,
+				"target": "The Player",
+				"loop": false,
+				"automove": false
+			},
+			"render" : {}
+		}
+	},
+	{
+		"entity": {
 			"name": "cinematica_inicial",
 			"transform": {
 				"pos": "0 0 0",

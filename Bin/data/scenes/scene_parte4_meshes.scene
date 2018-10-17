@@ -2,11 +2,39 @@
   {
     "entity":
     {
+      "name": "BordesParte3F"
+      ,
+      "transform":
+      {
+        "pos": "23.7093 81.0087 -21.4718"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte3F.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "ParedExteriorParte4B"
       ,
       "transform":
       {
-        "pos": "1.54663 94.5 -30.5999"
+        "pos": "1.54661 94.5 -30.5999"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -80,6 +108,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -846,7 +876,7 @@
       ,
       "transform":
       {
-        "pos": "23.7093 92.2587 -21.4718"
+        "pos": "23.7093 96.7587 -21.4718"
         ,
         "rotation": "0.0 0.84058 0.0 -0.541687"
       }

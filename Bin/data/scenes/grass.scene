@@ -7,312 +7,141 @@
       },
       "render": []
       ,
-      "comp_grass": { 
+      "comp_grass": [
+        { 
         "total": 4000,
         "pos1": "-5.640 4.5 -30.991",
         "pos2": "12.520 4.5 -28.906",
         "radius1": 25.49,
         "radius2": 30.83
-      }
-    }
-  },
-  {
-    "entity": {
-      "name": "Grass2-1",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
         "total": 400,
         "pos1": "-12.588 4.5 -28.875",
         "pos2": "-10.713 4.5 -29.622",
         "radius1": 25.49,
         "radius2": 30.83
-      }
-    }
-  },
-  {
-    "entity": {
-      "name": "Grass2-2",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
         "total": 400,
         "pos2": "-10.713 4.5 -29.622",
         "pos1": "-17.85 4.5 -24.76",
         "radius1": 29.98,
         "radius2": 31.07
-      }
-    }
-  },
-  {
-    "entity": {
-      "name": "Grass2-3",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
         "total": 400,
         "pos2": "-17.85 4.5 -24.76",
         "pos1": "-22.75 4.5 -20.45",
         "radius1": 29.98,
         "radius2": 31.07
-      }
-    }
-  },
-  {
-    "entity": {
-      "name": "Grass2-4",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
         "total": 400,
         "pos2": "-22.75 4.5 -20.45",
         "pos1": "-24.94 4.5 -19.13",
         "radius1": 29.98,
         "radius2": 31.07
-      }
-    }
-  },
-  {
-    "entity": {
-      "name": "Grass3",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
         "total": 400,
         "pos2": "-27.04 4.5 -14.5",
         "pos1": "-28.81 4.5 -10.22",
         "radius1": 29.98,
         "radius2": 30.83
-      }
-    }
-  },
-  {
-    "entity": {
-      "name": "Grass4-1",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
         "total": 400,
         "pos2": "-30.17 4.5 -5.49",
         "pos1": "-30.94 4.5 2.51 ",
         "radius1": 29.98,
         "radius2": 30.83
-      }
-    }
-  },
-  {
-    "entity": {
-      "name": "Grass4-2",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
         "total": 400,
         "pos2": "-31.20 4.5 7.54",
         "pos1": "-29.12 4.5 12.96",
         "radius1": 28,
         "radius2": 32.29
-      }
-    }
-  }
-  ,
-  {
-    "entity": {
-      "name": "PlaneGrass5-1",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
+        "total": 400,
+        "pos2": "-31.20 4.5 7.54",
+        "pos1": "-29.12 4.5 12.96",
+        "radius1": 28,
+        "radius2": 32.29
+        },
+        {
         "total": 2500,
         "pos1": "31.351 31.5 -3.063",
         "pos2": "30.877 31.5 6.236",
         "radius1": 28.11,
         "radius2": 32.29
-      }
-    }
-  }
-  ,
-  {
-    "entity": {
-      "name": "PlaneGrass5-2",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
         "total": 800,
         "pos2": "27.99 36 9.98",
         "pos1": "28.6 36 6.75",
         "radius1": 26.71,
         "radius2": 32.29
-      }
-    }
-  }
-  ,
-  {
-    "entity": {
-      "name": "PlaneGrass5-3",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
         "total": 800,
         "pos2": "31.275 40.5 -3.04",
         "pos1": "29.304 40.5 -9.914",
         "radius1": 27.5,
         "radius2": 32.29
-      }
-    }
-  }
-  ,
-  {
-    "entity": {
-      "name": "PlaneGrass5-4",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
         "total": 800,
         "pos2": "27.56 45 12.42",
         "pos1": "28.20 45 10.04",
         "radius1": 25.64,
         "radius2": 32.29
-      }
-    }
-  }
-  ,
-  {
-    "entity": {
-      "name": "PlaneGrass6-1",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
         "total": 800,
         "pos2": "8.80 49.5 30.0",
         "pos1": "15.50 49.5 27.5",
         "radius1": 27.49,
         "radius2": 32.34
-      }
-    }
-  }
-  ,
-  {
-    "entity": {
-      "name": "PlaneGrass6-2",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
         "total": 800,
         "pos2": "22.74 36 20.47",
         "pos1": "28.23 36 12.46",
         "radius1": 27.44,
         "radius2": 32.34
-      }
-    }
-  }
-  ,
-  {
-    "entity": {
-      "name": "PlaneGrass6-3",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
         "total": 800,
         "pos2": "15.50 31.5 26.92",
         "pos1": "22.72 31.5 20.32",
         "radius1": 29.28,
         "radius2": 30.61
-      }
-    }
-  }
-  ,
-  {
-    "entity": {
-      "name": "PlaneGrass7-1",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
         "total": 800,
         "pos2": "22.16 63 -21.44",
         "pos1": "14.54 63 -27.49",
         "radius1": 29.97,
         "radius2": 32.16
-      }
-    }
-  }
-  ,
-  {
-    "entity": {
-      "name": "PlaneGrass7-2",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
         "total": 800,
         "pos2": "30.39 76.5 3.31",
         "pos1": "30.64 76.5 -6.59",
         "radius1": 29.97,
         "radius2": 32.16
-      }
-    }
-  }
-  ,
-  {
-    "entity": {
-      "name": "PlaneGrass7-3",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "render": []
-      ,
-      "comp_grass": { 
+        },
+        {
         "total": 800,
         "pos2": "30.38 85.5 -3.26",
         "pos1": "30.20 85.5 -6.36",
         "radius1": 29.97,
         "radius2": 32.16
-      }
+        }
+      ]
     }
   }
 ]

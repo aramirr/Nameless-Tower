@@ -2,6 +2,146 @@
   {
     "entity":
     {
+      "name": "BordesParte1C"
+      ,
+      "transform":
+      {
+        "pos": "-13.1423 18.0087 -29.334"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte1C.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte1J"
+      ,
+      "transform":
+      {
+        "pos": "-28.2489 29.25 14.3683"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte1J.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte1I"
+      ,
+      "transform":
+      {
+        "pos": "-31.9538 15.75 -5.22015"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte1I.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte1H"
+      ,
+      "transform":
+      {
+        "pos": "-30.6057 2.24996 1.64602"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte1H.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte1G"
+      ,
+      "transform":
+      {
+        "pos": "1.54667 2.24996 -30.6"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte1G.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "CaretaSala"
       ,
       "transform":
@@ -90,7 +230,7 @@
       ,
       "transform":
       {
-        "pos": "-27.8546 29.25 5.94458"
+        "pos": "-31.6385 31.5 -1.61766"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -230,9 +370,9 @@
       ,
       "transform":
       {
-        "pos": "8.17115 6.98167 -28.1694"
+        "pos": "7.90591 6.98167 -27.9208"
         ,
-        "rotation": "0.0 -0.471622 0.0 -0.881801"
+        "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
       "render":
@@ -276,6 +416,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -304,6 +446,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -332,6 +476,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -578,7 +724,7 @@
           ,
           "materials":
           [
-            "data/materials/Pared_Ladrillo_01.material"
+            "data/materials/ParedLadrillosMat.material"
           ]
         }
       ]
@@ -622,7 +768,7 @@
       ,
       "transform":
       {
-        "pos": "6.11783 8.99996 -28.2913"
+        "pos": "11.3804 11.25 -29.0378"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -2190,7 +2336,7 @@
   {
     "entity":
     {
-      "name": "puerta piedra002"
+      "name": "puerta piedra003"
       ,
       "transform":
       {
@@ -2202,7 +2348,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/puerta piedra002.mesh"
+          "mesh": "data/meshes/puerta piedra003.mesh"
           ,
           "materials":
           [
@@ -2686,7 +2832,7 @@
           ,
           "materials":
           [
-            "data/materials/Pared_Ladrillo_01.material"
+            "data/materials/ParedLadrillosMat.material"
           ]
         }
       ]
@@ -2910,7 +3056,7 @@
           ,
           "materials":
           [
-            "data/materials/Pared_Ladrillo_01.material"
+            "data/materials/ParedLadrillosMat.material"
           ]
         }
       ]
@@ -2926,7 +3072,7 @@
       ,
       "transform":
       {
-        "pos": "0.0864859 15.7528 -29.2624"
+        "pos": "13.4821 11.2468 -28.9598"
         ,
         "rotation": "0.0 0.84058 0.0 -0.541687"
       }
@@ -2954,7 +3100,7 @@
       ,
       "transform":
       {
-        "pos": "-27.8546 11.25 5.94458"
+        "pos": "-27.1667 11.25 17.616"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
