@@ -211,7 +211,9 @@ void CModuleRender::activateMainCamera() {
 	CCamera* cam = &camera;
 
 	// Find the entity with name 'the_camera'
-	h_e_camera = EngineCameras.getActiveCamera();
+	h_e_camera = EngineCameras.getOutputCamera();
+	//h_e_camera = EngineCameras.getActiveCamera();
+	//h_e_camera = getEntityByName("camera_orbit_IZQ");
 	if (h_e_camera.isValid()) {
 		CEntity* e_camera = h_e_camera;
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
@@ -258,7 +260,7 @@ void CModuleRender::generateFrame() {
 		//CRenderManager::get().renderCategory("particles");
 
 		TCompCulling* culling;
-		CEntity* e = h_e_camera;
+		CEntity* e = EngineCameras.getActiveCamera();
 		culling = e->get<TCompCulling>();
 		assert(culling);
 

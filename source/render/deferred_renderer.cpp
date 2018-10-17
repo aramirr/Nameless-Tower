@@ -57,7 +57,7 @@ void CDeferredRenderer::renderGBuffer(CHandle h_camera) {
 	Render.ctx->ClearDepthStencilView(rt_acc_light->getDepthStencilView(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
 	TCompCulling* culling;
-	CEntity* e = h_camera;
+	CEntity* e = EngineCameras.getActiveCamera();  // EDU: Realmente deberia ser "CEntity* e = h_camera;". Pero por otro erro se pone asi para no perder los BlendIn y Out
 	culling = e->get<TCompCulling>();
 	assert(culling);
 
