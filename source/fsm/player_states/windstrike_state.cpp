@@ -42,6 +42,7 @@ namespace FSM
         _sound->start();  
         TCompSound* sound = e->get<TCompSound>();
         sound->playSound("windstrike");
+        sound->playSound("action");
 	}
 	
 	bool WindstrikeState::load(const json& jData)

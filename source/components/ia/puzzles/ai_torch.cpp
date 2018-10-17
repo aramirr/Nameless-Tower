@@ -128,6 +128,7 @@ void CAITorch::activate() {
 	active = true;
     render = true;    
     apagando = false;
+    EngineSound.emitEvent("fire");
 	TCompTransform* my_transform = getMyTransform();
     if (violeta)
         EngineBillboards.encenderFuegoVioleta(id, scale, thin);

@@ -69,7 +69,7 @@ void CAIDestroyable::TriggerDestroyState(float dt)
     acum_time += DT;
     if (acum_time >= destroy_time)
     {
-			  recovering = true;
+		recovering = true;
         acum_time = 0;
         //has_mesh = change_mesh(1);
 				//CEntity* entity = CHandle(this).getOwner();
@@ -77,6 +77,8 @@ void CAIDestroyable::TriggerDestroyState(float dt)
 					CEntity* entity = (CEntity*)getEntityByName(sons[i]);
 					TMsgActivateAnim msg;
 					entity->sendMsg(msg);
+                    TMsgPlaySound msg1;
+                    entity->sendMsg(msg1);
 				}
 				
         ChangeState("transition_destroy");

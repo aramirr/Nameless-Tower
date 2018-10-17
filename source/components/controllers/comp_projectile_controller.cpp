@@ -34,6 +34,9 @@ void TCompProjectileController::update(float dt) {
 			if (parseScene("data/prefabs/projectile.prefab", ctx)) {
 				assert(!ctx.entities_loaded.empty());
 			}
+            CEntity* e = CHandle(this).getOwner();
+            TMsgPlaySound msg;
+            e->sendMsg(msg);            
 			current_interval = 0;
 		}
 	}	
