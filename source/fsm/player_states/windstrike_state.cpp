@@ -32,12 +32,12 @@ namespace FSM
 		}
 		player->change_animation(player->EAnimations::NajaWindstrikeA, _is_action, _delay_in, _delay_out, true);
 
-		CEntity* trail = (CEntity *)getEntityByName("windstrike_trail");
+		/*CEntity* trail = (CEntity *)getEntityByName("windstrike_trail");
 		if (trail)
 		{
 			TCompParticles* particle = (TCompParticles*)trail->get<TCompParticles>();
 			particle->_core->life.maxParticles = 200;
-		}
+		}*/
         _sound->start();
 	}
 	
