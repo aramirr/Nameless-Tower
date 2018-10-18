@@ -338,7 +338,12 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+      "sound": {
+          "events": [
+            {"name": "windstrike", "src": "event:/SFX/Object/Mechanics/Wind_currents", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
   ,

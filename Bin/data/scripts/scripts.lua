@@ -41,7 +41,6 @@ end
 function OnWindstrikeActivateTDWindstrike()
 	lm:open_door("Puerta_Abatible_Madera_01")
 	lm:play_positional_sound("puerta_madera", "Puerta_Abatible_Madera_01")
-	lm:play_sound(true, "puerta_madera")
 end
 
 function OnWindstrikeActivateTDEscaleras2()
@@ -80,6 +79,15 @@ function OnWindstrikeActivateTARunner()
 	lm:activate_anim("Activador_Movil01")
 	lm:play_positional_sound("activador_movil", "Activador_Movil01")
 	lm:play_positional_sound("puerta_reja", "Puerta_Reja_02")
+end
+
+-- Puzzle antorchas
+function OnTriggerExitTSRejaAntorchas()
+	lm:activate_torch("TFAntorcha1")
+	lm:activate_torch("TFAntorcha02")
+	lm:activate_torch("TFAntorcha03")
+	lm:close_door("Puerta_Reja_02")
+	lm:scare_player()
 end
 
 
@@ -703,16 +711,6 @@ function OnTriggerExitTSJardinRunner()
 	lm:set_point_light_intensity("Luces_Fuego_09", 10, false)
 	lm:set_point_light_intensity("Luces_Fuego_010", 10, false)
 	--lm:stop_emiter("hojas_jardin_2", false)
-end
-
--- Puzzle antorchas
-function OnTriggerExitTSRejaAntorchas()
-	lm:activate_torch("TFAntorcha1")
-	lm:activate_torch("TFAntorcha02")
-	lm:activate_torch("TFAntorcha03")
-	lm:close_door("Puerta_Reja_02")
-	lm:play_sound("puerta_reja_golpe")
-	lm:scare_player()
 end
 
 function OnTriggerExitTSRunnerLava()

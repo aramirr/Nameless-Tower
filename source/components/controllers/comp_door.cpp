@@ -5,6 +5,7 @@
 #include "components/physics/controller_filter.h"
 #include "components/physics/query_filter.h"
 #include "components/juan/comp_father.h"
+#include "components/sound/comp_sound.h"
 
 using namespace physx;
 
@@ -127,8 +128,13 @@ void TCompDoor::open(const TMsgOpenDoor& msg)
 
 void TCompDoor::close(const TMsgCloseDoor& msg)
 {
+    if (!closing && !is_closed) {
+        TCompSound* sound = get<TCompSound>();
+        sound->playSound("sound");
+    }
     closing = true;
 }
+
 void TCompDoor::registerMsgs() {
     DECL_MSG(TCompDoor, TMsgOpenDoor, open);
     DECL_MSG(TCompDoor, TMsgCloseDoor, close);
