@@ -35,6 +35,8 @@ function OnLevel2Start()
 	lm:set_dir_light_intensity("LightDir03", 0, false)	
 	lm:set_dir_light_intensity("LightDir13", 10, false)	
 	lm:set_dir_light_intensity("LightDir14", 10, false)	
+	lm:set_point_light_intensity("Luces_Fuego_011", 10, false)
+	lm:set_point_light_intensity("Luces_Fuego_012", 10, false)
 
 end
 

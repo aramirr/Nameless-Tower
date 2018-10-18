@@ -1,0 +1,28 @@
+[		
+	{
+		"entity": {
+			"name": "particulas_top_cascada",
+			"transform": {
+				"pos": "19.143 94.038 -8.950"
+			},
+			"particles" : {
+				"core" : "data/particles/ceniza_lava.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "cannon_p_cascada",
+			"transform": {},
+			"hierarchy": {
+				"axis": "0 1 0", 
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "particulas_top_cascada"
+			},
+			"render" : {
+				"mesh" : "axis.mesh"
+			}
+		}
+	}
+]

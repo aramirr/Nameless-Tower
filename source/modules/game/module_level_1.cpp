@@ -96,6 +96,7 @@ bool CModuleLevel1::stop()
     deleteScene("data/scenes/lights.scene", ctx);
     deleteScene("data/scenes/scene_luces.scene", ctx);
     deleteScene("data/scenes/compresoras.scene", ctx);
+    deleteScene("data/scenes/spline_elements.scene", ctx);
     deleteScene("data/scenes/scene_parte1_colltrig.scene", ctx);
     deleteScene("data/scenes/scene_parte1_logic.scene", ctx);
     deleteScene("data/scenes/scene_parte1_meshes.scene", ctx);
