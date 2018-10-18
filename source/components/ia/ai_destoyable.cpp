@@ -79,8 +79,9 @@ void CAIDestroyable::TriggerDestroyState(float dt)
 					TMsgActivateAnim msg;
 					entity->sendMsg(msg);                    
 				}
-        TCompSound* sound = get<TCompSound>();
-        sound->playSound("sound");
+        TMsgPlaySound msg;
+        CEntity* e = h_entity;
+        e->sendMsg(msg);
         ChangeState("transition_destroy");
     }
 }
@@ -92,6 +93,7 @@ void CAIDestroyable::TransitionDestroyState(float dt)
     if (!mypos) {
         return;
     }
+    
     current_pos = mypos->getPosition();
 
     if (!has_mesh)
@@ -106,16 +108,19 @@ void CAIDestroyable::TransitionDestroyState(float dt)
         tr.p = PxVec3(0, 0, 0);
         rigidActor->setGlobalPose(tr);
     }
-    ChangeState("destroy");
+    ChangeState("destroy");   
 }
 
 void CAIDestroyable::DestroyState(float dt)
-{
+{        
+    
     acum_time += DT;
     if (acum_time >= recover_time)
     {
         acum_time = 0;
-
+        TMsgPlaySound msg;
+        CEntity* e = h_entity;
+        e->sendMsg(msg);
         TCompTransform *mypos = getMyTransform();
         if (!mypos) {
             return;
