@@ -21,43 +21,13 @@
             "data/materials/EngraneMat.material"
           ]
         }
-      ]
-      ,
-      "ai_rotator":
-      {
-        "configs":
-        [
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": true
-          }
-          ,
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": false
-          }
-        ]
-      }
+      ]      
       ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "X"
+        "eje": "Z"
       }
     }
   }
@@ -84,43 +54,13 @@
             "data/materials/EngraneMat.material"
           ]
         }
-      ]
-      ,
-      "ai_rotator":
-      {
-        "configs":
-        [
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": true
-          }
-          ,
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": false
-          }
-        ]
-      }
+      ]     
       ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "X"
+        "eje": "z"
       }
     }
   }
@@ -149,41 +89,11 @@
         }
       ]
       ,
-      "ai_rotator":
-      {
-        "configs":
-        [
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": true
-          }
-          ,
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": false
-          }
-        ]
-      }
-      ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "X"
+        "eje": "Z"
       }
     }
   }
@@ -212,41 +122,11 @@
         }
       ]
       ,
-      "ai_rotator":
-      {
-        "configs":
-        [
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": true
-          }
-          ,
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": false
-          }
-        ]
-      }
-      ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "X"
+        "eje": "z"
       }
     }
   }
@@ -273,43 +153,13 @@
             "data/materials/EngraneMat.material"
           ]
         }
-      ]
-      ,
-      "ai_rotator":
-      {
-        "configs":
-        [
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": true
-          }
-          ,
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": false
-          }
-        ]
-      }
+      ]      
       ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "X"
+        "eje": "Z"
       }
     }
   }
@@ -336,43 +186,14 @@
             "data/materials/EngraneMat.material"
           ]
         }
-      ]
-      ,
-      "ai_rotator":
-      {
-        "configs":
-        [
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": true
-          }
-          ,
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": false
-          }
-        ]
-      }
+      ]      
+     
       ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "X"
+        "eje": "z"
       }
     }
   }

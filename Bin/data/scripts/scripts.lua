@@ -711,6 +711,7 @@ function OnTriggerExitTSRejaAntorchas()
 	lm:activate_torch("TFAntorcha02")
 	lm:activate_torch("TFAntorcha03")
 	lm:close_door("Puerta_Reja_02")
+	lm:play_sound("puerta_reja_golpe")
 	lm:scare_player()
 end
 
