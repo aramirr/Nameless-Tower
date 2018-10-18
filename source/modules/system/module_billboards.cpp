@@ -104,7 +104,7 @@ void CModuleBillboards::apagarFuegoAzul(int id, float scale, VEC3 position, floa
             humo_prendiendo_instance.scale_x = scale;
             humo_prendiendo_instance.scale_y = humo_prendiendo_instance.scale_x;
             humo_prendiendo_instance.pos = position + VEC3(0.1, y_offset, 0);
-            humo_prendiendo_instance.nframe = 1.f;
+            humo_prendiendo_instance.nframe = 0;
             humo_prendiendo_instance.angle = deg2rad(randomFloat(0, 360));
             humo_prendiendo_instance.color.x = unitRandom();
             humo_prendiendo_instance.color.y = unitRandom();
@@ -133,7 +133,7 @@ void CModuleBillboards::apagandoFuegoAzul(int id, float scale, VEC3 position, fl
             fire_apagando_instance.scale_x = scale;
             fire_apagando_instance.scale_y = fire_apagando_instance.scale_x;
             fire_apagando_instance.pos = position;
-            fire_apagando_instance.nframe = 1.f;
+            fire_apagando_instance.nframe = 0;
             fire_apagando_instance.angle = deg2rad(randomFloat(0, 360));
             fire_apagando_instance.color.x = unitRandom();
             fire_apagando_instance.color.y = unitRandom();
@@ -155,7 +155,7 @@ void CModuleBillboards::prendiendoHumo(int id, float scale, VEC3 position, float
             smoke_instance.scale_x = scale;
             smoke_instance.scale_y = smoke_instance.scale_x;
             smoke_instance.pos = position + VEC3(0, y_offset, 0);
-            smoke_instance.nframe = 1.f;
+            smoke_instance.nframe = 0;
             smoke_instance.angle = deg2rad(randomFloat(0, 360));
             smoke_instance.color.x = unitRandom();
             smoke_instance.color.y = unitRandom();

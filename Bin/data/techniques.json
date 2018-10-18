@@ -292,6 +292,13 @@
     "blend": "combinative",
     "z": "test_but_no_write"
   },
+  "particles2": {
+    "vs_file": "data/shaders/particlesNoBucle.fx",
+    "vertex_type": "Pos_x_RenderParticle",
+    "category": "particles",
+    "blend": "combinative",
+    "z": "test_but_no_write"
+  },
   "particles_14": {
     "vs_file": "data/shaders/particles_14.fx",
     "vertex_type": "Pos_x_RenderParticle",
