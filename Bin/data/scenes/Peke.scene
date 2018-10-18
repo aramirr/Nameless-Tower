@@ -1,0 +1,310 @@
+[
+	{
+		"entity": {
+			"name": "Peke1",
+			"skeleton": {
+        		"skeleton": "data/skeletons/Peke/Peke.skeleton"
+      		},
+      		"render" : [
+		        {
+		          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/PekeCuerpoMat.material"
+		          ]
+		        },
+		        {
+		          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/PekeCabezaMat.material"
+		          ]
+		        }
+      		]
+			, 
+			"transform": {
+				"pos": "0 0 0",
+				"front": "1 0 0"
+			}
+			,
+		    "collider": {
+				"shape": "capsule",
+				"is_character_controller": true
+				,
+				"radius": 0.8
+				,
+				"height": 1.5
+				,
+				"is_dynamic": false
+				,
+				"is_trigger": false
+		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "Peke2",
+			"skeleton": {
+        		"skeleton": "data/skeletons/Peke/Peke.skeleton"
+      		},
+      		"render" : [
+		        {
+		          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/PekeCuerpoMat.material"
+		          ]
+		        },
+		        {
+		          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/PekeCabezaMat.material"
+		          ]
+		        }
+      		]
+			, 
+			"transform": {
+				"pos": "1 0 0",
+				"front": "1 0 0"
+			}
+			,
+		    "collider": {
+				"shape": "capsule",
+				"is_character_controller": true
+				,
+				"radius": 0.8
+				,
+				"height": 1.5
+				,
+				"is_dynamic": false
+				,
+				"is_trigger": false
+		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "Peke3",
+			"skeleton": {
+        		"skeleton": "data/skeletons/Peke/Peke.skeleton"
+      		},
+      		"render" : [
+		        {
+		          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/PekeCuerpoMat.material"
+		          ]
+		        },
+		        {
+		          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/PekeCabezaMat.material"
+		          ]
+		        }
+      		]
+			, 
+			"transform": {
+				"pos": "2 0 0",
+				"front": "1 0 0"
+			}
+			,
+		    "collider": {
+				"shape": "capsule",
+				"is_character_controller": true
+				,
+				"radius": 0.8
+				,
+				"height": 1.5
+				,
+				"is_dynamic": false
+				,
+				"is_trigger": false
+		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "Peke4",
+			"skeleton": {
+        		"skeleton": "data/skeletons/Peke/Peke.skeleton"
+      		},
+      		"render" : [
+		        {
+		          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/PekeCuerpoMat.material"
+		          ]
+		        },
+		        {
+		          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/PekeCabezaMat.material"
+		          ]
+		        }
+      		]
+			, 
+			"transform": {
+				"pos": "3 0 0",
+				"front": "1 0 0"
+			}
+			,
+		    "collider": {
+				"shape": "capsule",
+				"is_character_controller": true
+				,
+				"radius": 0.8
+				,
+				"height": 1.5
+				,
+				"is_dynamic": false
+				,
+				"is_trigger": false
+		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "Peke5",
+			"skeleton": {
+        		"skeleton": "data/skeletons/Peke/Peke.skeleton"
+      		},
+      		"render" : [
+		        {
+		          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/PekeCuerpoMat.material"
+		          ]
+		        },
+		        {
+		          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/PekeCabezaMat.material"
+		          ]
+		        }
+      		]
+			, 
+			"transform": {
+				"pos": "4 0 0",
+				"front": "1 0 0"
+			}
+			,
+		    "collider": {
+				"shape": "capsule",
+				"is_character_controller": true
+				,
+				"radius": 0.8
+				,
+				"height": 1.5
+				,
+				"is_dynamic": false
+				,
+				"is_trigger": false
+		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "Peke6",
+			"skeleton": {
+        		"skeleton": "data/skeletons/Peke/Peke.skeleton"
+      		},
+      		"render" : [
+		        {
+		          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/PekeCuerpoMat.material"
+		          ]
+		        },
+		        {
+		          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/PekeCabezaMat.material"
+		          ]
+		        }
+      		]
+			, 
+			"transform": {
+				"pos": "5 0 0",
+				"front": "1 0 0"
+			}
+			,
+		    "collider": {
+				"shape": "capsule",
+				"is_character_controller": true
+				,
+				"radius": 0.8
+				,
+				"height": 1.5
+				,
+				"is_dynamic": false
+				,
+				"is_trigger": false
+		    }
+		}
+	},
+	{
+		"entity": {
+			"name": "Peke7",
+			"skeleton": {
+        		"skeleton": "data/skeletons/Peke/Peke.skeleton"
+      		},
+      		"render" : [
+		        {
+		          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/PekeCuerpoMat.material"
+		          ]
+		        },
+		        {
+		          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/PekeCabezaMat.material"
+		          ]
+		        }
+      		]
+			, 
+			"transform": {
+				"pos": "-1 0 0",
+				"front": "1 0 0"
+			}
+			,
+		    "collider": {
+				"shape": "capsule",
+				"is_character_controller": true
+				,
+				"radius": 0.8
+				,
+				"height": 1.5
+				,
+				"is_dynamic": false
+				,
+				"is_trigger": false
+		    }
+		}
+	}
+]

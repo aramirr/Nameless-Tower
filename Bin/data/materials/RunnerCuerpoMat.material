@@ -5,11 +5,11 @@
   ,
   "textures":
   {
-    "albedo": "data/textures/Runner.dds"
+    "albedo": "data/textures/Runner_Cuerpo.dds"
     ,
-    "normal": "data/textures/null_normal.dds"
+    "normal": "data/textures/Boss_Runner_Normal.dds"
     ,
-    "emissive": "data/textures/null_emissive.dds"
+    "emissive": "data/textures/Runner_Cuerpo_Emisivo.dds"
     ,
     "alpha": "data/textures/null_opacity.dds"
     ,
@@ -17,6 +17,8 @@
     ,
     "height": "data/textures/null_height.dds"
     ,
-    "ao": "data/textures/null_ambientOcclusion.dds"
+    "orm": "data/textures/Boss_Runner_Orm.dds"
+    ,
+    "cell": "data/textures/white.dds"
   }
 }
