@@ -2,6 +2,192 @@
   {
     "entity":
     {
+      "name": "arbolSalaSorpresa02"
+      ,
+      "transform":
+      {
+        "pos": "-14.7989 14.8708 17.1939"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arbolSalaSorpresa02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ArbolMatB.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arbolSalaSorpresa01"
+      ,
+      "transform":
+      {
+        "pos": "-14.4349 13.969 26.3734"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arbolSalaSorpresa01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ArbolMatB.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Object059"
+      ,
+      "transform":
+      {
+        "pos": "-27.6159 4.46055 15.9203"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Object059.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pared_Ladrillo_01.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pared001"
+      ,
+      "transform":
+      {
+        "pos": "-25.3219 6.69272 18.3164"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Pared001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/SalaSorpresa_Paredes.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Object058"
+      ,
+      "transform":
+      {
+        "pos": "-27.9919 6.74357 15.7156"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Object058.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pared_Ladrillo_01.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pinchos_007"
+      ,
+      "transform":
+      {
+        "pos": "-27.5939 7.87237 15.4794"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Pinchos_007.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Tunel_Sorpresa_01.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Pared_PAsillo"
+      ,
+      "transform":
+      {
+        "pos": "-27.1519 6.68481 15.7484"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Pared_PAsillo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Tunel_Sorpresa_01.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "ParedExteriorParte8B"
       ,
       "transform":
@@ -168,7 +354,7 @@
   {
     "entity":
     {
-      "name": "CabezaDragon001"
+      "name": "CabezaDragon_BajadaB"
       ,
       "transform":
       {
@@ -180,7 +366,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/CabezaDragon001.mesh"
+          "mesh": "data/meshes/CabezaDragon_BajadaB.mesh"
           ,
           "materials":
           [
@@ -196,7 +382,7 @@
   {
     "entity":
     {
-      "name": "CabezaDragon"
+      "name": "CabezaDragon_BajadaA"
       ,
       "transform":
       {
@@ -208,7 +394,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/CabezaDragon.mesh"
+          "mesh": "data/meshes/CabezaDragon_BajadaA.mesh"
           ,
           "materials":
           [
@@ -296,7 +482,7 @@
           ,
           "materials":
           [
-            "data/materials/RocaGris.material"
+            "data/materials/Tunel_Sorpresa_01.material"
           ]
         }
       ]
@@ -812,34 +998,6 @@
   {
     "entity":
     {
-      "name": "arbolBajada03"
-      ,
-      "transform":
-      {
-        "pos": "-13.3938 14.1885 26.2366"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/arbolBajada03.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Object057"
       ,
       "transform":
@@ -857,34 +1015,6 @@
           "materials":
           [
             "data/materials/Columna_Sala1.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "arbolBajada04"
-      ,
-      "transform":
-      {
-        "pos": "-16.4815 15.0923 17.1609"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/arbolBajada04.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMat.material"
           ]
         }
       ]
@@ -1081,34 +1211,6 @@
           "materials":
           [
             "data/materials/CalderoMate.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Pared_PAsillo"
-      ,
-      "transform":
-      {
-        "pos": "-27.0205 6.71694 15.7156"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Pared_PAsillo.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Tubp_Interior_01.material"
           ]
         }
       ]

@@ -2,6 +2,335 @@
   {
     "entity":
     {
+      "name": "plant_Mandevilla_Vine_015"
+      ,
+      "transform":
+      {
+        "pos": "-4.31586 10.126 -19.3194"
+        ,
+        "rotation": "0.0 -0.612825 0.0 -0.790218"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_Mandevilla_Vine_015.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Mandevilla_Vine_01.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_Mandevilla_Vine_014"
+      ,
+      "transform":
+      {
+        "pos": "1.07212 14.1416 -24.8471"
+        ,
+        "rotation": "0.0 -0.616039 0.0 -0.787715"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_Mandevilla_Vine_014.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Mandevilla_Vine_01.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_Mandevilla_Vine_013"
+      ,
+      "transform":
+      {
+        "pos": "6.4353 11.5621 -28.4878"
+        ,
+        "rotation": "0.0 -0.185759 0.0 -0.982595"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_Mandevilla_Vine_013.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Mandevilla_Vine_01.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_Mandevilla_Vine_012"
+      ,
+      "transform":
+      {
+        "pos": "-5.22777 11.4233 -28.2949"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_Mandevilla_Vine_012.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Mandevilla_Vine_01.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_Mandevilla_Vine_011"
+      ,
+      "transform":
+      {
+        "pos": "10.969 9.3678 -24.6731"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_Mandevilla_Vine_011.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Mandevilla_Vine_01.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_Mandevilla_Vine_010"
+      ,
+      "transform":
+      {
+        "pos": "-9.98351 9.37848 -25.5689"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_Mandevilla_Vine_010.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Mandevilla_Vine_01.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "tronco_2"
+      ,
+      "transform":
+      {
+        "pos": "-7.44359 12.3448 -26.8394"
+        ,
+        "rotation": "-0.998098 0.0 -0.0616507 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/tronco_2.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ArbolMatC.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "tronco_1"
+      ,
+      "transform":
+      {
+        "pos": "7.49574 12.4642 -27.357"
+        ,
+        "rotation": "0.0 -0.0616507 0.0 -0.998098"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/tronco_1.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ArbolMatA.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arbolesFondo001"
+      ,
+      "transform":
+      {
+        "pos": "0.135055 10.8879 -21.9409"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arbolesFondo001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ArbolMatB.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "hojas010"
+      ,
+      "transform":
+      {
+        "pos": "0.0260723 13.6096 -25.0937"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/hojas010.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/HojaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "LanzasVerticales001"
+      ,
+      "transform":
+      {
+        "pos": "-14.0603 9.44684 -27.7068"
+        ,
+        "rotation": "0.343021 -0.618334 -0.618334 -0.343021"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/LanzasVerticales.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LanzasMat.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+        ,
+        "sound_name": "hit_lanzas"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.3825 2.0 0.950772"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 5.0
+        ,
+        "delay": 0.5
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "-14.0603 9.44684 -27.7068"
+          ,
+          "-14.0603 4.88074 -27.7068"
+        ]
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "BordesParte1C"
       ,
       "transform":
@@ -359,6 +688,22 @@
         }
       ]
       ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event/SFX/Object/Scene/Agua_D"
+            ,
+            "positional": true
+            ,
+            "on_start": true
+          }
+        ]
+      }
+      ,
       "abs_aabb": true
     }
   }
@@ -516,7 +861,7 @@
       ,
       "transform":
       {
-        "pos": "-22.2547 26.9421 -16.4498"
+        "pos": "-22.5188 26.9421 -16.3114"
         ,
         "rotation": "0.628963 -0.323118 -0.323118 -0.628963"
       }
@@ -564,34 +909,6 @@
       "abs_aabb": true
       ,
       "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "HojasArbolParte1"
-      ,
-      "transform":
-      {
-        "pos": "1.45075 14.9563 -27.5187"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/HojasArbolParte1.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/HojaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
     }
   }
   ,
@@ -2129,118 +2446,6 @@
           "materials":
           [
             "data/materials/plant_HangingFern_Long.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "arbol008"
-      ,
-      "transform":
-      {
-        "pos": "8.97197 15.2359 -24.0167"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/arbol008.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "arbol007"
-      ,
-      "transform":
-      {
-        "pos": "9.68712 12.5931 -31.075"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/arbol007.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Arbol002"
-      ,
-      "transform":
-      {
-        "pos": "-8.17225 17.1607 -27.4756"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Arbol002.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "arbolesFondo001"
-      ,
-      "transform":
-      {
-        "pos": "0.135055 10.9758 -21.9409"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/arbolesFondo001.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMat.material"
           ]
         }
       ]
@@ -4069,6 +4274,22 @@
         }
       ]
       ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event/SFX/Object/Scene/Agua_C"
+            ,
+            "positional": true
+            ,
+            "on_start": true
+          }
+        ]
+      }
+      ,
       "abs_aabb": true
     }
   }
@@ -4097,6 +4318,22 @@
         }
       ]
       ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event/SFX/Object/Scene/Agua_B"
+            ,
+            "positional": true
+            ,
+            "on_start": true
+          }
+        ]
+      }
+      ,
       "abs_aabb": true
     }
   }
@@ -4124,6 +4361,22 @@
           ]
         }
       ]
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event/SFX/Object/Scene/Agua_A"
+            ,
+            "positional": true
+            ,
+            "on_start": true
+          }
+        ]
+      }
       ,
       "abs_aabb": true
     }

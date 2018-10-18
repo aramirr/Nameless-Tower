@@ -2,6 +2,62 @@
   {
     "entity":
     {
+      "name": "arbolBajada02"
+      ,
+      "transform":
+      {
+        "pos": "28.8864 56.9153 14.0313"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arbolBajada02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ArbolMatB.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arbolBajada01"
+      ,
+      "transform":
+      {
+        "pos": "24.5327 57.5762 16.0992"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arbolBajada01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ArbolMatB.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "BordesParte5E"
       ,
       "transform":
@@ -635,62 +691,6 @@
           "materials":
           [
             "data/materials/CalderoMate.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "arbolBajada02"
-      ,
-      "transform":
-      {
-        "pos": "24.6725 57.7338 16.5386"
-        ,
-        "rotation": "0.0 -0.987688 0.0 -0.156435"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/arbolBajada02.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "arbolBajada01"
-      ,
-      "transform":
-      {
-        "pos": "27.0201 55.8104 14.1083"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/arbolBajada01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMat.material"
           ]
         }
       ]

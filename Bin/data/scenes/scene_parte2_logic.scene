@@ -338,12 +338,7 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true,
-      "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Wind_currents", "positional": false, "on_start": true}
-          ]
-      }
+      "abs_aabb": true
     }
   }
   ,
