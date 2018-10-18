@@ -628,7 +628,12 @@
         }
       ]
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/Ambience/Cascada", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
   ,

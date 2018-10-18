@@ -129,7 +129,7 @@ end
 function OnTriggerExitTSEstatuaWindstrike()
 
 	--Exterior
-	lm:set_exposure(0.4, false)
+	lm:set_exposure(0.9, false)
 	lm:set_naja_ext(false)
 	lm:render_everything("ParedTapada4", false)
 	--lm:render_only_shadows("ParedDestapada4", false)	
@@ -214,7 +214,7 @@ function OnTriggerExitTSEscaleras1Escaleras2()
 	lm:play_interior_sound(false)
 
 	--Exterior
-	lm:set_exposure(0.4, true)
+	lm:set_exposure(0.9, true)
 	lm:set_naja_ext(true)
 	lm:play_ambient_sound(true)
 	--lm:render_only_shadows("ParedDestapada5", true)
@@ -231,7 +231,7 @@ end
 -- Sala 6-7
 function OnTriggerExitTSEscaleras2Pasillo()
 	--Exterior
-	lm:set_exposure(0.4, false)
+	lm:set_exposure(0.9, false)
 	lm:set_naja_ext(false)
 	--lm:render_only_shadows("ParedDestapada7", false)
 	lm:render_everything("ParedTapada7", false)
@@ -302,7 +302,7 @@ function OnTriggerExitTPTechosPuertas()
 	lm:delete_grass(14, false)
 	
 	--Exterior
-	lm:set_exposure(0.4, true)
+	lm:set_exposure(0.9, true)
 	lm:set_naja_ext(true)
 	lm:play_ambient_sound(true)
 	--lm:render_only_shadows("ParedDestapada7", true)
@@ -365,7 +365,7 @@ end
 -- Sala 9-10
 function OnTriggerExitTSArbolRunner()
 	--Exterior
-	lm:set_exposure(0.4, true)
+	lm:set_exposure(0.9, true)
 	lm:set_naja_ext(true)
 	--lm:render_only_shadows("ParedDestapada10", true)
 	lm:render_everything("ParedTapada10", true)
@@ -430,7 +430,7 @@ function OnTriggerExitTSRunnerCascada()
 	lm:delete_grass(17, true)
 
 	--Exterior
-	lm:set_exposure(0.4, false)
+	lm:set_exposure(0.9, false)
 	lm:set_naja_ext(false)
 	lm:play_ambient_sound(false)
 	--lm:play_sound(false, "cascade")
@@ -492,7 +492,7 @@ end
 function OnTriggerExitTSEstatuaWindstrikeB()
 
 	--Exterior
-	lm:set_exposure(0.4, false)
+	--lm:set_exposure(0.9, false)
 	lm:set_naja_ext(false)
 	lm:render_everything("ParedTapada4B", false)
 	--lm:render_only_shadows("ParedDestapada4", false)	
@@ -509,7 +509,7 @@ function OnTriggerExitTSEstatuaWindstrikeB()
 	--lm:stop_emiter("hojas_puente", false)
 
 	--Interior
-	lm:set_exposure(0.05, true)
+	--lm:set_exposure(0.05, true)
 	lm:play_interior_sound(true)
 	lm:set_naja_int(true)
 	lm:render_only_shadows("ParedTapada4B", true)
@@ -548,7 +548,7 @@ end
 -- Sala 5-6
 function OnTriggerExitTSEscaleras1Escaleras2B()
 	--Interior
-	lm:set_exposure(0.05, false)
+	--lm:set_exposure(0.05, false)
 	lm:set_naja_int(false)
 	--lm:render_everything("ParedDestapada5", false)
 	lm:render_only_shadows("ParedTapada5B", false)
@@ -562,7 +562,7 @@ function OnTriggerExitTSEscaleras1Escaleras2B()
 	lm:play_interior_sound(false)
 
 	--Exterior
-	lm:set_exposure(0.4, true)
+	--lm:set_exposure(0.4, true)
 	lm:set_naja_ext(true)
 	lm:play_ambient_sound(true)
 	--lm:render_only_shadows("ParedDestapada5", true)
@@ -579,7 +579,7 @@ end
 -- Sala 6-7
 function OnTriggerExitTSEscaleras2PasilloB()
 	--Exterior
-	lm:set_exposure(0.4, false)
+	--lm:set_exposure(0.4, false)
 	lm:set_naja_ext(false)
 	--lm:render_only_shadows("ParedDestapada7", false)
 	lm:render_everything("ParedTapada7B", false)
@@ -595,7 +595,7 @@ function OnTriggerExitTSEscaleras2PasilloB()
 	--lm:stop_emiter("hojas_jardin_1", false)
 
 	--Interior
-	lm:set_exposure(0.05, true)
+	--lm:set_exposure(0.05, true)
 	lm:set_naja_int(true)
 	lm:play_interior_sound(true)
 	--lm:render_everything("ParedDestapada7", true)
@@ -614,7 +614,7 @@ end
 -- Sala 7-8
 function OnTriggerExitTPTechosPuertasB()
 	--Interior
-	lm:set_exposure(0.05, false)
+	--lm:set_exposure(0.05, false)
 	lm:set_naja_int(false)
 	--lm:render_everything("ParedDestapada7", false)
 	lm:render_only_shadows("ParedTapada7B", false)
@@ -632,7 +632,7 @@ function OnTriggerExitTPTechosPuertasB()
 	--lm:start_emiter("hojas_puente", false)	
 	
 	--Exterior
-	lm:set_exposure(0.4, true)
+	--lm:set_exposure(0.4, true)
 	lm:set_naja_ext(true)
 	lm:play_ambient_sound(true)
 	--lm:render_only_shadows("ParedDestapada7", true)
@@ -675,7 +675,7 @@ end
 -- Sala 9-10
 function OnTriggerExitTSJardinRunner()
 	--Exterior
-	lm:set_exposure(0.4, true)
+	--lm:set_exposure(0.4, true)
 	lm:set_naja_ext(true)
 	--lm:render_only_shadows("ParedDestapada10", true)
 	lm:render_everything("ParedTapada10B", true)
@@ -690,7 +690,7 @@ function OnTriggerExitTSJardinRunner()
 	--lm:start_emiter("hojas_jardin_2", true)
 
 	--Interior
-	lm:set_exposure(0.05, false)
+	--lm:set_exposure(0.05, false)
 	lm:set_naja_int(false)
 	lm:play_interior_sound(false)
 	--lm:render_everything("ParedDestapada10", false)
@@ -716,7 +716,7 @@ end
 
 function OnTriggerExitTSRunnerLava()
 	--Interior
-	lm:set_exposure(0.05, true)
+	--lm:set_exposure(0.05, true)
 	lm:set_naja_int(true)
 	--lm:render_everything("ParedDestapada10", true)
 	lm:render_only_shadows("ParedTapada10B", true)
@@ -733,7 +733,7 @@ function OnTriggerExitTSRunnerLava()
 	lm:stop_sound(true, "lava")
 
 	--Exterior
-	lm:set_exposure(0.4, false)
+	--lm:set_exposure(0.4, false)
 	lm:set_naja_ext(false)
 	lm:play_ambient_sound(false)
 	lm:play_sound(false, "lava")

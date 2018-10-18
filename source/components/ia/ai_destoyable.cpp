@@ -3,6 +3,7 @@
 #include "ai_destoyable.h"
 #include "entity/entity_parser.h"
 #include "components/juan/comp_transform.h"
+#include "components/sound/comp_sound.h"
 #include "render/render_utils.h"
 
 DECL_OBJ_MANAGER("ai_destroyable", CAIDestroyable);
@@ -76,11 +77,10 @@ void CAIDestroyable::TriggerDestroyState(float dt)
 				for (int i = 0; i < sons.size(); i++) {
 					CEntity* entity = (CEntity*)getEntityByName(sons[i]);
 					TMsgActivateAnim msg;
-					entity->sendMsg(msg);
-                    TMsgPlaySound msg1;
-                    entity->sendMsg(msg1);
+					entity->sendMsg(msg);                    
 				}
-				
+        TCompSound* sound = get<TCompSound>();
+        sound->playSound("sound");
         ChangeState("transition_destroy");
     }
 }
