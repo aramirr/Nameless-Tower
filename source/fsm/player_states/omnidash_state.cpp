@@ -4,6 +4,7 @@
 #include "entity/entity_parser.h"
 #include "fsm/context.h"
 #include "components/postfx/comp_render_blur_radial.h"
+#include "render/render_objects.h"
 
 namespace FSM
 {
@@ -50,8 +51,8 @@ namespace FSM
 		CEntity* o_camera = EngineCameras.getOutputCamera();
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		VEC2 screen_projected_pos;
-		screen_projected_pos.x = player->player_position.x / Render.width;
-		screen_projected_pos.y = player->player_position.y / Render.height;
+		screen_projected_pos.x = player->player_position.x / cb_globals.global_first_resolution_X;
+		screen_projected_pos.y = player->player_position.y / cb_globals.global_first_resolution_X;
 
 
 		TCompRenderBlurRadial* c_render_blur_radial = o_camera->get< TCompRenderBlurRadial >();
@@ -133,8 +134,11 @@ namespace FSM
         TCompTransform *c_my_transform = e_player->get<TCompTransform>();
 		const Input::TInterface_Mouse& mouse = EngineInput.mouse();
 		
+		VEC2 m;
+		m.x = mouse._position.x * cb_globals.global_first_resolution_X / cb_globals.global_resolution_X;
+		m.y = mouse._position.y * cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y;
 
-		player->omnidash_arrow = mouse._position - VEC2(player->player_position.x, player->player_position.y);
+		player->omnidash_arrow = m - VEC2(player->player_position.x, player->player_position.y);
 		player->omnidash_arrow.Normalize();
 
 		player->y_speed_factor = 0;

@@ -51,7 +51,7 @@ bool parseTechniques() {
 
 bool CModuleRender::start()
 {
-	if (!Render.createDevice(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN)))
+	if (!Render.createDevice(1920, 1080))
 		return false;
 
 	if (!CVertexDeclManager::get().create())
@@ -217,7 +217,7 @@ void CModuleRender::activateMainCamera() {
 	CCamera* cam = &camera;
 
 	// Find the entity with name 'the_camera'
-	h_e_camera = getEntityByName("camera_orbit_IZQ");
+	h_e_camera = EngineCameras.getOutputCamera();
 	if (h_e_camera.isValid()) {
 		CEntity* e_camera = h_e_camera;
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
@@ -321,7 +321,7 @@ void CModuleRender::generateFrame() {
 		CEntity* e_camera = getEntityByName("camera_orbit_IZQ");
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
 		CCamera* cam = c_camera;
-		activateCamera(*cam, Render.width, Render.height);
+		activateCamera(*cam, cb_globals.global_first_resolution_X, cb_globals.global_first_resolution_Y);
 	}
 
 	{
