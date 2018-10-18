@@ -123,6 +123,10 @@ void TCompDoor::destroy()
 
 void TCompDoor::open(const TMsgOpenDoor& msg)
 {
+    if (!opening) {
+        TCompSound* sound = get<TCompSound>();
+        sound->playSound("sound");
+    }
     opening = true;
 }
 
@@ -130,7 +134,7 @@ void TCompDoor::close(const TMsgCloseDoor& msg)
 {
     if (!closing && !is_closed) {
         TCompSound* sound = get<TCompSound>();
-        sound->playSound("sound");
+        sound->playSound("sound_shut");
     }
     closing = true;
 }

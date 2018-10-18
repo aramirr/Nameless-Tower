@@ -21,13 +21,15 @@
             "data/materials/EngraneMat.material"
           ]
         }
-      ]      
+      ]
+      ,
+      "abs_aabb": true
       ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "Z"
+        "eje": "Y"
       }
     }
   }
@@ -54,13 +56,15 @@
             "data/materials/EngraneMat.material"
           ]
         }
-      ]     
+      ]
+      ,
+      "abs_aabb": true
       ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "z"
+        "eje": "Y"
       }
     }
   }
@@ -89,11 +93,13 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "Z"
+        "eje": "Y"
       }
     }
   }
@@ -122,11 +128,13 @@
         }
       ]
       ,
+      "abs_aabb": true
+      ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "z"
+        "eje": "Y"
       }
     }
   }
@@ -153,13 +161,15 @@
             "data/materials/EngraneMat.material"
           ]
         }
-      ]      
+      ]
+      ,
+      "abs_aabb": true
       ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "Z"
+        "eje": "Y"
       }
     }
   }
@@ -186,14 +196,15 @@
             "data/materials/EngraneMat.material"
           ]
         }
-      ]      
-     
+      ]
+      ,
+      "abs_aabb": true
       ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "z"
+        "eje": "Y"
       }
     }
   }
@@ -561,11 +572,7 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true,
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Destruible", "positional": true, "on_start": false}
-            ]}
+      "abs_aabb": true
     }
   }
   ,
@@ -697,11 +704,7 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true,
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Destruible", "positional": true, "on_start": false}
-            ]}
+      "abs_aabb": true
     }
   }
   ,
@@ -1006,11 +1009,7 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true,
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Destruible", "positional": true, "on_start": false}
-            ]}
+      "abs_aabb": true
     }
   }
   ,
@@ -1150,11 +1149,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Reja.mesh"
+          "mesh": "data/meshes/PuertaA.mesh"
           ,
           "materials":
           [
-            "data/materials/RejaMate.material"
+            "data/materials/Puerta_Cerrada_01.material"
           ]
         }
       ]
@@ -1167,7 +1166,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Puerta_Reja.col_mesh"
+        "mesh_src": "data/meshes/PuertaA.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -1176,11 +1175,11 @@
       {
         "up": true
       },
-      "sound": {
+        "sound": {
           "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Reja_Fast", "positional": true, "on_start": false}
-            ]
-            }
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Reja_Fast", "positional": true, "on_start": false},
+            {"name": "sound_shut", "src": "event:/SFX/Object/Mechanics/Puerta_Reja", "positional": true, "on_start": false}
+            ]}
     }
   }
   ,

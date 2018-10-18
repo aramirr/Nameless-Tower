@@ -42,24 +42,20 @@ end
 
 function OnWindstrikeActivateTDWindstrike()
 	lm:open_door("Puerta_Abatible_Madera_01")
-	lm:play_positional_sound("puerta_madera", "Puerta_Abatible_Madera_01")
 end
 
 function OnWindstrikeActivateTDEscaleras2()
 	lm:open_door("Puerta_Abatible_Madera_003")
-	lm:play_positional_sound("puerta_madera", "Puerta_Abatible_Madera_003")
 end
 
 function OnWindstrikeActivateTDTechos()
 	lm:open_door("Puerta_Abatible_Madera_002")
-	lm:play_positional_sound("puerta_madera", "Puerta_Abatible_Madera_002")
 end
 
 function OnWindstrikeActivateTAPuertasPrimera()
 	lm:open_door("Puerta_Reja_01")
 	lm:activate_anim("Activador_Movil03")
 	lm:play_positional_sound("activador_movil", "Activador_Movil03")
-	lm:play_positional_sound("puerta_reja", "Puerta_Reja_01")
 end
 
 function OnWindstrikeActivateTAPuertasAbajo()
