@@ -707,14 +707,7 @@
 			"transform": {
 				"pos": "31.480 63 1.109"
 			},
-			"render" : [
-		        {
-		          "mesh": "data/meshes/UnitBox.mesh",
-		          "materials" : [
-		            "data/materials/PuertaM.material"
-		          ]
-		        }
-		      ],
+			"render" : [],
 			"collider": {
 				"shape": "box",
 				"is_trigger": true,
@@ -728,18 +721,11 @@
 	},
 	{
 		"entity": {
-			"name": "RunnerDisappearTemplo",
+			"name": "RunnerDisappearMonolito",
 			"transform": {
-				"pos": "7.702 58.5 30.544"
+				"pos": "22.732 85.5 -21.806"
 			},
-			"render" : [
-		        {
-		          "mesh": "data/meshes/UnitBox.mesh",
-		          "materials" : [
-		            "data/materials/PuertaM.material"
-		          ]
-		        }
-		      ],
+			"render" : [],
 			"collider": {
 				"shape": "box",
 				"is_trigger": true,
