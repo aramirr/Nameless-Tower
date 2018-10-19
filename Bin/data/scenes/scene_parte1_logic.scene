@@ -102,11 +102,23 @@
         "mesh_src": "data/meshes/SierraOrbital.col_mesh"
       }
       ,
-      "abs_aabb": true,
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra", "positional": true, "on_start": false}
-            ]}
+      "abs_aabb": true
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Sierra"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,
@@ -213,11 +225,23 @@
         "mesh_src": "data/meshes/SierraOrbital.col_mesh"
       }
       ,
-      "abs_aabb": true,
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra", "positional": true, "on_start": false}
-            ]}
+      "abs_aabb": true
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Sierra"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,
@@ -324,11 +348,23 @@
         "mesh_src": "data/meshes/SierraOrbital.col_mesh"
       }
       ,
-      "abs_aabb": true,
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Sierra", "positional": true, "on_start": false}
-            ]}
+      "abs_aabb": true
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Sierra"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,
@@ -485,11 +521,23 @@
       "door":
       {
         "up": false
-      },
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Puerta_Madera", "positional": true, "on_start": false}
-            ]}
+      }
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Puerta_Madera"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,
@@ -715,6 +763,22 @@
       }
       ,
       "abs_aabb": true
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Sierra"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,
@@ -791,6 +855,22 @@
       }
       ,
       "abs_aabb": true
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Sierra"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,
@@ -859,12 +939,33 @@
         "up": true
       }
       ,
-      "abs_aabb": true,
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Puertas_Cortantes_Movimineto", "positional": true, "on_start": false},
-            {"name": "sound_shut", "src": "event:/SFX/Object/Mechanics/Puertas_Cortantes_Contacto", "positional": true, "on_start": false}
-            ]}
+      "abs_aabb": true
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Puertas_Cortantes_Movimineto"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+          ,
+          {
+            "name": "sound_shut"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Puertas_Cortantes_Contacto"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,

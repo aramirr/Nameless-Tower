@@ -2,6 +2,62 @@
   {
     "entity":
     {
+      "name": "RioEspuma"
+      ,
+      "transform":
+      {
+        "pos": "-22.2449 23.8722 -16.3626"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RioEspuma.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaDobleAgua.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arbolDerParte1"
+      ,
+      "transform":
+      {
+        "pos": "-7.43619 12.3448 -27.0502"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arbolDerParte1.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ArbolMatC.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "arbolIzParte1"
       ,
       "transform":
@@ -47,34 +103,6 @@
           "materials":
           [
             "data/materials/ArbolMatB.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "arbolDerParte1"
-      ,
-      "transform":
-      {
-        "pos": "-7.43619 12.3448 -27.0502"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/arbolDerParte1.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMatC.material"
           ]
         }
       ]
@@ -238,7 +266,62 @@
       ]
     }
   }
- 
+  ,
+  {
+    "entity":
+    {
+      "name": "Lianas"
+      ,
+      "transform":
+      {
+        "pos": "0.176553 11.0405 -24.2747"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Lianas.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LianaMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "hojas010"
+      ,
+      "transform":
+      {
+        "pos": "0.0260723 13.6096 -25.0937"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/hojas010.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/HojaMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
   ,
   {
     "entity":
@@ -249,7 +332,7 @@
       {
         "pos": "-14.0603 9.44684 -27.7068"
         ,
-        "rotation": "0.0 -0.874456 0.0 -0.485105"
+        "rotation": "0.343021 -0.618334 -0.618334 -0.343021"
       }
       ,
       "render":
@@ -301,15 +384,27 @@
         [
           "-14.0603 9.44684 -27.7068"
           ,
-          "-14.0603 4.88074 -27.7068"
+          "-14.0603 5.15533 -27.7068"
         ]
       }
       ,
-      "abs_aabb": true,
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Lanzas", "positional": true, "on_start": false}
-            ]}
+      "abs_aabb": true
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Lanzas"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,
@@ -4354,7 +4449,7 @@
           {
             "name": "sound"
             ,
-            "src": "event/SFX/Object/Scene/Agua_A"
+            "src": "event:/SFX/Object/Scene/Agua_A"
             ,
             "positional": true
             ,

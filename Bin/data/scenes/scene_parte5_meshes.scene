@@ -2,11 +2,11 @@
   {
     "entity":
     {
-      "name": "arbolBajada02"
+      "name": "ParedesExterioresEscena05"
       ,
       "transform":
       {
-        "pos": "28.8864 56.9153 14.0313"
+        "pos": "23.6053 81.0 -12.3744"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -14,11 +14,67 @@
       "render":
       [
         {
-          "mesh": "data/meshes/arbolBajada02.mesh"
+          "mesh": "data/meshes/ParedesExterioresEscena05.mesh"
           ,
           "materials":
           [
-            "data/materials/ArbolMatB.material"
+            "data/materials/ParedLadrillosMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_Hanging_Ivy029"
+      ,
+      "transform":
+      {
+        "pos": "30.2438 83.6202 -1.23698"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_Hanging_Ivy029.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Hanging_Ivy.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_Hanging_Ivy027"
+      ,
+      "transform":
+      {
+        "pos": "18.5979 69.1715 -23.4013"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_Hanging_Ivy027.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Hanging_Ivy.material"
           ]
         }
       ]
@@ -43,6 +99,34 @@
       [
         {
           "mesh": "data/meshes/arbolBajada01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ArbolMatB.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arbolBajada02"
+      ,
+      "transform":
+      {
+        "pos": "28.8864 56.9153 14.0313"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arbolBajada02.mesh"
           ,
           "materials":
           [
@@ -1290,6 +1374,12 @@
   {
     "entity":
     {
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Sala_EstatuaFea_18_Parte5"
       ,
       "transform":
@@ -1312,6 +1402,12 @@
       ]
       ,
       "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
     }
   }
   ,
@@ -1934,62 +2030,6 @@
   {
     "entity":
     {
-      "name": "plant_Hanging_Ivy029"
-      ,
-      "transform":
-      {
-        "pos": "30.2438 83.5927 -1.23698"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/plant_Hanging_Ivy029.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/plant_Hanging_Ivy.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "plant_Hanging_Ivy027"
-      ,
-      "transform":
-      {
-        "pos": "18.4835 69.1715 -23.4013"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/plant_Hanging_Ivy027.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/plant_Hanging_Ivy.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Arriba006"
       ,
       "transform":
@@ -2468,34 +2508,6 @@
           "materials":
           [
             "data/materials/Pared_Interior_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "ParedesExterioresEscena05"
-      ,
-      "transform":
-      {
-        "pos": "23.6053 81.0 -12.3744"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedesExterioresEscena05.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Ladrillo_01.material"
           ]
         }
       ]

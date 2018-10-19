@@ -39,11 +39,23 @@
       "door":
       {
         "up": false
-      },
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Puerta_Reja", "positional": true, "on_start": false}
-            ]}
+      }
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Puerta_Madera"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,
