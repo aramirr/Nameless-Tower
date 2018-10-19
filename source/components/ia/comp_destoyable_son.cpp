@@ -11,28 +11,32 @@
 #include "entity/entity_parser.h"
 #include "components/juan/comp_name.h"
 
-DECL_OBJ_MANAGER("destoyable_son", TCompDestoyableSon);
+DECL_OBJ_MANAGER("destoyable_son", TCompDestroyableSon);
 
-void TCompDestoyableSon::debugInMenu() {
+void TCompDestroyableSon::debugInMenu() {
 
 }
 
-void TCompDestoyableSon::load(const json& j, TEntityParseContext& ctx) {
+void TCompDestroyableSon::load(const json& j, TEntityParseContext& ctx) {
+	h_entity = ctx.current_entity;
 
-	std::string father = j.value("father", "-");
-	if (father == "-") assert(false);
-	std::string me = j.value("me", "-");
-	if (me == "-") assert(false);
-	CEntity* f = (CEntity *)getEntityByName(father);
-	assert(f);
-	TMsgRegisterDestoyableSon msg;
-	msg.name = me;
-	f->sendMsg(msg);
+	father_name = j.value("father", "");
+	
 }
 
 /* Update the values during the given time */
-void TCompDestoyableSon::update(float dt) {
+void TCompDestroyableSon::update(float dt) {
+	if (carga) {
+		carga = false;
+		CEntity* e = h_entity;
 
+		CEntity* f = (CEntity *)getEntityByName(father_name);
+
+		TMsgRegisterDestoyableSon msg;
+		std::string n = e->getName();
+		msg.name = n;
+		f->sendMsg(msg);
+	}
 
 }
 

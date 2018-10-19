@@ -8,9 +8,12 @@ class CMaterial;
 class CRenderToTexture;
 class TCompLightSpot;
 
-class TCompDestoyableSon : public TCompBase {
-
+class TCompDestroyableSon : public TCompBase {
 	DECL_SIBLING_ACCESS();
+
+	CHandle h_entity;
+	std::string father_name;
+	bool carga = true;
 
 public:
 
