@@ -1,13 +1,13 @@
 {
-  "technique": "pbr_skin.tech"
+  "technique": "pbr.tech"
   ,
   "shadows": true
   ,
   "textures":
   {
-    "albedo": "data/textures/Runner_Cara.dds"
+    "albedo": "data/textures/Runner_Cabeza.dds"
     ,
-    "normal": "data/textures/null_normal.dds"
+    "normal": "data/textures/Runner_Cabeza_Norma.dds"
     ,
     "emissive": "data/textures/null_emissive.dds"
     ,
@@ -17,6 +17,6 @@
     ,
     "height": "data/textures/null_height.dds"
     ,
-    "ao": "data/textures/null_ambientOcclusion.dds"
+    "orm": "data/textures/Runner_Cabeza_Orm.dds"
   }
 }
