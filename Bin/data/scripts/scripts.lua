@@ -11,7 +11,7 @@ function OnTriggerEnterDebugTrigger()
 	lm:set_dir_light_intensity("LightDir01", 10, false)
 end
 
-
+-- On Level Start
 function OnLevel1Start()
 	lm:set_ambient(1)
 	lm:set_dir_light_intensity("LightDir00", 11, false)
@@ -41,6 +41,38 @@ function OnLevel2Start()
 
 end
 
+-- Cinematicas
+function OnTriggerExitLuaCinematicTest()
+	--lm:activate_cinematic_bands(false)
+	--lm:pause_player()
+	--If camera needs to be moved
+	--lm:activate_cinematic("cinematic_first_door", false)
+	--lm:play_animation(32)
+	--lm:regain_control(25)
+	--lm:kill_entity("LuaCinematicTest")
+	lm:activate_cinematic_bands(false)
+	lm:activate_cinematic("cinematica_inicial", false)
+	lm:pause_player()
+	lm:play_animation(32)
+	lm:regain_control(25)
+end
+
+function OnTriggerExitTSCinematicaMonolito()
+	--lm:activate_cinematic_bands(false)
+	--lm:pause_player()
+	--If camera needs to be moved
+	--lm:activate_cinematic("cinematic_first_door", false)
+	--lm:play_animation(32)
+	--lm:regain_control(25)
+	--lm:kill_entity("LuaCinematicTest")
+	lm:activate_cinematic_bands(false)
+	--lm:activate_cinematic("cinematica_inicial", false)
+	lm:pause_player()
+	lm:play_animation(34)
+	lm:regain_control(15)
+end
+
+-- Puertas Abatibles
 function OnWindstrikeActivateTDWindstrike()
 	lm:open_door("Puerta_Abatible_Madera_01")
 end
@@ -53,6 +85,7 @@ function OnWindstrikeActivateTDTechos()
 	lm:open_door("Puerta_Abatible_Madera_002")
 end
 
+-- Rejas Activables
 function OnWindstrikeActivateTAPuertasPrimera()
 	lm:open_door("Puerta_Reja_01")
 	lm:activate_anim("Activador_Movil03")
@@ -89,6 +122,8 @@ function OnTriggerExitTSRejaAntorchas()
 	lm:scare_player()
 end
 
+
+-- Nivel Subida
 
 -- Sala 1-2
 function OnTriggerExitTSCabezaTutorial()
@@ -492,21 +527,6 @@ function OnTriggerExitTSCascadaAntorchas()
 	lm:update_grass_render()
 end
 
-
-function OnTriggerExitLuaCinematicTest()
-	--lm:activate_cinematic_bands(false)
-	--lm:pause_player()
-	--If camera needs to be moved
-	--lm:activate_cinematic("cinematic_first_door", false)
-	--lm:play_animation(32)
-	--lm:regain_control(25)
-	--lm:kill_entity("LuaCinematicTest")
-	lm:activate_cinematic_bands(false)
-	lm:activate_cinematic("cinematica_inicial", false)
-	lm:pause_player()
-	lm:play_animation(32)
-	lm:regain_control(25)
-end
 -- NIVEL BAJADA
 
 
