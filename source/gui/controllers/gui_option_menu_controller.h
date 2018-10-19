@@ -16,6 +16,7 @@ namespace GUI
 
     void setActive(bool _active);
 		void changeResolution(int _x, int _y);
+		void fullScreen(bool _fulscreen);
   private:
     struct TOption
     {

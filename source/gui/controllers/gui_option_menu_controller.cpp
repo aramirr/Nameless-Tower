@@ -21,35 +21,51 @@ namespace GUI
 
 			auto fullScreenONCB = []() {
 				dbg("FULLSCREEN ON\n");
+				EngineUI.fullScreen(true);
 				cb_gui.fullscreen = true;
-				Render.swapChain->SetFullscreenState(true, nullptr);
-				EngineUI.changeResolution(cb_globals.global_resolution_X, cb_globals.global_resolution_Y);
+				//Render.swapChain->SetFullscreenState(true, nullptr);
+				//EngineUI.changeResolution(cb_globals.global_resolution_X, cb_globals.global_resolution_Y);
+				
 
 			};
 
 			auto fullScreenOFFCB = []() {
 				dbg("FULLSCREEN OFF\n");
+				EngineUI.fullScreen(false);
 				cb_gui.fullscreen = false;
-				Render.swapChain->SetFullscreenState(false, nullptr);
-				EngineUI.changeResolution(cb_globals.global_resolution_X, cb_globals.global_resolution_Y);
+				//Render.swapChain->SetFullscreenState(false, nullptr);
+				//EngineUI.changeResolution(cb_globals.global_resolution_X, cb_globals.global_resolution_Y);
 			};
 
 			auto res1920CB = []() {
 				dbg("RESOLUTION 1920\n");
 				EngineUI.changeResolution(1920, 1080);
-				
+				if (cb_gui.fullscreen) {
+					cb_gui.fullscreen = false;
+					EngineUI.fullScreen(true);
+					cb_gui.fullscreen = true;
+				}
 			};
 
 			auto res1366CB = []() {
 				dbg("RESOLUTION 1366\n");
 				EngineUI.changeResolution(1366, 768);
+				if (cb_gui.fullscreen) {
+					cb_gui.fullscreen = false;
+					EngineUI.fullScreen(true);
+					cb_gui.fullscreen = true;
+				}
 				
 			};
 
 			auto res1024CB = []() {
 				dbg("RESOLUTION 1024\n");
 				EngineUI.changeResolution(1024, 768);
-				
+				if (cb_gui.fullscreen) {
+					cb_gui.fullscreen = false;
+					EngineUI.fullScreen(true);
+					cb_gui.fullscreen = true;
+				}
 
 				
 			};
@@ -301,6 +317,48 @@ namespace GUI
 
 			CEngine::get().getRender().configure(_x, _y);
 		}
+
+	}
+	void COptionMenuController::fullScreen(bool _fulscreen)
+	{
+		HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+		bool isChangeSuccessful;
+		if (_fulscreen && !cb_gui.fullscreen) {
+			DEVMODE fullscreenSettings;
+			
+			RECT windowBoundary;
+
+			HDC windowHDC = GetDC(handle);
+			int fullscreenWidth = GetDeviceCaps(windowHDC, HORZRES);
+			int fullscreenHeight = GetDeviceCaps(windowHDC, VERTRES);
+			int colourBits = GetDeviceCaps(windowHDC, BITSPIXEL);
+			int refreshRate = GetDeviceCaps(windowHDC, VREFRESH);
+
+			EnumDisplaySettings(NULL, 0, &fullscreenSettings);
+			fullscreenSettings.dmPelsWidth = fullscreenWidth;
+			fullscreenSettings.dmPelsHeight = fullscreenHeight;
+			fullscreenSettings.dmBitsPerPel = colourBits;
+			fullscreenSettings.dmDisplayFrequency = refreshRate;
+			fullscreenSettings.dmFields = DM_PELSWIDTH |
+				DM_PELSHEIGHT |
+				DM_BITSPERPEL |
+				DM_DISPLAYFREQUENCY;
+
+			SetWindowLongPtr(handle, GWL_EXSTYLE, WS_EX_APPWINDOW | WS_EX_TOPMOST);
+			SetWindowLongPtr(handle, GWL_STYLE, WS_POPUP | WS_VISIBLE);
+			SetWindowPos(handle, HWND_TOPMOST, 0, 0, fullscreenWidth, fullscreenHeight, SWP_SHOWWINDOW);
+			isChangeSuccessful = ChangeDisplaySettings(&fullscreenSettings, CDS_FULLSCREEN) == DISP_CHANGE_SUCCESSFUL;
+			ShowWindow(handle, SW_MAXIMIZE);
+		}
+		else if(!_fulscreen && cb_gui.fullscreen)
+		{
+			SetWindowLongPtr(handle, GWL_EXSTYLE, WS_EX_LEFT);
+			SetWindowLongPtr(handle, GWL_STYLE, WS_OVERLAPPEDWINDOW | WS_VISIBLE);
+			isChangeSuccessful = ChangeDisplaySettings(NULL, CDS_RESET) == DISP_CHANGE_SUCCESSFUL;
+			SetWindowPos(handle, HWND_NOTOPMOST, cb_globals.global_resolution_X, cb_globals.global_resolution_Y, cb_globals.global_resolution_X, cb_globals.global_resolution_Y, SWP_SHOWWINDOW);
+			ShowWindow(handle, SW_RESTORE);
+		}
+		
 
 	}
 }

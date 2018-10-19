@@ -145,6 +145,11 @@ void CModuleGUI::changeResolution(int _x, int _y)
 	omc->changeResolution(_x, _y);
 }
 
+void CModuleGUI::fullScreen(bool _fullscreen)
+{
+	omc->fullScreen(_fullscreen);
+}
+
 void CModuleGUI::registerWidget(CWidget* wdgt)
 {
   _registeredWidgets.push_back(wdgt);

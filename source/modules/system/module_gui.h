@@ -32,6 +32,7 @@ public:
   void setOmindash(bool omnidash);
 
 	void changeResolution(int _x, int _y);
+	void fullScreen(bool _fullscreen);
 
   // widget management
   void registerWidget(GUI::CWidget* wdgt);
