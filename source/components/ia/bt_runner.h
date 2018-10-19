@@ -64,6 +64,9 @@ class bt_runner:public bt
   float attack_distance;
   float debug_timer = 0.f;
   float speed = 2.0f;
+	float Vx;
+	float Vy;
+	float gravity = 15.f;
 	
   // Other variables
   VEC3 appearing_position;
@@ -77,11 +80,13 @@ class bt_runner:public bt
   void change_animation(int animation_id, bool is_action, float in_delay, float out_delay, bool clear);
   void clear_animations(float out_delay);
   void remove_animation(int animation_id);
+	bool check_if_action_is_on(int animation_id);
 
   // Pathfinding functions
 	void recalculate_path();
 	void calculate_top_jump_position(VEC3 target_position);
 	float distance_x_z(VEC3 v1, VEC3 v2);
+	float distance_arc(VEC3 v1, VEC3 v2); // DIstance in radians between two points on a circumference
 	void calculate_distances_graph();
   void findPath(int origin, int destiny);
 	int findClosestWaypoint(VEC3 position);

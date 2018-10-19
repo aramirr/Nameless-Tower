@@ -265,6 +265,6 @@ void CRenderManager::renderCategory(const char* category_name, const TCompCullin
     prev_it = it;
     ++it;
   }
-	dbg("PAINTED %i entities. NOT PAINTED %i enitites. TOTAL %i. -- %s\n", count_painted, count_not_painted, count_total, category_name);
+	//dbg("PAINTED %i entities. NOT PAINTED %i enitites. TOTAL %i. -- %s\n", count_painted, count_not_painted, count_total, category_name);
 }
 

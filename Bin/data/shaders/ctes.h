@@ -204,7 +204,7 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
 
 	float global_fog_percentage_horizontal;
 	float global_fog_percentage_vertical;
-	float global_dummy1;
+	float global_particle_time;
 	float global_dummy2;
 
 };
