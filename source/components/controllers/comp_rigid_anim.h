@@ -14,6 +14,8 @@ struct TCompRigidAnim : public TCompBase {
   float                   speed_factor = 1.0f;
 	bool father = false;
 
+	std::string name;
+
 	std::vector<std::string> sons;
 
 

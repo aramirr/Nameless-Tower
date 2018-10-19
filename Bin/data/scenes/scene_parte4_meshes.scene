@@ -676,38 +676,6 @@
   {
     "entity":
     {
-      "name": "Monolito_001"
-      ,
-      "transform":
-      {
-        "pos": "4.86845 92.152 -30.3255"
-        ,
-        "rotation": "0.0 -0.00313643 0.0 -0.999995"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Monolito_001.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MonolitoMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true,
-      "rigid_anim":
-      {
-        "father": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Columna_011"
       ,
       "transform":

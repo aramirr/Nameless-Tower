@@ -63,7 +63,6 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
     .set("scare_player", &LogicManager::scarePlayer)
     .set("play_positional_sound", &LogicManager::playPositionalSound)
 		.set("play_curve", &LogicManager::playCurve)
-		.set("load_level_2", &LogicManager::loadLevel2)
 		;
 }
 

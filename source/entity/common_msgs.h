@@ -63,6 +63,7 @@ struct TMsgOpenDoor {
 };
 
 struct TMsgActivateAnim{
+	std::string name;
 	DECL_MSG_ID();
 };
 

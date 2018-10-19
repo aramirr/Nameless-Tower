@@ -41,6 +41,7 @@ void TCompRigidAnim::update(float dt) {
 		// Sample the animation in the current time
 		RigidAnims::TKey k;
 		TCompTransform* c_trans = get< TCompTransform >();
+		dbg("JOSUE %s\n", name.c_str());
 		bool has_finished = controller.sample(&k, current_time);
 
 		// Transfer the key data to the comp transform
@@ -58,8 +59,10 @@ void TCompRigidAnim::update(float dt) {
 	}
 	else {
 		for (int i = 0; i < sons.size(); i++) {
+			dbg("JONAS %i --%i\n", i, sons.size());
 			CEntity* entity = (CEntity*)getEntityByName(sons[i]);
 			TMsgActivateAnim msg;
+			msg.name = sons[i];
 			entity->sendMsg(msg);
 		}
 	}
@@ -75,6 +78,7 @@ void TCompRigidAnim::onGroupCreated(const TMsgEntitiesGroupCreated& msg) {
 
 void TCompRigidAnim::activate(const TMsgActivateAnim& msg) {
 	is_moving = true;
+	name = msg.name;
 }
 
 void TCompRigidAnim::desactivate(const TMsgDesactivateAnim & msg)

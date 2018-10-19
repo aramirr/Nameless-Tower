@@ -68,10 +68,13 @@ function OnTriggerExitTSCinematicaMonolito()
 	--lm:kill_entity("LuaCinematicTest")
 	lm:activate_cinematic_bands(false)
 	--lm:activate_cinematic("cinematica_inicial", false)
+	
 	lm:pause_player()
 	lm:play_animation("The Player", 34)
 	lm:activate_anim("Monolito_001")
+	lm:activate_anim("Runner_father")
 	lm:regain_control(15)
+	lm:change_level("level_2")
 end
 
 -- Puertas Abatibles
@@ -517,7 +520,6 @@ function OnTriggerExitTSCascadaAntorchas()
 	lm:play_interior_sound(false)
 	--lm:render_everything("ParedDestapada12", false)
 	lm:render_only_shadows("ParedTapada12", false)
-	lm:change_level("level_2")
 	lm:set_dir_light_intensity("LightDir11", 0, false)
 	lm:set_dir_light_intensity("LightDir12", 0, false)
 	lm:set_point_light_intensity("Luces_Fuego_011", 10, false)
