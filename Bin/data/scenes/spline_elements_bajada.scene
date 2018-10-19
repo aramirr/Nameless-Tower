@@ -1,0 +1,882 @@
+[
+  {
+    "entity": {
+      "name": "spline_mariposa1",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas01.curve",
+        "speed" : 0.05,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa2",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas02.curve",
+        "speed" : 0.05,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa3",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas03.curve",
+        "speed" : 0.05,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa4",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas04.curve",
+        "speed" : 0.05,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa5",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas05.curve",
+        "speed" : 0.05,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa6",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas06.curve",
+        "speed" : 0.05,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa7",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas07.curve",
+        "speed" : 0.05,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa8",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas08.curve",
+        "speed" : 0.05,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa9",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas09.curve",
+        "speed" : 0.05,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "mariposa1",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_mariposa1"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "mariposa2",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_mariposa2"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "mariposa3",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_mariposa3"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "mariposa5",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_mariposa5"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "mariposa6",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_mariposa6"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "mariposa7",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_mariposa7"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "mariposa8",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_mariposa8"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "mariposa9",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_mariposa9"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_loro0",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Loros00.curve",
+        "speed" : 0.05,
+        "loop": false,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_loro1",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Loros01.curve",
+        "speed" : 0.05,
+        "loop": false,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_loro2",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Loros02.curve",
+        "speed" : 0.05,
+        "loop": false,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_loro3",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Loros03.curve",
+        "speed" : 0.05,
+        "loop": false,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_loro4",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Loros04.curve",
+        "speed" : 0.05,
+        "loop": false,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_loro5",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Loros05.curve",
+        "speed" : 0.05,
+        "loop": false,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_loro6",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Loros06.curve",
+        "speed" : 0.05,
+        "loop": false,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_loro7",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Loros07.curve",
+        "speed" : 0.05,
+        "loop": false,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_loro8",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Loros08.curve",
+        "speed" : 0.05,
+        "loop": false,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_loro9",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Loros09.curve",
+        "speed" : 0.05,
+        "loop": false,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_loro10",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Loros10.curve",
+        "speed" : 0.05,
+        "loop": false,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_loro11",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Loros11.curve",
+        "speed" : 0.05,
+        "loop": false,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_loro12",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": 0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Loros12.curve",
+        "speed" : 0.05,
+        "loop": false,
+        "automove": true,
+        "mode": "static"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "loro0",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_loro0"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "loro1",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_loro1"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "loro2",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_loro2"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "loro3",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_loro3"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "loro4",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_loro4"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "loro5",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_loro5"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "loro6",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_loro6"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "loro7",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_loro7"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "loro8",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_loro8"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "loro9",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_loro9"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "loro10",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_loro10"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "loro11",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_loro11"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "loro12",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_loro12"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/luciernaga_material.material"
+          ]
+        }
+      ]
+    }
+  }
+]

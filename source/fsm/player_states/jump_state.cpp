@@ -22,10 +22,10 @@ namespace FSM
 		player->change_animation(player->EAnimations::NajaJumpLoop, false, _delay_in, _delay_out, true);
 		player->y_speed_factor = _y_speed;
 		player->is_falling = false;
-
-    CEntity* particles_emiter = (CEntity*)getEntityByName("humo_salto");
-    TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
-    c_particles->emit();
+        _sound->start();
+        CEntity* particles_emiter = (CEntity*)getEntityByName("humo_salto");
+        TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+        c_particles->emit();
 	}
 
 	bool JumpState::load(const json& jData)
@@ -35,6 +35,12 @@ namespace FSM
 		_is_action = jData.value("is_action", false);
 		_delay_out = jData.value("delay_out", 0.01f);
 		_delay_in = jData.value("delay_in", 0.01f);
+        if (jData.count("sound")) {
+            Studio::EventDescription* event_description = NULL;
+            std::string event_name = jData["sound"];
+            FMOD_RESULT res = EngineSound.system->getEvent(event_name.c_str(), &event_description);
+            event_description->createInstance(&_sound);
+        }
 		return true;
 	}
 

@@ -3,6 +3,7 @@
 #include "ai_destoyable.h"
 #include "entity/entity_parser.h"
 #include "components/juan/comp_transform.h"
+#include "components/sound/comp_sound.h"
 #include "render/render_utils.h"
 
 DECL_OBJ_MANAGER("ai_destroyable", CAIDestroyable);
@@ -69,16 +70,18 @@ void CAIDestroyable::TriggerDestroyState(float dt)
     acum_time += DT;
     if (acum_time >= destroy_time)
     {
-			  recovering = true;
+		recovering = true;
         acum_time = 0;
         //has_mesh = change_mesh(1);
 				//CEntity* entity = CHandle(this).getOwner();
 				for (int i = 0; i < sons.size(); i++) {
 					CEntity* entity = (CEntity*)getEntityByName(sons[i]);
 					TMsgActivateAnim msg;
-					entity->sendMsg(msg);
+					entity->sendMsg(msg);                    
 				}
-				
+        TMsgPlaySound msg;
+        CEntity* e = h_entity;
+        e->sendMsg(msg);
         ChangeState("transition_destroy");
     }
 }
@@ -90,6 +93,7 @@ void CAIDestroyable::TransitionDestroyState(float dt)
     if (!mypos) {
         return;
     }
+    
     current_pos = mypos->getPosition();
 
     if (!has_mesh)
@@ -104,16 +108,19 @@ void CAIDestroyable::TransitionDestroyState(float dt)
         tr.p = PxVec3(0, 0, 0);
         rigidActor->setGlobalPose(tr);
     }
-    ChangeState("destroy");
+    ChangeState("destroy");   
 }
 
 void CAIDestroyable::DestroyState(float dt)
-{
+{        
+    
     acum_time += DT;
     if (acum_time >= recover_time)
     {
         acum_time = 0;
-
+        TMsgPlaySound msg;
+        CEntity* e = h_entity;
+        e->sendMsg(msg);
         TCompTransform *mypos = getMyTransform();
         if (!mypos) {
             return;

@@ -19,6 +19,7 @@ namespace FSM
 		player->is_grounded = false;
 		player->change_animation(player->EAnimations::NajaGlideStrike, true, _delay_in, _delay_out, true);
 		player->change_animation(player->EAnimations::NajaGlideLoop, _is_action, 0.1f, _delay_out, true);
+        _sound_cloth_rustle->start();
 	}
 
 	bool GlideState::load(const json& jData)
@@ -37,7 +38,7 @@ namespace FSM
             Studio::EventDescription* event_description_cloth = NULL;
             std::string event_name_cloth = jData["sound_cloth"];
             EngineSound.system->getEvent(event_name_cloth.c_str(), &event_description_cloth);
-            event_description_cloth->createInstance(&_sound);
+            event_description_cloth->createInstance(&_sound_cloth_rustle);
         }
 		return true;
 	}

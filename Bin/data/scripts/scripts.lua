@@ -36,30 +36,27 @@ function OnLevel2Start()
 	lm:set_dir_light_intensity("LightDir03", 0, false)	
 	lm:set_dir_light_intensity("LightDir13", 10, false)	
 	lm:set_dir_light_intensity("LightDir14", 10, false)	
+	lm:set_point_light_intensity("Luces_Fuego_011", 10, false)
+	lm:set_point_light_intensity("Luces_Fuego_012", 10, false)
 
 end
 
 function OnWindstrikeActivateTDWindstrike()
 	lm:open_door("Puerta_Abatible_Madera_01")
-	lm:play_positional_sound("puerta_madera", "Puerta_Abatible_Madera_01")
-	lm:play_sound(true, "puerta_madera")
 end
 
 function OnWindstrikeActivateTDEscaleras2()
 	lm:open_door("Puerta_Abatible_Madera_003")
-	lm:play_positional_sound("puerta_madera", "Puerta_Abatible_Madera_003")
 end
 
 function OnWindstrikeActivateTDTechos()
 	lm:open_door("Puerta_Abatible_Madera_002")
-	lm:play_positional_sound("puerta_madera", "Puerta_Abatible_Madera_002")
 end
 
 function OnWindstrikeActivateTAPuertasPrimera()
 	lm:open_door("Puerta_Reja_01")
 	lm:activate_anim("Activador_Movil03")
 	lm:play_positional_sound("activador_movil", "Activador_Movil03")
-	lm:play_positional_sound("puerta_reja", "Puerta_Reja_01")
 end
 
 function OnWindstrikeActivateTAPuertasAbajo()
@@ -81,6 +78,15 @@ function OnWindstrikeActivateTARunner()
 	lm:activate_anim("Activador_Movil01")
 	lm:play_positional_sound("activador_movil", "Activador_Movil01")
 	lm:play_positional_sound("puerta_reja", "Puerta_Reja_02")
+end
+
+-- Puzzle antorchas
+function OnTriggerExitTSRejaAntorchas()
+	lm:activate_torch("TFAntorcha1")
+	lm:activate_torch("TFAntorcha02")
+	lm:activate_torch("TFAntorcha03")
+	lm:close_door("Puerta_Reja_02")
+	lm:scare_player()
 end
 
 
@@ -130,7 +136,7 @@ end
 function OnTriggerExitTSEstatuaWindstrike()
 
 	--Exterior
-	lm:set_exposure(0.4, false)
+	lm:set_exposure(0.9, false)
 	lm:set_naja_ext(false)
 	lm:render_everything("ParedTapada4", false)
 	--lm:render_only_shadows("ParedDestapada4", false)	
@@ -215,7 +221,7 @@ function OnTriggerExitTSEscaleras1Escaleras2()
 	lm:play_interior_sound(false)
 
 	--Exterior
-	lm:set_exposure(0.4, true)
+	lm:set_exposure(0.9, true)
 	lm:set_naja_ext(true)
 	lm:play_ambient_sound(true)
 	--lm:render_only_shadows("ParedDestapada5", true)
@@ -232,7 +238,7 @@ end
 -- Sala 6-7
 function OnTriggerExitTSEscaleras2Pasillo()
 	--Exterior
-	lm:set_exposure(0.4, false)
+	lm:set_exposure(0.9, false)
 	lm:set_naja_ext(false)
 	--lm:render_only_shadows("ParedDestapada7", false)
 	lm:render_everything("ParedTapada7", false)
@@ -303,7 +309,7 @@ function OnTriggerExitTPTechosPuertas()
 	lm:delete_grass(14, false)
 	
 	--Exterior
-	lm:set_exposure(0.4, true)
+	lm:set_exposure(0.9, true)
 	lm:set_naja_ext(true)
 	lm:play_ambient_sound(true)
 	--lm:render_only_shadows("ParedDestapada7", true)
@@ -366,7 +372,7 @@ end
 -- Sala 9-10
 function OnTriggerExitTSArbolRunner()
 	--Exterior
-	lm:set_exposure(0.4, true)
+	lm:set_exposure(0.9, true)
 	lm:set_naja_ext(true)
 	--lm:render_only_shadows("ParedDestapada10", true)
 	lm:render_everything("ParedTapada10", true)
@@ -425,16 +431,16 @@ function OnTriggerExitTSRunnerCascada()
 	lm:play_interior_sound(true)
 	lm:start_emiter("hojas_viento", true)
 	lm:stop_emiter("particulas_top_cascada", true)
-	lm:stop_sound(true, "cascade")
+	--lm:stop_sound(true, "cascade")
 
 	lm:delete_grass(16, true)
 	lm:delete_grass(17, true)
 
 	--Exterior
-	lm:set_exposure(0.4, false)
+	lm:set_exposure(0.9, false)
 	lm:set_naja_ext(false)
 	lm:play_ambient_sound(false)
-	lm:play_sound(false, "cascade")
+	--lm:play_sound(false, "cascade")
 	--lm:render_only_shadows("ParedDestapada10", false)
 	lm:render_everything("ParedTapada10", false)
 	lm:set_dir_light_intensity("LightDir13", 10, false)
@@ -463,14 +469,14 @@ function OnTriggerExitTSCascadaAntorchas()
 	lm:set_point_light_intensity("Luces_Fuego_012", 0, true)
 	--lm:set_dir_light_intensity("LightInteriorSSalaFinal", 0, true)
 	lm:play_ambient_sound(true)
-	lm:play_sound(true, "cascade")
+	--lm:play_sound(true, "cascade")
 
 	lm:insert_grass(15, true)
 	lm:insert_grass(16, true)
 	lm:insert_grass(17, true)
 
 	
-	lm:stop_sound(false, "cascade")
+	--lm:stop_sound(false, "cascade")
 	lm:play_interior_sound(false)
 	--lm:render_everything("ParedDestapada12", false)
 	lm:render_only_shadows("ParedTapada12", false)
@@ -508,7 +514,7 @@ end
 function OnTriggerExitTSEstatuaWindstrikeB()
 
 	--Exterior
-	lm:set_exposure(0.4, false)
+	--lm:set_exposure(0.9, false)
 	lm:set_naja_ext(false)
 	lm:render_everything("ParedTapada4B", false)
 	--lm:render_only_shadows("ParedDestapada4", false)	
@@ -521,11 +527,11 @@ function OnTriggerExitTSEstatuaWindstrikeB()
 	lm:set_point_light_intensity("Luces_Fuego_02", 0, false)
 	lm:deactivate_cinematic("cinematic_first_door", false)
 	lm:play_ambient_sound(false)
-	lm:start_emiter("hojas_estatua", false)	
-	lm:stop_emiter("hojas_puente", false)
+	--lm:start_emiter("hojas_estatua", false)	
+	--lm:stop_emiter("hojas_puente", false)
 
 	--Interior
-	lm:set_exposure(0.05, true)
+	--lm:set_exposure(0.05, true)
 	lm:play_interior_sound(true)
 	lm:set_naja_int(true)
 	lm:render_only_shadows("ParedTapada4B", true)
@@ -538,8 +544,8 @@ function OnTriggerExitTSEstatuaWindstrikeB()
 	lm:set_point_light_intensity("Luces_Fuego_01", 10, true)
 	lm:set_point_light_intensity("Luces_Fuego_02", 10, true)
 	lm:activate_cinematic("cinematic_first_door", true)
-	lm:stop_emiter("hojas_estatua", true)	
-	lm:start_emiter("hojas_puente", true)
+	--lm:stop_emiter("hojas_estatua", true)	
+	--lm:start_emiter("hojas_puente", true)
 end
 
 -- Sala 4-5
@@ -564,7 +570,7 @@ end
 -- Sala 5-6
 function OnTriggerExitTSEscaleras1Escaleras2B()
 	--Interior
-	lm:set_exposure(0.05, false)
+	--lm:set_exposure(0.05, false)
 	lm:set_naja_int(false)
 	--lm:render_everything("ParedDestapada5", false)
 	lm:render_only_shadows("ParedTapada5B", false)
@@ -578,7 +584,7 @@ function OnTriggerExitTSEscaleras1Escaleras2B()
 	lm:play_interior_sound(false)
 
 	--Exterior
-	lm:set_exposure(0.4, true)
+	--lm:set_exposure(0.4, true)
 	lm:set_naja_ext(true)
 	lm:play_ambient_sound(true)
 	--lm:render_only_shadows("ParedDestapada5", true)
@@ -595,7 +601,7 @@ end
 -- Sala 6-7
 function OnTriggerExitTSEscaleras2PasilloB()
 	--Exterior
-	lm:set_exposure(0.4, false)
+	--lm:set_exposure(0.4, false)
 	lm:set_naja_ext(false)
 	--lm:render_only_shadows("ParedDestapada7", false)
 	lm:render_everything("ParedTapada7B", false)
@@ -608,10 +614,10 @@ function OnTriggerExitTSEscaleras2PasilloB()
 	lm:set_point_light_intensity("Luces_Fuego_06", 0, false)
 	lm:activate_cinematic("cinematic_sala_escaleras_2", false)
 	lm:play_ambient_sound(false)
-	lm:stop_emiter("hojas_jardin_1", false)
+	--lm:stop_emiter("hojas_jardin_1", false)
 
 	--Interior
-	lm:set_exposure(0.05, true)
+	--lm:set_exposure(0.05, true)
 	lm:set_naja_int(true)
 	lm:play_interior_sound(true)
 	--lm:render_everything("ParedDestapada7", true)
@@ -624,13 +630,13 @@ function OnTriggerExitTSEscaleras2PasilloB()
 	lm:set_point_light_intensity("Luces_Fuego_05", 10, true)
 	lm:set_point_light_intensity("Luces_Fuego_06", 10, true)
 	lm:deactivate_cinematic("cinematic_sala_escaleras_2", true)
-	lm:start_emiter("hojas_jardin_1", true)
+	--lm:start_emiter("hojas_jardin_1", true)
 end
 
 -- Sala 7-8
 function OnTriggerExitTPTechosPuertasB()
 	--Interior
-	lm:set_exposure(0.05, false)
+	--lm:set_exposure(0.05, false)
 	lm:set_naja_int(false)
 	--lm:render_everything("ParedDestapada7", false)
 	lm:render_only_shadows("ParedTapada7B", false)
@@ -645,10 +651,10 @@ function OnTriggerExitTPTechosPuertasB()
 	lm:play_interior_sound(false)
 	lm:set_point_light_intensity("Luces_Fuego_08", 0, false)
 	lm:set_point_light_intensity("Luces_Fuego_09", 0, false)
-	lm:start_emiter("hojas_puente", false)	
+	--lm:start_emiter("hojas_puente", false)	
 	
 	--Exterior
-	lm:set_exposure(0.4, true)
+	--lm:set_exposure(0.4, true)
 	lm:set_naja_ext(true)
 	lm:play_ambient_sound(true)
 	--lm:render_only_shadows("ParedDestapada7", true)
@@ -664,9 +670,9 @@ function OnTriggerExitTPTechosPuertasB()
 	lm:set_point_light_intensity("Luces_Fuego_05", 0, true)
 	lm:set_point_light_intensity("Luces_Fuego_06", 0, true)
 	lm:set_point_light_intensity("Luces_Fuego_08", 10, true)
-	lm:stop_emiter("hojas_puente", true)
-	lm:start_emiter("hojas_jardin_2", true)
-	lm:start_emiter("hojas_viento", true)
+	--lm:stop_emiter("hojas_puente", true)
+	--lm:start_emiter("hojas_jardin_2", true)
+	--lm:start_emiter("hojas_viento", true)
 end
 
 -- Sala 8-9
@@ -677,7 +683,7 @@ function OnTriggerExitTSPuertasArbolB()
 	lm:set_dir_light_intensity("LightDir10", 0, false)
 	lm:deactivate_cinematic("cinematic_vientos", false)
 	lm:play_interior_sound(false)
-	lm:start_emiter("hojas_jardin_1", false)
+	--lm:start_emiter("hojas_jardin_1", false)
 	
 	lm:play_ambient_sound(true)
 	lm:activate_cinematic("cinematic_vientos", true)
@@ -685,13 +691,13 @@ function OnTriggerExitTSPuertasArbolB()
 	lm:set_dir_light_intensity("LightDir07", 0, true)
 	lm:set_dir_light_intensity("LightDir10", 11, true)
 	lm:set_point_light_intensity("Luces_Fuego_08", 0, true)
-	lm:stop_emiter("hojas_jardin_1", true)
+	--lm:stop_emiter("hojas_jardin_1", true)
 end
 
 -- Sala 9-10
 function OnTriggerExitTSJardinRunner()
 	--Exterior
-	lm:set_exposure(0.4, true)
+	--lm:set_exposure(0.4, true)
 	lm:set_naja_ext(true)
 	--lm:render_only_shadows("ParedDestapada10", true)
 	lm:render_everything("ParedTapada10B", true)
@@ -703,10 +709,10 @@ function OnTriggerExitTSJardinRunner()
 	lm:set_point_light_intensity("Luces_Fuego_010", 0, true)
 	lm:activate_cinematic("cinematic_vientos", true)
 	lm:play_ambient_sound(true)
-	lm:start_emiter("hojas_jardin_2", true)
+	--lm:start_emiter("hojas_jardin_2", true)
 
 	--Interior
-	lm:set_exposure(0.05, false)
+	--lm:set_exposure(0.05, false)
 	lm:set_naja_int(false)
 	lm:play_interior_sound(false)
 	--lm:render_everything("ParedDestapada10", false)
@@ -718,21 +724,12 @@ function OnTriggerExitTSJardinRunner()
 	lm:set_point_light_intensity("Luces_Fuego_07", 10, false)
 	lm:set_point_light_intensity("Luces_Fuego_09", 10, false)
 	lm:set_point_light_intensity("Luces_Fuego_010", 10, false)
-	lm:stop_emiter("hojas_jardin_2", false)
-end
-
--- Puzzle antorchas
-function OnTriggerExitTSRejaAntorchas()
-	lm:activate_torch("TFAntorcha1")
-	lm:activate_torch("TFAntorcha02")
-	lm:activate_torch("TFAntorcha03")
-	lm:close_door("Puerta_Reja_02")
-	lm:scare_player()
+	--lm:stop_emiter("hojas_jardin_2", false)
 end
 
 function OnTriggerExitTSRunnerLava()
 	--Interior
-	lm:set_exposure(0.05, true)
+	--lm:set_exposure(0.05, true)
 	lm:set_naja_int(true)
 	--lm:render_everything("ParedDestapada10", true)
 	lm:render_only_shadows("ParedTapada10B", true)
@@ -744,15 +741,15 @@ function OnTriggerExitTSRunnerLava()
 	lm:set_point_light_intensity("Luces_Fuego_09", 10, true)
 	lm:set_point_light_intensity("Luces_Fuego_010", 10, true)
 	lm:play_interior_sound(true)
-	lm:start_emiter("hojas_viento", true)
-	lm:stop_emiter("particulas_top_cascada", true)
-	lm:stop_sound(true, "cascade")
+	--lm:start_emiter("hojas_viento", true)
+	--lm:stop_emiter("particulas_top_cascada", true)
+	lm:stop_sound(true, "lava")
 
 	--Exterior
-	lm:set_exposure(0.4, false)
+	--lm:set_exposure(0.4, false)
 	lm:set_naja_ext(false)
 	lm:play_ambient_sound(false)
-	lm:play_sound(false, "cascade")
+	lm:play_sound(false, "lava")
 	--lm:render_only_shadows("ParedDestapada10", false)
 	lm:render_everything("ParedTapada10B", false)
 	lm:set_dir_light_intensity("LightDir13", 10, false)
@@ -762,8 +759,8 @@ function OnTriggerExitTSRunnerLava()
 	lm:set_point_light_intensity("Luces_Fuego_07", 0, false)
 	lm:set_point_light_intensity("Luces_Fuego_09", 0, false)
 	lm:set_point_light_intensity("Luces_Fuego_010", 0, false)
-	lm:stop_emiter("hojas_viento", false)
-	lm:start_emiter("particulas_top_cascada", false)
+	--lm:stop_emiter("hojas_viento", false)
+	--lm:start_emiter("particulas_top_cascada", false)
 end
 
 function OnTriggerExitTSCascadaAntorchasB()
@@ -775,10 +772,10 @@ function OnTriggerExitTSCascadaAntorchasB()
 	lm:set_point_light_intensity("Luces_Fuego_012", 0, true)
 	--lm:set_dir_light_intensity("LightInteriorSSalaFinal", 0, true)
 	lm:play_ambient_sound(true)
-	lm:play_sound(true, "cascade")
+	lm:play_sound(true, "lava")
 
 	
-	lm:stop_sound(false, "cascade")
+	lm:stop_sound(false, "lava")
 	lm:play_interior_sound(false)
 	--lm:render_everything("ParedDestapada12", false)
 	lm:render_only_shadows("ParedTapada12B", false)

@@ -2,6 +2,75 @@
   {
     "entity":
     {
+      "name": "LanzasVerticales"
+      ,
+      "transform":
+      {
+        "pos": "27.1818 65.2724 4.66257"
+        ,
+        "rotation": "0.0 0.712156 0.0 -0.702022"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/LanzasVerticales.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LanzasMat.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+        ,
+        "sound_name": "hit_lanzas"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.3825 2.0 0.950772"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 5.0
+        ,
+        "delay": 0.5
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "27.1818 65.2724 4.66257"
+          ,
+          "27.1818 65.2724 4.66257"
+        ]
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "ParedTapada10B"
       ,
       "transform":
@@ -44,26 +113,91 @@
       "render":
       [
         {
-          "mesh": "data/meshes/DestruiblePuente2_Pre.mesh"
+          "mesh": "data/meshes/DestruibleC.mesh"
           ,
           "materials":
           [
             "data/materials/puenteRoto.material"
           ]
         }
+        ,
+        {
+          "mesh": "data/meshes/Destruible_post.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
       ]
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PlataformasDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+      ,
+      "ai_destroyable":
+      {
+        "trigger_actor": "The Player"
+        ,
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
+      }
       ,
       "collider":
       {
         "shape": "box"
         ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1.57994 0.199509 1.73674"
+        "halfExtent": "1.25557 0.153804 1.7009"
         ,
         "is_dynamic": false
         ,
         "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente2_Pre_trigger"
+      ,
+      "transform":
+      {
+        "pos": "26.115 84.5944 -17.2624"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "destroyable"
+        ,
+        "collider_entity": "DestruiblePuente2_Pre"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.25477 0.5 1.69847"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
       }
     }
   }
@@ -83,26 +217,91 @@
       "render":
       [
         {
-          "mesh": "data/meshes/DestruiblePuente1_Pre.mesh"
+          "mesh": "data/meshes/DestruibleB.mesh"
           ,
           "materials":
           [
             "data/materials/puenteRoto.material"
           ]
         }
+        ,
+        {
+          "mesh": "data/meshes/Destruible_post.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
       ]
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PlataformasDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+      ,
+      "ai_destroyable":
+      {
+        "trigger_actor": "The Player"
+        ,
+        "destroy_time": 1.0
+        ,
+        "recover_time": 5.0
+      }
       ,
       "collider":
       {
         "shape": "box"
         ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1.46312 0.203442 1.66755"
+        "halfExtent": "1.25557 0.153804 1.7009"
         ,
         "is_dynamic": false
         ,
         "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Pre_trigger"
+      ,
+      "transform":
+      {
+        "pos": "28.9519 84.5468 -11.2486"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "destroyable"
+        ,
+        "collider_entity": "DestruiblePuente1_Pre"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.25477 0.5 1.69847"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
       }
     }
   }
@@ -402,73 +601,6 @@
       }
       ,
       "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Lanzas003"
-      ,
-      "transform":
-      {
-        "pos": "27.1593 65.2717 4.16433"
-        ,
-        "rotation": "-0.706777 0.70065 -0.0215813 0.0953413"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Lanzas003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/LanzasMat.material"
-          ]
-        }
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": false
-      }
-      ,
-      "ai_linear_patrol":
-      {
-        "speed": 3.5
-        ,
-        "delay": 0.5
-        ,
-        "wake": 1.0
-        ,
-        "waypoints":
-        [
-          "27.1593 65.2717 4.16433"
-          ,
-          "29.5555 65.2717 4.56523"
-        ]
-      }
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1.38794 2.28628 1.0167"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
     }
   }
 ]

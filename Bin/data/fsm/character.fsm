@@ -36,7 +36,8 @@
 			"x_speed" : 1.6,
 			"is_action": true,
 			"delay_in": 0,
-			"delay_out": 0.1
+			"delay_out": 0.1,
+			"sound": "event:/SFX/Character/Naja/StepsLands/Jump"
 		},
 		{
 			"name" : "falling",
@@ -71,7 +72,7 @@
 			"delay_in": 0,
 			"delay_out": 0,
 			"sound": "event:/SFX/Character/Naja/Windstrike/Windstike_Slash",
-			"sound_cloth": "event:/SFX/Character/Naja/Clothes/Cloth_Rustle_Intense"
+			"sound_cloth": "event:/SFX/Character/Naja/Windstrike/Viento_Dash"
 		},
 		{
 			"name" : "windstrike",
@@ -104,7 +105,8 @@
 			"type" : "DyingState",
 			"is_action": true,
 			"delay_in": 0.1,
-			"delay_out": 0.1
+			"delay_out": 0.1,
+			"sound": "event:/SFX/Character/Naja/Naja_Voz/Naja_Dead"
 		},
 		{
 			"name" : "dead",

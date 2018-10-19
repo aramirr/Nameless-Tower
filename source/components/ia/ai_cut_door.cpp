@@ -6,6 +6,7 @@
 #include "render/render_utils.h"
 #include "modules/system/module_physics.h"
 #include "components\juan\comp_hierarchy.h"
+#include "components\sound\comp_sound.h"
 
 using namespace physx;
 
@@ -75,6 +76,8 @@ void CAICutDoor::ClosingState(float dt) {
   if (my_pos.y <= 0.f) {
     current_lerp_time = 0.f;
     ChangeState("closed_state");
+    TCompSound* sound = get<TCompSound>();
+    sound->playSound("sound_shut");
   }
 
 };
@@ -124,6 +127,8 @@ void CAICutDoor::OpenState(float dt) {
   if (current_lerp_time >= 0.5f) {
     current_lerp_time = 0.f;
     ChangeState("closing_state");
+    TCompSound* sound = get<TCompSound>();
+    sound->playSound("sound");
   }
 
 };
@@ -134,5 +139,7 @@ void CAICutDoor::ClosedState(float dt) {
   if (current_lerp_time >= 0.5f) {
     current_lerp_time = 0.f;
     ChangeState("opening_state");
+    TCompSound* sound = get<TCompSound>();
+    sound->playSound("sound");
   }
 };

@@ -4,6 +4,7 @@
 #include "fsm/context.h"
 #include "components/physics/controller_filter.h"
 #include "components/physics/query_filter.h"
+#include "components/sound/comp_sound.h"
 
 namespace FSM
 {
@@ -15,7 +16,10 @@ namespace FSM
 		player->jumping_start_height = c_my_transform->getPosition().y;
         player->y_speed_factor = _y_speed;
         player->clear_animations(0);
-        EngineSound.res = _sound->start();
+        _sound->start();
+        TCompSound* sound = e->get<TCompSound>();
+        sound->playSound("windstrike");
+        sound->playSound("action");
 	}
 
 	bool OmnijumpState::load(const json& jData)
@@ -35,7 +39,7 @@ namespace FSM
             Studio::EventDescription* event_description_cloth = NULL;
             std::string event_name_cloth = jData["sound_cloth"];
             EngineSound.system->getEvent(event_name_cloth.c_str(), &event_description_cloth);
-            event_description_cloth->createInstance(&_sound);
+            event_description_cloth->createInstance(&_sound_cloth_rustle);
         }
 		return true;
 	}

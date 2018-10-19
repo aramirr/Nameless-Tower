@@ -128,6 +128,9 @@ void CAITorch::activate() {
 	active = true;
     render = true;    
     apagando = false;
+    CEntity* e = h_entity;
+    std::string name = e->getName();
+    EngineSound.emitPositionalEvent("fire", name);
 	TCompTransform* my_transform = getMyTransform();
     if (violeta)
         EngineBillboards.encenderFuegoVioleta(id, scale, thin);

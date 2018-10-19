@@ -86,6 +86,34 @@
   {
     "entity":
     {
+      "name": "OndasRoca"
+      ,
+      "transform":
+      {
+        "pos": "28.4193 59.5525 -14.5623"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/OndasRoca.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaDobleAgua.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "ParedExteriorParte3K"
       ,
       "transform":
@@ -302,6 +330,22 @@
           ]
         }
       ]
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event/SFX/Object/Scene/Agua_A"
+            ,
+            "positional": true
+            ,
+            "on_start": true
+          }
+        ]
+      }
       ,
       "abs_aabb": true
     }

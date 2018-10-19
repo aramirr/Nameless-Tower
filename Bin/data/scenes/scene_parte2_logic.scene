@@ -338,7 +338,12 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+      "sound": {
+          "events": [
+            {"name": "windstrike", "src": "event:/SFX/Object/Mechanics/Wind_currents", "positional": true, "on_start": true}
+            ]
+            }
     }
   }
   ,
@@ -472,7 +477,11 @@
       "door":
       {
         "up": true
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Puerta_Reja", "positional": true, "on_start": false}
+            ]}
     }
   }
   ,
@@ -516,7 +525,11 @@
       "door":
       {
         "up": false
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Puerta_Madera", "positional": true, "on_start": false}
+            ]}
     }
   }
   ,
@@ -560,7 +573,11 @@
       "door":
       {
         "up": false
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Puerta_Madera", "positional": true, "on_start": false}
+            ]}
     }
   }
   ,
@@ -604,7 +621,11 @@
       "door":
       {
         "up": true
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Puerta_Reja", "positional": true, "on_start": false}
+            ]}
     }
   }
   ,
@@ -648,7 +669,11 @@
       "door":
       {
         "up": true
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Puerta_Reja", "positional": true, "on_start": false}
+            ]}
     }
   }
   ,

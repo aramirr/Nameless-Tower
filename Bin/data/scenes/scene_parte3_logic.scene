@@ -2,34 +2,6 @@
   {
     "entity":
     {
-      "name": "OndasRoca"
-      ,
-      "transform":
-      {
-        "pos": "28.4193 59.5525 -14.5623"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/OndasRoca.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EspumaDobleAgua.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "EngranajeDe002"
       ,
       "transform":
@@ -51,41 +23,13 @@
         }
       ]
       ,
-      "ai_rotator":
-      {
-        "configs":
-        [
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": true
-          }
-          ,
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": false
-          }
-        ]
-      }
+      "abs_aabb": true
       ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "X"
+        "eje": "Y"
       }
     }
   }
@@ -114,41 +58,13 @@
         }
       ]
       ,
-      "ai_rotator":
-      {
-        "configs":
-        [
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": true
-          }
-          ,
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": false
-          }
-        ]
-      }
+      "abs_aabb": true
       ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "X"
+        "eje": "Y"
       }
     }
   }
@@ -177,41 +93,13 @@
         }
       ]
       ,
-      "ai_rotator":
-      {
-        "configs":
-        [
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": true
-          }
-          ,
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": false
-          }
-        ]
-      }
+      "abs_aabb": true
       ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "X"
+        "eje": "Y"
       }
     }
   }
@@ -240,41 +128,13 @@
         }
       ]
       ,
-      "ai_rotator":
-      {
-        "configs":
-        [
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": true
-          }
-          ,
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": false
-          }
-        ]
-      }
+      "abs_aabb": true
       ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "X"
+        "eje": "Y"
       }
     }
   }
@@ -303,41 +163,13 @@
         }
       ]
       ,
-      "ai_rotator":
-      {
-        "configs":
-        [
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": true
-          }
-          ,
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": false
-          }
-        ]
-      }
+      "abs_aabb": true
       ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "X"
+        "eje": "Y"
       }
     }
   }
@@ -366,41 +198,13 @@
         }
       ]
       ,
-      "ai_rotator":
-      {
-        "configs":
-        [
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": true
-          }
-          ,
-          {
-            "speed": 0.1
-            ,
-            "wait_time": 1.0
-            ,
-            "degrees": 0.0
-            ,
-            "axis": "X"
-            ,
-            "increase": false
-          }
-        ]
-      }
+      "abs_aabb": true
       ,
       "circular_controller":
       {
         "speed": 1.0
         ,
-        "eje": "X"
+        "eje": "Y"
       }
     }
   }
@@ -442,7 +246,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 5.0
+        "speed": 2.0
         ,
         "delay": 0.5
         ,
@@ -497,7 +301,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 5.0
+        "speed": 2.0
         ,
         "delay": 0.5
         ,
@@ -552,7 +356,7 @@
       ,
       "ai_linear_patrol":
       {
-        "speed": 5.0
+        "speed": 2.0
         ,
         "delay": 0.5
         ,
@@ -603,6 +407,15 @@
         }
       ]
       ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PlataformasDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+      ,
       "ai_destroyable":
       {
         "trigger_actor": "The Player"
@@ -623,7 +436,11 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Destruible", "positional": true, "on_start": false}
+            ]}
     }
   }
   ,
@@ -726,6 +543,15 @@
         }
       ]
       ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PlataformasDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+      ,
       "ai_destroyable":
       {
         "trigger_actor": "The Player"
@@ -746,7 +572,11 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Destruible", "positional": true, "on_start": false}
+            ]}
     }
   }
   ,
@@ -849,6 +679,15 @@
         }
       ]
       ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PlataformasDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+      ,
       "ai_destroyable":
       {
         "trigger_actor": "The Player"
@@ -869,7 +708,11 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Destruible", "positional": true, "on_start": false}
+            ]}
     }
   }
   ,
@@ -1145,6 +988,15 @@
         }
       ]
       ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PlataformasDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+      ,
       "ai_destroyable":
       {
         "trigger_actor": "The Player"
@@ -1165,7 +1017,11 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Destruible", "positional": true, "on_start": false}
+            ]}
     }
   }
   ,
@@ -1305,11 +1161,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Reja.mesh"
+          "mesh": "data/meshes/PuertaA.mesh"
           ,
           "materials":
           [
-            "data/materials/RejaMate.material"
+            "data/materials/Puerta_Cerrada_01.material"
           ]
         }
       ]
@@ -1322,7 +1178,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Puerta_Reja.col_mesh"
+        "mesh_src": "data/meshes/PuertaA.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -1330,7 +1186,12 @@
       "door":
       {
         "up": true
-      }
+      },
+        "sound": {
+          "events": [
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Puerta_Reja", "positional": true, "on_start": false},
+            {"name": "sound_shut", "src": "event:/SFX/Object/Mechanics/Reja_Fast", "positional": true, "on_start": false}
+            ]}
     }
   }
   ,

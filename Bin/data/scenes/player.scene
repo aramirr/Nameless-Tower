@@ -60,6 +60,9 @@
 		    "arrow_ui":{},
 		    "sound": {
 		    	"events": [
+		    		{"name": "windstrike", "src": "event:/SFX/Character/Naja/Windstrike/Viento_Windstrike", "positional": false, "on_start": false},
+		    		{"name": "action", "src": "event:/SFX/Character/Naja/Naja_Voz/Naja_Acciones", "positional": false, "on_start": false},
+		    		{"name": "wind", "src": "event:/SFX/Object/Mechanics/Wind_currents", "positional": false, "on_start": false},
 		    		{"name": "hit_compresora", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras"},
 		    		{"name": "hit_dardos", "src": "event:/SFX/Character/Naja/Hits/Hit_Dardo"},
 		    		{"name": "hit_lanzas", "src": "event:/SFX/Character/Naja/Hits/Hit_Lanzas"},

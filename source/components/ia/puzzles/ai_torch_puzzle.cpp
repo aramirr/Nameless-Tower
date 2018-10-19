@@ -49,11 +49,13 @@ void CAITorchPuzzle::ActiveState(float dt)
 
 void CAITorchPuzzle::CompleteState(float dt)
 {
-  CEntity* door1 = (CEntity*)getEntityByName(door_name1);
-  CEntity* door2 = (CEntity*)getEntityByName(door_name2);
-  TMsgOpenDoor msg;
-  door1->sendMsg(msg);
-  //door2->sendMsg(msg);
+    if (!complete) {
+        CEntity* door1 = (CEntity*)getEntityByName(door_name1);
+        TMsgOpenDoor msg;
+        door1->sendMsg(msg);
+        complete = true;
+        EngineSound.emitEvent("puzzle");
+    }
 }
 
 
