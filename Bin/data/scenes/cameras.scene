@@ -30,8 +30,7 @@
 			},
 			"camera_flyover" : {
 				"speed": 45
-			},
-		    "culling":true
+			}
 		}
 	},
 	{
@@ -74,8 +73,7 @@
 			},
 			"camera" : {
 				"fov" : 80 
-			},
-		    "culling":true
+			}
 		    ,
 			"render_ao" : {
 		        "enabled" :  true,
@@ -100,7 +98,6 @@
 			"camera" : {
 				"fov" : 80 
 			},
-		    "culling":true,
 			"render_ao" : {
 		        "enabled" :  true,
 		        "radius": 0.6,
@@ -148,7 +145,6 @@
 			"camera" : {
 				"fov" : 80 
 			},
-		    "culling":true,
 			"render_ao" : {
 		        "enabled" :  true,
 		        "radius": 0.6,
