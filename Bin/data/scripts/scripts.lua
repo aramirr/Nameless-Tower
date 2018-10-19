@@ -53,7 +53,7 @@ function OnTriggerExitLuaCinematicTest()
 	lm:activate_cinematic_bands(false)
 	lm:activate_cinematic("cinematica_inicial", false)
 	lm:pause_player()
-	lm:play_animation(32)
+	lm:play_animation("The Player", 32)
 	lm:regain_control(25)
 end
 
@@ -68,7 +68,7 @@ function OnTriggerExitTSCinematicaMonolito()
 	lm:activate_cinematic_bands(false)
 	--lm:activate_cinematic("cinematica_inicial", false)
 	lm:pause_player()
-	lm:play_animation(34)
+	lm:play_animation("The Player", 34)
 	lm:regain_control(15)
 end
 
