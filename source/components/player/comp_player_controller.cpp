@@ -17,6 +17,7 @@ void TCompPlayerController::debugInMenu() {
 	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
     ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
     ImGui::Text("Can die: %s", can_die ? "Si" : "No");
+    ImGui::Text("Cinematic: %s", on_cinematic ? "Si" : "No");
 }
 
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
@@ -29,6 +30,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	is_grounded = true;
 	looking_left = false;
     rayWall = false;
+    on_cinematic = false;
     Studio::EventDescription* event_description = NULL;
     std::string event_name = "event:/SFX/Character/Naja/StepsLands/Land_Dirt";
     EngineSound.system->getEvent(event_name.c_str(), &event_description);

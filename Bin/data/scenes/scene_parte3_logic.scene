@@ -27,9 +27,9 @@
       ,
       "circular_controller":
       {
-        "speed": 1.0
+        "speed": 3.0
         ,
-        "eje": "Y"
+        "eje": "Z"
       }
     }
   }
@@ -62,9 +62,9 @@
       ,
       "circular_controller":
       {
-        "speed": 1.0
+        "speed": 3.0
         ,
-        "eje": "Y"
+        "eje": "Z"
       }
     }
   }
@@ -97,9 +97,9 @@
       ,
       "circular_controller":
       {
-        "speed": 1.0
+        "speed": 3.0
         ,
-        "eje": "Y"
+        "eje": "Z"
       }
     }
   }
@@ -132,9 +132,9 @@
       ,
       "circular_controller":
       {
-        "speed": 1.0
+        "speed": 3.0
         ,
-        "eje": "Y"
+        "eje": "Z"
       }
     }
   }
@@ -167,9 +167,9 @@
       ,
       "circular_controller":
       {
-        "speed": 1.0
+        "speed": 3.0
         ,
-        "eje": "Y"
+        "eje": "Z"
       }
     }
   }
@@ -202,9 +202,9 @@
       ,
       "circular_controller":
       {
-        "speed": 1.0
+        "speed": 3.0
         ,
-        "eje": "Y"
+        "eje": "Z"
       }
     }
   }
@@ -261,6 +261,22 @@
       }
       ,
       "abs_aabb": true
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/PlataformaZ"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,
@@ -316,6 +332,22 @@
       }
       ,
       "abs_aabb": true
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/PlataformaZ"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,
@@ -371,6 +403,22 @@
       }
       ,
       "abs_aabb": true
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/PlataformaZ"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,
@@ -437,6 +485,22 @@
       }
       ,
       "abs_aabb": true
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Destruible"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,
@@ -569,6 +633,22 @@
       }
       ,
       "abs_aabb": true
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Destruible"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,
@@ -698,7 +778,25 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      }      
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Destruible"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,
@@ -775,7 +873,7 @@
       ,
       "transform":
       {
-        "pos": "30.5698 68.7333 7.49791"
+        "pos": "30.4684 68.7333 8.03722"
         ,
         "rotation": "0.0 -0.636836 0.0 -0.770999"
       }
@@ -839,7 +937,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "0.55256 0.928047 0.853696"
+        "halfExtent": "1.00063 0.928047 1.54597"
         ,
         "is_dynamic": false
         ,
@@ -855,7 +953,7 @@
       ,
       "transform":
       {
-        "pos": "11.2812 69.3165 29.7615"
+        "pos": "11.7358 69.9572 29.7512"
         ,
         "rotation": "0.0 -0.166016 0.0 -0.986123"
       }
@@ -1004,6 +1102,22 @@
       }
       ,
       "abs_aabb": true
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Destruible"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,
@@ -1143,11 +1257,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/PuertaA.mesh"
+          "mesh": "data/meshes/Puerta_Reja.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_Cerrada_01.material"
+            "data/materials/RejaMate.material"
           ]
         }
       ]
@@ -1160,7 +1274,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/PuertaA.col_mesh"
+        "mesh_src": "data/meshes/Puerta_Reja.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -1168,12 +1282,33 @@
       "door":
       {
         "up": true
-      },
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Puerta_Reja", "positional": true, "on_start": false},
-            {"name": "sound_shut", "src": "event:/SFX/Object/Mechanics/Reja_Fast", "positional": true, "on_start": false}
-            ]}
+      }
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Puerta_Reja"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+          ,
+          {
+            "name": "sound_shut"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Reja_Fast"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
     }
   }
   ,
@@ -1269,7 +1404,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Lanzas002.mesh"
+          "mesh": "data/meshes/LanzasVerticales.mesh"
           ,
           "materials":
           [
@@ -1278,45 +1413,63 @@
         }
       ]
       ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
       "trigger":
       {
         "trigger_type": "player_killer"
         ,
-        "render": false
-      }
-      ,
-      "ai_linear_patrol":
-      {
-        "speed": 3.0
+        "render": true
         ,
-        "delay": 1.0
-        ,
-        "wake": 0.5
-        ,
-        "waypoints":
-        [
-          "14.0324 52.1405 27.8452"
-          ,
-          "14.0324 55.9581 27.8452"
-        ]
-      }
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
+        "sound_name": "hit_lanzas"
       }
       ,
       "collider":
       {
         "shape": "box"
         ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1.38794 2.28628 1.0167"
+        "halfExtent": "1.3825 2.0 0.950772"
         ,
         "is_dynamic": false
         ,
         "is_trigger": true
+      }
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 5.0
+        ,
+        "delay": 0.5
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "14.0324 55.9581 27.8452"
+          ,
+          "14.0324 50.4023 27.8452"
+        ]
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Lanzas"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
       }
     }
   }

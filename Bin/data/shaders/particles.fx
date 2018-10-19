@@ -24,10 +24,10 @@ void VS(
 
   // Compute uv's in base of the frame number
   float nframe = iXtras.z + global_world_time * 20;
-    int nframes_per_axis = srites_frames;
+  int   nframes_per_axis = srites_frames;
   int   iframe = (int)nframe;
-    int ifx = iframe % srites_frames;
-    int ify = (int) (iframe / srites_frames);
+  int   ifx = iframe % srites_frames;
+  int   ify = (int) (iframe / srites_frames);
 
   //EDU: Arreglo para ejecutar la animacion como toca 
   ifx = (nframes_per_axis-1) - ifx;

@@ -583,7 +583,7 @@ float4 PS_ambient(
 
   // if roughness = 0 -> I want to use the miplevel 0, the all-detailed image
   // if roughness = 1 -> I will use the most blurred image, the 8-th mipmap, If image was 256x256 => 1x1
-    float mipIndex = roughness * roughness * 8.0f; //*32
+    float mipIndex = roughness * roughness * 32.0f; //*32
     float3 env = txEnvironmentMap.SampleLevel(samLinear, reflected_dir, mipIndex).xyz;
   // Convert the color to linear also.
     env = pow(abs(env), 2.2f);
@@ -592,9 +592,9 @@ float4 PS_ambient(
   // Here we are sampling using the cubemap-miplevel 4, and the already blurred txIrradiance texture
   // and mixing it in base to the scalar_irradiance_vs_mipmaps which comes from the ImGui.
   // Remove the interpolation in the final version!!!
-    float3 irradiance_mipmaps = txEnvironmentMap.SampleLevel(samLinear, N, 4).xyz; //6
+    float3 irradiance_mipmaps = txEnvironmentMap.SampleLevel(samLinear, N, 6).xyz; //6
     float3 irradiance_texture = txIrradianceMap.Sample(samLinear, N).xyz;
-    float3 irradiance = irradiance_texture * scalar_irradiance_vs_mipmaps + irradiance_mipmaps * (1. - scalar_irradiance_vs_mipmaps);
+    float3 irradiance = lerp(irradiance_texture, irradiance_mipmaps, scalar_irradiance_vs_mipmaps); //irradiance_texture * scalar_irradiance_vs_mipmaps + irradiance_mipmaps * (1. - scalar_irradiance_vs_mipmaps);
 
   // How much the environment we see
     float3 env_fresnel = Specular_F_Roughness(specular_color, 1. - roughness * roughness, N, view_dir);
