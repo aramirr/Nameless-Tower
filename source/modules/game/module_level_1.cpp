@@ -120,6 +120,9 @@ void CModuleLevel1::update(float delta)
 		//cm->activateCinematic("final");
 
 		carga = false;
+		HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+		//ShowWindow(handle, SW_RESTORE);
+		EngineUI.activateSplash();
 	}
 	CEntity* cam = (CEntity*)getEntityByName("camera_manager");
 

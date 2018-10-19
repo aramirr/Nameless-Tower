@@ -9,7 +9,7 @@ namespace GUI
     if (params)
     {
       params->_minUV += _speed * delta;
-      params->_maxUV += _speed * delta;
+      params->_maxUV -= _speed * delta;
     }
   }
 }

@@ -53,7 +53,9 @@ public:
 	void activateSplash() { splash = true; }
 
 private:
-	float timer;
+	float timer = 3.f;
+	float firstdt;
+	bool firstTime;
 	bool splash;
 
   CCamera _orthoCamera;

@@ -234,10 +234,10 @@ void CModuleRender::activateMainCamera() {
 
 void CModuleRender::generateFrame() {
 
-	if (firstFrame) {
-		EngineUI.activateSplash();
+	/*if (firstFrame) {
+		
 		firstFrame = false;
-	}
+	}*/
 
 	{
 		PROFILE_FUNCTION("CModuleRender::shadowsMapsGeneration");
@@ -356,6 +356,7 @@ void CModuleRender::generateFrame() {
 	// Present the information rendered to the back buffer to the front buffer (the screen)
 	{
 		PROFILE_FUNCTION("Render.swapChain");
-		Render.swapChain->Present(0, 0);
+		HRESULT result = Render.swapChain->Present(0, 0);
 	}
+	
 }

@@ -24,5 +24,57 @@
 				]
 			}
 		]
+	},
+	{
+		"name" : "splashUPF",
+		"type" : "widget",
+		"size" : "1920 1080",
+		"children" : [
+			{
+				"name" : "backgroundUPF",
+				"children" : [
+					{
+						"name" : "imageUPF",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/UPF.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1",
+						"effects" : [
+							{
+								"type" : "animate_uv",
+								"speed" : "0.0125 0.0125"
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"name" : "splash3DMax",
+		"type" : "widget",
+		"size" : "1920 1080",
+		"children" : [
+			{
+				"name" : "background3DMax",
+				"children" : [
+					{
+						"name" : "image3DMax",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/3DMax.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1",
+						"effects" : [
+							{
+								"type" : "animate_uv",
+								"speed" : "0.0125 0.0125"
+							}
+						]
+					}
+				]
+			}
+		]
 	}
 ]
