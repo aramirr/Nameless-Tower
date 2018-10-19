@@ -53,16 +53,6 @@ function OnLevel2Start()
 end
 
 -- Cinematicas
-function OnTriggerExitLuaCinematicTest()
-	--lm:activate_cinematic_bands(false)
-	--lm:pause_player()
-	--If camera needs to be moved
-	--lm:activate_cinematic("cinematic_first_door", false)
-	--lm:play_animation(32)
-	--lm:regain_control(25)
-	--lm:kill_entity("LuaCinematicTest")
-	
-end
 
 function OnTriggerExitTSCinematicaMonolito()
 	--lm:activate_cinematic_bands(false)
