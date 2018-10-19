@@ -242,8 +242,8 @@ void LogicManager::pausePlayer() {
 
 }
 
-void LogicManager::setAnim(int anim_id) {
-	CEntity* player = getEntityByName("The Player");
+void LogicManager::setAnim(std::string name, int anim_id) {
+	CEntity* player = getEntityByName(name);
 	TCompPlayerController * controller = player->get<TCompPlayerController>();
 	controller->change_animation(anim_id, true, 0.5, 0.5, true);
 }
