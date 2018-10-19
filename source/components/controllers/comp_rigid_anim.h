@@ -12,6 +12,11 @@ struct TCompRigidAnim : public TCompBase {
   bool                    loops = true;
   bool                    is_moving = false;
   float                   speed_factor = 1.0f;
+	bool father = false;
+
+	std::vector<std::string> sons;
+
+
   void load(const json& j, TEntityParseContext& ctx);
   void update(float dt);
   void debugInMenu();
@@ -19,6 +24,7 @@ struct TCompRigidAnim : public TCompBase {
   void onGroupCreated(const TMsgEntitiesGroupCreated& msg);
 	void activate(const TMsgActivateAnim& msg);
 	void desactivate(const TMsgDesactivateAnim& msg);
+	void registerSon(const TMsgRegisterDestoyableSon& msg);
   DECL_SIBLING_ACCESS();
 };
 

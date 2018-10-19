@@ -697,7 +697,11 @@
         }
       ]
       ,
-      "abs_aabb": true
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "father": true
+      }
     }
   }
   ,

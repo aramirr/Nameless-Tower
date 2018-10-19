@@ -70,6 +70,7 @@ function OnTriggerExitTSCinematicaMonolito()
 	--lm:activate_cinematic("cinematica_inicial", false)
 	lm:pause_player()
 	lm:play_animation("The Player", 34)
+	lm:activate_anim("Monolito_001")
 	lm:regain_control(15)
 end
 
