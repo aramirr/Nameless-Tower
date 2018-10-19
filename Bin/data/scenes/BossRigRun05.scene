@@ -1,0 +1,53 @@
+[
+  {
+    "entity":
+    {
+      "name": "Cabeza_final"
+      ,
+      "transform":
+      {
+        "pos": "-8.94928e-05 1.05915 0.696758"
+        ,
+        "rotation": "0.707107 0.0 0.0 -0.707107"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cabeza_final.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/BossCabezaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Cuerpo"
+      ,
+      "transform":
+      {
+        "pos": "-8.69942e-05 0.764344 -0.0769482"
+        ,
+        "rotation": "0.707107 0.0 0.0 -0.707107"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cuerpo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/BossCuerpoMat.material"
+          ]
+        }
+      ]
+    }
+  }
+]
