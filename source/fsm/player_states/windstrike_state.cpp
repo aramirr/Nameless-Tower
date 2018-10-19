@@ -32,13 +32,7 @@ namespace FSM
 			assert(!ctx_w.entities_loaded.empty());                        
 		}
 		player->change_animation(player->EAnimations::NajaWindstrikeA, _is_action, _delay_in, _delay_out, true);
-
-		CEntity* trail = (CEntity *)getEntityByName("windstrike_trail");
-		if (trail)
-		{
-			TCompParticles* particle = (TCompParticles*)trail->get<TCompParticles>();
-			particle->_core->life.maxParticles = 200;
-		}
+		
         _sound->start();  
         TCompSound* sound = e->get<TCompSound>();
         sound->playSound("windstrike");
@@ -65,12 +59,7 @@ namespace FSM
 	}
 
 	void WindstrikeState::onFinish(CContext& ctx) const {
-		CEntity* trail = (CEntity *)getEntityByName("windstrike_trail");
-		if (trail)
-		{
-			TCompParticles* particle = (TCompParticles*)trail->get<TCompParticles>();
-			particle->_core->life.maxParticles = 0;
-		}
+		CEntity* trail = (CEntity *)getEntityByName("windstrike_trail");	
 
 		ctx.setVariable("windstrike", false);
         CEntity* e = ctx.getOwner();
