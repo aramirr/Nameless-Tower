@@ -60,6 +60,7 @@ public:
   void stopSound(bool left, std::string name);
   void activateTorch(std::string name);
   void scarePlayer();
+	void loadLevel2();
 
   //Lua Cinematics
   void pausePlayer();

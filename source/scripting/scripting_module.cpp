@@ -43,8 +43,6 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
     .set("play_interior_sound", &LogicManager::playInteriorSound)
     .set("play_sound", &LogicManager::playSound)
 		.set("change_level", &LogicManager::changeGameState)
-		.set("play_ambient_sound", &LogicManager::playAmbientSound)
-		.set("play_interior_sound", &LogicManager::playInteriorSound)
     .set("play_sound", &LogicManager::playSound)
 		.set("set_naja_int", &LogicManager::setNajaInterior)
 		.set("set_naja_ext", &LogicManager::setnajaExterior)
@@ -64,7 +62,8 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
     .set("activate_torch", &LogicManager::activateTorch)
     .set("scare_player", &LogicManager::scarePlayer)
     .set("play_positional_sound", &LogicManager::playPositionalSound)
-    .set("play_curve", &LogicManager::playCurve)
+		.set("play_curve", &LogicManager::playCurve)
+		.set("load_level_2", &LogicManager::loadLevel2)
 		;
 }
 

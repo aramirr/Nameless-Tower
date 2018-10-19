@@ -279,3 +279,7 @@ void LogicManager::playCurve(std::string name) {
     TCompCurve* t = entity->get<TCompCurve>();
     t->activate();
 }
+
+void LogicManager::loadLevel2() {
+	CEngine::get().getModules().changeGameState("level_2");
+}
