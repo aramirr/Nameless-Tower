@@ -25,18 +25,20 @@ bool CModuleGUI::start()
   parser.parseFile("data/gui/inicio.json");
   parser.parseFile("data/gui/pause_menu.json"); 
 	parser.parseFile("data/gui/option_menu.json");
+	parser.parseFile("data/gui/splash.json");
   /*parser.parseFile("data/gui/main_menu.json");
   parser.parseFile("data/gui/gameplay.json");
   parser.parseFile("data/gui/game_over.json");*/
-
-  activateWidget("pantallaInicio");
+	timer = 5.f;
+	splash = false;
+		activateWidget("splashNvidia");
   //activateWidget("text_tutorial");
 
   //_variables.setVariant("progress", 0.5f);
 
-  //MAIN MENU
-  mmc = new CMainMenuController();
-  registerController(mmc);
+	//MAIN MENU
+		mmc = new CMainMenuController();
+		registerController(mmc);
 
   //PAUSE MENU
   pmc = new CPauseMenuController();
@@ -63,6 +65,15 @@ bool CModuleGUI::stop()
 
 void CModuleGUI::update(float delta)
 {
+	if (splash) {
+		timer -= delta;
+		if (timer <= 0.f) {
+			desactivateWidget("splashNvidia");
+			activateWidget("pantallaInicio");
+			splash = false;
+		}
+	}
+	
   for (auto& wdgt : _activeWidgets)
   {
     wdgt->updateAll(delta);

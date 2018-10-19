@@ -72,7 +72,30 @@ namespace GUI
 
 			auto graphicsLOWCB = []() {
 				dbg("GRAPHICS LOW\n");
+				/*HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+				DEVMODE fullscreenSettings;
 
+
+				HDC windowHDC = GetDC(handle);
+				int fullscreenWidth = GetDeviceCaps(windowHDC, HORZRES);
+				int fullscreenHeight = GetDeviceCaps(windowHDC, VERTRES);
+				int colourBits = GetDeviceCaps(windowHDC, BITSPIXEL);
+				int refreshRate = GetDeviceCaps(windowHDC, VREFRESH);
+				dbg("----------------------FrameRate: %f\n", (float)refreshRate);
+				EnumDisplaySettings(NULL, 0, &fullscreenSettings);
+				fullscreenSettings.dmPelsWidth = cb_globals.global_resolution_X;
+				fullscreenSettings.dmPelsHeight = cb_globals.global_resolution_X;
+				fullscreenSettings.dmBitsPerPel = colourBits;
+				fullscreenSettings.dmDisplayFrequency = 30;
+				fullscreenSettings.dmFields = DM_PELSWIDTH |
+					DM_PELSHEIGHT |
+					DM_BITSPERPEL |
+					DM_DISPLAYFREQUENCY;
+
+				SetWindowLongPtr(handle, GWL_EXSTYLE, WS_EX_APPWINDOW | WS_EX_TOPMOST);
+				SetWindowLongPtr(handle, GWL_STYLE, WS_POPUP | WS_VISIBLE);
+				SetWindowPos(handle, HWND_TOPMOST, 0, 0, cb_globals.global_resolution_X, cb_globals.global_resolution_Y, SWP_SHOWWINDOW);
+				ChangeDisplaySettings(&fullscreenSettings, CDS_FULLSCREEN);*/
 			};
 
 			auto graphicsMEDIUMCB = []() {
@@ -333,7 +356,7 @@ namespace GUI
 			int fullscreenHeight = GetDeviceCaps(windowHDC, VERTRES);
 			int colourBits = GetDeviceCaps(windowHDC, BITSPIXEL);
 			int refreshRate = GetDeviceCaps(windowHDC, VREFRESH);
-
+			dbg("----------------------FrameRate: %f\n", (float)refreshRate);
 			EnumDisplaySettings(NULL, 0, &fullscreenSettings);
 			fullscreenSettings.dmPelsWidth = fullscreenWidth;
 			fullscreenSettings.dmPelsHeight = fullscreenHeight;
@@ -358,7 +381,6 @@ namespace GUI
 			SetWindowPos(handle, HWND_NOTOPMOST, cb_globals.global_resolution_X, cb_globals.global_resolution_Y, cb_globals.global_resolution_X, cb_globals.global_resolution_Y, SWP_SHOWWINDOW);
 			ShowWindow(handle, SW_RESTORE);
 		}
-		
 
 	}
 }

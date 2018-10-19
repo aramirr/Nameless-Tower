@@ -1,0 +1,28 @@
+[
+	{
+		"name" : "splashNvidia",
+		"type" : "widget",
+		"size" : "1920 1080",
+		"children" : [
+			{
+				"name" : "backgroundNvidia",
+				"children" : [
+					{
+						"name" : "imageNvidia",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/Nvidia.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1",
+						"effects" : [
+							{
+								"type" : "animate_uv",
+								"speed" : "0.0125 0.0125"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+]

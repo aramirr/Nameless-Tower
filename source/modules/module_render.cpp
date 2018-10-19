@@ -51,6 +51,8 @@ bool parseTechniques() {
 
 bool CModuleRender::start()
 {
+	firstFrame = true;
+
 	if (!Render.createDevice(1920, 1080))
 		return false;
 
@@ -232,6 +234,8 @@ void CModuleRender::activateMainCamera() {
 
 void CModuleRender::generateFrame() {
 
+	
+
 	{
 		PROFILE_FUNCTION("CModuleRender::shadowsMapsGeneration");
 		CTraceScoped gpu_scope("shadowsMapsGeneration");
@@ -350,5 +354,10 @@ void CModuleRender::generateFrame() {
 	{
 		PROFILE_FUNCTION("Render.swapChain");
 		Render.swapChain->Present(0, 0);
+	}
+
+	if (firstFrame) {
+		EngineUI.activateSplash();
+		firstFrame = false;
 	}
 }
