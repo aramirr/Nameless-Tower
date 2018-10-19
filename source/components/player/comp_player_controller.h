@@ -26,7 +26,7 @@ public:
 	VEC3 checkpoint;
     bool    looking_left;
     bool    camera_idle = false;
-    bool    on_cinematic = false;
+    bool    on_cinematic;
 	bool    is_grounded;
 	bool    is_falling;
 	bool    is_running = false;

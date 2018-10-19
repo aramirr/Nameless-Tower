@@ -82,10 +82,6 @@ bool CModuleLevel1::start()
 	cb_gui.activate();
 	cb_particles.activate();
 
-	auto p = EngineScripting.script.exists("OnLevel1Start");
-	if (p)
-		EngineScripting.script.doString("OnLevel1Start()");
-
 	return true;
 }
 

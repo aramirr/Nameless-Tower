@@ -187,7 +187,6 @@ void TCompCameraManager::update(float dt) {
 		if (!temblor) {
 			CEntity* e_player = (CEntity*)getEntityByName("The Player");
 			TCompPlayerController* player = e_player->get<TCompPlayerController>();
-			player->on_cinematic = false;
 		}
 		if (isPressed(VK_F1)) {
 			CEntity* player = (CEntity*)getEntityByName("The Player");
