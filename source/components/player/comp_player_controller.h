@@ -77,7 +77,9 @@ public:
         , NajaLookDn
         , NajaLookUp
 		, NajaIntro
-        , NajaScare,
+        , NajaScare
+        , NajaMonilito
+        , NajaFinal,
 		EAnimations
 	};
 
