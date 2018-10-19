@@ -234,7 +234,10 @@ void CModuleRender::activateMainCamera() {
 
 void CModuleRender::generateFrame() {
 
-	
+	if (firstFrame) {
+		EngineUI.activateSplash();
+		firstFrame = false;
+	}
 
 	{
 		PROFILE_FUNCTION("CModuleRender::shadowsMapsGeneration");
@@ -354,10 +357,5 @@ void CModuleRender::generateFrame() {
 	{
 		PROFILE_FUNCTION("Render.swapChain");
 		Render.swapChain->Present(0, 0);
-	}
-
-	if (firstFrame) {
-		EngineUI.activateSplash();
-		firstFrame = false;
 	}
 }
