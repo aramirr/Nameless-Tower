@@ -108,7 +108,7 @@ bool CMaterial::create(const json& j) {
     return false;
   cb_material.scalar_metallic = 0.f;     // Initially disabled
   cb_material.scalar_roughness = 1.f;
-  cb_material.scalar_irradiance_vs_mipmaps = 0.f;
+  cb_material.scalar_irradiance_vs_mipmaps = 0.1f;
 
 	/*cb_material.color_emission = VEC4(1, 1, 1, 1);
 	cb_material.scalar_emission = j.value("emission", 10.0f);

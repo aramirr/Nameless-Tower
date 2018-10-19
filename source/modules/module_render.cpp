@@ -22,6 +22,7 @@
 #include "components/postfx/comp_render_bloom.h"
 #include "geometry/rigid_anim.h"
 #include "geometry/curve.h"
+#include "render\texture\material.h"
 
 
 //--------------------------------------------------------------------------------------
@@ -155,6 +156,7 @@ void CModuleRender::render()
 		ImGui::DragFloat("Fog Vertical", &cb_globals.global_fog_percentage_vertical, 0.01f, 0.0f, 1.f);
 		ImGui::DragFloat("Band Up", &cb_globals.global_bandMax_adjustment, 0.01f, 0.0f, 0.15f);
 		ImGui::DragFloat("Band Down", &cb_globals.global_bandMin_adjustment, 0.01f, 0.0f, 0.15f);
+		
 		//ImGui::DragFloat("Saturation", &cb_globals.global_saturation_adjustment, 0.01f, -100.f, 100.f);
 		if (ImGui::SmallButton("Reset post procesado")) {
 			cb_globals.global_exposure_adjustment = 0.260f;
@@ -264,6 +266,9 @@ void CModuleRender::generateFrame() {
 		culling = e->get<TCompCulling>();
 		assert(culling);
 
+		CRenderManager::get().renderCategory("particles", culling);
+		CRenderManager::get().renderCategory("particlesA", culling);
+
 		CRenderManager::get().renderCategory("alpha", culling);
 
 		CRenderManager::get().renderCategory("opacity", culling);
@@ -311,8 +316,7 @@ void CModuleRender::generateFrame() {
 
 		renderFullScreenQuad("dump_texture.tech", curr_rt);
 
-		CRenderManager::get().renderCategory("particles", culling);
-		CRenderManager::get().renderCategory("particlesA", culling);
+		
 		// Debug render
 		{
 			PROFILE_FUNCTION("Modules");
