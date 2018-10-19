@@ -22,80 +22,36 @@ namespace GUI
 			auto fullScreenONCB = []() {
 				dbg("FULLSCREEN ON\n");
 				EngineUI.fullScreen(true);
-				cb_gui.fullscreen = true;
-				//Render.swapChain->SetFullscreenState(true, nullptr);
-				//EngineUI.changeResolution(cb_globals.global_resolution_X, cb_globals.global_resolution_Y);
-				
-
 			};
 
 			auto fullScreenOFFCB = []() {
 				dbg("FULLSCREEN OFF\n");
 				EngineUI.fullScreen(false);
-				cb_gui.fullscreen = false;
-				//Render.swapChain->SetFullscreenState(false, nullptr);
-				//EngineUI.changeResolution(cb_globals.global_resolution_X, cb_globals.global_resolution_Y);
 			};
 
 			auto res1920CB = []() {
 				dbg("RESOLUTION 1920\n");
 				EngineUI.changeResolution(1920, 1080);
-				if (cb_gui.fullscreen) {
-					cb_gui.fullscreen = false;
-					EngineUI.fullScreen(true);
-					cb_gui.fullscreen = true;
-				}
+				if (cb_gui.fullscreen) EngineUI.fullScreen(true);
 			};
 
 			auto res1366CB = []() {
 				dbg("RESOLUTION 1366\n");
 				EngineUI.changeResolution(1366, 768);
-				if (cb_gui.fullscreen) {
-					cb_gui.fullscreen = false;
-					EngineUI.fullScreen(true);
-					cb_gui.fullscreen = true;
-				}
-				
+				if (cb_gui.fullscreen) EngineUI.fullScreen(true);
 			};
 
 			auto res1024CB = []() {
 				dbg("RESOLUTION 1024\n");
 				EngineUI.changeResolution(1024, 768);
-				if (cb_gui.fullscreen) {
-					cb_gui.fullscreen = false;
-					EngineUI.fullScreen(true);
-					cb_gui.fullscreen = true;
-				}
-
-				
+				if (cb_gui.fullscreen) EngineUI.fullScreen(true);
 			};
 
 			auto graphicsLOWCB = []() {
 				dbg("GRAPHICS LOW\n");
-				/*HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
-				DEVMODE fullscreenSettings;
+			
 
-
-				HDC windowHDC = GetDC(handle);
-				int fullscreenWidth = GetDeviceCaps(windowHDC, HORZRES);
-				int fullscreenHeight = GetDeviceCaps(windowHDC, VERTRES);
-				int colourBits = GetDeviceCaps(windowHDC, BITSPIXEL);
-				int refreshRate = GetDeviceCaps(windowHDC, VREFRESH);
-				dbg("----------------------FrameRate: %f\n", (float)refreshRate);
-				EnumDisplaySettings(NULL, 0, &fullscreenSettings);
-				fullscreenSettings.dmPelsWidth = cb_globals.global_resolution_X;
-				fullscreenSettings.dmPelsHeight = cb_globals.global_resolution_X;
-				fullscreenSettings.dmBitsPerPel = colourBits;
-				fullscreenSettings.dmDisplayFrequency = 30;
-				fullscreenSettings.dmFields = DM_PELSWIDTH |
-					DM_PELSHEIGHT |
-					DM_BITSPERPEL |
-					DM_DISPLAYFREQUENCY;
-
-				SetWindowLongPtr(handle, GWL_EXSTYLE, WS_EX_APPWINDOW | WS_EX_TOPMOST);
-				SetWindowLongPtr(handle, GWL_STYLE, WS_POPUP | WS_VISIBLE);
-				SetWindowPos(handle, HWND_TOPMOST, 0, 0, cb_globals.global_resolution_X, cb_globals.global_resolution_Y, SWP_SHOWWINDOW);
-				ChangeDisplaySettings(&fullscreenSettings, CDS_FULLSCREEN);*/
+			
 			};
 
 			auto graphicsMEDIUMCB = []() {
@@ -271,9 +227,13 @@ namespace GUI
 
 	int COptionMenuController::getCurrentOption()
 	{
-		int mX = EngineInput.mouse()._position.x * cb_globals.global_first_resolution_X / cb_globals.global_resolution_X;
-		int mY = EngineInput.mouse()._position.y * cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y;
-		dbg("%f - %f\n", (float)mX, (float)mY);
+		int mX = EngineInput.mouse()._position.x;
+		int mY = EngineInput.mouse()._position.y;
+		if (!cb_gui.fullscreen) {
+			mX *= cb_globals.global_first_resolution_X / cb_globals.global_resolution_X;
+			mY *= cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y;
+		}
+		//dbg("%f - %f\n", (float)mX, (float)mY);
 		for (int i = 0; i < _options.size(); i++) {
 			for (int j = 0; j < _options[i].size(); j++) {
 				int bmX = _options[i][j].button->getPosition().x;
@@ -346,7 +306,8 @@ namespace GUI
 	{
 		HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
 		bool isChangeSuccessful;
-		if (_fulscreen && !cb_gui.fullscreen) {
+		if (_fulscreen) {
+			cb_gui.fullscreen = true;
 			DEVMODE fullscreenSettings;
 			
 			RECT windowBoundary;
@@ -356,7 +317,7 @@ namespace GUI
 			int fullscreenHeight = GetDeviceCaps(windowHDC, VERTRES);
 			int colourBits = GetDeviceCaps(windowHDC, BITSPIXEL);
 			int refreshRate = GetDeviceCaps(windowHDC, VREFRESH);
-			dbg("----------------------FrameRate: %f\n", (float)refreshRate);
+			//dbg("----------------------FrameRate: %f\n", (float)refreshRate);
 			EnumDisplaySettings(NULL, 0, &fullscreenSettings);
 			fullscreenSettings.dmPelsWidth = fullscreenWidth;
 			fullscreenSettings.dmPelsHeight = fullscreenHeight;
@@ -372,13 +333,16 @@ namespace GUI
 			SetWindowPos(handle, HWND_TOPMOST, 0, 0, fullscreenWidth, fullscreenHeight, SWP_SHOWWINDOW);
 			isChangeSuccessful = ChangeDisplaySettings(&fullscreenSettings, CDS_FULLSCREEN) == DISP_CHANGE_SUCCESSFUL;
 			ShowWindow(handle, SW_MAXIMIZE);
+
+			//ESTO AGRANDA UI CEngine::get().getRender().configure(fullscreenWidth, fullscreenHeight);
 		}
-		else if(!_fulscreen && cb_gui.fullscreen)
+		else if(!_fulscreen)
 		{
+			cb_gui.fullscreen = false;
 			SetWindowLongPtr(handle, GWL_EXSTYLE, WS_EX_LEFT);
-			SetWindowLongPtr(handle, GWL_STYLE, WS_OVERLAPPEDWINDOW | WS_VISIBLE);
+			SetWindowLongPtr(handle, GWL_STYLE, WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU);
 			isChangeSuccessful = ChangeDisplaySettings(NULL, CDS_RESET) == DISP_CHANGE_SUCCESSFUL;
-			SetWindowPos(handle, HWND_NOTOPMOST, cb_globals.global_resolution_X, cb_globals.global_resolution_Y, cb_globals.global_resolution_X, cb_globals.global_resolution_Y, SWP_SHOWWINDOW);
+			SetWindowPos(handle, HWND_NOTOPMOST, 0, 0, cb_globals.global_resolution_X, cb_globals.global_resolution_Y, SWP_SHOWWINDOW);
 			ShowWindow(handle, SW_RESTORE);
 		}
 

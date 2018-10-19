@@ -30,8 +30,9 @@ namespace GUI
 			std::string str2 = std::to_string(mouse._position.x) + ", " + std::to_string(mouse._position.y) + " GUI \n";
       //dbg(str1.c_str());
       dbg(str2.c_str());
-      angle = (float)(atan2((mouse._position.y * cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y) - player_position.y, 
+      if(!cb_gui.fullscreen)angle = (float)(atan2((mouse._position.y * cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y) - player_position.y, 
 				(mouse._position.x * cb_globals.global_first_resolution_X / cb_globals.global_resolution_X) - player_position.x));
+			else angle = (float)(atan2(mouse._position.y  - player_position.y, mouse._position.x - player_position.x));
 			
       //Sacamos la otra esquina de la imagen
       float x = (od->getSize().x) * cos(angle - 0.5f);

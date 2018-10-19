@@ -52,12 +52,21 @@ namespace FSM
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		VEC2 screen_projected_pos;
 		screen_projected_pos.x = player->player_position.x / cb_globals.global_first_resolution_X;
-		screen_projected_pos.y = player->player_position.y / cb_globals.global_first_resolution_X;
+		screen_projected_pos.y = player->player_position.y / cb_globals.global_first_resolution_Y;
+		/*if (!cb_gui.fullscreen) {
+			screen_projected_pos.x /= cb_globals.global_first_resolution_X;
+			screen_projected_pos.y /= cb_globals.global_first_resolution_Y;
+		}
+		else {
+			screen_projected_pos.x /= Render.width;
+			screen_projected_pos.y /= Render.height;
+		}*/
 
 
 		TCompRenderBlurRadial* c_render_blur_radial = o_camera->get< TCompRenderBlurRadial >();
 		if (c_render_blur_radial)
 		{
+			//screen_projected_pos.Normalize();
 			c_render_blur_radial->setCenter(screen_projected_pos);
 		}
 
@@ -135,8 +144,12 @@ namespace FSM
 		const Input::TInterface_Mouse& mouse = EngineInput.mouse();
 		
 		VEC2 m;
-		m.x = mouse._position.x * cb_globals.global_first_resolution_X / cb_globals.global_resolution_X;
-		m.y = mouse._position.y * cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y;
+		m.x = mouse._position.x;
+		m.y = mouse._position.y;
+		if (!cb_gui.fullscreen) {
+			m.x *= cb_globals.global_first_resolution_X / cb_globals.global_resolution_X;
+			m.y *= cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y;
+		}
 
 		player->omnidash_arrow = m - VEC2(player->player_position.x, player->player_position.y);
 		player->omnidash_arrow.Normalize();
