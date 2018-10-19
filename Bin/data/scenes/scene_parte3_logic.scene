@@ -436,11 +436,7 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true,
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Destruible", "positional": true, "on_start": false}
-            ]}
+      "abs_aabb": true
     }
   }
   ,
@@ -572,11 +568,7 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true,
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Destruible", "positional": true, "on_start": false}
-            ]}
+      "abs_aabb": true
     }
   }
   ,
@@ -706,13 +698,7 @@
         "is_dynamic": false
         ,
         "is_trigger": false
-      }
-      ,
-      "abs_aabb": true,
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Destruible", "positional": true, "on_start": false}
-            ]}
+      }      
     }
   }
   ,
@@ -1017,11 +1003,7 @@
         "is_trigger": false
       }
       ,
-      "abs_aabb": true,
-        "sound": {
-          "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Destruible", "positional": true, "on_start": false}
-            ]}
+      "abs_aabb": true
     }
   }
   ,

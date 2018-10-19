@@ -82,16 +82,16 @@ void CModuleSound::updateListenerAttributes() {
     auto res = system->setListenerAttributes(0, &listenerAttributes);
 }
 
-void CModuleSound::updatePositionalEvents() {    
+void CModuleSound::updatePositionalEvents() {
     for (auto& p : events) {
-        auto& sound = p.second;        
+        auto& sound = p.second;
         if (sound.positional) {
            if (sound.hasTransform) {
-               CHandle transform = sound.entity->get<TCompTransform>();           
+               CHandle transform = sound.entity->get<TCompTransform>();
                TCompTransform* t = transform;
                FMOD_3D_ATTRIBUTES attributes = toFMODAttributes(*t);
                sound.eventInstance->set3DAttributes(&attributes);
-           }           
+           }
         }
     }
 }

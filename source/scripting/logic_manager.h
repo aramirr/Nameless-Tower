@@ -38,6 +38,8 @@ public:
   void setPointLightIntensity(const char* name, float value, bool left);
 	void setNajaInterior(bool left);
 	void setnajaExterior(bool left);
+	void setRunnerInterior(bool left);
+	void setRunnerExterior(bool left);
 
 	// Particles
 	void startEmiter(const char* name, bool left);

@@ -6,6 +6,7 @@
 		{"name": "cascade", "src": "event:/Ambience/Cascada", "positional": true, "on_start": true},
 		{"name": "puzzle", "src": "event:/SFX/Object/Scene/Puzzle_Antorcha", "positional": false, "on_start": false},
 		{"name": "fire", "src": "event:/SFX/Object/Scene/On_Fire", "positional": true, "on_start": false},
+		{"name": "destroyable", "src": "event:/SFX/Object/Mechanics/Destruible", "positional": true, "on_start": true},
 		{"name": "puerta_madera", "src": "event:/SFX/Object/Mechanics/Puerta_Madera", "positional": true, "on_start": false},
 		{"name": "puerta_reja", "src": "event:/SFX/Object/Mechanics/Puerta_Reja", "positional": true, "on_start": false},
 		{"name": "lava", "src": "event:/Ambience/Lava", "positional": false, "on_start": false},

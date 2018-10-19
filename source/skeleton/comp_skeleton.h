@@ -20,6 +20,7 @@ struct TCompSkeleton : public TCompBase {
 	void clearActions(float out_delay);
 	void removeAnimation(int id_animation);
   void playAnimation(int id_amimation, bool is_action, float in_delay, float out_delay, bool clear);
+	bool check_if_anim(int id_amimation);
   DECL_SIBLING_ACCESS();
 };
 

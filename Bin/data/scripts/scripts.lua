@@ -30,6 +30,7 @@ function OnLevel1Start()
 end
 
 function OnLevel2Start()
+	--lm:set_exposure(0.36)
 	lm:set_dir_light_intensity("LightDir00", 0, false)
 	lm:set_dir_light_intensity("LightDir01", 0, false)
 	lm:set_dir_light_intensity("LightDir02", 0, false)
@@ -751,6 +752,7 @@ function OnTriggerExitTSRunnerLava()
 	--Interior
 	--lm:set_exposure(0.05, true)
 	lm:set_naja_int(true)
+	lm:set_runner_int(true)
 	--lm:render_everything("ParedDestapada10", true)
 	lm:render_only_shadows("ParedTapada10B", true)
 	lm:set_dir_light_intensity("LightDir13", 0, true)
@@ -768,6 +770,7 @@ function OnTriggerExitTSRunnerLava()
 	--Exterior
 	--lm:set_exposure(0.4, false)
 	lm:set_naja_ext(false)
+	lm:set_runner_ext(false)
 	lm:play_ambient_sound(false)
 	lm:play_sound(false, "lava")
 	--lm:render_only_shadows("ParedDestapada10", false)

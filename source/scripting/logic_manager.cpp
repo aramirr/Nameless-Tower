@@ -137,6 +137,18 @@ void LogicManager::setnajaExterior(bool left) {
 		cb_globals.global_naja_interior = 0;
 }
 
+void LogicManager::setRunnerInterior(bool left)
+{
+	if (applyFunction(left))
+		cb_globals.global_runner_interior = 1;
+}
+
+void LogicManager::setRunnerExterior(bool left)
+{
+	if (applyFunction(left))
+		cb_globals.global_runner_interior = 0;
+}
+
 void LogicManager::startEmiter(const char* name, bool left) {
 	if (applyFunction(left)) {
 		CEntity* particles_emiter = (CEntity*)getEntityByName(name);
