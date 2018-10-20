@@ -27,7 +27,7 @@ public:
     bool    looking_left;
     bool    camera_idle = false;
     bool    on_cinematic;
-	bool    is_grounded;
+	bool    is_grounded = true;
 	bool    is_falling;
 	bool    is_running = false;
 	int anim1 = -1;

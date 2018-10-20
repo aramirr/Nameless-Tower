@@ -46,7 +46,7 @@ namespace FSM
 		ctx.setVariable("can_dash", true);
 		ctx.setVariable("can_omni", true);
 		ctx.setVariable("is_grounded", true);
-        ctx.setVariable("is_falling", false);
+        ctx.setVariable("is_falling", false);        
 	}
 
 	bool InitialState::load(const json& jData)
