@@ -352,14 +352,14 @@
       "transform": {
         "pos": "0 0 0",
         "lookat": "0 0 0",
-        "scale": 0.5
+        "scale": 2.0
       },
       "curve_controller" :
       {
         "curve" : "data/curves/Loros00.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": false,
-        "automove": true,
+        "automove": false,
         "mode": "linear"
       },
       "render" : {}
@@ -371,14 +371,14 @@
       "transform": {
         "pos": "0 0 0",
         "lookat": "0 0 0",
-        "scale": 0.5
+        "scale": 2.0
       },
       "curve_controller" :
       {
         "curve" : "data/curves/Loros01.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": false,
-        "automove": true,
+        "automove": false,
         "mode": "linear"
       },
       "render" : {}
@@ -390,14 +390,14 @@
       "transform": {
         "pos": "0 0 0",
         "lookat": "0 0 0",
-        "scale": 0.5
+        "scale": 2.0
       },
       "curve_controller" :
       {
         "curve" : "data/curves/Loros02.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": false,
-        "automove": true,
+        "automove": false,
         "mode": "linear"
       },
       "render" : {}
@@ -409,14 +409,14 @@
       "transform": {
         "pos": "0 0 0",
         "lookat": "0 0 0",
-        "scale": 0.5
+        "scale": 2.0
       },
       "curve_controller" :
       {
         "curve" : "data/curves/Loros03.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": false,
-        "automove": true,
+        "automove": false,
         "mode": "linear"
       },
       "render" : {}
@@ -428,14 +428,14 @@
       "transform": {
         "pos": "0 0 0",
         "lookat": "0 0 0",
-        "scale": 0.5
+        "scale": 2.0
       },
       "curve_controller" :
       {
         "curve" : "data/curves/Loros04.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": false,
-        "automove": true,
+        "automove": false,
         "mode": "linear"
       },
       "render" : {}
@@ -447,14 +447,14 @@
       "transform": {
         "pos": "0 0 0",
         "lookat": "0 0 0",
-        "scale": 0.5
+        "scale": 2.0
       },
       "curve_controller" :
       {
         "curve" : "data/curves/Loros05.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": false,
-        "automove": true,
+        "automove": false,
         "mode": "linear"
       },
       "render" : {}
@@ -466,14 +466,14 @@
       "transform": {
         "pos": "0 0 0",
         "lookat": "0 0 0",
-        "scale": 0.5
+        "scale": 2.0
       },
       "curve_controller" :
       {
         "curve" : "data/curves/Loros06.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": false,
-        "automove": true,
+        "automove": false,
         "mode": "linear"
       },
       "render" : {}
@@ -485,14 +485,14 @@
       "transform": {
         "pos": "0 0 0",
         "lookat": "0 0 0",
-        "scale": 0.5
+        "scale": 2.0
       },
       "curve_controller" :
       {
         "curve" : "data/curves/Loros07.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": false,
-        "automove": true,
+        "automove": false,
         "mode": "linear"
       },
       "render" : {}
@@ -504,14 +504,14 @@
       "transform": {
         "pos": "0 0 0",
         "lookat": "0 0 0",
-        "scale": 0.5
+        "scale": 2.0
       },
       "curve_controller" :
       {
         "curve" : "data/curves/Loros08.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": false,
-        "automove": true,
+        "automove": false,
         "mode": "linear"
       },
       "render" : {}
@@ -523,14 +523,14 @@
       "transform": {
         "pos": "0 0 0",
         "lookat": "0 0 0",
-        "scale": 0.5
+        "scale": 2.0
       },
       "curve_controller" :
       {
         "curve" : "data/curves/Loros09.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": false,
-        "automove": true,
+        "automove": false,
         "mode": "linear"
       },
       "render" : {}
@@ -542,14 +542,14 @@
       "transform": {
         "pos": "0 0 0",
         "lookat": "0 0 0",
-        "scale": 0.5
+        "scale": 2.0
       },
       "curve_controller" :
       {
         "curve" : "data/curves/Loros10.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": false,
-        "automove": true,
+        "automove": false,
         "mode": "linear"
       },
       "render" : {}
@@ -561,34 +561,15 @@
       "transform": {
         "pos": "0 0 0",
         "lookat": "0 0 0",
-        "scale": 0.5
+        "scale": 2.0
       },
       "curve_controller" :
       {
         "curve" : "data/curves/Loros11.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": false,
-        "automove": true,
+        "automove": false,
         "mode": "linear"
-      },
-      "render" : {}
-    }
-  },
-  {
-    "entity": {
-      "name": "spline_loro12",
-      "transform": {
-        "pos": "0 0 0",
-        "lookat": "0 0 0",
-        "scale": 0.5
-      },
-      "curve_controller" :
-      {
-        "curve" : "data/curves/Loros12.curve",
-        "speed" : 0.05,
-        "loop": false,
-        "automove": true,
-        "mode": "static"
       },
       "render" : {}
     }
@@ -609,7 +590,7 @@
           ,
           "materials":
           [
-            "data/materials/mariposa_amarilla.material"
+            "data/materials/loro_Rojo_Final_Derecha.material"
           ]
         }
       ]
@@ -631,7 +612,7 @@
           ,
           "materials":
           [
-            "data/materials/mariposa_amarilla.material"
+            "data/materials/loro_Azul_Final_Derecha.material"
           ]
         }
       ]
@@ -653,7 +634,7 @@
           ,
           "materials":
           [
-            "data/materials/mariposa_amarilla.material"
+            "data/materials/loro_Rojo_Final_Derecha.material"
           ]
         }
       ]
@@ -675,7 +656,7 @@
           ,
           "materials":
           [
-            "data/materials/mariposa_amarilla.material"
+            "data/materials/loro_Rojo_Final_Izquierda.material"
           ]
         }
       ]
@@ -697,7 +678,7 @@
           ,
           "materials":
           [
-            "data/materials/mariposa_amarilla.material"
+            "data/materials/loro_Azul_Final_Izquierda.material"
           ]
         }
       ]
@@ -719,7 +700,7 @@
           ,
           "materials":
           [
-            "data/materials/mariposa_amarilla.material"
+            "data/materials/loro_Rojo_Final_derecha.material"
           ]
         }
       ]
@@ -741,7 +722,7 @@
           ,
           "materials":
           [
-            "data/materials/mariposa_amarilla.material"
+            "data/materials/loro_Rojo_Final_Derecha.material"
           ]
         }
       ]
@@ -763,7 +744,7 @@
           ,
           "materials":
           [
-            "data/materials/mariposa_amarilla.material"
+            "data/materials/loro_Rojo_Final_Izquierda.material"
           ]
         }
       ]
@@ -785,7 +766,7 @@
           ,
           "materials":
           [
-            "data/materials/mariposa_amarilla.material"
+            "data/materials/loro_Rojo_Final_Izquierda.material"
           ]
         }
       ]
@@ -807,7 +788,7 @@
           ,
           "materials":
           [
-            "data/materials/mariposa_amarilla.material"
+            "data/materials/loro_Azul_Final_Izquierda.material"
           ]
         }
       ]
@@ -829,7 +810,7 @@
           ,
           "materials":
           [
-            "data/materials/mariposa_amarilla.material"
+            "data/materials/loro_Rojo_Final_Izquierda.material"
           ]
         }
       ]
@@ -851,29 +832,7 @@
           ,
           "materials":
           [
-            "data/materials/mariposa_amarilla.material"
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "entity": {
-      "name": "loro12",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "hierarchy": {
-        "parent": "spline_loro12"
-      },
-      "render":
-      [
-        {
-          "mesh": "unit_quad_pos_xy.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/mariposa_amarilla.material"
+            "data/materials/loro_Azul_Final_Derecha.material"
           ]
         }
       ]

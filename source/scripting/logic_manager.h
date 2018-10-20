@@ -68,6 +68,7 @@ public:
   void regainControl(float time_to_wait);
   void killEntity(std::string name);
   void playCurve(std::string name);
+  void set_ypr(std::string name, float y, float p, float r);
 
 	void activateRunner();
 
