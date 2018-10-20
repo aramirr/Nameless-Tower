@@ -26,10 +26,10 @@ namespace GUI
         CEntity* player = (CEntity*)getEntityByName("The Player");
 
         TMsgSetFSMVariable pauseMsg;
-        pauseMsg.variant.setName("idle");
-        pauseMsg.variant.setBool(true);
+        //pauseMsg.variant.setName("idle");
+        //pauseMsg.variant.setBool(true);
 
-        player->sendMsg(pauseMsg);
+        //player->sendMsg(pauseMsg);
 
         EngineTimer.setTimeSlower(1.f);
 

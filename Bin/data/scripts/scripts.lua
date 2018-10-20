@@ -28,10 +28,10 @@ function OnLevel1Start()
 	lm:stop_emiter("particulas_top_cascada", false)	
 
 	lm:activate_cinematic_bands(false)
-	lm:activate_cinematic("cinematica_inicial", false)
 	lm:pause_player()
+	lm:activate_cinematic("cinematica_inicial", false)	
 	lm:play_animation("The Player", 32)
-	lm:regain_control(26)
+	lm:regain_control(24)
 	
 end
 
