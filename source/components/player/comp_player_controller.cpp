@@ -30,6 +30,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	idle_max_time = j.value("idle_max_time", 10.f);
 	is_grounded = true;
 	looking_left = false;
+	level_started = false;
     rayWall = false;
     on_cinematic = false;
     Studio::EventDescription* event_description = NULL;

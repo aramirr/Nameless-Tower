@@ -30,6 +30,7 @@ public:
 	bool    is_grounded = true;
 	bool    is_falling;
 	bool    is_running = false;
+	bool    level_started = false;
 	int anim1 = -1;
 	int anim2 = -1;
     std::string previous_camera;

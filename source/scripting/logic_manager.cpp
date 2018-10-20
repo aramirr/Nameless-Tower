@@ -246,7 +246,7 @@ void LogicManager::setAnim(std::string name, int anim_id) {
 	CEntity* e = getEntityByName(name);
 	TCompPlayerController * controller = e->get<TCompPlayerController>();
     controller->remove_animation(controller->EAnimations::NajaJumpLoop);
-	controller->change_animation(anim_id, true, 0, 0, true);
+	controller->change_animation(anim_id, true, 0, 0.8, true);
 }
 
 void LogicManager::regainControl(float time_to_wait) {

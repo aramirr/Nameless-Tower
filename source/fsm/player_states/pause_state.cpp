@@ -10,6 +10,12 @@ namespace FSM
 {
 	void PauseState::onStart(CContext& ctx) const
 	{			
+		CEntity* e = ctx.getOwner();
+		TCompPlayerController* player = e->get<TCompPlayerController>();
+		if (!player->level_started) {
+			player->is_grounded = true;
+			player->level_started = true;
+		}		
 	}
 	
 	bool PauseState::load(const json& jData)
