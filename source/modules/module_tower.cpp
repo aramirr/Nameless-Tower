@@ -78,6 +78,12 @@ void CModuleTower::update(float delta)
 	if (activate_runner) {
 		timer_runner += delta;
 		if (timer_runner >= 10.667 && !build_runner) {
+			CEntity* e = getEntityByName("The Player");
+			TCompPlayerController* player = e->get<TCompPlayerController>();
+			if (player->game_state == "level_1") {
+				CEngine::get().getModules().changeGameState("level_2");
+				player->game_state = "level_2";
+			}
 			build_runner = true;
 			activateAnim("Runner_father", 0);
 		}
