@@ -67,10 +67,10 @@ function OnTriggerExitTSCinematicaMonolito()
 	
 	lm:pause_player()
 	lm:play_animation("The Player", 34)
-	lm:activate_anim("Monolito_001")
-	lm:activate_anim("Runner_father")
-	lm:regain_control(15)
-	lm:change_level("level_2")
+	lm:activate_anim("Monolito_001", 5)
+	lm:activate_runner()
+	lm:regain_control(30)
+	--lm:change_level("level_2")
 end
 
 function OnTriggerExitTSCinematicaFinal()
@@ -97,27 +97,27 @@ end
 -- Rejas Activables
 function OnWindstrikeActivateTAPuertasPrimera()
 	lm:open_door("Puerta_Reja_01")
-	lm:activate_anim("Activador_Movil03")
+	lm:activate_anim("Activador_Movil03", 0)
 	lm:play_positional_sound("activador_movil", "Activador_Movil03")
 end
 
 function OnWindstrikeActivateTAPuertasAbajo()
 	lm:open_door("Puerta_Reja_005")
-	lm:activate_anim("Activador_Movil02")
+	lm:activate_anim("Activador_Movil02", 0)
 	lm:play_positional_sound("activador_movil", "Activador_Movil02")
 	lm:play_positional_sound("puerta_reja", "Puerta_Reja_005")
 end
 
 function OnWindstrikeActivateTAPuertasArriba()
 	lm:open_door("Puerta_Reja_04")
-	lm:activate_anim("Activador_Movil04")
+	lm:activate_anim("Activador_Movil04", 0)
 	lm:play_positional_sound("activador_movil", "Activador_Movil04")
 	lm:play_positional_sound("puerta_reja", "Puerta_Reja_04")
 end
 
 function OnWindstrikeActivateTARunner()
 	lm:open_door("Puerta_Reja_02")
-	lm:activate_anim("Activador_Movil01")
+	lm:activate_anim("Activador_Movil01", 0)
 	lm:play_positional_sound("activador_movil", "Activador_Movil01")
 	lm:play_positional_sound("puerta_reja", "Puerta_Reja_02")
 end

@@ -24,9 +24,9 @@ public:
 	void setAmbientAdjustment(float value);
   void setExposureAdjustment(float value, bool left);
 	void playLastCinematic();
-    void openDoor(const char* name);
-    void closeDoor(const char* name);
-	void activateAnim(const char* name);
+  void openDoor(const char* name);
+  void closeDoor(const char* name);
+	void activateAnim(const char* name, float wait_time);
 	void setTemblor(bool temblor, bool left);
 
   // UI
@@ -68,5 +68,7 @@ public:
   void regainControl(float time_to_wait);
   void killEntity(std::string name);
   void playCurve(std::string name);
+
+	void activateRunner();
 
 };

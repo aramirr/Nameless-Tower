@@ -64,6 +64,7 @@ struct TMsgOpenDoor {
 
 struct TMsgActivateAnim{
 	std::string name;
+	float wait_time;
 	DECL_MSG_ID();
 };
 

@@ -13,6 +13,8 @@ struct TCompRigidAnim : public TCompBase {
   bool                    is_moving = false;
   float                   speed_factor = 1.0f;
 	bool father = false;
+	float wait_time = 0.f;
+	float timer = 0.f;
 
 	std::string name;
 
