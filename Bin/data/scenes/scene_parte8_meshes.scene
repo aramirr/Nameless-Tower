@@ -2,6 +2,68 @@
   {
     "entity":
     {
+      "name": "RioRocas_SalaSorpresa_A"
+      ,
+      "transform":
+      {
+        "pos": "-19.2805 4.61393 18.1155"
+        ,
+        "rotation": "0.0 0.246378 0.0 -0.969174"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RioRocas_SalaSorpresa_A.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/lavaRocas.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RioLava_SalaSorpresa_A"
+      ,
+      "transform":
+      {
+        "pos": "-19.2805 4.61393 18.1155"
+        ,
+        "rotation": "0.0 0.246378 0.0 -0.969174"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RioLava_SalaSorpresa_A.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LavaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "arbolSalaSorpresa02"
       ,
       "transform":
@@ -302,11 +364,11 @@
   {
     "entity":
     {
-      "name": "Plane002"
+      "name": "RioLava_SalaSorpresa_B"
       ,
       "transform":
       {
-        "pos": "-12.1646 3.58196 26.1344"
+        "pos": "-11.218 4.61393 24.011"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -314,7 +376,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Plane002.mesh"
+          "mesh": "data/meshes/RioLava_SalaSorpresa_B.mesh"
           ,
           "materials":
           [
@@ -322,32 +384,8 @@
           ]
         }
       ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plane001"
       ,
-      "transform":
-      {
-        "pos": "-21.274 3.58196 19.6911"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plane001.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/LavaBaseMat.material"
-          ]
-        }
-      ]
+      "abs_aabb": true
     }
   }
   ,

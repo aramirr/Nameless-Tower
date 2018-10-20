@@ -2,6 +2,118 @@
   {
     "entity":
     {
+      "name": "Niebla006"
+      ,
+      "transform":
+      {
+        "pos": "28.9833 42.6949 3.14873"
+        ,
+        "rotation": "-0.480162 -0.519081 -0.519081 0.480162"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla006.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla008"
+      ,
+      "transform":
+      {
+        "pos": "19.4549 42.6949 21.8137"
+        ,
+        "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla008.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla007"
+      ,
+      "transform":
+      {
+        "pos": "19.8809 42.6949 22.1926"
+        ,
+        "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla007.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla005"
+      ,
+      "transform":
+      {
+        "pos": "29.5517 42.6949 3.19308"
+        ,
+        "rotation": "-0.480162 -0.519081 -0.519081 0.480162"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla005.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "A_Trozo_Puente"
       ,
       "transform":

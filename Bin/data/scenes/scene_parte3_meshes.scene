@@ -2,6 +2,146 @@
   {
     "entity":
     {
+      "name": "NieblaCascada02"
+      ,
+      "transform":
+      {
+        "pos": "24.7911 65.9293 -12.7449"
+        ,
+        "rotation": "0.626544 0.327784 0.327784 -0.626544"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/NieblaCascada02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "NieblaCascada01"
+      ,
+      "transform":
+      {
+        "pos": "25.0045 65.9293 -12.8091"
+        ,
+        "rotation": "0.626544 0.327784 0.327784 -0.626544"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/NieblaCascada01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla010"
+      ,
+      "transform":
+      {
+        "pos": "14.6836 64.8474 20.5441"
+        ,
+        "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla010.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla012"
+      ,
+      "transform":
+      {
+        "pos": "21.6395 69.967 9.50175"
+        ,
+        "rotation": "-0.419661 -0.569109 -0.569109 0.419661"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla012.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "EstanqueEspuma"
+      ,
+      "transform":
+      {
+        "pos": "18.0412 59.0852 22.0929"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/EstanqueEspuma.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EspumaDobleAgua.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "BordesParte3E"
       ,
       "transform":
@@ -90,7 +230,7 @@
       ,
       "transform":
       {
-        "pos": "28.4193 59.5525 -14.5623"
+        "pos": "28.4193 60.0166 -14.5623"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -159,34 +299,6 @@
           "materials":
           [
             "data/materials/ParedModelo.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Niebla015"
-      ,
-      "transform":
-      {
-        "pos": "13.5442 64.8474 20.9552"
-        ,
-        "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Niebla015.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/nieblaBMat.material"
           ]
         }
       ]
@@ -338,7 +450,7 @@
           {
             "name": "sound"
             ,
-            "src": "event/SFX/Object/Scene/Agua_A"
+            "src": "event:/SFX/Object/Scene/Agua_A"
             ,
             "positional": true
             ,
@@ -528,7 +640,7 @@
       ,
       "transform":
       {
-        "pos": "16.1965 70.587 22.7278"
+        "pos": "16.251 70.5801 22.7945"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -556,7 +668,7 @@
       ,
       "transform":
       {
-        "pos": "24.3054 75.2353 10.7636"
+        "pos": "24.2468 75.2309 10.7324"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -679,7 +791,7 @@
           {
             "name": "sound"
             ,
-            "src": "event/Ambience/Cascada"
+            "src": "event:/Ambience/Cascada"
             ,
             "positional": true
             ,
@@ -815,7 +927,7 @@
       ,
       "transform":
       {
-        "pos": "21.6048 69.4886 6.50773"
+        "pos": "22.3473 69.967 9.72073"
         ,
         "rotation": "-0.419661 -0.569109 -0.569109 0.419661"
       }
@@ -827,7 +939,7 @@
           ,
           "materials":
           [
-            "data/materials/nieblaBMat.material"
+            "data/materials/nieblaAMat.material"
           ]
         }
       ]
@@ -839,11 +951,11 @@
   {
     "entity":
     {
-      "name": "Niebla010"
+      "name": "Niebla009"
       ,
       "transform":
       {
-        "pos": "13.6541 64.8474 21.1899"
+        "pos": "15.2373 64.8474 21.0366"
         ,
         "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
       }
@@ -851,11 +963,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Niebla010.mesh"
+          "mesh": "data/meshes/Niebla009.mesh"
           ,
           "materials":
           [
-            "data/materials/nieblaBMat.material"
+            "data/materials/nieblaAMat.material"
           ]
         }
       ]
