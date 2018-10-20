@@ -39,6 +39,11 @@ struct TMsgRunnerAppear {
 struct TMsgRunnerDisappear {
     DECL_MSG_ID();
 };
+
+struct TMsgRunnerStartChase {
+	DECL_MSG_ID();
+};
+
 //-------------------------------------!
 struct TMsgSceneCreated {
 	DECL_MSG_ID();

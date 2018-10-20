@@ -26,6 +26,7 @@ class CModuleTower : public IModule {
 	bool build_runner = false;
 	bool changed_runner_mesh = false;
 	bool runner_scream = false;
+	bool runner_chase = false;
 
 
 

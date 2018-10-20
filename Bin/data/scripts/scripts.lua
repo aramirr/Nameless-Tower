@@ -70,6 +70,7 @@ function OnTriggerExitTSCinematicaMonolito()
 	lm:activate_anim("Monolito_001", 5)
 	lm:activate_runner()
 	lm:regain_control(30)
+	--lm:kill_entity("TSCinematicaMonolito")
 	--lm:change_level("level_2")
 end
 
@@ -80,6 +81,7 @@ function OnTriggerExitTSCinematicaFinal()
 	lm:pause_player()
 	lm:play_animation("The Player", 35)
 	lm:regain_control(15)
+
 end
 
 -- Puertas Abatibles

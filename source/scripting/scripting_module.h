@@ -13,7 +13,8 @@
 
 class ScriptingModule
 {
-	
+	bool done_cinematic_monolito = false;
+
 	public:
 		std::string name;
 		Manager logic_manager;
@@ -23,6 +24,6 @@ class ScriptingModule
 		void BootLuaSLB(SLB::Manager *m);
 		void ExecEvent(ScriptEvents e, std::vector<std::string> params);
 
-        void fTriggerExit(std::vector<std::string> params);
-        void fWindstrikeActivate(std::vector<std::string> params);
+    void fTriggerExit(std::vector<std::string> params);
+    void fWindstrikeActivate(std::vector<std::string> params);
 };

@@ -135,6 +135,7 @@ class bt_runner:public bt
 	static void registerMsgs();
   void appear(const TMsgRunnerAppear& msg);
   void disappear(const TMsgRunnerDisappear& msg);
+	void start_chase(const TMsgRunnerStartChase& msg);
 
 	void change_animation(int animation_id, bool is_action, float in_delay, float out_delay, bool clear);
 
