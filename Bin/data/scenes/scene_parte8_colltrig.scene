@@ -2,6 +2,46 @@
   {
     "entity":
     {
+      "name": "TSCinematicaFinal"
+      ,
+      "transform":
+      {
+        "pos": "-18.5 10.1325 25.495"
+        ,
+        "rotation": "0.0 0.289438 0.0 -0.957197"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.156378 5.63249 0.91895"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Paredes_Parte08"
       ,
       "transform":

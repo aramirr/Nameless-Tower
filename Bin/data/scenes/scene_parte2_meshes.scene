@@ -2,6 +2,62 @@
   {
     "entity":
     {
+      "name": "Niebla006"
+      ,
+      "transform":
+      {
+        "pos": "28.9833 42.6949 3.14873"
+        ,
+        "rotation": "-0.480162 -0.519081 -0.519081 0.480162"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla006.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla008"
+      ,
+      "transform":
+      {
+        "pos": "19.4549 42.6949 21.8137"
+        ,
+        "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla008.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Columna_012"
       ,
       "transform":
@@ -626,34 +682,6 @@
   {
     "entity":
     {
-      "name": "Niebla008"
-      ,
-      "transform":
-      {
-        "pos": "18.8627 42.6949 21.1954"
-        ,
-        "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Niebla008.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/nieblaBMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Niebla007"
       ,
       "transform":
@@ -667,34 +695,6 @@
       [
         {
           "mesh": "data/meshes/Niebla007.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/nieblaAMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Niebla006"
-      ,
-      "transform":
-      {
-        "pos": "27.6234 42.6949 2.92974"
-        ,
-        "rotation": "-0.480162 -0.519081 -0.519081 0.480162"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Niebla006.mesh"
           ,
           "materials":
           [
@@ -726,7 +726,7 @@
           ,
           "materials":
           [
-            "data/materials/nieblaBMat.material"
+            "data/materials/nieblaAMat.material"
           ]
         }
       ]

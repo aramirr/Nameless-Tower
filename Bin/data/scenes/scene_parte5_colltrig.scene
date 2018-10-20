@@ -113,46 +113,6 @@
   {
     "entity":
     {
-      "name": "TCLavaMuerte"
-      ,
-      "transform":
-      {
-        "pos": "27.2495 61.678 -13.8358"
-        ,
-        "rotation": "0.0 -0.258819 0.0 -0.965926"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "none"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1.98433 0.112701 8.40013"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Solidos_Parte5"
       ,
       "transform":
