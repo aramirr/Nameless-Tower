@@ -2,6 +2,118 @@
   {
     "entity":
     {
+      "name": "Niebla010"
+      ,
+      "transform":
+      {
+        "pos": "14.6836 64.8474 20.5441"
+        ,
+        "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla010.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla012"
+      ,
+      "transform":
+      {
+        "pos": "21.6395 69.967 9.50175"
+        ,
+        "rotation": "-0.419661 -0.569109 -0.569109 0.419661"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla012.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla011"
+      ,
+      "transform":
+      {
+        "pos": "22.3473 69.967 9.72073"
+        ,
+        "rotation": "-0.419661 -0.569109 -0.569109 0.419661"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla011.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla009"
+      ,
+      "transform":
+      {
+        "pos": "15.2373 64.8474 21.0366"
+        ,
+        "rotation": "-0.289563 -0.6451 -0.645099 0.289563"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla009.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "ParedesExterioresEscena05"
       ,
       "transform":
@@ -414,6 +526,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1374,6 +1488,28 @@
   {
     "entity":
     {
+      "name": "Sala_EstatuaFea_19_Parte5"
+      ,
+      "transform":
+      {
+        "pos": "18.9513 64.8526 15.4637"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sala_EstatuaFea_19_Parte5.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EstatuaGrandeMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -1408,6 +1544,28 @@
   {
     "entity":
     {
+      "name": "Sala_EstatuaFea_17_Parte5"
+      ,
+      "transform":
+      {
+        "pos": "10.9489 64.2506 21.9266"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sala_EstatuaFea_17_Parte5.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EstatuaGrandeMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
     }
   }
   ,

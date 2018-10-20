@@ -98,13 +98,6 @@ void TCompSpiralController::update(float DT) {
 			this->destroy();
 			return;
 		}
-		/*QUAT newRot = my_transform->getRotation();
-		PxRigidActor* rigidActor = ((PxRigidActor*)my_collider->actor);
-		PxTransform tr = rigidActor->getGlobalPose();
-		tr.p = PxVec3(new_pos.x, new_pos.y, new_pos.z);
-		tr.q = PxQuat(newRot.x, newRot.y, newRot.z, newRot.w);
-
-		rigidActor->setGlobalPose(tr);*/
 	}
 
 	life -= DT;

@@ -2,6 +2,62 @@
   {
     "entity":
     {
+      "name": "Niebla004"
+      ,
+      "transform":
+      {
+        "pos": "-20.6825 26.9421 -15.0946"
+        ,
+        "rotation": "0.628963 -0.323118 -0.323118 -0.628963"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla004.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla003"
+      ,
+      "transform":
+      {
+        "pos": "-22.5188 26.9421 -16.3114"
+        ,
+        "rotation": "0.628963 -0.323118 -0.323118 -0.628963"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "BordesParte7C"
       ,
       "transform":

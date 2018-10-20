@@ -664,7 +664,7 @@ float4 PS_ambient(
     }
     else
     {
-        final_color = float4(env_fresnel * env * g_ReflectionIntensity +
+        final_color = float4(env_fresnel * env/3 * g_ReflectionIntensity +
                               albedo.xyz * irradiance * g_AmbientLightIntensity
                               , albedo.a) + self_illum;
 

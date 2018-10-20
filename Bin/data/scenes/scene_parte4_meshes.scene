@@ -2,6 +2,34 @@
   {
     "entity":
     {
+      "name": "Niebla014"
+      ,
+      "transform":
+      {
+        "pos": "3.86828 91.931 -24.6603"
+        ,
+        "rotation": "0.707064 -0.00778417 -0.00778417 -0.707064"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla014.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "BordesParte3F"
       ,
       "transform":
@@ -105,34 +133,6 @@
             "data/materials/ParedModelo.material"
             ,
             "data/materials/ParedModeladaInteriores.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Niebla014"
-      ,
-      "transform":
-      {
-        "pos": "3.81943 91.931 -24.1759"
-        ,
-        "rotation": "0.707064 -0.00778417 -0.00778417 -0.707064"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Niebla014.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/nieblaAMat.material"
           ]
         }
       ]

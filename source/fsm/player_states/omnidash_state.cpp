@@ -13,7 +13,8 @@ namespace FSM
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		player->anim1 = calculateAnimation(e);
-		player->clear_animations(0);
+        player->clear_animations(0.01);
+        player->remove_animation(player->EAnimations::NajaJumpLoop);
 		player->change_animation(player->anim1, _is_action, _delay_in, _delay_out, true);
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		player->jumping_start_height = c_my_transform->getPosition().y;

@@ -75,6 +75,7 @@ end
 
 function OnTriggerExitTSCinematicaFinal()
 	lm:activate_cinematic_bands(false)
+	lm:kill_entity("TSCinematicaFinal")
 	--lm:activate_cinematic("cinematica_inicial", false)
 	lm:pause_player()
 	lm:play_animation("The Player", 35)

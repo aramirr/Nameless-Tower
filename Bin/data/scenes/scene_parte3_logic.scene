@@ -873,7 +873,7 @@
       ,
       "transform":
       {
-        "pos": "30.4684 68.7333 8.03722"
+        "pos": "30.4684 68.9935 8.01549"
         ,
         "rotation": "0.0 -0.636836 0.0 -0.770999"
       }
@@ -1291,7 +1291,7 @@
           {
             "name": "sound"
             ,
-            "src": "event:/SFX/Object/Mechanics/Puerta_Reja"
+            "src": "event:/SFX/Object/Mechanics/Reja_Fast"
             ,
             "positional": true
             ,
@@ -1301,7 +1301,7 @@
           {
             "name": "sound_shut"
             ,
-            "src": "event:/SFX/Object/Mechanics/Reja_Fast"
+            "src": "event:/SFX/Object/Mechanics/Puerta_Reja"
             ,
             "positional": true
             ,
@@ -1315,7 +1315,7 @@
   {
     "entity":
     {
-      "name": "AguaMuerte"
+      "name": "catarata_grande"
       ,
       "transform":
       {
@@ -1450,7 +1450,7 @@
         [
           "14.0324 55.9581 27.8452"
           ,
-          "14.0324 50.4023 27.8452"
+          "14.0324 51.515 27.8452"
         ]
       }
       ,
