@@ -52,10 +52,14 @@
 			},
 			"cinematic" :
 			{
-				"camera_name" : "camera_cine",
-				"spline_name" : "test_camera_curve",
-				"time": 5,
-				"blend_time": 2
+				"splines": [
+					{
+						"spline_name" : "test_camera_curve",
+						"time": 5,
+						"blend_time": 2,
+						"camera_name" : "camera_cine"	
+					}
+				]			
 			},
 		    "culling":true
 		}
@@ -68,10 +72,14 @@
 				"lookat": "0 0 0"
 			},
 			"cinematic" :
-			{
-				"camera_name" : "camera_first_door",
-				"time": 0,
-				"blend_time": 2
+			{				
+				"splines": [
+					{
+						"camera_name" : "camera_first_door",
+						"time": 0,
+						"blend_time": 2
+						}
+						]
 			},
 		    "culling":true
 		}
@@ -84,10 +92,14 @@
 				"lookat": "0 0 0"
 			},
 			"cinematic" :
-			{
-				"camera_name" : "camera_sala_escaleras_2",
-				"time": 0,
-				"blend_time": 2
+			{				
+				"splines": [
+					{
+						"camera_name" : "camera_sala_escaleras_2",
+						"time": 0,
+						"blend_time": 2
+						}
+						]
 			},
 		    "culling":true
 		}
@@ -100,10 +112,14 @@
 				"lookat": "0 0 0"
 			},
 			"cinematic" :
-			{
-				"camera_name" : "camera_sala_puertas_abajo",
-				"time": 0,
-				"blend_time": 2
+			{				
+				"splines": [
+					{
+						"camera_name" : "camera_sala_puertas_abajo",
+						"time": 0,
+						"blend_time": 2
+						}
+						]
 			},
 		    "culling":true
 		}
@@ -116,17 +132,21 @@
 				"lookat": "0 0 0"
 			},
 			"cinematic" :
-			{
-				"camera_name" : "camera_vientos",
-				"time": 0,
-				"blend_time": 2
+			{				
+				"splines": [
+					{
+						"camera_name" : "camera_vientos",
+						"time": 0,
+						"blend_time": 2
+						}
+						]
 			},
 		    "culling":true
 		}
 	},
 	{
 		"entity": {
-			"name": "camara_cinematica_inicial",
+			"name": "camara_cinematica_inicialA",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"				
@@ -136,7 +156,37 @@
 			},
 			"hierarchy":
 		      {
-		        "parent": "cinematica_inicial_curve"
+		        "parent": "CamaraIntroA"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_cinematica_inicialB",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraIntroB"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_cinematica_inicialC",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraIntroC"
 		      }		
 		}
 	},
@@ -166,11 +216,27 @@
 				"lookat": "0 0 0"
 			},
 			"cinematic" :
-			{
-				"camera_name" : "camara_cinematica_inicial",
-				"time": 28,
-				"blend_time": 0,
-				"spline_name": "cinematica_inicial_curve"
+			{				
+				"splines": [
+					{
+					"time": 8.333,
+					"blend_time": 0.01,
+					"spline_name": "CamaraIntroA",
+					"camera_name" : "camara_cinematica_inicialA"
+					},
+					{
+					"time": 4.5,
+					"blend_time": 1,
+					"spline_name": "CamaraIntroB",
+					"camera_name" : "camara_cinematica_inicialB"
+					},
+					{
+					"time": 10,
+					"blend_time": 1,
+					"spline_name": "CamaraIntroC",
+					"camera_name" : "camara_cinematica_inicialC"
+					}
+				]
 			},
 		    "culling":true
 		}
@@ -217,11 +283,15 @@
 				"lookat": "0 0 0"
 			},
 			"cinematic" :
-			{
-				"camera_name" : "camara_cinematica_monolito",
-				"time": 15,
-				"blend_time": 0,
-				"spline_name": "cinematica_monolito_curve"
+			{				
+				"splines": [
+					{
+					"camera_name" : "camara_cinematica_monolito",
+					"time": 15,
+					"blend_time": 0,
+					"spline_name": "cinematica_monolito_curve"
+					}
+				]
 			},
 		    "culling":true
 		}

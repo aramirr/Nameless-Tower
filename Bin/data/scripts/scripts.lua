@@ -27,11 +27,11 @@ function OnLevel1Start()
 	lm:stop_emiter("hojas_viento", false)
 	lm:stop_emiter("particulas_top_cascada", false)	
 
-	--lm:activate_cinematic_bands(false)
-	--lm:activate_cinematic("cinematica_inicial", false)
-	--lm:pause_player()
-	--lm:play_animation("The Player", 32)
-	--lm:regain_control(30)
+	lm:activate_cinematic_bands(false)
+	lm:activate_cinematic("cinematica_inicial", false)
+	lm:pause_player()
+	lm:play_animation("The Player", 32)
+	lm:regain_control(26)
 	
 end
 
