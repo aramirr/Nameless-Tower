@@ -285,6 +285,13 @@
     "blend": "combinative",
     "z": "test_but_no_write"
   },
+  "sprites3": {
+    "vs_file": "data/shaders/sprite3.fx",
+    "vertex_type": "Pos_x_RenderParticle",
+    "category": "particles",
+    "blend": "combinative",
+    "z": "test_but_no_write"
+  },
   "particles": {
     "vs_file": "data/shaders/particles.fx",
     "vertex_type": "Pos_x_RenderParticle",
