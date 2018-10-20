@@ -78,12 +78,10 @@ void CModuleTower::update(float delta)
 	if (activate_runner) {
 		timer_runner += delta;
 		if (timer_runner >= 10.667 && !build_runner) {
-			dbg("MANUEL\n");
 			build_runner = true;
 			activateAnim("Runner_father", 0);
 		}
 		if (timer_runner >= 26.667 && !changed_runner_mesh) {
-			dbg("HIJO\n");
 			changed_runner_mesh = true;
 
 			// Kill Runner_father
@@ -91,7 +89,6 @@ void CModuleTower::update(float delta)
 			if (runner_father) {
 				CHandle(runner_father).destroy();
 			}
-			dbg("DE\n");
 
 			//Appear Runner
 			appearEntity("Runner");
@@ -104,21 +101,12 @@ void CModuleTower::update(float delta)
 			PxTransform tr = rigidActor->getGlobalPose();
 			tr.p = PxVec3(7.886f, 88.f, -30.497f);
 			rigidActor->setGlobalPose(tr);
-			
-			dbg("LA\n");
-
 		}
 		if (timer_runner >= 27.33f && !runner_scream) {
 			runner_scream = true;
-			dbg("GRAN\n");
-			
 			CEntity* e = getEntityByName("Runner");
 			bt_runner * controller = e->get<bt_runner>();
-			dbg("PUTA\n");
-
 			controller->change_animation(4, true, 0.5, 0.5, true);
-			dbg("!\n");
-
 		}
 	}
 }
