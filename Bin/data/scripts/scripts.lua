@@ -63,6 +63,8 @@ function OnTriggerExitTSCinematicaMonolito()
 	--lm:regain_control(25)
 	--lm:kill_entity("LuaCinematicTest")
 	lm:activate_cinematic_bands(false)
+	lm:activate_cinematic("cinematica_monolito", false)	
+	lm:activate_cinematic("cinematica_monolito", true)	
 	--lm:activate_cinematic("cinematica_inicial", false)
 	
 	lm:pause_player()
