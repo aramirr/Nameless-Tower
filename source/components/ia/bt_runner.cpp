@@ -765,6 +765,7 @@ void bt_runner::recalculate_path() {
 
 // Animation functions
 void bt_runner::change_animation(int animation_id, bool is_action, float in_delay, float out_delay, bool clear = true) {
+	dbg("JONATHAAAAAAAN\n");
   CEntity* e = h_entity;
   TCompSkeleton* skeleton = e->get<TCompSkeleton>();
   assert(skeleton);

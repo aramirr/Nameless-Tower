@@ -7,7 +7,6 @@
 class IAIController;
 
 class CModuleTower : public IModule {
-
 	bool cargar = true;
 	bool changeExposure;
 	bool time_out = false;
@@ -20,6 +19,15 @@ class CModuleTower : public IModule {
 
 	float bandsValue = 0.f;
 	bool bandCinematics = false;
+
+	// Activate Runner
+	bool activate_runner = false;
+	float timer_runner = 0.f;
+	bool build_runner = false;
+	bool changed_runner_mesh = false;
+	bool runner_scream = false;
+
+
 
 protected:
 	float tower_radius = 31.5f;
@@ -46,15 +54,16 @@ public:
   const void setAmbientAdjustment(float ambient);
   const void setExposureAdjustment(float exposure);
 	const void setBandsCinematics(bool _band);
-    const void openDoor(const std::string& name);
-    const void closeDoor(const std::string& name);
-	const void activateAnim(const std::string& name);
+  const void openDoor(const std::string& name);
+  const void closeDoor(const std::string& name);
+	const void activateAnim(const std::string& name, float wait_time);
   const void activateCinematic(const std::string& name);
   const void deactivateCinematic(const std::string& name);
   const void setDirLightIntensity(const std::string& name, float intensity);
   const void setPointLightIntensity(const std::string& name, float intensity);
 	void setExposure(float _exposure);
 	void wait_seconds(float num_seconds);
+	void activateRunner();
 
 	float getTowerRadius();
 

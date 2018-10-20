@@ -88,8 +88,8 @@ void LogicManager::closeDoor(const char* name) {
     EngineTower.closeDoor(name);
 }
 
-void LogicManager::activateAnim(const char* name) {
-  EngineTower.activateAnim(name);
+void LogicManager::activateAnim(const char* name, float wait_time) {
+  EngineTower.activateAnim(name, wait_time);
 }
 
 void LogicManager::setTemblor(bool temblor, bool left)
@@ -243,8 +243,8 @@ void LogicManager::pausePlayer() {
 }
 
 void LogicManager::setAnim(std::string name, int anim_id) {
-	CEntity* player = getEntityByName(name);
-	TCompPlayerController * controller = player->get<TCompPlayerController>();
+	CEntity* e = getEntityByName(name);
+	TCompPlayerController * controller = e->get<TCompPlayerController>();
 	controller->change_animation(anim_id, true, 0.5, 0.5, true);
 }
 
@@ -254,10 +254,10 @@ void LogicManager::regainControl(float time_to_wait) {
 }
 
 void LogicManager::killEntity(std::string name) {
-    CEntity* entity = getEntityByName(name);
-    if (entity) {
-        CHandle(entity).destroy();
-    }
+	CEntity* entity = getEntityByName(name);
+	if (entity) {
+		CHandle(entity).destroy();
+	}
 }
 
 void LogicManager::activateTorch(std::string name) {
@@ -278,4 +278,8 @@ void LogicManager::playCurve(std::string name) {
     CEntity* entity = getEntityByName(name);
     TCompCurve* t = entity->get<TCompCurve>();
     t->activate();
+}
+
+void LogicManager::activateRunner() {
+	EngineTower.activateRunner();
 }

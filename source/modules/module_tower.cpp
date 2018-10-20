@@ -6,6 +6,7 @@
 #include "components/lights/comp_light_point_shadows.h"
 #include "components/controllers/comp_door.h"
 #include "components/player/comp_player_controller.h"
+#include "components/ia/bt_runner.h"
 
 bool CModuleTower::start()
 {
@@ -71,6 +72,42 @@ void CModuleTower::update(float delta)
 	}
 	else if (bandCinematics) {
 		EngineUI.activateWidget("barras_cinematicas");
+	}
+
+	// Activate Runner
+	if (activate_runner) {
+		timer_runner += delta;
+		if (timer_runner >= 10.667 && !build_runner) {
+			build_runner = true;
+			activateAnim("Runner_father", 0);
+		}
+		if (timer_runner >= 26.667 && !changed_runner_mesh) {
+			changed_runner_mesh = true;
+
+			// Kill Runner_father
+			CEntity* runner_father = getEntityByName("Runner_father");
+			if (runner_father) {
+				CHandle(runner_father).destroy();
+			}
+
+			//Appear Runner
+			appearEntity("Runner");
+			
+			CEntity* e = getEntityByName("Runner");
+			TCompCollider* e_collider = e->get<TCompCollider>();
+			TCompTransform* e_transform = e->get<TCompTransform>();
+			e_transform->setPosition(VEC3(7.886f, 88.f, -30.497f));
+			PxRigidActor* rigidActor = ((PxRigidActor*)e_collider->actor);
+			PxTransform tr = rigidActor->getGlobalPose();
+			tr.p = PxVec3(7.886f, 88.f, -30.497f);
+			rigidActor->setGlobalPose(tr);
+		}
+		if (timer_runner >= 27.33f && !runner_scream) {
+			runner_scream = true;
+			CEntity* e = getEntityByName("Runner");
+			bt_runner * controller = e->get<bt_runner>();
+			controller->change_animation(4, true, 0.5, 0.5, true);
+		}
 	}
 }
 
@@ -231,9 +268,10 @@ const void CModuleTower::closeDoor(const std::string& name) {
     entity->sendMsg(msg);
 }
 
-const void CModuleTower::activateAnim(const std::string& name) {
+const void CModuleTower::activateAnim(const std::string& name, float wait_time) {
 	CEntity* entity = (CEntity*)getEntityByName(name);
 	TMsgActivateAnim msg;
+	msg.wait_time = wait_time;
 	entity->sendMsg(msg);
 }
 
@@ -247,3 +285,9 @@ void CModuleTower::wait_seconds(float num_seconds) {
 	total_wait_time = num_seconds;
 	time_out = true;
 }
+
+void CModuleTower::activateRunner() {
+	activate_runner = true;
+	timer_runner = 0.f;
+}
+
