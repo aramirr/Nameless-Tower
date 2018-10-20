@@ -17,12 +17,25 @@ void bt_runner::appear(const TMsgRunnerAppear& msg) {
 }
 
 void bt_runner::disappear(const TMsgRunnerDisappear& msg) {
-    b_disappear = true;
-    setCurrent(NULL);
+	b_disappear = true;
+	setCurrent(NULL);
+}
+
+void bt_runner::start_chase(const TMsgRunnerStartChase& msg) {
+	b_appear = false;
+	b_chase = true;
+	going_right = false;
+	going_up = true;
+	on_jump = false;
+	recalculate_timer = 0.f;
+	recalculate_path();
+
+	setCurrent(NULL);
 }
 
 void bt_runner::registerMsgs() {
-    DECL_MSG(bt_runner, TMsgRunnerAppear, appear);
+	DECL_MSG(bt_runner, TMsgRunnerStartChase, start_chase);
+	DECL_MSG(bt_runner, TMsgRunnerAppear, appear);
     DECL_MSG(bt_runner, TMsgRunnerDisappear, disappear);
 }
 
@@ -765,7 +778,6 @@ void bt_runner::recalculate_path() {
 
 // Animation functions
 void bt_runner::change_animation(int animation_id, bool is_action, float in_delay, float out_delay, bool clear = true) {
-	dbg("JONATHAAAAAAAN\n");
   CEntity* e = h_entity;
   TCompSkeleton* skeleton = e->get<TCompSkeleton>();
   assert(skeleton);

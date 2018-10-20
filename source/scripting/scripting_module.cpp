@@ -90,8 +90,11 @@ void ScriptingModule::fTriggerExit(vector<string> params) {
         string name = params[0];
         string func_name = "OnTriggerExit" + name;
         auto p = EngineScripting.script.exists(func_name);
-		if (p)
-            EngineScripting.script.doString(func_name + "()");
+				if (p && !(name == "TSCinematicaMonolito" && done_cinematic_monolito)) {
+					if (name == "TSCinematicaMonolito")
+						done_cinematic_monolito = true;
+					EngineScripting.script.doString(func_name + "()");
+				}
     }
 }
 

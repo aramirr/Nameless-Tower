@@ -96,17 +96,20 @@ void CModuleTower::update(float delta)
 			CEntity* e = getEntityByName("Runner");
 			TCompCollider* e_collider = e->get<TCompCollider>();
 			TCompTransform* e_transform = e->get<TCompTransform>();
-			e_transform->setPosition(VEC3(7.886f, 88.f, -30.497f));
-			PxRigidActor* rigidActor = ((PxRigidActor*)e_collider->actor);
-			PxTransform tr = rigidActor->getGlobalPose();
-			tr.p = PxVec3(7.886f, 88.f, -30.497f);
-			rigidActor->setGlobalPose(tr);
+			e_transform->setPosition(VEC3(2.31185f, 88.f, -31.2941f)); //86.5861f
+			e_collider->controller->setPosition(physx::PxExtendedVec3(2.31185f, 88.f, -31.2941f));
 		}
 		if (timer_runner >= 27.33f && !runner_scream) {
 			runner_scream = true;
 			CEntity* e = getEntityByName("Runner");
 			bt_runner * controller = e->get<bt_runner>();
 			controller->change_animation(4, true, 0.5, 0.5, true);
+		}
+		if (timer_runner >= 32.1f && !runner_chase) {
+			runner_chase = true;
+			CEntity* e = getEntityByName("Runner");
+			TMsgRunnerStartChase msg;
+			e->sendMsg(msg);
 		}
 	}
 }
