@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "gui_main_menu_controller.h"
 #include "gui/widgets/gui_button.h"
+#include "components/player/comp_player_controller.h"
 
 namespace GUI
 {
@@ -17,6 +18,8 @@ namespace GUI
       pauseMsg.variant.setBool(true);
 
       player->sendMsg(pauseMsg);
+			TCompPlayerController* player_c = player->get<TCompPlayerController>();
+			player_c->is_grounded = true;
 
       auto newGameCB = []() {
         //Engine.getModules().changeGameState("test_axis");
