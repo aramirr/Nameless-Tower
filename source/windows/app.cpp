@@ -38,7 +38,7 @@ LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 
 	case WM_ERASEBKGND:
 		hdc = BeginPaint(hWnd, &ps);
-		hImage = (HBITMAP)LoadImage(NULL, (LPCSTR)"data/textures/gui/carga.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_LOADTRANSPARENT);
+		hImage = (HBITMAP)LoadImage(NULL, (LPCSTR)"data/textures/gui/Menu_Loading_F.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_LOADTRANSPARENT);
 		hdcMem = CreateCompatibleDC(hdc); // hDC is a DC structure supplied by Win32API
 		SelectObject(hdcMem, hImage);
 		StretchBlt(
@@ -245,7 +245,7 @@ bool CApp::createWindow(HINSTANCE new_hInstance, int nCmdShow) {
   // Create window
   RECT rc = { 0, 0, xres, yres };
   AdjustWindowRect(&rc, dwStyle, FALSE);
-  hWnd = CreateWindow("MCVWindowsClass", "Direct3D 11 MCV Project",
+  hWnd = CreateWindow("MCVWindowsClass", "Direct3D 11 NAMELESSTOWER",
 		dwStyle,
     CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, NULL, NULL, hInstance,
     NULL);

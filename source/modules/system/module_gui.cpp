@@ -214,6 +214,16 @@ void CModuleGUI::setOmindash(bool omnidash)
 	odc->setActive(omnidash);
 }
 
+void CModuleGUI::setFullScreenOption(int x, int y)
+{
+	omc->setFullScreenOption(x, y);
+}
+
+void CModuleGUI::setResolutionOption(int x, int y)
+{
+	omc->setResolutionOption(x, y);
+}
+
 void CModuleGUI::changeResolution(int _x, int _y)
 {
 	/*for (auto& wdgt : _registeredWidgets)

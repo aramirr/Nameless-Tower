@@ -24,29 +24,35 @@ namespace GUI
 			auto fullScreenONCB = []() {
 				dbg("FULLSCREEN ON\n");
 				EngineUI.fullScreen(true);
+				EngineUI.setFullScreenOption(1, 0);
+				//fullScreenOption = VEC2(1, 0);
 			};
 
 			auto fullScreenOFFCB = []() {
 				dbg("FULLSCREEN OFF\n");
 				EngineUI.fullScreen(false);
+				EngineUI.setFullScreenOption(1, 1);
 			};
 
 			auto res1920CB = []() {
 				dbg("RESOLUTION 1920\n");
 				EngineUI.changeResolution(1920, 1080);
 				if (cb_gui.fullscreen) EngineUI.fullScreen(true);
+				EngineUI.setResolutionOption(2, 0);
 			};
 
 			auto res1366CB = []() {
 				dbg("RESOLUTION 1366\n");
 				EngineUI.changeResolution(1366, 768);
 				if (cb_gui.fullscreen) EngineUI.fullScreen(true);
+				EngineUI.setResolutionOption(2, 1);
 			};
 
 			auto res1024CB = []() {
 				dbg("RESOLUTION 1024\n");
 				EngineUI.changeResolution(1024, 768);
 				if (cb_gui.fullscreen) EngineUI.fullScreen(true);
+				EngineUI.setResolutionOption(2, 2);
 			};
 
 			auto graphicsLOWCB = []() {
@@ -105,6 +111,9 @@ namespace GUI
 			registerOption("exit_options", exitOptionsCB, 5);
 			setCurrentSection(0);
 			setCurrentOption(0);
+
+			fullScreenOption = VEC2(1, 1);
+			resolutionOption = VEC2(2, 0);
 
 			cb_gui.fullscreen = false;
 
@@ -172,12 +181,19 @@ namespace GUI
 
 	void COptionMenuController::setCurrentOption(int newOption)
 	{
+		int i = 0;
+		int j = 0;
 		for (auto& option : _options)
 		{
+			j = 0;
 			for (auto& _option : option)
 			{
-				_option.button->setCurrentState(CButton::EState::ST_Idle);
+				VEC2 cOption = VEC2(i, j);
+				if(cOption == fullScreenOption || cOption == resolutionOption)_option.button->setCurrentState(CButton::EState::ST_Selected);
+				else _option.button->setCurrentState(CButton::EState::ST_Idle);
+				j++;
 			}
+			i++;
 		}
 
 		_currentOption = clamp(newOption, 0, static_cast<int>(_options[_currentSection].size()) - 1);
@@ -348,5 +364,13 @@ namespace GUI
 			ShowWindow(handle, SW_RESTORE);
 		}
 
+	}
+	void COptionMenuController::setFullScreenOption(int x, int y)
+	{
+		fullScreenOption = VEC2(x, y);
+	}
+	void COptionMenuController::setResolutionOption(int x, int y)
+	{
+		resolutionOption = VEC2(x, y);
 	}
 }

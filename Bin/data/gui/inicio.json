@@ -11,7 +11,7 @@
 						"name" : "fondoA",
 						"type" : "image",
 						"size" : "1920 1080",
-						"texture" : "data/textures/gui/MainMenu/Menu_Name.dds",
+						"texture" : "data/textures/gui/MainMenu/Menu_Fondo_F.dds",
 						"minUV" : "0 0",
 						"maxUV" : "1 1"
 					},
@@ -47,7 +47,7 @@
 						"name" : "fondoB",
 						"type" : "image",
 						"size" : "1920 1080",
-						"texture" : "data/textures/gui/MainMenu/Menu_Fondo_2.dds",
+						"texture" : "data/textures/gui/MainMenu/Menu_Titulo_F.dds",
 						"minUV" : "0 0",
 						"maxUV" : "1 1"
 					}
@@ -62,7 +62,7 @@
 						"name" : "new_game",
 						"type" : "button",
 						"position" : "1350 596",
-						"size" : "200 48",
+						"size" : "200 60",
 						"texture" : "data/textures/gui/MainMenu/Boton_NG_1.dds",
 						"selected" : {
 							"texture" : "data/textures/gui/MainMenu/Boton_NG_2.dds"

@@ -34,6 +34,9 @@ public:
 	void activeKeyboardMenu();
   void setOmindash(bool omnidash);
 
+	void setFullScreenOption(int x, int y);
+	void setResolutionOption(int x, int y);
+
 	void changeResolution(int _x, int _y);
 	void fullScreen(bool _fullscreen);
 
