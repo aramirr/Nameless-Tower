@@ -1,0 +1,136 @@
+[
+  {
+    "entity":
+    {
+      "name": "CamaraIntroC"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "curve_controller":
+      {
+        "curve": "data/curves/CamaraIntroC.curve"
+        ,
+        "speed": 1.0
+        ,
+        "target": "IntroRef002"
+        ,
+        "loop": false
+        ,
+        "mode": "linear"
+        ,
+        "automove": false
+      }
+    }
+    }
+    ,
+    {
+      "entity":
+      {
+        "name": "CamaraIntroB"
+        ,
+        "transform":
+        {
+          "pos": "0.0 0.0 0.0"
+          ,
+          "rotation": "0.0 0.0 0.0 0.0"
+        }
+        ,
+        "render":
+        [
+        ]
+        ,
+        "curve_controller":
+        {
+          "curve": "data/curves/CamaraIntroB.curve"
+          ,
+          "speed": 1.0
+          ,
+          "target": "IntroRef002"
+          ,
+          "loop": false
+          ,
+          "mode": "linear"
+          ,
+          "automove": false
+        }
+      }
+    }
+      ,
+      {
+        "entity":
+        {
+          "name": "CamaraIntroA"
+          ,
+          "transform":
+          {
+            "pos": "0.0 0.0 0.0"
+            ,
+            "rotation": "0.0 0.0 0.0 0.0"
+          }
+          ,
+          "render":
+          [
+          ]
+          ,
+          "curve_controller":
+          {
+            "curve": "data/curves/CamaraIntroA.curve"
+            ,
+            "speed": 1.0
+            ,
+            "target": "IntroRef001"
+            ,
+            "loop": false
+            ,
+            "mode": "linear"
+            ,
+            "automove": false
+          }
+        }
+    }
+        ,
+        {
+          "entity":
+          {
+            "name": "IntroRef002"
+            ,
+            "transform":
+            {
+              "pos": "8.761 4.96676 -30.251"
+              ,
+              "rotation": "0.0 0.0 0.0 -1.0"
+            }
+            ,
+            "render":
+            [
+            ]
+          }
+        }
+        ,
+        {
+          "entity":
+          {
+            "name": "IntroRef001"
+            ,
+            "transform":
+            {
+              "pos": "8.761 4.71032 -30.251"
+              ,
+              "rotation": "0.0 0.0 0.0 -1.0"
+            }
+            ,
+            "render":
+            [
+            ]
+          }
+        }
+      ]

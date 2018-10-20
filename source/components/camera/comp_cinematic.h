@@ -6,6 +6,14 @@
 #include "comp_camera.h"
 
 struct TCompCinematic: public TCompBase {
+    struct Cinematic {
+        float blend_time;
+        float time;
+        std::string spline_name;
+        std::string camera_name;
+    };
+    int current_spline;
+    std::vector<Cinematic> cinematics;
 	float                   current_time = 0.f;
 	float                   time;
 	float                   blend_time;
