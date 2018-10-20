@@ -22,6 +22,7 @@ bool CModuleGUI::start()
 	_fontTexture = Resources.get("data/textures/gui/Letras.dds")->as<CTexture>();
 
 	CParser parser;
+	parser.parseFile("data/gui/lineasTemblor.json");
 	parser.parseFile("data/gui/precarga.json");
 	parser.parseFile("data/gui/inicio.json");
 	parser.parseFile("data/gui/pause_menu.json");
@@ -71,6 +72,8 @@ bool CModuleGUI::stop()
 void CModuleGUI::update(float delta)
 {
 	//dbg("-----------------------TIME PERROOOO: %f\n", timer);
+
+	if(EngineInput[VK_F5].getsPressed())activateWidget("lineasTemblor");
 	if (splash) {
 		
 		

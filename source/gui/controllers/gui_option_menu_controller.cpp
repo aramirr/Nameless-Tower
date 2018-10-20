@@ -84,7 +84,7 @@ namespace GUI
 			auto exitOptionsCB = []() {
 				dbg("EXIT OPTIONS\n");
 
-				EngineUI.desactivateWidget("menu_options");
+				//EngineUI.desactivateWidget("menu_options");
 				EngineUI.desactiveOptionMenu();
 				if (cb_gui.main > 0.f) EngineUI.activeMainMenu();
 				else EngineUI.activePauseMenu();
