@@ -1,0 +1,33 @@
+[
+	{
+		"entity": {
+			"name": "The Player 2",
+      		"skeleton": {
+        		"skeleton": "data/skeletons/Naja2/naja2.skeleton"
+      		},
+      		"render" : [        					
+        		{
+          			"mesh": "data/skeletons/Naja2/Naja2.mesh"
+          			,
+          			"materials":
+          				[
+           		 			"data/materials/NajaMaterial.material"
+          				]
+        		},
+        		{
+          			"mesh": "data/skeletons/Naja2/PaiPai.mesh"
+          			,
+          			"materials":
+          				[
+           					"data/materials/PaipaiMaterial.material"
+          				]
+        		}
+      		]		
+			,
+			"transform": {
+				"pos": "-5.957 10.6 -30.93",
+				"front": "1 0 0"
+			}
+		}
+	}
+]

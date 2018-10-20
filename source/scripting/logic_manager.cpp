@@ -279,3 +279,9 @@ void LogicManager::playCurve(std::string name) {
     TCompCurve* t = entity->get<TCompCurve>();
     t->activate();
 }
+
+void LogicManager::set_ypr(std::string name, float y, float p, float r) {
+	CEntity* entity = getEntityByName(name);
+	TCompTransform* t = entity->get<TCompTransform>();
+	t->setYawPitchRoll(y, p, r);
+}

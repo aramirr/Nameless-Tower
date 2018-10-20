@@ -27,8 +27,23 @@ function OnLevel1Start()
 	lm:stop_emiter("hojas_viento", false)
 	lm:stop_emiter("particulas_top_cascada", false)	
 
+	lm:set_ypr("spline_loro5", 180,0,0)
+	lm:set_ypr("spline_loro6", 180,0,0)
+	lm:set_ypr("spline_loro7", 180,0,0)
+	lm:set_ypr("spline_loro8", 180,0,0)
+	lm:set_ypr("spline_loro9", 180,0,0)
+	lm:set_ypr("spline_loro10", 180,0,0)
+	lm:set_ypr("spline_loro11", 180,0,0)
+
+	lm:hide_mesh("loro0")
+	lm:hide_mesh("loro1")
+	lm:hide_mesh("loro2")
+	lm:hide_mesh("loro3")
+	lm:hide_mesh("loro4")
+	
+
 	--lm:activate_cinematic_bands(false)
-	--lm:activate_cinematic("cinematica_inicial", false)
+	--lm:activate_cinematic("cinematica_inicial_true", false)
 	--lm:pause_player()
 	--lm:play_animation("The Player", 32)
 	--lm:regain_control(30)
@@ -135,6 +150,21 @@ end
 -- Nivel Subida
 
 -- Sala 1-2
+function OnTriggerExitTPAves()
+	lm:unhide_mesh("loro0")
+	lm:unhide_mesh("loro1")
+	lm:unhide_mesh("loro2")
+	lm:unhide_mesh("loro3")
+	lm:unhide_mesh("loro4")
+	
+	lm:play_curve("spline_loro1")
+	lm:play_curve("spline_loro2")
+	lm:play_curve("spline_loro3")
+	lm:play_curve("spline_loro4")
+	lm:play_curve("spline_loro0")
+	lm:kill_entity("TPAves")
+end
+
 function OnTriggerExitTSCabezaTutorial()
 	lm:set_dir_light_intensity("LightDir02", 11, false)
 	lm:start_emiter("hojas_estatua", false)
@@ -411,6 +441,29 @@ function OnTriggerExitTSPuertasArbol()
 	lm:delete_grass(11, true)
 
 	lm:update_grass_render()
+end
+
+function OnTriggerExitTPAves002()
+	lm:unhide_mesh("loro5")
+	lm:unhide_mesh("loro6")
+	lm:unhide_mesh("loro7")
+	lm:unhide_mesh("loro8")
+	lm:unhide_mesh("loro9")
+	lm:unhide_mesh("loro10")
+	lm:unhide_mesh("loro11")
+	
+	lm:play_curve("spline_loro5")
+	lm:play_curve("spline_loro6")
+	lm:play_curve("spline_loro7")
+	lm:play_curve("spline_loro8")
+	lm:play_curve("spline_loro9")
+	lm:play_curve("spline_loro10")
+	lm:play_curve("spline_loro11")
+	lm:kill_entity("TPAves002")
+end
+
+function OnTriggerExitTPAves003()
+	lm:kill_entity("TPAves003")
 end
 
 -- Sala 9-10
