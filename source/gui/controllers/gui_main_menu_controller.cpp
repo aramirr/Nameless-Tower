@@ -12,15 +12,6 @@ namespace GUI
     //-----------------------------------------------------------------------------------
 
     if (carga) {
-
-      CEntity* player = (CEntity*)getEntityByName("The Player");
-
-      TMsgSetFSMVariable pauseMsg;
-      pauseMsg.variant.setName("pause");
-      pauseMsg.variant.setBool(true);
-
-      player->sendMsg(pauseMsg);
-
       auto newGameCB = []() {
 				dbg("STARTING GAME\n");
         //Engine.getModules().changeGameState("test_axis");
@@ -41,7 +32,7 @@ namespace GUI
 			auto optionsCB = []() {
 				dbg("OPTIONES\n");
 				cb_gui.options = 1.f;
-				EngineUI.activateWidget("menu_options");
+				//EngineUI.activateWidget("menu_options");
 				EngineUI.activeOptionMenu();
 				EngineUI.desactiveMainMenu();
 			};

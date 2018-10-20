@@ -13,6 +13,8 @@ CApp* CApp::app_instance = nullptr;
 LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
   PAINTSTRUCT ps;
   HDC hdc;
+	HBITMAP hImage;
+	HDC hdcMem;
 
   // If the OS processes it, do not process anymore
   if (CEngine::get().getModules().OnOSMsg(hWnd, message, wParam, lParam))
@@ -30,10 +32,29 @@ LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
   }
   case WM_PAINT:
     // Validate screen repaint in os/windows 
-    hdc = BeginPaint(hWnd, &ps);
+		hdc = BeginPaint(hWnd, &ps);
     EndPaint(hWnd, &ps);
     break;
 
+	case WM_ERASEBKGND:
+		hdc = BeginPaint(hWnd, &ps);
+		hImage = (HBITMAP)LoadImage(NULL, (LPCSTR)"data/textures/gui/carga.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_LOADTRANSPARENT);
+		hdcMem = CreateCompatibleDC(hdc); // hDC is a DC structure supplied by Win32API
+		SelectObject(hdcMem, hImage);
+		StretchBlt(
+			hdc,         // destination DC
+			0,        // x upper left
+			0,         // y upper left
+			Render.width,       // destination width
+			Render.height,      // destination height
+			hdcMem,      // you just created this above
+			0,
+			0,          // x and y upper left
+			1920,          // source bitmap width
+			1080,          // source bitmap height
+			SRCCOPY);   // raster operation
+		EndPaint(hWnd, &ps);
+		break;
   case WM_SETFOCUS:
     if (app_instance)
       app_instance->has_focus = true;
@@ -192,7 +213,7 @@ LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
     return DefWindowProc(hWnd, message, wParam, lParam);
   }
 
-  return 0;
+  return true;
 }
 
 //--------------------------------------------------------------------------------------
@@ -212,7 +233,7 @@ bool CApp::createWindow(HINSTANCE new_hInstance, int nCmdShow) {
   wcex.hInstance = hInstance;
   wcex.hIcon = NULL;
   wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
-  wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+	wcex.hbrBackground = (HBRUSH)(NULL);//(COLOR_WINDOW + 1);
   wcex.lpszMenuName = NULL;
   wcex.lpszClassName = "MCVWindowsClass";
   wcex.hIconSm = NULL;
@@ -230,6 +251,10 @@ bool CApp::createWindow(HINSTANCE new_hInstance, int nCmdShow) {
     NULL);
   if (!hWnd)
     return false;
+
+	/*HBITMAP hImage = (HBITMAP)LoadImage(NULL, "data/textures/gui/carga.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+	HWND hImageView = CreateWindowEx(NULL, "STATIC", NULL, SS_BITMAP | WS_VISIBLE | WS_CHILD, 0, 0, 500, 600, hWnd, (HMENU)IMAGE_VIEW, GetModuleHandle(NULL), NULL);
+	SendMessage(hImageView, STM_SETIMAGE, IMAGE_BITMAP, (LPARAM)hImage);*/
 
   ShowWindow(hWnd, nCmdShow);
 	//ShowCursor(false);

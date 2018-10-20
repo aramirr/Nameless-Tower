@@ -8,6 +8,7 @@
 #include "gui/controllers/gui_omnidash_arrow_controller.h"
 #include "gui/controllers/gui_pause_menu_controller.h"
 #include "gui/controllers/gui_option_menu_controller.h"
+#include "gui/controllers/gui_keyboard_menu_controller.h"
 
 using namespace GUI;
 
@@ -29,6 +30,8 @@ public:
 	void resetPauseMenu();
 	void desactiveOptionMenu();
 	void activeOptionMenu();
+	void desactiveKeyboardMenu();
+	void activeKeyboardMenu();
   void setOmindash(bool omnidash);
 
 	void changeResolution(int _x, int _y);
@@ -51,12 +54,16 @@ public:
   void renderTexture(const MAT44& world, const CTexture* texture, const VEC2& minUV, const VEC2& maxUV, const VEC4& color);
   void renderText(const MAT44& world, const std::string& text, const VEC4& color);
 	void activateSplash() { splash = true; }
+	bool getSplash() { return splash; }
 
 private:
 	float timer = 3.f;
 	float firstdt;
 	bool firstTime;
 	bool splash;
+	bool nvidia;
+	bool upf;
+	bool mainMenu;
 
   CCamera _orthoCamera;
   const CRenderTechnique* _technique = nullptr;
@@ -66,6 +73,7 @@ private:
   CMainMenuController* mmc;
   CPauseMenuController* pmc;
 	COptionMenuController* omc;
+	CKeyboardMenuController* kmc;
   COmnidashArrowController* odc;
 
   GUI::VWidgets _registeredWidgets;

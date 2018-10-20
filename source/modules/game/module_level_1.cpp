@@ -22,6 +22,8 @@ bool CModuleLevel1::start()
 	if (!cb_gui.create(CB_GUI))
 		return false;
 
+	//EngineUI.activateWidget("pantallaCarga");
+
 	cb_gui.pause = 0.f;
 	cb_gui.options = 0.f;
 

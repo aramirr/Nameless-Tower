@@ -8,8 +8,15 @@ namespace GUI
     TImageParams* params = _widget->getImageParams();
     if (params)
     {
-      params->_minUV += _speed * delta;
-      params->_maxUV -= _speed * delta;
+			if (splash) {
+				params->_minUV += _speed * delta;
+				params->_maxUV -= _speed * delta;
+			}
+			else {
+				params->_minUV += _speed * delta;
+				params->_maxUV += _speed * delta;
+			}
+      
     }
   }
 }

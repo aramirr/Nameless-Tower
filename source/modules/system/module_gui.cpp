@@ -22,6 +22,7 @@ bool CModuleGUI::start()
 	_fontTexture = Resources.get("data/textures/gui/Letras.dds")->as<CTexture>();
 
 	CParser parser;
+	parser.parseFile("data/gui/precarga.json");
 	parser.parseFile("data/gui/inicio.json");
 	parser.parseFile("data/gui/pause_menu.json");
 	parser.parseFile("data/gui/option_menu.json");
@@ -39,7 +40,6 @@ bool CModuleGUI::start()
 	//MAIN MENU
 	mmc = new CMainMenuController();
 
-
 	//PAUSE MENU
 	pmc = new CPauseMenuController();
 	registerController(pmc);
@@ -49,6 +49,11 @@ bool CModuleGUI::start()
 	omc = new COptionMenuController();
 	registerController(omc);
 	desactiveOptionMenu();
+
+	//KEYBOARD MENU
+	kmc = new CKeyboardMenuController();
+	registerController(kmc);
+	desactiveKeyboardMenu();
 
 	//OMNI DASH
 	odc = new COmnidashArrowController();
@@ -65,22 +70,61 @@ bool CModuleGUI::stop()
 
 void CModuleGUI::update(float delta)
 {
-	dbg("-----------------------TIME PERROOOO: %f\n", timer);
+	//dbg("-----------------------TIME PERROOOO: %f\n", timer);
 	if (splash) {
-		if (firstTime) {
-			timer = 3.f;
-			firstTime = false;
-		}
-		activateWidget("splashNvidia");
+		
+		
 		//if(firstTime)firstdt
-		if (delta < 1.f)timer -= delta;
-		dbg("-----------------------TIME SPLASH: %f\n", delta);
-		dbg("-----------------------TIME SPLASH: %f\n", timer);
+		if (delta < 1.0f) {
+			if (firstTime) {
+
+				CEntity* player = (CEntity*)getEntityByName("The Player");
+
+				TMsgSetFSMVariable pauseMsg;
+				pauseMsg.variant.setName("pause");
+				pauseMsg.variant.setBool(true);
+
+				player->sendMsg(pauseMsg);
+
+				timer = 3.f;
+				firstTime = false;
+				activateWidget("splashNvidia");
+				nvidia = true;
+				upf = false;
+				mainMenu = false;
+			}
+			timer -= delta;
+		}
+		//dbg("-----------------------TIME SPLASH: %f\n", delta);
+		//dbg("-----------------------TIME SPLASH: %f\n", timer);
+		if (timer <= 0.f || EngineInput[VK_RETURN].getsPressed()) {
+			if (nvidia) {
+				desactivateWidget("splashNvidia");
+				activateWidget("splashUPF");
+				nvidia = false;
+				upf = true;
+				timer = 3.f;
+			}
+			else if (upf) {
+				desactivateWidget("splashUPF");
+				activateWidget("splash3DMax");
+				upf = false;
+				timer = 3.f;
+			}
+			else {
+				desactivateWidget("splash3DMax");
+				activateWidget("pantallaInicio");
+				timer = 1.f;
+				splash = false;
+				mainMenu = true;
+			}
+		}
+	}
+	else if(mainMenu) {
+		if (delta < 1.0f) timer -= delta;
 		if (timer <= 0.f) {
-			desactivateWidget("splashNvidia");
-			activateWidget("pantallaInicio");
-			splash = false;
 			registerController(mmc);
+			mainMenu = false;
 		}
 	}
 
@@ -150,6 +194,16 @@ void CModuleGUI::desactiveOptionMenu()
 void CModuleGUI::activeOptionMenu()
 {
 	omc->setActive(true);
+}
+
+void CModuleGUI::desactiveKeyboardMenu()
+{
+	kmc->setActive(false);
+}
+
+void CModuleGUI::activeKeyboardMenu()
+{
+	kmc->setActive(true);
 }
 
 void CModuleGUI::setOmindash(bool omnidash)

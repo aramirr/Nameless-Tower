@@ -16,7 +16,9 @@ namespace GUI
 			auto keyboardCB = []() {
 				dbg("KEYBOARD \n");
 
-
+				EngineUI.activeKeyboardMenu();
+				EngineUI.desactiveOptionMenu();
+				cb_gui.options = 1.f;
 			};
 
 			auto fullScreenONCB = []() {

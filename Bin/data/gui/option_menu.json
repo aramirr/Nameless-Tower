@@ -222,5 +222,45 @@
 				]
 			}
 		]
+	},
+	{
+		"name" : "keyboardMenu",
+		"type" : "widget",
+		"size" : "1920 1080",
+		"children" : [
+			{
+				"name" : "kayboardBackground",
+				"children" : [
+					{
+						"name" : "Carga",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/Keyboard_prueba.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1"
+					}
+				]
+			},
+			{
+				"name" : "test_buttons",
+				"type" : "widget",
+				"position" : "0 0",
+				"children" : [
+					{
+						"name" : "keyboardExit",
+						"type" : "button",
+						"position" : "1385 948",
+						"size" : "100 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_EXIT_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_EXIT_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_EXIT_3.dds"
+						}
+					}
+				]
+			}
+		]
 	}
 ]

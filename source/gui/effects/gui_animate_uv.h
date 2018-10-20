@@ -11,6 +11,7 @@ namespace GUI
 
   private:
     VEC2 _speed;
+		bool splash;
 
     friend class CParser;
   };
