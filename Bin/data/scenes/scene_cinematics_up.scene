@@ -1,5 +1,5 @@
 [
-{
+  {
     "entity":
     {
       "name": "AntorchasRef002"
@@ -98,6 +98,24 @@
         ,
         "automove": false
       }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "MonolitoRef006"
+      ,
+      "transform":
+      {
+        "pos": "7.81499 87.7113 -31.038"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
     }
   }
   ,
@@ -211,7 +229,7 @@
       {
         "curve": "data/curves/CamaraMonolitoE.curve"
         ,
-        "speed": 0.15
+        "speed": 0.1
         ,
         "target": "MonolitoRef005"
         ,
@@ -376,7 +394,7 @@
       {
         "curve": "data/curves/CamaraIntroC.curve"
         ,
-        "speed": 0.25
+        "speed": 0.12
         ,
         "target": "IntroRef002"
         ,
@@ -409,7 +427,7 @@
       {
         "curve": "data/curves/CamaraIntroB.curve"
         ,
-        "speed": 0.25
+        "speed": 0.22
         ,
         "target": "IntroRef002"
         ,
@@ -442,7 +460,7 @@
       {
         "curve": "data/curves/CamaraIntroA.curve"
         ,
-        "speed": 0.25
+        "speed": 0.15
         ,
         "target": "IntroRef001"
         ,

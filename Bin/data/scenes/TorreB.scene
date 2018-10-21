@@ -2,6 +2,28 @@
   {
     "entity":
     {
+      "name": "ParedExteriorParte6F"
+      ,
+      "transform":
+      {
+        "pos": "29.8337 51.75 7.76827"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte6F.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
     }
   }
 ]

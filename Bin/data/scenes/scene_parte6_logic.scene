@@ -2,62 +2,26 @@
   {
     "entity":
     {
-      "name": "ParedTapada7B"
+      "name": "ParedExteriorParte6F"
       ,
       "transform":
       {
-        "pos": "18.5739 31.5332 -18.992"
+        "pos": "29.8337 51.75 7.76827"
         ,
-        "rotation": "0.0 -0.972236 0.0 -0.234003"
+        "rotation": "0.0 0.85294 0.0 -0.52201"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/ParedTapada7B.mesh"
+          "mesh": "data/meshes/ParedExteriorParte6F.mesh"
           ,
           "materials":
           [
             "data/materials/ParedModelo.material"
-            ,
-            "data/materials/ParedExteriorDentroMat.material"
           ]
         }
       ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Proyectil01"
-      ,
-      "transform":
-      {
-        "pos": "19.5553 52.9952 24.2726"
-        ,
-        "rotation": "-0.666205 -0.237003 0.237003 -0.666205"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/CabezaDragon.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DragonMate.material"
-            ,
-            "data/materials/ColmilloMate.material"
-          ]
-        }
-      ]
-      ,
-      "projectile_controller":
-      {
-      }
       ,
       "abs_aabb": true
     }

@@ -2,6 +2,86 @@
   {
     "entity":
     {
+      "name": "TPAvesC"
+      ,
+      "transform":
+      {
+        "pos": "-0.403167 9.50083 -31.4196"
+        ,
+        "rotation": "0.0 0.0428576 0.0 -0.999081"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.247685 5.00083 0.883036"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TPAvesB"
+      ,
+      "transform":
+      {
+        "pos": "1.69352 9.50083 -31.3414"
+        ,
+        "rotation": "0.0 0.0428576 0.0 -0.999081"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.247685 5.00083 0.883036"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Escaleras_Escena01"
       ,
       "transform":
@@ -77,7 +157,7 @@
       ,
       "transform":
       {
-        "pos": "3.23904 5.70169 -30.9285"
+        "pos": "3.77101 9.50083 -31.0615"
         ,
         "rotation": "0.0 0.0428576 0.0 -0.999081"
       }
@@ -101,7 +181,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "0.735725 1.2017 0.883035"
+        "halfExtent": "0.247685 5.00083 0.883036"
         ,
         "is_dynamic": false
         ,

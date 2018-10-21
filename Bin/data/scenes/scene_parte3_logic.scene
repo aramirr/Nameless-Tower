@@ -429,7 +429,7 @@
       ,
       "transform":
       {
-        "pos": "26.5114 75.2442 -16.9576"
+        "pos": "26.5196 75.2524 -16.9322"
         ,
         "rotation": "0.0 -0.148491 0.0 -0.988914"
       }
@@ -437,7 +437,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Destruible3_Post_Fija.mesh"
+          "mesh": "data/meshes/Destruible.mesh"
           ,
           "materials":
           [
@@ -577,7 +577,7 @@
       ,
       "transform":
       {
-         "pos": "29.5724 72.7195 -9.43313"
+        "pos": "29.5752 72.7276 -9.40658"
         ,
         "rotation": "0.0 -0.0453033 0.0 -0.998973"
       }
@@ -585,7 +585,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Destruible1_Post_Fija.mesh"
+          "mesh": "data/meshes/Destruible.mesh"
           ,
           "materials":
           [
@@ -725,7 +725,7 @@
       ,
       "transform":
       {
-        "pos": "27.9317 69.3388 -13.8118"
+        "pos": "27.9375 69.3469 -13.7857"
         ,
         "rotation": "0.0 -0.102384 0.0 -0.994745"
       }
@@ -733,7 +733,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Destruible2_Post_Fija.mesh"
+          "mesh": "data/meshes/Destruible.mesh"
           ,
           "materials":
           [
@@ -873,7 +873,7 @@
       ,
       "transform":
       {
-        "pos": "30.4684 68.9935 8.01549"
+        "pos": "30.4468 69.0594 8.12793"
         ,
         "rotation": "0.0 -0.636836 0.0 -0.770999"
       }
@@ -913,7 +913,7 @@
       ,
       "transform":
       {
-        "pos": "24.4333 69.8693 19.9079"
+        "pos": "24.483 70.1309 19.8505"
         ,
         "rotation": "0.0 -0.415587 0.0 -0.909553"
       }
@@ -937,7 +937,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.00063 0.928047 1.54597"
+        "halfExtent": "1.26541 1.18961 1.54597"
         ,
         "is_dynamic": false
         ,
@@ -993,9 +993,9 @@
       ,
       "transform":
       {
-        "pos": "30.6147 65.1923 6.27989"
+        "pos": "30.8967 65.1923 3.72519"
         ,
-        "rotation": "0.0 -0.636836 0.0 -0.770999"
+        "rotation": "0.0 -0.680521 0.0 -0.732729"
       }
       ,
       "render":
@@ -1046,7 +1046,7 @@
       ,
       "transform":
       {
-        "pos": "24.4748 71.3991 -19.3859"
+        "pos": "24.4877 71.4072 -19.3625"
         ,
         "rotation": "0.0 -0.241554 0.0 -0.970387"
       }
@@ -1054,7 +1054,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Destruible4_Post_Fija.mesh"
+          "mesh": "data/meshes/Destruible.mesh"
           ,
           "materials":
           [
@@ -1257,11 +1257,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Puerta_Reja.mesh"
+          "mesh": "data/meshes/PuertaA.mesh"
           ,
           "materials":
           [
-            "data/materials/RejaMate.material"
+            "data/materials/Puerta_Cerrada_01.material"
           ]
         }
       ]
@@ -1274,7 +1274,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/Puerta_Reja.col_mesh"
+        "mesh_src": "data/meshes/PuertaA.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -1291,17 +1291,7 @@
           {
             "name": "sound"
             ,
-            "src": "event:/SFX/Object/Mechanics/Reja_Fast"
-            ,
-            "positional": true
-            ,
-            "on_start": false
-          }
-          ,
-          {
-            "name": "sound_shut"
-            ,
-            "src": "event:/SFX/Object/Mechanics/Puerta_Reja"
+            "src": "event:/SFX/Object/Mechanics/Puerta_Madera"
             ,
             "positional": true
             ,

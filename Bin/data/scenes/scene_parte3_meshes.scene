@@ -2,6 +2,32 @@
   {
     "entity":
     {
+      "name": "CanaDePescar"
+      ,
+      "transform":
+      {
+        "pos": "31.2398 66.2951 -10.8838"
+        ,
+        "rotation": "0.10338 -0.165792 0.625772 -0.755139"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CanaDePescar.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Cana_De_PescarMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "NieblaCascada02"
       ,
       "transform":
@@ -18,7 +44,7 @@
           ,
           "materials":
           [
-            "data/materials/nieblaBMat.material"
+            "data/materials/nieblaDMat.material"
           ]
         }
       ]
@@ -46,7 +72,7 @@
           ,
           "materials":
           [
-            "data/materials/nieblaAMat.material"
+            "data/materials/nieblaCMat.material"
           ]
         }
       ]
@@ -230,7 +256,7 @@
       ,
       "transform":
       {
-        "pos": "28.4193 60.0166 -14.5623"
+        "pos": "28.6937 62.4043 -14.5259"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -640,7 +666,7 @@
       ,
       "transform":
       {
-        "pos": "16.251 70.5801 22.7945"
+        "pos": "16.1965 70.587 22.7278"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -668,7 +694,7 @@
       ,
       "transform":
       {
-        "pos": "24.2468 75.2309 10.7324"
+        "pos": "24.3054 75.2353 10.7636"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -3326,7 +3352,7 @@
       ,
       "transform":
       {
-        "pos": "31.5617 96.7468 -6.47201"
+        "pos": "31.5617 96.7418 -6.47201"
         ,
         "rotation": "0.0 0.84058 0.0 -0.541687"
       }

@@ -42,7 +42,7 @@ function OnLevel1Start()
 	lm:hide_mesh("loro4")
 	
 	lm:play_animation("Peke_Twerk", 7)
-	lm:play_animation("Peke_Ska", 6)
+	lm:play_animation("Peke_Ska", 7)
 	lm:play_animation("Peke_Saltitos1", 5)
 	lm:play_animation("Peke_Saltitos2", 5)
 	lm:play_animation("Peke_Pescador", 4)
