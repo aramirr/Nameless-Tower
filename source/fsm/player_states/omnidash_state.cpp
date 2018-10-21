@@ -147,13 +147,11 @@ namespace FSM
 		m.x = mouse._position.x;
 		m.y = mouse._position.y;
 		if (cb_gui.fullscreen) {
-			/*m.x *= cb_globals.global_first_resolution_X / cb_globals.global_resolution_X;
-			m.y *= cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y;
+			//mX *= cb_globals.global_first_resolution_X / cb_globals.global_resolution_X;
+			//mY *= cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y;
 
 			m.x *= 1920 / cb_globals.global_first_resolution_X;
-			m.y *= 1080 / cb_globals.global_first_resolution_Y;*/
-			m.x *= 1920 / cb_globals.global_resolution_X;
-			m.y *= 1080 / cb_globals.global_resolution_Y;
+			m.y *= 1080 / cb_globals.global_first_resolution_Y;
 		}
 		else {
 			m.x *= 1920 / cb_globals.global_resolution_X;

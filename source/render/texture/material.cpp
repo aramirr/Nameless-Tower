@@ -91,7 +91,7 @@ bool CMaterial::create(const json& j) {
         ts = TS_TRANSPARENCY;
       else if (slot == "cell")
         ts = TS_CELL;
-      else if (slot == "sublime")
+      else if (slot == "orm")
         ts = TS_SUBLIME;
 			else ts = TS_SUBLIME;
 
