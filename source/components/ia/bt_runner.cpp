@@ -5,6 +5,7 @@
 #include "components/physics/query_filter.h"
 #include "components/sound/comp_sound.h"
 #include "skeleton/comp_skeleton.h"
+#include "components/comp_particles.h"
 
 DECL_OBJ_MANAGER("bt_runner", bt_runner);
 
@@ -508,6 +509,9 @@ void bt_runner::chase_waypoint() {
 		if (on_jump && (anim_state != "jump_land")) {
 			change_animation(ERunnerAnimations::RunnerJumpLand, true, 0.1f, 0.f, true);
 			play_sound("land");
+			CEntity* particles_emiter = (CEntity*)getEntityByName("humo_land_runner");
+			TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+			c_particles->emit();
 		}
 		anim_state = "";
 		on_jump = false;
@@ -527,6 +531,16 @@ void bt_runner::walk() {
 			anim_state = "chase_player";
 			change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
 			play_sound("walk");
+			if (going_right) {
+				CEntity* particles_emiter = (CEntity*)getEntityByName("humo_run_right_runner");
+				TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+				c_particles->emit();
+			}
+			else {
+				CEntity* particles_emiter = (CEntity*)getEntityByName("humo_run_left_runner");
+				TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+				c_particles->emit();
+			}
 		}
 		CEntity* e_player = (CEntity*)getEntityByName("The Player");
 		TCompTransform* player_transform = e_player->get<TCompTransform>();
@@ -537,6 +551,16 @@ void bt_runner::walk() {
 			anim_state = "walk";
 			change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
 			play_sound("walk");
+			if (going_right) {
+				CEntity* particles_emiter = (CEntity*)getEntityByName("humo_run_right_runner");
+				TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+				c_particles->emit();
+			}
+			else {
+				CEntity* particles_emiter = (CEntity*)getEntityByName("humo_run_left_runner");
+				TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+				c_particles->emit();
+			}
 		}
 		if (next_waypoint >= 0) target_position = waypoints_map[path[next_waypoint]].position; 
 		else target_position = waypoints_map[path[actual_waypoint]].position;
@@ -573,12 +597,32 @@ void bt_runner::walk() {
 				anim_state = "chase_player";
 				change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
 				play_sound("walk");
+				if (going_right) {
+					CEntity* particles_emiter = (CEntity*)getEntityByName("humo_run_right_runner");
+					TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+					c_particles->emit();
+				}
+				else {
+					CEntity* particles_emiter = (CEntity*)getEntityByName("humo_run_left_runner");
+					TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+					c_particles->emit();
+				}
 			}
 		}
 		else if (anim_state != "walk") {
 			anim_state = "walk";
 			change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
 			play_sound("walk");
+			if (going_right) {
+				CEntity* particles_emiter = (CEntity*)getEntityByName("humo_run_right_runner");
+				TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+				c_particles->emit();
+			}
+			else {
+				CEntity* particles_emiter = (CEntity*)getEntityByName("humo_run_left_runner");
+				TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+				c_particles->emit();
+			}
 		}
 	
 		current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
@@ -680,6 +724,10 @@ void bt_runner::jump() {
 			change_animation(ERunnerAnimations::RunnerJumpUp, true, 0.1f, 0.f, true);
 			change_animation(ERunnerAnimations::RunnerJumpLoop, false, 0.1f, 0.f, true);
 			play_sound("jump");
+
+			CEntity* particles_emiter = (CEntity*)getEntityByName("humo_salto_runner");
+			TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+			c_particles->emit();
 		}
 
 		
@@ -715,6 +763,9 @@ void bt_runner::jump() {
           anim_state = "jump_land";
           change_animation(ERunnerAnimations::RunnerJumpLand, true, 0.1f, 0.f, true);
 					play_sound("land");
+					CEntity* particles_emiter = (CEntity*)getEntityByName("humo_land_runner");
+					TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+					c_particles->emit();
         }
       }
 		}

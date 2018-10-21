@@ -1,5 +1,5 @@
 [
-{
+	{
 		"entity": {
 			"name": "humo_salto",
 			"transform": {},
@@ -80,6 +80,95 @@
 				"angle" : 0,
 				"pos": "0 -0.25 0",
 				"parent" : "The Player"
+			},
+			"particles" : {
+				"core" : "data/particles/humo_land.particles"
+			}
+		}
+	},
+
+
+	{
+		"entity": {
+			"name": "humo_salto_runner",
+			"transform": {},
+			"hierarchy": {
+				"angle" : 0,
+				"pos": "0 0.3 0",
+				"parent" : "Runner"
+			},
+			"particles" : {
+				"core" : "data/particles/humo_salto.particles"
+			}
+		}
+	},{
+		"entity": {
+			"name": "humo_run_left_runner",
+			"transform": {
+			},
+			"hierarchy": {
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "Runner"
+			},
+			"particles" : {
+				"core" : "data/particles/humo_run_left.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "humo_run_right_runner",
+			"transform": {
+			},
+			"hierarchy": {
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "Runner"
+			},
+			"particles" : {
+				"core" : "data/particles/humo_run_right.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "humo_dash_left_runner",
+			"transform": {
+			},
+			"hierarchy": {
+				"angle" : 0,
+				"pos": "0 0.3 0",
+				"parent" : "Runner"
+			},
+			"particles" : {
+				"core" : "data/particles/humo_dash_left.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "humo_dash_right_runner",
+			"transform": {
+			},
+			"hierarchy": {
+				"angle" : 0,
+				"pos": "0 0.3 0",
+				"parent" : "Runner"
+			},
+			"particles" : {
+				"core" : "data/particles/humo_dash_right.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "humo_land_runner",
+			"transform": {},
+			"hierarchy": {
+				"angle" : 0,
+				"pos": "0 -0.25 0",
+				"parent" : "Runner"
 			},
 			"particles" : {
 				"core" : "data/particles/humo_land.particles"
