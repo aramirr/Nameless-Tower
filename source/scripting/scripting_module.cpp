@@ -64,6 +64,7 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("play_curve", &LogicManager::playCurve)
 		.set("set_ypr", &LogicManager::set_ypr)
 		.set("activate_runner", &LogicManager::activateRunner)
+		.set("play_delayed_sound", &LogicManager::playDelayedSound)
 		;
 }
 

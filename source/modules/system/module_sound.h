@@ -19,6 +19,11 @@ public:
         bool onStart = false;
         bool hasTransform = false;
     };
+		struct DelayedSound {
+			float time;
+			float current_time;
+			std::string name;
+		};
 
 	CModuleSound(const std::string& name);
     bool start() override;
@@ -32,12 +37,16 @@ public:
     void stopEvent(FMOD::Studio::EventInstance * instance, bool fadeout = false);
     void playInterior();
     void playAmbient();
-    void updatePositionalEvents();
+		void updatePositionalEvents();
+		void updateDelayedEvents(float delta);
     void emitPositionalEvent(const std::string& sound, const std::string& entityName);
     void emitEvent(const std::string& sound);
+    void emitDelayedEvent(float time, std::string name);
     void stopEvent(const std::string& sound);
     FMOD_3D_ATTRIBUTES toFMODAttributes(CTransform t);
     FMOD_VECTOR toFMODVector(VEC3 v);
+		
+		std::vector<DelayedSound> delayed_sounds;
 private:
     struct FollowingEvent {
         FMOD::Studio::EventInstance* eventInstance = nullptr;
@@ -46,9 +55,7 @@ private:
     void *extraDriverData = nullptr;
     FMOD::System* lowLevelSystem = nullptr;
     FMOD_3D_ATTRIBUTES listenerAttributes;
-    CHandle cameraHandle;
-
-    std::vector<FollowingEvent> followingEvents;
+    CHandle cameraHandle;	
 
     void updateListenerAttributes();
  };

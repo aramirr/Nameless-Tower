@@ -214,6 +214,10 @@ void LogicManager::playSound(bool left, std::string name) {
     }
 }
 
+void LogicManager::playDelayedSound(float time, std::string name) {
+	EngineSound.emitDelayedEvent(time, name);
+}
+
 void LogicManager::playPositionalSound(std::string name, std::string entityName) {    
     EngineSound.emitPositionalEvent(name, entityName);
 }
