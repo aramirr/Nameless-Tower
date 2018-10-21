@@ -86,11 +86,9 @@ function OnTriggerExitTSCinematicaMonolito()
 	--lm:activate_cinematic("cinematica_inicial", false)
 	
 	lm:pause_player()
-	lm:play_animation("The Player", 34)
 	lm:activate_anim("Monolito_001", 5)
 	lm:activate_runner()
-	lm:regain_control(30)
-	--lm:kill_entity("TSCinematicaMonolito")
+	lm:regain_control(31)
 	--lm:change_level("level_2")
 end
 

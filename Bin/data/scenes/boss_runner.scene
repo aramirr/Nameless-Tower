@@ -708,40 +708,5 @@
 	    		]
 		    }		 	    	
 		}
-	},
-	{
-		"entity": {
-			"name": "RunnerAppearTemplo",
-			"transform": {
-				"pos": "31.480 63 1.109"
-			},
-			"render" : [],
-			"collider": {
-				"shape": "box",
-				"is_trigger": true,
-				"halfExtent": "1 1 1"
-			},
-			"trigger": {
-				"trigger_type": "runner_appear",
-				"appearing_position": "28.431 64.101 -13.563"
-			}
-		}
-	},
-	{
-		"entity": {
-			"name": "RunnerDisappearMonolito",
-			"transform": {
-				"pos": "22.732 85.5 -21.806"
-			},
-			"render" : [],
-			"collider": {
-				"shape": "box",
-				"is_trigger": true,
-				"halfExtent": "1 1 1"
-			},
-			"trigger": {
-				"trigger_type": "runner_disappear"
-			}
-		}
 	}
 ]
