@@ -44,7 +44,7 @@ void TCompRigidAnim::update(float dt) {
 			// Sample the animation in the current time
 			RigidAnims::TKey k;
 			
-			dbg("JOSUE %s\n", name.c_str());
+			//dbg("JOSUE %s\n", name.c_str());
 			bool has_finished = controller.sample(&k, current_time);
 
 			// Transfer the key data to the comp transform
@@ -61,7 +61,7 @@ void TCompRigidAnim::update(float dt) {
 		}
 		else {
 			for (int i = 0; i < sons.size(); i++) {
-				dbg("JONAS %i --%i\n", i, sons.size());
+				//dbg("JONAS %i --%i\n", i, sons.size());
 				CEntity* entity = (CEntity*)getEntityByName(sons[i]);
 				TMsgActivateAnim msg;
 				msg.name = sons[i];
