@@ -89,6 +89,7 @@ bool CModuleLevel1::stop()
 {	
 	TEntityParseContext ctx;
     EngineBillboards.clearFire();
+		deleteScene("data/scenes/scene_checkpoints.scene", ctx);
     deleteScene("data/scenes/lights.scene", ctx);
     deleteScene("data/scenes/scene_luces.scene", ctx);
     deleteScene("data/scenes/compresoras.scene", ctx);
@@ -104,7 +105,8 @@ bool CModuleLevel1::stop()
     deleteScene("data/scenes/scene_parte3_meshes.scene", ctx);
     deleteScene("data/scenes/scene_parte3_colltrig.scene", ctx);
     deleteScene("data/scenes/particles.scene", ctx);
-    deleteScene("data/scenes/torch_puzzle.scene", ctx);
+		deleteScene("data/scenes/torch_puzzle.scene", ctx);
+		
     
 	return true;
 }

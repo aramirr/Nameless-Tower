@@ -25,6 +25,11 @@ void TCompPlayerKiller::onTriggerEnter(const TMsgKillPlayer& msg) {
 		deadMsg.variant.setName("hit");
 		deadMsg.variant.setBool(true);
 		player->sendMsg(deadMsg);
+		
+		CEntity* runner = (CEntity *)getEntityByName("Runner");
+		TMsgRunnerDisappear msg_disappear;
+		runner->sendMsg(msg_disappear);
+
 	}
 }
 

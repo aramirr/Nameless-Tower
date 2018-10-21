@@ -19,6 +19,7 @@ void bt_runner::appear(const TMsgRunnerAppear& msg) {
 
 void bt_runner::disappear(const TMsgRunnerDisappear& msg) {
 	b_disappear = true;
+	dbg("JUANA DE ARCO\n");
 	setCurrent(NULL);
 }
 
@@ -156,8 +157,13 @@ int bt_runner::actionDisappear() {
 	my_transform->setPosition(VEC3::Zero);
   TCompCollider *comp_collider = getMyCollider();
   comp_collider->controller->setPosition(physx::PxExtendedVec3(tower_center.x, tower_center.y, tower_center.z)); 
+
 	b_disappear = false;
+	b_appear = false;
 	b_chase = false;
+	b_recular = false;
+	on_wall = false;
+	b_chase_player = false;
   return LEAVE;
 };
 
@@ -520,6 +526,7 @@ void bt_runner::walk() {
 		if (anim_state != "chase_player") {
 			anim_state = "chase_player";
 			change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
+			play_sound("walk");
 		}
 		CEntity* e_player = (CEntity*)getEntityByName("The Player");
 		TCompTransform* player_transform = e_player->get<TCompTransform>();
@@ -529,6 +536,7 @@ void bt_runner::walk() {
 		if (anim_state != "walk") {
 			anim_state = "walk";
 			change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
+			play_sound("walk");
 		}
 		if (next_waypoint >= 0) target_position = waypoints_map[path[next_waypoint]].position; 
 		else target_position = waypoints_map[path[actual_waypoint]].position;
@@ -564,6 +572,7 @@ void bt_runner::walk() {
 			if (anim_state != "chase_player") {
 				anim_state = "chase_player";
 				change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
+				play_sound("walk");
 			}
 		}
 		else if (anim_state != "walk") {
@@ -813,7 +822,7 @@ void bt_runner::clear_animations(float out_delay) {
   skeleton->clearActions(out_delay);
 }
 
-// Soudn
+// Sound
 void bt_runner::play_sound(std::string name) {
 	CEntity* e = h_entity;
 	TCompSound* sound = e->get<TCompSound>();

@@ -203,6 +203,11 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 					deadMsg.variant.setBool(true);
 					CEntity* e = CHandle(this).getOwner();
 					e->sendMsg(deadMsg);
+
+					dbg("NAPOLEO\n");
+					CEntity* runner = (CEntity *)getEntityByName("Runner");
+					TMsgRunnerDisappear msg_disappear;
+					runner->sendMsg(msg_disappear);
 				}
                 CEntity* particles_emiter = (CEntity*)getEntityByName("humo_land");
                 TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
