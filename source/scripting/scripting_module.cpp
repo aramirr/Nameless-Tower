@@ -93,9 +93,11 @@ void ScriptingModule::fTriggerExit(vector<string> params) {
         string name = params[0];
         string func_name = "OnTriggerExit" + name;
         auto p = EngineScripting.script.exists(func_name);
-				if (p && !(name == "TSCinematicaMonolito" && done_cinematic_monolito)) {
+				if (p && !(name == "TSCinematicaMonolito" && done_cinematic_monolito) && !(name == "TSRejaAntorchas" && done_cinematic_puzzle)) {
 					if (name == "TSCinematicaMonolito")
 						done_cinematic_monolito = true;
+					if (name == "TSRejaAntorchas")
+						done_cinematic_puzzle = true;
 					EngineScripting.script.doString(func_name + "()");
 				}
     }
