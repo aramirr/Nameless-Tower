@@ -86,9 +86,9 @@ void CModuleTower::update(float delta)
 		}
 		if (timer_runner >= 0.1f && !turn_player) {
 			turn_player = true;
-			CEntity* e = getEntityByName("The Player");
+			/*CEntity* e = getEntityByName("The Player");
 			TCompTransform* t = e->get<TCompTransform>();
-			t->setYawPitchRoll(0, 0, 0);
+			t->setYawPitchRoll(0, 0, 0);*/
 		}
 
 		if (timer_runner >= 10.667 && !build_runner) {
@@ -127,9 +127,9 @@ void CModuleTower::update(float delta)
 		}
 		if (timer_runner >= 31.f && !turn_player_2) {
 			turn_player_2 = true;
-			CEntity* e_player = getEntityByName("The Player");
+			/*CEntity* e_player = getEntityByName("The Player");
 			TCompTransform* t = e_player->get<TCompTransform>();
-			t->setYawPitchRoll(-104.54, 0, 0);
+			t->setYawPitchRoll(-104.54, 0, 0);*/
 		}
 		if (timer_runner >= 32.f && !runner_chase) {
 			runner_chase = true;
