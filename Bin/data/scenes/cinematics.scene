@@ -308,7 +308,7 @@
 					},
 					{
 					"time": 4.5,
-					"blend_time": 1,
+					"blend_time": 4,
 					"spline_name": "CamaraIntroB",
 					"camera_name" : "camara_cinematica_inicialB"
 					},
@@ -716,32 +716,32 @@
 		{				
 			"splines": [
 				{
-				"time": 8.333,
-				"blend_time": 0.01,
+				"time": 3.3333,
+				"blend_time": 0.001,
 				"spline_name": "CamaraMonolitoA",
 				"camera_name" : "camara_cinematica_monolitoA"
 				},
 				{
-				"time": 4.5,
-				"blend_time": 1,
+				"time": 4.5333,
+				"blend_time": 0.001,
 				"spline_name": "CamaraMonolitoB",
 				"camera_name" : "camara_cinematica_monolitoB"
 				},
 				{
-				"time": 10,
-				"blend_time": 1,
+				"time": 5.4667,
+				"blend_time": 0.001,
 				"spline_name": "CamaraMonolitoC",
 				"camera_name" : "camara_cinematica_monolitoC"
 				},
 				{
-				"time": 10,
-				"blend_time": 1,
+				"time": 3.3333,
+				"blend_time": 0.001,
 				"spline_name": "CamaraMonolitoE",
 				"camera_name" : "camara_cinematica_monolitoD"
 				},
 				{
-				"time": 10,
-				"blend_time": 1,
+				"time": 14.3334,
+				"blend_time": 0.001,
 				"spline_name": "CamaraMonolitoE",
 				"camera_name" : "camara_cinematica_monolitoE"
 				}

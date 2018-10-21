@@ -2,28 +2,211 @@
   {
     "entity":
     {
-      "name": "ParedExteriorParte6F"
+      "name": "TSLucesCompresorasB"
       ,
       "transform":
       {
-        "pos": "29.8337 51.75 7.76827"
+        "pos": "22.3048 33.7604 -21.9511"
         ,
-        "rotation": "0.0 0.85294 0.0 -0.52201"
+        "rotation": "-0.259794 0.259794 0.657653 -0.657653"
       }
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/ParedExteriorParte6F.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-          ]
-        }
       ]
       ,
-      "abs_aabb": true
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.713416 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Escaleras_Escena06"
+      ,
+      "transform":
+      {
+        "pos": "-1.52316 30.2048 -31.0261"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Escaleras_Escena06.col_mesh"
+        ,
+        "group": "stairs"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TPTechosPuertasB"
+      ,
+      "transform":
+      {
+        "pos": "31.0583 33.7604 -3.42639"
+        ,
+        "rotation": "-0.473147 0.473147 0.525483 -0.525483"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSEscaleras2PasilloB"
+      ,
+      "transform":
+      {
+        "pos": "3.46833 33.7604 -31.0907"
+        ,
+        "rotation": "-0.0370071 0.0370072 0.706138 -0.706138"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Solidos_Parte6"
+      ,
+      "transform":
+      {
+        "pos": "20.2061 40.5 -9.70392"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Solidos_Parte6.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Paredes_Parte6"
+      ,
+      "transform":
+      {
+        "pos": "20.4907 36.0 -11.8296"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Paredes_Parte6.col_mesh"
+        ,
+        "group": "scenario"
+      }
     }
   }
 ]

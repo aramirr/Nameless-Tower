@@ -28,6 +28,8 @@ public:
   void closeDoor(const char* name);
 	void activateAnim(const char* name, float wait_time);
 	void setTemblor(bool temblor, bool left);
+	void loadScene(std::string name);
+	void unloadScene(std::string name);
 
   // UI
 	void activateText(const char* name);

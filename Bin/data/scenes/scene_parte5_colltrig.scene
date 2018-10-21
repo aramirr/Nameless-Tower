@@ -2,28 +2,171 @@
   {
     "entity":
     {
-      "name": "ParedExteriorParte6F"
+      "name": "Escaleras_Escena05"
       ,
       "transform":
       {
-        "pos": "29.8337 51.75 7.76827"
+        "pos": "19.4822 60.75 23.9679"
         ,
-        "rotation": "0.0 0.85294 0.0 -0.52201"
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
       }
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/ParedExteriorParte6F.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-          ]
-        }
       ]
       ,
-      "abs_aabb": true
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Escaleras_Escena05.col_mesh"
+        ,
+        "group": "stairs"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSRunnerLava"
+      ,
+      "transform":
+      {
+        "pos": "30.6975 65.1702 -6.41781"
+        ,
+        "rotation": "-0.444997 0.444997 0.549525 -0.549525"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSJardinRunner"
+      ,
+      "transform":
+      {
+        "pos": "26.7821 58.1635 15.6013"
+        ,
+        "rotation": "-0.866025 1.40469e-07 0.5 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "3.96185 0.136175 1.78955"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Solidos_Parte5"
+      ,
+      "transform":
+      {
+        "pos": "15.9513 81.0 -1.47493"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Solidos_Parte5.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Paredes_Parte5"
+      ,
+      "transform":
+      {
+        "pos": "15.6443 81.0 -1.29743"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Paredes_Parte5.col_mesh"
+        ,
+        "group": "scenario"
+      }
     }
   }
 ]
