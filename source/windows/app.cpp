@@ -179,6 +179,10 @@ bool CApp::createWindow(HINSTANCE new_hInstance, int nCmdShow) {
   if (!hWnd)
     return false;
 
+	HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/Puntero-_2_.cur"); //.cur or .ani
+	SetCursor(Cursor);
+	SetClassLongPtr(hWnd, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
+
   ShowWindow(hWnd, nCmdShow);
 	//ShowCursor(false);
 

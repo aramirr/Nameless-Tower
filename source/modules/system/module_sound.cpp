@@ -57,7 +57,8 @@ bool CModuleSound::stop()
 void CModuleSound::update(float delta)
 {
     updateListenerAttributes();
-    updatePositionalEvents();
+		updatePositionalEvents();
+		updateDelayedEvents(delta);
     system->update();
 }
 
@@ -80,6 +81,16 @@ void CModuleSound::updateListenerAttributes() {
         listenerAttributes = {};
     }
     auto res = system->setListenerAttributes(0, &listenerAttributes);
+}
+
+void CModuleSound::updateDelayedEvents(float delta) {
+	for (int i = 0; i < delayed_sounds.size(); ++i) {
+		delayed_sounds[i].current_time += delta;
+		if (delayed_sounds[i].current_time > delayed_sounds[i].time) {
+			events[delayed_sounds[i].name].eventInstance->start();
+			delayed_sounds.erase(delayed_sounds.begin() + i);
+		}
+	}
 }
 
 void CModuleSound::updatePositionalEvents() {
@@ -105,6 +116,14 @@ void CModuleSound::emitPositionalEvent(const std::string& sound, const std::stri
     events[sound].hasTransform = true;
     events[sound].entity = e;
     events[sound].eventInstance->start();
+}
+
+void CModuleSound::emitDelayedEvent(float time, std::string name) {
+	DelayedSound sound;
+	sound.time = time;
+	sound.current_time = 0;
+	sound.name = name;
+	delayed_sounds.push_back(sound);
 }
 
 
