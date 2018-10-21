@@ -1,4 +1,106 @@
 [
+{
+    "entity":
+    {
+      "name": "AntorchasRef002"
+      ,
+      "transform":
+      {
+        "pos": "29.1357 66.0556 6.92171"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "AntorchasRef001"
+      ,
+      "transform":
+      {
+        "pos": "30.7806 64.2304 2.44356"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CamaraAntorchasB"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "curve_controller":
+      {
+        "curve": "data/curves/CamaraAntorchasB.curve"
+        ,
+        "speed": 0.0
+        ,
+        "target": "AntorchasRef002"
+        ,
+        "loop": false
+        ,
+        "mode": "linear"
+        ,
+        "automove": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CamaraAntorchasA"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "curve_controller":
+      {
+        "curve": "data/curves/CamaraAntorchasA.curve"
+        ,
+        "speed": 0.0
+        ,
+        "target": "AntorchasRef001"
+        ,
+        "loop": false
+        ,
+        "mode": "linear"
+        ,
+        "automove": false
+      }
+    }
+  }
+  ,
   {
     "entity":
     {
