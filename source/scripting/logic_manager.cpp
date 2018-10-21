@@ -8,6 +8,7 @@
 #include "components/comp_particles.h"
 #include "components/camera/comp_camera_manager.h"
 #include "components/controllers/comp_curve.h"
+#include "skeleton/comp_skeleton.h"
 #include "render\render_objects.h"
 #include "ctes.h"
 #include "render/cte_buffer.h"
@@ -255,8 +256,11 @@ void LogicManager::pausePlayer() {
 void LogicManager::setAnim(int anim_id) {
 	CEntity* e = getEntityByName("The Player");
 	TCompPlayerController * controller = e->get<TCompPlayerController>();
-	controller->remove_animation(controller->EAnimations::NajaJumpLoop);
-	controller->change_animation(anim_id, true, 0, 0.8, true);
+	if (controller != nullptr) {
+		controller->remove_animation(controller->EAnimations::NajaJumpLoop);
+	} 
+	TCompSkeleton* skel = e->get<TCompSkeleton>();
+	skel->playAnimation(anim_id, true, 0, 0.8, true);
 }
 
 void LogicManager::setAnimCycle(std::string name, int anim_id) {

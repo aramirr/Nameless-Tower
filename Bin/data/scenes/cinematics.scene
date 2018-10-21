@@ -190,6 +190,96 @@
 		        "parent": "CamaraIntroC"
 		      }		
 		}
+	},{
+		"entity": {
+			"name": "camara_cinematica_finalA",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraFinalA"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_cinematica_finalB",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraFinalB"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_cinematica_finalC",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraFinalC"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_cinematica_finalD",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraFinalD"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_cinematica_finalE",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraFinalE"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_cinematica_finalF",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraFinalF"
+		      }		
+		}
 	},
 	{
 		"entity": {
@@ -238,8 +328,56 @@
 					"camera_name" : "camara_cinematica_inicialC"
 					}
 				]
+			}
+		}
+	},{
+		"entity": {
+			"name": "cinematica_final",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"
 			},
-		    "culling":true
+			"cinematic" :
+			{				
+				"splines": [
+					{
+					"time": 6.533,
+					"blend_time": 0.5,
+					"spline_name": "CamaraFinalA",
+					"camera_name" : "camara_cinematica_finalA"
+					},
+					{
+					"time": 1.466,
+					"blend_time": 0.5,
+					"spline_name": "CamaraFinalB",
+					"camera_name" : "camara_cinematica_finalB"
+					},
+					{
+					"time": 1.66,
+					"blend_time": 0.5,
+					"spline_name": "CamaraFinalC",
+					"camera_name" : "camara_cinematica_finalC"
+					},
+					{
+					"time": 1.666,
+					"blend_time": 0.5,
+					"spline_name": "CamaraFinalD",
+					"camera_name" : "camara_cinematica_finalD"
+					},
+					{
+					"time": 1.033,
+					"blend_time": 0.5,
+					"spline_name": "CamaraFinalE",
+					"camera_name" : "camara_cinematica_finalE"
+					},
+					{
+					"time": 1.6333,
+					"blend_time": 0.5,
+					"spline_name": "CamaraFinalF",
+					"camera_name" : "camara_cinematica_inicialF"
+					}
+				]
+			}
 		}
 	},
 	{
