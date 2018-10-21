@@ -2,6 +2,7 @@
 	
 	"events": [
 		{"name": "ambient", "src": "event:/Ambience/Outside_Ambience_A"},
+		{"name": "ambient_night", "src": "event:/Ambience/Ambience_Night"},
 		{"name": "interior", "src": "event:/Ambience/Inside_Ambience_A"},
 		{"name": "cascade", "src": "event:/Ambience/Cascada", "positional": true, "on_start": true},
 		{"name": "puzzle", "src": "event:/SFX/Object/Scene/Puzzle_Antorcha", "positional": false, "on_start": false},
@@ -10,7 +11,8 @@
 		{"name": "puerta_madera", "src": "event:/SFX/Object/Mechanics/Puerta_Madera", "positional": true, "on_start": false},
 		{"name": "puerta_reja", "src": "event:/SFX/Object/Mechanics/Puerta_Reja", "positional": true, "on_start": false},
 		{"name": "lava", "src": "event:/Ambience/Lava", "positional": false, "on_start": false},
-		{"name": "activador_movil", "src": "event:/SFX/Object/Mechanics/Activable", "positional": true, "on_start": false}
+		{"name": "activador_movil", "src": "event:/SFX/Object/Mechanics/Activable", "positional": true, "on_start": false},
+		{"name": "cinematica_intro", "src": "event:/Cinematicas/Intro", "positional": false, "on_start": false}
 	]
 	    
 }

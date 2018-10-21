@@ -41,6 +41,14 @@
 				,
 				"is_trigger": false
 		    },
+		    "sound": {
+		    	"events": [
+		    		{"name": "step", "src": "event:/SFX/Character/Boss_Runner/StepsLands/Step", "positional": false, "on_start": false},
+		    		{"name": "land", "src": "event:/SFX/Character/Boss_Runner/StepsLands/Land", "positional": false, "on_start": false},
+		    		{"name": "jump", "src": "event:/SFX/Character/Boss_Runner/StepsLands/Jump", "positional": false, "on_start": false},
+		    		{"name": "roar", "src": "event:/SFX/Character/Boss_Runner/Runner_Voz/Rugido", "positional": false, "on_start": false}
+	    		]
+		    },
 		    "bt_runner": {
 		    	"waypoints_map": [
 		    		{
@@ -699,41 +707,6 @@
 		    		}
 	    		]
 		    }		 	    	
-		}
-	},
-	{
-		"entity": {
-			"name": "RunnerAppearTemplo",
-			"transform": {
-				"pos": "31.480 63 1.109"
-			},
-			"render" : [],
-			"collider": {
-				"shape": "box",
-				"is_trigger": true,
-				"halfExtent": "1 1 1"
-			},
-			"trigger": {
-				"trigger_type": "runner_appear",
-				"appearing_position": "28.431 64.101 -13.563"
-			}
-		}
-	},
-	{
-		"entity": {
-			"name": "RunnerDisappearMonolito",
-			"transform": {
-				"pos": "22.732 85.5 -21.806"
-			},
-			"render" : [],
-			"collider": {
-				"shape": "box",
-				"is_trigger": true,
-				"halfExtent": "1 1 1"
-			},
-			"trigger": {
-				"trigger_type": "runner_disappear"
-			}
 		}
 	}
 ]

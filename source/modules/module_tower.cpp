@@ -77,13 +77,27 @@ void CModuleTower::update(float delta)
 	// Activate Runner
 	if (activate_runner) {
 		timer_runner += delta;
+		if (timer_runner >= 0.0f && !start_anim) {
+			start_anim = true;
+			CEntity* e = getEntityByName("The Player");
+			TCompPlayerController * controller = e->get<TCompPlayerController>();
+			controller->remove_animation(controller->EAnimations::NajaJumpLoop);
+			controller->change_animation(34, true, 0, 0.8, true);
+		}
+		if (timer_runner >= 0.1f && !turn_player) {
+			turn_player = true;
+			/*CEntity* e = getEntityByName("The Player");
+			TCompTransform* t = e->get<TCompTransform>();
+			t->setYawPitchRoll(0, 0, 0);*/
+		}
+
 		if (timer_runner >= 10.667 && !build_runner) {
 			CEntity* e = getEntityByName("The Player");
 			TCompPlayerController* player = e->get<TCompPlayerController>();
-			if (player->game_state == "level_1") {
-				//CEngine::get().getModules().changeGameState("level_2");
-				//player->game_state = "level_2";
-			}
+			/*if (player->game_state == "level_1") {
+				CEngine::get().getModules().changeGameState("level_2");
+				player->game_state = "level_2";
+			}*/
 			build_runner = true;
 			activateAnim("Runner_father", 0);
 		}
@@ -111,11 +125,19 @@ void CModuleTower::update(float delta)
 			bt_runner * controller = e->get<bt_runner>();
 			controller->change_animation(4, true, 0.5, 0.5, true);
 		}
-		if (timer_runner >= 32.1f && !runner_chase) {
+		if (timer_runner >= 31.f && !turn_player_2) {
+			turn_player_2 = true;
+			/*CEntity* e_player = getEntityByName("The Player");
+			TCompTransform* t = e_player->get<TCompTransform>();
+			t->setYawPitchRoll(-104.54, 0, 0);*/
+		}
+		if (timer_runner >= 32.f && !runner_chase) {
 			runner_chase = true;
-			CEntity* e = getEntityByName("Runner");
+			CEntity* e_runner = getEntityByName("Runner");
 			TMsgRunnerStartChase msg;
-			e->sendMsg(msg);
+			e_runner->sendMsg(msg);
+
+			
 		}
 	}
 }

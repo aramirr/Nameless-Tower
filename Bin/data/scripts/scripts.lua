@@ -46,12 +46,18 @@ function OnLevel1Start()
 	lm:pause_player()
 	lm:activate_cinematic("cinematica_inicial", false)	
 	lm:play_animation("The Player", 32)
+	lm:play_sound(true, "cinematica_intro")
+	lm:play_sound(false, "cinematica_intro")
 	lm:regain_control(24)
+	--lm:regain_control(1)
 	
 end
 
 function OnLevel2Start()
 	--lm:set_exposure(0.36)
+	lm:stop_sound(true, "ambient")
+	lm:stop_sound(false, "ambient")
+	lm:play_ambient_night()
 	lm:set_dir_light_intensity("LightDir00", 0, false)
 	lm:set_dir_light_intensity("LightDir01", 0, false)
 	lm:set_dir_light_intensity("LightDir02", 0, false)
@@ -83,11 +89,9 @@ function OnTriggerExitTSCinematicaMonolito()
 	--lm:activate_cinematic("cinematica_inicial", false)
 	
 	lm:pause_player()
-	lm:play_animation("The Player", 34)
 	lm:activate_anim("Monolito_001", 5)
 	lm:activate_runner()
-	lm:regain_control(30)
-	--lm:kill_entity("TSCinematicaMonolito")
+	lm:regain_control(31)
 	--lm:change_level("level_2")
 end
 

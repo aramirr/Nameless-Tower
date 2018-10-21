@@ -3,6 +3,7 @@
 #include "entity/entity_parser.h"
 #include "components/physics/controller_filter.h"
 #include "components/physics/query_filter.h"
+#include "components/sound/comp_sound.h"
 #include "skeleton/comp_skeleton.h"
 
 DECL_OBJ_MANAGER("bt_runner", bt_runner);
@@ -138,6 +139,7 @@ int bt_runner::actionScream() {
   if (anim_state != "scream") {
     anim_state = "scream";
     change_animation(ERunnerAnimations::RunnerScreamShort, true, 0.f, 0.f, true);
+		play_sound("roar");
   }
   addGravity();
   debug_timer += DT;
@@ -499,6 +501,7 @@ void bt_runner::chase_waypoint() {
 		//dbg("--------------------- aw: %i - nw: %i - d: %f\n", path[actual_waypoint], path[next_waypoint], VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position));
 		if (on_jump && (anim_state != "jump_land")) {
 			change_animation(ERunnerAnimations::RunnerJumpLand, true, 0.1f, 0.f, true);
+			play_sound("land");
 		}
 		anim_state = "";
 		on_jump = false;
@@ -566,6 +569,7 @@ void bt_runner::walk() {
 		else if (anim_state != "walk") {
 			anim_state = "walk";
 			change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
+			play_sound("walk");
 		}
 	
 		current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
@@ -666,6 +670,7 @@ void bt_runner::jump() {
 			anim_state = "jump_up";
 			change_animation(ERunnerAnimations::RunnerJumpUp, true, 0.1f, 0.f, true);
 			change_animation(ERunnerAnimations::RunnerJumpLoop, false, 0.1f, 0.f, true);
+			play_sound("jump");
 		}
 
 		
@@ -700,6 +705,7 @@ void bt_runner::jump() {
         if (anim_state != "jump_land") {
           anim_state = "jump_land";
           change_animation(ERunnerAnimations::RunnerJumpLand, true, 0.1f, 0.f, true);
+					play_sound("land");
         }
       }
 		}
@@ -760,7 +766,6 @@ float bt_runner::distance_x_z(VEC3 v1, VEC3 v2) {
 	return VEC3::Distance(v1, v2);
 }
 
-
 void bt_runner::recalculate_path() {
 	//dbg("***RECALCULATING PATH***\n");
 	TCompTransform* my_transform = getMyTransform();
@@ -806,4 +811,11 @@ void bt_runner::clear_animations(float out_delay) {
   assert(skeleton);
 
   skeleton->clearActions(out_delay);
+}
+
+// Soudn
+void bt_runner::play_sound(std::string name) {
+	CEntity* e = h_entity;
+	TCompSound* sound = e->get<TCompSound>();
+	sound->playSound(name);
 }

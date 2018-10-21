@@ -218,6 +218,11 @@ void LogicManager::playPositionalSound(std::string name, std::string entityName)
     EngineSound.emitPositionalEvent(name, entityName);
 }
 
+void LogicManager::playAmbientNight() {
+	EngineSound.emitEvent("ambient_night");
+}
+
+
 void LogicManager::stopSound(bool left, std::string name) {
     if (applyFunction(left)) {
         EngineSound.stopEvent(name);
