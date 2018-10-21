@@ -41,6 +41,14 @@
 				,
 				"is_trigger": false
 		    },
+		    "sound": {
+		    	"events": [
+		    		{"name": "step", "src": "event:/SFX/Character/Boss_Runner/StepsLands/Step", "positional": false, "on_start": false},
+		    		{"name": "land", "src": "event:/SFX/Character/Boss_Runner/StepsLands/Land", "positional": false, "on_start": false},
+		    		{"name": "jump", "src": "event:/SFX/Character/Boss_Runner/StepsLands/Jump", "positional": false, "on_start": false},
+		    		{"name": "roar", "src": "event:/SFX/Character/Boss_Runner/Runner_Voz/Rugido", "positional": false, "on_start": false}
+	    		]
+		    },
 		    "bt_runner": {
 		    	"waypoints_map": [
 		    		{
