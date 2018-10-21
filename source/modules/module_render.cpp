@@ -202,6 +202,8 @@ void CModuleRender::configure(int xres, int yres)
 
 	cb_globals.global_resolution_X = xres;
 	cb_globals.global_resolution_Y = yres;
+
+	dbg("RESOLUCION DE MIERDA: %i %i\n", Render.width, Render.height);
 }
 
 void CModuleRender::setBackgroundColor(float r, float g, float b, float a)
@@ -228,7 +230,7 @@ void CModuleRender::activateMainCamera() {
 		CRenderManager::get().setEntityCamera(h_e_camera);
 	}
 
-	activateCamera(*cam, cb_globals.global_first_resolution_X, cb_globals.global_first_resolution_Y);
+	activateCamera(*cam, 1920, 1080);
 }
 
 
@@ -328,7 +330,7 @@ void CModuleRender::generateFrame() {
 		CEntity* e_camera = getEntityByName("camera_orbit_IZQ");
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
 		CCamera* cam = c_camera;
-		activateCamera(*cam, cb_globals.global_first_resolution_X, cb_globals.global_first_resolution_Y);
+		activateCamera(*cam, 1920, 1080);
 	}
 
 	{
@@ -339,7 +341,7 @@ void CModuleRender::generateFrame() {
 		activateZConfig(ZCFG_DISABLE_ALL);
 		activateBlendConfig(BLEND_CFG_COMBINATIVE);
 
-		activateCamera(CEngine::get().getGUI().getCamera(), cb_globals.global_first_resolution_X, cb_globals.global_first_resolution_Y);
+		activateCamera(CEngine::get().getGUI().getCamera(), 1920, 1080);
 		CEngine::get().getModules().renderGUI();
 
 		activateRSConfig(RSCFG_DEFAULT);

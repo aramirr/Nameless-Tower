@@ -50,8 +50,8 @@ LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 			hdcMem,      // you just created this above
 			0,
 			0,          // x and y upper left
-			cb_globals.global_first_resolution_X,          // source bitmap width
-			cb_globals.global_first_resolution_Y,          // source bitmap height
+			1920,          // source bitmap width
+			1080,          // source bitmap height
 			SRCCOPY);   // raster operation
 		EndPaint(hWnd, &ps);
 		break;
@@ -342,8 +342,8 @@ bool CApp::readConfig() {
 
 	time_since_last_render.reset();
 
-	cb_globals.global_first_resolution_X = screenxres;
-	cb_globals.global_first_resolution_Y = screenyres;
+	cb_globals.global_first_resolution_X = xres;
+	cb_globals.global_first_resolution_Y = yres;
 
 	CEngine::get().getRender().configure(xres, yres);
 	return true;

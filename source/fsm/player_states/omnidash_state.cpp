@@ -51,8 +51,8 @@ namespace FSM
 		CEntity* o_camera = EngineCameras.getOutputCamera();
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		VEC2 screen_projected_pos;
-		screen_projected_pos.x = player->player_position.x / cb_globals.global_first_resolution_X;
-		screen_projected_pos.y = player->player_position.y / cb_globals.global_first_resolution_Y;
+		screen_projected_pos.x = player->player_position.x / 1920;
+		screen_projected_pos.y = player->player_position.y / 1080;
 		/*if (!cb_gui.fullscreen) {
 			screen_projected_pos.x /= cb_globals.global_first_resolution_X;
 			screen_projected_pos.y /= cb_globals.global_first_resolution_Y;
@@ -146,9 +146,18 @@ namespace FSM
 		VEC2 m;
 		m.x = mouse._position.x;
 		m.y = mouse._position.y;
-		if (!cb_gui.fullscreen) {
-			m.x *= cb_globals.global_first_resolution_X / cb_globals.global_resolution_X;
+		if (cb_gui.fullscreen) {
+			/*m.x *= cb_globals.global_first_resolution_X / cb_globals.global_resolution_X;
 			m.y *= cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y;
+
+			m.x *= 1920 / cb_globals.global_first_resolution_X;
+			m.y *= 1080 / cb_globals.global_first_resolution_Y;*/
+			m.x *= 1920 / cb_globals.global_resolution_X;
+			m.y *= 1080 / cb_globals.global_resolution_Y;
+		}
+		else {
+			m.x *= 1920 / cb_globals.global_resolution_X;
+			m.y *= 1080 / cb_globals.global_resolution_Y;
 		}
 
 		player->omnidash_arrow = m - VEC2(player->player_position.x, player->player_position.y);

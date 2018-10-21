@@ -112,10 +112,20 @@ namespace GUI
   {
 		int mX = EngineInput.mouse()._position.x;
 		int mY = EngineInput.mouse()._position.y;
-		if (!cb_gui.fullscreen) {
+		dbg("MOUSE: %i %i\n", mX, mY);
+		if (cb_gui.fullscreen) {
 			mX *= cb_globals.global_first_resolution_X / cb_globals.global_resolution_X;
 			mY *= cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y;
+
+			mX *= 1920 / cb_globals.global_first_resolution_X;
+			mY *= 1080 / cb_globals.global_first_resolution_Y;
 		}
+		else {
+			mX *= 1920 / cb_globals.global_resolution_X;
+			mY *= 1080 / cb_globals.global_resolution_Y;
+		}
+
+		
     for (int i = 0; i < _options.size(); i++) {
       int bmX = _options[i].button->getPosition().x;
       int bMX = bmX + _options[i].button->getSize().x;
