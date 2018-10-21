@@ -20,13 +20,14 @@ void TCompCinematic::load(const json& j, TEntityParseContext& ctx) {
       cinematics.push_back(cine);
   }
   current_spline = 0;  
+	current_time = 0;
 }
 
 
 void TCompCinematic::update(float dt) {
   // Advance the time
-	if (active) {
-		current_time += dt;
+	current_time += dt;
+	if (active) {		
 		if (time != 0 && current_time > time) {
             current_spline += 1;
             if (current_spline == cinematics.size()) {
@@ -65,6 +66,7 @@ void TCompCinematic::activate(const TMsgActivateCinematic& msg) {
         camera_manager->sendMsg(activate_camera);
         time = cinematics[0].time;
         current_spline = 0;
+				current_time = 0;
         if (cinematics[0].spline_name != "") {
             CEntity* h_spline = (CEntity*)getEntityByName(cinematics[0].spline_name);
             TCompCurve* c = h_spline->get<TCompCurve>();            
