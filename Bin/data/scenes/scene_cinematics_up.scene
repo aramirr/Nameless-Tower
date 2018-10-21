@@ -2,6 +2,261 @@
   {
     "entity":
     {
+      "name": "MonolitoRef005"
+      ,
+      "transform":
+      {
+        "pos": "3.79676 87.7113 -31.1991"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "MonolitoRef004"
+      ,
+      "transform":
+      {
+        "pos": "4.96569 87.4062 -29.4113"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "MonolitoRef003"
+      ,
+      "transform":
+      {
+        "pos": "4.96569 90.2482 -29.4113"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "MonolitoRef002"
+      ,
+      "transform":
+      {
+        "pos": "5.18426 88.267 -29.6403"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "MonolitoRef001"
+      ,
+      "transform":
+      {
+        "pos": "5.07488 91.569 -30.924"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CamaraMonolitoE"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "curve_controller":
+      {
+        "curve": "data/curves/CamaraMonolitoE.curve"
+        ,
+        "speed": 0.15
+        ,
+        "target": "MonolitoRef005"
+        ,
+        "loop": false
+        ,
+        "mode": "linear"
+        ,
+        "automove": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CamaraMonolitoD"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "curve_controller":
+      {
+        "curve": "data/curves/CamaraMonolitoD.curve"
+        ,
+        "speed": 0.0
+        ,
+        "target": "MonolitoRef004"
+        ,
+        "loop": false
+        ,
+        "mode": "linear"
+        ,
+        "automove": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CamaraMonolitoC"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "curve_controller":
+      {
+        "curve": "data/curves/CamaraMonolitoC.curve"
+        ,
+        "speed": 0.15
+        ,
+        "target": "MonolitoRef003"
+        ,
+        "loop": false
+        ,
+        "mode": "linear"
+        ,
+        "automove": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CamaraMonolitoB"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "curve_controller":
+      {
+        "curve": "data/curves/CamaraMonolitoB.curve"
+        ,
+        "speed": 0.0
+        ,
+        "target": "MonolitoRef002"
+        ,
+        "loop": false
+        ,
+        "mode": "linear"
+        ,
+        "automove": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CamaraMonolitoA"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "curve_controller":
+      {
+        "curve": "data/curves/CamaraMonolitoA.curve"
+        ,
+        "speed": 0.1
+        ,
+        "target": "MonolitoRef001"
+        ,
+        "loop": false
+        ,
+        "mode": "linear"
+        ,
+        "automove": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "CamaraIntroC"
       ,
       "transform":
@@ -30,107 +285,107 @@
         "automove": false
       }
     }
-    }
-    ,
+  }
+  ,
+  {
+    "entity":
     {
-      "entity":
+      "name": "CamaraIntroB"
+      ,
+      "transform":
       {
-        "name": "CamaraIntroB"
+        "pos": "0.0 0.0 0.0"
         ,
-        "transform":
-        {
-          "pos": "0.0 0.0 0.0"
-          ,
-          "rotation": "0.0 0.0 0.0 0.0"
-        }
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "curve_controller":
+      {
+        "curve": "data/curves/CamaraIntroB.curve"
         ,
-        "render":
-        [
-        ]
+        "speed": 0.25
         ,
-        "curve_controller":
-        {
-          "curve": "data/curves/CamaraIntroB.curve"
-          ,
-          "speed": 0.25
-          ,
-          "target": "IntroRef002"
-          ,
-          "loop": false
-          ,
-          "mode": "linear"
-          ,
-          "automove": false
-        }
+        "target": "IntroRef002"
+        ,
+        "loop": false
+        ,
+        "mode": "linear"
+        ,
+        "automove": false
       }
     }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CamaraIntroA"
       ,
+      "transform":
       {
-        "entity":
-        {
-          "name": "CamaraIntroA"
-          ,
-          "transform":
-          {
-            "pos": "0.0 0.0 0.0"
-            ,
-            "rotation": "0.0 0.0 0.0 0.0"
-          }
-          ,
-          "render":
-          [
-          ]
-          ,
-          "curve_controller":
-          {
-            "curve": "data/curves/CamaraIntroA.curve"
-            ,
-            "speed": 0.25
-            ,
-            "target": "IntroRef001"
-            ,
-            "loop": false
-            ,
-            "mode": "linear"
-            ,
-            "automove": false
-          }
-        }
-    }
+        "pos": "0.0 0.0 0.0"
         ,
-        {
-          "entity":
-          {
-            "name": "IntroRef002"
-            ,
-            "transform":
-            {
-              "pos": "8.761 4.96676 -30.251"
-              ,
-              "rotation": "0.0 0.0 0.0 -1.0"
-            }
-            ,
-            "render":
-            [
-            ]
-          }
-        }
-        ,
-        {
-          "entity":
-          {
-            "name": "IntroRef001"
-            ,
-            "transform":
-            {
-              "pos": "8.761 4.71032 -30.251"
-              ,
-              "rotation": "0.0 0.0 0.0 -1.0"
-            }
-            ,
-            "render":
-            [
-            ]
-          }
-        }
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
       ]
+      ,
+      "curve_controller":
+      {
+        "curve": "data/curves/CamaraIntroA.curve"
+        ,
+        "speed": 0.25
+        ,
+        "target": "IntroRef001"
+        ,
+        "loop": false
+        ,
+        "mode": "linear"
+        ,
+        "automove": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "IntroRef002"
+      ,
+      "transform":
+      {
+        "pos": "8.761 4.96676 -30.251"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "IntroRef001"
+      ,
+      "transform":
+      {
+        "pos": "8.761 4.71032 -30.251"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+    }
+  }
+]
