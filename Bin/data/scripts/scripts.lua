@@ -110,12 +110,8 @@ function OnTriggerExitTSCinematicaFinal()
 	lm:activate_cinematic_bands(false)
 	--lm:activate_cinematic("cinematica_inicial", false)
 	lm:pause_player()
-<<<<<<< HEAD
-	lm:play_animation("The Player", 35)
 	lm:play_animation("Boss", 1)
-=======
 	lm:play_animation_player(35)
->>>>>>> 14e2f1ea49dcf7c7b5b04ab9a63b2eb9268ddd3e
 	lm:regain_control(15)
 
 end
