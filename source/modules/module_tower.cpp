@@ -83,15 +83,21 @@ void CModuleTower::update(float delta)
 			TCompPlayerController * controller = e->get<TCompPlayerController>();
 			controller->remove_animation(controller->EAnimations::NajaJumpLoop);
 			controller->change_animation(34, true, 0, 0.8, true);
+			EngineSound.emitDelayedEvent(0, "naja_monolito");
 		}
-		if (timer_runner >= 0.1f && !turn_player) {
+		else if (timer_runner >= 0.1f && !turn_player) {
 			turn_player = true;
 			/*CEntity* e = getEntityByName("The Player");
 			TCompTransform* t = e->get<TCompTransform>();
 			t->setYawPitchRoll(0, 0, 0);*/
 		}
+		else if (timer_runner >= 5.f && !destroy_monolito) {
+			destroy_monolito = true;
+			activateAnim("Monolito_001", 0);
+			EngineSound.emitDelayedEvent(0, "monolito_destruccion");
+		}
 
-		if (timer_runner >= 10.667 && !build_runner) {
+		else if (timer_runner >= 10.667 && !build_runner) {
 			CEntity* e = getEntityByName("The Player");
 			TCompPlayerController* player = e->get<TCompPlayerController>();
 			/*if (player->game_state == "level_1") {
@@ -101,7 +107,7 @@ void CModuleTower::update(float delta)
 			build_runner = true;
 			activateAnim("Runner_father", 0);
 		}
-		if (timer_runner >= 26.667 && !changed_runner_mesh) {
+		else if (timer_runner >= 26.667 && !changed_runner_mesh) {
 			changed_runner_mesh = true;
 
 			// Kill Runner_father
@@ -119,25 +125,23 @@ void CModuleTower::update(float delta)
 			e_transform->setPosition(VEC3(2.31185f, 88.f, -31.2941f)); //86.5861f
 			e_collider->controller->setPosition(physx::PxExtendedVec3(2.31185f, 88.f, -31.2941f));
 		}
-		if (timer_runner >= 27.33f && !runner_scream) {
+		else if (timer_runner >= 27.33f && !runner_scream) {
 			runner_scream = true;
 			CEntity* e = getEntityByName("Runner");
 			bt_runner * controller = e->get<bt_runner>();
 			controller->change_animation(4, true, 0.5, 0.5, true);
 		}
-		if (timer_runner >= 31.f && !turn_player_2) {
+		else if (timer_runner >= 31.f && !turn_player_2) {
 			turn_player_2 = true;
 			/*CEntity* e_player = getEntityByName("The Player");
 			TCompTransform* t = e_player->get<TCompTransform>();
 			t->setYawPitchRoll(-104.54, 0, 0);*/
 		}
-		if (timer_runner >= 32.f && !runner_chase) {
+		else if (timer_runner >= 32.f && !runner_chase) {
 			runner_chase = true;
 			CEntity* e_runner = getEntityByName("Runner");
 			TMsgRunnerStartChase msg;
 			e_runner->sendMsg(msg);
-
-			
 		}
 	}
 }

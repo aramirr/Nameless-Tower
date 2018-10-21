@@ -30,6 +30,7 @@ class CModuleTower : public IModule {
 	bool start_anim = false;
 	bool turn_player = false;
 	bool turn_player_2 = false;
+	bool destroy_monolito = false;
 
 
 
