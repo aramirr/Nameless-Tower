@@ -13,6 +13,7 @@
 #include "ctes.h"
 #include "render/cte_buffer.h"
 #include "skeleton/comp_skeleton.h"
+#include "entity/entity_parser.h"
 using namespace SLB;
 
 
@@ -310,4 +311,14 @@ void LogicManager::set_ypr(std::string name, float y, float p, float r) {
 
 void LogicManager::activateRunner() {
 	EngineTower.activateRunner();
+}
+
+void LogicManager::unloadScene(std::string name) {
+	TEntityParseContext ctx;
+	deleteScene(name, ctx);
+}
+
+void LogicManager::loadScene(std::string name) {
+	TEntityParseContext ctx;
+	parseScene(name, ctx);
 }

@@ -66,6 +66,8 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("set_ypr", &LogicManager::set_ypr)
 		.set("activate_runner", &LogicManager::activateRunner)
 		.set("play_delayed_sound", &LogicManager::playDelayedSound)
+		.set("delete_scene", &LogicManager::unloadScene)
+		.set("load_scene", &LogicManager::loadScene)
 		;
 }
 
