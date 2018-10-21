@@ -176,6 +176,16 @@ void CModuleTower::update(float delta)
 			e_runner->sendMsg(msg);
 		}
 	}
+
+	if (change_level) {
+		CEntity* e = getEntityByName("The Player");
+		TCompPlayerController* player = e->get<TCompPlayerController>();
+		if (player->game_state == "level_1") {
+			CEngine::get().getModules().changeGameState("level_2");
+			player->game_state = "level_2";
+		}
+		activate_runner = true;
+	}
 }
 
 void CModuleTower::render()
@@ -364,7 +374,7 @@ void CModuleTower::wait_seconds(float num_seconds) {
 }
 
 void CModuleTower::activateRunner() {
-	activate_runner = true;
+	change_level = true;
 	timer_runner = 0.f;
 }
 
