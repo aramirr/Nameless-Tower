@@ -21,6 +21,7 @@ class CModuleTower : public IModule {
 	bool bandCinematics = false;
 
 	// Activate Runner
+	bool change_level = false;
 	bool activate_runner = false;
 	float timer_runner = 0.f;
 	bool build_runner = false;
