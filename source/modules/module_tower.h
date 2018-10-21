@@ -29,6 +29,7 @@ class CModuleTower : public IModule {
 	bool runner_chase = false;
 	bool start_anim = false;
 	bool turn_player = false;
+	bool turn_player_2 = false;
 
 
 
