@@ -2,28 +2,100 @@
   {
     "entity":
     {
-      "name": "ParedExteriorParte6F"
+      "name": "TSCinematicaFinal"
       ,
       "transform":
       {
-        "pos": "29.8337 51.75 7.76827"
+        "pos": "-18.5 10.1325 25.495"
         ,
-        "rotation": "0.0 0.85294 0.0 -0.52201"
+        "rotation": "0.0 0.289438 0.0 -0.957197"
       }
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/ParedExteriorParte6F.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-          ]
-        }
       ]
       ,
-      "abs_aabb": true
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.156378 5.63249 0.91895"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Paredes_Parte08"
+      ,
+      "transform":
+      {
+        "pos": "-8.01597 9.0 30.1669"
+        ,
+        "rotation": "0.0 -0.587785 0.0 -0.809017"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Paredes_Parte08.col_mesh"
+        ,
+        "group": "scenario"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Solidos_Parte08"
+      ,
+      "transform":
+      {
+        "pos": "-19.5244 11.25 21.2969"
+        ,
+        "rotation": "0.0 -0.544639 0.0 -0.838671"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Solidos_Parte08.col_mesh"
+      }
     }
   }
 ]

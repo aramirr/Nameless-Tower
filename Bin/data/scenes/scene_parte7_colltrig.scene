@@ -2,28 +2,240 @@
   {
     "entity":
     {
-      "name": "ParedExteriorParte6F"
+      "name": "Escaleras_Escena07"
       ,
       "transform":
       {
-        "pos": "29.8337 51.75 7.76827"
+        "pos": "-17.9658 25.3354 -23.9434"
         ,
-        "rotation": "0.0 0.85294 0.0 -0.52201"
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
       }
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/ParedExteriorParte6F.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-          ]
-        }
       ]
       ,
-      "abs_aabb": true
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Escaleras_Escena07.col_mesh"
+        ,
+        "group": "stairs"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSEscaleras1Escaleras2B"
+      ,
+      "transform":
+      {
+        "pos": "-12.8623 29.2509 -28.5393"
+        ,
+        "rotation": "0.147016 -0.147016 0.691655 -0.691655"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSWindstrikeEscaleras1B"
+      ,
+      "transform":
+      {
+        "pos": "-29.799 24.7638 -9.52815"
+        ,
+        "rotation": "0.415627 -0.415627 0.572061 -0.572061"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSEstatuaWindstrikeB"
+      ,
+      "transform":
+      {
+        "pos": "-31.2039 24.7638 -0.479297"
+        ,
+        "rotation": "-0.5 0.5 -0.5 0.5"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PodiumCollider_Bajada"
+      ,
+      "transform":
+      {
+        "pos": "-28.7507 6.45591 5.47129"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/PodiumCollider_Bajada.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Solidos_Parte7"
+      ,
+      "transform":
+      {
+        "pos": "-10.0104 24.75 -12.9846"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Solidos_Parte7.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Paredes_Parte7"
+      ,
+      "transform":
+      {
+        "pos": "-20.7265 24.75 -6.79699"
+        ,
+        "rotation": "0.0 -0.258819 0.0 -0.965926"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/Paredes_Parte7.col_mesh"
+        ,
+        "group": "scenario"
+      }
     }
   }
 ]

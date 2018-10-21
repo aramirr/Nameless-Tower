@@ -2,28 +2,1073 @@
   {
     "entity":
     {
-      "name": "ParedExteriorParte6F"
+      "name": "DestruiblePuente1_Post_32"
       ,
       "transform":
       {
-        "pos": "29.8337 51.75 7.76827"
+        "pos": "29.9348 84.6922 -10.0848"
         ,
-        "rotation": "0.0 0.85294 0.0 -0.52201"
+        "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/ParedExteriorParte6F.mesh"
+          "mesh": "data/meshes/DestruiblePuente1_Post_32.mesh"
           ,
           "materials":
           [
-            "data/materials/ParedModelo.material"
+            "data/materials/puenteRoto.material"
           ]
         }
       ]
       ,
       "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_31"
+      ,
+      "transform":
+      {
+        "pos": "29.5173 84.6961 -9.94572"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_31.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_30"
+      ,
+      "transform":
+      {
+        "pos": "29.3872 84.6442 -10.2251"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_30.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_29"
+      ,
+      "transform":
+      {
+        "pos": "30.0106 84.6387 -10.3848"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_29.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_28"
+      ,
+      "transform":
+      {
+        "pos": "29.612 84.6091 -10.5616"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_28.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_27"
+      ,
+      "transform":
+      {
+        "pos": "29.114 84.6101 -10.4226"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_27.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_26"
+      ,
+      "transform":
+      {
+        "pos": "29.1856 84.5571 -10.7743"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_26.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_25"
+      ,
+      "transform":
+      {
+        "pos": "29.7871 84.5587 -10.9405"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_25.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_24"
+      ,
+      "transform":
+      {
+        "pos": "29.7292 84.5432 -11.271"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_24.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_23"
+      ,
+      "transform":
+      {
+        "pos": "29.572 84.5017 -11.5741"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_23.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_22"
+      ,
+      "transform":
+      {
+        "pos": "29.2753 84.5435 -11.1233"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_22.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_21"
+      ,
+      "transform":
+      {
+        "pos": "28.7798 84.5421 -10.9704"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_21.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_20"
+      ,
+      "transform":
+      {
+        "pos": "28.9761 84.4986 -11.3807"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_20.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_19"
+      ,
+      "transform":
+      {
+        "pos": "28.5791 84.4735 -11.5387"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_19.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_18"
+      ,
+      "transform":
+      {
+        "pos": "29.0701 84.4761 -11.7196"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_18.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_17"
+      ,
+      "transform":
+      {
+        "pos": "29.4836 84.4773 -11.9141"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_17.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_16"
+      ,
+      "transform":
+      {
+        "pos": "28.7762 84.4504 -11.9305"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_16.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_15"
+      ,
+      "transform":
+      {
+        "pos": "29.1699 84.4558 -12.1297"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_15.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_14"
+      ,
+      "transform":
+      {
+        "pos": "29.1446 84.3802 -12.3901"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_14.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_13"
+      ,
+      "transform":
+      {
+        "pos": "29.1103 84.3717 -12.6977"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_13.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_12"
+      ,
+      "transform":
+      {
+        "pos": "28.6108 84.3904 -12.1737"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_12.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_11"
+      ,
+      "transform":
+      {
+        "pos": "28.6674 84.3726 -12.5228"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_11.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_10"
+      ,
+      "transform":
+      {
+        "pos": "28.1767 84.3717 -12.3411"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_10.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_09"
+      ,
+      "transform":
+      {
+        "pos": "28.2138 84.3971 -11.9817"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_09.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_07"
+      ,
+      "transform":
+      {
+        "pos": "28.2462 84.4404 -11.7051"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_07.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_06"
+      ,
+      "transform":
+      {
+        "pos": "28.1357 84.4696 -11.3649"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_06.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_05"
+      ,
+      "transform":
+      {
+        "pos": "28.4265 84.4968 -11.1448"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_05.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_04"
+      ,
+      "transform":
+      {
+        "pos": "28.623 84.5672 -10.5721"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_04.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DestruiblePuente1_Post_01"
+      ,
+      "transform":
+      {
+        "pos": "28.9632 84.6993 -9.78765"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DestruiblePuente1_Post_01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "rigid_anim":
+      {
+        "src": "data/anims/PuenteDestruibles.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      }
     }
   }
 ]
