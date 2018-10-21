@@ -78,9 +78,11 @@ void TCompSpiralController::update(float DT) {
 	if (set_once == false) 
 	{ 
 		CEntity *e_creator = h_parent;
-		TCompTransform *t_creator = e_creator->get<TCompTransform>();
-		is_left = t_creator->isInLeft(center);
-		set_once = true;
+		if (e_creator != nullptr) {
+			TCompTransform *t_creator = e_creator->get<TCompTransform>();
+			is_left = t_creator->isInLeft(center);
+			set_once = true;
+		}		
 	}
 
 	TCompCollider *my_collider = e->get<TCompCollider>();
