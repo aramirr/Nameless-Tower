@@ -84,25 +84,32 @@ void CAITorch::registerMsgs() {
 void CAITorch::ActiveState(float dt)
 {
 	if (render) {
-		TCompTransform* my_transform = getMyTransform();
-		if (on_start) {
-			fire_position = my_transform->getPosition();
-			fire_position.y += y_offset;
-			fire_position.z += z_offset;
-			fire_position.x += x_offset;
-			on_start = false;
+		if (!initialized) {
+			current_delay += dt;
+			if (current_delay > delay)
+				initialized = true;
 		}
-		if (b_fuego) {
-			if (violeta) {
-				id = EngineBillboards.addFuegoVioleta(fire_position, scale, thin);
+		else {
+			TCompTransform* my_transform = getMyTransform();
+			if (on_start) {
+				fire_position = my_transform->getPosition();
+				fire_position.y += y_offset;
+				fire_position.z += z_offset;
+				fire_position.x += x_offset;
+				on_start = false;
 			}
-			else if (azul) {
-				id = EngineBillboards.addFuegoAzul(fire_position, scale, smoke_y_offset);
+			if (b_fuego) {
+				if (violeta) {
+					id = EngineBillboards.addFuegoVioleta(fire_position, scale, thin);
+				}
+				else if (azul) {
+					id = EngineBillboards.addFuegoAzul(fire_position, scale, smoke_y_offset);
+				}
+				else
+					id = EngineBillboards.addFuegoTest(fire_position, scale, thin);
+				b_fuego = false;
 			}
-			else
-				id = EngineBillboards.addFuegoTest(fire_position, scale, thin);
-			b_fuego = false;
-		}
+		}		
 	}
 
 }

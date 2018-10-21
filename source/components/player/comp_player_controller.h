@@ -16,7 +16,8 @@ public:
     bool    run_sprite = true;
     bool    left_key = false;
     float   gravity;
-    float   omni_angle;
+		float   omni_angle;
+		float   omnidash_time;
 	float   y_speed_factor = 0.f;
 	float	jumping_start_height;
 	float	jumping_death_height;

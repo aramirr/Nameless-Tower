@@ -9,7 +9,8 @@ class CAITorch : public IAIController
 {
   DECL_SIBLING_ACCESS();
 
-  float timer = 0.f;
+	float timer = 0.f;
+	float delay = 3.f;
   float frames;
   float smoke_frames;
   float current_frames;
@@ -18,8 +19,10 @@ class CAITorch : public IAIController
   float x_offset = 0.f;
   float z_offset = 0.f;
   bool apagando = false;
-  bool apagado = false;
-  float timer_limit;
+	bool apagado = false;
+	bool initialized = false;
+	float timer_limit;
+	float current_delay;
     bool in_puzzle;
     bool violeta;
     bool azul;

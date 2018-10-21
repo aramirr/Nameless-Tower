@@ -17,6 +17,7 @@ namespace FSM
 		player->change_animation(player->anim1, _is_action, _delay_in, _delay_out, false);
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		player->jumping_start_height = c_my_transform->getPosition().y;
+		player->omnidash_time = 0;
 		EngineTimer.setTimeSlower(0.25f);
 		EngineUI.setOmindash(true);
 
@@ -40,6 +41,7 @@ namespace FSM
 		_is_action = jData.value("is_action", false);
 		_delay_out = jData.value("delay_out", 0.01f);
 		_delay_in = jData.value("delay_in", 0.01f);
+		_omnidash_max_time = jData.value("omnidash_max_time", 2.f);
 		return true;
 	}
 
@@ -60,9 +62,9 @@ namespace FSM
 			c_render_blur_radial->setCenter(screen_projected_pos);
 		}
 
-
+		player->omnidash_time += dt;
 		// Chequea si hay que realizar el salto
-		if (!EngineInput["omnidash"].isPressed()) {
+		if (!EngineInput["omnidash"].isPressed() || player->omnidash_time > _omnidash_max_time) {
 			ctx.setVariable("omnijump", true);
 		}
 
