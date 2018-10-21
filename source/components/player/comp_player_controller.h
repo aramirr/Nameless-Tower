@@ -60,14 +60,14 @@ public:
 		, NajaOmniPrepUpFr
 		, NajaOmniPrepUpBk
 		, NajaOmniPrepDnBk
-        , NajaOmniDn
-        , NajaOmniAr
-        , NajaOmniBk
-        , NajaOmniFr
-        , NajaOmniFrDn
-        , NajaOmniFrUp
-        , NajaOmniBkUp
-        , NajaOmniBkDn
+    , NajaOmniDn
+    , NajaOmniAr
+    , NajaOmniBk
+    , NajaOmniFr
+    , NajaOmniFrDn
+    , NajaOmniFrUp
+    , NajaOmniBkUp
+    , NajaOmniBkDn
 		, NajaDashStrike
 		, NajaDashLand
 		, NajaWalk
@@ -75,12 +75,12 @@ public:
 		, NajaDeath
 		, NajaDead
 		, NajaBreak
-        , NajaLookDn
-        , NajaLookUp
+    , NajaLookDn
+    , NajaLookUp
 		, NajaIntro
-        , NajaScare
-        , NajaMonilito
-        , NajaFinal,
+    , NajaScare
+    , NajaMonilito
+    , NajaFinal,
 		EAnimations
 	};
 

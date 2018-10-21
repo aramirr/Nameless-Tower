@@ -65,7 +65,8 @@ public:
 
   //Lua Cinematics
   void pausePlayer();
-  void setAnim(std::string name, int anim_id);
+  void setAnim(int anim_id);
+	void setAnimCycle(std::string name, int anim_id);
   void setCinematicBars();
   void regainControl(float time_to_wait);
   void killEntity(std::string name);

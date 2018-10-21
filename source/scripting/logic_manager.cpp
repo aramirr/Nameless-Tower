@@ -11,6 +11,7 @@
 #include "render\render_objects.h"
 #include "ctes.h"
 #include "render/cte_buffer.h"
+#include "skeleton/comp_skeleton.h"
 using namespace SLB;
 
 
@@ -251,12 +252,19 @@ void LogicManager::pausePlayer() {
 
 }
 
-void LogicManager::setAnim(std::string name, int anim_id) {
-	CEntity* e = getEntityByName(name);
+void LogicManager::setAnim(int anim_id) {
+	CEntity* e = getEntityByName("The Player");
 	TCompPlayerController * controller = e->get<TCompPlayerController>();
-    controller->remove_animation(controller->EAnimations::NajaJumpLoop);
+	controller->remove_animation(controller->EAnimations::NajaJumpLoop);
 	controller->change_animation(anim_id, true, 0, 0.8, true);
 }
+
+void LogicManager::setAnimCycle(std::string name, int anim_id) {
+	CEntity* e = getEntityByName(name);
+	TCompSkeleton * skeleton = e->get<TCompSkeleton>();
+	skeleton->playAnimation(anim_id, false, 0.f, 0.f, true);
+}
+
 
 void LogicManager::regainControl(float time_to_wait) {
 	// La function debe devolver el control al personaje, sacar las barras y 
