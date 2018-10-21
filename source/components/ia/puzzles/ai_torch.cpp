@@ -84,8 +84,8 @@ void CAITorch::registerMsgs() {
 void CAITorch::ActiveState(float dt)
 {
 	if (render) {
-		if (!initialized) {
-			current_delay += dt;
+		if (!initialized && puzzle_name != "") {
+			current_delay += DT;
 			if (current_delay > delay)
 				initialized = true;
 		}

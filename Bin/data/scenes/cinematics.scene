@@ -202,7 +202,7 @@
 		}
 	},{
 		"entity": {
-			"name": "camara_cinematica_finalF",
+			"name": "camara_finalF",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"				
@@ -217,7 +217,7 @@
 		}
 	},{
 		"entity": {
-			"name": "camara_cinematica_antorchasA",
+			"name": "camara_antorchasA",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"				
@@ -232,7 +232,7 @@
 		}
 	},{
 		"entity": {
-			"name": "camara_cinematica_antorchasB",
+			"name": "camara_antorchasB",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"				
@@ -275,16 +275,16 @@
 			{				
 				"splines": [
 					{
-					"time": 8.333,
+					"time": 3,
 					"blend_time": 0.5,
 					"spline_name": "CamaraAntorchasA",
-					"camera_name" : "camara_cinematica_antorchasA"
+					"camera_name" : "camara_antorchasA"
 					},
 					{
 					"time": 4.5,
-					"blend_time": 1,
+					"blend_time": 1.5,
 					"spline_name": "CamaraAntorchasB",
-					"camera_name" : "camara_cinematica_antorchasA"
+					"camera_name" : "camara_antorchasB"
 					}
 				]
 			}

@@ -160,6 +160,8 @@ end
 
 -- Puzzle antorchas
 function OnTriggerExitTSRejaAntorchas()
+	lm:pause_player()
+	lm:regain_control(10)
 	lm:activate_torch("TFAntorcha1")
 	lm:activate_torch("TFAntorcha02")
 	lm:activate_torch("TFAntorcha03")
