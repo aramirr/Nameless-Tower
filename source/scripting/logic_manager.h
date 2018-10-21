@@ -30,6 +30,8 @@ public:
 	void setTemblor(bool temblor, bool left);
 	void loadScene(std::string name);
 	void unloadScene(std::string name);
+	void setVignettingAdjustment(float value, bool left);
+	void setFadeOutAdjustment(float value, bool left);
 
   // UI
 	void activateText(const char* name);

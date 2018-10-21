@@ -152,6 +152,7 @@ void CModuleRender::render()
 		ImGui::DragFloat("Contrast", &cb_globals.global_contrast_adjustment, 0.005f, 0.0f, 1.f);
 		ImGui::DragFloat("Vignetting", &cb_globals.global_vignetting_adjustment, 0.005f, 0.0f, 1.f);
 		ImGui::DragFloat("Fog Density", &cb_globals.global_fogDensity_adjustment, 0.0001f, 0.0f, 0.15f);
+		ImGui::DragFloat("Fade Out", &cb_globals.global_fadeOut_adjustment, 0.005f, 0.0f, 10.f);
 		ImGui::DragFloat("Fog Horizontal", &cb_globals.global_fog_percentage_horizontal, 0.01f, 0.0f, 1.f);
 		ImGui::DragFloat("Fog Vertical", &cb_globals.global_fog_percentage_vertical, 0.01f, 0.0f, 1.f);
 		ImGui::DragFloat("Band Up", &cb_globals.global_bandMax_adjustment, 0.01f, 0.0f, 0.15f);

@@ -160,6 +160,17 @@ void LogicManager::startEmiter(const char* name, bool left) {
 	}
 }
 
+void LogicManager::setVignettingAdjustment(float value, bool left)
+{
+	if (applyFunction(left))
+		EngineTower.setVignettingAdjustment(value);
+}
+void LogicManager::setFadeOutAdjustment(float value, bool left)
+{
+	if (applyFunction(left))
+		EngineTower.setFadeOutAdjustment(value);
+}
+
 void LogicManager::stopEmiter(const char* name, bool left) {
 	if (applyFunction(left)) {
 		CEntity* particles_emiter = (CEntity*)getEntityByName(name);

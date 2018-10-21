@@ -33,6 +33,38 @@ void CModuleTower::update(float delta)
 			}
 		}
 	}
+	if (changeVignetting) {
+		if (newVignetting > oldVignetting) {
+			cb_globals.global_vignetting_adjustment += 0.01f;
+			oldVignetting = cb_globals.global_vignetting_adjustment;
+			if (oldVignetting > newVignetting) {
+				changeVignetting = false;
+			}
+		}
+		else if (newVignetting < oldVignetting) {
+			cb_globals.global_vignetting_adjustment -= 0.005f;
+			oldVignetting = cb_globals.global_vignetting_adjustment;
+			if (oldVignetting < newVignetting) {
+				changeVignetting = false;
+			}
+		}
+	}
+	if (changeFadeOut) {
+		if (newFadeOut > oldFadeOut) {
+			cb_globals.global_fadeOut_adjustment += 0.01f;
+			oldFadeOut = cb_globals.global_fadeOut_adjustment;
+			if (oldFadeOut > newFadeOut) {
+				changeFadeOut = false;
+			}
+		}
+		else if (newFadeOut < oldFadeOut) {
+			cb_globals.global_fadeOut_adjustment -= 0.005f;
+			oldFadeOut = cb_globals.global_fadeOut_adjustment;
+			if (oldFadeOut < newFadeOut) {
+				changeFadeOut = false;
+			}
+		}
+	}
 	if (cargar) {
 		newExposure = 0.f;
 		oldExposure = cb_globals.global_exposure_adjustment;
@@ -239,6 +271,16 @@ const void CModuleTower::setAmbientAdjustment(float ambient) {
 const void CModuleTower::setExposureAdjustment(float exposure) {
 	cb_globals.global_exposure_adjustment = exposure;
 
+}
+void CModuleTower::setVignettingAdjustment(float vignetting)
+{
+	newVignetting = vignetting;
+	changeVignetting = true;
+}
+void CModuleTower::setFadeOutAdjustment(float fadeout)
+{
+	newFadeOut = fadeout;
+	changeFadeOut = true;
 }
 const void CModuleTower::setBandsCinematics(bool _band)
 {
