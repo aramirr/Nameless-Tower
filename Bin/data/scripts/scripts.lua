@@ -41,6 +41,18 @@ function OnLevel1Start()
 	lm:hide_mesh("loro3")
 	lm:hide_mesh("loro4")
 	
+	lm:play_animation("Peke_Twerk", 7)
+	lm:play_animation("Peke_Ska", 6)
+	lm:play_animation("Peke_Saltitos1", 5)
+	lm:play_animation("Peke_Saltitos2", 5)
+	lm:play_animation("Peke_Pescador", 4)
+	lm:play_animation("Peke_Colgado2", 3)
+	lm:play_animation("Peke_Colgado1", 3)
+	lm:play_animation("Peke_Bracitos", 2)
+	lm:play_animation("Peke_Aplausos_Sentado1", 1)
+	lm:play_animation("Peke_Aplausos_Sentado2", 1)
+	lm:play_animation("Peke_Aplausos", 0)
+	lm:play_animation_player(32)
 
 	--lm:activate_cinematic_bands(false)
 	--lm:pause_player()
@@ -98,8 +110,12 @@ function OnTriggerExitTSCinematicaFinal()
 	lm:activate_cinematic_bands(false)
 	--lm:activate_cinematic("cinematica_inicial", false)
 	lm:pause_player()
+<<<<<<< HEAD
 	lm:play_animation("The Player", 35)
 	lm:play_animation("Boss", 1)
+=======
+	lm:play_animation_player(35)
+>>>>>>> 14e2f1ea49dcf7c7b5b04ab9a63b2eb9268ddd3e
 	lm:regain_control(15)
 
 end
