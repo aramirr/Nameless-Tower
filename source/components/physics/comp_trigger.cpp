@@ -47,7 +47,7 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 		else if (trigger_type == "player_killer") {
 
 			TMsgKillPlayer kill_player_message;
-			entity->sendMsg(kill_player_message);
+			//entity->sendMsg(kill_player_message);
             TCompSound* sound = e_other_entity->get<TCompSound>();
             sound->playSound(sound_name);
 		}

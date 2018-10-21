@@ -42,16 +42,19 @@ function OnLevel1Start()
 	lm:hide_mesh("loro4")
 	
 
-	lm:activate_cinematic_bands(false)
-	lm:pause_player()
-	lm:activate_cinematic("cinematica_inicial", false)	
-	lm:play_animation("The Player", 32)
-	lm:regain_control(24)
+	--lm:activate_cinematic_bands(false)
+	--lm:pause_player()
+	--lm:activate_cinematic("cinematica_inicial", false)	
+	--lm:play_animation("The Player", 32)
+	lm:regain_control(1)
 	
 end
 
 function OnLevel2Start()
 	--lm:set_exposure(0.36)
+	lm:stop_sound(true, "ambient")
+	lm:stop_sound(false, "ambient")
+	lm:play_ambient_night()
 	lm:set_dir_light_intensity("LightDir00", 0, false)
 	lm:set_dir_light_intensity("LightDir01", 0, false)
 	lm:set_dir_light_intensity("LightDir02", 0, false)
