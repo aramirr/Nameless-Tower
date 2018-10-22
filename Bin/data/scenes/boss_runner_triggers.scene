@@ -31,7 +31,7 @@
 			},
 			"trigger": {
 				"trigger_type": "runner_appear",
-				"appearing_position": "31.36 31.5 2.972"
+				"appearing_position": "31.036 31.5 5.384"
 			}
 		}
 	},
@@ -39,7 +39,7 @@
 		"entity": {
 			"name": "RunnerAppearSalto",
 			"transform": {
-				"pos": "0.572 31.5 -31.495"
+				"pos": "0.129 31.5 -31.5"
 			},
 			"render" : [],
 			"collider": {
@@ -49,7 +49,7 @@
 			},
 			"trigger": {
 				"trigger_type": "runner_appear",
-				"appearing_position": "6.575 31.5 -30.806"
+				"appearing_position": "8.705 31.5 -30.273"
 			}
 		}
 	},
