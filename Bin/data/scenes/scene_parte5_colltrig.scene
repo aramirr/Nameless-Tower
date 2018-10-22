@@ -2,6 +2,86 @@
   {
     "entity":
     {
+      "name": "TSSalaMonolitoB"
+      ,
+      "transform":
+      {
+        "pos": "12.3603 87.7776 -28.6511"
+        ,
+        "rotation": "-0.147016 0.147016 0.691655 -0.691655"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TSCascadaAntorchasB"
+      ,
+      "transform":
+      {
+        "pos": "23.0939 87.7776 -21.0046"
+        ,
+        "rotation": "-0.287606 0.287606 0.645974 -0.645974"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "2.28488 0.136176 1.13929"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Escaleras_Escena05"
       ,
       "transform":
@@ -146,7 +226,7 @@
       ,
       "transform":
       {
-        "pos": "15.6443 81.0 -1.29743"
+        "pos": "15.6789 81.0 -1.31739"
         ,
         "rotation": "0.0 -0.258819 0.0 -0.965926"
       }

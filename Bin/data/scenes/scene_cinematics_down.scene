@@ -2,6 +2,34 @@
   {
     "entity":
     {
+      "name": "Cubretodo"
+      ,
+      "transform":
+      {
+        "pos": "0.185489 54.25 -2.37134e-06"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cubretodo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CubreTodoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "CamaraFinalF"
       ,
       "transform":

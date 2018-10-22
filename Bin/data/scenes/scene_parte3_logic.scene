@@ -216,7 +216,7 @@
       ,
       "transform":
       {
-        "pos": "16.6786 68.0299 -24.5856"
+        "pos": "16.6301 68.0299 -24.5528"
         ,
         "rotation": "0.0 -0.456031 0.0 -0.889964"
       }
@@ -254,9 +254,9 @@
         ,
         "waypoints":
         [
-          "16.6786 68.0299 -24.5856"
+          "16.6301 68.0299 -24.5528"
           ,
-          "17.802 68.0299 -26.2416"
+          "17.7506 68.0299 -26.207"
         ]
       }
       ,
@@ -287,7 +287,7 @@
       ,
       "transform":
       {
-        "pos": "19.836 72.5625 -22.0777"
+        "pos": "19.7838 72.5625 -22.0513"
         ,
         "rotation": "0.0 -0.398847 0.0 -0.917018"
       }
@@ -325,9 +325,9 @@
         ,
         "waypoints":
         [
-          "19.836 72.5625 -22.0777"
+          "19.7838 72.5625 -22.0513"
           ,
-          "21.1011 72.5625 -23.4858"
+          "21.0459 72.5625 -23.458"
         ]
       }
       ,
@@ -358,7 +358,7 @@
       ,
       "transform":
       {
-        "pos": "29.7337 81.5892 0.830273"
+        "pos": "29.6799 81.5892 0.807229"
         ,
         "rotation": "0.0 0.0264161 0.0 -0.999651"
       }
@@ -396,9 +396,9 @@
         ,
         "waypoints":
         [
-          "29.7337 81.5892 0.830273"
+          "29.6799 81.5892 0.807229"
           ,
-          "31.4456 81.5892 0.878077"
+          "31.3891 81.5892 0.853715"
         ]
       }
       ,
@@ -1174,7 +1174,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/PinchosA.mesh"
+          "mesh": "data/meshes/PinchosD.mesh"
           ,
           "materials":
           [
@@ -1219,7 +1219,7 @@
       ,
       "transform":
       {
-        "pos": "20.0687 67.5 12.736"
+        "pos": "20.0688 67.5 12.736"
         ,
         "rotation": "0.0 0.0267501 0.0 -0.999642"
       }
@@ -1257,11 +1257,11 @@
       "render":
       [
         {
-          "mesh": "data/meshes/PuertaA.mesh"
+          "mesh": "data/meshes/Puerta_Reja.mesh"
           ,
           "materials":
           [
-            "data/materials/Puerta_Cerrada_01.material"
+            "data/materials/RejaMate.material"
           ]
         }
       ]
@@ -1274,7 +1274,7 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/PuertaA.col_mesh"
+        "mesh_src": "data/meshes/Puerta_Reja.col_mesh"
       }
       ,
       "abs_aabb": true
@@ -1291,12 +1291,13 @@
           {
             "name": "sound"
             ,
-            "src": "event:/SFX/Object/Mechanics/Puerta_Madera"
+            "src": "event:/SFX/Object/Mechanics/Puerta_Reja"
             ,
             "positional": true
             ,
             "on_start": false
-          },
+          }
+          ,
           {
             "name": "sound_shut"
             ,

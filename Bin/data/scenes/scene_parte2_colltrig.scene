@@ -2,6 +2,35 @@
   {
     "entity":
     {
+      "name": "ArbolColl"
+      ,
+      "transform":
+      {
+        "pos": "2.93219 51.1299 32.4578"
+        ,
+        "rotation": "0.0 -0.0667748 0.0 -0.997768"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/ArbolColl.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "TSLucesCompresoras"
       ,
       "transform":
@@ -277,7 +306,7 @@
       ,
       "transform":
       {
-        "pos": "7.35362 40.5 -0.661121"
+        "pos": "7.35528 40.5 -0.658249"
         ,
         "rotation": "0.0 -0.258819 0.0 -0.965926"
       }
@@ -306,7 +335,7 @@
       ,
       "transform":
       {
-        "pos": "6.76206 45.0 -1.50562"
+        "pos": "6.762 45.0 -1.50573"
         ,
         "rotation": "0.0 -0.258819 0.0 -0.965926"
       }

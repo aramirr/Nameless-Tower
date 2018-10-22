@@ -44,7 +44,7 @@
           ,
           "materials":
           [
-            "data/materials/nieblaDMat.material"
+            "data/materials/nieblaBMat.material"
           ]
         }
       ]
@@ -72,7 +72,7 @@
           ,
           "materials":
           [
-            "data/materials/nieblaCMat.material"
+            "data/materials/nieblaAMat.material"
           ]
         }
       ]
@@ -144,7 +144,7 @@
       ,
       "transform":
       {
-        "pos": "18.0412 59.0852 22.0929"
+        "pos": "21.0343 58.4719 19.5746"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -837,7 +837,7 @@
       ,
       "transform":
       {
-        "pos": "19.7829 67.5 13.1349"
+        "pos": "19.7827 67.5 13.1345"
         ,
         "rotation": "0.0 -0.232888 0.0 -0.972504"
       }
@@ -852,6 +852,8 @@
             "data/materials/ParedModelo.material"
             ,
             "data/materials/ParedModeladaInteriores.material"
+            ,
+            "data/materials/ParedExteriorDentroMat.material"
           ]
         }
       ]
@@ -1069,7 +1071,7 @@
       ,
       "transform":
       {
-        "pos": "30.9271 90.0249 -1.68004"
+        "pos": "30.9308 90.0249 -1.68489"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -1125,7 +1127,7 @@
       ,
       "transform":
       {
-        "pos": "19.5205 76.525 -24.1264"
+        "pos": "19.5205 76.525 -24.1449"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -2674,36 +2676,6 @@
   {
     "entity":
     {
-      "name": "Object050"
-      ,
-      "transform":
-      {
-        "pos": "31.5705 74.25 8.41319"
-        ,
-        "rotation": "0.0 -0.232888 0.0 -0.972504"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Object050.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-            ,
-            "data/materials/ParedModeladaInteriores.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Sala_EstatuaFea_15"
       ,
       "transform":
@@ -3236,7 +3208,7 @@
   {
     "entity":
     {
-      "name": "Sala_EstatuaFea_64"
+      "name": "MuroCaretaTemplo"
       ,
       "transform":
       {
@@ -3248,7 +3220,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Sala_EstatuaFea_64.mesh"
+          "mesh": "data/meshes/MuroCaretaTemplo.mesh"
           ,
           "materials":
           [

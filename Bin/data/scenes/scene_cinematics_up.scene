@@ -6,7 +6,7 @@
       ,
       "transform":
       {
-        "pos": "29.1357 65.3904 6.94008"
+        "pos": "28.6325 66.0556 6.92171"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -98,6 +98,34 @@
         ,
         "automove": false
       }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Cubretodo"
+      ,
+      "transform":
+      {
+        "pos": "0.185489 54.25 -2.37134e-06"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Cubretodo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CubreTodoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
     }
   }
   ,

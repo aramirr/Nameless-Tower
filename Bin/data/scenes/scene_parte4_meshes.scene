@@ -2,23 +2,51 @@
   {
     "entity":
     {
-      "name": "Cubretodo"
+      "name": "Niebla018"
       ,
       "transform":
       {
-        "pos": "0.185489 54.25 -2.37134e-06"
+        "pos": "-23.3131 71.4439 -34.0445"
         ,
-        "rotation": "0.0 0.0 0.0 -1.0"
+        "rotation": "0.0 -1.0 0.0 0.0"
       }
       ,
       "render":
       [
         {
-          "mesh": "data/meshes/Cubretodo.mesh"
+          "mesh": "data/meshes/Niebla018.mesh"
           ,
           "materials":
           [
-            "data/materials/CubreTodoMat.material"
+            "data/materials/nieblaDMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla017"
+      ,
+      "transform":
+      {
+        "pos": "-23.3131 72.7485 -34.0445"
+        ,
+        "rotation": "0.0 -1.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla017.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaCMat.material"
           ]
         }
       ]
@@ -34,7 +62,7 @@
       ,
       "transform":
       {
-        "pos": "-23.3131 70.719 -34.0445"
+        "pos": "-23.3131 70.7191 -34.0445"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -62,7 +90,7 @@
       ,
       "transform":
       {
-        "pos": "-23.3131 72.0236 -34.0445"
+        "pos": "-23.3131 72.0237 -34.0445"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
