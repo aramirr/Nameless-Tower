@@ -124,6 +124,11 @@ void LogicManager::activateCredits()
 	cb_gui.creditos = true;
 }
 
+void LogicManager::desactivateCinematics()
+{
+	cb_gui.cinematica = false;
+}
+
 // Lights
 void LogicManager::setDirLightIntensity(const char* name, float value, bool left) {
     if (applyFunction(left))

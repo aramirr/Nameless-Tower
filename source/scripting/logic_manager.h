@@ -38,6 +38,7 @@ public:
 	void activateText(const char* name);
 	void disactivateText(const char* name);
 	void activateCredits();
+	void desactivateCinematics();
 
   // Lights
   void setDirLightIntensity(const char* name, float value, bool left);

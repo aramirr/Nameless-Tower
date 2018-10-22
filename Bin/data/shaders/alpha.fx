@@ -80,8 +80,8 @@ void VS_Tela(
 
     float2 cv = iTex0;
     //pv.y = iTex0.y + (.3 + cv.x) * pow(sin(cv.x * 6. - global_world_time * 6.0), 2.) * .032;
-    float unit_rand_val = ( 1 + sin( oPos.z ) );
-    pv.x = iTex0.x + cv.y * cos(cv.x - cv.y * 2. - global_world_time * unit_rand_val) * .05;
+    //float unit_rand_val = ( 1 + sin( oPos.z ) );
+    pv.x = iTex0.x + cv.y * cos(cv.x - cv.y * 2. - global_world_time * 1.5) * .05;
     oTex0 = pv;
     oTex1 = iTex1;
     oWorldPos = world_pos.xyz;

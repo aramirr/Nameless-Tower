@@ -330,6 +330,7 @@ function OnTriggerExitTSEstatuaWindstrike()
 	lm:delete_grass(7, true)
 
 	--both
+	lm:deactivate_cinematic_gui()
 	lm:update_grass_render()
 end
 
@@ -352,6 +353,8 @@ function OnTriggerExitTSWindstrikeEscaleras1()
 	lm:set_dir_light_intensity("LightDir04", 11, true)
 	lm:set_dir_light_intensity("LightDir02", 0, true)
 	--lm:set_dir_light_intensity("LightDir03", 0, true)
+
+	lm:deactivate_cinematic_gui()
 end		
 
 -- Sala 5-6
@@ -383,6 +386,8 @@ function OnTriggerExitTSEscaleras1Escaleras2()
 	--lm:set_dir_light_intensity("LightInteriorS4L", 0, true)
 	--lm:set_dir_light_intensity("LightInteriorS5", 0, true)	
 	lm:activate_cinematic("cinematic_sala_escaleras_2", true)
+
+	lm:deactivate_cinematic_gui()
 end
 
 -- Sala 6-7
@@ -418,6 +423,9 @@ function OnTriggerExitTSEscaleras2Pasillo()
 	lm:set_point_light_intensity("Luces_Fuego_06", 10, true)
 	lm:deactivate_cinematic("cinematic_sala_escaleras_2", true)
 	lm:start_emiter("hojas_jardin_1", true)
+
+
+	lm:deactivate_cinematic_gui()
 end
 
 -- Mitad Pasillo Compresoras
@@ -485,6 +493,7 @@ function OnTriggerExitTPTechosPuertas()
 
 	--both
 	lm:update_grass_render()
+	lm:deactivate_cinematic_gui()
 end
 
 -- Sala 8-9
@@ -517,6 +526,7 @@ function OnTriggerExitTSPuertasArbol()
 	lm:delete_grass(11, true)
 
 	lm:update_grass_render()
+	lm:deactivate_cinematic_gui()
 end
 
 function OnTriggerExitTPAves002()
@@ -599,6 +609,7 @@ function OnTriggerExitTSArbolRunner()
 
 	--both
 	lm:update_grass_render()
+	lm:deactivate_cinematic_gui()
 end
 
 function OnTriggerExitTSRunnerCascada()
@@ -749,6 +760,8 @@ function OnTriggerExitTSEscaleras1Escaleras2B()
 	lm:set_point_light_intensity("Luces_Fuego_01", 0, true)
 	lm:set_point_light_intensity("Luces_Fuego_02", 0, true)	
 	lm:activate_cinematic("cinematic_sala_escaleras_2", true)
+
+	lm:deactivate_cinematic_gui()
 end
 
 -- Sala 6-7
@@ -778,6 +791,8 @@ function OnTriggerExitTSEscaleras2PasilloB()
 	lm:set_point_light_intensity("Luces_Fuego_06", 10, true)
 	lm:deactivate_cinematic("cinematic_sala_escaleras_2", true)
 	--lm:start_emiter("hojas_jardin_1", true)
+
+	lm:deactivate_cinematic_gui()
 end
 -- Sala 7
 function OnTriggerExitTSLucesCompresorasB()
@@ -865,6 +880,8 @@ function OnTriggerExitTSJardinRunner()
 	lm:set_point_light_intensity("Luces_Fuego_09", 10, false)
 	lm:set_point_light_intensity("Luces_Fuego_010", 10, false)
 	--lm:stop_emiter("hojas_jardin_2", false)
+
+	lm:deactivate_cinematic_gui()
 
 
 
