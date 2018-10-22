@@ -79,7 +79,8 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
 
 void CAITorch::registerMsgs() {
 	DECL_MSG(CAITorch, TMsgDeactivateTorch, deactivate);
-	DECL_MSG(CAITorch, TMsgActivateTorch, activateMsg);
+    DECL_MSG(CAITorch, TMsgActivateTorch, activateMsg);
+    DECL_MSG(CAITorch, TMsgPuzzleComplete, completeMsg);
 }
 
 void CAITorch::ActiveState(float dt)
@@ -143,14 +144,16 @@ void CAITorch::activate() {
     render = true;    
     apagando = false;
 	TCompTransform* my_transform = getMyTransform();
-	if (violeta)
-		EngineBillboards.encenderFuegoVioleta(id, scale, thin);
-	else if (azul) {
-		EngineBillboards.encenderFuegoAzul(id, scale);
-	}
-	else
-		EngineBillboards.encenderFuego(id, scale, thin);
-	ChangeState("active");
+    if (!puzzle_complete) {
+        if (violeta)
+            EngineBillboards.encenderFuegoVioleta(id, scale, thin);
+        else if (azul) {
+            EngineBillboards.encenderFuegoAzul(id, scale);
+        }
+        else
+            EngineBillboards.encenderFuego(id, scale, thin);
+        ChangeState("active");
+    }	
 }
 
 void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
@@ -176,10 +179,14 @@ void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
 	}
 }
 
+void CAITorch::completeMsg(const TMsgPuzzleComplete& msg) {
+    puzzle_complete = true;
+}
+
 void CAITorch::activateMsg(const TMsgActivateTorch& msg) {
-	if (!active || !render) {
-		activate();       
-	}
+    if (!active || !render) {
+        activate();
+    }
 }
 
 void CAITorch::simulateLight() {

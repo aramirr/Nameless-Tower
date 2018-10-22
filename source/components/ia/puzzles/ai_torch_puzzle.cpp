@@ -55,6 +55,10 @@ void CAITorchPuzzle::CompleteState(float dt)
         door1->sendMsg(msg);
         complete = true;
         EngineSound.emitEvent("puzzle");
+        for (auto torch : torchs) {            
+            TMsgPuzzleComplete msg;
+            torch->sendMsg(msg);
+        }
     }
 }
 

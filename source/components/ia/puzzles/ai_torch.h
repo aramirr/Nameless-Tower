@@ -19,7 +19,8 @@ class CAITorch : public IAIController
   float x_offset = 0.f;
   float z_offset = 0.f;
   bool apagando = false;
-	bool apagado = false;
+  bool apagado = false;
+  bool puzzle_complete = false;
 	bool initialized = false;
 	float timer_limit;
 	float current_delay;
@@ -59,6 +60,7 @@ public:
   void activate();
   void deactivate(const TMsgDeactivateTorch& msg);
   void activateMsg(const TMsgActivateTorch& msg);
+  void completeMsg(const TMsgPuzzleComplete& msg);
 
   MAT44 getWorld();
   void renderDebug();
