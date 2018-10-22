@@ -33,5 +33,22 @@
 				"trigger_type": "runner_disappear"
 			}
 		}
+	},
+	{
+		"entity": {
+			"name": "RunnerDisappearFinal",
+			"transform": {
+				"pos": "-27.741 4.5 14.922"
+			},
+			"render" : [],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "runner_disappear"
+			}
+		}
 	}
 ]

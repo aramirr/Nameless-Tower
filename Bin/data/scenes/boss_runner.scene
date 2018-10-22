@@ -272,13 +272,13 @@
 		    			"pos": "23.371 62.993 21.120",
 		    			"id": 34,
 		    			"type": "floor",
-		    			"neighbours": ["35","33"]
+		    			"neighbours": ["107","33"]
 		    		},
 		    		{
 		    			"pos": "15.825 58.694 27.236",
 		    			"id": 35,
 		    			"type": "floor",
-		    			"neighbours": ["34"]
+		    			"neighbours": ["106"]
 		    		},
 
 
@@ -704,6 +704,24 @@
 		    			"id": 104,
 		    			"type": "edge",
 		    			"neighbours": ["99","100"]
+		    		},
+		    		{
+		    			"pos": "-30.704 8.538 7.038",
+		    			"id": 105,
+		    			"type": "floor",
+		    			"neighbours": ["104"]
+		    		},		    		
+		    		{
+		    			"pos": "18.058 59.976 25.81",
+		    			"id": 106,
+		    			"type": "floor",
+		    			"neighbours": ["35", "107"]
+		    		},
+		    		{
+		    			"pos": "21.467 61.974 23.034",
+		    			"id": 107,
+		    			"type": "floor",
+		    			"neighbours": ["106", "34"]
 		    		}
 	    		]
 		    }		 	    	

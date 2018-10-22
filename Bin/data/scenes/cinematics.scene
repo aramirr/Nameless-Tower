@@ -202,7 +202,7 @@
 		}
 	},{
 		"entity": {
-			"name": "camara_finalF",
+			"name": "camara_cinematica_finalF",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"				
@@ -217,7 +217,7 @@
 		}
 	},{
 		"entity": {
-			"name": "camara_antorchasA",
+			"name": "camara_cinematica_antorchasA",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"				
@@ -232,7 +232,7 @@
 		}
 	},{
 		"entity": {
-			"name": "camara_antorchasB",
+			"name": "camara_cinematica_antorchasB",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"				
@@ -275,16 +275,16 @@
 			{				
 				"splines": [
 					{
-					"time": 3,
+					"time": 8.333,
 					"blend_time": 0.5,
 					"spline_name": "CamaraAntorchasA",
-					"camera_name" : "camara_antorchasA"
+					"camera_name" : "camara_cinematica_antorchasA"
 					},
 					{
 					"time": 4.5,
-					"blend_time": 1.5,
+					"blend_time": 1,
 					"spline_name": "CamaraAntorchasB",
-					"camera_name" : "camara_antorchasB"
+					"camera_name" : "camara_cinematica_antorchasA"
 					}
 				]
 			}
@@ -636,6 +636,7 @@
 			"fov" : 80,
 			"zNear": 0 
 		},
+	    "culling":true,
 		"hierarchy":{
 	        "parent": "CamaraMonolitoA"
 	    }		
@@ -652,6 +653,7 @@
 			"fov" : 80,
 			"zNear": 0 
 		},
+	    "culling":true,
 		"hierarchy":{
 	        "parent": "CamaraMonolitoB"
 	    }		
@@ -668,6 +670,7 @@
 			"fov" : 80,
 			"zNear": 0 
 		},
+	    "culling":true,
 		"hierarchy":{
 	        "parent": "CamaraMonolitoC"
 	    }		
@@ -684,6 +687,7 @@
 			"fov" : 80,
 			"zNear": 0 
 		},
+	    "culling":true,
 		"hierarchy":{
 	        "parent": "CamaraMonolitoD"
 	    }		
@@ -700,6 +704,7 @@
 			"fov" : 80,
 			"zNear": 0 
 		},
+	    "culling":true,
 		"hierarchy":{
 	        "parent": "CamaraMonolitoE"
 	    }		

@@ -125,11 +125,13 @@ void CModuleTower::update(float delta)
 		}
 		else if (timer_runner >= 5.f && !destroy_monolito) {
 			destroy_monolito = true;
-			activateAnim("Monolito_001", 0);
+			activateAnim("Monolito_001", 0.01f);
 			EngineSound.emitDelayedEvent(0, "monolito_destruccion");
 		}
 
 		else if (timer_runner >= 10.667 && !build_runner) {
+			cb_globals.global_naja_interior = 1;
+			//cb_globals.global_runner_interior = 1;
 			CEntity* e = getEntityByName("The Player");
 			TCompPlayerController* player = e->get<TCompPlayerController>();
 			/*if (player->game_state == "level_1") {
@@ -137,7 +139,7 @@ void CModuleTower::update(float delta)
 				player->game_state = "level_2";
 			}*/
 			build_runner = true;
-			activateAnim("Runner_father", 0);
+			activateAnim("Runner_father", 0.01f);
 		}
 		else if (timer_runner >= 26.667 && !changed_runner_mesh) {
 			changed_runner_mesh = true;
@@ -178,12 +180,14 @@ void CModuleTower::update(float delta)
 	}
 
 	if (change_level) {
+		setFadeOutAdjustment(10.f);
 		CEntity* e = getEntityByName("The Player");
 		TCompPlayerController* player = e->get<TCompPlayerController>();
 		if (player->game_state == "level_1") {
 			CEngine::get().getModules().changeGameState("level_2");
 			player->game_state = "level_2";
 		}
+		setFadeOutAdjustment(0.f);
 		activate_runner = true;
 	}
 }
