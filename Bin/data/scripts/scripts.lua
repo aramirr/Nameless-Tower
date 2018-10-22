@@ -67,7 +67,7 @@ function OnLevel2Start()
 	--lm:set_exposure(0.36)
 	lm:stop_sound(true, "ambient")
 	lm:stop_sound(false, "ambient")
-	lm:play_ambient_night()
+	--lm:play_ambient_night()
 	lm:set_dir_light_intensity("LightDir00", 0, false)
 	lm:set_dir_light_intensity("LightDir01", 0, false)
 	lm:set_dir_light_intensity("LightDir02", 0, false)
@@ -611,6 +611,14 @@ function OnTriggerExitTSCascadaAntorchas()
 	lm:update_grass_render()
 end
 
+function OnTriggerExitTSSalaMonolito()
+	lm:render_only_shadows("ParedTapada12", true)
+	lm:play_ambient_sound(true)
+
+	lm:play_interior_sound(false)
+	lm:render_everything("ParedTapada12", false)
+end
+
 -- NIVEL BAJADA
 
 
@@ -803,22 +811,18 @@ function OnTriggerExitTSRunnerLava()
 end
 
 function OnTriggerExitTSCascadaAntorchasB()
-	--lm:render_only_shadows("ParedDestapada12", true)
-	lm:render_everything("ParedTapada12B", true)
-	lm:set_dir_light_intensity("LightDir11", 11, true)
-	lm:set_dir_light_intensity("LightDir12", 11, true)
+	lm:render_everything("ParedTapada12", true)
+	lm:set_dir_light_intensity("LightDir11", 10, true)
+	lm:set_dir_light_intensity("LightDir12", 10, true)
 	lm:set_point_light_intensity("Luces_Fuego_011", 0, true)
 	lm:set_point_light_intensity("Luces_Fuego_012", 0, true)
-	--lm:set_dir_light_intensity("LightInteriorSSalaFinal", 0, true)
 	lm:play_ambient_sound(true)
 	lm:play_sound(true, "lava")
 
 	
 	lm:stop_sound(false, "lava")
 	lm:play_interior_sound(false)
-	--lm:render_everything("ParedDestapada12", false)
-	lm:render_only_shadows("ParedTapada12B", false)
-	lm:change_level("level_2")
+	lm:render_only_shadows("ParedTapada12", false)
 	lm:set_dir_light_intensity("LightDir11", 0, false)
 	lm:set_dir_light_intensity("LightDir12", 0, false)
 	lm:set_point_light_intensity("Luces_Fuego_011", 10, false)
@@ -826,19 +830,10 @@ function OnTriggerExitTSCascadaAntorchasB()
 end
 
 
-function OnTriggerEnterTSCascadaArribaB()
-	--lm:render_everything("ParedDestapada12", true)
-	lm:render_only_shadows("ParedTapada12B", true)
-	--lm:hide_mesh("ParedDestapada13", true)
-	lm:unhide_mesh("ParedTapada13B", true)
-	lm:set_point_light_intensity("Luces_Fuego_011", 10, true)
-	lm:set_point_light_intensity("Luces_Fuego_012", 10, true)
-	--lm:set_dir_light_intensity("LightInteriorSSalaFinal", 1, true)
+function OnTriggerExitTSSalaMonolitoB()
+	lm:render_only_shadows("ParedTapada12", true)
 	lm:play_ambient_sound(true)
 
 	lm:play_interior_sound(false)
-	--lm:render_only_shadows("ParedDestapada12", false)
-	lm:render_everything("ParedTapada12B", false)
-	--lm:render_everything("ParedDestapada13", false)
-	lm:render_only_shadows("ParedTapada13B", false)
+	lm:render_everything("ParedTapada12", false)
 end
