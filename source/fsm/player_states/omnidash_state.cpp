@@ -122,7 +122,6 @@ namespace FSM
 		ctx.setVariable("omnidash", false);
         CEntity* e_player = (CEntity*)getEntityByName("The Player");
 		TCompPlayerController* player = e_player->get<TCompPlayerController>();        
-        player->change_animation(player->EAnimations::NajaJumpLoop, false, 0, 0.1, true);
         player->previous_state = "omnidash";
 		player->y_speed_factor = 0;
 		EngineTimer.setTimeSlower(1.f);
@@ -157,8 +156,7 @@ namespace FSM
         float current_roll;
         c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch, &current_roll);
         ctx1.root_transform = *(TCompTransform*)c_my_transform;
-        current_yaw = player->looking_left ? current_yaw - deg2rad(90) : current_yaw + deg2rad(90);
-        
+        current_yaw = player->looking_left ? current_yaw - deg2rad(90) : current_yaw + deg2rad(90);        
         current_roll = current_roll + player->omni_angle;        
         ctx1.root_transform.setYawPitchRoll(current_yaw, current_pitch, current_roll);
 		ctx1.front = -omni_vector;

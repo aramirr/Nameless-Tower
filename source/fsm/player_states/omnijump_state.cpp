@@ -15,6 +15,7 @@ namespace FSM
 		TCompTransform* c_my_transform = e->get<TCompTransform>();
 		player->jumping_start_height = c_my_transform->getPosition().y;
         player->y_speed_factor = _y_speed;
+        player->change_animation(player->EAnimations::NajaJumpLoop, false, 0.01, 0.01, false);
         _sound->start();
         TCompSound* sound = e->get<TCompSound>();
         sound->playSound("windstrike");
@@ -85,6 +86,8 @@ namespace FSM
 
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 			ctx.setVariable("idle", true);
+            player->change_animation(player->EAnimations::NajaJumpLoop, false, 0.01, 0.01, false);
+
 		}
 
 		return false;
@@ -93,7 +96,7 @@ namespace FSM
 	void OmnijumpState::onFinish(CContext& ctx) const {
 		ctx.setVariable("omnijump", false);
 		CEntity* e = ctx.getOwner();
-		TCompPlayerController* player = e->get<TCompPlayerController>();
+		TCompPlayerController* player = e->get<TCompPlayerController>();   
 		player->y_speed_factor = 0;
         player->previous_state = "omnijump";
 	}
