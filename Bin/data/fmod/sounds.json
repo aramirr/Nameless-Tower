@@ -12,7 +12,7 @@
 		{"name": "puerta_reja", "src": "event:/SFX/Object/Mechanics/Puerta_Reja", "positional": true, "on_start": false},
 		{"name": "lava", "src": "event:/Ambience/Lava", "positional": false, "on_start": false},
 		{"name": "activador_movil", "src": "event:/SFX/Object/Mechanics/Activable", "positional": true, "on_start": false},
-		{"name": "loros", "src": "event:/SFX/Object/Scene/Loros", "positional": true, "on_start": false},
+		{"name": "loros", "src": "event:/SFX/Object/Scene/Loros", "positional": true, "on_start": true},
 		{"name": "cinematica_intro", "src": "event:/Cinematicas/Intro", "positional": false, "on_start": false},
 		{"name": "naja_scare", "src": "event:/Cinematicas/Naja_Scare", "positional": false, "on_start": false},
 		{"name": "naja_monolito", "src": "event:/Cinematicas/Naja_Monolito", "positional": false, "on_start": false},
