@@ -72,7 +72,7 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
 	initial_radius = radius;
 	render = j.value("render", true);
 	frames = j.value("frames", 0.45f);
-	smoke_frames = j.value("smoke_frames", 0.45f);
+	smoke_frames = j.value("smoke_frames", 0.95f);
     delay = 7.f;
 	Init();
 }
