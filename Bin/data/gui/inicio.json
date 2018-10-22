@@ -1,5 +1,13 @@
 [
 	{
+		"name" : "fadeOut",
+		"type" : "image",
+		"size" : "1920 1050",
+		"texture" : "data/textures/gui/Pantalla_negra.dds",
+		"minUV" : "0 0",
+		"maxUV" : "1 1"
+	},
+	{
 		"name" : "barras_cinematicas",
 		"type" : "image",
 		"size" : "1920 1050",
