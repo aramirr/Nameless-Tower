@@ -62,11 +62,6 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
       CEntity* e_collider_entity = (CEntity*)getEntityByName("Runner");
       e_collider_entity->sendMsg(appear_msg);
     }
-    else if (trigger_type == "runner_disappear") {
-      TMsgRunnerDisappear disappear_msg;
-      CEntity* e_collider_entity = (CEntity*)getEntityByName("Runner");
-      e_collider_entity->sendMsg(disappear_msg);
-    }
     else if (trigger_type == "compresora") {
       CEntity* e = h_entity;
       TMsgPlayerIn msg_in;
@@ -92,6 +87,13 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
       e_other_entity->sendMsg(destroy_msg);
 			CEntity* e_collider_entity = (CEntity*)getEntityByName(collider_entity);
 			e_collider_entity->sendMsg(deactivate_msg);
+		}
+	}
+	else if (other_entity_name == "Runner") {
+		if (trigger_type == "runner_disappear") {
+			TMsgRunnerDisappear disappear_msg;
+			CEntity* e_collider_entity = (CEntity*)getEntityByName("Runner");
+			e_collider_entity->sendMsg(disappear_msg);
 		}
 	}
 }

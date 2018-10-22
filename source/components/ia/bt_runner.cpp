@@ -20,7 +20,8 @@ void bt_runner::appear(const TMsgRunnerAppear& msg) {
 
 void bt_runner::disappear(const TMsgRunnerDisappear& msg) {
 	b_disappear = true;
-	dbg("JUANA DE ARCO\n");
+	anim_state = "idle";
+	change_animation(ERunnerAnimations::RunnerIdle, false, 0.f, 0.f, true);
 	setCurrent(NULL);
 }
 
@@ -281,6 +282,7 @@ int bt_runner::actionAppear() {
 
   return LEAVE;
 };
+
 
 int bt_runner::actionHide() {
 	//dbg("hide\n");
