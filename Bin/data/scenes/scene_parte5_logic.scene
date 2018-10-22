@@ -1113,25 +1113,7 @@
       }
       ,
       "render":
-      [
-        {
-          "mesh": "data/meshes/DestruibleC.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/puenteRoto.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-      ]
+      []
       ,
       "rigid_anim":
       {
@@ -1233,25 +1215,7 @@
       }
       ,
       "render":
-      [
-        {
-          "mesh": "data/meshes/DestruibleB.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/puenteRoto.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-      ]
+      []
       ,
       "rigid_anim":
       {
