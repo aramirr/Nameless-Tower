@@ -261,6 +261,8 @@ bool CApp::createWindow(HINSTANCE new_hInstance, int nCmdShow) {
 		DestroyIcon(hWindowIconBig);
 
 
+	::SetWindowPos(hWnd, 0, 0, 0, xres, yres, SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE);
+
 		hWindowIcon = (HICON)LoadImage(NULL, "data/textures/gui/PaiIcono.ico", IMAGE_ICON, 16, 16, LR_LOADFROMFILE);
 		hWindowIconBig = (HICON)LoadImage(NULL, "data/textures/gui/PaiIcono.ico", IMAGE_ICON, 32, 32, LR_LOADFROMFILE);
 		SendMessage(hWnd, WM_SETICON, ICON_SMALL, (LPARAM)hWindowIcon);

@@ -61,6 +61,7 @@ bool CModuleGUI::start()
 	registerController(odc);
 	setOmindash(false);
 
+	activateWidget("fadeOut");
 	return true;
 }
 
@@ -91,6 +92,7 @@ void CModuleGUI::update(float delta)
 
 				timer = 3.f;
 				firstTime = false;
+				desactivateWidget("fadeOut");
 				activateWidget("splashNvidia");
 				nvidia = true;
 				upf = false;
@@ -117,25 +119,25 @@ void CModuleGUI::update(float delta)
 			else {
 				desactivateWidget("splash3DMax");
 				activateWidget("pantallaInicio");
-				timer = 1.f;
+				timer = 0.5f;
 				splash = false;
 				mainMenu = true;
 			}
 		}
 	}
 	else if(mainMenu) {
-		changeResolution(Render.width, Render.height);
-		if (Render.width == 1920 && Render.height == 1080)setResolutionOption(2, 0);
-		if (Render.width == 1600 && Render.height == 900)setResolutionOption(2, 1);
-		if (Render.width == 1280 && Render.height == 960)setResolutionOption(2, 2);
-		if (Render.width == 1366 && Render.height == 768)setResolutionOption(3, 0);
-		if (Render.width == 1280 && Render.height == 720)setResolutionOption(3, 1);
-		if (Render.width == 1024 && Render.height == 768)setResolutionOption(3, 2);
 		if (delta < 1.0f) timer -= delta;
 		if (timer <= 0.f) {
+			changeResolution(Render.width, Render.height);
 			registerController(mmc);
 			mainMenu = false;
 			ShowCursor(true);
+			if (Render.width == 1920 && Render.height == 1080)setResolutionOption(2, 0);
+			if (Render.width == 1600 && Render.height == 900)setResolutionOption(2, 1);
+			if (Render.width == 1280 && Render.height == 960)setResolutionOption(2, 2);
+			if (Render.width == 1366 && Render.height == 768)setResolutionOption(3, 0);
+			if (Render.width == 1280 && Render.height == 720)setResolutionOption(3, 1);
+			if (Render.width == 1024 && Render.height == 768)setResolutionOption(3, 2);
 		}
 	}
 
