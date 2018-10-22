@@ -111,7 +111,7 @@ namespace RigidAnims {
     }
 
     void CRigidAnimResource::onFileChanged(const std::string& filename) {
-				if (filename != "data/textures/gui")
+				//if (filename != "data/textures/gui") //GUARRA LEO
 					create(filename);
     }
 
