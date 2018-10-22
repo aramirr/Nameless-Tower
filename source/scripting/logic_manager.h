@@ -32,6 +32,7 @@ public:
 	void unloadScene(std::string name);
 	void setVignettingAdjustment(float value, bool left);
 	void setFadeOutAdjustment(float value, bool left);
+	void fundidoNegroFinal();
 
   // UI
 	void activateText(const char* name);

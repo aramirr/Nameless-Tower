@@ -22,7 +22,9 @@
 		{"name": "cinematica_intro", "src": "event:/Cinematicas/Intro", "positional": false, "on_start": false},
 		{"name": "naja_scare", "src": "event:/Cinematicas/Naja_Scare", "positional": false, "on_start": false},
 		{"name": "naja_monolito", "src": "event:/Cinematicas/Naja_Monolito", "positional": false, "on_start": false},
-		{"name": "monolito_destruccion", "src": "event:/Cinematicas/Monolito_Destruccion_Runner", "positional": false, "on_start": false}
+		{"name": "monolito_destruccion", "src": "event:/Cinematicas/Monolito_Destruccion_Runner", "positional": false, "on_start": false},
+		{"name": "cinematica_final", "src": "event:/Music/Musica_Batalla_Final", "positional": false, "on_start": false},
+		{"name": "creditos", "src": "event:/Music/Musica_Final_Creditos", "positional": false, "on_start": false}
 	]
 	    
 }

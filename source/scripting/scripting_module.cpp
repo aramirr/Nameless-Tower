@@ -73,8 +73,10 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("play_delayed_sound", &LogicManager::playDelayedSound)
 		.set("delete_scene", &LogicManager::unloadScene)
 		.set("load_scene", &LogicManager::loadScene)
+		.set("fundido_a_negro_final", &LogicManager::fundidoNegroFinal)
 		;
 }
+
 
 void ScriptingModule::ExecEvent(ScriptEvents e, vector<string> params) {
 	/*switch (e) {

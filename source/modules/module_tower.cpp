@@ -214,6 +214,19 @@ void CModuleTower::update(float delta)
 			change_level = false;
 		}
 	}
+
+	if (end_game) {
+		timer_end += delta;
+		if (timer_end >= 12.5f) {
+			cb_globals.global_fadeOut_adjustment = 10.f;
+			EngineUI.activateWidget("fadeOut");
+		}
+		if (timer_end >= 14.f) {
+			end_game = false;
+			cb_globals.global_fadeOut_adjustment = 0.f;
+			EngineUI.desactivateWidget("fadeOut");
+		}
+	}
 }
 
 void CModuleTower::render()
@@ -409,3 +422,7 @@ void CModuleTower::activateRunner() {
 	timer_runner = 0.f;
 }
 
+void CModuleTower::endGame() {
+	timer_end = 0.f;
+	end_game = true;
+}
