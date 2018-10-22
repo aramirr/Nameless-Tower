@@ -177,9 +177,9 @@ void TCompSkeleton::updateCtesBones() {
   cb_bones.updateGPU();
 }
 
-void TCompSkeleton::removeAnimation(int id_amimation) {
+void TCompSkeleton::removeAnimation(int id_amimation, float delay) {
 	auto mixer = model->getMixer();
-	mixer->clearCycle(id_amimation, 0.01f);
+	mixer->clearCycle(id_amimation, delay);
 }
 
 void TCompSkeleton::playAnimation(int id_amimation, bool is_action, float in_delay, float out_delay, bool clear = true) {

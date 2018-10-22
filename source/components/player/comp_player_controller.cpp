@@ -92,12 +92,12 @@ void TCompPlayerController::change_animation(int animation_id, bool is_action, f
 	skeleton->playAnimation(animation_id, is_action, in_delay, out_delay, clear);
 }
 
-void TCompPlayerController::remove_animation(int animation_id) {
+void TCompPlayerController::remove_animation(int animation_id, float delay) {
 	CEntity* e = h_entity;
 	TCompSkeleton* skeleton = e->get<TCompSkeleton>();
 	assert(skeleton);
 
-	skeleton->removeAnimation(animation_id);
+	skeleton->removeAnimation(animation_id, delay);
 }
 
 void TCompPlayerController::clear_animations(float out_delay) {

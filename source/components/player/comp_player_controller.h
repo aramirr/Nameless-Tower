@@ -89,7 +89,7 @@ public:
   void load(const json& j, TEntityParseContext& ctx);
 	void change_animation(int animation_id, bool is_action, float in_delay, float out_delay, bool clear);
 	void clear_animations(float out_delay);
-	void remove_animation(int animation_id);
+	void remove_animation(int animation_id, float delay = 0.1);
 
 
 	void move_player(bool left, bool change_orientation, float dt, float y_speed, float x_speed);

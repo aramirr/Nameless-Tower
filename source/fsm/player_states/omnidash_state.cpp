@@ -11,18 +11,16 @@ namespace FSM
 	{
 		ctx.setVariable("can_omni", false);
 		CEntity* e = ctx.getOwner();
-		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->anim1 = calculateAnimation(e);
-    player->remove_animation(player->EAnimations::NajaJumpLoop);
-		player->change_animation(player->anim1, _is_action, _delay_in, _delay_out, false);
+		TCompPlayerController* player = e->get<TCompPlayerController>();        
+        player->anim1 = calculateAnimation(e);
+        player->change_animation(player->anim1, _is_action, _delay_in, _delay_out, true);
+        player->anim2 = -1;                
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		player->jumping_start_height = c_my_transform->getPosition().y;
 		player->omnidash_time = 0;
 		EngineTimer.setTimeSlower(0.25f);
 		EngineUI.setOmindash(true);
-
 		CEntity* o_camera = EngineCameras.getOutputCamera();
-
 		TCompCamera* c_camera = o_camera->get< TCompCamera >();
 
         VEC2 player_center = VEC2(player->player_position.x, player->player_position.y);
@@ -33,7 +31,7 @@ namespace FSM
 			c_render_blur_radial->setActive(true);
 		}
 
-		_mouseStartPosition = EngineInput.mouse()._position;
+		_mouseStartPosition = EngineInput.mouse()._position;       
 	}
 
 	bool OmnidashState::load(const json& jData)
@@ -67,15 +65,19 @@ namespace FSM
 		if (!EngineInput["omnidash"].isPressed() || player->omnidash_time > _omnidash_max_time) {
 			ctx.setVariable("omnijump", true);
 		}
-
 		int anim = calculateAnimation(e);
-		if (player->anim2 != anim) {
-			if (player->anim2 != -1)
-				player->remove_animation(player->anim2);
-			player->anim2 = player->anim1;
-			player->anim1 = anim;
-			player->change_animation(player->anim1, _is_action, _delay_in, _delay_out, false);
-		}
+        if (anim != player->anim1) {
+            if (player->anim2 != anim) {
+                if (player->anim2 != -1) {                    
+                    player->remove_animation(player->anim2);
+                    player->remove_animation(player->EAnimations::NajaJumpLoop, 0.001);
+                }                    
+                player->anim2 = player->anim1;
+                player->anim1 = anim;
+                player->change_animation(player->anim1, _is_action, _delay_in, _delay_out, false);
+            }
+        }
+		
 		return false;
 	}
 
@@ -119,7 +121,8 @@ namespace FSM
 	void OmnidashState::onFinish(CContext& ctx) const {
 		ctx.setVariable("omnidash", false);
         CEntity* e_player = (CEntity*)getEntityByName("The Player");
-		TCompPlayerController* player = e_player->get<TCompPlayerController>();
+		TCompPlayerController* player = e_player->get<TCompPlayerController>();        
+        player->change_animation(player->EAnimations::NajaJumpLoop, false, 0, 0.1, true);
         player->previous_state = "omnidash";
 		player->y_speed_factor = 0;
 		EngineTimer.setTimeSlower(1.f);

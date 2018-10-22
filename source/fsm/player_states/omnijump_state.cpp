@@ -15,7 +15,6 @@ namespace FSM
 		TCompTransform* c_my_transform = e->get<TCompTransform>();
 		player->jumping_start_height = c_my_transform->getPosition().y;
         player->y_speed_factor = _y_speed;
-        player->clear_animations(0);
         _sound->start();
         TCompSound* sound = e->get<TCompSound>();
         sound->playSound("windstrike");
