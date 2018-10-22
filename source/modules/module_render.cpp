@@ -353,6 +353,13 @@ void CModuleRender::generateFrame() {
 	}
 
 	{
+		CEntity* e_camera = getEntityByName("camera_orbit_IZQ");
+		TCompCamera* c_camera = e_camera->get< TCompCamera >();
+		CCamera* cam = c_camera;
+		activateCamera(*cam, 1920, 1080);
+	}
+
+	{
 		PROFILE_FUNCTION("GUI");
 		CTraceScoped gpu_scope("GUI");
 

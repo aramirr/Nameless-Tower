@@ -166,7 +166,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			PxReal maxDistance = 4.0f;
 			PxRaycastBuffer hit;
 
-			if (EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) {
+			if ((EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) || (EnginePhysics.gScene->raycast(originb, unitDirb, maxDistance / 2, hit))) {
 				PxFilterData filter_data = hit.block.shape->getSimulationFilterData();
 
 				if (filter_data.word0 == CModulePhysics::FilterGroup::Scenario) {
@@ -180,18 +180,32 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 					e = (CEntity*)getEntityByName("camera_look_down");
 					e->sendMsg(msg);
 				}
+				else {
+					CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
+					rayWall = false;
+					TMsgActiveCamera msg;
+					msg.blend_time = 2.f;
+					e->sendMsg(msg);
+					e = (CEntity*)getEntityByName("camera_look_up");
+					e->sendMsg(msg);
+					e = (CEntity*)getEntityByName("camera_look_down");
+					e->sendMsg(msg);
+				}
 
 			}
-			else if (rayWall && !EnginePhysics.gScene->raycast(originb, unitDirb, maxDistance / 2, hit)) {
-				CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
-				rayWall = false;
-				TMsgActiveCamera msg;
-				msg.blend_time = 2.f;
-				e->sendMsg(msg);
-				e = (CEntity*)getEntityByName("camera_look_up");
-				e->sendMsg(msg);
-				e = (CEntity*)getEntityByName("camera_look_down");
-				e->sendMsg(msg);
+			else  {
+				//if (rayWall && filter_data.word0 != CModulePhysics::FilterGroup::Scenario) {
+					CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
+					rayWall = false;
+					TMsgActiveCamera msg;
+					msg.blend_time = 2.f;
+					e->sendMsg(msg);
+					e = (CEntity*)getEntityByName("camera_look_up");
+					e->sendMsg(msg);
+					e = (CEntity*)getEntityByName("camera_look_down");
+					e->sendMsg(msg);
+				//}
+				
 			}
 
 			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, query_filter, filter_controller));

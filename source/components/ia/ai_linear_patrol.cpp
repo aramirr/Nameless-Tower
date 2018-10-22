@@ -93,45 +93,46 @@ void CAILinearPatrol::NextWaypointState()
 
 void CAILinearPatrol::MoveToWaypointState(float dt)
 {
-	TCompTransform *mypos = getMyTransform();
-	VEC3 wppos = getWaypoint();
-	VEC3 my_pos = mypos->getPosition();
-	VEC3 dir = wppos - mypos->getPosition();
-	dir.Normalize();
-	VEC3 new_pos = mypos->getPosition() + (speed) * dir * DT;
-	mypos->setPosition(new_pos);
+	if (DT < 1.f) {
+		TCompTransform *mypos = getMyTransform();
+		VEC3 wppos = getWaypoint();
+		VEC3 my_pos = mypos->getPosition();
+		VEC3 dir = wppos - mypos->getPosition();
+		dir.Normalize();
+		VEC3 new_pos = mypos->getPosition() + (speed)* dir * DT;
+		mypos->setPosition(new_pos);
 
-	
-	TCompCollider* comp_collider = get<TCompCollider>();
-	if (comp_collider)
-	{
-		PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
-		PxTransform tr = rigidActor->getGlobalPose();
-		tr.p = PxVec3(new_pos.x, new_pos.y, new_pos.z);
-		rigidActor->setGlobalPose(tr);
+
+		TCompCollider* comp_collider = get<TCompCollider>();
+		if (comp_collider)
+		{
+			PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
+			PxTransform tr = rigidActor->getGlobalPose();
+			tr.p = PxVec3(new_pos.x, new_pos.y, new_pos.z);
+			rigidActor->setGlobalPose(tr);
+		}
+
+		if (attached.isValid()) {
+			CEntity* e = attached;
+			assert(e);
+			TCompCollider *player_collider = e->get< TCompCollider >();
+			TCompTransform *player_transform = e->get< TCompTransform >();
+			VEC3 delta_pos = new_pos - my_pos;
+
+			PxShape* player_shape;
+			player_collider->controller->getActor()->getShapes(&player_shape, 1);
+			PxFilterData filter_data = player_shape->getSimulationFilterData();
+			ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
+			BasicQueryFilterCallback * query_filter = new BasicQueryFilterCallback();
+			player_collider->controller->move(PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, DT, PxControllerFilters(&filter_data, query_filter, filter_controller));
+		}
+
+		if (VEC3::Distance(getWaypoint(), mypos->getPosition()) <= 0.25f)
+		{
+			acum_delay = 0;
+			ChangeState("wait_state");
+		}
 	}
-
-	if (attached.isValid()) {
-		CEntity* e = attached;
-		assert(e);
-		TCompCollider *player_collider = e->get< TCompCollider >();
-		TCompTransform *player_transform = e->get< TCompTransform >();
-		VEC3 delta_pos = new_pos - my_pos;
-
-		PxShape* player_shape;
-		player_collider->controller->getActor()->getShapes(&player_shape, 1);
-		PxFilterData filter_data = player_shape->getSimulationFilterData();
-		ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
-		BasicQueryFilterCallback * query_filter = new BasicQueryFilterCallback();
-		player_collider->controller->move(PxVec3(delta_pos.x, delta_pos.y, delta_pos.z), 0.f, DT, PxControllerFilters(&filter_data, query_filter, filter_controller));
-	}
-
-	if (VEC3::Distance(getWaypoint(), mypos->getPosition()) <= 0.25f)
-	{
-		acum_delay = 0;
-		ChangeState("wait_state");
-	}
-	
 }
 
 void CAILinearPatrol::SleepState(float dt)

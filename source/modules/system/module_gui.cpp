@@ -78,7 +78,7 @@ bool CModuleGUI::stop()
 
 void CModuleGUI::update(float delta)
 {
-	if (EngineInput[VK_F5].getsPressed())activateWidget("pantallaCreditos");
+	//if (EngineInput[VK_F5].getsPressed())activateWidget("pantallaCreditos");
 	if (splash) {
 		
 		
@@ -135,6 +135,10 @@ void CModuleGUI::update(float delta)
 		if (timer <= 0.f) {
 			registerController(mmc);
 			mainMenu = false;
+			HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/PaiCursor.cur"); //.cur or .ani
+			SetCursor(Cursor);
+			HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+			SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
 			ShowCursor(true);
 			if (Render.width == 1920 && Render.height == 1080) {
 				setResolutionOption(2, 0);
