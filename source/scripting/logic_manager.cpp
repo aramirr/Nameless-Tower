@@ -119,6 +119,11 @@ void LogicManager::disactivateText(const char* name) {
 	EngineUI.desactivateWidget(s);
 }
 
+void LogicManager::activateCredits()
+{
+	cb_gui.creditos = true;
+}
+
 // Lights
 void LogicManager::setDirLightIntensity(const char* name, float value, bool left) {
     if (applyFunction(left))

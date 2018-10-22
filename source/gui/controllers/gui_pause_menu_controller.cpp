@@ -25,6 +25,11 @@ namespace GUI
         pauseMsg.variant.setBool(true);
 
         player->sendMsg(pauseMsg);
+
+				HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+				HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/cursorIngame.cur"); //.cur or .ani
+				SetCursor(Cursor);
+				SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
         
       };
 
@@ -140,13 +145,12 @@ namespace GUI
       EngineTimer.setTimeSlower(0.f);
     }
     else {
-			if (cb_gui.pause == 1.f) {
+			cb_gui.pause = 0.f;
+			if (cb_gui.pause == 0.f && cb_gui.options == 0.f && cb_gui.keyboard == 0.f ) {
 				HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/cursorIngame.cur"); //.cur or .ani
 				SetCursor(Cursor);
 				SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
 			}
-
-			cb_gui.pause = 0.f;
       EngineUI.desactivateWidget("menu_pausa");
     }
   }

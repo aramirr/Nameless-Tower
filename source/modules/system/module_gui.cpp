@@ -22,6 +22,8 @@ bool CModuleGUI::start()
 	_fontTexture = Resources.get("data/textures/gui/Letras.dds")->as<CTexture>();
 
 	CParser parser;
+	parser.parseFile("data/gui/creditos.json");
+	parser.parseFile("data/gui/final.json");
 	parser.parseFile("data/gui/lineasTemblor.json");
 	parser.parseFile("data/gui/precarga.json");
 	parser.parseFile("data/gui/inicio.json");
@@ -40,6 +42,9 @@ bool CModuleGUI::start()
 
 	//MAIN MENU
 	mmc = new CMainMenuController();
+
+	//FINAL MENU
+	fmc = new CFinalMenuController();
 
 	//PAUSE MENU
 	pmc = new CPauseMenuController();
@@ -62,6 +67,7 @@ bool CModuleGUI::start()
 	setOmindash(false);
 
 	activateWidget("fadeOut");
+	cb_gui.cinematica = false;
 	return true;
 }
 
@@ -72,9 +78,7 @@ bool CModuleGUI::stop()
 
 void CModuleGUI::update(float delta)
 {
-	//dbg("-----------------------TIME PERROOOO: %f\n", timer);
-
-	if(EngineInput[VK_F5].getsPressed())activateWidget("lineasTemblor");
+	if (EngineInput[VK_F5].getsPressed())activateWidget("pantallaCreditos");
 	if (splash) {
 		
 		
@@ -92,11 +96,12 @@ void CModuleGUI::update(float delta)
 
 				timer = 3.f;
 				firstTime = false;
-				desactivateWidget("fadeOut");
+				
 				activateWidget("splashNvidia");
 				nvidia = true;
 				upf = false;
 				mainMenu = false;
+				desactivateWidget("fadeOut");
 			}
 			timer -= delta;
 		}
@@ -128,11 +133,13 @@ void CModuleGUI::update(float delta)
 	else if(mainMenu) {
 		if (delta < 1.0f) timer -= delta;
 		if (timer <= 0.f) {
-			changeResolution(Render.width, Render.height);
 			registerController(mmc);
 			mainMenu = false;
 			ShowCursor(true);
-			if (Render.width == 1920 && Render.height == 1080)setResolutionOption(2, 0);
+			if (Render.width == 1920 && Render.height == 1080) {
+				setResolutionOption(2, 0);
+				changeResolution(cb_globals.global_first_resolution_X, cb_globals.global_first_resolution_Y);
+			}
 			if (Render.width == 1600 && Render.height == 900)setResolutionOption(2, 1);
 			if (Render.width == 1280 && Render.height == 960)setResolutionOption(2, 2);
 			if (Render.width == 1366 && Render.height == 768)setResolutionOption(3, 0);
@@ -182,6 +189,17 @@ void CModuleGUI::activeMainMenu()
 {
 	cb_gui.main = 1.f;
 	registerController(mmc);
+}
+
+void CModuleGUI::desactiveFinalMenu()
+{
+	unregisterController(fmc);
+}
+
+void CModuleGUI::activeFinalMenu()
+{
+	cb_gui.main = 1.f;
+	registerController(fmc);
 }
 
 void CModuleGUI::desactivePauseMenu()

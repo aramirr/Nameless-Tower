@@ -77,18 +77,26 @@ void CModuleTower::update(float delta)
 	if (time_out) {
 		current_time += delta;
 		if (current_time > total_wait_time) {
+			if (cb_gui.creditos) {
+				EngineUI.activateWidget("pantallaCreditos");
+			}
+			else {
+				CEntity* player = getEntityByName("The Player");
+				TMsgSetFSMVariable pauseMsg;
+				pauseMsg.variant.setName("pause");
+				pauseMsg.variant.setBool(false);
+				player->sendMsg(pauseMsg);
+
+				pauseMsg.variant.setName("idle");
+				pauseMsg.variant.setBool(true);
+				player->sendMsg(pauseMsg);
+
+				setBandsCinematics(false);
+				cb_gui.cinematica = false;
+			}
 			time_out = false;
-			CEntity* player = getEntityByName("The Player");
-			TMsgSetFSMVariable pauseMsg;
-			pauseMsg.variant.setName("pause");
-			pauseMsg.variant.setBool(false);
-			player->sendMsg(pauseMsg);
-
-			pauseMsg.variant.setName("idle");
-			pauseMsg.variant.setBool(true);
-			player->sendMsg(pauseMsg);
-
-			setBandsCinematics(false);
+			
+			
 			if (current_cinematic != "") {
 				deactivateCinematic(current_cinematic);
 			}
@@ -281,7 +289,8 @@ const void CModuleTower::renderEverything(const std::string& name) {
 
 
 const void CModuleTower::activateCinematic(const std::string& name) {
-    CEntity* cinematic = (CEntity*)getEntityByName(name);
+	cb_gui.cinematica = true;
+	CEntity* cinematic = (CEntity*)getEntityByName(name);
     TMsgActivateCinematic activate_cinematic;
     cinematic->sendMsg(activate_cinematic);
 	current_cinematic = name;
@@ -395,6 +404,7 @@ void CModuleTower::wait_seconds(float num_seconds) {
 }
 
 void CModuleTower::activateRunner() {
+	cb_gui.cinematica = true;
 	change_level = true;
 	timer_runner = 0.f;
 }
