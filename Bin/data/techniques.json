@@ -135,6 +135,7 @@
     "z": "disable_all",
     "textures": {
       "environment": "data/textures/cubemaps/env.dds",
+      "environment2": "data/textures/cubemaps/env2.dds",
       "irradiance": "data/textures/cubemaps/irradiance.dds"
     }
   },
@@ -149,6 +150,7 @@
     "blend": "additive",
     "textures": {
       "environment": "data/textures/cubemaps/env.dds",
+      "environment2": "data/textures/cubemaps/env2.dds",
       "irradiance": "data/textures/cubemaps/irradiance.dds"
     }
   },
@@ -164,6 +166,7 @@
     "blend": "additive",
     "textures": {
       "environment": "data/textures/cubemaps/env.dds",
+      "environment2": "data/textures/cubemaps/env2.dds",
       "irradiance": "data/textures/cubemaps/irradiance.dds"
     }
   },
@@ -465,6 +468,7 @@
     "category": "gbuffer",
     "textures": {
       "environment": "data/textures/cubemaps/env.dds",
+      "environment2": "data/textures/cubemaps/env2.dds",
       "irradiance": "data/textures/cubemaps/irradiance.dds"
     },
     "priority" : 160,

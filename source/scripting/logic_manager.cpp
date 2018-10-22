@@ -333,3 +333,10 @@ void LogicManager::loadScene(std::string name) {
 	TEntityParseContext ctx;
 	parseScene(name, ctx);
 }
+void LogicManager::setVolumen(float volumen, bool left)
+{
+	if (applyFunction(left)) {
+		EngineSound.setVolumen(volumen);
+	}
+}
+

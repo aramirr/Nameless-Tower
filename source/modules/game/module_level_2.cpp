@@ -32,6 +32,8 @@ bool CModuleLevel2::start()
 	if (p)
 		EngineScripting.script.doString("OnLevel2Start()");
 
+	cb_globals.global_bajada = 1.f;
+
     return true;
 }
 
@@ -76,25 +78,34 @@ void CModuleLevel2::update(float delta)
 
   if (EngineInput[VK_ESCAPE].getsPressed())
   {
-    pausa = !pausa;
-    if (pausa) {
-      EngineUI.activateWidget("menu_pausa");
-      EngineUI.activePauseMenu();
-    }
-    else {
-      EngineTimer.setTimeSlower(1.f);
-      //Engine.getModules().changeGameState("test_axis");
-      EngineUI.desactivateWidget("menu_pausa");
-      EngineUI.desactivePauseMenu();
+		if (cb_gui.options > 0.f) {
+			EngineTimer.setTimeSlower(1.f);
+			//Engine.getModules().changeGameState("test_axis");
+			EngineUI.desactivateWidget("menu_options");
+			EngineUI.desactiveOptionMenu();
+		}
+		else if (cb_gui.main < 1.f) {
+			cb_gui.pause -= 1.f;
+			if (cb_gui.pause < 0.f)cb_gui.pause = 1.f;
+			if (cb_gui.pause > 0.f) {
+				EngineUI.activateWidget("pause_menu"); 
+				EngineUI.activePauseMenu();
+			}
+			else {
+				EngineTimer.setTimeSlower(1.f);
+				//Engine.getModules().changeGameState("test_axis");
+				EngineUI.desactivateWidget("pause_menu");
+				EngineUI.desactivePauseMenu();
 
-      CEntity* player = (CEntity*)getEntityByName("The Player");
+				CEntity* player = (CEntity*)getEntityByName("The Player");
 
-      TMsgSetFSMVariable pauseMsg;
-      pauseMsg.variant.setName("idle");
-      pauseMsg.variant.setBool(true);
+				TMsgSetFSMVariable pauseMsg;
+				pauseMsg.variant.setName("idle");
+				pauseMsg.variant.setBool(true);
 
-      player->sendMsg(pauseMsg);
-    }
+				player->sendMsg(pauseMsg);
+			}
+		}
   }
 
 }

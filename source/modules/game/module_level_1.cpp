@@ -19,6 +19,14 @@
 
 bool CModuleLevel1::start()
 {
+	if (!cb_gui.create(CB_GUI))
+		return false;
+
+	//EngineUI.activateWidget("pantallaCarga");
+
+	cb_gui.pause = 0.f;
+	cb_gui.options = 0.f;
+
 	EngineTimer.setTimeSlower(0.f);
 	CCamera        camera;
 	json jboot = loadJson("data/boot.json");
@@ -43,8 +51,6 @@ bool CModuleLevel1::start()
 	if (!cb_globals.create(CB_GLOBALS))
 		return false;
 	if (!cb_blur.create(CB_BLUR))
-		return false;
-	if (!cb_gui.create(CB_GUI))
 		return false;
 	if (!cb_particles.create(CB_PARTICLE))
 		return false;
@@ -71,6 +77,8 @@ bool CModuleLevel1::start()
 
 	cb_globals.global_bandMin_adjustment = 0.f;
 	cb_globals.global_bandMax_adjustment = 0.f;
+
+	cb_globals.global_bajada = 0.f;
 
 	cb_globals.global_fog_percentage_horizontal = 0.15f;
 	cb_globals.global_fog_percentage_vertical = 0.15f;
@@ -123,6 +131,9 @@ void CModuleLevel1::update(float delta)
 		//cm->activateCinematic("final");
 
 		carga = false;
+		HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+		//ShowWindow(handle, SW_RESTORE);
+		EngineUI.activateSplash();
 	}
 	CEntity* cam = (CEntity*)getEntityByName("camera_manager");
 
@@ -142,24 +153,36 @@ void CModuleLevel1::update(float delta)
 
 	if (EngineInput[VK_ESCAPE].getsPressed())
 	{
-		pausa = !pausa;
-		if (pausa) {
-			EngineUI.activateWidget("menu_pausa");
-			EngineUI.activePauseMenu();
-		}
-		else {
-			EngineTimer.setTimeSlower(1.f);
+		if (cb_gui.options > 0.f) {
+			//EngineTimer.setTimeSlower(1.f);
 			//Engine.getModules().changeGameState("test_axis");
-			EngineUI.desactivateWidget("menu_pausa");
-			EngineUI.desactivePauseMenu();
+			EngineUI.desactivateWidget("menu_options");
+			EngineUI.desactiveOptionMenu();
+			if (cb_gui.main > 0.f) EngineUI.activeMainMenu();
+			else EngineUI.activePauseMenu();
+		}
+		else if(cb_gui.main < 1.f){
+			cb_gui.pause -= 1.f;
+			if (cb_gui.pause < 0.f)cb_gui.pause = 1.f;
+			if (cb_gui.pause > 0.f) {
+				EngineUI.activateWidget("pause_menu");
+				EngineUI.activePauseMenu();
+			}
+			else {
+				EngineTimer.setTimeSlower(1.f);
+				//Engine.getModules().changeGameState("test_axis");
+				EngineUI.desactivateWidget("pause_menu");
+				EngineUI.desactivePauseMenu();
+				EngineUI.resetPauseMenu();
 
-			CEntity* player = (CEntity*)getEntityByName("The Player");
+				CEntity* player = (CEntity*)getEntityByName("The Player");
 
-			TMsgSetFSMVariable pauseMsg;
-			pauseMsg.variant.setName("idle");
-			pauseMsg.variant.setBool(true);
+				TMsgSetFSMVariable pauseMsg;
+				pauseMsg.variant.setName("idle");
+				pauseMsg.variant.setBool(true);
 
-			player->sendMsg(pauseMsg);
+				player->sendMsg(pauseMsg);
+			}
 		}
 	}
 

@@ -1,5 +1,6 @@
 #include "mcv_platform.h"
 #include "gui_pause_menu_controller.h"
+#include "render/render_objects.h"
 #include "gui/widgets/gui_button.h"
 
 namespace GUI
@@ -26,13 +27,29 @@ namespace GUI
         player->sendMsg(pauseMsg);
         
       };
+
+			auto restartCB = []() {
+				dbg("RESTART\n");
+				
+			};
+
+			auto optionsCB = []() {
+				dbg("OPTIONS\n");
+				cb_gui.options = 1.f;
+				EngineUI.activateWidget("menu_options");
+				EngineUI.activeOptionMenu();
+				EngineUI.desactivePauseMenu();
+			};
+
       auto exitCB = []() {
 
         exit(0);
       };
 
       registerOption("resume_game", resumeGameCB);
-      registerOption("exit_2", exitCB);
+			registerOption("restart_level", restartCB);
+			registerOption("options_pause", optionsCB);
+      registerOption("exit_pause", exitCB);
       setCurrentOption(0);
 
       carga = false;
@@ -49,11 +66,11 @@ namespace GUI
       {
         setCurrentOption(_currentOption - 1);
       }
-      if (EngineInput[VK_SPACE].getsPressed())
+      if (EngineInput[VK_RETURN].getsPressed())
       {
         _options[_currentOption].button->setCurrentState(CButton::EState::ST_Pressed);
       }
-      if (EngineInput[VK_SPACE].getsReleased())
+      if (EngineInput[VK_RETURN].getsReleased())
       {
         _options[_currentOption].button->setCurrentState(CButton::EState::ST_Selected);
         _options[_currentOption].callback();
@@ -100,6 +117,7 @@ namespace GUI
   void CPauseMenuController::setActive(bool _active)
   {
     active = _active;
+		HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
     if (active) {
 
       //PAUSAR JUEGO
@@ -111,19 +129,49 @@ namespace GUI
 
       player->sendMsg(pauseMsg);*/
 
-      EngineUI.activateWidget("menu_pausa");
+			
 
+			HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/PaiCursor.cur"); //.cur or .ani
+			SetCursor(Cursor);
+			SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
+
+      EngineUI.activateWidget("menu_pausa");
+			cb_gui.pause = 1.f;
       EngineTimer.setTimeSlower(0.f);
     }
     else {
+			if (cb_gui.pause == 1.f) {
+				HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/cursorIngame.cur"); //.cur or .ani
+				SetCursor(Cursor);
+				SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
+			}
+
+			cb_gui.pause = 0.f;
       EngineUI.desactivateWidget("menu_pausa");
     }
   }
 
+	void CPauseMenuController::resetOptions()
+	{
+		setCurrentOption(0);
+	}
+
   int CPauseMenuController::getCurrentOption()
   {
-    int mX = EngineInput.mouse()._position.x;
-    int mY = EngineInput.mouse()._position.y;
+		int mX = EngineInput.mouse()._position.x;
+		int mY = EngineInput.mouse()._position.y;
+		if (cb_gui.fullscreen) {
+			//mX *= cb_globals.global_first_resolution_X / cb_globals.global_resolution_X;
+			//mY *= cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y;
+
+			mX *= 1920 / cb_globals.global_first_resolution_X;
+			mY *= 1080 / cb_globals.global_first_resolution_Y;
+		}
+		else {
+			mX *= 1920 / cb_globals.global_resolution_X;
+			mY *= 1080 / cb_globals.global_resolution_Y;
+		}
+
     for (int i = 0; i < _options.size(); i++) {
       int bmX = _options[i].button->getPosition().x;
       int bMX = bmX + _options[i].button->getSize().x;

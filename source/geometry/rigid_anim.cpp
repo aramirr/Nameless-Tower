@@ -111,7 +111,8 @@ namespace RigidAnims {
     }
 
     void CRigidAnimResource::onFileChanged(const std::string& filename) {
-        create(filename);
+				if (filename != "data/textures/gui")
+					create(filename);
     }
 
     bool CRigidAnimResource::sample(uint32_t track_index, TKey* out_key, float t, const CTransform& transform) const {

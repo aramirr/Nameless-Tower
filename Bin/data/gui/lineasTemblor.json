@@ -1,0 +1,29 @@
+[
+	{
+		"name" : "lineasTemblor",
+		"type" : "widget",
+		"size" : "1920 1080",
+		"children" : [
+			{
+				"name" : "backgroundlineasTemblor",
+				"children" : [
+					{
+						"name" : "imagelineasTemblor",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/Linias_temblor.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1",
+						"effects" : [
+							{
+								"type" : "animate_uv",
+								"speed" : "0.0125 0.0125",
+								"temblor" : true
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+]

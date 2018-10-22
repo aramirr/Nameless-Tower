@@ -36,33 +36,34 @@
 #define TS_LIGHT_PROJECTOR     12
 #define TS_LIGHT_SHADOW_MAP    13 
 #define TS_ENVIRONMENT_MAP     14
-#define TS_IRRADIANCE_MAP      15
-#define TS_NOISE_MAP           16
+#define TS_ENVIRONMENT2_MAP    15
+#define TS_IRRADIANCE_MAP      16
+#define TS_NOISE_MAP           17
 
-#define TS_DEFERRED_ALBEDOS           17
-#define TS_DEFERRED_NORMALS           18
-#define TS_DEFERRED_LINEAR_DEPTH      19
-#define TS_DEFERRED_ACC_LIGHTS        20
-#define TS_DEFERRED_AO                21
-#define TS_DEFERRED_SELF_ILLUM        22
-#define TS_DEFERRED_ALPHA             23
-#define TS_DEFERRED_CELL              24
-#define TS_DEFERRED_SUBLIME           25
+#define TS_DEFERRED_ALBEDOS           18
+#define TS_DEFERRED_NORMALS           19
+#define TS_DEFERRED_LINEAR_DEPTH      20
+#define TS_DEFERRED_ACC_LIGHTS        21
+#define TS_DEFERRED_AO                22
+#define TS_DEFERRED_SELF_ILLUM        23
+#define TS_DEFERRED_ALPHA             24
+#define TS_DEFERRED_CELL              25
+#define TS_DEFERRED_SUBLIME           26
 
 // LookUpTable for the color grading
-#define TS_LUT_COLOR_GRADING          26
+#define TS_LUT_COLOR_GRADING          27
 
-#define TS_MIX_BLEND_WEIGHTS          27
+#define TS_MIX_BLEND_WEIGHTS          28
 
 #define TS_FIRST_SLOT_MATERIAL_0      TS_ALBEDO
 #define TS_FIRST_SLOT_MATERIAL_1      TS_ALBEDO1
 // 17,18,19 goes for extra textures of second material
 #define TS_FIRST_SLOT_MATERIAL_2      TS_ALBEDO2
 
-#define TS_ALBEDO1 28
-#define TS_NORMAL1 29
-#define TS_ALBEDO2 30
-#define TS_NORMAL2 31
+#define TS_ALBEDO1 29
+#define TS_NORMAL1 30
+#define TS_ALBEDO2 31
+#define TS_NORMAL2 32
 
 // -------------------------------------------------
 #define RO_COMPLETE     0
@@ -202,6 +203,16 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
 	float global_bandMin_adjustment;
 	float global_bandMax_adjustment;
 
+	float global_first_resolution_X;
+	float global_first_resolution_Y;
+	float global_dummy2;
+	float global_dummy3;
+
+	float global_bajada;
+	float global_dummy4;
+	float global_dummy5;
+	float global_dummy6;
+
 	float global_fog_percentage_horizontal;
 	float global_fog_percentage_vertical;
 	float global_particle_time;
@@ -258,6 +269,11 @@ CB_DEF(CCteGUI, CB_GUI)
 	VEC2 minUV;
 	VEC2 maxUV;
 	VEC4 tint_color;
+
+	float main;
+	float pause;
+	float options;
+	float fullscreen;
 };
 
 CB_DEF(CCteParticle, CB_PARTICLE)
@@ -266,6 +282,5 @@ CB_DEF(CCteParticle, CB_PARTICLE)
 	VEC2 particle_maxUV;
 	VEC4 particle_color;
 };
-
 
 #endif

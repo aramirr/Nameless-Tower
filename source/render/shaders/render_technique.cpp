@@ -73,6 +73,8 @@ void TTextureSlots::load(const std::string& name, const json& j) {
 			std::string k = it.key();
 			if (k == "environment")
 				s.slot = TS_ENVIRONMENT_MAP;
+			if (k == "environment2")
+				s.slot = TS_ENVIRONMENT2_MAP;
 			else if (k == "irradiance")
 				s.slot = TS_IRRADIANCE_MAP;
 			else if (k == "noise")

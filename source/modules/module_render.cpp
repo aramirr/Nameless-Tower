@@ -52,7 +52,9 @@ bool parseTechniques() {
 
 bool CModuleRender::start()
 {
-	if (!Render.createDevice(_xres, _yres))
+	firstFrame = true;
+
+	if (!Render.createDevice(1920, 1080))
 		return false;
 
 	if (!CVertexDeclManager::get().create())
@@ -135,6 +137,13 @@ void CModuleRender::render()
 	if (ImGui::SmallButton("Start CPU Trace Capturing")) {
 		PROFILE_SET_NFRAMES(nframes);
 	}
+	const Input::TInterface_Mouse& mouse = EngineInput.mouse();
+	int _mouse[2] = { mouse._position.x,mouse._position.y };
+	ImGui::DragInt2("MOUSE", _mouse);
+
+	int _res[2] = { cb_globals.global_resolution_X , cb_globals.global_resolution_Y };
+	ImGui::DragInt2("MOUSE", _res);
+
 
 	// Edit the Background color
 	//ImGui::ColorEdit4("Background Color", &_backgroundColor.x);
@@ -195,8 +204,13 @@ void CModuleRender::configure(int xres, int yres)
 	_xres = xres;
 	_yres = yres;
 
+	Render.width = xres;
+	Render.height = yres;
+
 	cb_globals.global_resolution_X = xres;
 	cb_globals.global_resolution_Y = yres;
+
+	dbg("RESOLUCION DE MIERDA: %i %i\n", Render.width, Render.height);
 }
 
 void CModuleRender::setBackgroundColor(float r, float g, float b, float a)
@@ -225,11 +239,16 @@ void CModuleRender::activateMainCamera() {
 		CRenderManager::get().setEntityCamera(h_e_camera);
 	}
 
-	activateCamera(*cam, Render.width, Render.height);
+	activateCamera(*cam, 1920, 1080);
 }
 
 
 void CModuleRender::generateFrame() {
+
+	/*if (firstFrame) {
+		
+		firstFrame = false;
+	}*/
 
 	{
 		PROFILE_FUNCTION("CModuleRender::shadowsMapsGeneration");
@@ -330,7 +349,7 @@ void CModuleRender::generateFrame() {
 		CEntity* e_camera = EngineCameras.getActiveCamera();
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
 		CCamera* cam = c_camera;
-		activateCamera(*cam, Render.width, Render.height);
+		activateCamera(*cam, 1920, 1080);
 	}
 
 	{
@@ -341,7 +360,7 @@ void CModuleRender::generateFrame() {
 		activateZConfig(ZCFG_DISABLE_ALL);
 		activateBlendConfig(BLEND_CFG_COMBINATIVE);
 
-		activateCamera(CEngine::get().getGUI().getCamera(), Render.width, Render.height);
+		activateCamera(CEngine::get().getGUI().getCamera(), 1920, 1080);
 		CEngine::get().getModules().renderGUI();
 
 		activateRSConfig(RSCFG_DEFAULT);
@@ -358,6 +377,7 @@ void CModuleRender::generateFrame() {
 	// Present the information rendered to the back buffer to the front buffer (the screen)
 	{
 		PROFILE_FUNCTION("Render.swapChain");
-		Render.swapChain->Present(0, 0);
+		HRESULT result = Render.swapChain->Present(0, 0);
 	}
+	
 }

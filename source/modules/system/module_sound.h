@@ -33,6 +33,7 @@ public:
 	FMOD_RESULT res;
 	Studio::System* system = NULL;
     std::map<std::string, Sound> events;
+	std::vector<std::string> compSounds;
     FMOD::Studio::System* getSystem();
     void stopEvent(FMOD::Studio::EventInstance * instance, bool fadeout = false);
     void playInterior();
@@ -43,6 +44,8 @@ public:
     void emitEvent(const std::string& sound);
     void emitDelayedEvent(float time, std::string name);
     void stopEvent(const std::string& sound);
+		void setVolumen(float volumen);
+		void registerCompSound(std::string name);
     FMOD_3D_ATTRIBUTES toFMODAttributes(CTransform t);
     FMOD_VECTOR toFMODVector(VEC3 v);
 		
