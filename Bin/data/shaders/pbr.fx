@@ -575,7 +575,11 @@ float4 PS_ambient(
   // if roughness = 0 -> I want to use the miplevel 0, the all-detailed image
   // if roughness = 1 -> I will use the most blurred image, the 8-th mipmap, If image was 256x256 => 1x1
     float mipIndex = roughness * roughness * 8.0f; //*32
-    float3 env = txEnvironmentMap.SampleLevel(samLinear, reflected_dir, mipIndex).xyz;
+    float3 env;
+    if (global_bajada == 1.f)
+        env = txEnvironment2Map.SampleLevel(samLinear, reflected_dir, mipIndex).xyz;
+    else
+        env = txEnvironmentMap.SampleLevel(samLinear, reflected_dir, mipIndex).xyz;
   // Convert the color to linear also.
     env = pow(abs(env), 2.2f);
 
@@ -583,7 +587,11 @@ float4 PS_ambient(
   // Here we are sampling using the cubemap-miplevel 4, and the already blurred txIrradiance texture
   // and mixing it in base to the scalar_irradiance_vs_mipmaps which comes from the ImGui.
   // Remove the interpolation in the final version!!!
-    float3 irradiance_mipmaps = txEnvironmentMap.SampleLevel(samLinear, N, 4).xyz; //6
+    float3 irradiance_mipmaps;
+    if (global_bajada == 1.f)
+        irradiance_mipmaps = txEnvironment2Map.SampleLevel(samLinear, N, 4).xyz; //6
+    else
+        irradiance_mipmaps = txEnvironmentMap.SampleLevel(samLinear, N, 4).xyz; //6
     float3 irradiance_texture = txIrradianceMap.Sample(samLinear, N).xyz;
     float3 irradiance = irradiance_texture * scalar_irradiance_vs_mipmaps + irradiance_mipmaps * (1. - scalar_irradiance_vs_mipmaps);
 
@@ -798,6 +806,10 @@ void VS_skybox(
 float4 PS_skybox(in float4 iPosition : SV_Position) : SV_Target
 {
     float3 view_dir = mul(float4(iPosition.xy, 1, 1), camera_screen_to_world).xyz;
-    float4 skybox_color = txEnvironmentMap.Sample(samLinear, view_dir);
+    float4 skybox_color;
+    if (global_bajada == 1.f)
+        skybox_color = txEnvironment2Map.Sample(samLinear, view_dir);
+    else
+        skybox_color = txEnvironmentMap.Sample(samLinear, view_dir);
     return float4(skybox_color.xyz, 1) * global_ambient_adjustment;
 }

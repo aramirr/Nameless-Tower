@@ -61,8 +61,6 @@ bool CModuleGUI::start()
 	registerController(odc);
 	setOmindash(false);
 
-	changeResolution(Render.width, Render.height);
-
 	return true;
 }
 
@@ -126,10 +124,18 @@ void CModuleGUI::update(float delta)
 		}
 	}
 	else if(mainMenu) {
+		changeResolution(Render.width, Render.height);
+		if (Render.width == 1920 && Render.height == 1080)setResolutionOption(2, 0);
+		if (Render.width == 1600 && Render.height == 900)setResolutionOption(2, 1);
+		if (Render.width == 1280 && Render.height == 960)setResolutionOption(2, 2);
+		if (Render.width == 1366 && Render.height == 768)setResolutionOption(3, 0);
+		if (Render.width == 1280 && Render.height == 720)setResolutionOption(3, 1);
+		if (Render.width == 1024 && Render.height == 768)setResolutionOption(3, 2);
 		if (delta < 1.0f) timer -= delta;
 		if (timer <= 0.f) {
 			registerController(mmc);
 			mainMenu = false;
+			ShowCursor(true);
 		}
 	}
 
@@ -224,6 +230,16 @@ void CModuleGUI::setFullScreenOption(int x, int y)
 void CModuleGUI::setResolutionOption(int x, int y)
 {
 	omc->setResolutionOption(x, y);
+}
+
+void CModuleGUI::setVolumenOption(int x, int y)
+{
+	omc->setVolumenOption(x, y);
+}
+
+void CModuleGUI::setVsyncOption(int x, int y)
+{
+	omc->setVsyncOption(x, y);
 }
 
 void CModuleGUI::changeResolution(int _x, int _y)

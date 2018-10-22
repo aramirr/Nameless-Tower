@@ -36,6 +36,8 @@ public:
 
 	void setFullScreenOption(int x, int y);
 	void setResolutionOption(int x, int y);
+	void setVolumenOption(int x, int y);
+	void setVsyncOption(int x, int y);
 
 	void changeResolution(int _x, int _y);
 	void fullScreen(bool _fullscreen);

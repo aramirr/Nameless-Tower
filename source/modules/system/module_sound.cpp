@@ -104,8 +104,8 @@ void CModuleSound::setVolumen(float volumen)
 
 	for (int i = 0; i < compSounds.size(); i++) {
 		CEntity* cs = getEntityByName(compSounds[i]);
-		dbg(compSounds[i].c_str());
-		dbg("\n");
+		//dbg(compSounds[i].c_str());
+		//dbg("\n");
 		cs->sendMsg(msg);
 	}
 	

@@ -48,13 +48,43 @@ namespace GUI
 				}	
 			};
 
+			auto res1600CB = []() {
+				dbg("RESOLUTION 1600\n");
+				if ((Render.width != 1600 && Render.height != 900) &&
+					(1600 <= cb_globals.global_first_resolution_X && 900 <= cb_globals.global_first_resolution_Y)) {
+					EngineUI.changeResolution(1600, 900);
+					if (cb_gui.fullscreen) EngineUI.fullScreen(true);
+					EngineUI.setResolutionOption(2, 1);
+				}
+			};
+
+			auto res12809CB = []() {
+				dbg("RESOLUTION 12809\n");
+				if ((Render.width != 1280 && Render.height != 960) &&
+					(1280 <= cb_globals.global_first_resolution_X && 960 <= cb_globals.global_first_resolution_Y)) {
+					EngineUI.changeResolution(1280, 960);
+					if (cb_gui.fullscreen) EngineUI.fullScreen(true);
+					EngineUI.setResolutionOption(2, 2);
+				}
+			};
+
 			auto res1366CB = []() {
-				dbg("RESOLUTION 1366\n");
+				dbg("RESOLUTION 1920\n");
 				if ((Render.width != 1366 && Render.height != 768) &&
 					(1366 <= cb_globals.global_first_resolution_X && 768 <= cb_globals.global_first_resolution_Y)) {
 					EngineUI.changeResolution(1366, 768);
 					if (cb_gui.fullscreen) EngineUI.fullScreen(true);
-					EngineUI.setResolutionOption(2, 1);
+					EngineUI.setResolutionOption(3, 0);
+				}
+			};
+
+			auto res12807CB = []() {
+				dbg("RESOLUTION 1366\n");
+				if ((Render.width != 1280 && Render.height != 720) &&
+					(1280 <= cb_globals.global_first_resolution_X && 720 <= cb_globals.global_first_resolution_Y)) {
+					EngineUI.changeResolution(1280, 720);
+					if (cb_gui.fullscreen) EngineUI.fullScreen(true);
+					EngineUI.setResolutionOption(3, 1);
 				}
 			};
 
@@ -64,26 +94,15 @@ namespace GUI
 					(1024 <= cb_globals.global_first_resolution_X && 768 <= cb_globals.global_first_resolution_Y)) {
 					EngineUI.changeResolution(1024, 768);
 					if (cb_gui.fullscreen) EngineUI.fullScreen(true);
-					EngineUI.setResolutionOption(2, 2);
+					EngineUI.setResolutionOption(3, 2);
 				}
 			};
 
-			auto graphicsLOWCB = []() {
-				dbg("GRAPHICS LOW\n");
-			
-
-			
-			};
-
-			auto graphicsMEDIUMCB = []() {
-				dbg("GRAPHICS MEDIUM\n");
+			auto volumenOFFCB = []() {
+				dbg("VOLUMEN LOW\n");
 
 			};
 
-			auto graphicsHIGHCB = []() {
-				dbg("GRAPHICS HIGH\n");
-
-			};
 
 			auto volumenLOWCB = []() {
 				dbg("VOLUMEN LOW\n");
@@ -100,6 +119,16 @@ namespace GUI
 
 			};
 
+			auto vsyncONCB = []() {
+				dbg("VSYNC ON\n");
+
+			};
+
+			auto vsyncOFFCB = []() {
+				dbg("VSYNC OFF\n");
+
+			};
+
 			auto exitOptionsCB = []() {
 				dbg("EXIT OPTIONS\n");
 
@@ -113,20 +142,28 @@ namespace GUI
 			registerOption("full_screen_ON", fullScreenONCB, 1);
 			registerOption("full_screen_OFF", fullScreenOFFCB, 1);
 			registerOption("res_1920", res1920CB, 2);
-			registerOption("res_1366", res1366CB, 2);
-			registerOption("res_1024", res1024CB, 2);
-			registerOption("graphics_LOW", graphicsLOWCB, 3);
-			registerOption("graphics_MEDIUM", graphicsMEDIUMCB, 3);
-			registerOption("graphics_HIGH", graphicsHIGHCB, 3);
+			registerOption("res_1600", res1600CB, 2);
+			registerOption("res_12809", res12809CB, 2);
+			registerOption("res_1366", res1366CB, 3);
+			registerOption("res_12807", res12807CB, 3);
+			registerOption("res_1024", res1024CB, 3);
+			//registerOption("graphics_LOW", graphicsLOWCB, 3);
+			//registerOption("graphics_MEDIUM", graphicsMEDIUMCB, 3);
+			//registerOption("graphics_HIGH", graphicsHIGHCB, 3);
 			registerOption("volumen_LOW", volumenLOWCB, 4);
 			registerOption("volumen_MEDIUM", volumenMEDIUMCB, 4);
 			registerOption("volumen_HIGH", volumenHIGHCB, 4);
-			registerOption("exit_options", exitOptionsCB, 5);
+			registerOption("volumen_OFF", volumenOFFCB, 4);
+			registerOption("vsyncON", vsyncONCB, 5);
+			registerOption("vsyncOFF", vsyncOFFCB, 5);
+			registerOption("exit_options", exitOptionsCB, 6);
 			setCurrentSection(0);
 			setCurrentOption(0);
 
 			fullScreenOption = VEC2(1, 1);
 			resolutionOption = VEC2(2, 0);
+			volumenOption = VEC2(4, 2);
+			vsyncOption = VEC2(5, 1);
 
 			cb_gui.fullscreen = false;
 
@@ -202,7 +239,7 @@ namespace GUI
 			for (auto& _option : option)
 			{
 				VEC2 cOption = VEC2(i, j);
-				if(cOption == fullScreenOption || cOption == resolutionOption)_option.button->setCurrentState(CButton::EState::ST_Selected);
+				if(cOption == fullScreenOption || cOption == resolutionOption || cOption == volumenOption || cOption == vsyncOption)_option.button->setCurrentState(CButton::EState::ST_Selected);
 				else _option.button->setCurrentState(CButton::EState::ST_Idle);
 				j++;
 			}
@@ -389,8 +426,19 @@ namespace GUI
 	{
 		fullScreenOption = VEC2(x, y);
 	}
+
 	void COptionMenuController::setResolutionOption(int x, int y)
 	{
 		resolutionOption = VEC2(x, y);
+	}
+
+	void COptionMenuController::setVolumenOption(int x, int y)
+	{
+		volumenOption = VEC2(x, y);
+	}
+
+	void COptionMenuController::setVsyncOption(int x, int y)
+	{
+		vsyncOption = VEC2(x, y);
 	}
 }

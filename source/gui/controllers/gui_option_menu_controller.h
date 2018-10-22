@@ -19,6 +19,8 @@ namespace GUI
 		void fullScreen(bool _fulscreen);
 		void setFullScreenOption(int x, int y);
 		void setResolutionOption(int x, int y);
+		void setVolumenOption(int x, int y);
+		void setVsyncOption(int x, int y);
   private:
     struct TOption
     {
@@ -31,6 +33,8 @@ namespace GUI
 
 		VEC2 fullScreenOption;
 		VEC2 resolutionOption;
+		VEC2 volumenOption;
+		VEC2 vsyncOption;
 
     int getCurrentOption();
 

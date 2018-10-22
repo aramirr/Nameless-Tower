@@ -117,6 +117,7 @@ namespace GUI
   void CPauseMenuController::setActive(bool _active)
   {
     active = _active;
+		HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
     if (active) {
 
       //PAUSAR JUEGO
@@ -128,11 +129,23 @@ namespace GUI
 
       player->sendMsg(pauseMsg);*/
 
+			
+
+			HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/PaiCursor.cur"); //.cur or .ani
+			SetCursor(Cursor);
+			SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
+
       EngineUI.activateWidget("menu_pausa");
 			cb_gui.pause = 1.f;
       EngineTimer.setTimeSlower(0.f);
     }
     else {
+			if (cb_gui.pause == 1.f) {
+				HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/cursorIngame.cur"); //.cur or .ani
+				SetCursor(Cursor);
+				SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
+			}
+
 			cb_gui.pause = 0.f;
       EngineUI.desactivateWidget("menu_pausa");
     }

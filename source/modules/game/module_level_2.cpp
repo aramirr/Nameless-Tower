@@ -33,6 +33,8 @@ bool CModuleLevel2::start()
 	if (p)
 		EngineScripting.script.doString("OnLevel2Start()");
 
+	cb_globals.global_bajada = 1.f;
+
     return true;
 }
 

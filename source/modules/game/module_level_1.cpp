@@ -79,6 +79,8 @@ bool CModuleLevel1::start()
 	cb_globals.global_bandMin_adjustment = 0.f;
 	cb_globals.global_bandMax_adjustment = 0.f;
 
+	cb_globals.global_bajada = 1.f;
+
 	cb_light.activate();
 	cb_object.activate();
 	cb_globals.activate();

@@ -35,8 +35,8 @@ void TCompSound::load(const json& j, TEntityParseContext& ctx) {
 	}	
 	CEntity* e = ctx.current_entity;
 	assert(e);
-	dbg(e->getName());
-	dbg("\n");
+	//dbg(e->getName());
+	//dbg("\n");
 	EngineSound.registerCompSound(e->getName());
 }
 

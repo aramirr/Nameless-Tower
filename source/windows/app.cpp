@@ -252,13 +252,31 @@ bool CApp::createWindow(HINSTANCE new_hInstance, int nCmdShow) {
 	if (!hWnd)
 		return false;
 
+	HICON hWindowIcon = NULL;
+	HICON hWindowIconBig = NULL;
+
+	if (hWindowIcon != NULL)
+		DestroyIcon(hWindowIcon);
+	if (hWindowIconBig != NULL)
+		DestroyIcon(hWindowIconBig);
+
+
+		hWindowIcon = (HICON)LoadImage(NULL, "data/textures/gui/PaiIcono.ico", IMAGE_ICON, 16, 16, LR_LOADFROMFILE);
+		hWindowIconBig = (HICON)LoadImage(NULL, "data/textures/gui/PaiIcono.ico", IMAGE_ICON, 32, 32, LR_LOADFROMFILE);
+		SendMessage(hWnd, WM_SETICON, ICON_SMALL, (LPARAM)hWindowIcon);
+		SendMessage(hWnd, WM_SETICON, ICON_BIG, (LPARAM)hWindowIconBig);
+	
+
+	HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/PaiCursor.cur"); //.cur or .ani
+	SetCursor(Cursor);
+	SetClassLongPtr(hWnd, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
 
 	/*HBITMAP hImage = (HBITMAP)LoadImage(NULL, "data/textures/gui/carga.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 	HWND hImageView = CreateWindowEx(NULL, "STATIC", NULL, SS_BITMAP | WS_VISIBLE | WS_CHILD, 0, 0, 500, 600, hWnd, (HMENU)IMAGE_VIEW, GetModuleHandle(NULL), NULL);
 	SendMessage(hImageView, STM_SETIMAGE, IMAGE_BITMAP, (LPARAM)hImage);*/
 
 	ShowWindow(hWnd, nCmdShow);
-	//ShowCursor(false);
+	ShowCursor(false);
 
 	return true;
 }

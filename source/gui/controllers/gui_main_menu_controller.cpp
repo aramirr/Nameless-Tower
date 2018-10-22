@@ -29,6 +29,12 @@ namespace GUI
 				cb_gui.main = 0.f;
         EngineTimer.setTimeSlower(1.f);
 				EngineSound.setVolumen(1.f);
+
+				HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+
+				HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/cursorIngame.cur"); //.cur or .ani
+				SetCursor(Cursor);
+				SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
       };
 			auto optionsCB = []() {
 				dbg("OPTIONES\n");
