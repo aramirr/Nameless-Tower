@@ -76,10 +76,10 @@ function OnLevel2Start()
 	lm:set_dir_light_intensity("LightDir14", 0, false)	
 	lm:set_point_light_intensity("Luces_Fuego_011", 10, false)
 	lm:set_point_light_intensity("Luces_Fuego_012", 10, false)
-	lm:set_naja_int(false)
-	lm:set_naja_int(true)
-	lm:set_runner_int(true)
-	lm:set_runner_int(false)
+	--lm:set_naja_int(false)
+	--lm:set_naja_int(true)
+	--lm:set_runner_int(true)
+	--lm:set_runner_int(false)
 
 end
 

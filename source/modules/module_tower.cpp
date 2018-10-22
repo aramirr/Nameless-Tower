@@ -117,12 +117,7 @@ void CModuleTower::update(float delta)
 			controller->change_animation(34, true, 0, 0.8, true);
 			EngineSound.emitDelayedEvent(0, "naja_monolito");
 		}
-		else if (timer_runner >= 0.1f && !turn_player) {
-			turn_player = true;
-			/*CEntity* e = getEntityByName("The Player");
-			TCompTransform* t = e->get<TCompTransform>();
-			t->setYawPitchRoll(0, 0, 0);*/
-		}
+
 		else if (timer_runner >= 5.f && !destroy_monolito) {
 			destroy_monolito = true;
 			activateAnim("Monolito_001", 0.01f);
@@ -130,14 +125,9 @@ void CModuleTower::update(float delta)
 		}
 
 		else if (timer_runner >= 10.667 && !build_runner) {
-			cb_globals.global_naja_interior = 1;
-			//cb_globals.global_runner_interior = 1;
+			cb_globals.global_runner_interior = 1;
 			CEntity* e = getEntityByName("The Player");
 			TCompPlayerController* player = e->get<TCompPlayerController>();
-			/*if (player->game_state == "level_1") {
-				CEngine::get().getModules().changeGameState("level_2");
-				player->game_state = "level_2";
-			}*/
 			build_runner = true;
 			activateAnim("Runner_father", 0.01f);
 		}
@@ -158,18 +148,14 @@ void CModuleTower::update(float delta)
 			TCompTransform* e_transform = e->get<TCompTransform>();
 			e_transform->setPosition(VEC3(2.31185f, 88.f, -31.2941f)); //86.5861f
 			e_collider->controller->setPosition(physx::PxExtendedVec3(2.31185f, 88.f, -31.2941f));
+			bt_runner * controller = e->get<bt_runner>();
+			controller->change_animation(5, true, 0.1, 0.0, true);
 		}
 		else if (timer_runner >= 27.33f && !runner_scream) {
 			runner_scream = true;
 			CEntity* e = getEntityByName("Runner");
 			bt_runner * controller = e->get<bt_runner>();
-			controller->change_animation(4, true, 0.5, 0.5, true);
-		}
-		else if (timer_runner >= 31.f && !turn_player_2) {
-			turn_player_2 = true;
-			/*CEntity* e_player = getEntityByName("The Player");
-			TCompTransform* t = e_player->get<TCompTransform>();
-			t->setYawPitchRoll(-104.54, 0, 0);*/
+			controller->change_animation(4, true, 0.1, 0.0, true);
 		}
 		else if (timer_runner >= 32.f && !runner_chase) {
 			runner_chase = true;
