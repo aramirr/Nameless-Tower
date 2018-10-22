@@ -120,7 +120,7 @@ void CModuleTower::update(float delta)
 			controller->change_animation(34, true, 0, 0.8, true);
 			EngineSound.emitDelayedEvent(0, "naja_monolito");
 			EngineTower.activateCinematic("cinematica_monolito");	
-			EngineTower.setBandsCinematics(true);
+			
 		}
 
 		else if (timer_runner >= 5.f && !destroy_monolito) {
@@ -187,8 +187,8 @@ void CModuleTower::update(float delta)
 	if (change_level) {
 		timer_runner += delta;
 		cb_globals.global_fadeOut_adjustment = 10.f;
-		disappearEntity("Niebla013");
-		disappearEntity("Niebla014");
+		EngineUI.activateWidget("fadeOut");
+		EngineTower.setBandsCinematics(true);
 		if (timer_runner > 0.4f && !change_level_done) {
 			CEntity* e = getEntityByName("The Player");
 			TCompPlayerController* player = e->get<TCompPlayerController>();
@@ -200,11 +200,10 @@ void CModuleTower::update(float delta)
 		}
 		else if (timer_runner > 1.f) {
 			cb_globals.global_fadeOut_adjustment = 0.f;
+			EngineUI.desactivateWidget("fadeOut");
 			activate_runner = true;
 			timer_runner = 0.f;
 			change_level = false;
-			appearEntity("Niebla013");
-			appearEntity("Niebla014");
 		}
 	}
 }
