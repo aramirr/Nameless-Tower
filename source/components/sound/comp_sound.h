@@ -31,6 +31,7 @@ struct TCompSound: public TCompBase {
     void stopSound(std::string name);
     void onGroupCreated(const TMsgEntitiesGroupCreated& msg);
     void playSoundMsg(const TMsgPlaySound& msg);
+		void setVolumen(const TMsgVolumeSound& msg);
     FMOD_3D_ATTRIBUTES toFMODAttributes(CTransform t);
     FMOD_VECTOR toFMODVector(VEC3 v);
     static void registerMsgs();

@@ -45,6 +45,7 @@ bool CModuleSound::start()
         events.insert(std::make_pair(event_name, event_instance));
         assert(res == FMOD_OK);
     }
+
   return true;
 }
 
@@ -87,6 +88,32 @@ void CModuleSound::emitEvent(const std::string& sound) {
 
 void CModuleSound::stopEvent(const std::string& sound) {
     events[sound]->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+}
+
+void CModuleSound::setVolumen(float volumen)
+{
+	std::map<std::string, Studio::EventInstance*>::iterator it;
+
+	for (it = events.begin(); it != events.end(); it++)
+	{
+		it->second->setVolume(volumen);
+	}
+
+	TMsgVolumeSound msg;
+	msg.volumen = volumen;
+
+	for (int i = 0; i < compSounds.size(); i++) {
+		CEntity* cs = getEntityByName(compSounds[i]);
+		dbg(compSounds[i].c_str());
+		dbg("\n");
+		cs->sendMsg(msg);
+	}
+	
+}
+
+void CModuleSound::registerCompSound(std::string name)
+{
+	compSounds.push_back(name);
 }
 
 FMOD::Studio::System* CModuleSound::getSystem() {

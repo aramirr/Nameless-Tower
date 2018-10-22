@@ -61,6 +61,8 @@ bool CModuleGUI::start()
 	registerController(odc);
 	setOmindash(false);
 
+	changeResolution(Render.width, Render.height);
+
 	return true;
 }
 
@@ -80,7 +82,7 @@ void CModuleGUI::update(float delta)
 		//if(firstTime)firstdt
 		if (delta < 1.0f) {
 			if (firstTime) {
-
+				EngineSound.setVolumen(0.f);
 				CEntity* player = (CEntity*)getEntityByName("The Player");
 
 				TMsgSetFSMVariable pauseMsg;

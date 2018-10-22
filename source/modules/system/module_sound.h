@@ -17,6 +17,7 @@ public:
 
 	FMOD_RESULT res;
 	Studio::System* system = NULL;
+	std::vector<std::string> compSounds;
     std::map<std::string, Studio::EventInstance*> events;
     FMOD::Studio::System* getSystem();
     void stopEvent(FMOD::Studio::EventInstance * instance, bool fadeout = false);
@@ -24,6 +25,8 @@ public:
     void playAmbient();
     void emitEvent(const std::string& sound);
     void stopEvent(const std::string& sound);
+		void setVolumen(float volumen);
+		void registerCompSound(std::string name);
 private:
     struct FollowingEvent {
         FMOD::Studio::EventInstance* eventInstance = nullptr;

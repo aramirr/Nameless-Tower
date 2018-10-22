@@ -24,6 +24,8 @@ namespace GUI
 			auto fullScreenONCB = []() {
 				dbg("FULLSCREEN ON\n");
 				EngineUI.fullScreen(true);
+				EngineUI.changeResolution(Render.width, Render.height);
+				EngineUI.fullScreen(true);
 				EngineUI.setFullScreenOption(1, 0);
 				//fullScreenOption = VEC2(1, 0);
 			};
@@ -31,28 +33,39 @@ namespace GUI
 			auto fullScreenOFFCB = []() {
 				dbg("FULLSCREEN OFF\n");
 				EngineUI.fullScreen(false);
+				EngineUI.changeResolution(Render.width, Render.height);
+				EngineUI.fullScreen(false);
 				EngineUI.setFullScreenOption(1, 1);
 			};
 
 			auto res1920CB = []() {
 				dbg("RESOLUTION 1920\n");
-				EngineUI.changeResolution(1920, 1080);
-				if (cb_gui.fullscreen) EngineUI.fullScreen(true);
-				EngineUI.setResolutionOption(2, 0);
+				if ((Render.width != 1920 && Render.height != 1080) && 
+					(1920 <= cb_globals.global_first_resolution_X && 1080 <= cb_globals.global_first_resolution_Y)) {
+					EngineUI.changeResolution(1920, 1080);
+					if (cb_gui.fullscreen) EngineUI.fullScreen(true);
+					EngineUI.setResolutionOption(2, 0);
+				}	
 			};
 
 			auto res1366CB = []() {
 				dbg("RESOLUTION 1366\n");
-				EngineUI.changeResolution(1366, 768);
-				if (cb_gui.fullscreen) EngineUI.fullScreen(true);
-				EngineUI.setResolutionOption(2, 1);
+				if ((Render.width != 1366 && Render.height != 768) &&
+					(1366 <= cb_globals.global_first_resolution_X && 768 <= cb_globals.global_first_resolution_Y)) {
+					EngineUI.changeResolution(1366, 768);
+					if (cb_gui.fullscreen) EngineUI.fullScreen(true);
+					EngineUI.setResolutionOption(2, 1);
+				}
 			};
 
 			auto res1024CB = []() {
 				dbg("RESOLUTION 1024\n");
-				EngineUI.changeResolution(1024, 768);
-				if (cb_gui.fullscreen) EngineUI.fullScreen(true);
-				EngineUI.setResolutionOption(2, 2);
+				if ((Render.width != 1024 && Render.height != 768) &&
+					(1024 <= cb_globals.global_first_resolution_X && 768 <= cb_globals.global_first_resolution_Y)) {
+					EngineUI.changeResolution(1024, 768);
+					if (cb_gui.fullscreen) EngineUI.fullScreen(true);
+					EngineUI.setResolutionOption(2, 2);
+				}
 			};
 
 			auto graphicsLOWCB = []() {
