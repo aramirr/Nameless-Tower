@@ -217,7 +217,7 @@
 		}
 	},{
 		"entity": {
-			"name": "camara_cinematica_antorchasA",
+			"name": "camara_antorchasA",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"				
@@ -232,7 +232,7 @@
 		}
 	},{
 		"entity": {
-			"name": "camara_cinematica_antorchasB",
+			"name": "camara_antorchasB",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"				
@@ -248,24 +248,6 @@
 	},
 	{
 		"entity": {
-			"name": "cinematica_inicial_curve",
-			"transform": {
-				"pos": "0 0 0",
-				"lookat": "0 0 0"
-			},
-			"curve_controller" :
-			{
-				"curve" : "data/curves/CamaraIntro.curve",
-				"speed" : 0.05,
-				"target": "The Player",
-				"loop": false,
-				"automove": false
-			},
-			"render" : {}
-		}
-	},
-	{
-		"entity": {
 			"name": "cinematica_puzzle",
 			"transform": {
 				"pos": "0 0 0",
@@ -275,16 +257,16 @@
 			{				
 				"splines": [
 					{
-					"time": 8.333,
+					"time": 5.333,
 					"blend_time": 0.5,
 					"spline_name": "CamaraAntorchasA",
-					"camera_name" : "camara_cinematica_antorchasA"
+					"camera_name" : "camara_antorchasA"
 					},
 					{
-					"time": 4.5,
-					"blend_time": 1,
+					"time": 6.5,
+					"blend_time": 1.5,
 					"spline_name": "CamaraAntorchasB",
-					"camera_name" : "camara_cinematica_antorchasA"
+					"camera_name" : "camara_antorchasB"
 					}
 				]
 			}

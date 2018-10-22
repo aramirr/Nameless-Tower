@@ -10,7 +10,7 @@ class CAITorch : public IAIController
   DECL_SIBLING_ACCESS();
 
 	float timer = 0.f;
-	float delay = 25.f;
+    float delay;
   float frames;
   float smoke_frames;
   float current_frames;

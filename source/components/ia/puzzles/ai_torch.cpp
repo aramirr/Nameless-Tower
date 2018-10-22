@@ -73,6 +73,7 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
 	render = j.value("render", true);
 	frames = j.value("frames", 0.45f);
 	smoke_frames = j.value("smoke_frames", 0.45f);
+    delay = 7.f;
 	Init();
 }
 
@@ -89,14 +90,17 @@ void CAITorch::ActiveState(float dt)
 			if (current_delay > delay)
 				initialized = true;
 		}
-		else {
+		else {            
 			TCompTransform* my_transform = getMyTransform();
-			if (on_start) {
+			if (on_start) {                
 				fire_position = my_transform->getPosition();
 				fire_position.y += y_offset;
 				fire_position.z += z_offset;
 				fire_position.x += x_offset;
 				on_start = false;
+                CEntity* e = h_entity;
+                std::string name = e->getName();
+                EngineSound.emitPositionalEvent("fire", name);
 			}
 			if (b_fuego) {
 				if (violeta) {
@@ -119,7 +123,6 @@ void CAITorch::InactiveState(float dt)
 	if (in_puzzle) {
 		if(!apagado)cb_globals.global_particle_time += DT;
 		current_frames += DT;
-		dbg("------------------PUZZLE: %f\n", cb_globals.global_particle_time);
 		if (!apagando && current_frames > frames) {
 			EngineBillboards.apagarFuegoAzul(id, scale, fire_position, smoke_y_offset);
 			apagando = true;
@@ -139,9 +142,6 @@ void CAITorch::activate() {
 	active = true;
     render = true;    
     apagando = false;
-    CEntity* e = h_entity;
-    std::string name = e->getName();
-    EngineSound.emitPositionalEvent("fire", name);
 	TCompTransform* my_transform = getMyTransform();
 	if (violeta)
 		EngineBillboards.encenderFuegoVioleta(id, scale, thin);
@@ -175,7 +175,7 @@ void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
 
 void CAITorch::activateMsg(const TMsgActivateTorch& msg) {
 	if (!active || !render) {
-		activate();
+		activate();       
 	}
 }
 
