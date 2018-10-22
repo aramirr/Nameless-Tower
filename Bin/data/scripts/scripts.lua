@@ -105,6 +105,7 @@ function OnTriggerExitTSCinematicaFinal()
 	lm:regain_control(15)
 	lm:set_runner_int(false)
 	lm:set_runner_int(true)
+	lm:creditos()
 
 end
 

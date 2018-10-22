@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "module_sound.h"
 #include "components/camera/comp_camera.h"
+#include "render/render_objects.h"
 
 #pragma comment(lib, "fmod64_vc.lib")
 #pragma comment(lib, "fmodstudio64_vc.lib")
@@ -170,6 +171,7 @@ void CModuleSound::playInterior() {
 void CModuleSound::playAmbient() {
     events["interior"].eventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
     events["ambient"].eventInstance->start();
+		if(cb_gui.main)events["ambient"].eventInstance->setVolume(1.f);
 }
 
 

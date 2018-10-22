@@ -13,6 +13,7 @@ namespace GUI
     VEC2 _speed;
 		bool splash;
 		bool temblor;
+		bool creditos;
 
     friend class CParser;
   };

@@ -99,12 +99,15 @@ namespace GUI
 			pauseMsg.variant.setBool(true);
 
 			player->sendMsg(pauseMsg);*/
+			cb_gui.keyboard = true;
 			timer = 0.3f;
 			setCurrentOption(-1);
 			EngineUI.activateWidget("keyboardMenu");
 			EngineTimer.setTimeSlower(0.f);
+			
 		}
 		else {
+			cb_gui.keyboard = false;
 			EngineUI.desactivateWidget("keyboardMenu");
 		}
 

@@ -60,6 +60,7 @@ namespace GUI
       setCurrentOption(0);
 
 			cb_gui.main = 1.f;
+			EngineSound.playAmbient();
       carga = false;
     }
 

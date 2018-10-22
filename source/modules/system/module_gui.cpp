@@ -22,6 +22,7 @@ bool CModuleGUI::start()
 	_fontTexture = Resources.get("data/textures/gui/Letras.dds")->as<CTexture>();
 
 	CParser parser;
+	parser.parseFile("data/gui/creditos.json");
 	parser.parseFile("data/gui/lineasTemblor.json");
 	parser.parseFile("data/gui/precarga.json");
 	parser.parseFile("data/gui/inicio.json");
@@ -62,6 +63,7 @@ bool CModuleGUI::start()
 	setOmindash(false);
 
 	activateWidget("fadeOut");
+	cb_gui.cinematica = false;
 	return true;
 }
 
@@ -72,9 +74,7 @@ bool CModuleGUI::stop()
 
 void CModuleGUI::update(float delta)
 {
-	//dbg("-----------------------TIME PERROOOO: %f\n", timer);
-
-	if(EngineInput[VK_F5].getsPressed())activateWidget("lineasTemblor");
+	if (EngineInput[VK_F5].getsPressed())activateWidget("pantallaCreditos");
 	if (splash) {
 		
 		
