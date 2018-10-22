@@ -101,13 +101,13 @@ function OnLevel1Start()
 	lm:play_animation("Peke_Aplausos_Sentado2", 1)
 	lm:play_animation("Peke_Aplausos", 0)
 
-	--lm:activate_cinematic_bands(false)
-	--lm:pause_player()
-	--lm:activate_cinematic("cinematica_inicial", false)	
-	--lm:play_animation_player(32)
-	--lm:play_delayed_sound(8, "cinematica_intro")
-	--lm:regain_control(24)
-	lm:regain_control(1)
+	lm:activate_cinematic_bands(false)
+	lm:pause_player()
+	lm:activate_cinematic("cinematica_inicial", false)	
+	lm:play_animation_player(32)
+	lm:play_delayed_sound(8, "cinematica_intro")
+	lm:regain_control(24)
+	--lm:regain_control(1)
 	
 end
 
