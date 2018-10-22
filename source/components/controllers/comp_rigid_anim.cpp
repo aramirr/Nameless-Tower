@@ -42,7 +42,6 @@ void TCompRigidAnim::update(float dt) {
 
 	timer += dt;
 	if (timer >= wait_time) {
-		dbg("Charlie %s\n", name.c_str());
 		TCompTransform* c_trans = get< TCompTransform >();
 		if (!father && c_trans != nullptr) {
 			// Sample the animation in the current time
@@ -89,7 +88,6 @@ void TCompRigidAnim::activate(const TMsgActivateAnim& msg) {
 	wait_time = msg.wait_time;
 	timer = 0.f;
 
-	dbg("Josue %s : %s - wait %f\n", name.c_str(), is_moving ? "true" : "false", wait_time);
 }
 
 void TCompRigidAnim::desactivate(const TMsgDesactivateAnim & msg)
@@ -113,7 +111,6 @@ void TCompRigidAnim::desactivate(const TMsgDesactivateAnim & msg)
 			entity->sendMsg(msg);
 		}
 	}
-	dbg("Jonas %s - wait %f", is_moving ? "true" : "false", wait_time);
 }
 
 void TCompRigidAnim::registerSon(const TMsgRegisterDestoyableSon & msg)
