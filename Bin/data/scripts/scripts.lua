@@ -4,11 +4,59 @@ SLB.using(SLB)
 
 lm = LogicManager();
 
--- Debug
+function RespawnOnLevel2()
+	-- body
+	lm:delete_grass(1, false)
+	lm:delete_grass(1, true)
+	lm:delete_grass(2, false)
+	lm:delete_grass(2, true)
+	lm:delete_grass(3, false)
+	lm:delete_grass(3, true)
+	lm:delete_grass(4, false)
+	lm:delete_grass(4, true)
+	lm:delete_grass(5, false)
+	lm:delete_grass(5, true)
+	lm:delete_grass(6, false)
+	lm:delete_grass(6, true)
+	lm:delete_grass(7, false)
+	lm:delete_grass(7, true)
+	lm:delete_grass(8, false)
+	lm:delete_grass(8, true)
+	lm:delete_grass(9, false)
+	lm:delete_grass(9, true)
+	lm:delete_grass(10, false)
+	lm:delete_grass(10, true)
+	lm:delete_grass(11, false)
+	lm:delete_grass(11, true)
+	lm:delete_grass(12, false)
+	lm:delete_grass(12, true)
+	lm:delete_grass(13, false)
+	lm:delete_grass(13, true)
+	lm:delete_grass(14, false)
+	lm:delete_grass(14, true)
+	lm:insert_grass(15, false)
+	lm:insert_grass(15, true)
+	lm:insert_grass(16, false)
+	lm:insert_grass(16, true)
+	lm:insert_grass(17, false)
+	lm:insert_grass(17, true)
+	lm:update_grass_render()
 
-function OnTriggerEnterDebugTrigger()
-	lm:set_dir_light_intensity("LightDir00", 10, false)
-	lm:set_dir_light_intensity("LightDir01", 10, false)
+	lm:set_dir_light_intensity("LightDir00", 0, false)
+	lm:set_dir_light_intensity("LightDir01", 0, false)
+	lm:set_dir_light_intensity("LightDir02", 0, false)
+	lm:set_dir_light_intensity("LightDir03", 0, false)	
+	lm:set_dir_light_intensity("LightDir04", 0, false)	
+	lm:set_dir_light_intensity("LightDir05", 0, false)	
+	lm:set_dir_light_intensity("LightDir06", 0, false)	
+	lm:set_dir_light_intensity("LightDir07", 0, false)	
+	lm:set_dir_light_intensity("LightDir08", 0, false)	
+	lm:set_dir_light_intensity("LightDir09", 0, false)	
+	lm:set_dir_light_intensity("LightDir10", 0, false)	
+	lm:set_dir_light_intensity("LightDir11", 10, false)	
+	lm:set_dir_light_intensity("LightDir12", 10, false)	
+	lm:set_dir_light_intensity("LightDir13", 10, false)	
+	lm:set_dir_light_intensity("LightDir14", 10, false)	
 end
 
 -- On Level Start
@@ -67,7 +115,7 @@ function OnLevel2Start()
 	--lm:set_exposure(0.36)
 	lm:stop_sound(true, "ambient")
 	lm:stop_sound(false, "ambient")
-	--lm:play_ambient_night()
+	lm:play_ambient_night()
 	lm:set_dir_light_intensity("LightDir00", 0, false)
 	lm:set_dir_light_intensity("LightDir01", 0, false)
 	lm:set_dir_light_intensity("LightDir02", 0, false)
@@ -641,6 +689,16 @@ function OnTriggerExitTSEstatuaWindstrikeB()
 	lm:set_dir_light_intensity("LightDir03", 10, true)
 	lm:set_point_light_intensity("Luces_Fuego_01", 10, true)
 	lm:set_point_light_intensity("Luces_Fuego_02", 10, true)
+
+	lm:insert_grass(5, false)
+	lm:insert_grass(6, false)
+	lm:insert_grass(7, false)
+
+	lm:delete_grass(5, true)
+	lm:delete_grass(6, true)
+	lm:delete_grass(7, true)
+
+	lm:update_grass_render()
 end
 
 -- Sala 4-5
@@ -710,6 +768,23 @@ function OnTriggerExitTSLucesCompresorasB()
 
 	lm:set_dir_light_intensity("LightDir07", 11, true)
 	lm:set_dir_light_intensity("LightDir04", 0, true)
+
+	lm:insert_grass(8, true)
+	lm:insert_grass(9, true)
+	lm:insert_grass(10, true)
+	lm:insert_grass(11, true)
+	lm:insert_grass(12, true)
+	lm:insert_grass(13, true)
+	lm:insert_grass(14, true)
+
+	lm:delete_grass(8, false)
+	lm:delete_grass(9, false)
+	lm:delete_grass(10, false)
+	lm:delete_grass(11, false)
+	lm:delete_grass(12, false)
+	lm:delete_grass(13, false)
+	lm:delete_grass(14, false)
+	lm:update_grass_render()
 end
 -- Sala 7-8
 function OnTriggerExitTPTechosPuertasB()
@@ -772,12 +847,13 @@ function OnTriggerExitTSJardinRunner()
 	lm:set_point_light_intensity("Luces_Fuego_09", 10, false)
 	lm:set_point_light_intensity("Luces_Fuego_010", 10, false)
 	--lm:stop_emiter("hojas_jardin_2", false)
+
+
+
 end
 
 function OnTriggerExitTSRunnerLava()
 	--Interior
-	--lm:set_exposure(0.05, true)	
-	--lm:render_everything("ParedDestapada10", true)
 	lm:render_only_shadows("ParedTapada10B", true)
 	lm:set_dir_light_intensity("LightDir13", 0, true)
 	lm:set_dir_light_intensity("LightDir14", 0, true)
@@ -808,6 +884,32 @@ function OnTriggerExitTSRunnerLava()
 	lm:set_point_light_intensity("Luces_Fuego_010", 0, false)
 	--lm:stop_emiter("hojas_viento", false)
 	--lm:start_emiter("particulas_top_cascada", false)
+
+	lm:delete_grass(16, true)
+	lm:delete_grass(17, true)
+
+	lm:insert_grass(16, false)
+	lm:insert_grass(17, false)
+
+	lm:insert_grass(15, false)
+	lm:delete_grass(15, true)
+	
+	lm:insert_grass(8, true)
+	lm:insert_grass(9, true)
+	lm:insert_grass(10, true)
+	lm:insert_grass(11, true)
+	lm:insert_grass(12, true)
+	lm:insert_grass(13, true)
+	lm:insert_grass(14, true)
+
+	lm:delete_grass(8, false)
+	lm:delete_grass(9, false)
+	lm:delete_grass(10, false)
+	lm:delete_grass(11, false)
+	lm:delete_grass(12, false)
+	lm:delete_grass(13, false)
+	lm:delete_grass(14, false)
+	lm:update_grass_render()
 end
 
 function OnTriggerExitTSCascadaAntorchasB()
@@ -827,6 +929,16 @@ function OnTriggerExitTSCascadaAntorchasB()
 	lm:set_dir_light_intensity("LightDir12", 0, false)
 	lm:set_point_light_intensity("Luces_Fuego_011", 10, false)
 	lm:set_point_light_intensity("Luces_Fuego_012", 10, false)
+
+
+	lm:delete_grass(15, false)
+	lm:delete_grass(16, false)
+	lm:delete_grass(17, false)
+
+	lm:insert_grass(15, true)
+	lm:insert_grass(16, true)
+	lm:insert_grass(17, true)
+	lm:update_grass_render()
 end
 
 
