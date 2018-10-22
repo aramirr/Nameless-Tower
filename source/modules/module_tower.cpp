@@ -187,7 +187,7 @@ void CModuleTower::update(float delta)
 		cb_globals.global_fadeOut_adjustment = 10.f;
 		disappearEntity("Niebla013");
 		disappearEntity("Niebla014");
-		if (timer_runner > 1.f && !change_level_done) {
+		if (timer_runner > 0.4f && !change_level_done) {
 			CEntity* e = getEntityByName("The Player");
 			TCompPlayerController* player = e->get<TCompPlayerController>();
 			if (player->game_state == "level_1") {
@@ -196,7 +196,7 @@ void CModuleTower::update(float delta)
 			}
 			change_level_done = true;
 		}
-		else if (timer_runner > 2.f) {
+		else if (timer_runner > 1.f) {
 			cb_globals.global_fadeOut_adjustment = 0.f;
 			activate_runner = true;
 			timer_runner = 0.f;
