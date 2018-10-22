@@ -77,19 +77,26 @@ void CModuleTower::update(float delta)
 	if (time_out) {
 		current_time += delta;
 		if (current_time > total_wait_time) {
+			if (cb_gui.creditos) {
+				EngineUI.activateWidget("pantallaCreditos");
+			}
+			else {
+				CEntity* player = getEntityByName("The Player");
+				TMsgSetFSMVariable pauseMsg;
+				pauseMsg.variant.setName("pause");
+				pauseMsg.variant.setBool(false);
+				player->sendMsg(pauseMsg);
+
+				pauseMsg.variant.setName("idle");
+				pauseMsg.variant.setBool(true);
+				player->sendMsg(pauseMsg);
+
+				setBandsCinematics(false);
+				cb_gui.cinematica = false;
+			}
 			time_out = false;
-			CEntity* player = getEntityByName("The Player");
-			TMsgSetFSMVariable pauseMsg;
-			pauseMsg.variant.setName("pause");
-			pauseMsg.variant.setBool(false);
-			player->sendMsg(pauseMsg);
-
-			pauseMsg.variant.setName("idle");
-			pauseMsg.variant.setBool(true);
-			player->sendMsg(pauseMsg);
-
-			setBandsCinematics(false);
-			cb_gui.cinematica = false;
+			
+			
 			if (current_cinematic != "") {
 				deactivateCinematic(current_cinematic);
 			}

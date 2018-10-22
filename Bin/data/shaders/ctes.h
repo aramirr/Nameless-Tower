@@ -278,7 +278,7 @@ CB_DEF(CCteGUI, CB_GUI)
 	float vsync;
 	float keyboard;
 	float cinematica;
-	float dummy2;
+	float creditos;
 };
 
 CB_DEF(CCteParticle, CB_PARTICLE)
