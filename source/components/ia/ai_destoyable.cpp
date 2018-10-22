@@ -78,6 +78,7 @@ void CAIDestroyable::TriggerDestroyState(float dt)
 		for (int i = 0; i < sons.size(); i++) {
 			CEntity* entity = (CEntity*)getEntityByName(sons[i]);
 			TMsgActivateAnim msg;
+
 			msg.wait_time = 0;
 			entity->sendMsg(msg);
 		}

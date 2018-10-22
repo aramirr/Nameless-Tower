@@ -65,8 +65,10 @@ namespace FSM
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !player->is_grounded) {
 				if (player->jumping_start_height - c_my_transform->getPosition().y > player->jumping_death_height) {
-					ctx.setVariable(
-                        "hit", true);
+					ctx.setVariable("hit", true);
+					CEntity* runner = (CEntity *)getEntityByName("Runner");
+					TMsgRunnerDisappear msg_disappear;
+					runner->sendMsg(msg_disappear);
 				}
                 CEntity* particles_emiter = (CEntity*)getEntityByName("humo_land");
                 TCompParticles* c_particles = particles_emiter->get<TCompParticles>();

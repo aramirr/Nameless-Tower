@@ -41,7 +41,7 @@ void TCompRigidAnim::update(float dt) {
 	if (timer >= wait_time) {
 		dbg("Charlie %s\n", name.c_str());
 		TCompTransform* c_trans = get< TCompTransform >();
-		if (!father ) {
+		if (!father && c_trans != nullptr) {
 			// Sample the animation in the current time
 			RigidAnims::TKey k;
 			
@@ -86,7 +86,7 @@ void TCompRigidAnim::activate(const TMsgActivateAnim& msg) {
 	wait_time = msg.wait_time;
 	timer = 0.f;
 
-	dbg("Josue %s - wait %f", is_moving ? "true" : "false", wait_time);
+	dbg("Josue %s : %s - wait %f\n", name.c_str(), is_moving ? "true" : "false", wait_time);
 }
 
 void TCompRigidAnim::desactivate(const TMsgDesactivateAnim & msg)

@@ -96,6 +96,9 @@ namespace FSM
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 				if (player->jumping_start_height - c_my_transform->getPosition().y > player->jumping_death_height) {
 					ctx.setVariable("hit", true);
+					CEntity* runner = (CEntity *)getEntityByName("Runner");
+					TMsgRunnerDisappear msg_disappear;
+					runner->sendMsg(msg_disappear);
 				}
 				ctx.setVariable("is_grounded", true);
                 player->change_animation(player->EAnimations::NajaJumpLand, true, 0.01, 0.1, false);
