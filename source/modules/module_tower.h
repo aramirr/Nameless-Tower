@@ -30,6 +30,7 @@ class CModuleTower : public IModule {
 
 	// Activate Runner
 	bool change_level = false;
+	bool change_level_done = false;
 	bool activate_runner = false;
 	float timer_runner = 0.f;
 	bool build_runner = false;

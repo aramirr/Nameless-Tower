@@ -63,7 +63,7 @@ class bt_runner:public bt
   bool anim_debug_changed = false;
   float attack_distance;
   float debug_timer = 0.f;
-  float speed = 2.0f;
+  float speed = 2.5f;
 	float Vx;
 	float Vy;
 	float gravity = 15.f;

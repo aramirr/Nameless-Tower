@@ -20,7 +20,8 @@ void bt_runner::appear(const TMsgRunnerAppear& msg) {
 
 void bt_runner::disappear(const TMsgRunnerDisappear& msg) {
 	b_disappear = true;
-	dbg("JUANA DE ARCO\n");
+	anim_state = "idle";
+	change_animation(ERunnerAnimations::RunnerIdle, false, 0.f, 0.f, true);
 	setCurrent(NULL);
 }
 
@@ -193,13 +194,15 @@ int bt_runner::actionRecover() {
 int bt_runner::actionAttack() {
 		if (anim_state != "attack") {
 			anim_state = "attack";
+			change_animation(ERunnerAnimations::RunnerIdle, false, 0.f, 0.f, true);
 			change_animation(ERunnerAnimations::RunnerAttack, true, 0.f, 0.f, true);
+			play_sound("golpe");
 		}
 
     addGravity();
 
     debug_timer += DT;
-    if (debug_timer >= 0.4f) {
+    if (debug_timer >= 0.2f) {
         debug_timer = 0.f;
 				b_disappear = true;
         killPlayer();
@@ -280,22 +283,8 @@ int bt_runner::actionAppear() {
   return LEAVE;
 };
 
-int bt_runner::actionAppearPose() {
-  if (anim_state != "appear_pose") {
-    anim_state = "appear_pose";
-    change_animation(ERunnerAnimations::RunnerIdle, false, 0.f, 0.f, true);
-    change_animation(ERunnerAnimations::RunnerAparece, true, 0.f, 0.f, true);
-  }
-  debug_timer += DT;
-  if (debug_timer >= 4.4f) {
-    debug_timer = 0.f;
-    return LEAVE;
-  }
-  return STAY;
-};
 
 int bt_runner::actionHide() {
-
 	//dbg("hide\n");
 	return STAY;
 };

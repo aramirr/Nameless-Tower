@@ -7,6 +7,7 @@
 #include "components/controllers/comp_door.h"
 #include "components/player/comp_player_controller.h"
 #include "components/ia/bt_runner.h"
+#include "components/sound/comp_sound.h"
 
 bool CModuleTower::start()
 {
@@ -51,14 +52,14 @@ void CModuleTower::update(float delta)
 	}
 	if (changeFadeOut) {
 		if (newFadeOut > oldFadeOut) {
-			cb_globals.global_fadeOut_adjustment += 0.01f;
+			cb_globals.global_fadeOut_adjustment += 0.05f;
 			oldFadeOut = cb_globals.global_fadeOut_adjustment;
 			if (oldFadeOut > newFadeOut) {
 				changeFadeOut = false;
 			}
 		}
 		else if (newFadeOut < oldFadeOut) {
-			cb_globals.global_fadeOut_adjustment -= 0.005f;
+			cb_globals.global_fadeOut_adjustment -= 0.05f;
 			oldFadeOut = cb_globals.global_fadeOut_adjustment;
 			if (oldFadeOut < newFadeOut) {
 				changeFadeOut = false;
@@ -116,11 +117,19 @@ void CModuleTower::update(float delta)
 			controller->remove_animation(controller->EAnimations::NajaJumpLoop);
 			controller->change_animation(34, true, 0, 0.8, true);
 			EngineSound.emitDelayedEvent(0, "naja_monolito");
+			EngineTower.activateCinematic("cinematica_monolito");	
+			EngineTower.setBandsCinematics(true);
 		}
 
 		else if (timer_runner >= 5.f && !destroy_monolito) {
 			destroy_monolito = true;
-			activateAnim("Monolito_001", 0.01f);
+
+			CEntity* entity = (CEntity*)getEntityByName("Monolito_001");
+			TMsgActivateAnim msg;
+			msg.name = "Monolito_001";
+			msg.wait_time = 0.f;
+			entity->sendMsg(msg);
+
 			EngineSound.emitDelayedEvent(0, "monolito_destruccion");
 		}
 
@@ -129,7 +138,12 @@ void CModuleTower::update(float delta)
 			CEntity* e = getEntityByName("The Player");
 			TCompPlayerController* player = e->get<TCompPlayerController>();
 			build_runner = true;
-			activateAnim("Runner_father", 0.01f);
+
+			CEntity* entity = (CEntity*)getEntityByName("Runner_father");
+			TMsgActivateAnim msg;
+			msg.name = "Runner_father";
+			msg.wait_time = 0.f;
+			entity->sendMsg(msg);
 		}
 		else if (timer_runner >= 26.667 && !changed_runner_mesh) {
 			changed_runner_mesh = true;
@@ -149,13 +163,16 @@ void CModuleTower::update(float delta)
 			e_transform->setPosition(VEC3(2.31185f, 88.f, -31.2941f)); //86.5861f
 			e_collider->controller->setPosition(physx::PxExtendedVec3(2.31185f, 88.f, -31.2941f));
 			bt_runner * controller = e->get<bt_runner>();
-			controller->change_animation(5, true, 0.1, 0.0, true);
+			controller->change_animation(5, true, 0.0, 0.0, true);
+			
 		}
 		else if (timer_runner >= 27.33f && !runner_scream) {
 			runner_scream = true;
 			CEntity* e = getEntityByName("Runner");
 			bt_runner * controller = e->get<bt_runner>();
 			controller->change_animation(4, true, 0.1, 0.0, true);
+			TCompSound* sound = e->get<TCompSound>();
+			sound->playSound("roar");
 		}
 		else if (timer_runner >= 32.f && !runner_chase) {
 			runner_chase = true;
@@ -166,15 +183,27 @@ void CModuleTower::update(float delta)
 	}
 
 	if (change_level) {
-		setFadeOutAdjustment(10.f);
-		CEntity* e = getEntityByName("The Player");
-		TCompPlayerController* player = e->get<TCompPlayerController>();
-		if (player->game_state == "level_1") {
-			CEngine::get().getModules().changeGameState("level_2");
-			player->game_state = "level_2";
+		timer_runner += delta;
+		cb_globals.global_fadeOut_adjustment = 10.f;
+		disappearEntity("Niebla013");
+		disappearEntity("Niebla014");
+		if (timer_runner > 1.f && !change_level_done) {
+			CEntity* e = getEntityByName("The Player");
+			TCompPlayerController* player = e->get<TCompPlayerController>();
+			if (player->game_state == "level_1") {
+				CEngine::get().getModules().changeGameState("level_2");
+				player->game_state = "level_2";
+			}
+			change_level_done = true;
 		}
-		setFadeOutAdjustment(0.f);
-		activate_runner = true;
+		else if (timer_runner > 2.f) {
+			cb_globals.global_fadeOut_adjustment = 0.f;
+			activate_runner = true;
+			timer_runner = 0.f;
+			change_level = false;
+			appearEntity("Niebla013");
+			appearEntity("Niebla014");
+		}
 	}
 }
 
@@ -348,6 +377,7 @@ const void CModuleTower::closeDoor(const std::string& name) {
 const void CModuleTower::activateAnim(const std::string& name, float wait_time) {
 	CEntity* entity = (CEntity*)getEntityByName(name);
 	TMsgActivateAnim msg;
+	msg.name = name;
 	msg.wait_time = wait_time;
 	entity->sendMsg(msg);
 }

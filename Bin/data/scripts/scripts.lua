@@ -73,7 +73,7 @@ function OnLevel2Start()
 	lm:set_dir_light_intensity("LightDir02", 0, false)
 	lm:set_dir_light_intensity("LightDir03", 0, false)	
 	lm:set_dir_light_intensity("LightDir13", 10, false)	
-	lm:set_dir_light_intensity("LightDir14", 0, false)	
+	lm:set_dir_light_intensity("LightDir14", 10, false)	
 	lm:set_point_light_intensity("Luces_Fuego_011", 10, false)
 	lm:set_point_light_intensity("Luces_Fuego_012", 10, false)	
 
@@ -82,25 +82,9 @@ end
 -- Cinematicas
 
 function OnTriggerExitTSCinematicaMonolito()
-	--lm:activate_cinematic_bands(false)
-	--lm:pause_player()
-	--If camera needs to be moved
-	--lm:activate_cinematic("cinematic_first_door", false)
-	--lm:play_animation(32)
-	--lm:regain_control(25)
-	--lm:kill_entity("LuaCinematicTest")
-	lm:activate_cinematic_bands(false)
-	lm:activate_cinematic("cinematica_monolito", false)	
-	lm:activate_cinematic("cinematica_monolito", true)	
-	--lm:activate_cinematic("cinematica_inicial", false)
-	
 	lm:pause_player()
-	--lm:activate_anim("Monolito_001", 5)
-	--lm:play_delayed_sound(0, "naja_monolito")
-	--lm:play_delayed_sound(5, "monolito_destruccion")
 	lm:activate_runner()
 	lm:regain_control(31)
-	--lm:change_level("level_2")
 end
 
 function OnTriggerExitTSCinematicaFinal()
