@@ -55,10 +55,12 @@ void CModuleTower::update(float delta)
 			cb_globals.global_fadeOut_adjustment += 0.05f;
 			oldFadeOut = cb_globals.global_fadeOut_adjustment;
 			if (oldFadeOut > newFadeOut) {
+				if(oldFadeOut>=10.f)EngineUI.activateWidget("Pantalla_negra");
 				changeFadeOut = false;
 			}
 		}
 		else if (newFadeOut < oldFadeOut) {
+			if (oldFadeOut >= 10.f && newFadeOut < 10.f)EngineUI.desactivateWidget("Pantalla_negra");
 			cb_globals.global_fadeOut_adjustment -= 0.05f;
 			oldFadeOut = cb_globals.global_fadeOut_adjustment;
 			if (oldFadeOut < newFadeOut) {
