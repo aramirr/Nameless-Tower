@@ -100,33 +100,39 @@ namespace GUI
 
 			auto volumenOFFCB = []() {
 				dbg("VOLUMEN LOW\n");
-
+				EngineSound.setVolumen(0.f);
+				EngineUI.setVolumenOption(4, 0);
 			};
 
 
 			auto volumenLOWCB = []() {
 				dbg("VOLUMEN LOW\n");
-
+				EngineSound.setVolumen(0.3f);
+				EngineUI.setVolumenOption(4, 1);
 			};
 
 			auto volumenMEDIUMCB = []() {
 				dbg("VOLUMEN MEDIUM\n");
-
+				EngineSound.setVolumen(0.6f);
+				EngineUI.setVolumenOption(4, 2);
 			};
 
 			auto volumenHIGHCB = []() {
 				dbg("VOLUMEN HIGH\n");
-
+				EngineSound.setVolumen(1.f);
+				EngineUI.setVolumenOption(4, 3);
 			};
 
 			auto vsyncONCB = []() {
 				dbg("VSYNC ON\n");
-
+				cb_gui.vsync = true;
+				EngineUI.setVsyncOption(5, 0);
 			};
 
 			auto vsyncOFFCB = []() {
 				dbg("VSYNC OFF\n");
-
+				cb_gui.vsync = false;
+				EngineUI.setVsyncOption(5, 1);
 			};
 
 			auto exitOptionsCB = []() {
@@ -150,10 +156,10 @@ namespace GUI
 			//registerOption("graphics_LOW", graphicsLOWCB, 3);
 			//registerOption("graphics_MEDIUM", graphicsMEDIUMCB, 3);
 			//registerOption("graphics_HIGH", graphicsHIGHCB, 3);
+			registerOption("volumen_OFF", volumenOFFCB, 4);
 			registerOption("volumen_LOW", volumenLOWCB, 4);
 			registerOption("volumen_MEDIUM", volumenMEDIUMCB, 4);
 			registerOption("volumen_HIGH", volumenHIGHCB, 4);
-			registerOption("volumen_OFF", volumenOFFCB, 4);
 			registerOption("vsyncON", vsyncONCB, 5);
 			registerOption("vsyncOFF", vsyncOFFCB, 5);
 			registerOption("exit_options", exitOptionsCB, 6);
@@ -162,10 +168,12 @@ namespace GUI
 
 			fullScreenOption = VEC2(1, 1);
 			resolutionOption = VEC2(2, 0);
-			volumenOption = VEC2(4, 2);
+			volumenOption = VEC2(4, 3);
 			vsyncOption = VEC2(5, 1);
 
 			cb_gui.fullscreen = false;
+			cb_gui.vsync = false;
+			cb_gui.keyboard = false;
 
 			carga = false;
 		}

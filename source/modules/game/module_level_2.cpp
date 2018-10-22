@@ -24,8 +24,8 @@ bool CModuleLevel2::start()
 	// Auto load some scenes
 	std::vector< std::string > scenes_to_auto_load = jboot["boot_level_2"];
 	for (auto& scene_name : scenes_to_auto_load) {
- 	    TEntityParseContext ctx;
-	    parseScene(scene_name, ctx);
+		TEntityParseContext ctx;
+		parseScene(scene_name, ctx);
 	}
 
 	auto p = EngineScripting.script.exists("OnLevel2Start");
@@ -34,7 +34,7 @@ bool CModuleLevel2::start()
 
 	cb_globals.global_bajada = 1.f;
 
-    return true;
+	return true;
 }
 
 bool CModuleLevel2::stop()
@@ -44,7 +44,7 @@ bool CModuleLevel2::stop()
 	cb_object.destroy();
 	cb_globals.destroy();
 	cb_blur.destroy();
-    cb_gui.destroy();
+	cb_gui.destroy();
 	Engine.getEntities().destroyAllEntities();
 	Engine.getCameras().destroyAllCameras();
 	return true;
@@ -57,12 +57,12 @@ void CModuleLevel2::update(float delta)
 		CEntity* cam = (CEntity*)getEntityByName("camera_manager");
 		TCompCameraManager* cm = cam->get<TCompCameraManager>();
 		assert(cm);
-    
+
 		carga = false;
 	}
-  CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+	CEntity* cam = (CEntity*)getEntityByName("camera_manager");
 
-  
+
 	static VEC3 world_pos;
 	ImGui::DragFloat3("Pos", &world_pos.x, 0.025f, -50.f, 50.f);
 
@@ -76,26 +76,39 @@ void CModuleLevel2::update(float delta)
 		ImGui::Text("Mouse at %1.2f, %1.2f", mouse.x, mouse.y);
 	}
 
-  if (EngineInput[VK_ESCAPE].getsPressed())
-  {
-		if (cb_gui.options > 0.f) {
-			EngineTimer.setTimeSlower(1.f);
+	if (EngineInput[VK_ESCAPE].getsPressed() && !cb_gui.cinematica)
+	{
+		if (cb_gui.keyboard > 0.f) {
+			//EngineTimer.setTimeSlower(1.f);
+			//Engine.getModules().changeGameState("test_axis");
+			EngineUI.desactiveKeyboardMenu();
+			EngineUI.activeOptionMenu();
+		}
+		else if (cb_gui.options > 0.f) {
+			//EngineTimer.setTimeSlower(1.f);
 			//Engine.getModules().changeGameState("test_axis");
 			EngineUI.desactivateWidget("menu_options");
 			EngineUI.desactiveOptionMenu();
+			if (cb_gui.main > 0.f) EngineUI.activeMainMenu();
+			else EngineUI.activePauseMenu();
 		}
 		else if (cb_gui.main < 1.f) {
 			cb_gui.pause -= 1.f;
 			if (cb_gui.pause < 0.f)cb_gui.pause = 1.f;
 			if (cb_gui.pause > 0.f) {
-				EngineUI.activateWidget("pause_menu"); 
+				EngineUI.activateWidget("pause_menu");
 				EngineUI.activePauseMenu();
 			}
 			else {
+				HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+				HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/cursorIngame.cur"); //.cur or .ani
+				SetCursor(Cursor);
+				SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
 				EngineTimer.setTimeSlower(1.f);
 				//Engine.getModules().changeGameState("test_axis");
 				EngineUI.desactivateWidget("pause_menu");
 				EngineUI.desactivePauseMenu();
+				EngineUI.resetPauseMenu();
 
 				CEntity* player = (CEntity*)getEntityByName("The Player");
 
@@ -106,7 +119,7 @@ void CModuleLevel2::update(float delta)
 				player->sendMsg(pauseMsg);
 			}
 		}
-  }
+	}
 
 }
 
@@ -114,9 +127,9 @@ void CModuleLevel2::update(float delta)
 void CModuleLevel2::render()
 {
 
-  // Render the grid
-  cb_object.obj_world = MAT44::Identity;
-  cb_object.obj_color = VEC4(1,1,1,1);
-  cb_object.updateGPU();
- 
+	// Render the grid
+	cb_object.obj_world = MAT44::Identity;
+	cb_object.obj_color = VEC4(1, 1, 1, 1);
+	cb_object.updateGPU();
+
 }

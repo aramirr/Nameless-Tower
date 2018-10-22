@@ -36,6 +36,7 @@ public:
   // UI
 	void activateText(const char* name);
 	void disactivateText(const char* name);
+	void activateCredits();
 
   // Lights
   void setDirLightIntensity(const char* name, float value, bool left);

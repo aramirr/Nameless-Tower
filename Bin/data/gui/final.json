@@ -1,0 +1,78 @@
+[
+	{
+		"name" : "pantallaFinal",
+		"type" : "widget",
+		"size" : "1920 1080",
+		"children" : [
+			{
+				"name" : "background",
+				"children" : [
+					{
+						"name" : "fondoA",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/MainMenu/Menu_Fondo_F.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1"
+					},
+					{
+						"name" : "particulasA",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/MainMenu/Menu_Fondo_Particulas.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1",
+						"effects" : [
+							{
+								"type" : "animate_uv",
+								"speed" : "0.0125 0.0125"
+							}
+						]
+					},
+					{
+						"name" : "particulasB",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/MainMenu/Menu_Fondo_Particulas_2.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1",
+						"effects" : [
+							{
+								"type" : "animate_uv",
+								"speed" : "0.0250 0.0250"
+							}
+						]
+					},
+					{
+						"name" : "fondoB",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/MainMenu/Menu_Titulo_F.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1"
+					}
+				]
+			},
+			{
+				"name" : "test_buttons",
+				"type" : "widget",
+				"position" : "0 0",
+				"children" : [
+					{
+						"name" : "exitFinal",
+						"type" : "button",
+						"position" : "1340 748",
+						"size" : "100 48",
+						"texture" : "data/textures/gui/MainMenu/Boton_E_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/MainMenu/Boton_EX_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/MainMenu/Boton_EX_3.dds"
+						}
+					}
+				]
+			}
+		]
+	}
+]

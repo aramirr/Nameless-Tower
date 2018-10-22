@@ -156,9 +156,15 @@ void CModuleLevel1::update(float delta)
 		ImGui::Text("Mouse at %1.2f, %1.2f", mouse.x, mouse.y);
 	}
 
-	if (EngineInput[VK_ESCAPE].getsPressed())
+	if (EngineInput[VK_ESCAPE].getsPressed() && !cb_gui.cinematica)
 	{
-		if (cb_gui.options > 0.f) {
+		if (cb_gui.keyboard > 0.f) {
+			//EngineTimer.setTimeSlower(1.f);
+			//Engine.getModules().changeGameState("test_axis");
+			EngineUI.desactiveKeyboardMenu();
+			EngineUI.activeOptionMenu();
+		}
+		else if (cb_gui.options > 0.f) {
 			//EngineTimer.setTimeSlower(1.f);
 			//Engine.getModules().changeGameState("test_axis");
 			EngineUI.desactivateWidget("menu_options");
@@ -174,6 +180,10 @@ void CModuleLevel1::update(float delta)
 				EngineUI.activePauseMenu();
 			}
 			else {
+				HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+				HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/cursorIngame.cur"); //.cur or .ani
+				SetCursor(Cursor);
+				SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
 				EngineTimer.setTimeSlower(1.f);
 				//Engine.getModules().changeGameState("test_axis");
 				EngineUI.desactivateWidget("pause_menu");
