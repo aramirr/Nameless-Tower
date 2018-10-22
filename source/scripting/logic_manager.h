@@ -79,4 +79,6 @@ public:
 
 	void activateRunner();
 
+	void setVolumen(float volumen, bool left);
+
 };

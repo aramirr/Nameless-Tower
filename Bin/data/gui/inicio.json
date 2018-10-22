@@ -27,13 +27,35 @@
 						"name" : "fondoA",
 						"type" : "image",
 						"size" : "1920 1080",
-						"texture" : "data/textures/gui/MenuFondo.dds",
+						"texture" : "data/textures/gui/MainMenu/Menu_Fondo_F.dds",
 						"minUV" : "0 0",
-						"maxUV" : "0.5 1",
+						"maxUV" : "1 1"
+					},
+					{
+						"name" : "particulasA",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/MainMenu/Menu_Fondo_Particulas.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1",
 						"effects" : [
 							{
 								"type" : "animate_uv",
-								"speed" : "0.0125 0"
+								"speed" : "0.0125 0.0125"
+							}
+						]
+					},
+					{
+						"name" : "particulasB",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/MainMenu/Menu_Fondo_Particulas_2.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1",
+						"effects" : [
+							{
+								"type" : "animate_uv",
+								"speed" : "0.0250 0.0250"
 							}
 						]
 					},
@@ -41,80 +63,58 @@
 						"name" : "fondoB",
 						"type" : "image",
 						"size" : "1920 1080",
-						"texture" : "data/textures/gui/menu_anim_background1.dds",
+						"texture" : "data/textures/gui/MainMenu/Menu_Titulo_F.dds",
 						"minUV" : "0 0",
-						"maxUV" : "0.5 1",
-						"effects" : [
-							{
-								"type" : "animate_uv",
-								"speed" : "-0.025 0"
-							}
-						]
+						"maxUV" : "1 1"
 					}
 				]
 			},
 			{
 				"name" : "test_buttons",
 				"type" : "widget",
-				"position" : "810 650",
+				"position" : "0 0",
 				"children" : [
 					{
 						"name" : "new_game",
 						"type" : "button",
-						"position" : "0 0",
-						"size" : "300 50",
-						"texture" : "data/textures/gui/menu_boton.dds",
-						"font_size" : 32.0,
-						"text" : "NEW GAME",
-						"halign" : "center",
-						"valign" : "center",
-						"color" : "0.5 0.5 0.5 1",
+						"position" : "1350 596",
+						"size" : "200 60",
+						"texture" : "data/textures/gui/MainMenu/Boton_NG_1.dds",
 						"selected" : {
-							"position" : "30 0",
-							"font_size" : 36.0,
-							"color" : "1 1 1 1"
+							"texture" : "data/textures/gui/MainMenu/Boton_NG_2.dds"
 						},
 						"pressed" : {
-							"position" : "30 0",
-							"font_size" : 36.0,
-							"font_color" : "0.8 0.8 1 1"
+							"texture" : "data/textures/gui/MainMenu/Boton_NG_3.dds"
+						}
+					},
+					{
+						"name" : "options",
+						"type" : "button",
+						"position" : "1347 673",
+						"size" : "180 48",
+						"texture" : "data/textures/gui/MainMenu/Boton_OP_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/MainMenu/Boton_OP_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/MainMenu/Boton_OP_3.dds"
 						}
 					},
 					{
 						"name" : "exit",
 						"type" : "button",
-						"position" : "0 80",
-						"size" : "300 50",
-						"texture" : "data/textures/gui/menu_boton.dds",
-						"font_size" : 32.0,
-						"text" : "EXIT",
-						"halign" : "center",
-						"valign" : "center",
-						"color" : "0.5 0.5 0.5 1",
+						"position" : "1340 748",
+						"size" : "100 48",
+						"texture" : "data/textures/gui/MainMenu/Boton_E_1.dds",
 						"selected" : {
-							"position" : "30 80",
-							"font_size" : 36.0,
-							"color" : "1 1 1 1"
+							"texture" : "data/textures/gui/MainMenu/Boton_EX_2.dds"
 						},
 						"pressed" : {
-							"position" : "30 80",
-							"font_size" : 36.0,
-							"font_color" : "0.8 0.8 1 1"
+							"texture" : "data/textures/gui/MainMenu/Boton_EX_3.dds"
 						}
 					}
 				]
-			},
-		    {
-		        "name" : "game_credits",
-		        "type" : "text",
-		        "position" : "1870 1030",
-		        "scale" : "1.0 1.0",
-		        "text" : "MILESTONE IV",
-		        "font_color" : "0.5 0.5 0.5 1",
-		        "font_size" : 36,
-		        "halign" : "right",
-		        "valign" : "bottom"
-		    }
+			}
 		]
 	},
 	{
@@ -130,96 +130,6 @@
 				"texture" : "data/textures/gui/aire2.dds",
 				"minUV" : "0 0",
 				"maxUV" : "1 1"
-			}
-		]
-	},
-	{
-		"name" : "text_sala_eleccion",
-		"type" : "widget",
-		"position" : "810 650",
-		"children" : [
-		    {
-				"name" : "tutorial",
-				"type" : "text",
-				"position" : "0 250",
-				"size" : "300 50",
-				"font_size" : 32.0,
-				"text" : "CHOOSE WISELY. REMEMBER THE CLUE",
-				"halign" : "center",
-				"valign" : "center",
-				"color" : "0.5 0.5 0.5 1"
-			}
-		]
-	},
-	{
-		"name" : "text_pista",
-		"type" : "widget",
-		"position" : "810 650",
-		"children" : [
-		    {
-				"name" : "tutorial",
-				"type" : "text",
-				"position" : "0 250",
-				"size" : "300 50",
-				"font_size" : 32.0,
-				"text" : "HMMM..., THIS SEEMS IMPORTANT",
-				"halign" : "center",
-				"valign" : "center",
-				"color" : "0.5 0.5 0.5 1"
-			}
-		]
-	},
-	{
-		"name" : "text_plataforma_eleccion",
-		"type" : "widget",
-		"position" : "810 650",
-		"children" : [
-		    {
-				"name" : "tutorial",
-				"type" : "text",
-				"position" : "0 250",
-				"size" : "300 50",
-				"font_size" : 32.0,
-				"text" : "CHOOSE YOUR NEXT STEP WISELY FOR IT COULD COST YOR LIFE",
-				"halign" : "center",
-				"valign" : "center",
-				"color" : "0.5 0.5 0.5 1"
-			}
-		]
-	},
-	{
-		"name" : "text_plataforma_activable",
-		"type" : "widget",
-		"position" : "810 650",
-		"children" : [
-		    {
-				"name" : "tutorial",
-				"type" : "text",
-				"position" : "0 250",
-				"size" : "300 50",
-				"font_size" : 32.0,
-				"text" : "THE POWER OF WIND COULD HELP YOU MOVE THIS PLATFORM",
-				"halign" : "center",
-				"valign" : "center",
-				"color" : "0.5 0.5 0.5 1"
-			}
-		]
-	},
-	{
-		"name" : "text_planear",
-		"type" : "widget",
-		"position" : "810 650",
-		"children" : [
-		    {
-				"name" : "tutorial",
-				"type" : "text",
-				"position" : "0 250",
-				"size" : "300 50",
-				"font_size" : 32.0,
-				"text" : "PRESS G TO GLIDE",
-				"halign" : "center",
-				"valign" : "center",
-				"color" : "0.5 0.5 0.5 1"
 			}
 		]
 	}

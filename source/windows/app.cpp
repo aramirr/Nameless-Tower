@@ -4,49 +4,120 @@
 #include "input/devices/mouse.h"
 #include "profiling/profiling.h"
 #include <windowsx.h>
+#include "render/render_objects.h"
 
 CApp* CApp::app_instance = nullptr;
 
 // 
 //--------------------------------------------------------------------------------------
 LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
-  PAINTSTRUCT ps;
-  HDC hdc;
+	PAINTSTRUCT ps;
+	HDC hdc;
+	HBITMAP hImage;
+	HDC hdcMem;
 
-  // If the OS processes it, do not process anymore
-  if (CEngine::get().getModules().OnOSMsg(hWnd, message, wParam, lParam))
-    return 1;
+	// If the OS processes it, do not process anymore
+	if (CEngine::get().getModules().OnOSMsg(hWnd, message, wParam, lParam))
+		return 1;
 
-  switch (message)
-  {
+	switch (message)
+	{
 
-  case CDirectoyWatcher::WM_FILE_CHANGED: {
-    const char* filename = (const char*)lParam;
-    dbg("File has changed! %s (%d)\n", filename, wParam);
-    Resources.onFileChanged(filename);
-    delete[] filename;
-    break;
-  }
+	case CDirectoyWatcher::WM_FILE_CHANGED: {
+		const char* filename = (const char*)lParam;
+		dbg("File has changed! %s (%d)\n", filename, wParam);
+		Resources.onFileChanged(filename);
+		delete[] filename;
+		break;
+	}
+	case WM_PAINT:
+		// Validate screen repaint in os/windows 
+		hdc = BeginPaint(hWnd, &ps);
+		EndPaint(hWnd, &ps);
+		break;
 
-  case WM_PAINT:
-    // Validate screen repaint in os/windows 
-    hdc = BeginPaint(hWnd, &ps);
-    EndPaint(hWnd, &ps);
-    break;
+	case WM_ERASEBKGND:
+		hdc = BeginPaint(hWnd, &ps);
+		hImage = (HBITMAP)LoadImage(NULL, (LPCSTR)"data/textures/gui/Menu_Loading_F.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_LOADTRANSPARENT);
+		hdcMem = CreateCompatibleDC(hdc); // hDC is a DC structure supplied by Win32API
+		SelectObject(hdcMem, hImage);
+		StretchBlt(
+			hdc,         // destination DC
+			0,        // x upper left
+			0,         // y upper left
+			Render.width,       // destination width
+			Render.height,      // destination height
+			hdcMem,      // you just created this above
+			0,
+			0,          // x and y upper left
+			1920,          // source bitmap width
+			1080,          // source bitmap height
+			SRCCOPY);   // raster operation
+		EndPaint(hWnd, &ps);
+		break;
+	case WM_SETFOCUS:
+		if (app_instance)
+			app_instance->has_focus = true;
+		break;
 
-  case WM_SETFOCUS:
-    if (app_instance)
-      app_instance->has_focus = true;
-    break;
+	case WM_KILLFOCUS:
+		if (app_instance)
+			app_instance->has_focus = false;
+		break;
 
-  case WM_KILLFOCUS:
-    if (app_instance)
-      app_instance->has_focus = false;
-    break;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		break;
 
-  case WM_DESTROY:
-    PostQuitMessage(0);
-    break;
+	case WM_SIZE:
+	{
+		//dbg("aaaaaaa");
+		//float xres = GetSystemMetrics(SM_CXSCREEN);
+		//float yres = GetSystemMetrics(SM_CYSCREEN);
+
+		//CEngine::get().getRender().configure(xres, yres);
+
+		//if (Render.swapChain)
+		//{
+		//	Render.ctx->OMSetRenderTargets(0, 0, 0);
+
+		//	// Release all outstanding references to the swap chain's buffers.
+		//	Render.renderTargetView->Release();
+
+		//	HRESULT hr;
+		//	// Preserve the existing buffer count and format.
+		//	// Automatically choose the width and height to match the client rect for HWNDs.
+		//	hr = Render.swapChain->ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0);
+
+		//	// Perform error handling here!
+
+		//	// Get buffer and create a render-target-view.
+		//	ID3D11Texture2D* pBuffer;
+		//	hr = Render.swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D),
+		//		(void**)&pBuffer);
+		//	// Perform error handling here!
+
+		//	hr = Render.device->CreateRenderTargetView(pBuffer, NULL,
+		//		&Render.renderTargetView);
+		//	// Perform error handling here!
+		//	pBuffer->Release();
+
+		//	Render.ctx->OMSetRenderTargets(1, &Render.renderTargetView, NULL);
+
+		//	// Set up the viewport.
+		//	D3D11_VIEWPORT vp;
+		//	vp.Width = (FLOAT)LOWORD(lParam);
+		//	vp.Height = (FLOAT)HIWORD(lParam);
+		//	vp.MinDepth = 0.0f;
+		//	vp.MaxDepth = 1.0f;
+		//	vp.TopLeftX = 0;
+		//	vp.TopLeftY = 0;
+		//	Render.ctx->RSSetViewports(1, &vp);
+
+		//	CEngine::get().getRender().configure(LOWORD(lParam), HIWORD(lParam));
+		//}
+	}
+	break;
 
 	case WM_MOUSEMOVE:
 	{
@@ -59,7 +130,7 @@ LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 			app_instance->resetMouse = true;
 		}
 	}
-		break;
+	break;
 
 	case WM_MBUTTONDOWN:
 	{
@@ -138,11 +209,11 @@ LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 	}
 	break;
 
-  default:
-    return DefWindowProc(hWnd, message, wParam, lParam);
-  }
+	default:
+		return DefWindowProc(hWnd, message, wParam, lParam);
+	}
 
-  return 0;
+	return true;
 }
 
 //--------------------------------------------------------------------------------------
@@ -150,62 +221,85 @@ LRESULT CALLBACK CApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 //--------------------------------------------------------------------------------------
 bool CApp::createWindow(HINSTANCE new_hInstance, int nCmdShow) {
 
-  hInstance = new_hInstance;
+	hInstance = new_hInstance;
 
-  // Register class
-  WNDCLASSEX wcex;
-  wcex.cbSize = sizeof(WNDCLASSEX);
-  wcex.style = CS_HREDRAW | CS_VREDRAW;
-  wcex.lpfnWndProc = WndProc;
-  wcex.cbClsExtra = 0;
-  wcex.cbWndExtra = 0;
-  wcex.hInstance = hInstance;
-  wcex.hIcon = NULL;
-  wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
-  wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
-  wcex.lpszMenuName = NULL;
-  wcex.lpszClassName = "MCVWindowsClass";
-  wcex.hIconSm = NULL;
-  if (!RegisterClassEx(&wcex))
-    return false;
+	// Register class
+	WNDCLASSEX wcex;
+	wcex.cbSize = sizeof(WNDCLASSEX);
+	wcex.style = CS_HREDRAW | CS_VREDRAW;
+	wcex.lpfnWndProc = WndProc;
+	wcex.cbClsExtra = 0;
+	wcex.cbWndExtra = 0;
+	wcex.hInstance = hInstance;
+	wcex.hIcon = NULL;
+	wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
+	wcex.hbrBackground = (HBRUSH)(NULL);//(COLOR_WINDOW + 1);
+	wcex.lpszMenuName = NULL;
+	wcex.lpszClassName = "MCVWindowsClass";
+	wcex.hIconSm = NULL;
+	if (!RegisterClassEx(&wcex))
+		return false;
 
-  // Create window
-  RECT rc = { 0, 0, xres, yres };
-  AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE);
-  hWnd = CreateWindow("MCVWindowsClass", "Direct3D 11 MCV Project",
-    WS_OVERLAPPEDWINDOW,
-    CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, NULL, NULL, hInstance,
-    NULL);
-  if (!hWnd)
-    return false;
+	DWORD dwStyle = (WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU);
 
-	/*HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/Puntero-_2_.cur"); //.cur or .ani
+	// Create window
+	RECT rc = { 0, 0, xres, yres };
+	AdjustWindowRect(&rc, dwStyle, FALSE);
+	hWnd = CreateWindow("MCVWindowsClass", "Direct3D 11 NAMELESSTOWER",
+		dwStyle,
+		CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, NULL, NULL, hInstance,
+		NULL);
+	if (!hWnd)
+		return false;
+
+	HICON hWindowIcon = NULL;
+	HICON hWindowIconBig = NULL;
+
+	if (hWindowIcon != NULL)
+		DestroyIcon(hWindowIcon);
+	if (hWindowIconBig != NULL)
+		DestroyIcon(hWindowIconBig);
+
+
+	::SetWindowPos(hWnd, 0, 0, 0, xres, yres, SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE);
+
+		hWindowIcon = (HICON)LoadImage(NULL, "data/textures/gui/PaiIcono.ico", IMAGE_ICON, 16, 16, LR_LOADFROMFILE);
+		hWindowIconBig = (HICON)LoadImage(NULL, "data/textures/gui/PaiIcono.ico", IMAGE_ICON, 32, 32, LR_LOADFROMFILE);
+		SendMessage(hWnd, WM_SETICON, ICON_SMALL, (LPARAM)hWindowIcon);
+		SendMessage(hWnd, WM_SETICON, ICON_BIG, (LPARAM)hWindowIconBig);
+	
+
+	HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/PaiCursor.cur"); //.cur or .ani
 	SetCursor(Cursor);
 	SetClassLongPtr(hWnd, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
-	*/
-  ShowWindow(hWnd, nCmdShow);
-	//ShowCursor(false);
 
-  return true;
+	/*HBITMAP hImage = (HBITMAP)LoadImage(NULL, "data/textures/gui/carga.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+	HWND hImageView = CreateWindowEx(NULL, "STATIC", NULL, SS_BITMAP | WS_VISIBLE | WS_CHILD, 0, 0, 500, 600, hWnd, (HMENU)IMAGE_VIEW, GetModuleHandle(NULL), NULL);
+	SendMessage(hImageView, STM_SETIMAGE, IMAGE_BITMAP, (LPARAM)hImage);*/
+
+	ShowWindow(hWnd, nCmdShow);
+	ShowCursor(false);
+
+	return true;
 }
 
 //--------------------------------------------------------------------------------------
 // Process windows msgs, or if nothing to do, generate a new frame
 //--------------------------------------------------------------------------------------
 void CApp::mainLoop() {
-  // Main message loop
-  MSG msg = { 0 };
-  while (WM_QUIT != msg.message)
-  {
-    // Check if windows has some msg for us
-    if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
-    {
-      TranslateMessage(&msg);
-      DispatchMessage(&msg);
-    }
-    else
-    {
-      doFrame();
+	// Main message loop
+	MSG msg = { 0 };
+	while (WM_QUIT != msg.message)
+	{
+		// Check if windows has some msg for us
+		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		{
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+		else
+		{
+			doFrame();
 
 			/*if(resetMouse)
 			{
@@ -214,43 +308,86 @@ void CApp::mainLoop() {
 				SetCursorPos((rect.left + rect.right) / 2, (rect.top + rect.bottom) / 2);
 				resetMouse = false;
 			}*/
-    }
-  }
+		}
+	}
 }
 
 //--------------------------------------------------------------------------------------
 // Read any basic configuration required to boot, initial resolution, full screen, modules, ...
 //--------------------------------------------------------------------------------------
 bool CApp::readConfig() {
-  // ...
-  xres = GetSystemMetrics(SM_CXSCREEN);
-  yres = GetSystemMetrics(SM_CYSCREEN);
+	// ...
+	/*xres = 1366;
+	yres = 768;*/
 
-  time_since_last_render.reset();
+	/* xres = 1024;
+	yres = 768;*/
 
-  CEngine::get().getRender().configure(xres, yres);
-  return true;
+	int height = GetSystemMetrics(SM_CYSCREEN);
+	int width = GetSystemMetrics(SM_CXSCREEN);
+	dbg("RESOLUCION: %i %i\n", width, height);
+
+	std::vector<VEC2> resolutions;
+	resolutions.push_back(VEC2(1920, 1080));
+	resolutions.push_back(VEC2(1600, 900));
+	resolutions.push_back(VEC2(1280, 960));
+	resolutions.push_back(VEC2(1366, 768));
+	resolutions.push_back(VEC2(1280, 720));
+	resolutions.push_back(VEC2(1024, 768));
+
+	int widthDiff = 9999;
+	int heightDiff = 9999;
+
+	int screenxres = GetSystemMetrics(SM_CXSCREEN);
+	int screenyres = GetSystemMetrics(SM_CYSCREEN);
+
+	//xres = GetSystemMetrics(SM_CXSCREEN);
+	//yres = GetSystemMetrics(SM_CYSCREEN);
+
+	for (int i = 0; i < resolutions.size(); i++) {
+		int xDiff = screenxres - resolutions[i].x;
+		int yDiff = screenyres - resolutions[i].y;
+
+		if (xDiff < 0)xDiff *= -1;
+		if (yDiff < 0)yDiff *= -1;
+
+		if (xDiff < widthDiff || yDiff < heightDiff) {
+			widthDiff = xDiff;
+			heightDiff = yDiff;
+			xres = resolutions[i].x;
+			yres = resolutions[i].y;
+		}
+	}
+	dbg("RESOLUCION: %i %i\n", xres, yres);
+
+	time_since_last_render.reset();
+
+	cb_globals.global_first_resolution_X = xres;
+	cb_globals.global_first_resolution_Y = yres;
+
+	CEngine::get().getRender().configure(xres, yres);
+	return true;
 }
 
 //--------------------------------------------------------------------------------------
 bool CApp::start() {
 
-  resources_dir_watcher.start("data", getWnd());
+	resources_dir_watcher.start("data", getWnd());
 
-  return CEngine::get().start();
+	return CEngine::get().start();
 }
 
 //--------------------------------------------------------------------------------------
 bool CApp::stop() {
-  return CEngine::get().stop();
+	return CEngine::get().stop();
 }
 
 //--------------------------------------------------------------------------------------
 void CApp::doFrame() {
-  PROFILE_FRAME_BEGINS();
-  PROFILE_FUNCTION("App::doFrame");
-  float dt = time_since_last_render.elapsedAndReset();
-  CEngine::get().update(dt);
-  CEngine::get().render();
+	PROFILE_FRAME_BEGINS();
+	PROFILE_FUNCTION("App::doFrame");
+	float dt = time_since_last_render.elapsedAndReset();
+	CEngine::get().update(dt);
+	CEngine::get().render();
 }
 

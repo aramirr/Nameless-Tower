@@ -208,6 +208,11 @@ struct TMsgPlaySound{
     DECL_MSG_ID();
 };
 
+struct TMsgVolumeSound {
+	float volumen;
+	DECL_MSG_ID();
+};
+
 struct TMsgChangeDirectionUp {
   bool b_up;
   DECL_MSG_ID();

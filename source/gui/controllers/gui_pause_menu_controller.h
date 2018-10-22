@@ -14,6 +14,7 @@ namespace GUI
     void setCurrentOption(int newOption);
 
     void setActive(bool _active);
+		void resetOptions();
 
   private:
     struct TOption

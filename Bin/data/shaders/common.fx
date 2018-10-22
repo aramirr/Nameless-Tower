@@ -19,6 +19,8 @@ Texture2D    txLightProjector SLOT( TS_LIGHT_PROJECTOR );
 Texture2D    txLightShadowMap SLOT(TS_LIGHT_SHADOW_MAP);
 TextureCube  txCubeShadowMap  SLOT(TS_LIGHT_SHADOW_MAP);
 TextureCube  txEnvironmentMap SLOT( TS_ENVIRONMENT_MAP );
+TextureCube  txEnvironment2Map SLOT(TS_ENVIRONMENT2_MAP);
+
 TextureCube  txIrradianceMap  SLOT( TS_IRRADIANCE_MAP );
 Texture2D    txNoiseMap       SLOT( TS_NOISE_MAP );
 Texture3D    txLUT            SLOT( TS_LUT_COLOR_GRADING );
