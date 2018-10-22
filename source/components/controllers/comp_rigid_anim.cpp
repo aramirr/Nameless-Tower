@@ -17,6 +17,9 @@ void TCompRigidAnim::load(const json& j, TEntityParseContext& ctx) {
 		assert(j.count("src") > 0);
 		controller.anims = Resources.get(j["src"])->as<RigidAnims::CRigidAnimResource>();
 		controller.track_index = controller.anims->findTrackIndexByName(controller.track_name);
+		if (controller.track_index == RigidAnims::CController::invalid_track_index) {
+			int a = 0;
+		}
 		assert(controller.track_index != RigidAnims::CController::invalid_track_index);
 		current_time = 0;
 		speed_factor = j.value("speed_factor", 1.0f);
