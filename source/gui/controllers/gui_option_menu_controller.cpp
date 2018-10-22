@@ -14,7 +14,7 @@ namespace GUI
 		if (carga) {
 
 			auto keyboardCB = []() {
-				dbg("KEYBOARD \n");
+				//dbg("KEYBOARD \n");
 
 				EngineUI.activeKeyboardMenu();
 				EngineUI.desactiveOptionMenu();
@@ -22,7 +22,7 @@ namespace GUI
 			};
 
 			auto fullScreenONCB = []() {
-				dbg("FULLSCREEN ON\n");
+				//dbg("FULLSCREEN ON\n");
 				EngineUI.fullScreen(true);
 				EngineUI.changeResolution(Render.width, Render.height);
 				EngineUI.fullScreen(true);
@@ -31,7 +31,7 @@ namespace GUI
 			};
 
 			auto fullScreenOFFCB = []() {
-				dbg("FULLSCREEN OFF\n");
+				//dbg("FULLSCREEN OFF\n");
 				EngineUI.fullScreen(false);
 				EngineUI.changeResolution(Render.width, Render.height);
 				EngineUI.fullScreen(false);
@@ -39,7 +39,7 @@ namespace GUI
 			};
 
 			auto res1920CB = []() {
-				dbg("RESOLUTION 1920\n");
+				//dbg("RESOLUTION 1920\n");
 				if ((Render.width != 1920 && Render.height != 1080) && 
 					(1920 <= cb_globals.global_first_resolution_X && 1080 <= cb_globals.global_first_resolution_Y)) {
 					EngineUI.changeResolution(1920, 1080);
@@ -49,7 +49,7 @@ namespace GUI
 			};
 
 			auto res1600CB = []() {
-				dbg("RESOLUTION 1600\n");
+				//dbg("RESOLUTION 1600\n");
 				if ((Render.width != 1600 && Render.height != 900) &&
 					(1600 <= cb_globals.global_first_resolution_X && 900 <= cb_globals.global_first_resolution_Y)) {
 					EngineUI.changeResolution(1600, 900);
@@ -59,7 +59,7 @@ namespace GUI
 			};
 
 			auto res12809CB = []() {
-				dbg("RESOLUTION 12809\n");
+				//dbg("RESOLUTION 12809\n");
 				if ((Render.width != 1280 && Render.height != 960) &&
 					(1280 <= cb_globals.global_first_resolution_X && 960 <= cb_globals.global_first_resolution_Y)) {
 					EngineUI.changeResolution(1280, 960);
@@ -69,7 +69,7 @@ namespace GUI
 			};
 
 			auto res1366CB = []() {
-				dbg("RESOLUTION 1920\n");
+				//dbg("RESOLUTION 1920\n");
 				if ((Render.width != 1366 && Render.height != 768) &&
 					(1366 <= cb_globals.global_first_resolution_X && 768 <= cb_globals.global_first_resolution_Y)) {
 					EngineUI.changeResolution(1366, 768);
@@ -79,7 +79,7 @@ namespace GUI
 			};
 
 			auto res12807CB = []() {
-				dbg("RESOLUTION 1366\n");
+				//dbg("RESOLUTION 1366\n");
 				if ((Render.width != 1280 && Render.height != 720) &&
 					(1280 <= cb_globals.global_first_resolution_X && 720 <= cb_globals.global_first_resolution_Y)) {
 					EngineUI.changeResolution(1280, 720);
@@ -89,7 +89,7 @@ namespace GUI
 			};
 
 			auto res1024CB = []() {
-				dbg("RESOLUTION 1024\n");
+				//dbg("RESOLUTION 1024\n");
 				if ((Render.width != 1024 && Render.height != 768) &&
 					(1024 <= cb_globals.global_first_resolution_X && 768 <= cb_globals.global_first_resolution_Y)) {
 					EngineUI.changeResolution(1024, 768);
@@ -99,44 +99,44 @@ namespace GUI
 			};
 
 			auto volumenOFFCB = []() {
-				dbg("VOLUMEN LOW\n");
+				//dbg("VOLUMEN LOW\n");
 				EngineSound.setVolumen(0.f);
 				EngineUI.setVolumenOption(4, 0);
 			};
 
 
 			auto volumenLOWCB = []() {
-				dbg("VOLUMEN LOW\n");
+				//dbg("VOLUMEN LOW\n");
 				EngineSound.setVolumen(0.3f);
 				EngineUI.setVolumenOption(4, 1);
 			};
 
 			auto volumenMEDIUMCB = []() {
-				dbg("VOLUMEN MEDIUM\n");
+				//dbg("VOLUMEN MEDIUM\n");
 				EngineSound.setVolumen(0.6f);
 				EngineUI.setVolumenOption(4, 2);
 			};
 
 			auto volumenHIGHCB = []() {
-				dbg("VOLUMEN HIGH\n");
+				//dbg("VOLUMEN HIGH\n");
 				EngineSound.setVolumen(1.f);
 				EngineUI.setVolumenOption(4, 3);
 			};
 
 			auto vsyncONCB = []() {
-				dbg("VSYNC ON\n");
+				//dbg("VSYNC ON\n");
 				cb_gui.vsync = true;
 				EngineUI.setVsyncOption(5, 0);
 			};
 
 			auto vsyncOFFCB = []() {
-				dbg("VSYNC OFF\n");
+				//dbg("VSYNC OFF\n");
 				cb_gui.vsync = false;
 				EngineUI.setVsyncOption(5, 1);
 			};
 
 			auto exitOptionsCB = []() {
-				dbg("EXIT OPTIONS\n");
+				//dbg("EXIT OPTIONS\n");
 
 				//EngineUI.desactivateWidget("menu_options");
 				EngineUI.desactiveOptionMenu();

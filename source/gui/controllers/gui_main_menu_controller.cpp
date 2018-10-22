@@ -43,7 +43,7 @@ namespace GUI
 					EngineScripting.script.doString("OnLevel1Start()");
       };
 			auto optionsCB = []() {
-				dbg("OPTIONES\n");
+				//dbg("OPTIONES\n");
 				cb_gui.options = 1.f;
 				//EngineUI.activateWidget("menu_options");
 				EngineUI.activeOptionMenu();
@@ -125,7 +125,7 @@ namespace GUI
   {
 		int mX = EngineInput.mouse()._position.x;
 		int mY = EngineInput.mouse()._position.y;
-		dbg("MOUSE: %i %i\n", mX, mY);
+		//dbg("MOUSE: %i %i\n", mX, mY);
 		if (cb_gui.fullscreen) {
 			//mX *= cb_globals.global_first_resolution_X / cb_globals.global_resolution_X;
 			//mY *= cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y;
