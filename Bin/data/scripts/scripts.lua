@@ -41,6 +41,14 @@ function OnLevel1Start()
 	lm:hide_mesh("loro3")
 	lm:hide_mesh("loro4")
 	
+	lm:hide_mesh("loro5")
+	lm:hide_mesh("loro6")
+	lm:hide_mesh("loro7")
+	lm:hide_mesh("loro8")
+	lm:hide_mesh("loro9")
+	lm:hide_mesh("loro10")
+	lm:hide_mesh("loro11")
+	
 	lm:play_animation("Peke_Twerk", 7)
 	lm:play_animation("Peke_Ska", 7)
 	lm:play_animation("Peke_Saltitos1", 5)
@@ -172,6 +180,7 @@ function OnTriggerExitTPAves()
 	lm:play_curve("spline_loro3")
 	lm:play_curve("spline_loro4")
 	lm:play_curve("spline_loro0")
+	
 	lm:play_positional_sound("loros", "loro0")
 	lm:play_positional_sound("loros", "loro1")
 	lm:play_positional_sound("loros", "loro2")
@@ -459,33 +468,38 @@ function OnTriggerExitTSPuertasArbol()
 end
 
 function OnTriggerExitTPAves002()
-	lm:unhide_mesh("loro5")
+	
 	lm:unhide_mesh("loro6")
-	lm:unhide_mesh("loro7")
 	lm:unhide_mesh("loro8")
+
+	lm:play_positional_sound("loros", "loro6")
+	lm:play_positional_sound("loros", "loro8")
+	
+	lm:play_curve("spline_loro6")	
+	lm:play_curve("spline_loro8")
+	
+	lm:kill_entity("TPAves002")
+end
+
+function OnTriggerExitTPAves003()
+	lm:unhide_mesh("loro5")
+	lm:unhide_mesh("loro7")
 	lm:unhide_mesh("loro9")
 	lm:unhide_mesh("loro10")
 	lm:unhide_mesh("loro11")
+	
 	lm:play_positional_sound("loros", "loro5")
-	lm:play_positional_sound("loros", "loro6")
 	lm:play_positional_sound("loros", "loro7")
-	lm:play_positional_sound("loros", "loro8")
 	lm:play_positional_sound("loros", "loro9")
 	lm:play_positional_sound("loros", "loro10")
 	lm:play_positional_sound("loros", "loro11")
 	
 	lm:play_curve("spline_loro5")
-	lm:play_curve("spline_loro6")
 	lm:play_curve("spline_loro7")
-	lm:play_curve("spline_loro8")
 	lm:play_curve("spline_loro9")
 	lm:play_curve("spline_loro10")
 	lm:play_curve("spline_loro11")
-
-	lm:kill_entity("TPAves002")
-end
-
-function OnTriggerExitTPAves003()
+	
 	lm:kill_entity("TPAves003")
 end
 
