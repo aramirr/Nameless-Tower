@@ -168,6 +168,8 @@ function OnTriggerExitTSRejaAntorchas()
 	lm:close_door("Puerta_Reja_02")
 	lm:activate_cinematic("cinematica_puzzle", false)	
 	lm:activate_cinematic("cinematica_puzzle", true)	
+	lm:play_sound(true, "naja_scare")	
+	lm:play_sound(false, "naja_scare")	
 	lm:scare_player()
 end
 
