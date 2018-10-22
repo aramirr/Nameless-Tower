@@ -189,6 +189,19 @@ void CModuleTower::update(float delta)
 			CEntity* e_runner = getEntityByName("Runner");
 			TMsgRunnerStartChase msg;
 			e_runner->sendMsg(msg);
+
+			CEntity* player = getEntityByName("The Player");
+			TMsgSetFSMVariable pauseMsg;
+			pauseMsg.variant.setName("pause");
+			pauseMsg.variant.setBool(false);
+			player->sendMsg(pauseMsg);
+
+			pauseMsg.variant.setName("idle");
+			pauseMsg.variant.setBool(true);
+			player->sendMsg(pauseMsg);
+
+			setBandsCinematics(false);
+			cb_gui.cinematica = false;
 		}
 	}
 
