@@ -9,6 +9,7 @@
 #include "gui/controllers/gui_pause_menu_controller.h"
 #include "gui/controllers/gui_option_menu_controller.h"
 #include "gui/controllers/gui_keyboard_menu_controller.h"
+#include "gui/controllers/gui_final_menu_controller.h"
 
 using namespace GUI;
 
@@ -25,6 +26,8 @@ public:
   //FUNCIONES GENERICAS PARA SER LLAMADAS DESDE DIFERENTES LUGARES DEL ENGINE
   void desactiveMainMenu();
   void activeMainMenu();
+	void desactiveFinalMenu();
+	void activeFinalMenu();
   void desactivePauseMenu();
   void activePauseMenu();
 	void resetPauseMenu();
@@ -76,6 +79,7 @@ private:
   const CTexture* _fontTexture = nullptr;
   
   CMainMenuController* mmc;
+	CFinalMenuController* fmc;
   CPauseMenuController* pmc;
 	COptionMenuController* omc;
 	CKeyboardMenuController* kmc;

@@ -175,6 +175,10 @@ void CModuleLevel1::update(float delta)
 				EngineUI.activePauseMenu();
 			}
 			else {
+				HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+				HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/cursorIngame.cur"); //.cur or .ani
+				SetCursor(Cursor);
+				SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
 				EngineTimer.setTimeSlower(1.f);
 				//Engine.getModules().changeGameState("test_axis");
 				EngineUI.desactivateWidget("pause_menu");

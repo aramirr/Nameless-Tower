@@ -15,6 +15,8 @@ namespace GUI
 		bool temblor;
 		bool creditos;
 
+		bool firstCredits = true;
+
     friend class CParser;
   };
 }
