@@ -127,7 +127,7 @@
 		}
 	},{
 		"entity": {
-			"name": "camara_cinematica_finalA",
+			"name": "camara_finalA",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"				
@@ -142,7 +142,7 @@
 		}
 	},{
 		"entity": {
-			"name": "camara_cinematica_finalB",
+			"name": "camara_finalB",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"				
@@ -157,7 +157,7 @@
 		}
 	},{
 		"entity": {
-			"name": "camara_cinematica_finalC",
+			"name": "camara_finalC",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"				
@@ -172,7 +172,7 @@
 		}
 	},{
 		"entity": {
-			"name": "camara_cinematica_finalD",
+			"name": "camara_finalD",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"				
@@ -187,7 +187,7 @@
 		}
 	},{
 		"entity": {
-			"name": "camara_cinematica_finalE",
+			"name": "camara_finalE",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"				
@@ -202,7 +202,7 @@
 		}
 	},{
 		"entity": {
-			"name": "camara_cinematica_finalF",
+			"name": "camara_finalF",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"				
@@ -317,37 +317,37 @@
 					"time": 6.533,
 					"blend_time": 0.5,
 					"spline_name": "CamaraFinalA",
-					"camera_name" : "camara_cinematica_finalA"
+					"camera_name" : "camara_finalA"
 					},
 					{
 					"time": 1.466,
 					"blend_time": 0.5,
 					"spline_name": "CamaraFinalB",
-					"camera_name" : "camara_cinematica_finalB"
+					"camera_name" : "camara_finalB"
 					},
 					{
 					"time": 1.66,
 					"blend_time": 0.5,
 					"spline_name": "CamaraFinalC",
-					"camera_name" : "camara_cinematica_finalC"
+					"camera_name" : "camara_finalC"
 					},
 					{
 					"time": 1.666,
 					"blend_time": 0.5,
 					"spline_name": "CamaraFinalD",
-					"camera_name" : "camara_cinematica_finalD"
+					"camera_name" : "camara_finalD"
 					},
 					{
 					"time": 1.033,
 					"blend_time": 0.5,
 					"spline_name": "CamaraFinalE",
-					"camera_name" : "camara_cinematica_finalE"
+					"camera_name" : "camara_finalE"
 					},
 					{
 					"time": 1.6333,
 					"blend_time": 0.5,
 					"spline_name": "CamaraFinalF",
-					"camera_name" : "camara_cinematica_inicialF"
+					"camera_name" : "camara_finalF"
 					}
 				]
 			}
