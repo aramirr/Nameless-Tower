@@ -16,7 +16,7 @@ void bt_runner::appear(const TMsgRunnerAppear& msg) {
 	CEntity* player = (CEntity*) getEntityByName("The Player");
 	TCompTransform* p_transform = player->get<TCompTransform>();
 	if (!b_chase || VEC3::Distance(my_transform->getPosition(), p_transform->getPosition()) > 7.f) {
-		dbg("*************** MESSI\n");
+	/*	dbg("*************** MESSI\n");*/
 		b_appear = true;
 		b_chase = false;
 		appearing_position = msg.appearing_position;

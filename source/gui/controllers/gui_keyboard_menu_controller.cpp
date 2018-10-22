@@ -14,7 +14,7 @@ namespace GUI
     if (carga) {
 
       auto exitKeyboardCB = []() {
-        dbg("EXIT KEYBOARD\n");
+        //dbg("EXIT KEYBOARD\n");
 
 				//EngineUI.desactivateWidget("keyboardMenu");
 				EngineUI.desactiveKeyboardMenu();

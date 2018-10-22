@@ -18,7 +18,7 @@ void TCompOrbitController::debugInMenu() {
 }
 
 void TCompOrbitController::onCreate(const TMsgEntityCreated& msg) {
-  dbg("Hi, I'm TCompCircularController at onCreate\n");
+  //dbg("Hi, I'm TCompCircularController at onCreate\n");
 }
 
 void TCompOrbitController::registerMsgs() {

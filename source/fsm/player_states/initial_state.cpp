@@ -22,9 +22,9 @@ namespace FSM
 				CEntity* camera = (CEntity*)getEntityByName("camera_orbit_IZQ");
 				TCompOrbitCamera* o = camera->get<TCompOrbitCamera>();
 				CEntity* e = getEntityByName("The Player");
-				dbg("SONY %s\n", player->game_state);
+				//dbg("SONY %s\n", player->game_state);
 				if (player->game_state == "level_2") {
-					dbg("NINTENDO\n");
+					//dbg("NINTENDO\n");
 					EngineScripting.script.doString("RespawnOnLevel2()");
 				}
 			}				

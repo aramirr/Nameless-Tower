@@ -189,7 +189,7 @@ namespace FSM
 
         float up_multiplier = ctx1.root_transform.getUp().y > 0 ? 0 : 1.5;
         ctx1.root_transform.setPosition(ctx1.root_transform.getPosition() - ctx1.root_transform.getUp() * up_multiplier);
-        dbg("%f, %f, %f \n", ctx1.root_transform.getUp().x, ctx1.root_transform.getUp().y, ctx1.root_transform.getUp().z);
+        //dbg("%f, %f, %f \n", ctx1.root_transform.getUp().x, ctx1.root_transform.getUp().y, ctx1.root_transform.getUp().z);
 
 		if (parseScene("data/prefabs/windstrike.prefab", ctx1)) {
 			assert(!ctx1.entities_loaded.empty());			

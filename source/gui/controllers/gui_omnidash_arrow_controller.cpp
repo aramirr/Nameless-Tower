@@ -29,7 +29,7 @@ namespace GUI
       //std::string str2 = std::to_string(player_position.x) + ", " + std::to_string(player_position.y) + " GUI \n";
 			std::string str2 = std::to_string(mouse._position.x) + ", " + std::to_string(mouse._position.y) + " GUI \n";
       //dbg(str1.c_str());
-      dbg(str2.c_str());
+      //dbg(str2.c_str());
 			int mX = mouse._position.x;
 			int mY = mouse._position.y;
 			if (cb_gui.fullscreen) {

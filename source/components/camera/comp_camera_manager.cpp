@@ -163,11 +163,11 @@ void TCompCameraManager::update(float dt) {
 		VEC3 newLeft = c->getLeft();
 
 		float x = Randfloat(-0.1f, 0.1f);
-		dbg(("X: " + std::to_string(x) + "\n").c_str());
+		//dbg(("X: " + std::to_string(x) + "\n").c_str());
 		float y = Randfloat(-0.1f, 0.1f);;
-		dbg(("Y: " + std::to_string(y) + "\n").c_str());
+		//dbg(("Y: " + std::to_string(y) + "\n").c_str());
 		float z = Randfloat(-0.1f, 0.1f);
-		dbg(("Z: " + std::to_string(z) + "\n").c_str());
+		//dbg(("Z: " + std::to_string(z) + "\n").c_str());
 
 		newLeft *= x;
 		newPos += newLeft;

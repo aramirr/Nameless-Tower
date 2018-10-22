@@ -218,7 +218,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 					CEntity* e = CHandle(this).getOwner();
 					e->sendMsg(deadMsg);
 
-					dbg("NAPOLEO\n");
+					//dbg("NAPOLEO\n");
 					CEntity* runner = (CEntity *)getEntityByName("Runner");
 					TMsgRunnerDisappear msg_disappear;
 					runner->sendMsg(msg_disappear);
@@ -294,6 +294,6 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 
 void TCompPlayerController::setCheckpoint(const TMsgCheckpoint& msg)
 {
-	dbg("Checkpoint\n");
+	//dbg("Checkpoint\n");
 	checkpoint = msg.appearing_position;
 }
