@@ -51,4 +51,6 @@ public:
   void playSound(bool left, std::string name);
   void stopSound(bool left, std::string name);
 
+	void setVolumen(float volumen, bool left);
+
 };

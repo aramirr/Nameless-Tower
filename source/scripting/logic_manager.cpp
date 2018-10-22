@@ -175,3 +175,10 @@ void LogicManager::stopSound(bool left, std::string name) {
     }
 }
 
+void LogicManager::setVolumen(float volumen, bool left)
+{
+	if (applyFunction(left)) {
+		EngineSound.setVolumen(volumen);
+	}
+}
+
