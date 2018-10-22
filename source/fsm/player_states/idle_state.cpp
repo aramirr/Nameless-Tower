@@ -30,6 +30,9 @@ namespace FSM
                 player->change_animation(player->EAnimations::NajaIdle, _is_action, _delay_in, _delay_out, true);
         }		    
 		ctx.setVariable("initial", false);
+        if (player->previous_state == "pause") {
+            ctx.setVariable("is_grounded", true);
+        }
         player->idle_time = 0;
 	}
 

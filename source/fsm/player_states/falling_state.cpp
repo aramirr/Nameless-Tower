@@ -85,6 +85,7 @@ namespace FSM
 		ctx.setVariable("is_falling", false);
         CEntity* e = ctx.getOwner();
         TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->remove_animation(player->EAnimations::NajaJumpLoop, 0.001);
         player->previous_state = "falling";
 	}
 
