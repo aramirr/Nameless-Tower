@@ -89,7 +89,8 @@ end
 
 function OnTriggerExitTSCinematicaFinal()
 	lm:activate_cinematic_bands(false)
-	--lm:activate_cinematic("cinematica_inicial", false)
+	lm:activate_cinematic("cinematica_final", false)
+	lm:activate_cinematic("cinematica_final", true)
 	lm:pause_player()
 	lm:play_animation("Boss", 1)
 	lm:play_animation_player(35)

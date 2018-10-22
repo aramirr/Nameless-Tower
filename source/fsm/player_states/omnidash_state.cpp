@@ -62,7 +62,7 @@ namespace FSM
 			c_render_blur_radial->setCenter(screen_projected_pos);
 		}
 
-		player->omnidash_time += dt;
+		player->omnidash_time += dt*4;
 		// Chequea si hay que realizar el salto
 		if (!EngineInput["omnidash"].isPressed() || player->omnidash_time > _omnidash_max_time) {
 			ctx.setVariable("omnijump", true);
