@@ -123,6 +123,10 @@ struct TMsgDeactivateTorch {
 	DECL_MSG_ID();
 };
 
+struct TMsgPuzzleComplete{
+    DECL_MSG_ID();
+};
+
 struct TMsgActivateTorch {
     DECL_MSG_ID();
 };
