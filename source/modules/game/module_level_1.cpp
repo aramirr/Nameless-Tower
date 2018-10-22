@@ -116,6 +116,10 @@ bool CModuleLevel1::stop()
     deleteScene("data/scenes/particles.scene", ctx);
 		deleteScene("data/scenes/torch_puzzle.scene", ctx);
 		deleteScene("data/scenes/scene_Pekes.scene", ctx);
+		deleteScene("data/scenes/scene_destruible_1.scene", ctx);
+		deleteScene("data/scenes/scene_destruible_2.scene", ctx);
+		deleteScene("data/scenes/scene_destruible_3.scene", ctx);
+		deleteScene("data/scenes/scene_destruible_4.scene", ctx);
 		
     
 	return true;
