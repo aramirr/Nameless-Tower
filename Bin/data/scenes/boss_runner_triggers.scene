@@ -19,6 +19,42 @@
 	},
 	{
 		"entity": {
+			"name": "RunnerAppearPasillo",
+			"transform": {
+				"pos": "31.111 31.5 -4.936"
+			},
+			"render" : [],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "runner_appear",
+				"appearing_position": "31.036 31.5 5.384"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "RunnerAppearSalto",
+			"transform": {
+				"pos": "0.129 31.5 -31.5"
+			},
+			"render" : [],
+			"collider": {
+				"shape": "box",
+				"is_trigger": true,
+				"halfExtent": "1 1 1"
+			},
+			"trigger": {
+				"trigger_type": "runner_appear",
+				"appearing_position": "8.705 31.5 -30.273"
+			}
+		}
+	},
+	{
+		"entity": {
 			"name": "RunnerDisappearMonolito",
 			"transform": {
 				"pos": "22.732 85.5 -21.806"

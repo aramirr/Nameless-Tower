@@ -12,10 +12,17 @@ DECL_OBJ_MANAGER("bt_runner", bt_runner);
 
 //Se tiene que añadir el appear directamente en IDLE
 void bt_runner::appear(const TMsgRunnerAppear& msg) {
-    b_appear = true;
-    appearing_position = msg.appearing_position;
+	TCompTransform* my_transform = getMyTransform();
+	CEntity* player = (CEntity*) getEntityByName("The Player");
+	TCompTransform* p_transform = player->get<TCompTransform>();
+	if (!b_chase || VEC3::Distance(my_transform->getPosition(), p_transform->getPosition()) > 7.f) {
+		dbg("*************** MESSI\n");
+		b_appear = true;
+		b_chase = false;
+		appearing_position = msg.appearing_position;
 
-    setCurrent(NULL);
+		setCurrent(NULL);
+	}
 }
 
 void bt_runner::disappear(const TMsgRunnerDisappear& msg) {
