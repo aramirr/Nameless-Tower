@@ -359,6 +359,31 @@
       }    ,
         "culling":{}
     }
+  },{
+    "entity":
+    {
+      "name": "LightDir14",
+      "transform": {
+        "pos": "12.725 95.875 -36.175",
+        "lookat": "-2.300 88.950 -14.025"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.941 0.815 0.351 1",
+        "z_near" : 2,
+        "z_far" : 25.000,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 37.000,
+        "ortho_height": 21.000,
+        "has_culling": true
+      }    ,
+        "culling":{}
+    }
   },
   {
     "entity": {
