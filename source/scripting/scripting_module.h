@@ -15,6 +15,8 @@ class ScriptingModule
 {
 	bool done_cinematic_monolito = false;
 	bool done_cinematic_puzzle = false;
+	bool done_cinematic_final = false;
+	
 
 	public:
 		std::string name;

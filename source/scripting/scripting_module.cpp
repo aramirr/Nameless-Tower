@@ -98,11 +98,16 @@ void ScriptingModule::fTriggerExit(vector<string> params) {
         string name = params[0];
         string func_name = "OnTriggerExit" + name;
         auto p = EngineScripting.script.exists(func_name);
-				if (p && !(name == "TSCinematicaMonolito" && done_cinematic_monolito) && !(name == "TSRejaAntorchas" && done_cinematic_puzzle)) {
+				if (p && !(name == "TSCinematicaMonolito" && done_cinematic_monolito) 
+					&& !(name == "TSRejaAntorchas" && done_cinematic_puzzle)
+					&& !(name == "TSCinematicaFinal" && done_cinematic_final)) {
+
 					if (name == "TSCinematicaMonolito")
 						done_cinematic_monolito = true;
 					if (name == "TSRejaAntorchas")
 						done_cinematic_puzzle = true;
+					if (name == "TSCinematicaFinal")
+						done_cinematic_final = true;
 					EngineScripting.script.doString(func_name + "()");
 				}
     }
