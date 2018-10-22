@@ -89,6 +89,7 @@ void CModuleTower::update(float delta)
 			player->sendMsg(pauseMsg);
 
 			setBandsCinematics(false);
+			cb_gui.cinematica = false;
 			if (current_cinematic != "") {
 				deactivateCinematic(current_cinematic);
 			}
@@ -282,7 +283,8 @@ const void CModuleTower::renderEverything(const std::string& name) {
 
 
 const void CModuleTower::activateCinematic(const std::string& name) {
-    CEntity* cinematic = (CEntity*)getEntityByName(name);
+	cb_gui.cinematica = true;
+	CEntity* cinematic = (CEntity*)getEntityByName(name);
     TMsgActivateCinematic activate_cinematic;
     cinematic->sendMsg(activate_cinematic);
 	current_cinematic = name;
@@ -396,6 +398,7 @@ void CModuleTower::wait_seconds(float num_seconds) {
 }
 
 void CModuleTower::activateRunner() {
+	cb_gui.cinematica = true;
 	change_level = true;
 	timer_runner = 0.f;
 }

@@ -13,11 +13,13 @@ namespace GUI
 				params->_minUV += _speed * delta;
 				params->_maxUV -= _speed * delta;
 			}
-			else if (temblor) {
+			else if (creditos) {
 				//float x = Randfloat(-10.f, 10.f);
 				//float y = Randfloat(-10.f, 10.f);
 				params->_minUV += _speed * delta /** x*/;
 				params->_maxUV += _speed * delta /** y*/;
+				
+				dbg("CREDITOS: %f\n",params->_maxUV);
 			}
 			else {
 				params->_minUV += _speed * delta;

@@ -274,6 +274,11 @@ CB_DEF(CCteGUI, CB_GUI)
 	float pause;
 	float options;
 	float fullscreen;
+
+	float vsync;
+	float keyboard;
+	float cinematica;
+	float dummy2;
 };
 
 CB_DEF(CCteParticle, CB_PARTICLE)

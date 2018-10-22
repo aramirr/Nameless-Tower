@@ -377,7 +377,8 @@ void CModuleRender::generateFrame() {
 	// Present the information rendered to the back buffer to the front buffer (the screen)
 	{
 		PROFILE_FUNCTION("Render.swapChain");
-		HRESULT result = Render.swapChain->Present(0, 0);
+		if(cb_gui.vsync)HRESULT result = Render.swapChain->Present(1, 0);
+		else HRESULT result = Render.swapChain->Present(0, 0);
 	}
 	
 }

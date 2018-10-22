@@ -140,7 +140,7 @@ namespace GUI
       EngineTimer.setTimeSlower(0.f);
     }
     else {
-			if (cb_gui.pause == 1.f) {
+			if (cb_gui.pause == 1.f && cb_gui.options == 1.f && cb_gui.keyboard == 1.f ) {
 				HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/cursorIngame.cur"); //.cur or .ani
 				SetCursor(Cursor);
 				SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
