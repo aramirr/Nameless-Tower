@@ -42,6 +42,10 @@ class CModuleTower : public IModule {
 	bool turn_player_2 = false;
 	bool destroy_monolito = false;
 
+	// End Game
+	float timer_end = 0.f;
+	bool end_game = true;
+
 
 
 protected:
@@ -81,7 +85,7 @@ public:
 	void setFadeOutAdjustment(float fadeout);
 	void wait_seconds(float num_seconds);
 	void activateRunner();
-
+	void endGame();
 	float getTowerRadius();
 
     float checkAngle(float alpha, VEC3 pos1);

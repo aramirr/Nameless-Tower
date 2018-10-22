@@ -345,3 +345,6 @@ void LogicManager::setVolumen(float volumen, bool left)
 	}
 }
 
+void LogicManager::fundidoNegroFinal() {
+	EngineTower.endGame();
+}
