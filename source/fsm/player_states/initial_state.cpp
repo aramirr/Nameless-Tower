@@ -21,6 +21,7 @@ namespace FSM
 
 				CEntity* camera = (CEntity*)getEntityByName("camera_orbit_IZQ");
 				TCompOrbitCamera* o = camera->get<TCompOrbitCamera>();
+				o->setPosition(position);
 				CEntity* e = getEntityByName("The Player");
 				//dbg("SONY %s\n", player->game_state);
 				if (player->game_state == "level_2") {
@@ -31,6 +32,7 @@ namespace FSM
 			else {
 				player->checkpoint = my_pos->getPosition();
 				position = my_pos->getPosition();
+				
 			}				
 		}
 		else {
