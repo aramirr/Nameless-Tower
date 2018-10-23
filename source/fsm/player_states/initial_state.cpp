@@ -26,6 +26,9 @@ namespace FSM
 				//dbg("SONY %s\n", player->game_state);
 				if (player->game_state == "level_2") {
 					//dbg("NINTENDO\n");
+					CEntity* cinematic = (CEntity*)getEntityByName("cinematic_sala_escaleras_2");
+					TMsgDeactivateCinematic deactivate_cinematic;
+					cinematic->sendMsg(deactivate_cinematic);
 					EngineScripting.script.doString("RespawnOnLevel2()");
 				}
 			}				
