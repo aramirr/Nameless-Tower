@@ -26,6 +26,7 @@ void CAIDestroyable::onTriggerEnter(const TMsgDestroy& msg) {
 		ChangeState("trigger_destroy");
 	}
 }
+
 void CAIDestroyable::registerSon(const TMsgRegisterDestoyableSon & msg)
 {
 	sons.push_back(msg.name);
@@ -121,11 +122,11 @@ void CAIDestroyable::DestroyState(float dt)
         if (!mypos) {
             return;
         }
-		for (int i = 0; i < sons.size(); i++) {
-			CEntity* entity = (CEntity*)getEntityByName(sons[i]);
-			TMsgDesactivateAnim msg;
-			entity->sendMsg(msg);
-		}
+				for (int i = 0; i < sons.size(); i++) {
+					CEntity* entity = (CEntity*)getEntityByName(sons[i]);
+					TMsgDesactivateAnim msg;
+					entity->sendMsg(msg);
+				}
         bool has_mesh = change_mesh(0);
 
 

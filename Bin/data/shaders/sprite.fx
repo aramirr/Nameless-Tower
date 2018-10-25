@@ -52,6 +52,7 @@ void VS(
   oPos = mul(world_pos, camera_view_proj);*/
 
   float4 world_pos = mul(iPos, obj_world);
+  world_pos.xyz += ( local_pos.x * camera_left + local_pos.y * camera_up ) / 10;
   oPos = mul(world_pos, camera_view_proj);
 
   oUV = 1-uv;

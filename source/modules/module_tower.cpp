@@ -38,6 +38,26 @@ void CModuleTower::update(float delta)
 		defaultExposure = cb_globals.global_exposure_adjustment;
 		cargar = false;
 	}
+	if (time_out) {
+		current_time += delta;
+		if (current_time > total_wait_time) {
+			time_out = false;
+			CEntity* player = getEntityByName("The Player");
+			TMsgSetFSMVariable pauseMsg;
+			pauseMsg.variant.setName("pause");
+			pauseMsg.variant.setBool(false);
+			player->sendMsg(pauseMsg);
+
+			pauseMsg.variant.setName("idle");
+			pauseMsg.variant.setBool(true);
+			player->sendMsg(pauseMsg);
+
+			setBandsCinematics(false);
+			if (current_cinematic != "") {
+				deactivateCinematic(current_cinematic);
+			}
+		}
+	}
 	if (bandCinematics && bandsValue < 0.15f) {
 		bandsValue += 0.01f;
 		cb_globals.global_bandMax_adjustment = bandsValue;
@@ -127,15 +147,17 @@ const void CModuleTower::renderEverything(const std::string& name) {
 
 
 const void CModuleTower::activateCinematic(const std::string& name) {
-	CEntity* cinematic = (CEntity*)getEntityByName(name);
-	TMsgActivateCinematic activate_cinematic;
-	cinematic->sendMsg(activate_cinematic);
+    CEntity* cinematic = (CEntity*)getEntityByName(name);
+    TMsgActivateCinematic activate_cinematic;
+    cinematic->sendMsg(activate_cinematic);
+	current_cinematic = name;
 }
 
 const void CModuleTower::deactivateCinematic(const std::string& name) {
-	CEntity* cinematic = (CEntity*)getEntityByName(name);
-	TMsgDeactivateCinematic deactivate_cinematic;
-	cinematic->sendMsg(deactivate_cinematic);
+    CEntity* cinematic = (CEntity*)getEntityByName(name);
+    TMsgDeactivateCinematic deactivate_cinematic;
+    cinematic->sendMsg(deactivate_cinematic);
+	current_cinematic = "";
 }
 
 const void CModuleTower::setAmbientAdjustment(float ambient) {
@@ -173,28 +195,28 @@ float CModuleTower::checkAngle(float alpha, VEC3 pos1) {
 	float sina = sin(alpha);
 	float aux = rad2deg(alpha);
 
-	if (pos1.x > 0.f and pos1.z > 0.f) {
-		if (cos(alpha) < 0) {
-			alpha = deg2rad(180) - alpha;
-		}
-	}
-	else if (pos1.x < 0.f and pos1.z > 0.f) {
-		if (cos(alpha) > 0) {
-			alpha = deg2rad(180) - alpha;
-		}
-	}
-	else if (pos1.x < 0.f and pos1.z < 0.f) {
-		if (cos(alpha) > 0) {
-			alpha = deg2rad(180) + (deg2rad(360) - alpha);
-		}
-	}
-	else if (pos1.x > 0.f and pos1.z < 0.f) {
-		if (cos(alpha) < 0) {
-			alpha = deg2rad(270) + (deg2rad(270) - alpha);
-		}
-	}
+  if (pos1.x > 0.f and pos1.z > 0.f) {
+    if (cos(alpha) < 0) {
+      alpha = deg2rad(180) - alpha;
+    }
+  }
+  else if (pos1.x < 0.f and pos1.z > 0.f) {
+    if (cos(alpha) > 0) {
+      alpha = deg2rad(180) - alpha;
+    }
+  }
+  else if (pos1.x < 0.f and pos1.z < 0.f) {
+    if (cos(alpha) > 0) {
+      alpha = deg2rad(180) + (deg2rad(360) - alpha);
+    }
+  }
+  else if (pos1.x > 0.f and pos1.z < 0.f) {
+    if (cos(alpha) < 0) {
+      alpha = deg2rad(270) + (deg2rad(270) - alpha);
+    }
+  }
 
-	return alpha;
+  return alpha;
 }
 
 const void CModuleTower::openDoor(const std::string& name) {
@@ -218,4 +240,10 @@ const void CModuleTower::activateAnim(const std::string& name) {
 void CModuleTower::setExposure(float _exposure) {
 	newExposure = _exposure;
 	changeExposure = true;
+}
+
+void CModuleTower::wait_seconds(float num_seconds) {
+	current_time = 0.0f;
+	total_wait_time = num_seconds;
+	time_out = true;
 }

@@ -1,0 +1,5062 @@
+[ 
+  {
+    "entity":
+    {
+      "name": "Runner_father"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      []
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "father": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCabeza"
+      ,
+      "transform":
+      {
+        "pos": "1.36116 87.0294 -31.754"
+        ,
+        "rotation": "0.368012 -0.831865 -0.197451 -0.365488"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCabeza.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCabezaMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_1"
+      ,
+      "transform":
+      {
+        "pos": "1.82894 86.6606 -32.1412"
+        ,
+        "rotation": "-0.623021 -0.0597859 -0.555468 -0.547472"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_1.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_2"
+      ,
+      "transform":
+      {
+        "pos": "1.70118 86.9262 -31.8862"
+        ,
+        "rotation": "0.594988 0.383208 0.386458 -0.591432"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_2.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_3"
+      ,
+      "transform":
+      {
+        "pos": "1.76769 86.9642 -32.0024"
+        ,
+        "rotation": "0.592571 -0.649284 0.286487 -0.381072"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_3.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_4"
+      ,
+      "transform":
+      {
+        "pos": "2.09416 86.7334 -32.0568"
+        ,
+        "rotation": "0.488672 -0.728541 0.201927 0.435491"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_4.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_5"
+      ,
+      "transform":
+      {
+        "pos": "1.91799 87.0223 -31.9053"
+        ,
+        "rotation": "-0.752381 0.588851 0.0622235 -0.288625"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_5.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_6"
+      ,
+      "transform":
+      {
+        "pos": "1.97335 86.6312 -32.1879"
+        ,
+        "rotation": "0.181269 0.348944 0.482294 -0.782797"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_6.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_7"
+      ,
+      "transform":
+      {
+        "pos": "2.1318 86.7344 -31.9188"
+        ,
+        "rotation": "0.368211 -0.923995 -0.101222 0.0201847"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_7.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_8"
+      ,
+      "transform":
+      {
+        "pos": "1.74003 87.0661 -31.8603"
+        ,
+        "rotation": "-0.450382 -0.16287 -0.643067 -0.597573"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_8.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_9"
+      ,
+      "transform":
+      {
+        "pos": "1.92855 86.8306 -32.0835"
+        ,
+        "rotation": "-0.157336 -0.434002 -0.196181 -0.865102"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_9.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_10"
+      ,
+      "transform":
+      {
+        "pos": "1.83086 86.6007 -32.2864"
+        ,
+        "rotation": "-0.0144036 -0.204406 -0.764848 -0.610752"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_10.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_11"
+      ,
+      "transform":
+      {
+        "pos": "1.76367 86.8325 -32.1712"
+        ,
+        "rotation": "-0.709609 0.323399 0.625971 -0.00540743"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_11.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_12"
+      ,
+      "transform":
+      {
+        "pos": "1.39021 86.5638 -31.2923"
+        ,
+        "rotation": "-0.534344 0.131003 -0.707206 -0.444043"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_12.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_125"
+      ,
+      "transform":
+      {
+        "pos": "1.30231 86.6587 -31.8355"
+        ,
+        "rotation": "-0.494145 -0.46489 -0.0154962 -0.734478"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_125.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_126"
+      ,
+      "transform":
+      {
+        "pos": "1.2955 86.5415 -31.3203"
+        ,
+        "rotation": "0.0548131 -0.777623 0.50631 -0.368712"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_126.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_13"
+      ,
+      "transform":
+      {
+        "pos": "1.37866 86.5629 -31.8077"
+        ,
+        "rotation": "0.168655 0.736365 -0.347889 -0.555243"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_13.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_14"
+      ,
+      "transform":
+      {
+        "pos": "1.56171 86.6992 -31.8162"
+        ,
+        "rotation": "-0.831645 0.305384 -0.294896 0.357972"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_14.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_15"
+      ,
+      "transform":
+      {
+        "pos": "1.58721 86.5234 -32.0829"
+        ,
+        "rotation": "0.395861 0.322764 -0.811618 0.283538"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_15.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_16"
+      ,
+      "transform":
+      {
+        "pos": "1.33505 86.5565 -31.5597"
+        ,
+        "rotation": "-0.869338 0.113389 -0.26891 0.39885"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_16.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_17"
+      ,
+      "transform":
+      {
+        "pos": "1.57913 86.703 -31.6782"
+        ,
+        "rotation": "-0.22872 -0.486309 -0.738643 -0.406937"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_17.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_18"
+      ,
+      "transform":
+      {
+        "pos": "1.35247 86.6073 -31.2428"
+        ,
+        "rotation": "-0.148612 -0.658562 0.606044 0.42062"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_18.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_19"
+      ,
+      "transform":
+      {
+        "pos": "1.60422 86.5737 -31.7671"
+        ,
+        "rotation": "0.00262297 0.689632 -0.486045 -0.536807"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_19.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_20"
+      ,
+      "transform":
+      {
+        "pos": "1.26063 86.7695 -31.579"
+        ,
+        "rotation": "0.571682 -0.598202 -0.0369564 -0.560329"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_20.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_21"
+      ,
+      "transform":
+      {
+        "pos": "1.3239 86.7241 -31.3614"
+        ,
+        "rotation": "0.118918 -0.790787 -0.535496 0.271587"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_21.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_22"
+      ,
+      "transform":
+      {
+        "pos": "1.42866 86.5834 -31.6634"
+        ,
+        "rotation": "0.152668 0.551226 0.344465 -0.744437"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_22.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_23"
+      ,
+      "transform":
+      {
+        "pos": "1.78628 86.7407 -31.4509"
+        ,
+        "rotation": "-0.778274 0.152121 0.230205 -0.564052"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_23.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_24"
+      ,
+      "transform":
+      {
+        "pos": "1.44997 86.6531 -31.5317"
+        ,
+        "rotation": "0.42239 -0.626974 0.538394 -0.37232"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_24.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_25"
+      ,
+      "transform":
+      {
+        "pos": "2.11686 86.6274 -31.467"
+        ,
+        "rotation": "-0.397563 -0.794882 -0.287704 0.356838"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_25.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_26"
+      ,
+      "transform":
+      {
+        "pos": "1.98065 86.621 -31.6214"
+        ,
+        "rotation": "-0.0789789 0.501447 -0.697771 -0.5054"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_26.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_27"
+      ,
+      "transform":
+      {
+        "pos": "1.67051 86.5911 -31.5413"
+        ,
+        "rotation": "-0.396587 -0.309229 -0.801123 0.324498"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_27.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_28"
+      ,
+      "transform":
+      {
+        "pos": "2.06015 86.7733 -31.4092"
+        ,
+        "rotation": "-0.123182 -0.944998 -0.222887 0.205248"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_28.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_29"
+      ,
+      "transform":
+      {
+        "pos": "1.95074 86.6778 -31.4317"
+        ,
+        "rotation": "0.440834 -0.548536 -0.116655 -0.700832"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_29.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_30"
+      ,
+      "transform":
+      {
+        "pos": "1.89379 86.7348 -31.2459"
+        ,
+        "rotation": "0.434682 -0.711717 0.551492 -0.0191801"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_30.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_31"
+      ,
+      "transform":
+      {
+        "pos": "1.83578 86.5761 -31.4843"
+        ,
+        "rotation": "-0.526446 -0.608491 -0.429028 -0.410521"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_31.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_32"
+      ,
+      "transform":
+      {
+        "pos": "1.66514 86.7045 -31.3118"
+        ,
+        "rotation": "-0.210959 -0.878982 -0.426875 0.0257764"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_32.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_33"
+      ,
+      "transform":
+      {
+        "pos": "2.2082 86.6778 -31.4268"
+        ,
+        "rotation": "0.315418 -0.907913 0.0911548 -0.260569"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_33.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_34"
+      ,
+      "transform":
+      {
+        "pos": "1.77951 86.7582 -31.2905"
+        ,
+        "rotation": "0.0580805 -0.335887 0.372732 -0.863063"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_34.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_35"
+      ,
+      "transform":
+      {
+        "pos": "1.66028 86.8462 -31.3796"
+        ,
+        "rotation": "0.461246 0.332103 0.231985 -0.789394"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_35.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_36"
+      ,
+      "transform":
+      {
+        "pos": "1.70837 86.833 -31.2492"
+        ,
+        "rotation": "0.310504 -0.150412 -0.815354 -0.464932"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_36.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_37"
+      ,
+      "transform":
+      {
+        "pos": "1.88581 86.8349 -31.3415"
+        ,
+        "rotation": "0.753718 -0.271219 0.257949 -0.540196"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_37.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_38"
+      ,
+      "transform":
+      {
+        "pos": "1.44957 86.8972 -31.3879"
+        ,
+        "rotation": "0.0286583 0.367364 0.682622 -0.63107"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_38.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_39"
+      ,
+      "transform":
+      {
+        "pos": "1.62478 87.0439 -31.3379"
+        ,
+        "rotation": "-0.39186 -0.904849 0.0858702 0.142551"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_39.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_40"
+      ,
+      "transform":
+      {
+        "pos": "1.49297 86.7167 -31.4428"
+        ,
+        "rotation": "0.521218 0.425389 -0.139833 -0.726515"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_40.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_41"
+      ,
+      "transform":
+      {
+        "pos": "1.55372 86.6922 -31.1818"
+        ,
+        "rotation": "0.0299825 0.618601 0.203409 -0.758326"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_41.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_42"
+      ,
+      "transform":
+      {
+        "pos": "1.74063 87.0185 -31.4532"
+        ,
+        "rotation": "-0.882187 0.282415 -0.209859 0.312965"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_42.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_43"
+      ,
+      "transform":
+      {
+        "pos": "1.6502 86.9532 -31.3277"
+        ,
+        "rotation": "-0.169212 0.594925 0.309704 -0.72216"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_43.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_44"
+      ,
+      "transform":
+      {
+        "pos": "1.6088 86.6886 -31.1713"
+        ,
+        "rotation": "-0.0411752 -0.177218 -0.903339 -0.388429"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_44.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_45"
+      ,
+      "transform":
+      {
+        "pos": "1.81998 86.5868 -31.1668"
+        ,
+        "rotation": "0.521377 -0.340135 0.420008 -0.660355"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_45.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_46"
+      ,
+      "transform":
+      {
+        "pos": "1.66245 86.575 -31.2448"
+        ,
+        "rotation": "0.112791 -0.516765 -0.725227 0.440769"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_46.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_47"
+      ,
+      "transform":
+      {
+        "pos": "1.87069 86.5951 -31.3628"
+        ,
+        "rotation": "-0.838235 0.459859 -0.292587 0.0168845"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_47.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_48"
+      ,
+      "transform":
+      {
+        "pos": "1.72635 86.5736 -31.4005"
+        ,
+        "rotation": "0.602273 -0.692379 0.382544 0.107421"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_48.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_49"
+      ,
+      "transform":
+      {
+        "pos": "2.23572 86.5879 -31.5221"
+        ,
+        "rotation": "0.338639 -0.442129 -0.191384 -0.808219"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_49.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_50"
+      ,
+      "transform":
+      {
+        "pos": "1.78008 86.5564 -31.0873"
+        ,
+        "rotation": "-0.249301 0.1683 -0.849473 0.433497"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_50.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_51"
+      ,
+      "transform":
+      {
+        "pos": "1.58066 86.5762 -31.3952"
+        ,
+        "rotation": "-0.535568 -0.790124 -0.207451 0.214089"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_51.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_52"
+      ,
+      "transform":
+      {
+        "pos": "1.52052 86.5793 -31.2396"
+        ,
+        "rotation": "-0.785906 0.308797 0.361118 0.395715"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_52.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_53"
+      ,
+      "transform":
+      {
+        "pos": "1.93641 86.5562 -31.1445"
+        ,
+        "rotation": "-0.449706 -0.360637 0.605239 -0.548991"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_53.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_54"
+      ,
+      "transform":
+      {
+        "pos": "1.98809 86.6564 -31.2314"
+        ,
+        "rotation": "0.425355 -0.872655 -0.230989 -0.0647247"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_54.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_55"
+      ,
+      "transform":
+      {
+        "pos": "1.90924 86.5592 -31.302"
+        ,
+        "rotation": "0.000808862 -0.902073 -0.000219228 0.431582"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_55.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_56"
+      ,
+      "transform":
+      {
+        "pos": "1.12602 86.5755 -31.8016"
+        ,
+        "rotation": "-0.77269 0.583854 -0.0731997 0.238133"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_56.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_57"
+      ,
+      "transform":
+      {
+        "pos": "1.62485 86.5895 -32.2697"
+        ,
+        "rotation": "-0.892328 0.426261 0.0470928 0.140837"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_57.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_58"
+      ,
+      "transform":
+      {
+        "pos": "1.10755 86.7206 -31.5189"
+        ,
+        "rotation": "0.0291535 0.0180777 -0.908469 -0.416543"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_58.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_59"
+      ,
+      "transform":
+      {
+        "pos": "1.49077 86.9111 -31.2351"
+        ,
+        "rotation": "-0.0203668 0.211733 0.590399 -0.778578"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_59.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_60"
+      ,
+      "transform":
+      {
+        "pos": "1.99822 86.9802 -31.481"
+        ,
+        "rotation": "-0.534502 0.0894318 0.158732 -0.825296"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_60.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_61"
+      ,
+      "transform":
+      {
+        "pos": "2.21073 86.6328 -31.801"
+        ,
+        "rotation": "0.119462 0.193841 0.391396 -0.891607"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_61.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_62"
+      ,
+      "transform":
+      {
+        "pos": "1.95534 86.8191 -31.4895"
+        ,
+        "rotation": "-0.00827687 -0.9307 0.326947 -0.163812"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_62.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_63"
+      ,
+      "transform":
+      {
+        "pos": "1.99208 86.8261 -31.379"
+        ,
+        "rotation": "-0.384451 0.460307 0.606663 -0.5218"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_63.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_64"
+      ,
+      "transform":
+      {
+        "pos": "1.25687 86.6785 -32.0419"
+        ,
+        "rotation": "0.0757907 0.130822 0.186129 -0.970823"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_64.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_65"
+      ,
+      "transform":
+      {
+        "pos": "1.19217 86.9017 -31.5119"
+        ,
+        "rotation": "0.328967 0.00426306 -0.350938 -0.876701"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_65.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_66"
+      ,
+      "transform":
+      {
+        "pos": "1.08424 86.7676 -31.7291"
+        ,
+        "rotation": "0.610614 0.446573 -0.242163 -0.60752"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_66.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_67"
+      ,
+      "transform":
+      {
+        "pos": "2.03623 86.7478 -31.9444"
+        ,
+        "rotation": "-0.743164 0.60919 0.185417 -0.205464"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_67.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_68"
+      ,
+      "transform":
+      {
+        "pos": "1.90078 87.0832 -31.6724"
+        ,
+        "rotation": "0.228601 -0.245845 0.626438 -0.703475"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_68.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_69"
+      ,
+      "transform":
+      {
+        "pos": "2.05014 86.8668 -31.8761"
+        ,
+        "rotation": "0.163243 -0.538183 -0.525907 -0.638069"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_69.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_70"
+      ,
+      "transform":
+      {
+        "pos": "1.98193 86.9105 -31.6222"
+        ,
+        "rotation": "0.487025 -0.785032 -0.262556 -0.27856"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_70.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_71"
+      ,
+      "transform":
+      {
+        "pos": "2.03897 86.8205 -31.7782"
+        ,
+        "rotation": "-0.0604507 -0.513602 -0.829536 0.210782"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_71.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_72"
+      ,
+      "transform":
+      {
+        "pos": "1.9522 86.9769 -31.7631"
+        ,
+        "rotation": "0.398784 -0.883243 -0.21721 -0.116932"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_72.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_73"
+      ,
+      "transform":
+      {
+        "pos": "2.14644 86.719 -31.8098"
+        ,
+        "rotation": "-0.817979 0.364498 0.34924 0.27583"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_73.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_74"
+      ,
+      "transform":
+      {
+        "pos": "2.05898 86.8926 -32.002"
+        ,
+        "rotation": "0.425849 -0.0134574 0.597323 -0.679468"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_74.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_75"
+      ,
+      "transform":
+      {
+        "pos": "2.22395 86.821 -31.8277"
+        ,
+        "rotation": "0.293172 -0.704128 0.37014 -0.53033"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_75.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_76"
+      ,
+      "transform":
+      {
+        "pos": "2.0604 87.038 -31.8884"
+        ,
+        "rotation": "0.431561 -0.861246 0.243945 0.11181"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_76.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_77"
+      ,
+      "transform":
+      {
+        "pos": "2.15505 86.5929 -31.9644"
+        ,
+        "rotation": "0.775288 -0.0388498 -0.200912 -0.59754"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_77.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_78"
+      ,
+      "transform":
+      {
+        "pos": "1.64403 86.5499 -32.0041"
+        ,
+        "rotation": "0.167042 -0.71752 -0.354575 -0.575794"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_78.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_79"
+      ,
+      "transform":
+      {
+        "pos": "1.80734 86.643 -31.8284"
+        ,
+        "rotation": "0.479205 -0.783903 -0.371308 -0.134127"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_79.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_80"
+      ,
+      "transform":
+      {
+        "pos": "1.33042 86.5917 -31.3485"
+        ,
+        "rotation": "-0.675212 -0.10608 -0.59821 0.418307"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_80.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_127"
+      ,
+      "transform":
+      {
+        "pos": "1.25183 86.5951 -31.6684"
+        ,
+        "rotation": "-0.65349 -0.397694 0.492859 -0.414584"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_127.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_81"
+      ,
+      "transform":
+      {
+        "pos": "1.88839 86.5345 -32.041"
+        ,
+        "rotation": "-0.753003 -0.221877 0.566879 -0.24981"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_81.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_82"
+      ,
+      "transform":
+      {
+        "pos": "1.20134 86.7305 -31.4451"
+        ,
+        "rotation": "0.149904 -0.406007 -0.257826 -0.863837"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_82.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_83"
+      ,
+      "transform":
+      {
+        "pos": "1.63488 86.6096 -31.8651"
+        ,
+        "rotation": "0.417517 0.174212 0.176809 -0.87411"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_83.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_84"
+      ,
+      "transform":
+      {
+        "pos": "1.78277 86.5887 -31.7419"
+        ,
+        "rotation": "-0.0170729 -0.715474 -0.000225531 -0.69843"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_84.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_85"
+      ,
+      "transform":
+      {
+        "pos": "1.16526 86.6167 -31.413"
+        ,
+        "rotation": "0.237722 -0.877856 -0.0925069 0.405338"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_85.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_87"
+      ,
+      "transform":
+      {
+        "pos": "1.29707 86.6127 -31.4541"
+        ,
+        "rotation": "0.518354 -0.0794265 -0.218238 -0.823027"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_87.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_88"
+      ,
+      "transform":
+      {
+        "pos": "1.95826 86.5509 -32.1334"
+        ,
+        "rotation": "-0.687129 0.170042 -0.579342 -0.404107"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_88.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_89"
+      ,
+      "transform":
+      {
+        "pos": "1.96053 86.8018 -31.9273"
+        ,
+        "rotation": "-0.184103 -0.500065 -0.389693 -0.75112"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_89.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_90"
+      ,
+      "transform":
+      {
+        "pos": "1.61949 86.6925 -32.1089"
+        ,
+        "rotation": "0.213815 0.0516751 0.793489 -0.567439"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_90.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_91"
+      ,
+      "transform":
+      {
+        "pos": "1.67608 87.0829 -31.6631"
+        ,
+        "rotation": "-0.219951 -0.341586 -0.794061 -0.452114"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_91.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_92"
+      ,
+      "transform":
+      {
+        "pos": "1.82022 86.7942 -31.9942"
+        ,
+        "rotation": "0.26389 -0.583495 -0.478311 -0.600927"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_92.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_93"
+      ,
+      "transform":
+      {
+        "pos": "1.54036 87.0066 -31.9876"
+        ,
+        "rotation": "-0.242337 -0.950491 0.114307 -0.157397"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_93.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_94"
+      ,
+      "transform":
+      {
+        "pos": "1.4978 86.8869 -32.1592"
+        ,
+        "rotation": "0.267733 -0.412667 -0.0163591 -0.870493"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_94.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_95"
+      ,
+      "transform":
+      {
+        "pos": "1.95499 86.9026 -31.821"
+        ,
+        "rotation": "-0.310646 0.541123 0.534836 -0.569768"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_95.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_96"
+      ,
+      "transform":
+      {
+        "pos": "1.86718 86.9528 -31.7814"
+        ,
+        "rotation": "-0.434711 -0.825682 -0.290121 0.212379"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_96.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_97"
+      ,
+      "transform":
+      {
+        "pos": "1.63764 86.7661 -31.8973"
+        ,
+        "rotation": "-0.867246 0.386369 -0.169661 0.26423"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_97.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_98"
+      ,
+      "transform":
+      {
+        "pos": "1.3843 86.7073 -32.0629"
+        ,
+        "rotation": "-0.653503 -0.114437 -0.505671 -0.551484"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_98.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_99"
+      ,
+      "transform":
+      {
+        "pos": "1.95489 86.6605 -31.9595"
+        ,
+        "rotation": "0.0532043 0.568796 -0.487134 -0.660561"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_99.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_102"
+      ,
+      "transform":
+      {
+        "pos": "2.0301 86.6114 -31.8002"
+        ,
+        "rotation": "0.108484 -0.957284 0.0400448 -0.265019"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_102.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_104"
+      ,
+      "transform":
+      {
+        "pos": "1.93784 86.7511 -31.5685"
+        ,
+        "rotation": "-0.0582391 -0.951567 0.0826977 0.290327"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_104.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_105"
+      ,
+      "transform":
+      {
+        "pos": "1.93993 86.7871 -31.7866"
+        ,
+        "rotation": "0.490584 0.30015 -0.785571 0.228288"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_105.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_107"
+      ,
+      "transform":
+      {
+        "pos": "2.05215 86.5979 -31.3545"
+        ,
+        "rotation": "-0.204349 0.479761 0.116002 -0.845349"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_107.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_108"
+      ,
+      "transform":
+      {
+        "pos": "2.2579 86.7375 -31.8047"
+        ,
+        "rotation": "0.195957 0.554922 -0.693009 -0.416415"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_108.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_109"
+      ,
+      "transform":
+      {
+        "pos": "2.1731 86.6684 -31.6151"
+        ,
+        "rotation": "0.745085 -0.265684 0.325579 -0.517936"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_109.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_128"
+      ,
+      "transform":
+      {
+        "pos": "2.0873 86.5574 -31.8798"
+        ,
+        "rotation": "-0.520006 -0.686336 -0.151887 0.48525"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_128.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_129"
+      ,
+      "transform":
+      {
+        "pos": "1.94602 86.676 -31.704"
+        ,
+        "rotation": "-0.362511 -0.079196 -0.870979 0.322038"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_129.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_130"
+      ,
+      "transform":
+      {
+        "pos": "1.83823 86.6698 -31.6437"
+        ,
+        "rotation": "-0.0305506 0.415886 -0.3448 -0.840962"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_130.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_110"
+      ,
+      "transform":
+      {
+        "pos": "2.16676 86.8048 -31.5065"
+        ,
+        "rotation": "0.0802909 -0.107474 0.149053 -0.979687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_110.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_111"
+      ,
+      "transform":
+      {
+        "pos": "1.23862 86.7523 -31.2415"
+        ,
+        "rotation": "-0.950305 -0.229369 -0.182812 -0.104353"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_111.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_112"
+      ,
+      "transform":
+      {
+        "pos": "1.87295 87.0779 -31.5423"
+        ,
+        "rotation": "0.508773 -0.579053 -0.487854 -0.40969"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_112.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_113"
+      ,
+      "transform":
+      {
+        "pos": "1.77174 86.9102 -31.5898"
+        ,
+        "rotation": "-0.273466 0.429617 -0.00686349 -0.860581"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_113.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_114"
+      ,
+      "transform":
+      {
+        "pos": "1.30749 86.9464 -31.3679"
+        ,
+        "rotation": "-0.513868 0.0314061 -0.742907 0.427834"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_114.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_115"
+      ,
+      "transform":
+      {
+        "pos": "1.47676 86.6612 -32.1447"
+        ,
+        "rotation": "-0.248467 -0.228004 0.565483 -0.752667"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_115.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_116"
+      ,
+      "transform":
+      {
+        "pos": "1.18638 86.6306 -31.9251"
+        ,
+        "rotation": "-0.639142 -0.613694 -0.35691 0.295793"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_116.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_117"
+      ,
+      "transform":
+      {
+        "pos": "1.84676 86.936 -31.3801"
+        ,
+        "rotation": "-0.977769 0.0717049 0.00590201 0.196954"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_117.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_118"
+      ,
+      "transform":
+      {
+        "pos": "1.72833 86.8764 -31.8383"
+        ,
+        "rotation": "0.610439 -0.38173 -0.183484 -0.669314"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_118.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_119"
+      ,
+      "transform":
+      {
+        "pos": "2.1304 86.9496 -31.673"
+        ,
+        "rotation": "0.392031 -0.88206 -0.0383016 0.258488"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_119.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_120"
+      ,
+      "transform":
+      {
+        "pos": "2.07232 86.8103 -31.6555"
+        ,
+        "rotation": "0.661429 -0.23882 -0.260046 -0.661704"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_120.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_121"
+      ,
+      "transform":
+      {
+        "pos": "2.07158 86.5941 -32.094"
+        ,
+        "rotation": "0.386875 -0.595639 0.544683 -0.445939"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_121.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_122"
+      ,
+      "transform":
+      {
+        "pos": "0.997713 86.6827 -31.6363"
+        ,
+        "rotation": "0.201133 0.0436321 0.0249069 -0.978275"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_122.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_123"
+      ,
+      "transform":
+      {
+        "pos": "1.24644 86.706 -31.7103"
+        ,
+        "rotation": "-0.33444 -0.862294 0.135906 -0.355146"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_123.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RunnerCuerpo_Part_124"
+      ,
+      "transform":
+      {
+        "pos": "1.36287 86.5884 -31.9689"
+        ,
+        "rotation": "-0.508978 0.614294 0.143614 -0.585627"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RunnerCuerpo_Part_124.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RunnerCuerpoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/RunnerAppear.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Runner_father"
+      }
+    }
+  }
+]

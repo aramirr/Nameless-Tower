@@ -1,0 +1,46 @@
+[
+	{
+		"entity": {
+			"name": "Boss",
+			"skeleton": {
+        		"skeleton": "data/skeletons/Boss/boss.skeleton"
+      		},
+      		"render" : [
+		        {
+		          "mesh": "data/skeletons/Boss/Cuerpo.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/BossCuerpoMat.material"
+		          ]
+		        },
+		        {
+		          "mesh": "data/skeletons/Boss/Cabeza_final.mesh"
+		          ,
+		          "materials":
+		          [
+		            "data/materials/BossCabezaMat.material"
+		          ]
+		        }
+      		]
+			, 
+			"transform": {
+				"pos": "-18.817 4.5 25.262",
+				"front": "1 0 0"
+			}
+			,
+		    "collider": {
+				"shape": "capsule",
+				"is_character_controller": true
+				,
+				"radius": 0.7
+				,
+				"height": 1.2
+				,
+				"is_dynamic": false
+				,
+				"is_trigger": false
+		    }		    		 	    	
+		}
+	}
+]

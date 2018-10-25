@@ -11,7 +11,7 @@ function OnTriggerEnterDebugTrigger()
 	lm:set_dir_light_intensity("LightDir01", 10, false)
 end
 
-
+-- On Level Start
 function OnLevel1Start()
 	lm:set_ambient(1)
 	lm:set_dir_light_intensity("LightDir00", 11, false)
@@ -25,7 +25,29 @@ function OnLevel1Start()
 	lm:stop_emiter("hojas_jardin_1", false)
 	lm:stop_emiter("hojas_jardin_2", false)
 	lm:stop_emiter("hojas_viento", false)
-	lm:stop_emiter("particulas_top_cascada", false)
+	lm:stop_emiter("particulas_top_cascada", false)	
+
+	lm:set_ypr("spline_loro5", 180,0,0)
+	lm:set_ypr("spline_loro6", 180,0,0)
+	lm:set_ypr("spline_loro7", 180,0,0)
+	lm:set_ypr("spline_loro8", 180,0,0)
+	lm:set_ypr("spline_loro9", 180,0,0)
+	lm:set_ypr("spline_loro10", 180,0,0)
+	lm:set_ypr("spline_loro11", 180,0,0)
+
+	lm:hide_mesh("loro0")
+	lm:hide_mesh("loro1")
+	lm:hide_mesh("loro2")
+	lm:hide_mesh("loro3")
+	lm:hide_mesh("loro4")
+	
+
+	--lm:activate_cinematic_bands(false)
+	--lm:activate_cinematic("cinematica_inicial_true", false)
+	--lm:pause_player()
+	--lm:play_animation("The Player", 32)
+	--lm:regain_control(30)
+	
 end
 
 function OnLevel2Start()
@@ -38,9 +60,43 @@ function OnLevel2Start()
 	lm:set_dir_light_intensity("LightDir14", 10, false)	
 	lm:set_point_light_intensity("Luces_Fuego_011", 10, false)
 	lm:set_point_light_intensity("Luces_Fuego_012", 10, false)
+	lm:set_naja_int(false)
+	lm:set_naja_int(true)
+	lm:set_runner_int(true)
+	lm:set_runner_int(false)
 
 end
 
+-- Cinematicas
+
+function OnTriggerExitTSCinematicaMonolito()
+	--lm:activate_cinematic_bands(false)
+	--lm:pause_player()
+	--If camera needs to be moved
+	--lm:activate_cinematic("cinematic_first_door", false)
+	--lm:play_animation(32)
+	--lm:regain_control(25)
+	--lm:kill_entity("LuaCinematicTest")
+	lm:activate_cinematic_bands(false)
+	--lm:activate_cinematic("cinematica_inicial", false)
+	
+	lm:pause_player()
+	lm:play_animation("The Player", 34)
+	lm:activate_anim("Monolito_001")
+	lm:activate_anim("Runner_father")
+	lm:regain_control(15)
+	lm:change_level("level_2")
+end
+
+function OnTriggerExitTSCinematicaFinal()
+	lm:activate_cinematic_bands(false)
+	--lm:activate_cinematic("cinematica_inicial", false)
+	lm:pause_player()
+	lm:play_animation("The Player", 35)
+	lm:regain_control(15)
+end
+
+-- Puertas Abatibles
 function OnWindstrikeActivateTDWindstrike()
 	lm:open_door("Puerta_Abatible_Madera_01")
 end
@@ -53,6 +109,7 @@ function OnWindstrikeActivateTDTechos()
 	lm:open_door("Puerta_Abatible_Madera_002")
 end
 
+-- Rejas Activables
 function OnWindstrikeActivateTAPuertasPrimera()
 	lm:open_door("Puerta_Reja_01")
 	lm:activate_anim("Activador_Movil03")
@@ -90,7 +147,24 @@ function OnTriggerExitTSRejaAntorchas()
 end
 
 
+-- Nivel Subida
+
 -- Sala 1-2
+function OnTriggerExitTPAves()
+	lm:unhide_mesh("loro0")
+	lm:unhide_mesh("loro1")
+	lm:unhide_mesh("loro2")
+	lm:unhide_mesh("loro3")
+	lm:unhide_mesh("loro4")
+	
+	lm:play_curve("spline_loro1")
+	lm:play_curve("spline_loro2")
+	lm:play_curve("spline_loro3")
+	lm:play_curve("spline_loro4")
+	lm:play_curve("spline_loro0")
+	lm:kill_entity("TPAves")
+end
+
 function OnTriggerExitTSCabezaTutorial()
 	lm:set_dir_light_intensity("LightDir02", 11, false)
 	lm:start_emiter("hojas_estatua", false)
@@ -369,6 +443,29 @@ function OnTriggerExitTSPuertasArbol()
 	lm:update_grass_render()
 end
 
+function OnTriggerExitTPAves002()
+	lm:unhide_mesh("loro5")
+	lm:unhide_mesh("loro6")
+	lm:unhide_mesh("loro7")
+	lm:unhide_mesh("loro8")
+	lm:unhide_mesh("loro9")
+	lm:unhide_mesh("loro10")
+	lm:unhide_mesh("loro11")
+	
+	lm:play_curve("spline_loro5")
+	lm:play_curve("spline_loro6")
+	lm:play_curve("spline_loro7")
+	lm:play_curve("spline_loro8")
+	lm:play_curve("spline_loro9")
+	lm:play_curve("spline_loro10")
+	lm:play_curve("spline_loro11")
+	lm:kill_entity("TPAves002")
+end
+
+function OnTriggerExitTPAves003()
+	lm:kill_entity("TPAves003")
+end
+
 -- Sala 9-10
 function OnTriggerExitTSArbolRunner()
 	--Exterior
@@ -480,7 +577,6 @@ function OnTriggerExitTSCascadaAntorchas()
 	lm:play_interior_sound(false)
 	--lm:render_everything("ParedDestapada12", false)
 	lm:render_only_shadows("ParedTapada12", false)
-	lm:change_level("level_2")
 	lm:set_dir_light_intensity("LightDir11", 0, false)
 	lm:set_dir_light_intensity("LightDir12", 0, false)
 	lm:set_point_light_intensity("Luces_Fuego_011", 10, false)
@@ -500,7 +596,6 @@ function OnTriggerExitTSEstatuaWindstrikeB()
 
 	--Exterior
 	--lm:set_exposure(0.9, false)
-	lm:set_naja_ext(false)
 	lm:render_everything("ParedTapada4B", false)
 	--lm:render_only_shadows("ParedDestapada4", false)	
 	lm:set_dir_light_intensity("LightDir01", 11, false)
@@ -556,7 +651,6 @@ end
 function OnTriggerExitTSEscaleras1Escaleras2B()
 	--Interior
 	--lm:set_exposure(0.05, false)
-	lm:set_naja_int(false)
 	--lm:render_everything("ParedDestapada5", false)
 	lm:render_only_shadows("ParedTapada5B", false)
 	lm:set_dir_light_intensity("LightDir05", 0, false)
@@ -570,7 +664,6 @@ function OnTriggerExitTSEscaleras1Escaleras2B()
 
 	--Exterior
 	--lm:set_exposure(0.4, true)
-	lm:set_naja_ext(true)
 	lm:play_ambient_sound(true)
 	--lm:render_only_shadows("ParedDestapada5", true)
 	lm:render_everything("ParedTapada5B", true)
@@ -622,7 +715,6 @@ end
 function OnTriggerExitTPTechosPuertasB()
 	--Interior
 	--lm:set_exposure(0.05, false)
-	lm:set_naja_int(false)
 	--lm:render_everything("ParedDestapada7", false)
 	lm:render_only_shadows("ParedTapada7B", false)
 	lm:set_dir_light_intensity("LightDir04", 11, false)
@@ -640,7 +732,6 @@ function OnTriggerExitTPTechosPuertasB()
 	
 	--Exterior
 	--lm:set_exposure(0.4, true)
-	lm:set_naja_ext(true)
 	lm:play_ambient_sound(true)
 	--lm:render_only_shadows("ParedDestapada7", true)
 	lm:render_everything("ParedTapada7B", true)
@@ -683,7 +774,6 @@ end
 function OnTriggerExitTSJardinRunner()
 	--Exterior
 	--lm:set_exposure(0.4, true)
-	lm:set_naja_ext(true)
 	--lm:render_only_shadows("ParedDestapada10", true)
 	lm:render_everything("ParedTapada10B", true)
 	lm:set_dir_light_intensity("LightDir08", 11, true)
@@ -698,7 +788,6 @@ function OnTriggerExitTSJardinRunner()
 
 	--Interior
 	--lm:set_exposure(0.05, false)
-	lm:set_naja_int(false)
 	lm:play_interior_sound(false)
 	--lm:render_everything("ParedDestapada10", false)
 	lm:render_only_shadows("ParedTapada10B", false)
@@ -714,9 +803,7 @@ end
 
 function OnTriggerExitTSRunnerLava()
 	--Interior
-	--lm:set_exposure(0.05, true)
-	lm:set_naja_int(true)
-	lm:set_runner_int(true)
+	--lm:set_exposure(0.05, true)	
 	--lm:render_everything("ParedDestapada10", true)
 	lm:render_only_shadows("ParedTapada10B", true)
 	lm:set_dir_light_intensity("LightDir13", 0, true)
@@ -733,8 +820,6 @@ function OnTriggerExitTSRunnerLava()
 
 	--Exterior
 	--lm:set_exposure(0.4, false)
-	lm:set_naja_ext(false)
-	lm:set_runner_ext(false)
 	lm:play_ambient_sound(false)
 	lm:play_sound(false, "lava")
 	--lm:render_only_shadows("ParedDestapada10", false)

@@ -13,8 +13,8 @@ public:
   void load(const json& j, TEntityParseContext& ctx);
   void update(float DT);
   void setRatio(float ratio) { _percentage = ratio; }
-	void activate();
-	void deactivate();
+    void activate();
+    void deactivate();
 private:
   VEC3 getTargetPos();
   const CCurve* _curve = nullptr;
@@ -22,10 +22,10 @@ private:
   float _speed = 0.f;
   CHandle _target;
   std::string _targetName;
-  bool _automove = true;
+  bool _automove = false;
   std::string curve_mode;
   int direction = 1;
   int current_mode = 0;
-  bool loop = true;
+  bool loop = false;
 };
 

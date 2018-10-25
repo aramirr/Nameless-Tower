@@ -59,8 +59,6 @@ namespace FSM
 	}
 
 	void WindstrikeState::onFinish(CContext& ctx) const {
-		CEntity* trail = (CEntity *)getEntityByName("windstrike_trail");	
-
 		ctx.setVariable("windstrike", false);
         CEntity* e = ctx.getOwner();
         TCompPlayerController* player = e->get<TCompPlayerController>();

@@ -61,4 +61,13 @@ public:
   void activateTorch(std::string name);
   void scarePlayer();
 
+  //Lua Cinematics
+  void pausePlayer();
+  void setAnim(std::string name, int anim_id);
+  void setCinematicBars();
+  void regainControl(float time_to_wait);
+  void killEntity(std::string name);
+  void playCurve(std::string name);
+  void set_ypr(std::string name, float y, float p, float r);
+
 };

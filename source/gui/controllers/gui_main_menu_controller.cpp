@@ -32,6 +32,10 @@ namespace GUI
         player->sendMsg(pauseMsg);
 
         EngineTimer.setTimeSlower(1.f);
+
+        auto p = EngineScripting.script.exists("OnLevel1Start");
+        if (p)
+            EngineScripting.script.doString("OnLevel1Start()");
       };
       auto exitCB = []() {
 

@@ -12,7 +12,6 @@ void TCompCinematic::load(const json& j, TEntityParseContext& ctx) {
   CEntity* e = ctx.current_entity;
 	time = j.value("time", 0.0f);
 	blend_time = j.value("time", 2.0f);
-	blend_time = j.value("time", 2.0f);
 	spline_name = j.value("spline_name", "");
 	camera_name = j.value("camera_name", "");
 }
@@ -39,7 +38,7 @@ void TCompCinematic::activate(const TMsgActivateCinematic& msg) {
         player->previous_camera = camera_name;
         TMsgActiveCamera activate_camera;
         activate_camera.camera_name = camera_name;
-        activate_camera.blend_time = 2.f;
+        activate_camera.blend_time = blend_time;
         camera_manager->sendMsg(activate_camera);
         if (spline_name != "") {
             CEntity* h_spline = (CEntity*)getEntityByName(spline_name);

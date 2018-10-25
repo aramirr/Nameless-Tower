@@ -7,6 +7,7 @@
 #include "components/juan/comp_render.h"
 #include "components/comp_particles.h"
 #include "components/camera/comp_camera_manager.h"
+#include "components/controllers/comp_curve.h"
 #include "render\render_objects.h"
 #include "ctes.h"
 #include "render/cte_buffer.h"
@@ -223,6 +224,42 @@ void LogicManager::stopSound(bool left, std::string name) {
     }
 }
 
+// LUA Cinematic
+void LogicManager::setCinematicBars() {
+	//to be implemented
+	//EngineTower.toggle_cinematic_bars();
+}
+
+void LogicManager::pausePlayer() {
+	CEntity* player = getEntityByName("The Player");
+
+	TMsgSetFSMVariable pauseMsg;
+	pauseMsg.variant.setName("pause");
+	pauseMsg.variant.setBool(true);
+	player->sendMsg(pauseMsg);
+
+	//Pinchar la camara que sea sobre railes aqui
+
+}
+
+void LogicManager::setAnim(std::string name, int anim_id) {
+	CEntity* player = getEntityByName(name);
+	TCompPlayerController * controller = player->get<TCompPlayerController>();
+	controller->change_animation(anim_id, true, 0.5, 0.5, true);
+}
+
+void LogicManager::regainControl(float time_to_wait) {
+	// La function debe devolver el control al personaje, sacar las barras y 
+	EngineTower.wait_seconds(time_to_wait);
+}
+
+void LogicManager::killEntity(std::string name) {
+    CEntity* entity = getEntityByName(name);
+    if (entity) {
+        CHandle(entity).destroy();
+    }
+}
+
 void LogicManager::activateTorch(std::string name) {
     CEntity* e = getEntityByName(name);
     TMsgActivateTorch msg;
@@ -235,4 +272,16 @@ void LogicManager::scarePlayer() {
     scareMsg.variant.setName("scared");
     scareMsg.variant.setBool(true);
     e->sendMsg(scareMsg);
+}
+
+void LogicManager::playCurve(std::string name) {
+    CEntity* entity = getEntityByName(name);
+    TCompCurve* t = entity->get<TCompCurve>();
+    t->activate();
+}
+
+void LogicManager::set_ypr(std::string name, float y, float p, float r) {
+	CEntity* entity = getEntityByName(name);
+	TCompTransform* t = entity->get<TCompTransform>();
+	t->setYawPitchRoll(y, p, r);
 }

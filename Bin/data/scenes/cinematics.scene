@@ -123,6 +123,108 @@
 			},
 		    "culling":true
 		}
+	},
+	{
+		"entity": {
+			"name": "camara_cinematica_inicial",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "cinematica_inicial_curve"
+		      }		
+		}
+	},
+	{
+		"entity": {
+			"name": "cinematica_inicial_curve",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"
+			},
+			"curve_controller" :
+			{
+				"curve" : "data/curves/CamaraIntro.curve",
+				"speed" : 0.05,
+				"target": "The Player",
+				"loop": false,
+				"automove": false
+			},
+			"render" : {}
+		}
+	},
+	{
+		"entity": {
+			"name": "cinematica_inicial",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"
+			},
+			"cinematic" :
+			{
+				"camera_name" : "camara_cinematica_inicial",
+				"time": 28,
+				"blend_time": 0,
+				"spline_name": "cinematica_inicial_curve"
+			},
+		    "culling":true
+		}
+	},
+	{
+		"entity": {
+			"name": "camara_cinematica_monolito",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "cinematica_monolito_curve"
+		      }		
+		}
+	},
+	{
+		"entity": {
+			"name": "cinematica_monolito_curve",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"
+			},
+			"curve_controller" :
+			{
+				"curve" : "data/curves/CamaraIntro.curve",
+				"speed" : 0.05,
+				"target": "The Player",
+				"loop": false,
+				"automove": false
+			},
+			"render" : {}
+		}
+	},
+	{
+		"entity": {
+			"name": "cinematica_monolito",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"
+			},
+			"cinematic" :
+			{
+				"camera_name" : "camara_cinematica_monolito",
+				"time": 15,
+				"blend_time": 0,
+				"spline_name": "cinematica_monolito_curve"
+			},
+		    "culling":true
+		}
 	}
 ]
 

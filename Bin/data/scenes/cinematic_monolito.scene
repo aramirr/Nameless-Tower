@@ -1,0 +1,3345 @@
+[
+  {
+    "entity":
+    {
+      "name": "Monolito_001"
+      ,
+      "transform":
+      {
+        "pos": "4.86845 92.152 -30.3255"
+        ,
+        "rotation": "0.0 -0.00313643 0.0 -0.999995"
+      }
+      ,
+      "render":
+      []
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "father": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_81"
+      ,
+      "transform":
+      {
+        "pos": "3.22375 97.2216 -30.5577"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_81.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_80"
+      ,
+      "transform":
+      {
+        "pos": "4.40216 97.4195 -30.3616"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_80.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_79"
+      ,
+      "transform":
+      {
+        "pos": "3.99211 97.164 -30.4214"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_79.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_78"
+      ,
+      "transform":
+      {
+        "pos": "2.97988 96.6886 -30.5913"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_78.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_77"
+      ,
+      "transform":
+      {
+        "pos": "3.38744 96.3857 -30.523"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_77.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_76"
+      ,
+      "transform":
+      {
+        "pos": "3.40001 95.8894 -30.4171"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_76.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_75"
+      ,
+      "transform":
+      {
+        "pos": "3.12065 95.5942 -30.5782"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_75.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_74"
+      ,
+      "transform":
+      {
+        "pos": "2.86229 95.082 -30.603"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_74.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_73"
+      ,
+      "transform":
+      {
+        "pos": "2.89904 95.9735 -30.6106"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_73.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_72"
+      ,
+      "transform":
+      {
+        "pos": "3.80639 94.7707 -30.4522"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_72.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_71"
+      ,
+      "transform":
+      {
+        "pos": "3.68846 93.3417 -30.4667"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_71.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_70"
+      ,
+      "transform":
+      {
+        "pos": "3.49981 95.0993 -30.494"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_70.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_69"
+      ,
+      "transform":
+      {
+        "pos": "6.37075 97.2519 -30.0541"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_69.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_68"
+      ,
+      "transform":
+      {
+        "pos": "5.16232 96.2952 -30.1777"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_68.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_67"
+      ,
+      "transform":
+      {
+        "pos": "5.962 95.7795 -30.0278"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_67.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_66"
+      ,
+      "transform":
+      {
+        "pos": "6.33958 95.3547 -29.9664"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_66.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_65"
+      ,
+      "transform":
+      {
+        "pos": "5.24271 93.9682 -30.1476"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_65.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_64"
+      ,
+      "transform":
+      {
+        "pos": "5.76729 94.6243 -30.0571"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_64.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_63"
+      ,
+      "transform":
+      {
+        "pos": "6.20586 92.1085 -29.9919"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_63.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_62"
+      ,
+      "transform":
+      {
+        "pos": "6.62006 93.1141 -29.9698"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_62.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_61"
+      ,
+      "transform":
+      {
+        "pos": "6.51792 91.3805 -29.9687"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_61.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_60"
+      ,
+      "transform":
+      {
+        "pos": "5.07972 91.201 -30.1778"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_60.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_59"
+      ,
+      "transform":
+      {
+        "pos": "6.12595 90.8308 -29.9816"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_59.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_58"
+      ,
+      "transform":
+      {
+        "pos": "4.51709 92.2235 -30.2596"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_58.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_57"
+      ,
+      "transform":
+      {
+        "pos": "5.00772 92.8208 -30.1924"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_57.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_56"
+      ,
+      "transform":
+      {
+        "pos": "6.80194 93.8545 -29.9718"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_56.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_55"
+      ,
+      "transform":
+      {
+        "pos": "6.06489 93.6187 -30.032"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_55.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_54"
+      ,
+      "transform":
+      {
+        "pos": "3.63705 86.81 -30.6895"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_54.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_53"
+      ,
+      "transform":
+      {
+        "pos": "3.11561 86.7788 -30.5643"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_53.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_52"
+      ,
+      "transform":
+      {
+        "pos": "4.01803 87.0584 -30.3742"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_52.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_51"
+      ,
+      "transform":
+      {
+        "pos": "6.29487 86.8626 -30.0451"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_51.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_50"
+      ,
+      "transform":
+      {
+        "pos": "5.77478 87.2326 -30.0771"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_50.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_49"
+      ,
+      "transform":
+      {
+        "pos": "6.76381 87.1484 -29.9999"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_49.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_48"
+      ,
+      "transform":
+      {
+        "pos": "5.64914 86.8869 -30.1825"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_48.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_47"
+      ,
+      "transform":
+      {
+        "pos": "5.15817 86.9859 -30.266"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_47.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_46"
+      ,
+      "transform":
+      {
+        "pos": "5.15768 87.4122 -30.1832"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_46.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_45"
+      ,
+      "transform":
+      {
+        "pos": "4.87682 88.4194 -30.2465"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_45.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_44"
+      ,
+      "transform":
+      {
+        "pos": "4.69473 88.4141 -30.2232"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_44.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_43"
+      ,
+      "transform":
+      {
+        "pos": "4.92535 87.8383 -30.1793"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_43.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_42"
+      ,
+      "transform":
+      {
+        "pos": "3.96526 87.6324 -30.3383"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_42.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_41"
+      ,
+      "transform":
+      {
+        "pos": "4.21969 87.871 -30.2166"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_41.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_40"
+      ,
+      "transform":
+      {
+        "pos": "3.19906 87.3424 -30.5549"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_40.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_39"
+      ,
+      "transform":
+      {
+        "pos": "4.16767 88.2775 -30.3158"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_39.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_38"
+      ,
+      "transform":
+      {
+        "pos": "3.95606 87.8807 -30.4341"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_38.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_37"
+      ,
+      "transform":
+      {
+        "pos": "4.50662 87.8208 -30.2755"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_37.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_36"
+      ,
+      "transform":
+      {
+        "pos": "5.98233 88.8189 -30.0229"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_36.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_35"
+      ,
+      "transform":
+      {
+        "pos": "6.29288 89.813 -29.9663"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_35.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_34"
+      ,
+      "transform":
+      {
+        "pos": "6.37521 88.9162 -29.905"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_34.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_33"
+      ,
+      "transform":
+      {
+        "pos": "5.41144 87.987 -30.0928"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_33.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_32"
+      ,
+      "transform":
+      {
+        "pos": "5.26258 88.8464 -30.144"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_32.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_31"
+      ,
+      "transform":
+      {
+        "pos": "5.67556 88.3768 -30.0673"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_31.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_30"
+      ,
+      "transform":
+      {
+        "pos": "6.53336 88.1918 -29.9692"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_30.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_29"
+      ,
+      "transform":
+      {
+        "pos": "6.56125 89.3313 -29.9694"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_29.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_28"
+      ,
+      "transform":
+      {
+        "pos": "6.53194 87.7776 -29.9692"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_28.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_27"
+      ,
+      "transform":
+      {
+        "pos": "3.78527 88.7719 -30.3667"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_27.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_26"
+      ,
+      "transform":
+      {
+        "pos": "3.92821 88.5862 -30.3549"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_26.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_25"
+      ,
+      "transform":
+      {
+        "pos": "3.52479 89.0562 -30.5092"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_25.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_24"
+      ,
+      "transform":
+      {
+        "pos": "4.54364 90.6665 -30.2557"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_24.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_23"
+      ,
+      "transform":
+      {
+        "pos": "3.18168 90.2527 -30.5807"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_23.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_22"
+      ,
+      "transform":
+      {
+        "pos": "3.56844 90.1695 -30.4901"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_22.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_21"
+      ,
+      "transform":
+      {
+        "pos": "5.70539 90.2545 -30.0544"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_21.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_20"
+      ,
+      "transform":
+      {
+        "pos": "4.99598 90.1582 -30.196"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_20.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_19"
+      ,
+      "transform":
+      {
+        "pos": "4.57146 89.3572 -30.245"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_19.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_18"
+      ,
+      "transform":
+      {
+        "pos": "3.18901 91.6898 -30.434"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_18.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_17"
+      ,
+      "transform":
+      {
+        "pos": "3.0841 91.7026 -30.6103"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_17.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_16"
+      ,
+      "transform":
+      {
+        "pos": "3.14655 91.0734 -30.5623"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_16.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_15"
+      ,
+      "transform":
+      {
+        "pos": "2.99672 92.682 -30.5825"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_15.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_14"
+      ,
+      "transform":
+      {
+        "pos": "3.22044 92.1447 -30.5623"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_14.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_13"
+      ,
+      "transform":
+      {
+        "pos": "3.78182 91.9406 -30.3822"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_13.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_12"
+      ,
+      "transform":
+      {
+        "pos": "4.2763 91.5729 -30.2904"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_12.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_11"
+      ,
+      "transform":
+      {
+        "pos": "4.12755 91.1909 -30.3225"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_11.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_10"
+      ,
+      "transform":
+      {
+        "pos": "4.47193 91.5445 -30.297"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_10.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_9"
+      ,
+      "transform":
+      {
+        "pos": "2.99029 89.004 -30.7446"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_9.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_8"
+      ,
+      "transform":
+      {
+        "pos": "2.97084 89.1161 -30.4505"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_8.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_7"
+      ,
+      "transform":
+      {
+        "pos": "2.8837 89.5433 -30.6104"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_7.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_6"
+      ,
+      "transform":
+      {
+        "pos": "2.97218 87.6253 -30.5897"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_6.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_5"
+      ,
+      "transform":
+      {
+        "pos": "3.30903 88.0338 -30.5442"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_5.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_4"
+      ,
+      "transform":
+      {
+        "pos": "2.8443 87.9515 -30.6046"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_4.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_3"
+      ,
+      "transform":
+      {
+        "pos": "2.85088 88.6511 -30.6054"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_3.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_2"
+      ,
+      "transform":
+      {
+        "pos": "3.09537 88.237 -30.5859"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_2.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Monolito_001_Part_1"
+      ,
+      "transform":
+      {
+        "pos": "3.21451 88.5691 -30.5598"
+        ,
+        "rotation": "-4.18364e-05 -0.00566502 -6.31216e-05 -0.999984"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Monolito_001_Part_1.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MonolitoMat.material",
+            "data/materials/MonolitoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true,
+      "rigid_anim":
+      {
+        "src": "data/anims/Monolito.anims"
+        ,
+        "speed_factor": 1.0
+        ,
+        "loops": false
+      },
+      "destoyable_son":
+      {
+        "father": "Monolito_001"
+      }
+    }
+  }
+]

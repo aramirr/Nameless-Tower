@@ -1,5 +1,5 @@
 {
-  "technique": "pbr_skin.tech"
+  "technique": "pbr.tech"
   ,
   "shadows": true
   ,
@@ -17,8 +17,6 @@
     ,
     "height": "data/textures/null_height.dds"
     ,
-    "sublime": "data/textures/Boss_Runner_Orm.dds"
-    ,
-    "cell": "data/textures/white_75.dds"
+    "orm": "data/textures/Boss_Runner_Orm.dds"
   }
 }
