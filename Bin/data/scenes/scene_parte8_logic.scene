@@ -1,2 +1,44 @@
 [
+  {
+    "entity":
+    {
+      "name": "MuertePinchosSalaSorpresa"
+      ,
+      "transform":
+      {
+        "pos": "-22.7114 3.59752 20.5347"
+        ,
+        "rotation": "0.0 0.406737 0.0 -0.913545"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.56914 0.272081 1.85095"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
 ]

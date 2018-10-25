@@ -12,7 +12,7 @@ namespace FSM
 	{		
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->change_animation(player->EAnimations::NajaJumpLoop, _is_action, _delay_in, _delay_out, true);
+        player->change_animation(player->EAnimations::NajaJumpLoop, false, 0.01, 0.01, false);
 		if (player->omnidash_arrow.y > 0.9)
 			player->y_speed_factor = player->omnidash_arrow.y * 6;
 		else if (player->omnidash_arrow.y > 0.6)
@@ -96,6 +96,9 @@ namespace FSM
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 				if (player->jumping_start_height - c_my_transform->getPosition().y > player->jumping_death_height) {
 					ctx.setVariable("hit", true);
+					CEntity* runner = (CEntity *)getEntityByName("Runner");
+					TMsgRunnerDisappear msg_disappear;
+					runner->sendMsg(msg_disappear);
 				}
 				ctx.setVariable("is_grounded", true);
                 player->change_animation(player->EAnimations::NajaJumpLand, true, 0.01, 0.1, false);

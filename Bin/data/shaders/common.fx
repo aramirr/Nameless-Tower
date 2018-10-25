@@ -19,6 +19,8 @@ Texture2D    txLightProjector SLOT( TS_LIGHT_PROJECTOR );
 Texture2D    txLightShadowMap SLOT(TS_LIGHT_SHADOW_MAP);
 TextureCube  txCubeShadowMap  SLOT(TS_LIGHT_SHADOW_MAP);
 TextureCube  txEnvironmentMap SLOT( TS_ENVIRONMENT_MAP );
+TextureCube  txEnvironment2Map SLOT(TS_ENVIRONMENT2_MAP);
+
 TextureCube  txIrradianceMap  SLOT( TS_IRRADIANCE_MAP );
 Texture2D    txNoiseMap       SLOT( TS_NOISE_MAP );
 Texture3D    txLUT            SLOT( TS_LUT_COLOR_GRADING );
@@ -224,6 +226,12 @@ float3 postprocesado(float3 c, float2 iUV, float4 iPosition)
     float rf2_1 = rf * rf + 1.0;
     float e = 1.0 / (rf2_1 * rf2_1);
 
+    //FADE OUT
+    coord = (iUV - 0.5) * (global_resolution_X / global_resolution_Y) * 2.0;
+    rf = /*sqrt(dot(coord, coord)) **/global_fadeOut_adjustment;
+    rf2_1 = rf * rf + 1.0;
+    float e2 = 1.0 / (rf2_1 * rf2_1);
+
     //finalColor = float4(finalColor.rgb * e, 1.0);
 
     //BANDA NEGRA PARA CINEMATICAS
@@ -234,7 +242,7 @@ float3 postprocesado(float3 c, float2 iUV, float4 iPosition)
         return float3(0.f, 0.f, 0.f);
     }
 
-    return finalColor.rgb * e;
+    return finalColor.rgb * e * e2;
 
 }
 

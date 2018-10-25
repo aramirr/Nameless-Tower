@@ -39,6 +39,11 @@ struct TMsgRunnerAppear {
 struct TMsgRunnerDisappear {
     DECL_MSG_ID();
 };
+
+struct TMsgRunnerStartChase {
+	DECL_MSG_ID();
+};
+
 //-------------------------------------!
 struct TMsgSceneCreated {
 	DECL_MSG_ID();
@@ -64,6 +69,7 @@ struct TMsgOpenDoor {
 
 struct TMsgActivateAnim{
 	std::string name;
+	float wait_time = 0.f;
 	DECL_MSG_ID();
 };
 
@@ -115,6 +121,10 @@ struct TMsgRegisterDestoyableSon {
 
 struct TMsgDeactivateTorch {
 	DECL_MSG_ID();
+};
+
+struct TMsgPuzzleComplete{
+    DECL_MSG_ID();
 };
 
 struct TMsgActivateTorch {
@@ -196,6 +206,11 @@ struct TMsgCheckPlayerIn {
 
 struct TMsgPlaySound{
     DECL_MSG_ID();
+};
+
+struct TMsgVolumeSound {
+	float volumen;
+	DECL_MSG_ID();
 };
 
 struct TMsgChangeDirectionUp {

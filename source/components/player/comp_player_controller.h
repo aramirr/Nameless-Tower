@@ -16,7 +16,8 @@ public:
     bool    run_sprite = true;
     bool    left_key = false;
     float   gravity;
-    float   omni_angle;
+		float   omni_angle;
+		float   omnidash_time;
 	float   y_speed_factor = 0.f;
 	float	jumping_start_height;
 	float	jumping_death_height;
@@ -27,9 +28,10 @@ public:
     bool    looking_left;
     bool    camera_idle = false;
     bool    on_cinematic;
-	bool    is_grounded;
+	bool    is_grounded = true;
 	bool    is_falling;
 	bool    is_running = false;
+	bool    level_started = false;
 	int anim1 = -1;
 	int anim2 = -1;
     std::string previous_camera;
@@ -59,14 +61,14 @@ public:
 		, NajaOmniPrepUpFr
 		, NajaOmniPrepUpBk
 		, NajaOmniPrepDnBk
-        , NajaOmniDn
-        , NajaOmniAr
-        , NajaOmniBk
-        , NajaOmniFr
-        , NajaOmniFrDn
-        , NajaOmniFrUp
-        , NajaOmniBkUp
-        , NajaOmniBkDn
+    , NajaOmniDn
+    , NajaOmniAr
+    , NajaOmniBk
+    , NajaOmniFr
+    , NajaOmniFrDn
+    , NajaOmniFrUp
+    , NajaOmniBkUp
+    , NajaOmniBkDn
 		, NajaDashStrike
 		, NajaDashLand
 		, NajaWalk
@@ -74,12 +76,12 @@ public:
 		, NajaDeath
 		, NajaDead
 		, NajaBreak
-        , NajaLookDn
-        , NajaLookUp
+    , NajaLookDn
+    , NajaLookUp
 		, NajaIntro
-        , NajaScare
-        , NajaMonilito
-        , NajaFinal,
+    , NajaScare
+    , NajaMonilito
+    , NajaFinal,
 		EAnimations
 	};
 
@@ -87,7 +89,7 @@ public:
   void load(const json& j, TEntityParseContext& ctx);
 	void change_animation(int animation_id, bool is_action, float in_delay, float out_delay, bool clear);
 	void clear_animations(float out_delay);
-	void remove_animation(int animation_id);
+	void remove_animation(int animation_id, float delay = 0.1);
 
 
 	void move_player(bool left, bool change_orientation, float dt, float y_speed, float x_speed);

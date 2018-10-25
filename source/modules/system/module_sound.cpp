@@ -1,6 +1,7 @@
 #include "mcv_platform.h"
 #include "module_sound.h"
 #include "components/camera/comp_camera.h"
+#include "render/render_objects.h"
 
 #pragma comment(lib, "fmod64_vc.lib")
 #pragma comment(lib, "fmodstudio64_vc.lib")
@@ -45,6 +46,7 @@ bool CModuleSound::start()
         events.insert(std::make_pair(event_name, sound));
         assert(res == FMOD_OK);
     }
+
   return true;
 }
 
@@ -57,7 +59,8 @@ bool CModuleSound::stop()
 void CModuleSound::update(float delta)
 {
     updateListenerAttributes();
-    updatePositionalEvents();
+		updatePositionalEvents();
+		updateDelayedEvents(delta);
     system->update();
 }
 
@@ -80,6 +83,16 @@ void CModuleSound::updateListenerAttributes() {
         listenerAttributes = {};
     }
     auto res = system->setListenerAttributes(0, &listenerAttributes);
+}
+
+void CModuleSound::updateDelayedEvents(float delta) {
+	for (int i = 0; i < delayed_sounds.size(); ++i) {
+		delayed_sounds[i].current_time += delta;
+		if (delayed_sounds[i].current_time > delayed_sounds[i].time) {
+			events[delayed_sounds[i].name].eventInstance->start();
+			delayed_sounds.erase(delayed_sounds.begin() + i);
+		}
+	}
 }
 
 void CModuleSound::updatePositionalEvents() {
@@ -107,9 +120,43 @@ void CModuleSound::emitPositionalEvent(const std::string& sound, const std::stri
     events[sound].eventInstance->start();
 }
 
+void CModuleSound::emitDelayedEvent(float time, std::string name) {
+	DelayedSound sound;
+	sound.time = time;
+	sound.current_time = 0;
+	sound.name = name;
+	delayed_sounds.push_back(sound);
+}
+
 
 void CModuleSound::stopEvent(const std::string& sound) {
     events[sound].eventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+}
+
+void CModuleSound::setVolumen(float volumen)
+{
+	std::map<std::string, Sound>::iterator it;
+
+	for (it = events.begin(); it != events.end(); it++)
+	{
+		it->second.eventInstance->setVolume(volumen);
+	}
+
+	TMsgVolumeSound msg;
+	msg.volumen = volumen;
+
+	for (int i = 0; i < compSounds.size(); i++) {
+		CEntity* cs = getEntityByName(compSounds[i]);
+		//dbg(compSounds[i].c_str());
+		//dbg("\n");
+		cs->sendMsg(msg);
+	}
+	
+}
+
+void CModuleSound::registerCompSound(std::string name)
+{
+	compSounds.push_back(name);
 }
 
 FMOD::Studio::System* CModuleSound::getSystem() {
@@ -124,6 +171,7 @@ void CModuleSound::playInterior() {
 void CModuleSound::playAmbient() {
     events["interior"].eventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
     events["ambient"].eventInstance->start();
+		if(cb_gui.main)events["ambient"].eventInstance->setVolume(1.f);
 }
 
 

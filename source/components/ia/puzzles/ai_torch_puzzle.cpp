@@ -55,6 +55,10 @@ void CAITorchPuzzle::CompleteState(float dt)
         door1->sendMsg(msg);
         complete = true;
         EngineSound.emitEvent("puzzle");
+        for (auto torch : torchs) {            
+            TMsgPuzzleComplete msg;
+            torch->sendMsg(msg);
+        }
     }
 }
 
@@ -65,12 +69,11 @@ void CAITorchPuzzle::InactiveState(float dt)
 
 void CAITorchPuzzle::deactivate() {
 	active = false;
-	//TCompRender *my_render = getMyRender();
-	//my_render->self_illumination = 1;
 	ChangeState("inactive");
     for (auto torch : torchs) {
 		CAITorch* t = torch->get<CAITorch>();
         t->activate();
+        EngineSound.emitPositionalEvent("fire", torch->getName());
     }
     activated_torchs = 0;
 }
@@ -81,7 +84,7 @@ void CAITorchPuzzle::activate(const TMsgActivateTorchPuzzle& msg) {
 	if (!active) {
 		active = true;
 		timer = 0;
-		ChangeState("active");        
+		ChangeState("active");
 	}	
     if (activated_torchs == torchs.size())
         ChangeState("complete");

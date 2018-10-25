@@ -258,7 +258,7 @@ void TCompOrbitCamera::update(float dt) {
 
 void TCompOrbitCamera::setPosition(VEC3 position)
 {
-	dbg("PRUEBA");
+	//dbg("PRUEBA");
 	active = false;
 	oldPos = position;
 	TCompTransform* c = get<TCompTransform>();

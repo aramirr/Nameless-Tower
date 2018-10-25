@@ -2,6 +2,90 @@
   {
     "entity":
     {
+      "name": "Hueco"
+      ,
+      "transform":
+      {
+        "pos": "26.2548 58.5048 15.7848"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Hueco.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Hueco.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arbolBajada01"
+      ,
+      "transform":
+      {
+        "pos": "24.9221 56.4109 16.4312"
+        ,
+        "rotation": "0.000704956 0.0231659 -0.0767678 -0.99678"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arbolBajada01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ArbolMatB.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arbolBajada02"
+      ,
+      "transform":
+      {
+        "pos": "28.0543 57.9016 12.7693"
+        ,
+        "rotation": "0.14217 -0.410369 0.192682 -0.87992"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arbolBajada02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ArbolMatB.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Niebla010"
       ,
       "transform":
@@ -198,62 +282,6 @@
   {
     "entity":
     {
-      "name": "arbolBajada01"
-      ,
-      "transform":
-      {
-        "pos": "24.5327 57.5762 16.0992"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/arbolBajada01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMatB.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "arbolBajada02"
-      ,
-      "transform":
-      {
-        "pos": "28.8864 56.9153 14.0313"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/arbolBajada02.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ArbolMatB.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "BordesParte5E"
       ,
       "transform":
@@ -286,7 +314,7 @@
       ,
       "transform":
       {
-        "pos": "31.5617 96.7468 -6.47201"
+        "pos": "31.5617 96.7418 -6.47201"
         ,
         "rotation": "0.0 0.84058 0.0 -0.541687"
       }
@@ -736,7 +764,7 @@
       ,
       "transform":
       {
-        "pos": "32.3331 99.0 -1.71122"
+        "pos": "32.3331 98.995 -1.71122"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -988,7 +1016,7 @@
       ,
       "transform":
       {
-        "pos": "30.9271 90.0249 -1.68004"
+        "pos": "30.9332 90.0249 -1.69056"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -1044,7 +1072,7 @@
       ,
       "transform":
       {
-        "pos": "19.5205 76.525 -24.1264"
+        "pos": "19.5205 76.525 -24.1348"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -1309,174 +1337,6 @@
           "materials":
           [
             "data/materials/ParedModelo.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sala_EstatuaFea_074"
-      ,
-      "transform":
-      {
-        "pos": "26.3282 53.5069 15.7113"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_074.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Suelo_Estatua_fea.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sala_EstatuaFea_076"
-      ,
-      "transform":
-      {
-        "pos": "26.1966 54.851 16.0927"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_076.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Suelo_Estatua_fea.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sala_EstatuaFea_075"
-      ,
-      "transform":
-      {
-        "pos": "26.1584 56.1593 16.0216"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_075.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Suelo_Estatua_fea.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sala_EstatuaFea_071"
-      ,
-      "transform":
-      {
-        "pos": "26.0999 57.5932 15.9111"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_071.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Suelo_Estatua_fea.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sala_EstatuaFea_070"
-      ,
-      "transform":
-      {
-        "pos": "26.1966 58.9374 16.0927"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_070.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Suelo_Estatua_fea.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sala_EstatuaFea_069"
-      ,
-      "transform":
-      {
-        "pos": "26.1584 60.2456 16.0216"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_069.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Suelo_Estatua_fea.material"
           ]
         }
       ]
@@ -2316,7 +2176,7 @@
           ,
           "materials":
           [
-            "data/materials/RocasMat.material"
+            "data/materials/RocasBajadaMat.material"
           ]
         }
       ]
@@ -2328,7 +2188,7 @@
   {
     "entity":
     {
-      "name": "RocaTipoC014"
+      "name": "RocaTipoC014_Bajada"
       ,
       "transform":
       {
@@ -2340,16 +2200,14 @@
       "render":
       [
         {
-          "mesh": "data/meshes/RocaTipoC014.mesh"
+          "mesh": "data/meshes/RocaTipoC014_Bajada.mesh"
           ,
           "materials":
           [
-            "data/materials/RocasMat.material"
+            "data/materials/RocasBajadaMat.material"
           ]
         }
       ]
-      ,
-      "abs_aabb": true
       ,
       "collider":
       {
@@ -2359,8 +2217,10 @@
         ,
         "is_trigger": false
         ,
-        "mesh_src": "data/meshes/RocaTipoC014.col_mesh"
+        "mesh_src": "data/meshes/RocaTipoC014_Bajada.col_mesh"
       }
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -2681,7 +2541,7 @@
       ,
       "transform":
       {
-        "pos": "29.8263 69.75 9.69076"
+        "pos": "29.8263 69.75 9.69077"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -3116,34 +2976,6 @@
           "materials":
           [
             "data/materials/SuelosSalaPuenteMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sala_EstatuaFea_68"
-      ,
-      "transform":
-      {
-        "pos": "26.0178 61.6329 15.7188"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_68.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Suelo_Estatua_fea.material"
           ]
         }
       ]

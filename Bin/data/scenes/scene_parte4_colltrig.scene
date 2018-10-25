@@ -6,7 +6,7 @@
       ,
       "transform":
       {
-        "pos": "6.0839 88.1511 -31.0243"
+        "pos": "4.831 88.1511 -31.127"
         ,
         "rotation": "-0.0587086 0.0587086 0.704665 -0.704665"
       }
@@ -95,46 +95,6 @@
         "mesh_src": "data/meshes/Paredes_Escena04.col_mesh"
         ,
         "group": "scenario"
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "TSCascadaAntorchas"
-      ,
-      "transform":
-      {
-        "pos": "23.0939 87.7776 -21.0046"
-        ,
-        "rotation": "-0.287606 0.287606 0.645974 -0.645974"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "trigger":
-      {
-        "trigger_type": "none"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": false
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "2.28488 0.136176 1.13929"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
       }
     }
   }

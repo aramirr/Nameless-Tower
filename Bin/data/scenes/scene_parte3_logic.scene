@@ -216,7 +216,7 @@
       ,
       "transform":
       {
-        "pos": "16.6786 68.0299 -24.5856"
+        "pos": "16.6301 68.0299 -24.5528"
         ,
         "rotation": "0.0 -0.456031 0.0 -0.889964"
       }
@@ -254,9 +254,9 @@
         ,
         "waypoints":
         [
-          "16.6786 68.0299 -24.5856"
+          "16.6301 68.0299 -24.5528"
           ,
-          "17.802 68.0299 -26.2416"
+          "17.7506 68.0299 -26.207"
         ]
       }
       ,
@@ -287,7 +287,7 @@
       ,
       "transform":
       {
-        "pos": "19.836 72.5625 -22.0777"
+        "pos": "19.7838 72.5625 -22.0513"
         ,
         "rotation": "0.0 -0.398847 0.0 -0.917018"
       }
@@ -325,9 +325,9 @@
         ,
         "waypoints":
         [
-          "19.836 72.5625 -22.0777"
+          "19.7838 72.5625 -22.0513"
           ,
-          "21.1011 72.5625 -23.4858"
+          "21.0459 72.5625 -23.458"
         ]
       }
       ,
@@ -358,7 +358,7 @@
       ,
       "transform":
       {
-        "pos": "29.7337 81.5892 0.830273"
+        "pos": "29.6799 81.5892 0.807229"
         ,
         "rotation": "0.0 0.0264161 0.0 -0.999651"
       }
@@ -396,9 +396,9 @@
         ,
         "waypoints":
         [
-          "29.7337 81.5892 0.830273"
+          "29.6799 81.5892 0.807229"
           ,
-          "31.4456 81.5892 0.878077"
+          "31.3891 81.5892 0.853715"
         ]
       }
       ,
@@ -435,25 +435,7 @@
       }
       ,
       "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-      ]
+      []
       ,
       "rigid_anim":
       {
@@ -538,6 +520,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "offset": "0.0 0.25 0.0"
       }
     }
   }
@@ -583,25 +567,7 @@
       }
       ,
       "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-      ]
+      []
       ,
       "rigid_anim":
       {
@@ -686,6 +652,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "offset": "0.0 0.25 0.0"
       }
     }
   }
@@ -731,25 +699,7 @@
       }
       ,
       "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-      ]
+      []
       ,
       "rigid_anim":
       {
@@ -834,6 +784,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "offset": "0.0 0.25 0.0"
       }
     }
   }
@@ -873,7 +825,7 @@
       ,
       "transform":
       {
-        "pos": "30.4684 68.9935 8.01549"
+        "pos": "30.4468 69.0594 8.12793"
         ,
         "rotation": "0.0 -0.636836 0.0 -0.770999"
       }
@@ -913,7 +865,7 @@
       ,
       "transform":
       {
-        "pos": "24.4333 69.8693 19.9079"
+        "pos": "24.483 70.1309 19.8505"
         ,
         "rotation": "0.0 -0.415587 0.0 -0.909553"
       }
@@ -937,7 +889,7 @@
         ,
         "offset": "0.0 0.0 0.0"
         ,
-        "halfExtent": "1.00063 0.928047 1.54597"
+        "halfExtent": "1.26541 1.18961 1.54597"
         ,
         "is_dynamic": false
         ,
@@ -993,9 +945,9 @@
       ,
       "transform":
       {
-        "pos": "30.6147 65.1923 6.27989"
+        "pos": "30.8967 65.1923 3.72519"
         ,
-        "rotation": "0.0 -0.636836 0.0 -0.770999"
+        "rotation": "0.0 -0.680521 0.0 -0.732729"
       }
       ,
       "render":
@@ -1052,25 +1004,7 @@
       }
       ,
       "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
-      ]
+      []
       ,
       "rigid_anim":
       {
@@ -1155,6 +1089,8 @@
         "is_dynamic": false
         ,
         "is_trigger": true
+        ,
+        "offset": "0.0 0.25 0.0"
       }
     }
   }
@@ -1174,7 +1110,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/PinchosA.mesh"
+          "mesh": "data/meshes/PinchosD.mesh"
           ,
           "materials":
           [
@@ -1219,7 +1155,7 @@
       ,
       "transform":
       {
-        "pos": "20.0687 67.5 12.736"
+        "pos": "20.0688 67.5 12.736"
         ,
         "rotation": "0.0 0.0267501 0.0 -0.999642"
       }
@@ -1291,7 +1227,7 @@
           {
             "name": "sound"
             ,
-            "src": "event:/SFX/Object/Mechanics/Reja_Fast"
+            "src": "event:/SFX/Object/Mechanics/Puerta_Reja"
             ,
             "positional": true
             ,
@@ -1301,7 +1237,7 @@
           {
             "name": "sound_shut"
             ,
-            "src": "event:/SFX/Object/Mechanics/Puerta_Reja"
+            "src": "event:/SFX/Object/Mechanics/Reja_Fast"
             ,
             "positional": true
             ,
@@ -1386,91 +1322,6 @@
       }
       ,
       "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Lanzas002"
-      ,
-      "transform":
-      {
-        "pos": "14.0324 55.9581 27.8452"
-        ,
-        "rotation": "0.0 -0.987688 0.0 0.156435"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/LanzasVerticales.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/LanzasMat.material"
-          ]
-        }
-      ]
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": true
-        ,
-        "sound_name": "hit_lanzas"
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.3825 2.0 0.950772"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "ai_linear_patrol":
-      {
-        "speed": 5.0
-        ,
-        "delay": 0.5
-        ,
-        "wake": 0.0
-        ,
-        "waypoints":
-        [
-          "14.0324 55.9581 27.8452"
-          ,
-          "14.0324 51.515 27.8452"
-        ]
-      }
-      ,
-      "abs_aabb": true
-      ,
-      "sound":
-      {
-        "events":
-        [
-          {
-            "name": "sound"
-            ,
-            "src": "event:/SFX/Object/Mechanics/Lanzas"
-            ,
-            "positional": true
-            ,
-            "on_start": false
-          }
-        ]
-      }
     }
   }
 ]

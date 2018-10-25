@@ -19,6 +19,14 @@
 
 bool CModuleLevel1::start()
 {
+	if (!cb_gui.create(CB_GUI))
+		return false;
+
+	//EngineUI.activateWidget("pantallaCarga");
+
+	cb_gui.pause = 0.f;
+	cb_gui.options = 0.f;
+
 	EngineTimer.setTimeSlower(0.f);
 	CCamera        camera;
 	json jboot = loadJson("data/boot.json");
@@ -44,8 +52,6 @@ bool CModuleLevel1::start()
 		return false;
 	if (!cb_blur.create(CB_BLUR))
 		return false;
-	if (!cb_gui.create(CB_GUI))
-		return false;
 	if (!cb_particles.create(CB_PARTICLE))
 		return false;
 
@@ -65,11 +71,14 @@ bool CModuleLevel1::start()
 	cb_globals.global_light_adjustment = 0.f;
 	cb_globals.global_vignetting_adjustment = 0.25f;
 	cb_globals.global_fogDensity_adjustment = 0.f;
+	cb_globals.global_fadeOut_adjustment = 0.f;
 
 	cb_globals.global_contrast_adjustment = 0.215f;
 
 	cb_globals.global_bandMin_adjustment = 0.f;
 	cb_globals.global_bandMax_adjustment = 0.f;
+
+	cb_globals.global_bajada = 0.f;
 
 	cb_globals.global_fog_percentage_horizontal = 0.15f;
 	cb_globals.global_fog_percentage_vertical = 0.15f;
@@ -89,6 +98,7 @@ bool CModuleLevel1::stop()
 {	
 	TEntityParseContext ctx;
     EngineBillboards.clearFire();
+		deleteScene("data/scenes/scene_checkpoints.scene", ctx);
     deleteScene("data/scenes/lights.scene", ctx);
     deleteScene("data/scenes/scene_luces.scene", ctx);
     deleteScene("data/scenes/compresoras.scene", ctx);
@@ -104,7 +114,13 @@ bool CModuleLevel1::stop()
     deleteScene("data/scenes/scene_parte3_meshes.scene", ctx);
     deleteScene("data/scenes/scene_parte3_colltrig.scene", ctx);
     deleteScene("data/scenes/particles.scene", ctx);
-    deleteScene("data/scenes/torch_puzzle.scene", ctx);
+		deleteScene("data/scenes/torch_puzzle.scene", ctx);
+		deleteScene("data/scenes/scene_Pekes.scene", ctx);
+		deleteScene("data/scenes/scene_destruible_1.scene", ctx);
+		deleteScene("data/scenes/scene_destruible_2.scene", ctx);
+		deleteScene("data/scenes/scene_destruible_3.scene", ctx);
+		deleteScene("data/scenes/scene_destruible_4.scene", ctx);
+		
     
 	return true;
 }
@@ -120,6 +136,9 @@ void CModuleLevel1::update(float delta)
 		//cm->activateCinematic("final");
 
 		carga = false;
+		HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+		//ShowWindow(handle, SW_RESTORE);
+		EngineUI.activateSplash();
 	}
 	CEntity* cam = (CEntity*)getEntityByName("camera_manager");
 
@@ -137,26 +156,48 @@ void CModuleLevel1::update(float delta)
 		ImGui::Text("Mouse at %1.2f, %1.2f", mouse.x, mouse.y);
 	}
 
-	if (EngineInput[VK_ESCAPE].getsPressed())
+	if (EngineInput[VK_ESCAPE].getsPressed() && !cb_gui.cinematica)
 	{
-		pausa = !pausa;
-		if (pausa) {
-			EngineUI.activateWidget("menu_pausa");
-			EngineUI.activePauseMenu();
-		}
-		else {
-			EngineTimer.setTimeSlower(1.f);
+		if (cb_gui.keyboard > 0.f) {
+			//EngineTimer.setTimeSlower(1.f);
 			//Engine.getModules().changeGameState("test_axis");
-			EngineUI.desactivateWidget("menu_pausa");
-			EngineUI.desactivePauseMenu();
+			EngineUI.desactiveKeyboardMenu();
+			EngineUI.activeOptionMenu();
+		}
+		else if (cb_gui.options > 0.f) {
+			//EngineTimer.setTimeSlower(1.f);
+			//Engine.getModules().changeGameState("test_axis");
+			EngineUI.desactivateWidget("menu_options");
+			EngineUI.desactiveOptionMenu();
+			if (cb_gui.main > 0.f) EngineUI.activeMainMenu();
+			else EngineUI.activePauseMenu();
+		}
+		else if(cb_gui.main < 1.f){
+			cb_gui.pause -= 1.f;
+			if (cb_gui.pause < 0.f)cb_gui.pause = 1.f;
+			if (cb_gui.pause > 0.f) {
+				EngineUI.activateWidget("pause_menu");
+				EngineUI.activePauseMenu();
+			}
+			else {
+				HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+				HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/cursorIngame.cur"); //.cur or .ani
+				SetCursor(Cursor);
+				SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
+				EngineTimer.setTimeSlower(1.f);
+				//Engine.getModules().changeGameState("test_axis");
+				EngineUI.desactivateWidget("pause_menu");
+				EngineUI.desactivePauseMenu();
+				EngineUI.resetPauseMenu();
 
-			CEntity* player = (CEntity*)getEntityByName("The Player");
+				CEntity* player = (CEntity*)getEntityByName("The Player");
 
-			TMsgSetFSMVariable pauseMsg;
-			pauseMsg.variant.setName("idle");
-			pauseMsg.variant.setBool(true);
+				TMsgSetFSMVariable pauseMsg;
+				pauseMsg.variant.setName("idle");
+				pauseMsg.variant.setBool(true);
 
-			player->sendMsg(pauseMsg);
+				player->sendMsg(pauseMsg);
+			}
 		}
 	}
 

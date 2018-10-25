@@ -4,6 +4,7 @@
 #include "entity/entity_parser.h"
 #include "fsm/context.h"
 #include "components/postfx/comp_render_blur_radial.h"
+#include "render/render_objects.h"
 
 namespace FSM
 {
@@ -11,17 +12,16 @@ namespace FSM
 	{
 		ctx.setVariable("can_omni", false);
 		CEntity* e = ctx.getOwner();
-		TCompPlayerController* player = e->get<TCompPlayerController>();
-		player->anim1 = calculateAnimation(e);
-		player->clear_animations(0);
-		player->change_animation(player->anim1, _is_action, _delay_in, _delay_out, true);
+		TCompPlayerController* player = e->get<TCompPlayerController>();        
+        player->anim1 = calculateAnimation(e);
+        player->change_animation(player->anim1, _is_action, _delay_in, _delay_out, true);
+        player->anim2 = -1;                
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		player->jumping_start_height = c_my_transform->getPosition().y;
+		player->omnidash_time = 0;
 		EngineTimer.setTimeSlower(0.25f);
 		EngineUI.setOmindash(true);
-
 		CEntity* o_camera = EngineCameras.getOutputCamera();
-
 		TCompCamera* c_camera = o_camera->get< TCompCamera >();
 
         VEC2 player_center = VEC2(player->player_position.x, player->player_position.y);
@@ -32,7 +32,7 @@ namespace FSM
 			c_render_blur_radial->setActive(true);
 		}
 
-		_mouseStartPosition = EngineInput.mouse()._position;
+		_mouseStartPosition = EngineInput.mouse()._position;       
 	}
 
 	bool OmnidashState::load(const json& jData)
@@ -40,6 +40,7 @@ namespace FSM
 		_is_action = jData.value("is_action", false);
 		_delay_out = jData.value("delay_out", 0.01f);
 		_delay_in = jData.value("delay_in", 0.01f);
+		_omnidash_max_time = jData.value("omnidash_max_time", 2.f);
 		return true;
 	}
 
@@ -50,30 +51,43 @@ namespace FSM
 		CEntity* o_camera = EngineCameras.getOutputCamera();
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		VEC2 screen_projected_pos;
-		screen_projected_pos.x = player->player_position.x / Render.width;
-		screen_projected_pos.y = player->player_position.y / Render.height;
+		screen_projected_pos.x = player->player_position.x / 1920;
+		screen_projected_pos.y = player->player_position.y / 1080;
+		/*if (!cb_gui.fullscreen) {
+			screen_projected_pos.x /= cb_globals.global_first_resolution_X;
+			screen_projected_pos.y /= cb_globals.global_first_resolution_Y;
+		}
+		else {
+			screen_projected_pos.x /= Render.width;
+			screen_projected_pos.y /= Render.height;
+		}*/
 
 
 		TCompRenderBlurRadial* c_render_blur_radial = o_camera->get< TCompRenderBlurRadial >();
 		if (c_render_blur_radial)
 		{
+			//screen_projected_pos.Normalize();
 			c_render_blur_radial->setCenter(screen_projected_pos);
 		}
 
-
+		player->omnidash_time += dt*4;
 		// Chequea si hay que realizar el salto
-		if (!EngineInput["omnidash"].isPressed()) {
+		if (!EngineInput["omnidash"].isPressed() || player->omnidash_time > _omnidash_max_time) {
 			ctx.setVariable("omnijump", true);
 		}
-
 		int anim = calculateAnimation(e);
-		if (player->anim2 != anim) {
-			if (player->anim2 != -1)
-				player->remove_animation(player->anim2);
-			player->anim2 = player->anim1;
-			player->anim1 = anim;
-			player->change_animation(player->anim1, _is_action, _delay_in, _delay_out, false);
-		}
+        if (anim != player->anim1) {
+            if (player->anim2 != anim) {
+                if (player->anim2 != -1) {                    
+                    player->remove_animation(player->anim2);
+                    player->remove_animation(player->EAnimations::NajaJumpLoop, 0.001);
+                }                    
+                player->anim2 = player->anim1;
+                player->anim1 = anim;
+                player->change_animation(player->anim1, _is_action, _delay_in, _delay_out, false);
+            }
+        }
+		
 		return false;
 	}
 
@@ -117,7 +131,7 @@ namespace FSM
 	void OmnidashState::onFinish(CContext& ctx) const {
 		ctx.setVariable("omnidash", false);
         CEntity* e_player = (CEntity*)getEntityByName("The Player");
-		TCompPlayerController* player = e_player->get<TCompPlayerController>();
+		TCompPlayerController* player = e_player->get<TCompPlayerController>();        
         player->previous_state = "omnidash";
 		player->y_speed_factor = 0;
 		EngineTimer.setTimeSlower(1.f);
@@ -133,7 +147,23 @@ namespace FSM
        
         TCompTransform *c_my_transform = e_player->get<TCompTransform>();
 		const Input::TInterface_Mouse& mouse = EngineInput.mouse();
-		player->omnidash_arrow = mouse._position - VEC2(player->player_position.x, player->player_position.y);
+		
+		VEC2 m;
+		m.x = mouse._position.x;
+		m.y = mouse._position.y;
+		if (cb_gui.fullscreen) {
+			//mX *= cb_globals.global_first_resolution_X / cb_globals.global_resolution_X;
+			//mY *= cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y;
+
+			m.x *= 1920 / cb_globals.global_first_resolution_X;
+			m.y *= 1080 / cb_globals.global_first_resolution_Y;
+		}
+		else {
+			m.x *= 1920 / cb_globals.global_resolution_X;
+			m.y *= 1080 / cb_globals.global_resolution_Y;
+		}
+
+		player->omnidash_arrow = m - VEC2(player->player_position.x, player->player_position.y);
 		player->omnidash_arrow.Normalize();
 		player->y_speed_factor = 0;
 
@@ -152,15 +182,14 @@ namespace FSM
         float current_roll;
         c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch, &current_roll);
         ctx1.root_transform = *(TCompTransform*)c_my_transform;
-        current_yaw = player->looking_left ? current_yaw - deg2rad(90) : current_yaw + deg2rad(90);
-        
+        current_yaw = player->looking_left ? current_yaw - deg2rad(90) : current_yaw + deg2rad(90);        
         current_roll = current_roll + player->omni_angle;        
         ctx1.root_transform.setYawPitchRoll(current_yaw, current_pitch, current_roll);
 		ctx1.front = -omni_vector;
 
         float up_multiplier = ctx1.root_transform.getUp().y > 0 ? 0 : 1.5;
         ctx1.root_transform.setPosition(ctx1.root_transform.getPosition() - ctx1.root_transform.getUp() * up_multiplier);
-        dbg("%f, %f, %f \n", ctx1.root_transform.getUp().x, ctx1.root_transform.getUp().y, ctx1.root_transform.getUp().z);
+        //dbg("%f, %f, %f \n", ctx1.root_transform.getUp().x, ctx1.root_transform.getUp().y, ctx1.root_transform.getUp().z);
 
 		if (parseScene("data/prefabs/windstrike.prefab", ctx1)) {
 			assert(!ctx1.entities_loaded.empty());			

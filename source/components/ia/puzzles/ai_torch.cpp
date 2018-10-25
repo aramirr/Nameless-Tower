@@ -72,37 +72,49 @@ void CAITorch::load(const json& j, TEntityParseContext& ctx) {
 	initial_radius = radius;
 	render = j.value("render", true);
 	frames = j.value("frames", 0.45f);
-	smoke_frames = j.value("smoke_frames", 0.45f);
+	smoke_frames = j.value("smoke_frames", 0.95f);
+    delay = 7.f;
 	Init();
 }
 
 void CAITorch::registerMsgs() {
 	DECL_MSG(CAITorch, TMsgDeactivateTorch, deactivate);
-	DECL_MSG(CAITorch, TMsgActivateTorch, activateMsg);
+    DECL_MSG(CAITorch, TMsgActivateTorch, activateMsg);
+    DECL_MSG(CAITorch, TMsgPuzzleComplete, completeMsg);
 }
 
 void CAITorch::ActiveState(float dt)
 {
 	if (render) {
-		TCompTransform* my_transform = getMyTransform();
-		if (on_start) {
-			fire_position = my_transform->getPosition();
-			fire_position.y += y_offset;
-			fire_position.z += z_offset;
-			fire_position.x += x_offset;
-			on_start = false;
+		if (!initialized && puzzle_name != "") {
+			current_delay += DT;
+			if (current_delay > delay)
+				initialized = true;
 		}
-		if (b_fuego) {
-			if (violeta) {
-				id = EngineBillboards.addFuegoVioleta(fire_position, scale, thin);
+		else {            
+			TCompTransform* my_transform = getMyTransform();
+			if (on_start) {                
+				fire_position = my_transform->getPosition();
+				fire_position.y += y_offset;
+				fire_position.z += z_offset;
+				fire_position.x += x_offset;
+				on_start = false;
+                CEntity* e = h_entity;
+                std::string name = e->getName();
+                EngineSound.emitPositionalEvent("fire", name);
 			}
-			else if (azul) {
-				id = EngineBillboards.addFuegoAzul(fire_position, scale, smoke_y_offset);
+			if (b_fuego) {
+				if (violeta) {
+					id = EngineBillboards.addFuegoVioleta(fire_position, scale, thin);
+				}
+				else if (azul) {
+					id = EngineBillboards.addFuegoAzul(fire_position, scale, smoke_y_offset);
+				}
+				else
+					id = EngineBillboards.addFuegoTest(fire_position, scale, thin);
+				b_fuego = false;
 			}
-			else
-				id = EngineBillboards.addFuegoTest(fire_position, scale, thin);
-			b_fuego = false;
-		}
+		}		
 	}
 
 }
@@ -112,7 +124,6 @@ void CAITorch::InactiveState(float dt)
 	if (in_puzzle) {
 		if(!apagado)cb_globals.global_particle_time += DT;
 		current_frames += DT;
-		dbg("------------------PUZZLE: %f\n", cb_globals.global_particle_time);
 		if (!apagando && current_frames > frames) {
 			EngineBillboards.apagarFuegoAzul(id, scale, fire_position, smoke_y_offset);
 			apagando = true;
@@ -132,18 +143,17 @@ void CAITorch::activate() {
 	active = true;
     render = true;    
     apagando = false;
-    CEntity* e = h_entity;
-    std::string name = e->getName();
-    EngineSound.emitPositionalEvent("fire", name);
 	TCompTransform* my_transform = getMyTransform();
-	if (violeta)
-		EngineBillboards.encenderFuegoVioleta(id, scale, thin);
-	else if (azul) {
-		EngineBillboards.encenderFuegoAzul(id, scale);
-	}
-	else
-		EngineBillboards.encenderFuego(id, scale, thin);
-	ChangeState("active");
+    if (!puzzle_complete) {
+        if (violeta)
+            EngineBillboards.encenderFuegoVioleta(id, scale, thin);
+        else if (azul) {
+            EngineBillboards.encenderFuegoAzul(id, scale);
+        }
+        else
+            EngineBillboards.encenderFuego(id, scale, thin);
+        ChangeState("active");
+    }	
 }
 
 void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
@@ -156,6 +166,9 @@ void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
 		cb_globals.global_particle_time = 0;
 		current_frames = 0;
 		ChangeState("inactive");
+        CEntity* e = h_entity;
+        std::string name = e->getName();
+        EngineSound.emitPositionalEvent("fire_off", name);
 		if (in_puzzle) {
 			TMsgActivateTorchPuzzle activate_msg;
 			CEntity* e_collider_entity = (CEntity*)getEntityByName(puzzle_name);
@@ -166,10 +179,14 @@ void CAITorch::deactivate(const TMsgDeactivateTorch& msg) {
 	}
 }
 
+void CAITorch::completeMsg(const TMsgPuzzleComplete& msg) {
+    puzzle_complete = true;
+}
+
 void CAITorch::activateMsg(const TMsgActivateTorch& msg) {
-	if (!active || !render) {
-		activate();
-	}
+    if (!active || !render) {
+        activate();
+    }
 }
 
 void CAITorch::simulateLight() {

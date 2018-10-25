@@ -2,6 +2,36 @@
   {
     "entity":
     {
+      "name": "Plataforma_01"
+      ,
+      "transform":
+      {
+        "pos": "-29.8008 15.6194 6.24775"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plataforma_01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMusgoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Niebla004"
       ,
       "transform":
@@ -220,35 +250,6 @@
       ]
       ,
       "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "EstatuaBajadaColliders"
-      ,
-      "transform":
-      {
-        "pos": "-29.7583 8.93762 5.20995"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "tri_mesh"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-        ,
-        "mesh_src": "data/meshes/EstatuaBajadaColliders.col_mesh"
-      }
     }
   }
   ,
@@ -569,34 +570,6 @@
   {
     "entity":
     {
-      "name": "Plataforma_01"
-      ,
-      "transform":
-      {
-        "pos": "-29.8518 15.6194 6.33674"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Techo_parte7_D"
       ,
       "transform":
@@ -881,7 +854,7 @@
       ,
       "transform":
       {
-        "pos": "-30.7243 4.73513 4.01734"
+        "pos": "-30.9209 4.73513 3.59311"
         ,
         "rotation": "0.0 0.17839 0.0 -0.98396"
       }
@@ -1739,7 +1712,7 @@
           ,
           "materials":
           [
-            "data/materials/RocasMat.material"
+            "data/materials/RocasBajadaMat.material"
           ]
         }
       ]
@@ -1867,7 +1840,7 @@
       ,
       "transform":
       {
-        "pos": "-29.4208 4.93916 12.9862"
+        "pos": "-29.313 4.90134 12.9289"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }

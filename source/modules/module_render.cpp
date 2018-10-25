@@ -52,7 +52,9 @@ bool parseTechniques() {
 
 bool CModuleRender::start()
 {
-	if (!Render.createDevice(_xres, _yres))
+	firstFrame = true;
+
+	if (!Render.createDevice(1920, 1080))
 		return false;
 
 	if (!CVertexDeclManager::get().create())
@@ -135,6 +137,13 @@ void CModuleRender::render()
 	if (ImGui::SmallButton("Start CPU Trace Capturing")) {
 		PROFILE_SET_NFRAMES(nframes);
 	}
+	const Input::TInterface_Mouse& mouse = EngineInput.mouse();
+	int _mouse[2] = { mouse._position.x,mouse._position.y };
+	ImGui::DragInt2("MOUSE", _mouse);
+
+	int _res[2] = { cb_globals.global_resolution_X , cb_globals.global_resolution_Y };
+	ImGui::DragInt2("MOUSE", _res);
+
 
 	// Edit the Background color
 	//ImGui::ColorEdit4("Background Color", &_backgroundColor.x);
@@ -152,6 +161,7 @@ void CModuleRender::render()
 		ImGui::DragFloat("Contrast", &cb_globals.global_contrast_adjustment, 0.005f, 0.0f, 1.f);
 		ImGui::DragFloat("Vignetting", &cb_globals.global_vignetting_adjustment, 0.005f, 0.0f, 1.f);
 		ImGui::DragFloat("Fog Density", &cb_globals.global_fogDensity_adjustment, 0.0001f, 0.0f, 0.15f);
+		ImGui::DragFloat("Fade Out", &cb_globals.global_fadeOut_adjustment, 0.005f, 0.0f, 10.f);
 		ImGui::DragFloat("Fog Horizontal", &cb_globals.global_fog_percentage_horizontal, 0.01f, 0.0f, 1.f);
 		ImGui::DragFloat("Fog Vertical", &cb_globals.global_fog_percentage_vertical, 0.01f, 0.0f, 1.f);
 		ImGui::DragFloat("Band Up", &cb_globals.global_bandMax_adjustment, 0.01f, 0.0f, 0.15f);
@@ -194,8 +204,13 @@ void CModuleRender::configure(int xres, int yres)
 	_xres = xres;
 	_yres = yres;
 
+	Render.width = xres;
+	Render.height = yres;
+
 	cb_globals.global_resolution_X = xres;
 	cb_globals.global_resolution_Y = yres;
+
+	dbg("RESOLUCION DE MIERDA: %i %i\n", Render.width, Render.height);
 }
 
 void CModuleRender::setBackgroundColor(float r, float g, float b, float a)
@@ -224,11 +239,16 @@ void CModuleRender::activateMainCamera() {
 		CRenderManager::get().setEntityCamera(h_e_camera);
 	}
 
-	activateCamera(*cam, Render.width, Render.height);
+	activateCamera(*cam, 1920, 1080);
 }
 
 
 void CModuleRender::generateFrame() {
+
+	/*if (firstFrame) {
+		
+		firstFrame = false;
+	}*/
 
 	{
 		PROFILE_FUNCTION("CModuleRender::shadowsMapsGeneration");
@@ -329,8 +349,21 @@ void CModuleRender::generateFrame() {
 		CEntity* e_camera = EngineCameras.getActiveCamera();
 		TCompCamera* c_camera = e_camera->get< TCompCamera >();
 		CCamera* cam = c_camera;
-		activateCamera(*cam, Render.width, Render.height);
+		activateCamera(*cam, 1920, 1080);
 	}
+	
+	//{
+	//	CEntity* e_camera = getEntityByName("camera_orbit_IZQ");
+	//	TCompCamera* c_camera = e_camera->get< TCompCamera >();
+	//	CCamera* cam = c_camera;
+	//	activateCamera(*cam, 1920, 1080);
+	//}
+	//{
+	//	CEntity* e_camera = getEntityByName("camera_first_door");
+	//	TCompCamera* c_camera = e_camera->get< TCompCamera >();
+	//	CCamera* cam = c_camera;
+	//	activateCamera(*cam, 1920, 1080);
+	//}
 
 	{
 		PROFILE_FUNCTION("GUI");
@@ -340,7 +373,7 @@ void CModuleRender::generateFrame() {
 		activateZConfig(ZCFG_DISABLE_ALL);
 		activateBlendConfig(BLEND_CFG_COMBINATIVE);
 
-		activateCamera(CEngine::get().getGUI().getCamera(), Render.width, Render.height);
+		activateCamera(CEngine::get().getGUI().getCamera(), 1920, 1080);
 		CEngine::get().getModules().renderGUI();
 
 		activateRSConfig(RSCFG_DEFAULT);
@@ -357,6 +390,8 @@ void CModuleRender::generateFrame() {
 	// Present the information rendered to the back buffer to the front buffer (the screen)
 	{
 		PROFILE_FUNCTION("Render.swapChain");
-		Render.swapChain->Present(0, 0);
+		if(cb_gui.vsync)HRESULT result = Render.swapChain->Present(1, 0);
+		else HRESULT result = Render.swapChain->Present(0, 0);
 	}
+	
 }

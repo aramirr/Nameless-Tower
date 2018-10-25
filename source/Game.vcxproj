@@ -201,8 +201,11 @@
     <ClCompile Include="geometry\rigid_anim.cpp" />
     <ClCompile Include="geometry\SimpleMath.cpp" />
     <ClCompile Include="geometry\transform.cpp" />
+    <ClCompile Include="gui\controllers\gui_final_menu_controller.cpp" />
+    <ClCompile Include="gui\controllers\gui_keyboard_menu_controller.cpp" />
     <ClCompile Include="gui\controllers\gui_main_menu_controller.cpp" />
     <ClCompile Include="gui\controllers\gui_omnidash_arrow_controller.cpp" />
+    <ClCompile Include="gui\controllers\gui_option_menu_controller.cpp" />
     <ClCompile Include="gui\controllers\gui_pause_menu_controller.cpp" />
     <ClCompile Include="gui\effects\gui_animate_uv.cpp" />
     <ClCompile Include="gui\gui_parser.cpp" />
@@ -403,8 +406,11 @@
     <ClInclude Include="geometry\rigid_anim.h" />
     <ClInclude Include="geometry\SimpleMath.h" />
     <ClInclude Include="geometry\transform.h" />
+    <ClInclude Include="gui\controllers\gui_final_menu_controller.h" />
+    <ClInclude Include="gui\controllers\gui_keyboard_menu_controller.h" />
     <ClInclude Include="gui\controllers\gui_main_menu_controller.h" />
     <ClInclude Include="gui\controllers\gui_omnidash_arrow_controller.h" />
+    <ClInclude Include="gui\controllers\gui_option_menu_controller.h" />
     <ClInclude Include="gui\controllers\gui_pause_menu_controller.h" />
     <ClInclude Include="gui\effects\gui_animate_uv.h" />
     <ClInclude Include="gui\gui_controller.h" />

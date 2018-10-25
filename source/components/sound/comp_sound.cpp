@@ -4,6 +4,7 @@
 #include "render/render_utils.h"
 #include "components/juan/comp_transform.h"
 #include "render/render_objects.h"
+#include "entity/entity_parser.h"
 
 
 DECL_OBJ_MANAGER("sound", TCompSound);
@@ -31,6 +32,11 @@ void TCompSound::load(const json& j, TEntityParseContext& ctx) {
         sound.onStart = event.value("on_start", false);
         events.insert(std::make_pair(event_name, sound));
 	}	
+	CEntity* e = ctx.current_entity;
+	assert(e);
+	//dbg(e->getName());
+	//dbg("\n");
+	EngineSound.registerCompSound(e->getName());
 }
 
 void TCompSound::update(float dt) {
@@ -83,8 +89,21 @@ void TCompSound::playSoundMsg(const TMsgPlaySound& msg) {
     playSound("sound");
 }
 
+void TCompSound::setVolumen(const TMsgVolumeSound& msg) {
+	float volumen = msg.volumen;
+	
+	std::map<std::string, Sound>::iterator it;
+
+	for (it = events.begin(); it != events.end(); it++)
+	{
+		it->second.eventInstance->setVolume(volumen);
+		dbg("MUTE\n");
+	}
+}
+
 void TCompSound::registerMsgs() {
     DECL_MSG(TCompSound, TMsgEntitiesGroupCreated, onGroupCreated);
     DECL_MSG(TCompSound, TMsgPlaySound, playSoundMsg);
+		DECL_MSG(TCompSound, TMsgVolumeSound, setVolumen);
     
 }

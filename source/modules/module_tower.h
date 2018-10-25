@@ -7,19 +7,46 @@
 class IAIController;
 
 class CModuleTower : public IModule {
-
 	bool cargar = true;
 	bool changeExposure;
+	bool changeVignetting;
+	bool changeFadeOut;
 	bool time_out = false;
 	float current_time = 0.0f;
 	float total_wait_time = 0.0f;
 	float newExposure;
 	float oldExposure;
 	float defaultExposure;
+
+	float newVignetting;
+	float oldVignetting;
+
+	float newFadeOut;
+	float oldFadeOut;
 	std::string current_cinematic;
 
 	float bandsValue = 0.f;
 	bool bandCinematics = false;
+
+	// Activate Runner
+	bool change_level = false;
+	bool change_level_done = false;
+	bool activate_runner = false;
+	float timer_runner = 0.f;
+	bool build_runner = false;
+	bool changed_runner_mesh = false;
+	bool runner_scream = false;
+	bool runner_chase = false;
+	bool start_anim = false;
+	bool turn_player = false;
+	bool turn_player_2 = false;
+	bool destroy_monolito = false;
+
+	// End Game
+	float timer_end = 0.f;
+	bool end_game = true;
+
+
 
 protected:
 	float tower_radius = 31.5f;
@@ -46,16 +73,19 @@ public:
   const void setAmbientAdjustment(float ambient);
   const void setExposureAdjustment(float exposure);
 	const void setBandsCinematics(bool _band);
-    const void openDoor(const std::string& name);
-    const void closeDoor(const std::string& name);
-	const void activateAnim(const std::string& name);
+  const void openDoor(const std::string& name);
+  const void closeDoor(const std::string& name);
+	const void activateAnim(const std::string& name, float wait_time);
   const void activateCinematic(const std::string& name);
   const void deactivateCinematic(const std::string& name);
   const void setDirLightIntensity(const std::string& name, float intensity);
   const void setPointLightIntensity(const std::string& name, float intensity);
 	void setExposure(float _exposure);
+	void setVignettingAdjustment(float vignetting);
+	void setFadeOutAdjustment(float fadeout);
 	void wait_seconds(float num_seconds);
-
+	void activateRunner();
+	void endGame();
 	float getTowerRadius();
 
     float checkAngle(float alpha, VEC3 pos1);

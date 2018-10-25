@@ -2,6 +2,66 @@
   {
     "entity":
     {
+      "name": "Plataforma_008"
+      ,
+      "transform":
+      {
+        "pos": "20.5273 40.9886 22.7533"
+        ,
+        "rotation": "0.0 -0.837813 0.0 -0.545957"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plataforma_008.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaPlataformasMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Plataforma_007"
+      ,
+      "transform":
+      {
+        "pos": "30.2123 40.8337 2.97748"
+        ,
+        "rotation": "0.0 -0.99013 0.0 -0.14015"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plataforma_007.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMusgoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Niebla006"
       ,
       "transform":
@@ -118,7 +178,7 @@
       ,
       "transform":
       {
-        "pos": "26.0166 45.4708 8.93985"
+        "pos": "27.2035 45.4708 9.30945"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -146,7 +206,7 @@
       ,
       "transform":
       {
-        "pos": "25.1532 51.6883 11.3258"
+        "pos": "25.3604 49.4927 10.7805"
         ,
         "rotation": "0.0 0.142102 0.0 -0.989852"
       }
@@ -202,7 +262,7 @@
       ,
       "transform":
       {
-        "pos": "30.1616 29.5706 14.9283"
+        "pos": "30.4004 34.3887 15.2494"
         ,
         "rotation": "0.0 -0.869095 0.0 0.494645"
       }
@@ -230,7 +290,7 @@
       ,
       "transform":
       {
-        "pos": "29.654 36.2776 15.0548"
+        "pos": "29.5193 45.0149 15.0367"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -258,7 +318,7 @@
       ,
       "transform":
       {
-        "pos": "29.654 36.2776 15.0548"
+        "pos": "29.666 36.2656 15.0631"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -286,7 +346,7 @@
       ,
       "transform":
       {
-        "pos": "29.654 36.2776 15.0548"
+        "pos": "29.6519 36.2891 15.0548"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -314,7 +374,7 @@
       ,
       "transform":
       {
-        "pos": "27.2413 46.0354 10.8683"
+        "pos": "26.2519 46.0354 10.5735"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -366,84 +426,6 @@
   {
     "entity":
     {
-      "name": "RocaTipoC021"
-      ,
-      "transform":
-      {
-        "pos": "-25.635 4.72784 18.6712"
-        ,
-        "rotation": "0.0 -0.906518 0.0 0.422168"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RocaTipoC021.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RocasMat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "RocaTipoC020"
-      ,
-      "transform":
-      {
-        "pos": "-23.1399 4.88417 17.3567"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RocaTipoC020.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RocasMat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "RocaTipoC019"
-      ,
-      "transform":
-      {
-        "pos": "-23.8567 5.50876 17.3763"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RocaTipoC019.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RocasMat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "RocaTipoC018"
       ,
       "transform":
@@ -460,62 +442,12 @@
           ,
           "materials":
           [
-            "data/materials/RocasMat.material"
+            "data/materials/RocasBajadaMat.material"
           ]
         }
       ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "RocaTipoC017"
       ,
-      "transform":
-      {
-        "pos": "-24.2576 4.72784 18.8871"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RocaTipoC017.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RocasMat.material"
-          ]
-        }
-      ]
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "RocaTipoC016"
-      ,
-      "transform":
-      {
-        "pos": "-24.4063 5.07574 18.21"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/RocaTipoC016.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/RocasMat.material"
-          ]
-        }
-      ]
+      "abs_aabb": true
     }
   }
   ,
@@ -1071,62 +1003,6 @@
   {
     "entity":
     {
-      "name": "Plataforma_008"
-      ,
-      "transform":
-      {
-        "pos": "20.5273 40.9886 22.7533"
-        ,
-        "rotation": "0.0 -0.837813 0.0 -0.545957"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_008.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaPlataformasMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_007"
-      ,
-      "transform":
-      {
-        "pos": "30.2184 40.8337 2.95644"
-        ,
-        "rotation": "0.0 -0.99013 0.0 -0.14015"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Plataforma_007.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Techo_parte6_C"
       ,
       "transform":
@@ -1355,7 +1231,7 @@
       ,
       "transform":
       {
-        "pos": "31.8949 27.0 3.31648"
+        "pos": "31.8949 29.25 3.31648"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -1383,7 +1259,7 @@
       ,
       "transform":
       {
-        "pos": "27.3296 33.75 -13.8913"
+        "pos": "27.3296 36.0 -13.8913"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -2058,7 +1934,7 @@
           ,
           "materials":
           [
-            "data/materials/RocasMat.material"
+            "data/materials/RocasBajadaMat.material"
           ]
         }
       ]
@@ -2274,7 +2150,7 @@
       ,
       "transform":
       {
-        "pos": "16.8732 58.5 25.6192"
+        "pos": "16.8732 58.495 25.6192"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -2386,7 +2262,7 @@
       ,
       "transform":
       {
-        "pos": "21.7114 35.9985 9.05128"
+        "pos": "20.377 40.4985 10.433"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }

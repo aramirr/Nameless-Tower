@@ -24,14 +24,21 @@ public:
 	void setAmbientAdjustment(float value);
   void setExposureAdjustment(float value, bool left);
 	void playLastCinematic();
-    void openDoor(const char* name);
-    void closeDoor(const char* name);
-	void activateAnim(const char* name);
+  void openDoor(const char* name);
+  void closeDoor(const char* name);
+	void activateAnim(const char* name, float wait_time);
 	void setTemblor(bool temblor, bool left);
+	void loadScene(std::string name);
+	void unloadScene(std::string name);
+	void setVignettingAdjustment(float value, bool left);
+	void setFadeOutAdjustment(float value, bool left);
+	void fundidoNegroFinal();
 
   // UI
 	void activateText(const char* name);
 	void disactivateText(const char* name);
+	void activateCredits();
+	void desactivateCinematics();
 
   // Lights
   void setDirLightIntensity(const char* name, float value, bool left);
@@ -53,21 +60,28 @@ public:
 
   // utils
   bool applyFunction(bool left);
-  void playAmbientSound(bool left);
+	void playAmbientSound(bool left);
+	void playAmbientNight();
   void playInteriorSound(bool left);
   void playPositionalSound(std::string name, std::string entityName);
   void playSound(bool left, std::string name);
-  void stopSound(bool left, std::string name);
+	void stopSound(bool left, std::string name);
+	void playDelayedSound(float time, std::string name);
   void activateTorch(std::string name);
   void scarePlayer();
 
   //Lua Cinematics
   void pausePlayer();
-  void setAnim(std::string name, int anim_id);
+  void setAnim(int anim_id);
+	void setAnimCycle(std::string name, int anim_id);
   void setCinematicBars();
   void regainControl(float time_to_wait);
   void killEntity(std::string name);
   void playCurve(std::string name);
   void set_ypr(std::string name, float y, float p, float r);
+
+	void activateRunner();
+
+	void setVolumen(float volumen, bool left);
 
 };

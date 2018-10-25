@@ -63,7 +63,7 @@ class bt_runner:public bt
   bool anim_debug_changed = false;
   float attack_distance;
   float debug_timer = 0.f;
-  float speed = 2.0f;
+  float speed = 2.5f;
 	float Vx;
 	float Vy;
 	float gravity = 15.f;
@@ -77,7 +77,7 @@ class bt_runner:public bt
   VEC3 last_pos = VEC3::Zero;
 
   // Animation functions
-  void change_animation(int animation_id, bool is_action, float in_delay, float out_delay, bool clear);
+  
   void clear_animations(float out_delay);
   void remove_animation(int animation_id);
 	bool check_if_action_is_on(int animation_id);
@@ -135,6 +135,10 @@ class bt_runner:public bt
 	static void registerMsgs();
   void appear(const TMsgRunnerAppear& msg);
   void disappear(const TMsgRunnerDisappear& msg);
+	void start_chase(const TMsgRunnerStartChase& msg);
+
+	void change_animation(int animation_id, bool is_action, float in_delay, float out_delay, bool clear);
+	void play_sound(std::string name);
 
 	};
 

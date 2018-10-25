@@ -1,77 +1,20 @@
 [
 	{
 		"entity": {
-			"name": "test_camera_curve",
-			"transform": {
-				"pos": "0 0 0",
-				"lookat": "0 0 0"
-			},
-			"curve_controller" :
-			{
-				"curve" : "data/curves/test_curve.curve",
-				"speed" : 0.25,
-				"target": "The Player",
-				"loop": false,
-				"automove": false
-			},
-			"render" : {}
-		}
-	}
-	,
-	{
-		"entity": {
-			"name": "dummy_locator",
-			"transform": {
-				"pos": "0 0 0"
-			}
-			,
-			"render" : {}
-		}
-	},
-	{
-		"entity": {
-			"name": "camera_cine",
-			"transform": {
-				"pos": "0 0 0"
-			},
-			"camera" : {
-				"fov" : 80 
-			},
-			"hierarchy":
-		      {
-		        "parent": "test_camera_curve"
-		      }		
-		}
-	},
-	{
-		"entity": {
-			"name": "cinematic_1",
-			"transform": {
-				"pos": "0 0 0",
-				"lookat": "0 0 0"
-			},
-			"cinematic" :
-			{
-				"camera_name" : "camera_cine",
-				"spline_name" : "test_camera_curve",
-				"time": 5,
-				"blend_time": 2
-			},
-		    "culling":true
-		}
-	},
-	{
-		"entity": {
 			"name": "cinematic_first_door",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"
 			},
 			"cinematic" :
-			{
-				"camera_name" : "camera_first_door",
-				"time": 0,
-				"blend_time": 2
+			{				
+				"splines": [
+					{
+						"camera_name" : "camera_first_door",
+						"time": 0,
+						"blend_time": 2
+						}
+						]
 			},
 		    "culling":true
 		}
@@ -84,10 +27,14 @@
 				"lookat": "0 0 0"
 			},
 			"cinematic" :
-			{
-				"camera_name" : "camera_sala_escaleras_2",
-				"time": 0,
-				"blend_time": 2
+			{				
+				"splines": [
+					{
+						"camera_name" : "camera_sala_escaleras_2",
+						"time": 0,
+						"blend_time": 2
+						}
+						]
 			},
 		    "culling":true
 		}
@@ -100,10 +47,14 @@
 				"lookat": "0 0 0"
 			},
 			"cinematic" :
-			{
-				"camera_name" : "camera_sala_puertas_abajo",
-				"time": 0,
-				"blend_time": 2
+			{				
+				"splines": [
+					{
+						"camera_name" : "camera_sala_puertas_abajo",
+						"time": 0,
+						"blend_time": 2
+						}
+						]
 			},
 		    "culling":true
 		}
@@ -116,17 +67,37 @@
 				"lookat": "0 0 0"
 			},
 			"cinematic" :
-			{
-				"camera_name" : "camera_vientos",
-				"time": 0,
-				"blend_time": 2
+			{				
+				"splines": [
+					{
+						"camera_name" : "camera_vientos",
+						"time": 0,
+						"blend_time": 2
+						}
+						]
 			},
 		    "culling":true
 		}
 	},
 	{
 		"entity": {
-			"name": "camara_cinematica_inicial",
+			"name": "camara_cinematica_inicialA",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80,
+				"z_near": 0.001 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraIntroA"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_cinematica_inicialB",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"				
@@ -136,26 +107,169 @@
 			},
 			"hierarchy":
 		      {
-		        "parent": "cinematica_inicial_curve"
+		        "parent": "CamaraIntroB"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_cinematica_inicialC",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraIntroC"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_finalA",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraFinalA"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_finalB",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraFinalB"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_finalC",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraFinalC"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_finalD",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraFinalD"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_finalE",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraFinalE"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_finalF",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraFinalF"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_antorchasA",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraAntorchasA"
+		      }		
+		}
+	},{
+		"entity": {
+			"name": "camara_antorchasB",
+			"transform": {
+				"pos": "0 0 0",
+				"lookat": "0 0 0"				
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"hierarchy":
+		      {
+		        "parent": "CamaraAntorchasB"
 		      }		
 		}
 	},
 	{
 		"entity": {
-			"name": "cinematica_inicial_curve",
+			"name": "cinematica_puzzle",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"
 			},
-			"curve_controller" :
-			{
-				"curve" : "data/curves/CamaraIntro.curve",
-				"speed" : 0.05,
-				"target": "The Player",
-				"loop": false,
-				"automove": false
-			},
-			"render" : {}
+			"cinematic" :
+			{				
+				"splines": [
+					{
+					"time": 5.333,
+					"blend_time": 0.5,
+					"spline_name": "CamaraAntorchasA",
+					"camera_name" : "camara_antorchasA"
+					},
+					{
+					"time": 6.5,
+					"blend_time": 1.5,
+					"spline_name": "CamaraAntorchasB",
+					"camera_name" : "camara_antorchasB"
+					}
+				]
+			}
 		}
 	},
 	{
@@ -166,66 +280,463 @@
 				"lookat": "0 0 0"
 			},
 			"cinematic" :
-			{
-				"camera_name" : "camara_cinematica_inicial",
-				"time": 28,
-				"blend_time": 0,
-				"spline_name": "cinematica_inicial_curve"
-			},
-		    "culling":true
+			{				
+				"splines": [
+					{
+					"time": 8.333,
+					"blend_time": 0.01,
+					"spline_name": "CamaraIntroA",
+					"camera_name" : "camara_cinematica_inicialA"
+					},
+					{
+					"time": 4.5,
+					"blend_time": 4,
+					"spline_name": "CamaraIntroB",
+					"camera_name" : "camara_cinematica_inicialB"
+					},
+					{
+					"time": 10,
+					"blend_time": 1,
+					"spline_name": "CamaraIntroC",
+					"camera_name" : "camara_cinematica_inicialC"
+					}
+				]
+			}
 		}
-	},
-	{
+	},{
 		"entity": {
-			"name": "camara_cinematica_monolito",
-			"transform": {
-				"pos": "0 0 0",
-				"lookat": "0 0 0"				
-			},
-			"camera" : {
-				"fov" : 80 
-			},
-			"hierarchy":
-		      {
-		        "parent": "cinematica_monolito_curve"
-		      }		
-		}
-	},
-	{
-		"entity": {
-			"name": "cinematica_monolito_curve",
-			"transform": {
-				"pos": "0 0 0",
-				"lookat": "0 0 0"
-			},
-			"curve_controller" :
-			{
-				"curve" : "data/curves/CamaraIntro.curve",
-				"speed" : 0.05,
-				"target": "The Player",
-				"loop": false,
-				"automove": false
-			},
-			"render" : {}
-		}
-	},
-	{
-		"entity": {
-			"name": "cinematica_monolito",
+			"name": "cinematica_final",
 			"transform": {
 				"pos": "0 0 0",
 				"lookat": "0 0 0"
 			},
 			"cinematic" :
-			{
-				"camera_name" : "camara_cinematica_monolito",
-				"time": 15,
-				"blend_time": 0,
-				"spline_name": "cinematica_monolito_curve"
-			},
-		    "culling":true
+			{				
+				"splines": [
+					{
+					"time": 6.533,
+					"blend_time": 0.5,
+					"spline_name": "CamaraFinalA",
+					"camera_name" : "camara_finalA"
+					},
+					{
+					"time": 1.466,
+					"blend_time": 0.5,
+					"spline_name": "CamaraFinalB",
+					"camera_name" : "camara_finalB"
+					},
+					{
+					"time": 1.66,
+					"blend_time": 0.5,
+					"spline_name": "CamaraFinalC",
+					"camera_name" : "camara_finalC"
+					},
+					{
+					"time": 1.666,
+					"blend_time": 0.5,
+					"spline_name": "CamaraFinalD",
+					"camera_name" : "camara_finalD"
+					},
+					{
+					"time": 1.033,
+					"blend_time": 0.5,
+					"spline_name": "CamaraFinalE",
+					"camera_name" : "camara_finalE"
+					},
+					{
+					"time": 1.6333,
+					"blend_time": 0.5,
+					"spline_name": "CamaraFinalF",
+					"camera_name" : "camara_finalF"
+					}
+				]
+			}
 		}
+	},
+	{
+    "entity":
+    {
+      "name": "MonolitoRef005"
+      ,
+      "transform":
+      {
+        "pos": "3.79676 87.7113 -31.1991"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "MonolitoRef004"
+      ,
+      "transform":
+      {
+        "pos": "4.96569 87.4062 -29.4113"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "MonolitoRef003"
+      ,
+      "transform":
+      {
+        "pos": "4.96569 90.2482 -29.4113"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "MonolitoRef002"
+      ,
+      "transform":
+      {
+        "pos": "5.18426 88.267 -29.6403"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "MonolitoRef001"
+      ,
+      "transform":
+      {
+        "pos": "5.07488 91.569 -30.924"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CamaraMonolitoE"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "curve_controller":
+      {
+        "curve": "data/curves/CamaraMonolitoE.curve"
+        ,
+        "speed": 0.15
+        ,
+        "target": "MonolitoRef005"
+        ,
+        "loop": false
+        ,
+        "mode": "linear"
+        ,
+        "automove": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CamaraMonolitoD"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "curve_controller":
+      {
+        "curve": "data/curves/CamaraMonolitoD.curve"
+        ,
+        "speed": 0.01
+        ,
+        "target": "MonolitoRef004"
+        ,
+        "loop": false
+        ,
+        "mode": "linear"
+        ,
+        "automove": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CamaraMonolitoC"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "curve_controller":
+      {
+        "curve": "data/curves/CamaraMonolitoC.curve"
+        ,
+        "speed": 0.15
+        ,
+        "target": "MonolitoRef003"
+        ,
+        "loop": false
+        ,
+        "mode": "linear"
+        ,
+        "automove": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CamaraMonolitoB"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "curve_controller":
+      {
+        "curve": "data/curves/CamaraMonolitoB.curve"
+        ,
+        "speed": 0.01
+        ,
+        "target": "MonolitoRef002"
+        ,
+        "loop": false
+        ,
+        "mode": "linear"
+        ,
+        "automove": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CamaraMonolitoA"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "curve_controller":
+      {
+        "curve": "data/curves/CamaraMonolitoA.curve"
+        ,
+        "speed": 0.1
+        ,
+        "target": "MonolitoRef001"
+        ,
+        "loop": false
+        ,
+        "mode": "linear"
+        ,
+        "automove": false
+      }
+    }
+  },
+  {
+	"entity": {
+		"name": "camara_cinematica_monolitoA",
+		"transform": {
+		"pos": "0 0 0",
+			"lookat": "0 0 0"				
+		},
+		"camera" : {
+			"fov" : 80,
+			"zNear": 0 
+		},
+	    "culling":true,
+		"hierarchy":{
+	        "parent": "CamaraMonolitoA"
+	    }		
 	}
+  },
+  {
+	"entity": {
+		"name": "camara_cinematica_monolitoB",
+		"transform": {
+		"pos": "0 0 0",
+			"lookat": "0 0 0"				
+		},
+		"camera" : {
+			"fov" : 80,
+			"zNear": 0 
+		},
+	    "culling":true,
+		"hierarchy":{
+	        "parent": "CamaraMonolitoB"
+	    }		
+	}
+  },
+  {
+	"entity": {
+		"name": "camara_cinematica_monolitoC",
+		"transform": {
+		"pos": "0 0 0",
+			"lookat": "0 0 0"				
+		},
+		"camera" : {
+			"fov" : 80,
+			"zNear": 0 
+		},
+	    "culling":true,
+		"hierarchy":{
+	        "parent": "CamaraMonolitoC"
+	    }		
+	}
+  },
+  {
+	"entity": {
+		"name": "camara_cinematica_monolitoD",
+		"transform": {
+		"pos": "0 0 0",
+			"lookat": "0 0 0"				
+		},
+		"camera" : {
+			"fov" : 80,
+			"zNear": 0 
+		},
+	    "culling":true,
+		"hierarchy":{
+	        "parent": "CamaraMonolitoD"
+	    }		
+	}
+  },
+  {
+	"entity": {
+		"name": "camara_cinematica_monolitoE",
+		"transform": {
+		"pos": "0 0 0",
+			"lookat": "0 0 0"				
+		},
+		"camera" : {
+			"fov" : 80,
+			"zNear": 0 
+		},
+	    "culling":true,
+		"hierarchy":{
+	        "parent": "CamaraMonolitoE"
+	    }		
+	}
+  },
+  {
+	"entity": {
+		"name": "cinematica_monolito",
+		"transform": {
+			"pos": "0 0 0",
+			"lookat": "0 0 0"
+		},
+		"cinematic" :
+		{				
+			"splines": [
+				{
+				"time": 3.3333,
+				"blend_time": 0.001,
+				"spline_name": "CamaraMonolitoA",
+				"camera_name" : "camara_cinematica_monolitoA"
+				},
+				{
+				"time": 4.5333,
+				"blend_time": 0.001,
+				"spline_name": "CamaraMonolitoB",
+				"camera_name" : "camara_cinematica_monolitoB"
+				},
+				{
+				"time": 5.4667,
+				"blend_time": 0.001,
+				"spline_name": "CamaraMonolitoC",
+				"camera_name" : "camara_cinematica_monolitoC"
+				},
+				{
+				"time": 3.3333,
+				"blend_time": 0.001,
+				"spline_name": "CamaraMonolitoE",
+				"camera_name" : "camara_cinematica_monolitoD"
+				},
+				{
+				"time": 14.3334,
+				"blend_time": 0.001,
+				"spline_name": "CamaraMonolitoE",
+				"camera_name" : "camara_cinematica_monolitoE"
+				}
+			]
+		},
+	    "culling":true
+	}
+  }
 ]
 
 

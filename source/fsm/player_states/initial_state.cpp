@@ -22,10 +22,20 @@ namespace FSM
 				CEntity* camera = (CEntity*)getEntityByName("camera_orbit_IZQ");
 				TCompOrbitCamera* o = camera->get<TCompOrbitCamera>();
 				o->setPosition(position);
+				CEntity* e = getEntityByName("The Player");
+				//dbg("SONY %s\n", player->game_state);
+				if (player->game_state == "level_2") {
+					//dbg("NINTENDO\n");
+					CEntity* cinematic = (CEntity*)getEntityByName("cinematic_sala_escaleras_2");
+					TMsgDeactivateCinematic deactivate_cinematic;
+					cinematic->sendMsg(deactivate_cinematic);
+					EngineScripting.script.doString("RespawnOnLevel2()");
+				}
 			}				
 			else {
 				player->checkpoint = my_pos->getPosition();
 				position = my_pos->getPosition();
+				
 			}				
 		}
 		else {
@@ -46,7 +56,7 @@ namespace FSM
 		ctx.setVariable("can_dash", true);
 		ctx.setVariable("can_omni", true);
 		ctx.setVariable("is_grounded", true);
-        ctx.setVariable("is_falling", false);
+        ctx.setVariable("is_falling", false);        
 	}
 
 	bool InitialState::load(const json& jData)

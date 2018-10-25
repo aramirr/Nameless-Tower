@@ -6,6 +6,8 @@
 #include "components/lights/comp_light_point_shadows.h"
 #include "components/controllers/comp_door.h"
 #include "components/player/comp_player_controller.h"
+#include "components/ia/bt_runner.h"
+#include "components/sound/comp_sound.h"
 
 bool CModuleTower::start()
 {
@@ -32,6 +34,40 @@ void CModuleTower::update(float delta)
 			}
 		}
 	}
+	if (changeVignetting) {
+		if (newVignetting > oldVignetting) {
+			cb_globals.global_vignetting_adjustment += 0.01f;
+			oldVignetting = cb_globals.global_vignetting_adjustment;
+			if (oldVignetting > newVignetting) {
+				changeVignetting = false;
+			}
+		}
+		else if (newVignetting < oldVignetting) {
+			cb_globals.global_vignetting_adjustment -= 0.005f;
+			oldVignetting = cb_globals.global_vignetting_adjustment;
+			if (oldVignetting < newVignetting) {
+				changeVignetting = false;
+			}
+		}
+	}
+	if (changeFadeOut) {
+		if (newFadeOut > oldFadeOut) {
+			cb_globals.global_fadeOut_adjustment += 0.05f;
+			oldFadeOut = cb_globals.global_fadeOut_adjustment;
+			if (oldFadeOut > newFadeOut) {
+				if(oldFadeOut>=10.f)EngineUI.activateWidget("Pantalla_negra");
+				changeFadeOut = false;
+			}
+		}
+		else if (newFadeOut < oldFadeOut) {
+			if (oldFadeOut >= 10.f && newFadeOut < 10.f)EngineUI.desactivateWidget("Pantalla_negra");
+			cb_globals.global_fadeOut_adjustment -= 0.05f;
+			oldFadeOut = cb_globals.global_fadeOut_adjustment;
+			if (oldFadeOut < newFadeOut) {
+				changeFadeOut = false;
+			}
+		}
+	}
 	if (cargar) {
 		newExposure = 0.f;
 		oldExposure = cb_globals.global_exposure_adjustment;
@@ -41,18 +77,26 @@ void CModuleTower::update(float delta)
 	if (time_out) {
 		current_time += delta;
 		if (current_time > total_wait_time) {
+			if (cb_gui.creditos) {
+				EngineUI.activateWidget("pantallaCreditos");
+			}
+			else {
+				CEntity* player = getEntityByName("The Player");
+				TMsgSetFSMVariable pauseMsg;
+				pauseMsg.variant.setName("pause");
+				pauseMsg.variant.setBool(false);
+				player->sendMsg(pauseMsg);
+
+				pauseMsg.variant.setName("idle");
+				pauseMsg.variant.setBool(true);
+				player->sendMsg(pauseMsg);
+
+				setBandsCinematics(false);
+				cb_gui.cinematica = false;
+			}
 			time_out = false;
-			CEntity* player = getEntityByName("The Player");
-			TMsgSetFSMVariable pauseMsg;
-			pauseMsg.variant.setName("pause");
-			pauseMsg.variant.setBool(false);
-			player->sendMsg(pauseMsg);
-
-			pauseMsg.variant.setName("idle");
-			pauseMsg.variant.setBool(true);
-			player->sendMsg(pauseMsg);
-
-			setBandsCinematics(false);
+			
+			
 			if (current_cinematic != "") {
 				deactivateCinematic(current_cinematic);
 			}
@@ -71,6 +115,130 @@ void CModuleTower::update(float delta)
 	}
 	else if (bandCinematics) {
 		EngineUI.activateWidget("barras_cinematicas");
+	}
+
+	// Activate Runner
+	if (activate_runner) {
+		timer_runner += delta;
+		if (timer_runner >= 0.0f && !start_anim) {
+			start_anim = true;
+			CEntity* e = getEntityByName("The Player");
+			TCompPlayerController * controller = e->get<TCompPlayerController>();
+			controller->remove_animation(controller->EAnimations::NajaJumpLoop);
+			controller->change_animation(34, true, 0, 0.8, true);
+			EngineSound.emitDelayedEvent(0, "naja_monolito");
+			EngineTower.activateCinematic("cinematica_monolito");	
+			
+		}
+
+		else if (timer_runner >= 5.f && !destroy_monolito) {
+			destroy_monolito = true;
+
+			CEntity* entity = (CEntity*)getEntityByName("Monolito_001");
+			TMsgActivateAnim msg;
+			msg.name = "Monolito_001";
+			msg.wait_time = 0.f;
+			entity->sendMsg(msg);
+
+			EngineSound.emitDelayedEvent(0, "monolito_destruccion");
+		}
+
+		else if (timer_runner >= 10.667 && !build_runner) {
+			cb_globals.global_runner_interior = 1;
+			CEntity* e = getEntityByName("The Player");
+			TCompPlayerController* player = e->get<TCompPlayerController>();
+			build_runner = true;
+
+			CEntity* entity = (CEntity*)getEntityByName("Runner_father");
+			TMsgActivateAnim msg;
+			msg.name = "Runner_father";
+			msg.wait_time = 0.f;
+			entity->sendMsg(msg);
+		}
+		else if (timer_runner >= 26.667 && !changed_runner_mesh) {
+			changed_runner_mesh = true;
+
+			// Kill Runner_father
+			CEntity* runner_father = getEntityByName("Runner_father");
+			if (runner_father) {
+				CHandle(runner_father).destroy();
+			}
+
+			//Appear Runner
+			appearEntity("Runner");
+			
+			CEntity* e = getEntityByName("Runner");
+			TCompCollider* e_collider = e->get<TCompCollider>();
+			TCompTransform* e_transform = e->get<TCompTransform>();
+			e_transform->setPosition(VEC3(2.31185f, 88.f, -31.2941f)); //86.5861f
+			e_collider->controller->setPosition(physx::PxExtendedVec3(2.31185f, 88.f, -31.2941f));
+			bt_runner * controller = e->get<bt_runner>();
+			controller->change_animation(5, true, 0.0, 0.0, true);
+			
+		}
+		else if (timer_runner >= 27.33f && !runner_scream) {
+			runner_scream = true;
+			CEntity* e = getEntityByName("Runner");
+			bt_runner * controller = e->get<bt_runner>();
+			controller->change_animation(4, true, 0.1, 0.0, true);
+			TCompSound* sound = e->get<TCompSound>();
+			sound->playSound("roar");
+		}
+		else if (timer_runner >= 32.f && !runner_chase) {
+			runner_chase = true;
+			CEntity* e_runner = getEntityByName("Runner");
+			TMsgRunnerStartChase msg;
+			e_runner->sendMsg(msg);
+
+			CEntity* player = getEntityByName("The Player");
+			TMsgSetFSMVariable pauseMsg;
+			pauseMsg.variant.setName("pause");
+			pauseMsg.variant.setBool(false);
+			player->sendMsg(pauseMsg);
+
+			pauseMsg.variant.setName("idle");
+			pauseMsg.variant.setBool(true);
+			player->sendMsg(pauseMsg);
+
+			setBandsCinematics(false);
+			cb_gui.cinematica = false;
+		}
+	}
+
+	if (change_level) {
+		timer_runner += delta;
+		cb_globals.global_fadeOut_adjustment = 10.f;
+		EngineUI.activateWidget("fadeOut");
+		EngineTower.setBandsCinematics(true);
+		if (timer_runner > 0.4f && !change_level_done) {
+			CEntity* e = getEntityByName("The Player");
+			TCompPlayerController* player = e->get<TCompPlayerController>();
+			if (player->game_state == "level_1") {
+				CEngine::get().getModules().changeGameState("level_2");
+				player->game_state = "level_2";
+			}
+			change_level_done = true;
+		}
+		else if (timer_runner > 1.f) {
+			cb_globals.global_fadeOut_adjustment = 0.f;
+			EngineUI.desactivateWidget("fadeOut");
+			activate_runner = true;
+			timer_runner = 0.f;
+			change_level = false;
+		}
+	}
+
+	if (end_game) {
+		timer_end += delta;
+		if (timer_end >= 12.f) {
+			cb_globals.global_fadeOut_adjustment = 10.f;
+			EngineUI.activateWidget("fadeOut");
+		}
+		if (timer_end >= 14.5f) {
+			end_game = false;
+			cb_globals.global_fadeOut_adjustment = 0.f;
+			EngineUI.desactivateWidget("fadeOut");
+		}
 	}
 }
 
@@ -147,7 +315,8 @@ const void CModuleTower::renderEverything(const std::string& name) {
 
 
 const void CModuleTower::activateCinematic(const std::string& name) {
-    CEntity* cinematic = (CEntity*)getEntityByName(name);
+	cb_gui.cinematica = true;
+	CEntity* cinematic = (CEntity*)getEntityByName(name);
     TMsgActivateCinematic activate_cinematic;
     cinematic->sendMsg(activate_cinematic);
 	current_cinematic = name;
@@ -167,6 +336,16 @@ const void CModuleTower::setAmbientAdjustment(float ambient) {
 const void CModuleTower::setExposureAdjustment(float exposure) {
 	cb_globals.global_exposure_adjustment = exposure;
 
+}
+void CModuleTower::setVignettingAdjustment(float vignetting)
+{
+	newVignetting = vignetting;
+	changeVignetting = true;
+}
+void CModuleTower::setFadeOutAdjustment(float fadeout)
+{
+	newFadeOut = fadeout;
+	changeFadeOut = true;
 }
 const void CModuleTower::setBandsCinematics(bool _band)
 {
@@ -231,9 +410,11 @@ const void CModuleTower::closeDoor(const std::string& name) {
     entity->sendMsg(msg);
 }
 
-const void CModuleTower::activateAnim(const std::string& name) {
+const void CModuleTower::activateAnim(const std::string& name, float wait_time) {
 	CEntity* entity = (CEntity*)getEntityByName(name);
 	TMsgActivateAnim msg;
+	msg.name = name;
+	msg.wait_time = wait_time;
 	entity->sendMsg(msg);
 }
 
@@ -246,4 +427,15 @@ void CModuleTower::wait_seconds(float num_seconds) {
 	current_time = 0.0f;
 	total_wait_time = num_seconds;
 	time_out = true;
+}
+
+void CModuleTower::activateRunner() {
+	cb_gui.cinematica = true;
+	change_level = true;
+	timer_runner = 0.f;
+}
+
+void CModuleTower::endGame() {
+	timer_end = 0.f;
+	end_game = true;
 }

@@ -2,6 +2,35 @@
   {
     "entity":
     {
+      "name": "EstatuaBajadaColliders"
+      ,
+      "transform":
+      {
+        "pos": "-29.7583 8.93762 5.20995"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "tri_mesh"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+        ,
+        "mesh_src": "data/meshes/EstatuaBajadaColliders.col_mesh"
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Escaleras_Escena07"
       ,
       "transform":
@@ -186,7 +215,7 @@
       ,
       "transform":
       {
-        "pos": "-10.0104 24.75 -12.9846"
+        "pos": "-11.7401 24.75 -11.9859"
         ,
         "rotation": "0.0 -0.258819 0.0 -0.965926"
       }

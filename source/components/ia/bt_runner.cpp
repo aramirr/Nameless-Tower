@@ -3,26 +3,50 @@
 #include "entity/entity_parser.h"
 #include "components/physics/controller_filter.h"
 #include "components/physics/query_filter.h"
+#include "components/sound/comp_sound.h"
 #include "skeleton/comp_skeleton.h"
+#include "components/comp_particles.h"
 
 DECL_OBJ_MANAGER("bt_runner", bt_runner);
 
 
 //Se tiene que añadir el appear directamente en IDLE
 void bt_runner::appear(const TMsgRunnerAppear& msg) {
-    b_appear = true;
-    appearing_position = msg.appearing_position;
+	TCompTransform* my_transform = getMyTransform();
+	CEntity* player = (CEntity*) getEntityByName("The Player");
+	TCompTransform* p_transform = player->get<TCompTransform>();
+	if (!b_chase || VEC3::Distance(my_transform->getPosition(), p_transform->getPosition()) > 7.f) {
+	/*	dbg("*************** MESSI\n");*/
+		b_appear = true;
+		b_chase = false;
+		appearing_position = msg.appearing_position;
 
-    setCurrent(NULL);
+		setCurrent(NULL);
+	}
 }
 
 void bt_runner::disappear(const TMsgRunnerDisappear& msg) {
-    b_disappear = true;
-    setCurrent(NULL);
+	b_disappear = true;
+	anim_state = "idle";
+	change_animation(ERunnerAnimations::RunnerIdle, false, 0.f, 0.f, true);
+	setCurrent(NULL);
+}
+
+void bt_runner::start_chase(const TMsgRunnerStartChase& msg) {
+	b_appear = false;
+	b_chase = true;
+	going_right = false;
+	going_up = true;
+	on_jump = false;
+	recalculate_timer = 0.f;
+	recalculate_path();
+
+	setCurrent(NULL);
 }
 
 void bt_runner::registerMsgs() {
-    DECL_MSG(bt_runner, TMsgRunnerAppear, appear);
+	DECL_MSG(bt_runner, TMsgRunnerStartChase, start_chase);
+	DECL_MSG(bt_runner, TMsgRunnerAppear, appear);
     DECL_MSG(bt_runner, TMsgRunnerDisappear, disappear);
 }
 
@@ -125,6 +149,7 @@ int bt_runner::actionScream() {
   if (anim_state != "scream") {
     anim_state = "scream";
     change_animation(ERunnerAnimations::RunnerScreamShort, true, 0.f, 0.f, true);
+		play_sound("roar");
   }
   addGravity();
   debug_timer += DT;
@@ -141,8 +166,13 @@ int bt_runner::actionDisappear() {
 	my_transform->setPosition(VEC3::Zero);
   TCompCollider *comp_collider = getMyCollider();
   comp_collider->controller->setPosition(physx::PxExtendedVec3(tower_center.x, tower_center.y, tower_center.z)); 
+
 	b_disappear = false;
+	b_appear = false;
 	b_chase = false;
+	b_recular = false;
+	on_wall = false;
+	b_chase_player = false;
   return LEAVE;
 };
 
@@ -171,13 +201,15 @@ int bt_runner::actionRecover() {
 int bt_runner::actionAttack() {
 		if (anim_state != "attack") {
 			anim_state = "attack";
+			change_animation(ERunnerAnimations::RunnerIdle, false, 0.f, 0.f, true);
 			change_animation(ERunnerAnimations::RunnerAttack, true, 0.f, 0.f, true);
+			play_sound("golpe");
 		}
 
     addGravity();
 
     debug_timer += DT;
-    if (debug_timer >= 0.4f) {
+    if (debug_timer >= 0.2f) {
         debug_timer = 0.f;
 				b_disappear = true;
         killPlayer();
@@ -258,22 +290,8 @@ int bt_runner::actionAppear() {
   return LEAVE;
 };
 
-int bt_runner::actionAppearPose() {
-  if (anim_state != "appear_pose") {
-    anim_state = "appear_pose";
-    change_animation(ERunnerAnimations::RunnerIdle, false, 0.f, 0.f, true);
-    change_animation(ERunnerAnimations::RunnerAparece, true, 0.f, 0.f, true);
-  }
-  debug_timer += DT;
-  if (debug_timer >= 4.4f) {
-    debug_timer = 0.f;
-    return LEAVE;
-  }
-  return STAY;
-};
 
 int bt_runner::actionHide() {
-
 	//dbg("hide\n");
 	return STAY;
 };
@@ -486,6 +504,10 @@ void bt_runner::chase_waypoint() {
 		//dbg("--------------------- aw: %i - nw: %i - d: %f\n", path[actual_waypoint], path[next_waypoint], VEC3::Distance(my_transform->getPosition(), waypoints_map[path[next_waypoint]].position));
 		if (on_jump && (anim_state != "jump_land")) {
 			change_animation(ERunnerAnimations::RunnerJumpLand, true, 0.1f, 0.f, true);
+			play_sound("land");
+			CEntity* particles_emiter = (CEntity*)getEntityByName("humo_land_runner");
+			TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+			c_particles->emit();
 		}
 		anim_state = "";
 		on_jump = false;
@@ -504,6 +526,17 @@ void bt_runner::walk() {
 		if (anim_state != "chase_player") {
 			anim_state = "chase_player";
 			change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
+			play_sound("walk");
+			if (going_right) {
+				CEntity* particles_emiter = (CEntity*)getEntityByName("humo_run_right_runner");
+				TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+				c_particles->emit();
+			}
+			else {
+				CEntity* particles_emiter = (CEntity*)getEntityByName("humo_run_left_runner");
+				TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+				c_particles->emit();
+			}
 		}
 		CEntity* e_player = (CEntity*)getEntityByName("The Player");
 		TCompTransform* player_transform = e_player->get<TCompTransform>();
@@ -513,6 +546,17 @@ void bt_runner::walk() {
 		if (anim_state != "walk") {
 			anim_state = "walk";
 			change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
+			play_sound("walk");
+			if (going_right) {
+				CEntity* particles_emiter = (CEntity*)getEntityByName("humo_run_right_runner");
+				TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+				c_particles->emit();
+			}
+			else {
+				CEntity* particles_emiter = (CEntity*)getEntityByName("humo_run_left_runner");
+				TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+				c_particles->emit();
+			}
 		}
 		if (next_waypoint >= 0) target_position = waypoints_map[path[next_waypoint]].position; 
 		else target_position = waypoints_map[path[actual_waypoint]].position;
@@ -548,11 +592,33 @@ void bt_runner::walk() {
 			if (anim_state != "chase_player") {
 				anim_state = "chase_player";
 				change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
+				play_sound("walk");
+				if (going_right) {
+					CEntity* particles_emiter = (CEntity*)getEntityByName("humo_run_right_runner");
+					TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+					c_particles->emit();
+				}
+				else {
+					CEntity* particles_emiter = (CEntity*)getEntityByName("humo_run_left_runner");
+					TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+					c_particles->emit();
+				}
 			}
 		}
 		else if (anim_state != "walk") {
 			anim_state = "walk";
 			change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.f, 0.f, true);
+			play_sound("walk");
+			if (going_right) {
+				CEntity* particles_emiter = (CEntity*)getEntityByName("humo_run_right_runner");
+				TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+				c_particles->emit();
+			}
+			else {
+				CEntity* particles_emiter = (CEntity*)getEntityByName("humo_run_left_runner");
+				TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+				c_particles->emit();
+			}
 		}
 	
 		current_yaw = going_right ? current_yaw + 0.1f * amount_moved : current_yaw - 0.1f * amount_moved;
@@ -653,6 +719,11 @@ void bt_runner::jump() {
 			anim_state = "jump_up";
 			change_animation(ERunnerAnimations::RunnerJumpUp, true, 0.1f, 0.f, true);
 			change_animation(ERunnerAnimations::RunnerJumpLoop, false, 0.1f, 0.f, true);
+			play_sound("jump");
+
+			CEntity* particles_emiter = (CEntity*)getEntityByName("humo_salto_runner");
+			TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+			c_particles->emit();
 		}
 
 		
@@ -687,6 +758,10 @@ void bt_runner::jump() {
         if (anim_state != "jump_land") {
           anim_state = "jump_land";
           change_animation(ERunnerAnimations::RunnerJumpLand, true, 0.1f, 0.f, true);
+					play_sound("land");
+					CEntity* particles_emiter = (CEntity*)getEntityByName("humo_land_runner");
+					TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+					c_particles->emit();
         }
       }
 		}
@@ -747,7 +822,6 @@ float bt_runner::distance_x_z(VEC3 v1, VEC3 v2) {
 	return VEC3::Distance(v1, v2);
 }
 
-
 void bt_runner::recalculate_path() {
 	//dbg("***RECALCULATING PATH***\n");
 	TCompTransform* my_transform = getMyTransform();
@@ -793,4 +867,11 @@ void bt_runner::clear_animations(float out_delay) {
   assert(skeleton);
 
   skeleton->clearActions(out_delay);
+}
+
+// Sound
+void bt_runner::play_sound(std::string name) {
+	CEntity* e = h_entity;
+	TCompSound* sound = e->get<TCompSound>();
+	sound->playSound(name);
 }

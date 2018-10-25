@@ -143,7 +143,8 @@
 				"apertura": -263.700
 			},
 			"camera" : {
-				"fov" : 80 
+				"fov" : 80,
+				"z_near": 0.01
 			},
 			"render_ao" : {
 		        "enabled" :  true,

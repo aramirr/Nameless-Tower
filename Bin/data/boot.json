@@ -5,6 +5,8 @@
     "data/scenes/lua.scene",
     "data/scenes/lights.scene",
     "data/scenes/test_instancing.scene",
+    "data/scenes/scene_cinematics_up.scene",
+    "data/scenes/scene_cinematics_down.scene",
     "data/scenes/cinematics.scene",
     "data/scenes/particles.scene",
     "data/scenes/grass.scene",
@@ -30,11 +32,12 @@
     "data/scenes/spline_elements.scene",
     "data/scenes/lua_cinematics.scene",
     "data/scenes/torch_puzzle.scene",
-    "data/scenes/naja_particles.scene",
     "data/scenes/curves.scene",
-    "data/scenes/scene_checkpoints.scene",
     "data/scenes/cinematic_monolito.scene",
-    "data/scenes/cinematic_boss_runner.scene"
+    "data/scenes/cinematic_boss_runner.scene",
+    "data/scenes/boss_runner.scene",
+    "data/scenes/scene_Pekes.scene",
+    "data/scenes/naja_particles.scene"
   ],
   "unused_scenes": [
     "data/scenes/unused_scenes/test_cameras.scene",
@@ -57,8 +60,6 @@
     "data/scenes/scene_destruiblePuente_2.scene",
     "data/scenes/scene_luces_bajada.scene",
     "data/scenes/spline_elements_bajada.scene",
-    "data/scenes/boss_runner.scene",
-    "data/scenes/peke.scene",
     "data/scenes/scene_parte5_colltrig.scene",
     "data/scenes/scene_parte5_logic.scene",
     "data/scenes/scene_parte5_meshes.scene",
@@ -71,6 +72,12 @@
     "data/scenes/scene_parte8_colltrig.scene",
     "data/scenes/scene_parte8_logic.scene",
     "data/scenes/scene_parte8_meshes.scene",
-    "data/scenes/boss_final.scene"
+    "data/scenes/boss_final.scene",
+    "data/scenes/boss_runner_triggers.scene",
+    "data/scenes/scene_checkpoints_bajada.scene",
+    "data/scenes/scene_destruible_1.scene",
+    "data/scenes/scene_destruible_2.scene",
+    "data/scenes/scene_destruible_3.scene",
+    "data/scenes/scene_destruible_4.scene"
   ]
 }  

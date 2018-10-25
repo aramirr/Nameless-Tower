@@ -2,6 +2,144 @@
   {
     "entity":
     {
+      "name": "Niebla018"
+      ,
+      "transform":
+      {
+        "pos": "-23.3131 71.4439 -34.0445"
+        ,
+        "rotation": "0.0 -1.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla018.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaDMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla017"
+      ,
+      "transform":
+      {
+        "pos": "-23.3131 72.7485 -34.0445"
+        ,
+        "rotation": "0.0 -1.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla017.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaCMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla016"
+      ,
+      "transform":
+      {
+        "pos": "-23.3131 70.7191 -34.0445"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla016.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaDMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla015"
+      ,
+      "transform":
+      {
+        "pos": "-23.3131 72.0237 -34.0445"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla015.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaCMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "TelasParte4"
+      ,
+      "transform":
+      {
+        "pos": "5.18749 95.9629 -28.4437"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/TelasParte4.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Niebla014"
       ,
       "transform":
@@ -34,7 +172,7 @@
       ,
       "transform":
       {
-        "pos": "23.7093 81.0087 -21.4718"
+        "pos": "23.7093 81.0037 -21.4718"
         ,
         "rotation": "0.0 0.84058 0.0 -0.541687"
       }
@@ -75,34 +213,6 @@
           "materials":
           [
             "data/materials/ParedModelo.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Telas5"
-      ,
-      "transform":
-      {
-        "pos": "2.97757 95.9629 -28.2061"
-        ,
-        "rotation": "0.0 -0.496893 0.0 -0.867812"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Telas5.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Ropa_Colgada_Mat.material"
           ]
         }
       ]
@@ -260,9 +370,9 @@
       ,
       "transform":
       {
-        "pos": "4.9731 82.3323 -33.9397"
+        "pos": "4.9731 82.146 -34.1116"
         ,
-        "rotation": "0.0 0.0 0.0 -1.0"
+        "rotation": "-0.0523321 -0.0121793 -0.000638379 -0.998555"
       }
       ,
       "render":

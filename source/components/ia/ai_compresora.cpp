@@ -139,15 +139,14 @@ void CAICompresora::WaitState()
 	}
     if (going_up) {
       ChangeState("move_up");
-      CEntity* e = CHandle(this).getOwner();
-      TMsgPlaySound msg;
-      e->sendMsg(msg);
+      TCompSound* sound = get<TCompSound>();
+      sound->playSound("sound");
+      sound->playSound("sound_shut");
     }
     else if (!going_up) {
       ChangeState("move_down");
-      CEntity* e = CHandle(this).getOwner();
-      TMsgPlaySound msg;
-      e->sendMsg(msg);
+      TCompSound* sound = get<TCompSound>();
+      sound->playSound("sound");
     }
   }
 }
@@ -177,7 +176,7 @@ void CAICompresora::playerOut(const TMsgPlayerOut& msg) {
 }
 
 void CAICompresora::changeDirection(const TMsgChangeDirectionUp& msg) {
-  going_up = msg.b_up;
+  going_up = msg.b_up;  
 }
 
 void CAICompresora::registerMsgs() {

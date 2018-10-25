@@ -2,15 +2,29 @@
 	
 	"events": [
 		{"name": "ambient", "src": "event:/Ambience/Outside_Ambience_A"},
+		{"name": "ambient_night", "src": "event:/Ambience/Ambience_Night"},
 		{"name": "interior", "src": "event:/Ambience/Inside_Ambience_A"},
+		{"name": "pause", "src": "event:/UI/Pause"},
+		{"name": "exit", "src": "event:/UI/Exit_Menu"},
+		{"name": "up_down", "src": "event:/UI/Move_up_and_down"},
+		{"name": "change_screen", "src": "event:/UI/Change_scene"},
+		{"name": "click", "src": "event:/UI/Click"},
 		{"name": "cascade", "src": "event:/Ambience/Cascada", "positional": true, "on_start": true},
 		{"name": "puzzle", "src": "event:/SFX/Object/Scene/Puzzle_Antorcha", "positional": false, "on_start": false},
 		{"name": "fire", "src": "event:/SFX/Object/Scene/On_Fire", "positional": true, "on_start": false},
-		{"name": "destroyable", "src": "event:/SFX/Object/Mechanics/Destruible", "positional": true, "on_start": true},
+		{"name": "fire_off", "src": "event:/SFX/Object/Scene/Off_Fire", "positional": true, "on_start": false},
+		{"name": "destroyable", "src": "event:/SFX/Object/Mechanics/Destruible", "positional": true, "on_start": false},
 		{"name": "puerta_madera", "src": "event:/SFX/Object/Mechanics/Puerta_Madera", "positional": true, "on_start": false},
 		{"name": "puerta_reja", "src": "event:/SFX/Object/Mechanics/Puerta_Reja", "positional": true, "on_start": false},
 		{"name": "lava", "src": "event:/Ambience/Lava", "positional": false, "on_start": false},
-		{"name": "activador_movil", "src": "event:/SFX/Object/Mechanics/Activable", "positional": true, "on_start": false}
+		{"name": "activador_movil", "src": "event:/SFX/Object/Mechanics/Activable", "positional": true, "on_start": false},
+		{"name": "loros", "src": "event:/SFX/Object/Scene/Loros", "positional": true, "on_start": true},
+		{"name": "cinematica_intro", "src": "event:/Cinematicas/Intro", "positional": false, "on_start": false},
+		{"name": "naja_scare", "src": "event:/Cinematicas/Naja_Scare", "positional": false, "on_start": false},
+		{"name": "naja_monolito", "src": "event:/Cinematicas/Naja_Monolito", "positional": false, "on_start": false},
+		{"name": "monolito_destruccion", "src": "event:/Cinematicas/Monolito_Destruccion_Runner", "positional": false, "on_start": false},
+		{"name": "cinematica_final", "src": "event:/Music/Musica_Batalla_Final", "positional": false, "on_start": false},
+		{"name": "creditos", "src": "event:/Music/Musica_Final_Creditos", "positional": false, "on_start": false}
 	]
 	    
 }

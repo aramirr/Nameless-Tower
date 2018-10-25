@@ -155,6 +155,9 @@ CEffect* CParser::parseAnimateUVEffect(const json& data)
   CAnimateUV* fx = new CAnimateUV();
 
   fx->_speed = loadVEC2(data.value("speed", "0 0"));
+	fx->splash = data.value("splash", false);
+	fx->temblor = data.value("temblor", false);
+	fx->creditos = data.value("creditos", false);
 
   return fx;
 }

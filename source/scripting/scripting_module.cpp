@@ -25,25 +25,28 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("render_everything", &LogicManager::renderEverything)
 		.set("activate_cinematic", &LogicManager::activateCinematic)
 		.set("deactivate_cinematic", &LogicManager::deactivateCinematic)
+		.set("deactivate_cinematic_gui", &LogicManager::desactivateCinematics)
 		.set("activate_cinematic_bands", &LogicManager::activateBandCinematics)
 		.set("deactivate_cinematic_bands", &LogicManager::deactivateBandCinematics)
 		.set("set_ambient", &LogicManager::setAmbientAdjustment)
 		.set("set_exposure", &LogicManager::setExposureAdjustment)
 		.set("play_last_cinematic", &LogicManager::playLastCinematic)
 		.set("set_temblor", &LogicManager::setTemblor)
+		.set("set_vignetting", &LogicManager::setVignettingAdjustment)
+		.set("set_fadeout", &LogicManager::setFadeOutAdjustment)
 		.set("activate_text", &LogicManager::activateText)
-		.set("disactivate_text", &LogicManager::disactivateText)
-		.set("set_dir_light_intensity", &LogicManager::setDirLightIntensity)
-		.set("set_point_light_intensity", &LogicManager::setPointLightIntensity)
+    .set("disactivate_text", &LogicManager::disactivateText)
+		.set("set_volumen", &LogicManager::setVolumen)
+		.set("creditos", &LogicManager::activateCredits)
+    .set("set_dir_light_intensity", &LogicManager::setDirLightIntensity)
+    .set("set_point_light_intensity", &LogicManager::setPointLightIntensity)
 		.set("open_door", &LogicManager::openDoor)
-    .set("close_door", &LogicManager::closeDoor)
-    .set("activate_anim", &LogicManager::activateAnim)
-    .set("change_level", &LogicManager::changeGameState)
-    .set("play_ambient_sound", &LogicManager::playAmbientSound)
-    .set("play_interior_sound", &LogicManager::playInteriorSound)
-    .set("play_sound", &LogicManager::playSound)
-		.set("change_level", &LogicManager::changeGameState)
-    .set("play_sound", &LogicManager::playSound)
+        .set("close_door", &LogicManager::closeDoor)
+        .set("activate_anim", &LogicManager::activateAnim)
+        .set("change_level", &LogicManager::changeGameState)
+        .set("play_ambient_sound", &LogicManager::playAmbientSound)
+        .set("play_interior_sound", &LogicManager::playInteriorSound)
+        .set("play_sound", &LogicManager::playSound)
 		.set("set_naja_int", &LogicManager::setNajaInterior)
 		.set("set_naja_ext", &LogicManager::setnajaExterior)
 		.set("set_runner_int", &LogicManager::setRunnerInterior)
@@ -51,21 +54,29 @@ void ScriptingModule::BootLuaSLB(SLB::Manager *m)
 		.set("start_emiter", &LogicManager::startEmiter)
 		.set("stop_emiter", &LogicManager::stopEmiter)
 		.set("pause_player", &LogicManager::pausePlayer)
-		.set("play_animation", &LogicManager::setAnim)
+		.set("play_animation_player", &LogicManager::setAnim)
+		.set("play_animation", &LogicManager::setAnimCycle)
 		.set("regain_control", &LogicManager::regainControl)
 		.set("set_cinematic_bars", &LogicManager::setCinematicBars)
 		.set("kill_entity", &LogicManager::killEntity)
 		.set("insert_grass", &LogicManager::addGrass)
 		.set("delete_grass", &LogicManager::deleteGrass)
 		.set("update_grass_render", &LogicManager::updateGrassRender)
-    .set("stop_sound", &LogicManager::stopSound)
-    .set("activate_torch", &LogicManager::activateTorch)
-    .set("scare_player", &LogicManager::scarePlayer)
-    .set("play_positional_sound", &LogicManager::playPositionalSound)
+        .set("stop_sound", &LogicManager::stopSound)
+        .set("activate_torch", &LogicManager::activateTorch)
+        .set("scare_player", &LogicManager::scarePlayer)
+		.set("play_positional_sound", &LogicManager::playPositionalSound)
+		.set("play_ambient_night", &LogicManager::playAmbientNight)
 		.set("play_curve", &LogicManager::playCurve)
 		.set("set_ypr", &LogicManager::set_ypr)
+		.set("activate_runner", &LogicManager::activateRunner)
+		.set("play_delayed_sound", &LogicManager::playDelayedSound)
+		.set("delete_scene", &LogicManager::unloadScene)
+		.set("load_scene", &LogicManager::loadScene)
+		.set("fundido_a_negro_final", &LogicManager::fundidoNegroFinal)
 		;
 }
+
 
 void ScriptingModule::ExecEvent(ScriptEvents e, vector<string> params) {
 	/*switch (e) {
@@ -91,8 +102,18 @@ void ScriptingModule::fTriggerExit(vector<string> params) {
         string name = params[0];
         string func_name = "OnTriggerExit" + name;
         auto p = EngineScripting.script.exists(func_name);
-		if (p)
-            EngineScripting.script.doString(func_name + "()");
+				if (p && !(name == "TSCinematicaMonolito" && done_cinematic_monolito) 
+					&& !(name == "TSRejaAntorchas" && done_cinematic_puzzle)
+					&& !(name == "TSCinematicaFinal" && done_cinematic_final)) {
+
+					if (name == "TSCinematicaMonolito")
+						done_cinematic_monolito = true;
+					if (name == "TSRejaAntorchas")
+						done_cinematic_puzzle = true;
+					if (name == "TSCinematicaFinal")
+						done_cinematic_final = true;
+					EngineScripting.script.doString(func_name + "()");
+				}
     }
 }
 

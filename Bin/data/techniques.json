@@ -135,6 +135,7 @@
     "z": "disable_all",
     "textures": {
       "environment": "data/textures/cubemaps/env.dds",
+      "environment2": "data/textures/cubemaps/env2.dds",
       "irradiance": "data/textures/cubemaps/irradiance.dds"
     }
   },
@@ -149,6 +150,7 @@
     "blend": "additive",
     "textures": {
       "environment": "data/textures/cubemaps/env.dds",
+      "environment2": "data/textures/cubemaps/env2.dds",
       "irradiance": "data/textures/cubemaps/irradiance.dds"
     }
   },
@@ -164,6 +166,7 @@
     "blend": "additive",
     "textures": {
       "environment": "data/textures/cubemaps/env.dds",
+      "environment2": "data/textures/cubemaps/env2.dds",
       "irradiance": "data/textures/cubemaps/irradiance.dds"
     }
   },
@@ -411,6 +414,17 @@
     "priority" : 150,
     "comment" : "This needs to go after the pbr's solids, but just before the object to render"
   },
+  "tela": {
+    "vs_file": "data/shaders/alpha.fx",
+    "ps_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_Tela",
+    "ps_entry_point": "PS_GBuffer_Alpha",
+    "vertex_type": "PosNUvUvT",
+    "category": "gbuffer",
+    "blend": "default",
+    "priority" : 150,
+    "comment" : "This needs to go after the pbr's solids, but just before the object to render"
+  },
   "viento": {
     "vs_file": "data/shaders/viento.fx",
     "ps_file": "data/shaders/pbr.fx",
@@ -454,6 +468,7 @@
     "category": "gbuffer",
     "textures": {
       "environment": "data/textures/cubemaps/env.dds",
+      "environment2": "data/textures/cubemaps/env2.dds",
       "irradiance": "data/textures/cubemaps/irradiance.dds"
     },
     "priority" : 160,

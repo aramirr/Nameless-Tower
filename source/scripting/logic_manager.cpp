@@ -8,9 +8,12 @@
 #include "components/comp_particles.h"
 #include "components/camera/comp_camera_manager.h"
 #include "components/controllers/comp_curve.h"
+#include "skeleton/comp_skeleton.h"
 #include "render\render_objects.h"
 #include "ctes.h"
 #include "render/cte_buffer.h"
+#include "skeleton/comp_skeleton.h"
+#include "entity/entity_parser.h"
 using namespace SLB;
 
 
@@ -88,8 +91,8 @@ void LogicManager::closeDoor(const char* name) {
     EngineTower.closeDoor(name);
 }
 
-void LogicManager::activateAnim(const char* name) {
-  EngineTower.activateAnim(name);
+void LogicManager::activateAnim(const char* name, float wait_time) {
+  EngineTower.activateAnim(name, wait_time);
 }
 
 void LogicManager::setTemblor(bool temblor, bool left)
@@ -114,6 +117,16 @@ void LogicManager::activateText(const char* name) {
 void LogicManager::disactivateText(const char* name) {
 	std::string s = name;
 	EngineUI.desactivateWidget(s);
+}
+
+void LogicManager::activateCredits()
+{
+	cb_gui.creditos = true;
+}
+
+void LogicManager::desactivateCinematics()
+{
+	cb_gui.cinematica = false;
 }
 
 // Lights
@@ -155,6 +168,17 @@ void LogicManager::startEmiter(const char* name, bool left) {
 		TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
 		c_particles->start_emiter();
 	}
+}
+
+void LogicManager::setVignettingAdjustment(float value, bool left)
+{
+	if (applyFunction(left))
+		EngineTower.setVignettingAdjustment(value);
+}
+void LogicManager::setFadeOutAdjustment(float value, bool left)
+{
+	if (applyFunction(left))
+		EngineTower.setFadeOutAdjustment(value);
 }
 
 void LogicManager::stopEmiter(const char* name, bool left) {
@@ -214,9 +238,18 @@ void LogicManager::playSound(bool left, std::string name) {
     }
 }
 
+void LogicManager::playDelayedSound(float time, std::string name) {
+	EngineSound.emitDelayedEvent(time, name);
+}
+
 void LogicManager::playPositionalSound(std::string name, std::string entityName) {    
     EngineSound.emitPositionalEvent(name, entityName);
 }
+
+void LogicManager::playAmbientNight() {
+	EngineSound.emitEvent("ambient_night");
+}
+
 
 void LogicManager::stopSound(bool left, std::string name) {
     if (applyFunction(left)) {
@@ -242,11 +275,22 @@ void LogicManager::pausePlayer() {
 
 }
 
-void LogicManager::setAnim(std::string name, int anim_id) {
-	CEntity* player = getEntityByName(name);
-	TCompPlayerController * controller = player->get<TCompPlayerController>();
-	controller->change_animation(anim_id, true, 0.5, 0.5, true);
+void LogicManager::setAnim(int anim_id) {
+	CEntity* e = getEntityByName("The Player");
+	TCompPlayerController * controller = e->get<TCompPlayerController>();
+	if (controller != nullptr) {
+		controller->remove_animation(controller->EAnimations::NajaJumpLoop);
+	} 
+	TCompSkeleton* skel = e->get<TCompSkeleton>();
+	skel->playAnimation(anim_id, true, 0, 0.8, true);
 }
+
+void LogicManager::setAnimCycle(std::string name, int anim_id) {
+	CEntity* e = getEntityByName(name);
+	TCompSkeleton * skeleton = e->get<TCompSkeleton>();
+	skeleton->playAnimation(anim_id, false, 0.f, 0.f, true);
+}
+
 
 void LogicManager::regainControl(float time_to_wait) {
 	// La function debe devolver el control al personaje, sacar las barras y 
@@ -254,10 +298,10 @@ void LogicManager::regainControl(float time_to_wait) {
 }
 
 void LogicManager::killEntity(std::string name) {
-    CEntity* entity = getEntityByName(name);
-    if (entity) {
-        CHandle(entity).destroy();
-    }
+	CEntity* entity = getEntityByName(name);
+	if (entity) {
+		CHandle(entity).destroy();
+	}
 }
 
 void LogicManager::activateTorch(std::string name) {
@@ -284,4 +328,28 @@ void LogicManager::set_ypr(std::string name, float y, float p, float r) {
 	CEntity* entity = getEntityByName(name);
 	TCompTransform* t = entity->get<TCompTransform>();
 	t->setYawPitchRoll(y, p, r);
+}
+
+void LogicManager::activateRunner() {
+	EngineTower.activateRunner();
+}
+
+void LogicManager::unloadScene(std::string name) {
+	TEntityParseContext ctx;
+	deleteScene(name, ctx);
+}
+
+void LogicManager::loadScene(std::string name) {
+	TEntityParseContext ctx;
+	parseScene(name, ctx);
+}
+void LogicManager::setVolumen(float volumen, bool left)
+{
+	if (applyFunction(left)) {
+		EngineSound.setVolumen(volumen);
+	}
+}
+
+void LogicManager::fundidoNegroFinal() {
+	EngineTower.endGame();
 }

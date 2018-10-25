@@ -17,6 +17,9 @@ void TCompRigidAnim::load(const json& j, TEntityParseContext& ctx) {
 		assert(j.count("src") > 0);
 		controller.anims = Resources.get(j["src"])->as<RigidAnims::CRigidAnimResource>();
 		controller.track_index = controller.anims->findTrackIndexByName(controller.track_name);
+		if (controller.track_index == RigidAnims::CController::invalid_track_index) {
+			int a = 0;
+		}
 		assert(controller.track_index != RigidAnims::CController::invalid_track_index);
 		current_time = 0;
 		speed_factor = j.value("speed_factor", 1.0f);
@@ -37,33 +40,36 @@ void TCompRigidAnim::update(float dt) {
   if (!is_moving)
     return;
 
-	if (!father) {
-		// Sample the animation in the current time
-		RigidAnims::TKey k;
+	timer += dt;
+	if (timer >= wait_time) {
 		TCompTransform* c_trans = get< TCompTransform >();
-		dbg("JOSUE %s\n", name.c_str());
-		bool has_finished = controller.sample(&k, current_time);
+		if (!father && c_trans != nullptr) {
+			// Sample the animation in the current time
+			RigidAnims::TKey k;
+			
+			
+			bool has_finished = controller.sample(&k, current_time);
 
-		// Transfer the key data to the comp transform
-		c_trans->setPosition(k.pos);
-		c_trans->setRotation(k.rot);
-		c_trans->setScale(k.scale);
+			// Transfer the key data to the comp transform
+			c_trans->setPosition(k.pos);
+			c_trans->setRotation(k.rot);
+			c_trans->setScale(k.scale);
 
-
-
-		if (has_finished) {
-			if (loops)
-				current_time = 0;
-			// loop, change direction?, set is_moving = false...
+			if (has_finished) {
+				if (loops)
+					current_time = 0;
+				else is_moving = false;
+				// loop, change direction?, set is_moving = false...
+			}
 		}
-	}
-	else {
-		for (int i = 0; i < sons.size(); i++) {
-			dbg("JONAS %i --%i\n", i, sons.size());
-			CEntity* entity = (CEntity*)getEntityByName(sons[i]);
-			TMsgActivateAnim msg;
-			msg.name = sons[i];
-			entity->sendMsg(msg);
+		else {
+			for (int i = 0; i < sons.size(); i++) {
+				//dbg("JONAS %i --%i\n", i, sons.size());
+				CEntity* entity = (CEntity*)getEntityByName(sons[i]);
+				TMsgActivateAnim msg;
+				msg.name = sons[i];
+				entity->sendMsg(msg);
+			}
 		}
 	}
 
@@ -79,11 +85,15 @@ void TCompRigidAnim::onGroupCreated(const TMsgEntitiesGroupCreated& msg) {
 void TCompRigidAnim::activate(const TMsgActivateAnim& msg) {
 	is_moving = true;
 	name = msg.name;
+	wait_time = msg.wait_time;
+	timer = 0.f;
+
 }
 
 void TCompRigidAnim::desactivate(const TMsgDesactivateAnim & msg)
 {
 	is_moving = false;
+	timer = 0.f;
 	if (!father) {
 		current_time = 0;
 		RigidAnims::TKey k;

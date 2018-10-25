@@ -6,7 +6,7 @@
       ,
       "transform":
       {
-        "pos": "26.1664 31.8949 -16.987"
+        "pos": "26.1664 21.8949 -16.987"
         ,
         "rotation": "0.0 0.476191 0.0 -0.879342"
       }
@@ -540,7 +540,8 @@
       "abs_aabb": true,
         "sound": {
           "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true},
+            {"name": "sound_shut", "src": "event:/SFX/Object/Mechanics/Compresora_Contacto", "positional": true, "on_start": true}
             ]
             }
     }
@@ -590,7 +591,8 @@
         "trigger_type": "compresora"
       }, "sound": {
           "events": [
-            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false}
+            {"name": "hit", "src": "event:/SFX/Character/Naja/Hits/Hit_Compresoras", "positional": true, "on_start": false},
+            {"name": "sound_shut", "src": "event:/SFX/Object/Mechanics/Compresora_Contacto", "positional": true, "on_start": true}
             ]
             }
     }
@@ -653,7 +655,8 @@
       "abs_aabb": true,
         "sound": {
           "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true},
+            {"name": "sound_shut", "src": "event:/SFX/Object/Mechanics/Compresora_Contacto", "positional": true, "on_start": true}
             ]
             }
     }
@@ -767,7 +770,8 @@
       "abs_aabb": true,
         "sound": {
           "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true},
+            {"name": "sound_shut", "src": "event:/SFX/Object/Mechanics/Compresora_Contacto", "positional": true, "on_start": true}
             ]
             }
     }
@@ -831,7 +835,7 @@
       ,
       "transform":
       {
-        "pos": "26.1402 40.294 -16.9936"
+        "pos": "26.1402 32.1311 -16.9936"
         ,
         "rotation": "0.0 0.471258 0.0 -0.881996"
       }
@@ -839,7 +843,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Compresor.mesh"
+          "mesh": "data/meshes/CompresorB.mesh"
           ,
           "materials":
           [
@@ -862,18 +866,20 @@
         ,
         "rol": "father"
         ,
-        "maxY": 40.294
+        "maxY": 36.294
         ,
-        "minY": 36.2519
+        "minY": 33.8519
       }
       ,
       "collider":
       {
         "shape": "box"
         ,
-        "halfExtent": "1.68688 2.25 0.993346"
+        "offset": "0.0 1.1 0.0"
         ,
-        "offset": "0.0 0.0 0.0"
+        "halfExtent": "1.68688 1.13313 0.993345"
+        ,
+        "is_dynamic": false
         ,
         "is_trigger": false
       }
@@ -881,7 +887,8 @@
       "abs_aabb": true,
         "sound": {
           "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true},
+            {"name": "sound_shut", "src": "event:/SFX/Object/Mechanics/Compresora_Contacto", "positional": true, "on_start": true}
             ]
             }
     }
@@ -995,7 +1002,8 @@
       "abs_aabb": true,
         "sound": {
           "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true},
+            {"name": "sound_shut", "src": "event:/SFX/Object/Mechanics/Compresora_Contacto", "positional": true, "on_start": true}
             ]
             }
     }
@@ -1109,7 +1117,8 @@
       "abs_aabb": true,
         "sound": {
           "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true},
+            {"name": "sound_shut", "src": "event:/SFX/Object/Mechanics/Compresora_Contacto", "positional": true, "on_start": true}
             ]
             }
     }
@@ -1223,7 +1232,8 @@
       "abs_aabb": true,
         "sound": {
           "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true},
+            {"name": "sound_shut", "src": "event:/SFX/Object/Mechanics/Compresora_Contacto", "positional": true, "on_start": true}
             ]
             }
     }
@@ -1337,7 +1347,8 @@
       "abs_aabb": true,
         "sound": {
           "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true},
+            {"name": "sound_shut", "src": "event:/SFX/Object/Mechanics/Compresora_Contacto", "positional": true, "on_start": true}
             ]
             }
     }
@@ -1451,7 +1462,8 @@
       "abs_aabb": true,
         "sound": {
           "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true},
+            {"name": "sound_shut", "src": "event:/SFX/Object/Mechanics/Compresora_Contacto", "positional": true, "on_start": true}
             ]
             }
     }
@@ -1565,7 +1577,8 @@
       "abs_aabb": true,
         "sound": {
           "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true},
+            {"name": "sound_shut", "src": "event:/SFX/Object/Mechanics/Compresora_Contacto", "positional": true, "on_start": true}
             ]
             }
     }
@@ -1679,7 +1692,8 @@
       "abs_aabb": true,
         "sound": {
           "events": [
-            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true}
+            {"name": "sound", "src": "event:/SFX/Object/Mechanics/Compresor_Movimiento", "positional": true, "on_start": true},
+            {"name": "sound_shut", "src": "event:/SFX/Object/Mechanics/Compresora_Contacto", "positional": true, "on_start": true}
             ]
             }
     }

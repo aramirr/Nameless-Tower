@@ -1,0 +1,397 @@
+[
+  {
+    "entity":
+    {
+      "name": "Peke_Twerk"
+      ,
+      "transform":
+      {
+        "pos": "-9.91709 11.4592 -25.6072"
+        ,
+        "rotation": "0.0267637 -0.88964 0.00241174 0.45587"
+      }
+      ,
+      "skeleton": {
+        "skeleton": "data/skeletons/Peke/Peke.skeleton"
+      },
+      "render" : [
+        {
+          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCuerpoMat.material"
+          ]
+        },
+        {
+          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCabezaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Peke_Ska"
+      ,
+      "transform":
+      {
+        "pos": "27.3289 45.2452 10.7506"
+        ,
+        "rotation": "0.0 -0.913545 0.0 -0.406737"
+      }
+      ,
+      "skeleton": {
+        "skeleton": "data/skeletons/Peke/Peke.skeleton"
+      },
+      "render" : [
+        {
+          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCuerpoMat.material"
+          ]
+        },
+        {
+          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCabezaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Peke_Saltitos1"
+      ,
+      "transform":
+      {
+        "pos": "-27.959 21.187 8.07284"
+        ,
+        "rotation": "0.0 0.633269 0.0 -0.773931"
+      }
+      ,
+      "skeleton": {
+        "skeleton": "data/skeletons/Peke/Peke.skeleton"
+      },
+      "render" : [
+        {
+          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCuerpoMat.material"
+          ]
+        },
+        {
+          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCabezaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Peke_Saltitos2"
+      ,
+      "transform":
+      {
+        "pos": "-7.4424 6.29547 -21.7142"
+        ,
+        "rotation": "0.0 -0.999977 0.0 0.00674298"
+      }
+      ,
+      "skeleton": {
+        "skeleton": "data/skeletons/Peke/Peke.skeleton"
+      },
+      "render" : [
+        {
+          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCuerpoMat.material"
+          ]
+        },
+        {
+          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCabezaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Peke_Pescador"
+      ,
+      "transform":
+      {
+        "pos": "30.555 66.331 -10.6705"
+        ,
+        "rotation": "0.0 -0.809167 0.0 -0.587578"
+      }
+     ,
+      "skeleton": {
+        "skeleton": "data/skeletons/Peke/Peke.skeleton"
+      },
+      "render" : [
+        {
+          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCuerpoMat.material"
+          ]
+        },
+        {
+          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCabezaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Peke_Colgado2"
+      ,
+      "transform":
+      {
+        "pos": "4.47 49.325 30.329"
+        ,
+        "rotation": "0.0 0.0740876 0.0 -0.997252"
+      }
+      ,
+      "skeleton": {
+        "skeleton": "data/skeletons/Peke/Peke.skeleton"
+      },
+      "render" : [
+        {
+          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCuerpoMat.material"
+          ]
+        },
+        {
+          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCabezaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Peke_Colgado1"
+      ,
+      "transform":
+      {
+        "pos": "30.128 65.132 -11.065"
+        ,
+        "rotation": "0.0 -0.860503 0.0 -0.509445"
+      }
+      ,
+      "skeleton": {
+        "skeleton": "data/skeletons/Peke/Peke.skeleton"
+      },
+      "render" : [
+        {
+          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCuerpoMat.material"
+          ]
+        },
+        {
+          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCabezaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Peke_Bracitos"
+      ,
+      "transform":
+      {
+        "pos": "27.102 45.3158 10.0339"
+        ,
+        "rotation": "0.0 -0.544639 0.0 -0.838671"
+      }
+      ,
+      "skeleton": {
+        "skeleton": "data/skeletons/Peke/Peke.skeleton"
+      },
+      "render" : [
+        {
+          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCuerpoMat.material"
+          ]
+        },
+        {
+          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCabezaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Peke_Aplausos_Sentado1"
+      ,
+      "transform":
+      {
+        "pos": "4.143 50.285 30.695"
+        ,
+        "rotation": "0.0 -0.0241616 0.0 -0.999708"
+      }
+      ,
+      "skeleton": {
+        "skeleton": "data/skeletons/Peke/Peke.skeleton"
+      },
+      "render" : [
+        {
+          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCuerpoMat.material"
+          ]
+        },
+        {
+          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCabezaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Peke_Aplausos_Sentado2"
+      ,
+      "transform":
+      {
+        "pos": "-28.2343 20.746 7.71174"
+        ,
+        "rotation": "0.0 0.720156 0.0 -0.693812"
+      }
+      ,
+      "skeleton": {
+        "skeleton": "data/skeletons/Peke/Peke.skeleton"
+      },
+      "render" : [
+        {
+          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCuerpoMat.material"
+          ]
+        },
+        {
+          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCabezaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Peke_Aplausos"
+      ,
+      "transform":
+      {
+        "pos": "-6.82039 6.30165 -21.782"
+        ,
+        "rotation": "0.0 -0.904902 0.0 0.42562"
+      }
+      ,
+      "skeleton": {
+        "skeleton": "data/skeletons/Peke/Peke.skeleton"
+      },
+      "render" : [
+        {
+          "mesh": "data/skeletons/Peke/PekeCuerpo.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCuerpoMat.material"
+          ]
+        },
+        {
+          "mesh": "data/skeletons/Peke/PekeCabeza.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PekeCabezaMat.material"
+          ]
+        }
+      ]
+    }
+  }
+]

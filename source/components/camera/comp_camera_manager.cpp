@@ -142,17 +142,17 @@ int Seed = 26508293; // <--Introduzca aqui la semilla
 
 void TCompCameraManager::update(float dt) {
 	// Debug Runner
-	if (isPressed(VK_F4)) {
-		CEntity* e = (CEntity*)getEntityByName("Runner");
-		TMsgRunnerAppear msg;
-		msg.appearing_position = VEC3(28.431f, 64.101f, -13.563f);
-		e->sendMsg(msg);
-	}
-	if (isPressed(VK_F5)) {
-		CEntity* e = (CEntity*)getEntityByName("Runner");
-		TMsgRunnerDisappear msg;
-		e->sendMsg(msg);
-	}
+	//if (isPressed(VK_F4)) {
+	//	CEntity* e = (CEntity*)getEntityByName("Runner");
+	//	TMsgRunnerAppear msg;
+	//	msg.appearing_position = VEC3(28.431f, 64.101f, -13.563f);
+	//	e->sendMsg(msg);
+	//}
+	//if (isPressed(VK_F5)) {
+	//	CEntity* e = (CEntity*)getEntityByName("Runner");
+	//	TMsgRunnerDisappear msg;
+	//	e->sendMsg(msg);
+	//}
 
 	if (temblor /*&& isPressed(VK_F3)*/) {
 		CEntity* camera = (CEntity*)Engine.getCameras().getActiveCamera();
@@ -163,11 +163,11 @@ void TCompCameraManager::update(float dt) {
 		VEC3 newLeft = c->getLeft();
 
 		float x = Randfloat(-0.1f, 0.1f);
-		dbg(("X: " + std::to_string(x) + "\n").c_str());
+		//dbg(("X: " + std::to_string(x) + "\n").c_str());
 		float y = Randfloat(-0.1f, 0.1f);;
-		dbg(("Y: " + std::to_string(y) + "\n").c_str());
+		//dbg(("Y: " + std::to_string(y) + "\n").c_str());
 		float z = Randfloat(-0.1f, 0.1f);
-		dbg(("Z: " + std::to_string(z) + "\n").c_str());
+		//dbg(("Z: " + std::to_string(z) + "\n").c_str());
 
 		newLeft *= x;
 		newPos += newLeft;
@@ -188,7 +188,7 @@ void TCompCameraManager::update(float dt) {
 			CEntity* e_player = (CEntity*)getEntityByName("The Player");
 			TCompPlayerController* player = e_player->get<TCompPlayerController>();
 		}
-		if (isPressed(VK_F1)) {
+		/*if (isPressed(VK_F1)) {
 			CEntity* player = (CEntity*)getEntityByName("The Player");
 
 			TMsgSetFSMVariable pauseMsg;
@@ -209,7 +209,7 @@ void TCompCameraManager::update(float dt) {
 			player->sendMsg(pauseMsg);
 
 			godMode = false;
-		}
+		}*/
 	}
 
 	if (carga) {																				// CONFIGURACION INICIAL DEL MANAGER DE CAMARAS

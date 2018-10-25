@@ -9,7 +9,8 @@ class CAITorch : public IAIController
 {
   DECL_SIBLING_ACCESS();
 
-  float timer = 0.f;
+	float timer = 0.f;
+    float delay;
   float frames;
   float smoke_frames;
   float current_frames;
@@ -19,7 +20,10 @@ class CAITorch : public IAIController
   float z_offset = 0.f;
   bool apagando = false;
   bool apagado = false;
-  float timer_limit;
+  bool puzzle_complete = false;
+	bool initialized = false;
+	float timer_limit;
+	float current_delay;
     bool in_puzzle;
     bool violeta;
     bool azul;
@@ -56,6 +60,7 @@ public:
   void activate();
   void deactivate(const TMsgDeactivateTorch& msg);
   void activateMsg(const TMsgActivateTorch& msg);
+  void completeMsg(const TMsgPuzzleComplete& msg);
 
   MAT44 getWorld();
   void renderDebug();

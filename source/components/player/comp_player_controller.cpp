@@ -17,7 +17,8 @@ void TCompPlayerController::debugInMenu() {
 	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
     ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
     ImGui::Text("Can die: %s", can_die ? "Si" : "No");
-    ImGui::Text("Cinematic: %s", on_cinematic ? "Si" : "No");
+		ImGui::Text("Cinematic: %s", on_cinematic ? "Si" : "No");
+		ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
 }
 
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
@@ -29,6 +30,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	idle_max_time = j.value("idle_max_time", 10.f);
 	is_grounded = true;
 	looking_left = false;
+	level_started = false;
     rayWall = false;
     on_cinematic = false;
     Studio::EventDescription* event_description = NULL;
@@ -90,12 +92,12 @@ void TCompPlayerController::change_animation(int animation_id, bool is_action, f
 	skeleton->playAnimation(animation_id, is_action, in_delay, out_delay, clear);
 }
 
-void TCompPlayerController::remove_animation(int animation_id) {
+void TCompPlayerController::remove_animation(int animation_id, float delay) {
 	CEntity* e = h_entity;
 	TCompSkeleton* skeleton = e->get<TCompSkeleton>();
 	assert(skeleton);
 
-	skeleton->removeAnimation(animation_id);
+	skeleton->removeAnimation(animation_id, delay);
 }
 
 void TCompPlayerController::clear_animations(float out_delay) {
@@ -164,7 +166,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			PxReal maxDistance = 4.0f;
 			PxRaycastBuffer hit;
 
-			if (EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) {
+			if ((EnginePhysics.gScene->raycast(originf, unitDirf, maxDistance, hit)) || (EnginePhysics.gScene->raycast(originb, unitDirb, maxDistance / 2, hit))) {
 				PxFilterData filter_data = hit.block.shape->getSimulationFilterData();
 
 				if (filter_data.word0 == CModulePhysics::FilterGroup::Scenario) {
@@ -178,18 +180,32 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 					e = (CEntity*)getEntityByName("camera_look_down");
 					e->sendMsg(msg);
 				}
+				else {
+					CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
+					rayWall = false;
+					TMsgActiveCamera msg;
+					msg.blend_time = 2.f;
+					e->sendMsg(msg);
+					e = (CEntity*)getEntityByName("camera_look_up");
+					e->sendMsg(msg);
+					e = (CEntity*)getEntityByName("camera_look_down");
+					e->sendMsg(msg);
+				}
 
 			}
-			else if (rayWall && !EnginePhysics.gScene->raycast(originb, unitDirb, maxDistance / 2, hit)) {
-				CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
-				rayWall = false;
-				TMsgActiveCamera msg;
-				msg.blend_time = 2.f;
-				e->sendMsg(msg);
-				e = (CEntity*)getEntityByName("camera_look_up");
-				e->sendMsg(msg);
-				e = (CEntity*)getEntityByName("camera_look_down");
-				e->sendMsg(msg);
+			else  {
+				//if (rayWall && filter_data.word0 != CModulePhysics::FilterGroup::Scenario) {
+					CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
+					rayWall = false;
+					TMsgActiveCamera msg;
+					msg.blend_time = 2.f;
+					e->sendMsg(msg);
+					e = (CEntity*)getEntityByName("camera_look_up");
+					e->sendMsg(msg);
+					e = (CEntity*)getEntityByName("camera_look_down");
+					e->sendMsg(msg);
+				//}
+				
 			}
 
 			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, query_filter, filter_controller));
@@ -201,6 +217,11 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 					deadMsg.variant.setBool(true);
 					CEntity* e = CHandle(this).getOwner();
 					e->sendMsg(deadMsg);
+
+					//dbg("NAPOLEO\n");
+					CEntity* runner = (CEntity *)getEntityByName("Runner");
+					TMsgRunnerDisappear msg_disappear;
+					runner->sendMsg(msg_disappear);
 				}
                 CEntity* particles_emiter = (CEntity*)getEntityByName("humo_land");
                 TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
@@ -273,6 +294,6 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 
 void TCompPlayerController::setCheckpoint(const TMsgCheckpoint& msg)
 {
-	dbg("Checkpoint\n");
+	//dbg("Checkpoint\n");
 	checkpoint = msg.appearing_position;
 }

@@ -1,0 +1,313 @@
+[
+	{
+		"name" : "menu_options",
+		"type" : "widget",
+		"size" : "1920 1080",
+		"children" : [
+			{
+				"name" : "background",
+				"children" : [
+					{
+						"name" : "fondoA",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/OptionMenu/Menu_Options_Fondo.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1"
+					},
+					{
+						"name" : "particulasA",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/MainMenu/Menu_Fondo_Particulas.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1",
+						"effects" : [
+							{
+								"type" : "animate_uv",
+								"speed" : "0.0125 0.0125"
+							}
+						]
+					},
+					{
+						"name" : "particulasB",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/MainMenu/Menu_Fondo_Particulas_2.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1",
+						"effects" : [
+							{
+								"type" : "animate_uv",
+								"speed" : "0.0250 0.0250"
+							}
+						]
+					},
+					{
+						"name" : "fondoB",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/OptionMenu/Menu_Options_referencia.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1"
+					}
+				]
+			},
+			{
+				"name" : "test_buttons",
+				"type" : "widget",
+				"position" : "0 0",
+				"children" : [
+					{
+						"name" : "keyboard",
+						"type" : "button",
+						"position" : "973 353",
+						"size" : "240 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_Key_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_Key_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_Key_3.dds"
+						}
+					},
+					{
+						"name" : "full_screen_ON",
+						"type" : "button",
+						"position" : "965 471",
+						"size" : "100 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_ON_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_ON_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_ON_3.dds"
+						}
+					},
+					{
+						"name" : "full_screen_OFF",
+						"type" : "button",
+						"position" : "1103 471",
+						"size" : "100 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_OFF_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_OFF_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_OFF_3.dds"
+						}
+					},
+					{
+						"name" : "res_1920",
+						"type" : "button",
+						"position" : "962 579",
+						"size" : "200 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1920_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1920_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1920_3.dds"
+						}
+					},
+					{
+						"name" : "res_1600",
+						"type" : "button",
+						"position" : "1191 579",
+						"size" : "164 60",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1600900_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1600x900_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1600x900_3.dds"
+						}
+					},
+					{
+						"name" : "res_12809",
+						"type" : "button",
+						"position" : "1380 579",
+						"size" : "164 60",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1280960_1_N.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1280x960_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1280x960_3.dds"
+						}
+					},
+					{
+						"name" : "res_1366",
+						"type" : "button",
+						"position" : "962 629",
+						"size" : "156 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1633_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1633_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1633_2.dds"
+						}
+					},
+					{
+						"name" : "res_12807",
+						"type" : "button",
+						"position" : "1191 629",
+						"size" : "164 60",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1284720_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1280x720_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1280x720_3.dds"
+						}
+					},
+					{
+						"name" : "res_1024",
+						"type" : "button",
+						"position" : "1380 629",
+						"size" : "164 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1024_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1024_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_1024_3.dds"
+						}
+					},
+					{
+						"name" : "volumen_OFF",
+						"type" : "button",
+						"position" : "972 734",
+						"size" : "100 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_OFF_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_OFF_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_OFF_3.dds"
+						}
+					},
+					{
+						"name" : "volumen_LOW",
+						"type" : "button",
+						"position" : "1072 734",
+						"size" : "120 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_LOW_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_LOW_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_LOW_3.dds"
+						}
+					},
+					{
+						"name" : "volumen_MEDIUM",
+						"type" : "button",
+						"position" : "1206 734",
+						"size" : "196 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_Medium_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_Medium_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_Medium_3.dds"
+						}
+					},
+					{
+						"name" : "volumen_HIGH",
+						"type" : "button",
+						"position" : "1424 734",
+						"size" : "120 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_High_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_High_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_High_3.dds"
+						}
+					},
+					{
+						"name" : "vsyncON",
+						"type" : "button",
+						"position" : "965 863",
+						"size" : "100 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_ON_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_ON_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_ON_3.dds"
+						}
+					},
+					{
+						"name" : "vsyncOFF",
+						"type" : "button",
+						"position" : "1103 863",
+						"size" : "100 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_OFF_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_OFF_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_OFF_3.dds"
+						}
+					},
+					{
+						"name" : "exit_options",
+						"type" : "button",
+						"position" : "1385 948",
+						"size" : "100 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_EXIT_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_EXIT_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_EXIT_3.dds"
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		"name" : "keyboardMenu",
+		"type" : "widget",
+		"size" : "1920 1080",
+		"children" : [
+			{
+				"name" : "kayboardBackground",
+				"children" : [
+					{
+						"name" : "Carga",
+						"type" : "image",
+						"size" : "1920 1080",
+						"texture" : "data/textures/gui/Keyboard_prueba.dds",
+						"minUV" : "0 0",
+						"maxUV" : "1 1"
+					}
+				]
+			},
+			{
+				"name" : "test_buttons",
+				"type" : "widget",
+				"position" : "0 0",
+				"children" : [
+					{
+						"name" : "keyboardExit",
+						"type" : "button",
+						"position" : "1385 948",
+						"size" : "100 48",
+						"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_EXIT_1.dds",
+						"selected" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_EXIT_2.dds"
+						},
+						"pressed" : {
+							"texture" : "data/textures/gui/OptionMenu/Boton_OPTIONS_EXIT_3.dds"
+						}
+					}
+				]
+			}
+		]
+	}
+]

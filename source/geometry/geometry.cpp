@@ -12,9 +12,11 @@ VEC3 loadVEC3(const json& j) {
 	VEC3 v;
 	std::string str = j.get< std::string >();
 	int n = sscanf(str.c_str(), "%f %f %f", &v.x, &v.y, &v.z);
-  if (n != 3) {
-    int a = 1;
-  }
+
+	if (n != 3) {
+		auto b = j;
+		int a = 0;
+	}
 	assert(n == 3);
 	return v;
 }

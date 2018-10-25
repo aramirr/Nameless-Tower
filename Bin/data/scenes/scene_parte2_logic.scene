@@ -2,6 +2,184 @@
   {
     "entity":
     {
+      "name": "VientoVertical"
+      ,
+      "transform":
+      {
+        "pos": "3.22164 47.6119 30.6674"
+        ,
+        "rotation": "0.0 -0.0827797 0.0 -0.996568"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.24996 1.58777 1.70092"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VientoVerticalTrigger"
+      ,
+      "transform":
+      {
+        "pos": "0 0 0"
+      }
+      ,
+      "render":
+      {
+        "mesh": "data/meshes/VientoVertical.mesh"
+        ,
+        "materials":
+        [
+          "data/materials/VientoVertMat.material"
+        ]
+      }
+      ,
+      "hierarchy":
+      {
+        "parent": "VientoVertical"
+        ,
+        "pos": "-1.43051e-06 0.0 -1.90735e-06"
+      }
+      ,
+      "ai_fan":
+      {
+        "force": 1.0
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "plattform"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": true
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "3.2 16.5 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "LanzasVerticales002"
+      ,
+      "transform":
+      {
+        "pos": "14.0324 55.9581 27.8452"
+        ,
+        "rotation": "0.343021 -0.618334 -0.618334 -0.343021"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/LanzasVerticales.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LanzasMat.material"
+          ]
+        }
+      ]
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "render": true
+        ,
+        "sound_name": "hit_lanzas"
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "halfExtent": "1.3825 2.0 0.950772"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 5.0
+        ,
+        "delay": 0.5
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "14.0324 55.9581 27.8452"
+          ,
+          "14.0324 52.0975 27.8452"
+        ]
+      }
+      ,
+      "abs_aabb": true
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Lanzas"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Activador_Estatua03"
       ,
       "transform":
@@ -45,7 +223,7 @@
       ,
       "transform":
       {
-        "pos": "27.9965 37.7149 14.1948"
+        "pos": "27.7468 37.7039 14.659"
         ,
         "rotation": "0.0 -0.881847 0.0 0.471536"
       }
@@ -93,7 +271,7 @@
       ,
       "transform":
       {
-        "pos": "11.2771 51.2126 29.2317"
+        "pos": "11.7716 51.2029 29.0014"
         ,
         "rotation": "-0.00186421 -0.156424 -0.0117701 -0.987618"
       }
@@ -225,7 +403,7 @@
       ,
       "transform":
       {
-        "pos": "30.3675 42.2305 -8.1708"
+        "pos": "30.4971 42.2095 -7.64367"
         ,
         "rotation": "0.0 0.64954 0.0 -0.760327"
       }
@@ -312,104 +490,11 @@
   {
     "entity":
     {
-      "name": "VientoVertical"
-      ,
-      "transform":
-      {
-        "pos": "3.14173 47.25 30.2262"
-        ,
-        "rotation": "0.0 -0.052335 0.0 -0.99863"
-      }
-      ,
-      "render":
-      [
-      ]
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "1.24996 1.58777 1.70092"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": false
-      }
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "VientoVerticalTrigger"
-      ,
-      "transform":
-      {
-        "pos": "0 0 0"
-      }
-      ,
-      "render":
-      {
-        "mesh": "data/meshes/VientoVertical.mesh"
-        ,
-        "materials":
-        [
-          "data/materials/VientoVertMat.material"
-        ]
-      }
-      ,
-      "hierarchy":
-      {
-        "parent": "VientoVertical"
-        ,
-        "pos": "0.0 0.0 0.0"
-      }
-      ,
-      "ai_fan":
-      {
-        "force": 2.0
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "plattform"
-        ,
-        "collider_entity": "none"
-        ,
-        "render": true
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "offset": "0.0 0.0 0.0"
-        ,
-        "halfExtent": "3.4 16.5 1.7"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "abs_aabb": true
-      ,
-      "local_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "ParedTapada7"
       ,
       "transform":
       {
-        "pos": "18.5739 31.5 -18.992"
+        "pos": "18.574 31.5 -18.9921"
         ,
         "rotation": "0.0 -0.972236 0.0 -0.234003"
       }
@@ -481,7 +566,7 @@
           {
             "name": "sound"
             ,
-            "src": "event:/SFX/Object/Mechanics/Reja_Fast"
+            "src": "event:/SFX/Object/Mechanics/Puerta_Reja"
             ,
             "positional": true
             ,
@@ -491,7 +576,7 @@
           {
             "name": "sound_shut"
             ,
-            "src": "event:/SFX/Object/Mechanics/Puerta_Reja"
+            "src": "event:/SFX/Object/Mechanics/Reja_Fast"
             ,
             "positional": true
             ,
@@ -671,7 +756,7 @@
           {
             "name": "sound"
             ,
-            "src": "event:/SFX/Object/Mechanics/Reja_Fast"
+            "src": "event:/SFX/Object/Mechanics/Puerta_Reja"
             ,
             "positional": true
             ,
@@ -681,7 +766,7 @@
           {
             "name": "sound_shut"
             ,
-            "src": "event:/SFX/Object/Mechanics/Puerta_Reja"
+            "src": "event:/SFX/Object/Mechanics/Reja_Fast"
             ,
             "positional": true
             ,
@@ -741,7 +826,7 @@
           {
             "name": "sound"
             ,
-            "src": "event:/SFX/Object/Mechanics/Reja_Fast"
+            "src": "event:/SFX/Object/Mechanics/Puerta_Reja"
             ,
             "positional": true
             ,
@@ -751,7 +836,7 @@
           {
             "name": "sound_shut"
             ,
-            "src": "event:/SFX/Object/Mechanics/Puerta_Reja"
+            "src": "event:/SFX/Object/Mechanics/Reja_Fast"
             ,
             "positional": true
             ,
@@ -849,7 +934,7 @@
       ,
       "transform":
       {
-        "pos": "19.5553 52.9952 24.2726"
+        "pos": "19.5553 52.9952 24.2725"
         ,
         "rotation": "-0.666205 -0.237003 0.237003 -0.666205"
       }
