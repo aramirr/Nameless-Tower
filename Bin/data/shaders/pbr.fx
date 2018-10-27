@@ -611,7 +611,7 @@ float4 PS_ambient(
     float g_ReflectionIntensity = 1.0;
     float g_AmbientLightIntensity = 1.0;
 
-     ao = txAO.Sample(samLinear, iUV).x;
+    ao = txAO.Sample(samLinear, iUV).x;
 
     float4 self_illum = txSelfIllum.Load(uint3(iPosition.xy, 0));
 
@@ -651,7 +651,7 @@ float4 PS_ambient(
  
     // Discretize the intensity, based on a few cutoff points
         if (intensity > 0.8)
-            final_color = float4(1.0, 1.0, 1.0, 1.0) * final_color;//float4(albedo, 1);
+            final_color = float4(1.0, 1.0, 1.0, 1.0) * final_color; //float4(albedo, 1);
         else if (intensity < -0.8)
             final_color = float4(0.35, 0.35, 0.35, 1.0) * final_color; //float4(albedo, 1);
         else
@@ -661,10 +661,11 @@ float4 PS_ambient(
             final_color = float4(lerp(fogColor, final_color.rgb, visibility), final_color.a);
         else if (cell == 0.5f)
             final_color = float4(lerp(fogColor, final_color.rgb, visibility), final_color.a);
-        else if (global_fogDensity_adjustment > 0.f){
+        else if (global_fogDensity_adjustment > 0.f)
+        {
             visibility = 1.0f / exp(distancet * 0.004f);
             visibility = clamp(visibility, 0.0f, 1.0f);
-            final_color = float4(lerp(fogColor/3, final_color.rgb, visibility), final_color.a);
+            final_color = float4(lerp(fogColor / 3, final_color.rgb, visibility), final_color.a);
             final_color = final_color * global_ambient_adjustment / 2;
 
         }
@@ -672,7 +673,7 @@ float4 PS_ambient(
     }
     else
     {
-        final_color = float4(env_fresnel * env/3 * g_ReflectionIntensity +
+        final_color = float4(env_fresnel * env / 3 * g_ReflectionIntensity +
                               albedo.xyz * irradiance * g_AmbientLightIntensity
                               , albedo.a) + self_illum;
 
@@ -779,13 +780,19 @@ float4 shade(
             NdotL = 0;
         else
             NdotL = 1;
-        float3 final_color = light_color.xyz * cDiff /** NdL*/ /** (cDiff * (1.0f - cSpec) + cSpec) **/* att * light_intensity * shadow_factor;
+
+        float3 final_color;
+
+        if ((global_naja_interior == 1 && celltype == 1.f) || (global_runner_interior == 1 && celltype < 1.f && celltype > 0.74f))
+            final_color = light_color.xyz * cDiff /** NdL*/ /** (cDiff * (1.0f - cSpec) + cSpec) **/ * att * light_intensity / 5 * shadow_factor /** 0.1f*/;
+        else
+            final_color = light_color.xyz * cDiff /** NdL*/ /** (cDiff * (1.0f - cSpec) + cSpec) **/ * att * light_intensity * shadow_factor;
 
         final_color2 = float4(final_color, 1);
 
         final_color2.a = 1;
 
-        float intensity= dot(normalize(light_dir), N);
+        float intensity = dot(normalize(light_dir), N);
  
     // Discretize the intensity, based on a few cutoff points
         if (intensity > 0.8)

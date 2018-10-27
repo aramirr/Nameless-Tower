@@ -42,13 +42,13 @@ float4 compute(float4 iPosition, float2 iUV, float1 cell)
     float4 oNormal = float4(decodeNormal(N_rt.xyz), 1);
 
     float3 hdrColor = txAccLights.Load(ss_load_coords).xyz;
-
+    
     if (cell <= 0.5f)
         hdrColor *= global_exposure_adjustment;
     else if ((global_naja_interior == 0 && cell == 1.f) || (global_runner_interior == 0 && cell < 1.f && cell > 0.74f))
         hdrColor *= global_exposure_adjustment / 1.2f;
     else
-        hdrColor *= global_exposure_adjustment * 100.f;
+        hdrColor *= 0.045f * 100.f;
 
   // In Low Dynamic Range we could not go beyond the value 1
     float3 ldrColor = min(hdrColor, float3(1, 1, 1));
