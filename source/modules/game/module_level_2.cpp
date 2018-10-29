@@ -54,6 +54,7 @@ void CModuleLevel2::update(float delta)
 {
 
 	if (carga) {
+		EngineTower.setActualLevelValue("level_2");
 		CEntity* cam = (CEntity*)getEntityByName("camera_manager");
 		TCompCameraManager* cm = cam->get<TCompCameraManager>();
 		assert(cm);
