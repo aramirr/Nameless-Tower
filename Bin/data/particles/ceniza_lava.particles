@@ -22,7 +22,7 @@
       "ground" : true
   },
   "render" : {
-      "texture" : "data/textures/particles/Hoja_Particula_Vuelta1.dds"
+      "texture" : "data/textures/particles/glow.dds"
   },
   "size" : {
     "scale" : 0.120,
@@ -36,8 +36,8 @@
   "color" : {
     "opacity" : 0.500,
     "colors" : [
-      [0.0, "0.093 0.547 0.794 1"],
-      [1.0, "0.093 0.547 0.794 1"]
+      [0.0, "1 0.547 0 1"],
+      [1.0, "1 0.547 0 1"]
     ] 
   }
 }
