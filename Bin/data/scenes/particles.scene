@@ -182,5 +182,32 @@
 				"mesh" : "axis.mesh"
 			}
 		}
+	},
+	{
+	    "entity":
+	    {
+	      "name": "TestEspumaCascada"
+	      ,
+	      "transform":
+	      {
+	        "pos": "26.1719 4.5 -13.2898"
+	        ,
+	        "rotation": "0.165199 -0.165199 0.687539 -0.687539"
+	      }
+	      ,
+	      "render":
+	      [
+	        {
+	          "mesh": "unit_quad_pos_xy.mesh"
+	          ,
+	          "materials":
+	          [
+	            "data/materials/EspumaCascadaSpriteMat.material"
+	          ]
+	        }
+	      ]
+	      ,
+	      "abs_aabb": true
+	    }
 	}
 ]
