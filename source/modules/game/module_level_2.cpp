@@ -20,7 +20,7 @@
 bool CModuleLevel2::start()
 {
 	json jboot = loadJson("data/boot.json");
-
+	EngineTower.setActualLevelValue("level_2");
 	// Auto load some scenes
 	std::vector< std::string > scenes_to_auto_load = jboot["boot_level_2"];
 	for (auto& scene_name : scenes_to_auto_load) {

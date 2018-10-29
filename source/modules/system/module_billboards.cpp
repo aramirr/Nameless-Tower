@@ -67,10 +67,14 @@ bool CModuleBillboards::start()
 		//auto rmesh = Resources.get("data/meshes/particles_14.instanced_mesh")->as<CRenderMesh>();
 		//smoke_particles_instances_mesh = (CRenderMeshInstanced*)rmesh;
 	}
-  {
-    auto rmesh = Resources.get("data/meshes/grass.instanced_mesh")->as<CRenderMesh>();
-    grass_instances_mesh = (CRenderMeshInstanced*)rmesh;
-  }
+	{
+		auto rmesh = Resources.get("data/meshes/grass.instanced_mesh")->as<CRenderMesh>();
+		grass_instances_mesh = (CRenderMeshInstanced*)rmesh;
+	}
+	{
+		auto rmesh = Resources.get("data/meshes/grass_bajada.instanced_mesh")->as<CRenderMesh>();
+		grass_bajada_instances_mesh = (CRenderMeshInstanced*)rmesh;
+	}
   {
 	  auto rmesh = Resources.get("data/meshes/windstrike.instanced_mesh")->as<CRenderMesh>();
 	  windstrike_instances_mesh = (CRenderMeshInstanced*)rmesh;
@@ -598,22 +602,27 @@ void CModuleBillboards::update(float delta)
   t += delta;
   for (auto& p : instances) 
     p.world = p.world * MAT44::CreateTranslation(VEC3(0, 0.1f * sin(t), 0));
-    instances_mesh->setInstancesData(instances.data(), instances.size(), sizeof(TInstance));
 
-    particles_instances_mesh->setInstancesData(particles_instances.data(), particles_instances.size(), sizeof(TRenderParticle));
-    fire_particles_instances_mesh->setInstancesData(fire_particles_instances.data(), fire_particles_instances.size(), sizeof(TRenderParticle));
-    fire_particles_violeta_instances_mesh->setInstancesData(fire_violeta_particles_instances.data(), fire_violeta_particles_instances.size(), sizeof(TRenderParticle));
-    fire_particles_azul_instances_mesh->setInstancesData(fire_azul_particles_instances.data(), fire_azul_particles_instances.size(), sizeof(TRenderParticle));
-    thin_fire_particles_instances_mesh->setInstancesData(thin_fire_particles_instances.data(), thin_fire_particles_instances.size(), sizeof(TRenderParticle));
-    thin_fire_violeta_particles_instances_mesh->setInstancesData(thin_fire_violeta_particles_instances.data(), thin_fire_violeta_particles_instances.size(), sizeof(TRenderParticle));
-    thin_fire_azul_particles_instances_mesh->setInstancesData(thin_fire_azul_particles_instances.data(), thin_fire_azul_particles_instances.size(), sizeof(TRenderParticle));
-    thin_fire_azul_apagando_particles_instances_mesh->setInstancesData(thin_fire_azul_apagando_particles_instances.data(), thin_fire_azul_apagando_particles_instances.size(), sizeof(TRenderParticle));
-    smoke_4_prendiendo_particles_instances_mesh->setInstancesData(smoke_4_prendiendo_particles_instances.data(), smoke_4_prendiendo_particles_instances.size(), sizeof(TRenderParticle));
-    //smoke_particles_instances_mesh->setInstancesData(smoke_particles_instances.data(), smoke_particles_instances.size(), sizeof(TRenderParticle));
-    thin_smoke_particles_instances_mesh->setInstancesData(thin_smoke_particles_instances.data(), thin_smoke_particles_instances.size(), sizeof(TRenderParticle));
-    windstrike_instances_mesh->setInstancesData(windstrike_instances.data(), windstrike_instances.size(), sizeof(TWindstrikeParticle));
+  instances_mesh->setInstancesData(instances.data(), instances.size(), sizeof(TInstance));
 
-	grass_instances_mesh->setInstancesData(grass_instances_2_render.data(), grass_instances_2_render.size(), sizeof(TGrassParticle));
+  particles_instances_mesh->setInstancesData(particles_instances.data(), particles_instances.size(), sizeof(TRenderParticle));
+  fire_particles_instances_mesh->setInstancesData(fire_particles_instances.data(), fire_particles_instances.size(), sizeof(TRenderParticle));
+  fire_particles_violeta_instances_mesh->setInstancesData(fire_violeta_particles_instances.data(), fire_violeta_particles_instances.size(), sizeof(TRenderParticle));
+  fire_particles_azul_instances_mesh->setInstancesData(fire_azul_particles_instances.data(), fire_azul_particles_instances.size(), sizeof(TRenderParticle));
+  thin_fire_particles_instances_mesh->setInstancesData(thin_fire_particles_instances.data(), thin_fire_particles_instances.size(), sizeof(TRenderParticle));
+  thin_fire_violeta_particles_instances_mesh->setInstancesData(thin_fire_violeta_particles_instances.data(), thin_fire_violeta_particles_instances.size(), sizeof(TRenderParticle));
+  thin_fire_azul_particles_instances_mesh->setInstancesData(thin_fire_azul_particles_instances.data(), thin_fire_azul_particles_instances.size(), sizeof(TRenderParticle));
+  thin_fire_azul_apagando_particles_instances_mesh->setInstancesData(thin_fire_azul_apagando_particles_instances.data(), thin_fire_azul_apagando_particles_instances.size(), sizeof(TRenderParticle));
+  smoke_4_prendiendo_particles_instances_mesh->setInstancesData(smoke_4_prendiendo_particles_instances.data(), smoke_4_prendiendo_particles_instances.size(), sizeof(TRenderParticle));
+  //smoke_particles_instances_mesh->setInstancesData(smoke_particles_instances.data(), smoke_particles_instances.size(), sizeof(TRenderParticle));
+  thin_smoke_particles_instances_mesh->setInstancesData(thin_smoke_particles_instances.data(), thin_smoke_particles_instances.size(), sizeof(TRenderParticle));
+  windstrike_instances_mesh->setInstancesData(windstrike_instances.data(), windstrike_instances.size(), sizeof(TWindstrikeParticle));
+
+	if (EngineTower.getActualLevelValue() == "level_1")
+		grass_instances_mesh->setInstancesData(grass_instances_2_render.data(), grass_instances_2_render.size(), sizeof(TGrassParticle));
+	else 
+		grass_bajada_instances_mesh->setInstancesData(grass_instances_2_render.data(), grass_instances_2_render.size(), sizeof(TGrassParticle));
+
 }
 
 void CModuleBillboards::clearFire() {

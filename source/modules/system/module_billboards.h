@@ -69,7 +69,8 @@ class CModuleBillboards : public IModule
   struct TGrassParticle {
     VEC3  pos;
   };
-  CRenderMeshInstanced* grass_instances_mesh = nullptr;
+	CRenderMeshInstanced* grass_instances_mesh = nullptr;
+	CRenderMeshInstanced* grass_bajada_instances_mesh = nullptr;
   std::vector< TGrassParticle > grass_instances;
 	std::vector< std::vector<TGrassParticle>> grass_intances_vector;
 	std::vector<int> grass_vectors_2_render;

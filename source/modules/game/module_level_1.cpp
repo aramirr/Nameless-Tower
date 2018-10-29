@@ -28,6 +28,7 @@ bool CModuleLevel1::start()
 	cb_gui.options = 0.f;
 
 	EngineTimer.setTimeSlower(0.f);
+	EngineTower.setActualLevelValue("level_1");
 	CCamera        camera;
 	json jboot = loadJson("data/boot.json");
 

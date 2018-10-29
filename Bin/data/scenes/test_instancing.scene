@@ -228,6 +228,22 @@
         }
       ]
     }
+  },
+  {
+    "entity": {
+      "name": "Instanced Grass Bajada",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "render" : [
+        {
+          "mesh": "data/meshes/grass_bajada.instanced_mesh",
+          "materials": [
+            "data/materials/grass_bajada_instanced.material"
+          ]
+        }
+      ]
+    }
   }
   ,
   {

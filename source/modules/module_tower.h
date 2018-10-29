@@ -7,6 +7,8 @@
 class IAIController;
 
 class CModuleTower : public IModule {
+	std::string actual_level = "level_1";
+
 	bool cargar = true;
 	bool changeExposure;
 	bool changeVignetting;
@@ -88,6 +90,9 @@ public:
 	void endGame();
 	float getTowerRadius();
 
-    float checkAngle(float alpha, VEC3 pos1);
+	void setActualLevelValue(std::string value) { actual_level = value; }
+	std::string getActualLevelValue() { return actual_level; }
+
+  float checkAngle(float alpha, VEC3 pos1);
 };
 
