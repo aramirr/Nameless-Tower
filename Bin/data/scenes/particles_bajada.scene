@@ -24,5 +24,83 @@
 				"mesh" : "axis.mesh"
 			}
 		}
+	},
+	{
+		"entity": {
+			"name": "hojas_puente",
+			"transform": {
+				"pos": "-2.728 40.05 -25.915"
+			},
+			"particles" : {
+				"core" : "data/particles/hojas_puente_bajada.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "cannon_p_puente",
+			"transform": {},
+			"hierarchy": {
+				"axis": "0 1 0", 
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "hojas_puente"
+			},
+			"render" : {
+				"mesh" : "axis.mesh"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "hojas_estatua",
+			"transform": {
+				"pos": "-29.089 31 7.043"
+			},
+			"particles" : {
+				"core" : "data/particles/hojas_estatua_bajada.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "cannon_p_estatua",
+			"transform": {},
+			"hierarchy": {
+				"axis": "0 1 0", 
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "hojas_estatua"
+			},
+			"render" : {
+				"mesh" : "axis.mesh"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "hojas_jardin_1",
+			"transform": {
+				"pos": "26.332 53.495 3.378"
+			},
+			"particles" : {
+				"core" : "data/particles/hojas_jardin_1_bajada.particles"
+			}
+		}
+	},
+	{
+		"entity": {
+			"name": "cannon_p_jardin_1",
+			"transform": {},
+			"hierarchy": {
+				"axis": "0 1 0", 
+				"angle" : 0,
+				"pos": "0 0 0",
+				"parent" : "hojas_jardin_1"
+			},
+			"render" : {
+				"mesh" : "axis.mesh"
+			}
+		}
 	}
 ]
