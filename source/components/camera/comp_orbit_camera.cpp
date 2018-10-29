@@ -64,6 +64,9 @@ void TCompOrbitCamera::load(const json& j, TEntityParseContext& ctx) {
 	height = j.value("height", 2.7f);
 	radio = j.value("radio", 20.f);
 	apertura = j.value("apertura", -278.f);
+	blockY = j.value("blockY", false);
+	blockX = j.value("blockX", 0.f);
+	blockZ = j.value("blockZ", 0.f);
 
 	X = j.value("x", 0);
 	Y = j.value("y", 0);
@@ -211,20 +214,33 @@ void TCompOrbitCamera::update(float dt) {
 			pos.x = x;
 			pos.y = currentPlayerY + height;
 			pos.z = z;
-
 			float _distance = VEC3::Distance(center, pos);
 
-			if (isForward())offset *= -1;
+			if (blockY) {
+				pos.x = blockX;
+				pos.y = currentPlayerY + height;
+				pos.z = blockZ;
+				//_distance = VEC3::Distance(center, pos);
+				c->setPosition(center);
+				c->lookAt(pos,center);
+				c->setPosition(pos);
+				newPos = c->getPosition() - (c->getFront() * distance);
+			}
+			else {
+				if (isForward())offset *= -1;
 
-			float y, p2, _y, _p2;
-			c->getYawPitchRoll(&y, &p2);
-			p->getYawPitchRoll(&_y, &_p2);
+				float y, p2, _y, _p2;
+				c->getYawPitchRoll(&y, &p2);
+				p->getYawPitchRoll(&_y, &_p2);
 
-			c->setPosition(center);
+				c->setPosition(center);
 
-			y = _y + offset;
-			c->setYawPitchRoll(y, p2);
-			newPos = c->getPosition() - (c->getFront() * _distance);
+				y = _y + offset;
+				c->setYawPitchRoll(y, p2);
+				newPos = c->getPosition() - (c->getFront() * _distance);
+			}
+
+			
 			newPos.y = currentPlayerY + height;
 		}
 		else {
