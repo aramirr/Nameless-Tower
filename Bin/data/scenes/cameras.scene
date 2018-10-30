@@ -115,9 +115,12 @@
 			},
 			"orbitCamera" : {
 				"izq" : true,
-				"distance": 26.800,
+				"distance": 6.2,
 				"height": 3.100,
-				"apertura": -263.700
+				"apertura": -263.700,
+				"blockY": true,
+				"blockX": 3.311,
+				"blockZ": 31.326
 			},
 			"camera" : {
 				"fov" : 80 
