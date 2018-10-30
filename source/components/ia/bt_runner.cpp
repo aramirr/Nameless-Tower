@@ -220,9 +220,9 @@ int bt_runner::actionAttack() {
 
 int bt_runner::actionChase() {
 	recalculate_timer += DT;
-	if (recalculate_timer > 0.2f) {
+	if (recalculate_timer > 0.2f && !on_jump) {
 		recalculate_timer = 0.f;
-		//recalculate_path();
+		recalculate_path();
 	}
 	//dbg("target %s", target.c_str());
   TCompTransform *c_my_transform = getMyTransform();
@@ -337,8 +337,6 @@ void bt_runner::addGravity() {
   TCompCollider* comp_collider = get<TCompCollider>();
   TCompTransform* comp_transform = get<TCompTransform>();
   PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
-  VEC3 delta_move = comp_transform->getPosition();
-  delta_move.y += -1.f * DT;
 	float d_y = -10.f * DT;
   PxShape* player_shape;
   comp_collider->controller->getActor()->getShapes(&player_shape, 1);
@@ -662,11 +660,14 @@ void bt_runner::jump() {
 		gravity = 15.f;
 		// C position is the point with maxHeight and Vy = 0
 		float Yc;
-		if (waypoints_map[path[actual_waypoint]].position.y <= target_position.y + 0.5f)
+		if (path[actual_waypoint] == 31) {
+			Yc = waypoints_map[path[actual_waypoint]].position.y + 3.f;
+		}
+		else if (waypoints_map[path[actual_waypoint]].position.y <= target_position.y + 0.5f)
 			Yc = target_position.y + 2.5f;
 		else
 			Yc = waypoints_map[path[actual_waypoint]].position.y + 2.5f;
-
+		
 
 		//dbg("wp: %i - Yc: %f - ypos: %f\n", path[actual_waypoint], Yc, myPos.y);
 
@@ -687,7 +688,14 @@ void bt_runner::jump() {
 		Vy = 1.1*gravity * TimeAC;
 
 
+		if (path[actual_waypoint] == 31) {
+			Vx += 0.02;
+			dbg("******************\n");
+			dbg("**Yc: %f - Yac: %f - Ybc: %f\n", Yc, Yac, Ybc);
+			dbg("**Tbc: %f - Tac: %f - propBC: %f\n", TimeBC, TimeAC, propYbc);
+			dbg("**Vx: %f - Vy: %f\n", Vx, Vy);
 
+		}
 		//dbg("**Tbc: %f - Tac: %f - propBC: %f\n", TimeBC, TimeAC, propYbc); 
 
 	}
@@ -757,7 +765,8 @@ void bt_runner::jump() {
       if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
         if (anim_state != "jump_land") {
           anim_state = "jump_land";
-          change_animation(ERunnerAnimations::RunnerJumpLand, true, 0.1f, 0.f, true);
+					//change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.1f, 0.f, true);
+					change_animation(ERunnerAnimations::RunnerJumpLand, true, 0.1f, 0.f, true);
 					play_sound("land");
 					CEntity* particles_emiter = (CEntity*)getEntityByName("humo_land_runner");
 					TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
@@ -831,7 +840,7 @@ void bt_runner::recalculate_path() {
 	TCompTransform *c_p_transform = player->get<TCompTransform>();
 	int target_pos = findClosestWaypoint(c_p_transform->getPosition());
 
-	findPath(origin, target_pos);
+	findPath(origin, 104);
 	actual_waypoint = path.size() -1;
 	next_waypoint = actual_waypoint -1;
 	target == "waypoint";

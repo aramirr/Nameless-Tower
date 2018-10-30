@@ -3085,8 +3085,8 @@ void ImGui::Render()
         g.IO.MetricsRenderIndices = g.DrawData.TotalIdxCount;
 
         // Render. If user hasn't set a callback then they may retrieve the draw data via GetDrawData()
-        //if (g.DrawData.CmdListsCount > 0 && g.IO.RenderDrawListsFn != NULL)
-         //   g.IO.RenderDrawListsFn(&g.DrawData);
+        if (g.DrawData.CmdListsCount > 0 && g.IO.RenderDrawListsFn != NULL)
+           g.IO.RenderDrawListsFn(&g.DrawData);
     }
 }
 
