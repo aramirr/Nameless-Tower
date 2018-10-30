@@ -840,7 +840,7 @@ void bt_runner::recalculate_path() {
 	TCompTransform *c_p_transform = player->get<TCompTransform>();
 	int target_pos = findClosestWaypoint(c_p_transform->getPosition());
 
-	findPath(origin, 104);
+	findPath(origin, target_pos);
 	actual_waypoint = path.size() -1;
 	next_waypoint = actual_waypoint -1;
 	target == "waypoint";
