@@ -122,6 +122,9 @@ void TCompPlayerInput::update(float dt)
 
     if (EngineInput["level_1"].getsPressed())
     {
+			CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
+			TMsgBlockCamera msg;
+			e->sendMsg(msg);
         //EngineTower.setExposureAdjustment(0);
         CEngine::get().getModules().changeGameState("level_1");
     }

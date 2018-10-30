@@ -15,7 +15,7 @@
 #include "entity/entity_parser.h"
 #include "render/render_manager.h"
 #include "scripting\logic_manager.h"
-
+#include "components\camera\comp_orbit_camera.h"
 
 bool CModuleLevel1::start()
 {
@@ -37,7 +37,27 @@ bool CModuleLevel1::start()
     CEntity* e_player = getEntityByName("The Player");
     if (e_player == nullptr) {
         TEntityParseContext ctx;
-        parseScene("data/scenes/player.scene", ctx);            
+        parseScene("data/scenes/player.scene", ctx);      
+
+
+				TEntityParseContext ctx1;
+				parseScene("data/scenes/cameras.scene", ctx1);
+				// -------------------------------------------
+				if (!cb_camera.create(CB_CAMERA))
+					return false;
+				// -------------------------------------------
+				if (!cb_object.create(CB_OBJECT))
+					return false;
+				// -------------------------------------------
+				if (!cb_light.create(CB_LIGHT))
+					return false;
+				// -------------------------------------------
+				if (!cb_globals.create(CB_GLOBALS))
+					return false;
+				if (!cb_blur.create(CB_BLUR))
+					return false;
+				if (!cb_particles.create(CB_PARTICLE))
+					return false;
     }
     else {
         TMsgSetFSMVariable turnMsg;
@@ -58,32 +78,17 @@ bool CModuleLevel1::start()
         turnMsg1.variant.setName("idle");
         turnMsg1.variant.setBool(true);
         e_player->sendMsg(turnMsg1);
+
+				CEntity* camera = (CEntity*)getEntityByName("camera_orbit_IZQ");
+				TCompOrbitCamera* o = camera->get<TCompOrbitCamera>();
+				o->setPosition(pos);
     }
 
-    TEntityParseContext ctx1;
-    parseScene("data/scenes/cameras.scene", ctx1);
 	std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];
 	for (auto& scene_name : scenes_to_auto_load) {
 		TEntityParseContext ctx;
 		parseScene(scene_name, ctx);
 	}    
-
-	// -------------------------------------------
-	if (!cb_camera.create(CB_CAMERA))
-		return false;
-	// -------------------------------------------
-	if (!cb_object.create(CB_OBJECT))
-		return false;
-	// -------------------------------------------
-	if (!cb_light.create(CB_LIGHT))
-		return false;
-	// -------------------------------------------
-	if (!cb_globals.create(CB_GLOBALS))
-		return false;
-	if (!cb_blur.create(CB_BLUR))
-		return false;
-	if (!cb_particles.create(CB_PARTICLE))
-		return false;
 
 	cb_globals.global_exposure_adjustment = 0.440f;
 	cb_globals.global_ambient_adjustment = 1.f;
