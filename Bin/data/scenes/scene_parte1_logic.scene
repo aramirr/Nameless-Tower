@@ -2,6 +2,176 @@
   {
     "entity":
     {
+      "name": "LanzasVerticales002"
+      ,
+      "transform":
+      {
+        "pos": "14.0324 55.3669 27.8452"
+        ,
+        "rotation": "0.0 0.5 0.0 -0.866025"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/LanzasVerticales002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LanzasMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 4.0
+        ,
+        "delay": 0.1
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "14.0324 55.3669 27.8452"
+          ,
+          "14.0324 52.3144 27.8452"
+        ]
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Lanzas"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "sound_name": "hit_lanzas"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.997877 2.0 1.41527"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "LanzasVerticales001"
+      ,
+      "transform":
+      {
+        "pos": "-14.0496 8.98463 -27.708"
+        ,
+        "rotation": "0.0 0.5 0.0 -0.866025"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/LanzasVerticales001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LanzasMat.material"
+          ]
+        }
+      ]
+      ,
+      "ai_linear_patrol":
+      {
+        "speed": 2.0
+        ,
+        "delay": 0.1
+        ,
+        "wake": 0.0
+        ,
+        "waypoints":
+        [
+          "-14.0496 8.98463 -27.708"
+          ,
+          "-14.0496 6.96697 -27.708"
+        ]
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "sound":
+      {
+        "events":
+        [
+          {
+            "name": "sound"
+            ,
+            "src": "event:/SFX/Object/Mechanics/Lanzas"
+            ,
+            "positional": true
+            ,
+            "on_start": false
+          }
+        ]
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "sound_name": "hit_lanzas"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.997877 2.0 1.41527"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Sierra004"
       ,
       "transform":

@@ -50,6 +50,7 @@ public:
     FMOD_VECTOR toFMODVector(VEC3 v);
 		
 		std::vector<DelayedSound> delayed_sounds;
+        void deleteSounds();
 private:
     struct FollowingEvent {
         FMOD::Studio::EventInstance* eventInstance = nullptr;

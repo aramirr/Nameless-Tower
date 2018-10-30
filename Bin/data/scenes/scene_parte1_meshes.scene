@@ -2,6 +2,118 @@
   {
     "entity":
     {
+      "name": "Niebla004"
+      ,
+      "transform":
+      {
+        "pos": "-20.6825 24.991 -15.0946"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla004.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla003"
+      ,
+      "transform":
+      {
+        "pos": "-22.5188 24.1536 -16.3114"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Estatua002"
+      ,
+      "transform":
+      {
+        "pos": "-17.1515 26.1037 -23.0828"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Estatua002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Estatua_Caldero.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Estatua001"
+      ,
+      "transform":
+      {
+        "pos": "-18.0692 25.6471 -16.2004"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Estatua001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Estatua_Caldero.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "RioEspuma"
       ,
       "transform":
@@ -326,91 +438,6 @@
   {
     "entity":
     {
-      "name": "LanzasVerticales001"
-      ,
-      "transform":
-      {
-        "pos": "-14.0603 9.44684 -27.7068"
-        ,
-        "rotation": "0.343021 -0.618334 -0.618334 -0.343021"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/LanzasVerticales.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/LanzasMat.material"
-          ]
-        }
-      ]
-      ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": true
-        ,
-        "sound_name": "hit_lanzas"
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.3825 2.0 0.950772"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
-      "ai_linear_patrol":
-      {
-        "speed": 5.0
-        ,
-        "delay": 0.5
-        ,
-        "wake": 0.0
-        ,
-        "waypoints":
-        [
-          "-14.0603 9.44684 -27.7068"
-          ,
-          "-14.0603 6.64021 -27.7068"
-        ]
-      }
-      ,
-      "abs_aabb": true
-      ,
-      "sound":
-      {
-        "events":
-        [
-          {
-            "name": "sound"
-            ,
-            "src": "event:/SFX/Object/Mechanics/Lanzas"
-            ,
-            "positional": true
-            ,
-            "on_start": false
-          }
-        ]
-      }
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "BordesParte1C"
       ,
       "transform":
@@ -540,34 +567,6 @@
           "materials":
           [
             "data/materials/ParedModelo.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "CaretaSala"
-      ,
-      "transform":
-      {
-        "pos": "-22.6079 26.4423 -11.6115"
-        ,
-        "rotation": "0.0 -0.887303 0.0 -0.461187"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/CaretaSala.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Careta_01.material"
           ]
         }
       ]
@@ -909,63 +908,7 @@
   {
     "entity":
     {
-      "name": "Niebla004"
-      ,
-      "transform":
-      {
-        "pos": "-20.6825 26.9421 -15.0946"
-        ,
-        "rotation": "0.628963 -0.323118 -0.323118 -0.628963"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Niebla004.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/nieblaBMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Niebla003"
-      ,
-      "transform":
-      {
-        "pos": "-22.5188 26.9421 -16.3114"
-        ,
-        "rotation": "0.628963 -0.323118 -0.323118 -0.628963"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Niebla003.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/nieblaAMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Plataforma_01"
+      "name": "Plataforma_01_Bajada"
       ,
       "transform":
       {
@@ -977,7 +920,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Plataforma_01.mesh"
+          "mesh": "data/meshes/Plataforma_01_Bajada.mesh"
           ,
           "materials":
           [
@@ -3202,62 +3145,6 @@
           "materials":
           [
             "data/materials/Techo_Normal.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Estatua002"
-      ,
-      "transform":
-      {
-        "pos": "-17.1515 26.1037 -23.0828"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Estatua002.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EstatuaGrandeMate.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Estatua001"
-      ,
-      "transform":
-      {
-        "pos": "-18.0692 25.6471 -16.2004"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Estatua001.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EstatuaGrandeMate.material"
           ]
         }
       ]

@@ -59,8 +59,8 @@ bool CModuleSound::stop()
 void CModuleSound::update(float delta)
 {
     updateListenerAttributes();
-		updatePositionalEvents();
-		updateDelayedEvents(delta);
+	updatePositionalEvents();
+	updateDelayedEvents(delta);
     system->update();
 }
 
@@ -102,8 +102,10 @@ void CModuleSound::updatePositionalEvents() {
            if (sound.hasTransform) {
                CHandle transform = sound.entity->get<TCompTransform>();
                TCompTransform* t = transform;
-               FMOD_3D_ATTRIBUTES attributes = toFMODAttributes(*t);
-               sound.eventInstance->set3DAttributes(&attributes);
+               if (t != nullptr) {
+                   FMOD_3D_ATTRIBUTES attributes = toFMODAttributes(*t);
+                   sound.eventInstance->set3DAttributes(&attributes);
+               }               
            }
         }
     }
@@ -190,4 +192,8 @@ FMOD_VECTOR CModuleSound::toFMODVector(VEC3 v) {
     vec.y = v.y;
     vec.z = v.z;
     return vec;
+}
+
+void CModuleSound::deleteSounds() {
+    events.clear();
 }

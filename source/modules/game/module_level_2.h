@@ -17,6 +17,6 @@ public:
   bool stop() override;
   void update(float delta) override;
   void render() override;
-
+  void restart() override;
 };
 

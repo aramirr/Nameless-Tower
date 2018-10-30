@@ -25,14 +25,15 @@ public:
 
   LRESULT OnOSMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
+  bool stopModules(VModules& modules);
+  bool startModules(VModules& modules);
+
 private:
 	void applyRequestedGameState();
 	void renderDebug();
 
 	bool startModule(IModule* mod);
-	bool stopModule(IModule* mod);
-      bool startModules(VModules& modules);
-      bool stopModules(VModules& modules);
+	bool stopModule(IModule* mod);     
 
   VModules _registered_modules;
   VModules _system_modules;

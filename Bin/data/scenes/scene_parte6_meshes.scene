@@ -2,6 +2,36 @@
   {
     "entity":
     {
+      "name": "ParedDestapada7B"
+      ,
+      "transform":
+      {
+        "pos": "18.2971 31.5 -18.5547"
+        ,
+        "rotation": "0.0 -0.98315 0.0 -0.182799"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada7B.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Plataforma_008"
       ,
       "transform":
@@ -398,7 +428,7 @@
   {
     "entity":
     {
-      "name": "ParedFondo_salaPuente_001"
+      "name": "ParedFondo_salaPuente_001_Bajada"
       ,
       "transform":
       {
@@ -410,7 +440,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/ParedFondo_salaPuente_001.mesh"
+          "mesh": "data/meshes/ParedFondo_salaPuente_001_Bajada.mesh"
           ,
           "materials":
           [
@@ -852,7 +882,7 @@
       ,
       "transform":
       {
-        "pos": "25.8625 51.6346 17.285"
+        "pos": "25.6606 51.6346 17.6009"
         ,
         "rotation": "-0.105606 0.368697 -0.0112461 -0.923463"
       }
@@ -900,36 +930,6 @@
       [
         {
           "mesh": "data/meshes/ParedDestapada2B.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-            ,
-            "data/materials/ParedModeladaInteriores.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "ParedDestapada7B"
-      ,
-      "transform":
-      {
-        "pos": "18.2971 31.5 -18.5547"
-        ,
-        "rotation": "0.0 -0.98315 0.0 -0.182799"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedDestapada7B.mesh"
           ,
           "materials":
           [

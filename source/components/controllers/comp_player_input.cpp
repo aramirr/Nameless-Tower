@@ -114,11 +114,17 @@ void TCompPlayerInput::update(float dt)
     }*/
 
 
-    //if (EngineInput["level_2"].getsPressed())
-    //{
-    //    //EngineTower.setExposureAdjustment(0);
-    //    CEngine::get().getModules().changeGameState("level_2");
-    //}
+    if (EngineInput["level_2"].getsPressed())
+    {
+        //EngineTower.setExposureAdjustment(0);
+        CEngine::get().getModules().changeGameState("level_2");
+    }
+
+    if (EngineInput["level_1"].getsPressed())
+    {
+        //EngineTower.setExposureAdjustment(0);
+        CEngine::get().getModules().changeGameState("level_1");
+    }
 
     TMsgSetFSMVariable pauseMsg;
     pauseMsg.variant.setName("pause");

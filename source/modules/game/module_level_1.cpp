@@ -33,11 +33,40 @@ bool CModuleLevel1::start()
 	json jboot = loadJson("data/boot.json");
 
 	// Auto load some scenes
+    
+    CEntity* e_player = getEntityByName("The Player");
+    if (e_player == nullptr) {
+        TEntityParseContext ctx;
+        parseScene("data/scenes/player.scene", ctx);            
+    }
+    else {
+        TMsgSetFSMVariable turnMsg;
+        turnMsg.variant.setName("pause");
+        turnMsg.variant.setBool(true);
+        e_player->sendMsg(turnMsg);
+        TCompCollider* comp_collider = e_player->get<TCompCollider>();
+        PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);           
+        TCompTransform* t = e_player->get<TCompTransform>();
+        VEC3 pos = VEC3(8.703, 4.5, -30.274);
+        t->setYawPitchRoll(deg2rad(-106.039), deg2rad(0));
+        t->setPosition(pos);        
+        PxTransform tr = rigidActor->getGlobalPose();
+        tr.p = PxVec3(8.703, 4.5, -30.274);
+        tr.q = PxQuat(-0.000000, -0.798838, 0.000000, 0.601546);
+        //rigidActor->setGlobalPose(tr);        
+        TMsgSetFSMVariable turnMsg1;
+        turnMsg1.variant.setName("idle");
+        turnMsg1.variant.setBool(true);
+        e_player->sendMsg(turnMsg1);
+    }
+
+    TEntityParseContext ctx1;
+    parseScene("data/scenes/cameras.scene", ctx1);
 	std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];
 	for (auto& scene_name : scenes_to_auto_load) {
 		TEntityParseContext ctx;
 		parseScene(scene_name, ctx);
-	}
+	}    
 
 	// -------------------------------------------
 	if (!cb_camera.create(CB_CAMERA))
@@ -92,14 +121,67 @@ bool CModuleLevel1::start()
 	cb_gui.activate();
 	cb_particles.activate();
 
+    auto p = EngineScripting.script.exists("OnLevel1Start");
+    if (p)
+        EngineScripting.script.doString("OnLevel1Start()");
+
 	return true;
+}
+
+void CModuleLevel1::restart()
+{
+   
+
+    cb_globals.global_exposure_adjustment = 0.440f;
+    cb_globals.global_ambient_adjustment = 1.f;
+    //cb_globals.global_exposure_adjustment = 2.010f;
+    //cb_globals.global_ambient_adjustment = 0.150f;
+    cb_globals.global_world_time = 0.f;
+    cb_globals.global_hdr_enabled = 1.f;
+    cb_globals.global_gamma_correction_enabled = 1.f;
+    cb_globals.global_tone_mapping_mode = 1.f;
+    cb_globals.global_naja_interior = 0;
+    //cb_globals.global_fog_density = 0.017f;
+    //cb_globals.global_self_intensity = 10.f;
+    cb_globals.global_hue_adjustment = 1.f;
+    cb_globals.global_sat_adjustment = 1.f;
+    cb_globals.global_light_adjustment = 0.f;
+    cb_globals.global_vignetting_adjustment = 0.25f;
+    cb_globals.global_fogDensity_adjustment = 0.f;
+    cb_globals.global_fadeOut_adjustment = 0.f;
+
+    cb_globals.global_contrast_adjustment = 0.215f;
+
+    cb_globals.global_bandMin_adjustment = 0.f;
+    cb_globals.global_bandMax_adjustment = 0.f;
+
+    cb_globals.global_bajada = 0.f;
+
+    cb_globals.global_fog_percentage_horizontal = 0.15f;
+    cb_globals.global_fog_percentage_vertical = 0.15f;
+
+    json jboot = loadJson("data/boot.json");
+
+    // Auto load some scenes
+    std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];
+    for (auto& scene_name : scenes_to_auto_load) {
+        TEntityParseContext ctx;
+        deleteScene(scene_name, ctx);
+    }
+    std::vector< std::string > scenes_to_auto_load2 = jboot["boot_level_2"];
+    for (auto& scene_name : scenes_to_auto_load2) {
+        TEntityParseContext ctx;
+        deleteScene(scene_name, ctx);
+    }
+    
+    EngineSound.deleteSounds();
 }
 
 bool CModuleLevel1::stop()
 {	
 	TEntityParseContext ctx;
     EngineBillboards.clearFire();
-		deleteScene("data/scenes/scene_checkpoints.scene", ctx);
+	deleteScene("data/scenes/scene_checkpoints.scene", ctx);
     deleteScene("data/scenes/lights.scene", ctx);
     deleteScene("data/scenes/scene_luces.scene", ctx);
     deleteScene("data/scenes/compresoras.scene", ctx);
@@ -115,12 +197,12 @@ bool CModuleLevel1::stop()
     deleteScene("data/scenes/scene_parte3_meshes.scene", ctx);
     deleteScene("data/scenes/scene_parte3_colltrig.scene", ctx);
     deleteScene("data/scenes/particles.scene", ctx);
-		deleteScene("data/scenes/torch_puzzle.scene", ctx);
-		deleteScene("data/scenes/scene_Pekes.scene", ctx);
-		deleteScene("data/scenes/scene_destruible_1.scene", ctx);
-		deleteScene("data/scenes/scene_destruible_2.scene", ctx);
-		deleteScene("data/scenes/scene_destruible_3.scene", ctx);
-		deleteScene("data/scenes/scene_destruible_4.scene", ctx);
+	deleteScene("data/scenes/torch_puzzle.scene", ctx);
+	deleteScene("data/scenes/scene_Pekes.scene", ctx);
+	deleteScene("data/scenes/scene_destruible_1.scene", ctx);
+	deleteScene("data/scenes/scene_destruible_2.scene", ctx);
+	deleteScene("data/scenes/scene_destruible_3.scene", ctx);
+	deleteScene("data/scenes/scene_destruible_4.scene", ctx);
 		
     
 	return true;

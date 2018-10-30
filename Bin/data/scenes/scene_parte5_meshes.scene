@@ -2,7 +2,35 @@
   {
     "entity":
     {
-      "name": "Hueco"
+      "name": "Telas2"
+      ,
+      "transform":
+      {
+        "pos": "16.1965 70.587 22.7278"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Telas2.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "HuecoBajada"
       ,
       "transform":
       {
@@ -14,7 +42,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Hueco.mesh"
+          "mesh": "data/meshes/HuecoBajada.mesh"
           ,
           "materials":
           [
@@ -103,62 +131,6 @@
           "materials":
           [
             "data/materials/nieblaBMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Niebla012"
-      ,
-      "transform":
-      {
-        "pos": "21.6395 69.967 9.50175"
-        ,
-        "rotation": "-0.419661 -0.569109 -0.569109 0.419661"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Niebla012.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/nieblaBMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Niebla011"
-      ,
-      "transform":
-      {
-        "pos": "22.3473 69.967 9.72073"
-        ,
-        "rotation": "-0.419661 -0.569109 -0.569109 0.419661"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Niebla011.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/nieblaAMat.material"
           ]
         }
       ]
@@ -844,34 +816,6 @@
   {
     "entity":
     {
-      "name": "Telas2"
-      ,
-      "transform":
-      {
-        "pos": "16.1965 70.587 22.7278"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Telas2.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Ropa_Colgada_Mat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Telas_1"
       ,
       "transform":
@@ -1364,7 +1308,7 @@
           ,
           "materials":
           [
-            "data/materials/EstatuaGrandeMate.material"
+            "data/materials/EstatuasChicas.material"
           ]
         }
       ]
@@ -1392,7 +1336,7 @@
           ,
           "materials":
           [
-            "data/materials/EstatuaGrandeMate.material"
+            "data/materials/EstatuasChicas.material"
           ]
         }
       ]
@@ -1420,7 +1364,7 @@
           ,
           "materials":
           [
-            "data/materials/EstatuaGrandeMate.material"
+            "data/materials/EstatuasChicas.material"
           ]
         }
       ]
@@ -1464,7 +1408,7 @@
       ,
       "transform":
       {
-        "pos": "12.8612 59.5274 27.7846"
+        "pos": "13.0472 59.5274 27.4284"
         ,
         "rotation": "-0.186583 -0.0573077 -0.0716227 -0.978148"
       }
@@ -2289,7 +2233,7 @@
       {
         "pos": "17.2846 69.876 7.7916"
         ,
-        "rotation": "0.0 -0.587785 0.0 -0.809017"
+        "rotation": "0.0 0.0 0.0 -1.0"
       }
       ,
       "render":
@@ -2623,7 +2567,7 @@
   {
     "entity":
     {
-      "name": "Sala_EstatuaFea_67"
+      "name": "Sala_EstatuaFea_67_Bajada"
       ,
       "transform":
       {
@@ -2635,7 +2579,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Sala_EstatuaFea_67.mesh"
+          "mesh": "data/meshes/Sala_EstatuaFea_67_Bajada.mesh"
           ,
           "materials":
           [

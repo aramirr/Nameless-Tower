@@ -2,6 +2,258 @@
   {
     "entity":
     {
+      "name": "Estatua"
+      ,
+      "transform":
+      {
+        "pos": "21.386 68.3275 9.67041"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Estatua.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/seccionFinalEstatuaMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla012"
+      ,
+      "transform":
+      {
+        "pos": "21.6395 67.2204 9.50175"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla012.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla011"
+      ,
+      "transform":
+      {
+        "pos": "22.3473 66.3988 9.72073"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla011.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sala_EstatuaFea_19"
+      ,
+      "transform":
+      {
+        "pos": "18.9321 65.1551 15.4738"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sala_EstatuaFea_19.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Estatua_Caldero.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sala_EstatuaFea_18"
+      ,
+      "transform":
+      {
+        "pos": "15.2767 65.1279 19.0867"
+        ,
+        "rotation": "0.0 0.052336 0.0 -0.99863"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sala_EstatuaFea_18.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Estatua_Caldero.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Sala_EstatuaFea_17"
+      ,
+      "transform":
+      {
+        "pos": "10.9797 65.1017 21.8519"
+        ,
+        "rotation": "0.0 0.156435 0.0 -0.987688"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Sala_EstatuaFea_17.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Estatua_Caldero.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Telas2"
+      ,
+      "transform":
+      {
+        "pos": "16.1965 70.587 22.7278"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Telas2.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedesExtraEscena03B"
+      ,
+      "transform":
+      {
+        "pos": "29.7771 64.9935 -1.53461"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedesExtraEscena03B.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pared_Interior_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "SuelosInterioresEscena03"
+      ,
+      "transform":
+      {
+        "pos": "19.3902 60.75 12.5162"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/SuelosInterioresEscena03.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Suelos_Interiores_Varios_00.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "CanaDePescar"
       ,
       "transform":
@@ -22,6 +274,8 @@
           ]
         }
       ]
+      ,
+      "abs_aabb": true
     }
   }
   ,
@@ -97,34 +351,6 @@
       [
         {
           "mesh": "data/meshes/Niebla010.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/nieblaBMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Niebla012"
-      ,
-      "transform":
-      {
-        "pos": "21.6395 69.967 9.50175"
-        ,
-        "rotation": "-0.419661 -0.569109 -0.569109 0.419661"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Niebla012.mesh"
           ,
           "materials":
           [
@@ -256,7 +482,7 @@
       ,
       "transform":
       {
-        "pos": "28.6937 62.4043 -14.5259"
+        "pos": "29.2644 62.447 -14.7651"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -522,34 +748,6 @@
   {
     "entity":
     {
-      "name": "ParedesExtraEscena03B"
-      ,
-      "transform":
-      {
-        "pos": "29.7771 65.25 -1.53461"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/ParedesExtraEscena03B.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Pared_Interior_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "ParedExteriorParte3H"
       ,
       "transform":
@@ -651,34 +849,6 @@
           "materials":
           [
             "data/materials/Pared_Interior_Lanzas.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Telas2"
-      ,
-      "transform":
-      {
-        "pos": "16.1965 70.587 22.7278"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Telas2.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Ropa_Colgada_Mat.material"
           ]
         }
       ]
@@ -943,34 +1113,6 @@
         ,
         "group": "scenario"
       }
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Niebla011"
-      ,
-      "transform":
-      {
-        "pos": "22.3473 69.967 9.72073"
-        ,
-        "rotation": "-0.419661 -0.569109 -0.569109 0.419661"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Niebla011.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/nieblaAMat.material"
-          ]
-        }
-      ]
       ,
       "abs_aabb": true
     }
@@ -1351,7 +1493,7 @@
       ,
       "transform":
       {
-        "pos": "1.64593 72.0 30.6057"
+        "pos": "1.64593 71.995 30.6057"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -1392,34 +1534,6 @@
           "materials":
           [
             "data/materials/ParedModelo.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Estatua"
-      ,
-      "transform":
-      {
-        "pos": "21.386 68.3275 9.67041"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Estatua.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/seccionFinalEstatuaMat.material"
           ]
         }
       ]
@@ -1715,7 +1829,7 @@
       ,
       "transform":
       {
-        "pos": "30.2011 63.1425 -13.482"
+        "pos": "30.6839 63.1425 -13.6659"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -1827,7 +1941,7 @@
       ,
       "transform":
       {
-        "pos": "29.6845 64.4194 -14.3582"
+        "pos": "30.1673 64.4194 -14.5421"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -2163,7 +2277,7 @@
       ,
       "transform":
       {
-        "pos": "27.7699 60.9804 -13.9695"
+        "pos": "28.2527 60.9804 -14.1534"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -3012,90 +3126,6 @@
   {
     "entity":
     {
-      "name": "Sala_EstatuaFea_19"
-      ,
-      "transform":
-      {
-        "pos": "18.9321 65.1551 15.4738"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_19.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EstatuaGrandeMate.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sala_EstatuaFea_18"
-      ,
-      "transform":
-      {
-        "pos": "15.2767 65.1279 19.0867"
-        ,
-        "rotation": "0.0 0.052336 0.0 -0.99863"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_18.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EstatuaGrandeMate.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Sala_EstatuaFea_17"
-      ,
-      "transform":
-      {
-        "pos": "10.9797 65.1017 21.8519"
-        ,
-        "rotation": "0.0 0.156435 0.0 -0.987688"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_17.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/EstatuaGrandeMate.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Sala_EstatuaFea_12"
       ,
       "transform":
@@ -3477,34 +3507,6 @@
           "materials":
           [
             "data/materials/ParedLadrillosMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "SuelosInterioresEscena03"
-      ,
-      "transform":
-      {
-        "pos": "19.3902 60.75 12.5162"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/SuelosInterioresEscena03.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Suelos_Interiores_Varios_00.material"
           ]
         }
       ]

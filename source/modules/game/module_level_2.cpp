@@ -37,6 +37,19 @@ bool CModuleLevel2::start()
 	return true;
 }
 
+void CModuleLevel2::restart()
+{    
+
+    json jboot = loadJson("data/boot.json");
+
+    // Auto load some scenes
+    std::vector< std::string > scenes_to_auto_load = jboot["boot_level_2"];
+    for (auto& scene_name : scenes_to_auto_load) {
+        TEntityParseContext ctx;
+        deleteScene(scene_name, ctx);
+    }
+}
+
 bool CModuleLevel2::stop()
 {
 	cb_light.destroy();
