@@ -108,9 +108,7 @@ void CAIDestroyable::TransitionDestroyState(float dt)
 		tr.p = PxVec3(0, 0, 0);
 		rigidActor->setGlobalPose(tr);
 	}
-	CEntity* e = h_entity;
-	std::string name = e->getName();
-	EngineSound.emitPositionalEvent("destroyable", name);
+	EngineSound.emitPositionalEvent("destroyable", "The Player");
 	ChangeState("destroy");
 }
 
