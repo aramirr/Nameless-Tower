@@ -44,14 +44,20 @@ namespace FSM
             Engine.getTower().setLastCheckpoint(position);
 		}
 
-		my_pos->lookAt(position, player->center);
-		float y, p, r;
-		my_pos->getYawPitchRoll(&y, &p, &r);
-		y -= deg2rad(90);
-		my_pos->setYawPitchRoll(y, 0, 0);
+        if (!player->restarting) {
+            my_pos->lookAt(position, player->center);
+            float y, p, r;
+            my_pos->getYawPitchRoll(&y, &p, &r);
+            y -= deg2rad(90);
+            my_pos->setYawPitchRoll(y, 0, 0);
+        }
+        else {
+            player->restarting = false;
+        }
+		
 
 		player->looking_left = my_pos->isInLeft(player->center) ? false : true;		
-		player->y_speed_factor = 0;
+		player->y_speed_factor = -1;
 		player->is_grounded = true;
 		ctx.setVariable("can_dash", true);
 		ctx.setVariable("can_omni", true);
@@ -71,6 +77,7 @@ namespace FSM
 
 	void InitialState::onFinish(CContext& ctx) const {
 		ctx.setVariable("initial", false);
+        ctx.setVariable("idle", true);
         CEntity* e = ctx.getOwner();
         TCompPlayerController* player = e->get<TCompPlayerController>();
         player->previous_state = "initial";

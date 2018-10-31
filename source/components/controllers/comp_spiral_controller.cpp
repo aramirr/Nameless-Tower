@@ -98,6 +98,7 @@ void TCompSpiralController::update(float DT) {
 		if (flags.isSet(PxControllerCollisionFlag::eCOLLISION_DOWN) or flags.isSet(PxControllerCollisionFlag::eCOLLISION_UP) or flags.isSet(PxControllerCollisionFlag::eCOLLISION_SIDES))
 		{
 			this->destroy();
+            dbg("destroy \n");
 			return;
 		}
 	}

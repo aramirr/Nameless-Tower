@@ -153,6 +153,16 @@
 	"transitions" : [
 		{
 			"type" : "VariableTransition",
+			"source" : "idle",
+			"target" : "initial",
+			"variable" : {
+				"name" : "initial",
+				"type" : "bool",
+				"value" : true
+			},
+			"operation" : "equal"
+		},{
+			"type" : "VariableTransition",
 			"source" : "initial",
 			"target" : "idle",
 			"variable" : {

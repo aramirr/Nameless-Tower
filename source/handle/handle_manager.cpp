@@ -34,12 +34,12 @@ CHandle CHandleManager::createHandle() {
   // Yo tengo que ser valido..
   assert(type != 0);
 
-  const uint32_t num_objs_capacity = capacity();
+  const uint64_t num_objs_capacity = capacity();
 
   // Tengo que tener libres
   assert(next_free_handle_ext_index != invalid_index);
   assert(num_objs_used < num_objs_capacity);
-  uint32_t external_idx = next_free_handle_ext_index;
+  uint64_t external_idx = next_free_handle_ext_index;
   auto& ed = external_to_internal[ external_idx ];
 
   // Actualizar mi tabla internal para poder referenciar un objeto

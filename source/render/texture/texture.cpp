@@ -14,7 +14,7 @@ public:
 		bool is_ok = res->create(name);
 		if (!is_ok)
 			dbg(name.c_str());
-		assert(is_ok);
+		//assert(is_ok);
 		return res;
 	}
 };

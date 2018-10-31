@@ -127,7 +127,7 @@ void CAIOrbitPatrol::MoveToWaypointState(float dt)
 	}
 	c_my_transform->setYawPitchRoll(y, p);
 	VEC3 newPos = c_my_transform->getPosition() + (c_my_transform->getFront() * distance);
-	c_my_transform->setPosition(newPos);
+    c_my_transform->setPosition(newPos);
 	QUAT newRot = c_my_transform->getRotation();
 
 	TCompCollider* comp_collider = get<TCompCollider>();

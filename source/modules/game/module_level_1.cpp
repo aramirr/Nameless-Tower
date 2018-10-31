@@ -12,6 +12,7 @@
 #include "components/juan/comp_transform.h"
 #include "components/camera/comp_camera.h"
 #include "components/camera/comp_camera_manager.h"
+#include "components/player/comp_player_controller.h"
 #include "entity/entity_parser.h"
 #include "render/render_manager.h"
 #include "scripting\logic_manager.h"
@@ -59,29 +60,31 @@ bool CModuleLevel1::start()
 				if (!cb_particles.create(CB_PARTICLE))
 					return false;
     }
-    else {
-        TMsgSetFSMVariable turnMsg;
-        turnMsg.variant.setName("pause");
-        turnMsg.variant.setBool(true);
-        e_player->sendMsg(turnMsg);
+    else {        
+        TCompPlayerController* player = e_player->get<TCompPlayerController>();
         TCompCollider* comp_collider = e_player->get<TCompCollider>();
         PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);           
         TCompTransform* t = e_player->get<TCompTransform>();
         VEC3 pos = VEC3(8.703, 4.5, -30.274);
-        t->setYawPitchRoll(deg2rad(-106.039), deg2rad(0));
+        t->setYawPitchRoll(player->looking_left ? deg2rad(-106.039) + deg2rad(180) : deg2rad(-106.039), deg2rad(0));
         t->setPosition(pos);        
         PxTransform tr = rigidActor->getGlobalPose();
         tr.p = PxVec3(8.703, 4.5, -30.274);
         tr.q = PxQuat(-0.000000, -0.798838, 0.000000, 0.601546);
-        //rigidActor->setGlobalPose(tr);        
+        rigidActor->setGlobalPose(tr);        
         TMsgSetFSMVariable turnMsg1;
         turnMsg1.variant.setName("idle");
         turnMsg1.variant.setBool(true);
         e_player->sendMsg(turnMsg1);
 
-				CEntity* camera = (CEntity*)getEntityByName("camera_orbit_IZQ");
-				TCompOrbitCamera* o = camera->get<TCompOrbitCamera>();
-				o->setPosition(pos);
+		CEntity* camera = (CEntity*)getEntityByName("camera_orbit_IZQ");
+		TCompOrbitCamera* o = camera->get<TCompOrbitCamera>();
+		o->setPosition(pos);
+
+        
+        player->restarting = true;
+        player->y_speed_factor = -1;
+        EngineTimer.setTimeSlower(1.f);
     }
 
 	std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];

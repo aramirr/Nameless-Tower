@@ -6,14 +6,14 @@
 // -----------------------------------
 class CHandleManager {
 
-  static const uint32_t max_total_objects_allowed = 1 << CHandle::num_bits_index;
+  static const uint64_t max_total_objects_allowed = 1 << CHandle::num_bits_index;
   static const uint32_t invalid_index = ~0;   // all ones
 
  // Se accede por external_id via []
   struct TExternalData {
-    uint32_t internal_index;      // Donde esta de verdad mi objeto en el array lineal de objetos.
-    uint32_t current_age : CHandle::num_bits_age;
-    uint32_t next_external_index;
+    uint64_t internal_index;      // Donde esta de verdad mi objeto en el array lineal de objetos.
+    uint64_t current_age : CHandle::num_bits_age;
+    uint64_t next_external_index;
     CHandle  current_owner;
     TExternalData()
       : internal_index(0)
@@ -133,7 +133,7 @@ public:
   const char* getName() const { return name; }
   uint32_t getType() const { return type; }
   uint32_t size() const { return num_objs_used; }
-  uint32_t capacity() const { return (uint32_t) external_to_internal.size(); }
+  uint32_t capacity() const { return (uint64_t) external_to_internal.size(); }
 
   void destroyPendingObjects();
 
