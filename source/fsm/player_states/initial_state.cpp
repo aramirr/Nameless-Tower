@@ -10,6 +10,7 @@ namespace FSM
 	{
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
+		_sound->setVolume(player->volumen);
 		TCompTransform* my_pos = e->get<TCompTransform>();
 		TCompCollider* comp_collider = e->get<TCompCollider>();
 		VEC3 position;

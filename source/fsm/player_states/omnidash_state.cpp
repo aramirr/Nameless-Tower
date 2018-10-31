@@ -13,6 +13,7 @@ namespace FSM
 		ctx.setVariable("can_omni", false);
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();        
+		_sound->setVolume(player->volumen);
         player->anim1 = calculateAnimation(e);
         player->change_animation(player->anim1, _is_action, _delay_in, _delay_out, true);
         player->anim2 = -1;                

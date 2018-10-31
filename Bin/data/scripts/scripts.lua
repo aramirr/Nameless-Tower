@@ -584,7 +584,7 @@ end
 function OnTriggerExitTSArbolRunner()
 	--Exterior
 	lm:set_exposure(0.9, true)
-	lm:set_naja_ext(true)
+	lm:set_naja_int(true)
 	--lm:render_only_shadows("ParedDestapada10", true)
 	lm:render_everything("ParedTapada10", true)
 	lm:set_dir_light_intensity("LightDir08", 11, true)

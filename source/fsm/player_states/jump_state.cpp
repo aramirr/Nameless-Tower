@@ -12,6 +12,7 @@ namespace FSM
 	{
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
+		_sound->setVolume(player->volumen);
 		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		ctx.setVariable("is_grounded", false);
 		ctx.setVariable("run", false);

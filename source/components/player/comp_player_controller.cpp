@@ -35,6 +35,9 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
     on_cinematic = false;
     Studio::EventDescription* event_description = NULL;
     std::string event_name = "event:/SFX/Character/Naja/StepsLands/Land_Dirt";
+		CEntity* e = ctx.current_entity;
+		assert(e);
+		EngineSound.registerCompSound(e->getName());
     EngineSound.system->getEvent(event_name.c_str(), &event_description);
     event_description->createInstance(&_sound_land);
 

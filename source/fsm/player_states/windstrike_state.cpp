@@ -14,6 +14,7 @@ namespace FSM
 		CEntity* e = ctx.getOwner();
         TCompTransform* transform = e->get<TCompTransform>();
         TCompPlayerController* player= e->get<TCompPlayerController>();
+				_sound->setVolume(player->volumen);
 		TEntityParseContext ctx_w;
         float current_yaw;
         float current_pitch;
@@ -35,6 +36,9 @@ namespace FSM
 		
         _sound->start();  
         TCompSound* sound = e->get<TCompSound>();
+				TMsgVolumeSound msg;
+				msg.volumen = player->volumen;
+				sound->setVolumen(msg);
         sound->playSound("windstrike");
         sound->playSound("action");
 	}

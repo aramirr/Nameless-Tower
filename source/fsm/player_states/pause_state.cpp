@@ -12,6 +12,7 @@ namespace FSM
 	{			
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
+		_sound->setVolume(player->volumen);
 		if (!player->level_started) {
 			player->is_grounded = true;
 			player->level_started = true;

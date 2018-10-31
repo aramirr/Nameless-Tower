@@ -14,6 +14,7 @@ namespace FSM
 	{
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
+		_sound->setVolume(player->volumen);
         player->can_die = true;
  		// Pongo la animacion solo si no se esta moviendo
 		ctx.setVariable("run", false);
