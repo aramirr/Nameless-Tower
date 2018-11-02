@@ -52,66 +52,71 @@ namespace FSM
         if (player->restarting) {
             TCompCollider* comp_collider = e->get<TCompCollider>();
             PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
-            VEC3 pos = VEC3(8.703, 4.5, -30.274);           
+            VEC3 pos = VEC3(8.703, 4.5, -30.274);
+            c_my_transform->setPosition(pos);
+            c_my_transform->setYawPitchRoll(deg2rad(-106.039), deg2rad(0));
             PxTransform tr = rigidActor->getGlobalPose();
             tr.p = PxVec3(8.703, 4.5, -30.274);
             tr.q = PxQuat(-0.000000, -0.798838, 0.000000, 0.601546);
-            rigidActor->setGlobalPose(tr);            
+            rigidActor->setGlobalPose(tr);
+            player->change_animation(player->EAnimations::NajaIdle, _is_action, 0.01, _delay_out, true);            
         }
-        player->idle_time += dt;
-		TCompCollider* comp_collider = e->get<TCompCollider>();
-		
-		float y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt / 2);
-		if (!player->is_grounded)
-			player->y_speed_factor -= player->gravity * dt / 2;
+        else {
+            player->idle_time += dt;
+            TCompCollider* comp_collider = e->get<TCompCollider>();
 
-		
-		if (comp_collider && comp_collider->controller && !player->restarting)
-		{
-			PxShape* player_shape;
-			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
-			PxFilterData filter_data = player_shape->getSimulationFilterData();
-			ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
-			BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
-			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(0, y_speed, 0), 0.f, dt, PxControllerFilters(&filter_data, query_filter, filter_controller));            
-            if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !player->is_grounded) {
-                if (player->jumping_start_height - c_my_transform->getPosition().y > player->jumping_death_height) {
-                    ctx.setVariable("hit", true);
-                    CEntity* runner = (CEntity *)getEntityByName("Runner");
-                    TMsgRunnerDisappear msg_disappear;
-                    runner->sendMsg(msg_disappear);
+            float y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt / 2);
+            if (!player->is_grounded)
+                player->y_speed_factor -= player->gravity * dt / 2;
+
+
+            if (comp_collider && comp_collider->controller && !player->restarting)
+            {
+                PxShape* player_shape;
+                comp_collider->controller->getActor()->getShapes(&player_shape, 1);
+                PxFilterData filter_data = player_shape->getSimulationFilterData();
+                ControllerFilterCallback *filter_controller = new ControllerFilterCallback();
+                BasicQueryFilterCallback *query_filter = new BasicQueryFilterCallback();
+                PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(0, y_speed, 0), 0.f, dt, PxControllerFilters(&filter_data, query_filter, filter_controller));
+                if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !player->is_grounded) {
+                    if (player->jumping_start_height - c_my_transform->getPosition().y > player->jumping_death_height) {
+                        ctx.setVariable("hit", true);
+                        CEntity* runner = (CEntity *)getEntityByName("Runner");
+                        TMsgRunnerDisappear msg_disappear;
+                        runner->sendMsg(msg_disappear);
+                    }
+                    CEntity* particles_emiter = (CEntity*)getEntityByName("humo_land");
+                    TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
+                    c_particles->emit();
+                    player->is_grounded = true;
+                    player->_sound_land->start();
+                    player->change_animation(player->EAnimations::NajaJumpLand, true, 0.01, 0.1, false);
+                    ctx.setVariable("is_grounded", true);
+                    ctx.setVariable("can_omni", true);
+                    ctx.setVariable("can_dash", true);
                 }
-                CEntity* particles_emiter = (CEntity*)getEntityByName("humo_land");
-                TCompParticles* c_particles = particles_emiter->get<TCompParticles>();
-                c_particles->emit();
-                player->is_grounded = true;
-                player->_sound_land->start();
-                player->change_animation(player->EAnimations::NajaJumpLand, true, 0.01, 0.1, false);
-                ctx.setVariable("is_grounded", true);
-                ctx.setVariable("can_omni", true);
-                ctx.setVariable("can_dash", true);
+                else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && player->is_grounded && !player->restarting) {
+                    player->is_grounded = false;
+                    ctx.setVariable("is_grounded", false);
+                    player->jumping_start_height = c_my_transform->getPosition().y;
+                    ctx.setVariable("is_falling", true);
+                }
+                else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !player->restarting) {
+                    ctx.setVariable("is_falling", true);
+                }
             }
-            else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && player->is_grounded) {
-                player->is_grounded = false;
-                ctx.setVariable("is_grounded", false);
-                player->jumping_start_height = c_my_transform->getPosition().y;
-                ctx.setVariable("is_falling", true);
+
+            if (player->idle_time > player->idle_max_time && !player->camera_idle && !player->on_cinematic) {
+                ctx.setVariable("camera_idle", true);
+                CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
+                TMsgActiveCamera activate_camera;
+                activate_camera.camera_name = "camera_idle";
+                activate_camera.blend_time = 4.f;
+                camera_manager->sendMsg(activate_camera);
+                player->camera_idle = true;
             }
-            else if (!flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
-                ctx.setVariable("is_falling", true);
-            }		
-		}
-        
-        if (player->idle_time > player->idle_max_time && !player->camera_idle && !player->on_cinematic) {
-            ctx.setVariable("camera_idle", true);
-            CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
-            TMsgActiveCamera activate_camera;
-            activate_camera.camera_name = "camera_idle";
-            activate_camera.blend_time = 4.f;
-            camera_manager->sendMsg(activate_camera);
-            player->camera_idle = true;
-            player->restarting = false;
-        }
+            
+        }        
 		return false;
 	}
 
@@ -120,7 +125,6 @@ namespace FSM
         CEntity* e = ctx.getOwner();
         TCompPlayerController* player = e->get<TCompPlayerController>();
         player->previous_state = "idle";
-        player->restarting = false;
         if (player->camera_idle) {
             ctx.setVariable("camera_idle", false);
             CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");

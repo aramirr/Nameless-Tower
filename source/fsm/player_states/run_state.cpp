@@ -14,6 +14,7 @@ namespace FSM
         player->clear_animations(0.005f);
         player->run_time = 0;
 		_sound->start();
+        player->restarting = false;
         CEntity* particles_emiter;
         if (player->left_key)
             particles_emiter = (CEntity*)getEntityByName("humo_run_left");

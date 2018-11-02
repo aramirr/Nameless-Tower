@@ -16,6 +16,7 @@ namespace FSM
 		ctx.setVariable("is_grounded", false);
 		ctx.setVariable("run", false);
 		player->is_grounded = false;
+        player->restarting = false;
 		player->jumping_start_height = c_my_transform->getPosition().y;
 		//player->change_animation(player->EAnimations::NajaJumpFall, false, _delay_in, _delay_out);
 		player->change_animation(player->EAnimations::NajaJumpUp, _is_action, _delay_in, _delay_out, true);

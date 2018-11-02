@@ -12,6 +12,7 @@ namespace FSM
 		ctx.setVariable("can_dash", false);
 		CEntity* e = ctx.getOwner();
 		TCompPlayerController* player = e->get<TCompPlayerController>();
+        player->restarting = false;
 		TCompTransform* c_my_transform = e->get<TCompTransform>();
 		player->jumping_start_height = c_my_transform->getPosition().y;
         player->clear_animations(0.1f);
