@@ -16,7 +16,6 @@ void bt_runner::appear(const TMsgRunnerAppear& msg) {
 	CEntity* player = (CEntity*) getEntityByName("The Player");
 	TCompTransform* p_transform = player->get<TCompTransform>();
 	if (!b_chase || VEC3::Distance(my_transform->getPosition(), p_transform->getPosition()) > 7.f) {
-	/*	dbg("*************** MESSI\n");*/
 		b_appear = true;
 		b_chase = false;
 		appearing_position = msg.appearing_position;
@@ -219,14 +218,23 @@ int bt_runner::actionAttack() {
 };
 
 int bt_runner::actionChase() {
+	TCompTransform *c_my_transform = getMyTransform();
+	VEC3 my_position = c_my_transform->getPosition();
+
 	recalculate_timer += DT;
-	if (recalculate_timer > 0.2f && !on_jump) {
-		recalculate_timer = 0.f;
-		recalculate_path();
+	if (recalculate_timer > 0.5f) {
+		int closest_wp = findClosestWaypoint(my_position);
+		int sec_closest_wp = findSecondClosestWaypoint(my_position, closest_wp);
+		if (closest_wp != path[actual_waypoint] && (next_waypoint >= 0 && closest_wp != path[next_waypoint])) {
+			recalculate_timer = 0.f;
+			anim_state = "";
+			on_jump = false;
+			going_up = true;
+			recalculate_path();
+		}
 	}
 	//dbg("target %s", target.c_str());
-  TCompTransform *c_my_transform = getMyTransform();
-  VEC3 my_position = c_my_transform->getPosition();
+  
 
   CEntity *player = (CEntity *)getEntityByName("The Player");
   TCompTransform *c_p_transform = player->get<TCompTransform>();
@@ -395,6 +403,8 @@ void bt_runner::calculate_distances_graph() {
 }
 
 void bt_runner::findPath(int origin, int destiny){
+	//dbg("FP: %i  -  %i\n", origin, destiny);
+
 	//calculate_distances_graph();
 	int n = waypoints_map.size();
 	vector<float> d (n, INFINITE);
@@ -477,6 +487,8 @@ void bt_runner::chase_player() {
 
 void bt_runner::chase_waypoint() {
 	if (next_waypoint >= 0 || target == "player") {
+		if (next_waypoint > 0)
+			target = "waypoint";
 		if (waypoints_map[path[actual_waypoint]].type == "floor") {
 			target = "waypoint";
 			walk();
@@ -657,6 +669,7 @@ void bt_runner::jump() {
 	TCompTransform *c_my_transform = getMyTransform();
 	VEC3 myPos = c_my_transform->getPosition();
 	if (!on_jump) {
+		recalculate_timer = 0.f;
 		gravity = 15.f;
 		// C position is the point with maxHeight and Vy = 0
 		float Yc;
@@ -690,10 +703,10 @@ void bt_runner::jump() {
 
 		if (path[actual_waypoint] == 31) {
 			Vx += 0.02;
-			dbg("******************\n");
+			/*dbg("******************\n");
 			dbg("**Yc: %f - Yac: %f - Ybc: %f\n", Yc, Yac, Ybc);
 			dbg("**Tbc: %f - Tac: %f - propBC: %f\n", TimeBC, TimeAC, propYbc);
-			dbg("**Vx: %f - Vy: %f\n", Vx, Vy);
+			dbg("**Vx: %f - Vy: %f\n", Vx, Vy);*/
 
 		}
 		//dbg("**Tbc: %f - Tac: %f - propBC: %f\n", TimeBC, TimeAC, propYbc); 
