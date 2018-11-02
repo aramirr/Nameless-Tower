@@ -130,6 +130,7 @@ bool CModuleLevel1::start()
     if (p)
         EngineScripting.script.doString("OnLevel1Start()");
 
+		EngineSound.updateVolumen();
 	return true;
 }
 

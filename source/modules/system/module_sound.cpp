@@ -14,6 +14,7 @@ CModuleSound::CModuleSound(const std::string& name)
 
 bool CModuleSound::start()
 {
+	volumen = 1.f;
 	void *extraDriverData = NULL;
 
 	System* lowLevelSystem = NULL;
@@ -135,7 +136,29 @@ void CModuleSound::stopEvent(const std::string& sound) {
     events[sound].eventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
 }
 
-void CModuleSound::setVolumen(float volumen)
+void CModuleSound::setVolumen(float _volumen)
+{
+	volumen = _volumen;
+	std::map<std::string, Sound>::iterator it;
+
+	for (it = events.begin(); it != events.end(); it++)
+	{
+		it->second.eventInstance->setVolume(volumen);
+	}
+
+	TMsgVolumeSound msg;
+	msg.volumen = volumen;
+
+	for (int i = 0; i < compSounds.size(); i++) {
+		CEntity* cs = compSounds[i];
+		//dbg(compSounds[i].c_str());
+		//dbg("\n");
+		cs->sendMsg(msg);
+	}
+	
+}
+
+void CModuleSound::updateVolumen()
 {
 	std::map<std::string, Sound>::iterator it;
 
@@ -148,17 +171,16 @@ void CModuleSound::setVolumen(float volumen)
 	msg.volumen = volumen;
 
 	for (int i = 0; i < compSounds.size(); i++) {
-		CEntity* cs = getEntityByName(compSounds[i]);
+		CEntity* cs = compSounds[i];
 		//dbg(compSounds[i].c_str());
 		//dbg("\n");
 		cs->sendMsg(msg);
 	}
-	
 }
 
-void CModuleSound::registerCompSound(std::string name)
+void CModuleSound::registerCompSound(CEntity* compsound)
 {
-	compSounds.push_back(name);
+	compSounds.push_back(compsound);
 }
 
 FMOD::Studio::System* CModuleSound::getSystem() {

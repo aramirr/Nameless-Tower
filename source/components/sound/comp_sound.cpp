@@ -36,7 +36,7 @@ void TCompSound::load(const json& j, TEntityParseContext& ctx) {
 	assert(e);
 	//dbg(e->getName());
 	//dbg("\n");
-	EngineSound.registerCompSound(e->getName());
+	EngineSound.registerCompSound(e);
 }
 
 void TCompSound::update(float dt) {
