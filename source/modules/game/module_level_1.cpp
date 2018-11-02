@@ -35,63 +35,55 @@ bool CModuleLevel1::start()
 
 	// Auto load some scenes
     
-    CEntity* e_player = getEntityByName("The Player");
+    CEntity* e_player = getEntityByName("The Player");    
     if (e_player == nullptr) {
         TEntityParseContext ctx;
         parseScene("data/scenes/player.scene", ctx);      
-
-
-				TEntityParseContext ctx1;
-				parseScene("data/scenes/cameras.scene", ctx1);
-				// -------------------------------------------
-				if (!cb_camera.create(CB_CAMERA))
-					return false;
-				// -------------------------------------------
-				if (!cb_object.create(CB_OBJECT))
-					return false;
-				// -------------------------------------------
-				if (!cb_light.create(CB_LIGHT))
-					return false;
-				// -------------------------------------------
-				if (!cb_globals.create(CB_GLOBALS))
-					return false;
-				if (!cb_blur.create(CB_BLUR))
-					return false;
-				if (!cb_particles.create(CB_PARTICLE))
-					return false;
-    }
-    else {        
-        TCompPlayerController* player = e_player->get<TCompPlayerController>();
-        TCompCollider* comp_collider = e_player->get<TCompCollider>();
-        PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);           
-        TCompTransform* t = e_player->get<TCompTransform>();
-        VEC3 pos = VEC3(8.703, 4.5, -30.274);
-        t->setYawPitchRoll(player->looking_left ? deg2rad(-106.039) + deg2rad(180) : deg2rad(-106.039), deg2rad(0));
-        t->setPosition(pos);        
-        PxTransform tr = rigidActor->getGlobalPose();
-        tr.p = PxVec3(8.703, 4.5, -30.274);
-        tr.q = PxQuat(-0.000000, -0.798838, 0.000000, 0.601546);
-        rigidActor->setGlobalPose(tr);        
-        TMsgSetFSMVariable turnMsg1;
-        turnMsg1.variant.setName("idle");
-        turnMsg1.variant.setBool(true);
-        e_player->sendMsg(turnMsg1);
-
-		CEntity* camera = (CEntity*)getEntityByName("camera_orbit_IZQ");
-		TCompOrbitCamera* o = camera->get<TCompOrbitCamera>();
-		o->setPosition(pos);
-
-        
-        player->restarting = true;
-        player->y_speed_factor = -1;
-        EngineTimer.setTimeSlower(1.f);
-    }
+		TEntityParseContext ctx1;
+		parseScene("data/scenes/cameras.scene", ctx1);
+		// -------------------------------------------
+		if (!cb_camera.create(CB_CAMERA))
+			return false;
+		// -------------------------------------------
+		if (!cb_object.create(CB_OBJECT))
+			return false;
+		// -------------------------------------------
+		if (!cb_light.create(CB_LIGHT))
+			return false;
+		// -------------------------------------------
+		if (!cb_globals.create(CB_GLOBALS))
+			return false;
+		if (!cb_blur.create(CB_BLUR))
+			return false;
+		if (!cb_particles.create(CB_PARTICLE))
+			return false;
+    }    
 
 	std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];
 	for (auto& scene_name : scenes_to_auto_load) {
 		TEntityParseContext ctx;
 		parseScene(scene_name, ctx);
 	}    
+    if (e_player != nullptr) {
+        TCompPlayerController* player = e_player->get<TCompPlayerController>();
+        TCompCollider* comp_collider = e_player->get<TCompCollider>();
+        PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
+        TCompTransform* t = e_player->get<TCompTransform>();
+        VEC3 pos = VEC3(8.703, 4.5, -30.274);        
+        TMsgSetFSMVariable turnMsg1;
+        turnMsg1.variant.setName("idle");
+        turnMsg1.variant.setBool(true);
+        e_player->sendMsg(turnMsg1);
+
+        CEntity* camera = (CEntity*)getEntityByName("camera_orbit_IZQ");
+        TCompOrbitCamera* o = camera->get<TCompOrbitCamera>();
+        o->setPosition(pos);
+
+
+        player->restarting = true;
+        player->y_speed_factor = -1;
+        EngineTimer.setTimeSlower(1.f);
+    }
 
 	cb_globals.global_exposure_adjustment = 0.440f;
 	cb_globals.global_ambient_adjustment = 1.f;
@@ -138,8 +130,9 @@ bool CModuleLevel1::start()
 
 void CModuleLevel1::restart()
 {
-   
-
+    CEntity* e_player = getEntityByName("The Player");
+    TCompPlayerController* player = e_player->get<TCompPlayerController>();
+    player->restarting = true;
     cb_globals.global_exposure_adjustment = 0.440f;
     cb_globals.global_ambient_adjustment = 1.f;
     //cb_globals.global_exposure_adjustment = 2.010f;

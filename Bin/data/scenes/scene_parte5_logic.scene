@@ -12,7 +12,25 @@
       }
       ,
       "render":
-      []
+      [
+        {
+          "mesh": "data/meshes/Destruible.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMusgoMat.material"
+          ]
+        }
+        ,
+        {
+          "mesh": "data/meshes/Destruible_post.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+      ]
       ,
       "rigid_anim":
       {
@@ -27,7 +45,7 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destroy_time": 1.0
+        "destroy_time": 0.5
         ,
         "recover_time": 5.0
       }
@@ -97,8 +115,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "offset": "0.0 0.25 0.0"
       }
     }
   }
@@ -144,7 +160,25 @@
       }
       ,
       "render":
-      []
+      [
+        {
+          "mesh": "data/meshes/Destruible.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMusgoMat.material"
+          ]
+        }
+        ,
+        {
+          "mesh": "data/meshes/Destruible_post.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+      ]
       ,
       "rigid_anim":
       {
@@ -159,7 +193,7 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destroy_time": 1.0
+        "destroy_time": 0.5
         ,
         "recover_time": 5.0
       }
@@ -229,8 +263,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "offset": "0.0 0.25 0.0"
       }
     }
   }
@@ -276,7 +308,25 @@
       }
       ,
       "render":
-      []
+      [
+        {
+          "mesh": "data/meshes/Destruible.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMusgoMat.material"
+          ]
+        }
+        ,
+        {
+          "mesh": "data/meshes/Destruible_post.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+      ]
       ,
       "rigid_anim":
       {
@@ -291,7 +341,7 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destroy_time": 1.0
+        "destroy_time": 0.5
         ,
         "recover_time": 5.0
       }
@@ -361,8 +411,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "offset": "0.0 0.25 0.0"
       }
     }
   }
@@ -436,7 +484,25 @@
       }
       ,
       "render":
-      []
+      [
+        {
+          "mesh": "data/meshes/Destruible.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMusgoMat.material"
+          ]
+        }
+        ,
+        {
+          "mesh": "data/meshes/Destruible_post.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+      ]
       ,
       "rigid_anim":
       {
@@ -451,7 +517,7 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destroy_time": 1.0
+        "destroy_time": 0.5
         ,
         "recover_time": 5.0
       }
@@ -521,8 +587,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "offset": "0.0 0.25 0.0"
       }
     }
   }
@@ -1008,7 +1072,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/LanzasZ.mesh"
+          "mesh": "data/meshes/LanzasVerticales.mesh"
           ,
           "materials":
           [
@@ -1017,36 +1081,11 @@
         }
       ]
       ,
-      "player_killer":
-      {
-        "kill_enabled": true
-      }
-      ,
-      "trigger":
-      {
-        "trigger_type": "player_killer"
-        ,
-        "render": true
-        ,
-        "sound_name": "hit_lanzas"
-      }
-      ,
-      "collider":
-      {
-        "shape": "box"
-        ,
-        "halfExtent": "1.2417 0.804776 1.58385"
-        ,
-        "is_dynamic": false
-        ,
-        "is_trigger": true
-      }
-      ,
       "ai_linear_patrol":
       {
-        "speed": 2.0
+        "speed": 3.0
         ,
-        "delay": 0.5
+        "delay": 0.1
         ,
         "wake": 0.0
         ,
@@ -1054,11 +1093,9 @@
         [
           "27.1818 65.2724 4.66257"
           ,
-          "29.0998 65.2724 4.99157"
+          "29.6604 65.2724 4.66257"
         ]
       }
-      ,
-      "abs_aabb": true
       ,
       "sound":
       {
@@ -1074,6 +1111,33 @@
             "on_start": false
           }
         ]
+      }
+      ,
+      "player_killer":
+      {
+        "kill_enabled": true
+      }
+      ,
+      "trigger":
+      {
+        "trigger_type": "player_killer"
+        ,
+        "sound_name": "hit_lanzas"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.17274 1.46877 2.0"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
       }
     }
   }
@@ -1117,15 +1181,33 @@
       {
         "pos": "26.115 84.5944 -17.2624"
         ,
-        "rotation": "0.0 0.0 0.0 -1.0"
+        "rotation": "0.0 -0.280692 0.0 -0.959798"
       }
       ,
       "render":
-      []
+      [
+        {
+          "mesh": "data/meshes/DestruibleC.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+        ,
+        {
+          "mesh": "data/meshes/Destruible_post.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+      ]
       ,
       "rigid_anim":
       {
-        "src": "data/anims/PlataformasDestruibles.anims"
+        "src": "data/anims/PuenteDestruibles.anims"
         ,
         "speed_factor": 1.0
         ,
@@ -1136,7 +1218,7 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destroy_time": 1.0
+        "destroy_time": 0.5
         ,
         "recover_time": 5.0
       }
@@ -1181,7 +1263,7 @@
       {
         "pos": "26.115 84.5944 -17.2624"
         ,
-        "rotation": "0.0 0.0 0.0 -1.0"
+        "rotation": "0.0 -0.280692 0.0 -0.959798"
       }
       ,
       "render":
@@ -1206,8 +1288,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "offset": "0.0 0.25 0.0"
       }
     }
   }
@@ -1221,15 +1301,33 @@
       {
         "pos": "28.9519 84.5468 -11.2486"
         ,
-        "rotation": "0.0 0.0 0.0 -1.0"
+        "rotation": "0.0 -0.18276 0.0 -0.983158"
       }
       ,
       "render":
-      []
+      [
+        {
+          "mesh": "data/meshes/DestruibleB.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/puenteRoto.material"
+          ]
+        }
+        ,
+        {
+          "mesh": "data/meshes/Destruible_post.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DestruibleMat.material"
+          ]
+        }
+      ]
       ,
       "rigid_anim":
       {
-        "src": "data/anims/PlataformasDestruibles.anims"
+        "src": "data/anims/PuenteDestruibles.anims"
         ,
         "speed_factor": 1.0
         ,
@@ -1240,7 +1338,7 @@
       {
         "trigger_actor": "The Player"
         ,
-        "destroy_time": 1.0
+        "destroy_time": 0.5
         ,
         "recover_time": 5.0
       }
@@ -1285,7 +1383,7 @@
       {
         "pos": "28.9519 84.5468 -11.2486"
         ,
-        "rotation": "0.0 0.0 0.0 -1.0"
+        "rotation": "0.0 -0.18276 0.0 -0.983158"
       }
       ,
       "render":
@@ -1310,8 +1408,6 @@
         "is_dynamic": false
         ,
         "is_trigger": true
-        ,
-        "offset": "0.0 0.25 0.0"
       }
     }
   }

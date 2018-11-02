@@ -50,11 +50,7 @@ namespace FSM
             my_pos->getYawPitchRoll(&y, &p, &r);
             y -= deg2rad(90);
             my_pos->setYawPitchRoll(y, 0, 0);
-        }
-        else {
-            player->restarting = false;
-        }
-		
+        }		
 
 		player->looking_left = my_pos->isInLeft(player->center) ? false : true;		
 		player->y_speed_factor = -1;

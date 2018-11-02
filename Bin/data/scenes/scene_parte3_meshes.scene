@@ -2,6 +2,90 @@
   {
     "entity":
     {
+      "name": "plant_Hanging_Ivy033"
+      ,
+      "transform":
+      {
+        "pos": "26.657 96.6905 -14.288"
+        ,
+        "rotation": "0.037907 0.14893 -0.00571349 -0.988104"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_Hanging_Ivy033.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Hanging_Ivy.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CuerdasPuente"
+      ,
+      "transform":
+      {
+        "pos": "27.219 93.972 -13.8577"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CuerdasPuente.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CuerdaMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CaretaCascada"
+      ,
+      "transform":
+      {
+        "pos": "19.874 98.0412 -9.95998"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CaretaCascada.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Careta_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Estatua"
       ,
       "transform":

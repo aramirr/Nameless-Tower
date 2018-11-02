@@ -2,6 +2,62 @@
   {
     "entity":
     {
+      "name": "Niebla012"
+      ,
+      "transform":
+      {
+        "pos": "21.3465 67.2204 9.41114"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla012.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla011"
+      ,
+      "transform":
+      {
+        "pos": "22.0544 66.3988 9.63012"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla011.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Telas2"
       ,
       "transform":
@@ -2231,7 +2287,7 @@
       ,
       "transform":
       {
-        "pos": "17.2846 69.876 7.7916"
+        "pos": "17.2846 69.876 7.79161"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -2485,7 +2541,7 @@
       ,
       "transform":
       {
-        "pos": "29.8263 69.75 9.69077"
+        "pos": "29.8263 69.75 9.69076"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -2498,36 +2554,6 @@
           "materials":
           [
             "data/materials/ParedModelo.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Object050"
-      ,
-      "transform":
-      {
-        "pos": "31.5705 74.25 8.41319"
-        ,
-        "rotation": "0.0 -0.232888 0.0 -0.972504"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Object050.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedModelo.material"
-            ,
-            "data/materials/ParedModeladaInteriores.material"
           ]
         }
       ]
