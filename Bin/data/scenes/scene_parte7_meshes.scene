@@ -2,6 +2,260 @@
   {
     "entity":
     {
+      "name": "Niebla004"
+      ,
+      "transform":
+      {
+        "pos": "-20.0731 24.991 -14.6581"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla004.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaBMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Niebla003"
+      ,
+      "transform":
+      {
+        "pos": "-21.9095 24.1536 -15.8748"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Niebla003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/nieblaAMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Plataforma_01_Bajada"
+      ,
+      "transform":
+      {
+        "pos": "-29.8008 15.6194 5.9788"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Plataforma_01_Bajada.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MaderaMusgoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+      ,
+      "local_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BordesParte7C"
+      ,
+      "transform":
+      {
+        "pos": "-30.9523 13.5028 6.46729"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte7C.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte7I"
+      ,
+      "transform":
+      {
+        "pos": "-31.9736 2.24996 -5.0349"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte7I.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte7H"
+      ,
+      "transform":
+      {
+        "pos": "-28.2489 33.75 14.3683"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte7H.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RioLavaRocas"
+      ,
+      "transform":
+      {
+        "pos": "-22.2449 23.8722 -16.3626"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RioLavaRocas.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/lavaRocas.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RioLava"
+      ,
+      "transform":
+      {
+        "pos": "-22.2449 23.8682 -16.3626"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RioLava.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LavaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RioLava_Espuma"
+      ,
+      "transform":
+      {
+        "pos": "-22.2449 22.1151 -16.3626"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RioLava_Espuma.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/LavaOrillasMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "CaretaSala"
       ,
       "transform":
@@ -19,6 +273,2607 @@
           "materials":
           [
             "data/materials/CaretaSala.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedDestapada1B"
+      ,
+      "transform":
+      {
+        "pos": "1.73666 33.75 -32.5968"
+        ,
+        "rotation": "0.0 -0.996962 0.0 0.0778873"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada1B.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedDestapada5B"
+      ,
+      "transform":
+      {
+        "pos": "-22.6674 27.0 -20.3465"
+        ,
+        "rotation": "0.0 -0.879091 0.0 0.476655"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada5B.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedDestapada4B"
+      ,
+      "transform":
+      {
+        "pos": "-31.9623 24.75 -5.04018"
+        ,
+        "rotation": "0.0 0.793702 0.0 -0.608306"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedDestapada4B.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+            ,
+            "data/materials/ParedModeladaInteriores.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte7G"
+      ,
+      "transform":
+      {
+        "pos": "-27.0235 18.0 17.8187"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte7G.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte7F"
+      ,
+      "transform":
+      {
+        "pos": "-31.9538 15.75 -5.22015"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte7F.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte7E"
+      ,
+      "transform":
+      {
+        "pos": "-31.6385 33.75 -1.61766"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte7E.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte7D"
+      ,
+      "transform":
+      {
+        "pos": "-23.9363 40.5 -19.3871"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte7D.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte7A"
+      ,
+      "transform":
+      {
+        "pos": "-6.50409 40.5 -30.5351"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte7A.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Telas4"
+      ,
+      "transform":
+      {
+        "pos": "-31.2233 18.9515 3.456"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Telas4.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Telas3"
+      ,
+      "transform":
+      {
+        "pos": "-22.1442 30.529 -16.8477"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Telas3.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Ropa_Colgada_Mat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_parte7_D"
+      ,
+      "transform":
+      {
+        "pos": "-4.91072 45.025 -27.5958"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte7_D.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Normal.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_parte7_C"
+      ,
+      "transform":
+      {
+        "pos": "-14.7739 31.5248 -25.0367"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte7_C.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Normal.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_parte_7_B"
+      ,
+      "transform":
+      {
+        "pos": "-30.5226 27.025 -5.02169"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte_7_B.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Normal.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_parte7_E"
+      ,
+      "transform":
+      {
+        "pos": "-26.43 31.2488 6.35581"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte7_E.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Estatua_Fuera.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_parte_7_A"
+      ,
+      "transform":
+      {
+        "pos": "-30.4971 11.275 -5.02169"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte_7_A.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Normal.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Techo_parte7_F"
+      ,
+      "transform":
+      {
+        "pos": "-22.6991 31.419 -16.8281"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Techo_parte7_F.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Techo_Caldero.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedesEscalerasRotasParte7"
+      ,
+      "transform":
+      {
+        "pos": "-3.68514 31.5003 -27.595"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedesEscalerasRotasParte7.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pared_Ladrillo_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Estatua_Part_15"
+      ,
+      "transform":
+      {
+        "pos": "-27.0913 13.1383 5.87928"
+        ,
+        "rotation": "-0.0202807 -0.0434861 0.0271628 -0.998479"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Estatua_Part_15.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EstatuaGrandeMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte7C"
+      ,
+      "transform":
+      {
+        "pos": "-22.6139 22.5 -20.0348"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte7C.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BordesParte7B"
+      ,
+      "transform":
+      {
+        "pos": "-30.9523 24.7528 6.46729"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte7B.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "AlmenasParte7B"
+      ,
+      "transform":
+      {
+        "pos": "-30.9209 4.73513 3.5931"
+        ,
+        "rotation": "0.0 0.17839 0.0 -0.98396"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/AlmenasParte7B.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Almena_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "marco008"
+      ,
+      "transform":
+      {
+        "pos": "-15.0844 28.7411 -21.5378"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/marco008.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MarcoMater.material"
+            ,
+            "data/materials/ArcoMater.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Puerta_Abierta_Madera_046"
+      ,
+      "transform":
+      {
+        "pos": "-10.9908 29.0342 -23.8151"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Abierta_Madera_046.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MarcoPuertaSinMusgo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "marco005"
+      ,
+      "transform":
+      {
+        "pos": "-17.9369 28.7452 -25.6227"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/marco005.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MarcoMater.material"
+            ,
+            "data/materials/ArcoMater.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Puerta_Abierta_Madera_036"
+      ,
+      "transform":
+      {
+        "pos": "-12.6651 29.0221 -28.8409"
+        ,
+        "rotation": "0.0 0.544639 0.0 -0.838671"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Abierta_Madera_036.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MarcoPuertaSinMusgo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Puerta_Abierta_Madera_021"
+      ,
+      "transform":
+      {
+        "pos": "-31.4988 24.5221 -0.160483"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Puerta_Abierta_Madera_021.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MarcoPuertaConMusgo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "DesagueLow001"
+      ,
+      "transform":
+      {
+        "pos": "-29.6927 5.64364 -8.13059"
+        ,
+        "rotation": "0.0 -0.157346 0.0 -0.987544"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/DesagueLow001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/DesagueConMusgoChicoMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Dracaena_Trunk_002"
+      ,
+      "transform":
+      {
+        "pos": "-28.2274 8.6068 0.872351"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Dracaena_Trunk_002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/palm_Dracaena.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "areca_Stems001"
+      ,
+      "transform":
+      {
+        "pos": "-25.7575 8.23469 10.516"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/areca_Stems001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Areca.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "arrowheadLeaf_013"
+      ,
+      "transform":
+      {
+        "pos": "-28.5907 6.30436 11.461"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/arrowheadLeaf_013.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Arrowhead_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "grass_Tropical_007"
+      ,
+      "transform":
+      {
+        "pos": "-21.1307 23.9872 -16.0516"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/grass_Tropical_007.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/grass_Tropical_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_HangingFern_Long018"
+      ,
+      "transform":
+      {
+        "pos": "-6.48762 38.6602 -23.8103"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_HangingFern_Long018.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_HangingFern_Long.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_Hanging_Ivy015"
+      ,
+      "transform":
+      {
+        "pos": "-3.42326 29.6577 -25.0691"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_Hanging_Ivy015.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Hanging_Ivy.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_Mandevilla_Vine_004"
+      ,
+      "transform":
+      {
+        "pos": "-29.9222 5.58376 -3.12228"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_Mandevilla_Vine_004.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Mandevilla_Vine_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_HangingFern_Small001"
+      ,
+      "transform":
+      {
+        "pos": "-33.4111 4.45772 -5.94561"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_HangingFern_Small001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_HangingFern_Long.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "grass_thin016"
+      ,
+      "transform":
+      {
+        "pos": "-29.8993 4.81632 -4.27514"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/grass_thin016.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/grass_Thin.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "grass_thin014"
+      ,
+      "transform":
+      {
+        "pos": "-30.5215 5.07273 0.830639"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/grass_thin014.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/grass_Thin.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "grass_Gamba_008"
+      ,
+      "transform":
+      {
+        "pos": "-30.1008 5.94419 10.4514"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/grass_Gamba_008.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/grass_Gamba.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "grass_Gamba_007"
+      ,
+      "transform":
+      {
+        "pos": "-25.807 8.04221 0.659284"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/grass_Gamba_007.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/grass_Gamba.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "grass_Gamba_006"
+      ,
+      "transform":
+      {
+        "pos": "-29.1611 6.458 0.448346"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/grass_Gamba_006.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/grass_Gamba.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "grass_thin009"
+      ,
+      "transform":
+      {
+        "pos": "-28.4443 7.31704 5.66879"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/grass_thin009.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/grass_Thin.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "grass_Gamba_004"
+      ,
+      "transform":
+      {
+        "pos": "-28.247 7.991 6.17857"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/grass_Gamba_004.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/grass_Gamba.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_Mandevilla_Vine_003"
+      ,
+      "transform":
+      {
+        "pos": "-27.9238 18.3938 8.45315"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_Mandevilla_Vine_003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Mandevilla_Vine_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_Mandevilla_Vine_002"
+      ,
+      "transform":
+      {
+        "pos": "-27.614 8.59445 8.00763"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_Mandevilla_Vine_002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Mandevilla_Vine_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_Hanging_Ivy_Bajada"
+      ,
+      "transform":
+      {
+        "pos": "-26.1929 15.6371 5.05504"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_Hanging_Ivy_Bajada.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Hanging_Ivy.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "grass_thin004"
+      ,
+      "transform":
+      {
+        "pos": "-28.8735 17.7264 3.08564"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/grass_thin004.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/grass_Thin.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_HangingFern_Long012_Bajada"
+      ,
+      "transform":
+      {
+        "pos": "-28.4243 14.2243 5.86341"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_HangingFern_Long012_Bajada.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_HangingFern_Long.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Arriba"
+      ,
+      "transform":
+      {
+        "pos": "-4.74254 35.5072 -22.39"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Arriba.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CabarribaOutMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "puerta piedra002"
+      ,
+      "transform":
+      {
+        "pos": "-31.2435 6.2539 -2.09927"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/puerta piedra002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/PuertaAbiertaRockMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "marco003"
+      ,
+      "transform":
+      {
+        "pos": "-29.8392 24.507 -9.37889"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/marco003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MarcoMater.material"
+            ,
+            "data/materials/ArcoMater.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "RocaTipoC005"
+      ,
+      "transform":
+      {
+        "pos": "-19.3777 22.624 -17.4563"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/RocaTipoC005.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocasBajadaMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PinchosDesague003"
+      ,
+      "transform":
+      {
+        "pos": "-30.663 3.88301 -8.22896"
+        ,
+        "rotation": "0.0 -0.271197 0.0 -0.962524"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PinchosDesague003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocaVerde.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Dragones"
+      ,
+      "transform":
+      {
+        "pos": "-5.24385 31.3979 -23.9549"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Dragones.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Dragones_Color.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Relieve_Marco_01"
+      ,
+      "transform":
+      {
+        "pos": "-5.20031 31.4999 -23.1893"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Relieve_Marco_01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/MArco_Relieve.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Relieve_Grande_01"
+      ,
+      "transform":
+      {
+        "pos": "-5.21554 31.2515 -23.9021"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Relieve_Grande_01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Relieve_02.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "roto"
+      ,
+      "transform":
+      {
+        "pos": "-29.313 4.90134 12.9289"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/roto.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/rotoMate.material"
+          ]
+        }
+      ]
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "1.17474 0.5 0.807681"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": false
+      }
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BaseLow"
+      ,
+      "transform":
+      {
+        "pos": "-27.3844 6.3889 5.72231"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BaseLow.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/BaseMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Object055"
+      ,
+      "transform":
+      {
+        "pos": "-27.3645 22.6097 -8.82272"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Object055.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pared_Ladrillo_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Suelo_SalaCabeza_04_Escena07"
+      ,
+      "transform":
+      {
+        "pos": "-27.5945 4.49998 3.40749"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Suelo_SalaCabeza_04_Escena07.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Suelo_SalaCabeza_04.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Estatua002"
+      ,
+      "transform":
+      {
+        "pos": "-17.1515 26.1037 -23.0828"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Estatua002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EstatuasChicas.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Estatua001"
+      ,
+      "transform":
+      {
+        "pos": "-18.0692 25.6471 -16.2004"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Estatua001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/EstatuasChicas.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "SueloPasilloEscena07"
+      ,
+      "transform":
+      {
+        "pos": "2.90104 31.5002 -28.471"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/SueloPasilloEscena07.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Suelo_Pasillo_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedesExtraEscena07"
+      ,
+      "transform":
+      {
+        "pos": "-20.2226 27.001 -13.7597"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedesExtraEscena07.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pared_Interior_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedesExterioresEscena07"
+      ,
+      "transform":
+      {
+        "pos": "-27.5951 17.9989 3.49082"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedesExterioresEscena07.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pared_Ladrillo_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BordesParte7A"
+      ,
+      "transform":
+      {
+        "pos": "-13.1423 22.5087 -29.334"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte7A.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "ParedExteriorParte7B"
+      ,
+      "transform":
+      {
+        "pos": "-28.629 2.24996 10.9769"
+        ,
+        "rotation": "0.0 0.85294 0.0 -0.52201"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/ParedExteriorParte7B.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedModelo.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Object009"
+      ,
+      "transform":
+      {
+        "pos": "-17.8325 22.7816 -18.9716"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Object009.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Escalera_Sala_Caldero.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Escalera_003"
+      ,
+      "transform":
+      {
+        "pos": "-18.4909 24.7672 -18.2216"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Escalera_003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Escalera_Sala_Caldero.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Box003"
+      ,
+      "transform":
+      {
+        "pos": "-24.6281 23.4941 -10.1062"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Box003.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocaGris.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Caldero007"
+      ,
+      "transform":
+      {
+        "pos": "-18.5812 25.1825 -16.7114"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Caldero007.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CalderoMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Box002"
+      ,
+      "transform":
+      {
+        "pos": "-22.2831 23.4941 -14.2352"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Box002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocaGris.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Object015"
+      ,
+      "transform":
+      {
+        "pos": "-22.3988 26.1725 -11.4862"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Object015.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puert_caldero.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Object007"
+      ,
+      "transform":
+      {
+        "pos": "-22.6492 22.1994 -16.8873"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Object007.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Suelo_Caldero.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Object014"
+      ,
+      "transform":
+      {
+        "pos": "-25.6106 22.5388 -13.0927"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Object014.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Puente_Caldero.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Object005"
+      ,
+      "transform":
+      {
+        "pos": "-16.7856 26.9999 -23.3359"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Object005.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Sala_caldero_Izq.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Frontal"
+      ,
+      "transform":
+      {
+        "pos": "-19.2886 27.0597 -14.0761"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Frontal.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Sala_caldero_Cen.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Antorcha_Pared_014"
+      ,
+      "transform":
+      {
+        "pos": "-18.3819 26.0386 -16.6071"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Antorcha_Pared_014.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedLadrillosMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Arco_Grande_Puente_002"
+      ,
+      "transform":
+      {
+        "pos": "-22.007 26.8943 -11.2681"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Arco_Grande_Puente_002.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Arco_Templo_00.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Object013"
+      ,
+      "transform":
+      {
+        "pos": "-22.6538 27.0579 -13.9787"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Object013.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Sala_caldero_Der.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Caldero"
+      ,
+      "transform":
+      {
+        "pos": "-18.0758 25.32 -22.2375"
+        ,
+        "rotation": "-0.0522642 -0.00273905 -0.0522642 -0.997261"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Caldero.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CalderoMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Escalera_008"
+      ,
+      "transform":
+      {
+        "pos": "-21.8933 24.75 -21.9237"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Escalera_008.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Escalera_Sala_Caldero.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Escalera_05"
+      ,
+      "transform":
+      {
+        "pos": "-6.52377 28.1254 -29.752"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Escalera_05.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Escalera_04.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Escalera_03"
+      ,
+      "transform":
+      {
+        "pos": "-5.67296 28.1265 -25.1769"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Escalera_03.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Escalera_03.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Calderito05"
+      ,
+      "transform":
+      {
+        "pos": "-14.9189 28.9902 -25.8744"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Calderito05.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CalderoMate.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Antorcha_Pared_05"
+      ,
+      "transform":
+      {
+        "pos": "-15.0082 29.8188 -25.8835"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Antorcha_Pared_05.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Pared_Interior_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Estatua_Columna_02"
+      ,
+      "transform":
+      {
+        "pos": "-4.65572 26.8307 -22.2206"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Estatua_Columna_02.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaCabezaOutMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Columna_007"
+      ,
+      "transform":
+      {
+        "pos": "3.42263 38.2424 -28.4089"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Columna_007.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ColumnaBaseMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Muro_Salido_004"
+      ,
+      "transform":
+      {
+        "pos": "-29.5806 24.7498 -4.70799"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Muro_Salido_004.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Muro_Salido_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Suelo_SalaCaldero_03_Escena07"
+      ,
+      "transform":
+      {
+        "pos": "-13.2356 27.0011 -22.7315"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Suelo_SalaCaldero_03_Escena07.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/RocaGris.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Suelo_SalaCaldero_04_Escena07"
+      ,
+      "transform":
+      {
+        "pos": "-15.6724 27.0 -26.9935"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Suelo_SalaCaldero_04_Escena07.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Suelo_SalaCaldero_02.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Suelo_SalaCaldero_01_Escena07"
+      ,
+      "transform":
+      {
+        "pos": "-30.5157 22.5 -5.02169"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Suelo_SalaCaldero_01_Escena07.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Suelo_SalaCaldero_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Relieve_01"
+      ,
+      "transform":
+      {
+        "pos": "-11.806 37.6131 -26.2397"
+        ,
+        "rotation": "0.0 0.755768 0.0 -0.654839"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Relieve_01.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Relieve_01.material"
           ]
         }
       ]

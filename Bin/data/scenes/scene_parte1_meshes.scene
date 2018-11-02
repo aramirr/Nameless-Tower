@@ -2,6 +2,86 @@
   {
     "entity":
     {
+      "name": "PlantasPuente"
+      ,
+      "transform":
+      {
+        "pos": "24.9217 93.6646 0.788847"
+        ,
+        "rotation": "0.0 -0.13557 0.0 -0.990768"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PlantasPuente.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Hanging_Ivy.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "PlantasPuente"
+      ,
+      "transform":
+      {
+        "pos": "19.4276 96.7722 -17.2037"
+        ,
+        "rotation": "0.0 -0.97311 0.0 0.230342"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/PlantasPuente.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Hanging_Ivy.material"
+          ]
+        }
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "plant_Hanging_Ivy034"
+      ,
+      "transform":
+      {
+        "pos": "22.5146 98.8672 -8.15721"
+        ,
+        "rotation": "0.0 0.653264 0.0 -0.75713"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/plant_Hanging_Ivy034.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_Hanging_Ivy.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Niebla004"
       ,
       "transform":

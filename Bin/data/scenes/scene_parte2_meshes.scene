@@ -2,6 +2,62 @@
   {
     "entity":
     {
+      "name": "VegetacionPuente001"
+      ,
+      "transform":
+      {
+        "pos": "24.2764 92.293 -20.605"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VegetacionPuente001.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_HangingFern_Long.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "VegetacionPuente"
+      ,
+      "transform":
+      {
+        "pos": "30.7598 93.5707 -8.04062"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/VegetacionPuente.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/plant_HangingFern_Long.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Niebla006"
       ,
       "transform":

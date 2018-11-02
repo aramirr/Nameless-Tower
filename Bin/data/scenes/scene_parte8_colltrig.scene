@@ -2,6 +2,46 @@
   {
     "entity":
     {
+      "name": "TSSalaSorpresa"
+      ,
+      "transform":
+      {
+        "pos": "-25.7604 6.82158 18.3201"
+        ,
+        "rotation": "0.0 0.435613 0.0 -0.900134"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "trigger":
+      {
+        "trigger_type": "none"
+        ,
+        "collider_entity": "none"
+        ,
+        "render": false
+      }
+      ,
+      "collider":
+      {
+        "shape": "box"
+        ,
+        "offset": "0.0 0.0 0.0"
+        ,
+        "halfExtent": "0.156377 2.32158 0.918949"
+        ,
+        "is_dynamic": false
+        ,
+        "is_trigger": true
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "TSCinematicaFinal"
       ,
       "transform":
