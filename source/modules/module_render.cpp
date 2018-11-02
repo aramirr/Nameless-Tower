@@ -284,7 +284,7 @@ void CModuleRender::generateFrame() {
 		TCompCulling* culling;
 		CEntity* e = EngineCameras.getActiveCamera();
 		culling = e->get<TCompCulling>();
-		assert(culling);
+		//assert(culling);
 
 		CRenderManager::get().renderCategory("particles", culling);
 		CRenderManager::get().renderCategory("particlesA", culling);

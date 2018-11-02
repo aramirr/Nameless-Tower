@@ -60,7 +60,7 @@ void CDeferredRenderer::renderGBuffer(CHandle h_camera) {
 	CEntity* e = EngineCameras.getActiveCamera();  // EDU: Realmente deberia ser "CEntity* e = h_camera;". Pero por otro erro se pone asi para no perder los BlendIn y Out
 	//dbg("----------------- %s\n", EngineCameras.getActiveCamera()->getName());
 	culling = e->get<TCompCulling>();
-	assert(culling);
+	//assert(culling);
 
 	// Render the solid objects that output to the G-Buffer
 	CRenderManager::get().renderCategory("gbuffer", culling);

@@ -207,7 +207,7 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 				//}
 				
 			}
-
+            dbg("%f %f %f\n", delta_move.x, delta_move.y, delta_move.z);
 			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, query_filter, filter_controller));
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {

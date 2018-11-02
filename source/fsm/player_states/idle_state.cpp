@@ -57,8 +57,9 @@ namespace FSM
             c_my_transform->setYawPitchRoll(deg2rad(-106.039), deg2rad(0));
             PxTransform tr = rigidActor->getGlobalPose();
             tr.p = PxVec3(8.703, 4.5, -30.274);
-            tr.q = PxQuat(-0.000000, -0.798838, 0.000000, 0.601546);
+            //tr.q = PxQuat(-0.000000, -0.798838, 0.000000, 0.601546);
             rigidActor->setGlobalPose(tr);
+            player->looking_left = false;
             player->change_animation(player->EAnimations::NajaIdle, _is_action, 0.01, _delay_out, true);            
         }
         else {
