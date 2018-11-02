@@ -11,6 +11,7 @@ namespace FSM
 		  
         CEntity* e = ctx.getOwner();
         TCompPlayerController* player = e->get<TCompPlayerController>();
+				_sound->setVolume(player->volumen);
         player->clear_animations(0.005f);
         player->run_time = 0;
 		_sound->start();

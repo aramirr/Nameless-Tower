@@ -33,7 +33,7 @@ bool CModuleLevel2::start()
 		EngineScripting.script.doString("OnLevel2Start()");
 
 	cb_globals.global_bajada = 1.f;
-
+	EngineSound.updateVolumen();
 	return true;
 }
 

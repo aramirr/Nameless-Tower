@@ -24,6 +24,7 @@ public:
     float   run_time = 0;
     float   idle_time = 0;
     float   idle_max_time;
+		float volumen = 100.f;
 	VEC3 checkpoint;
     bool    looking_left;
     bool    camera_idle = false;
@@ -104,6 +105,14 @@ public:
 	TCompTransform * getMyTransform();
 	TCompRender* getMyRender();
 	TCompCollider* getMyCollider();
+
+	void setVolumen(const TMsgVolumeSound& msg) {
+		_sound_land->setVolume(msg.volumen);
+		volumen = msg.volumen;
+	}
+	static void registerMsgs() {
+		DECL_MSG(TCompPlayerController, TMsgVolumeSound, setVolumen);
+	}
 
 private:
 

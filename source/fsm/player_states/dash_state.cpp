@@ -14,6 +14,7 @@ namespace FSM
 		TCompPlayerController* player = e->get<TCompPlayerController>();
         player->restarting = false;
 		TCompTransform* c_my_transform = e->get<TCompTransform>();
+		_sound->setVolume(player->volumen);
 		player->jumping_start_height = c_my_transform->getPosition().y;
         player->clear_animations(0.1f);
 		player->change_animation(player->EAnimations::NajaDashStrike, _is_action, _delay_in, _delay_out, true);
