@@ -97,7 +97,7 @@ void TCompSound::setVolumen(const TMsgVolumeSound& msg) {
 	for (it = events.begin(); it != events.end(); it++)
 	{
 		it->second.eventInstance->setVolume(volumen);
-		dbg("MUTE\n");
+		//dbg("MUTE\n");
 	}
 }
 

@@ -16,7 +16,6 @@ void bt_runner::appear(const TMsgRunnerAppear& msg) {
 	CEntity* player = (CEntity*) getEntityByName("The Player");
 	TCompTransform* p_transform = player->get<TCompTransform>();
 	if (!b_chase || VEC3::Distance(my_transform->getPosition(), p_transform->getPosition()) > 7.f) {
-	/*	dbg("*************** MESSI\n");*/
 		b_appear = true;
 		b_chase = false;
 		appearing_position = msg.appearing_position;
@@ -219,14 +218,23 @@ int bt_runner::actionAttack() {
 };
 
 int bt_runner::actionChase() {
+	TCompTransform *c_my_transform = getMyTransform();
+	VEC3 my_position = c_my_transform->getPosition();
+
 	recalculate_timer += DT;
-	if (recalculate_timer > 0.2f) {
-		recalculate_timer = 0.f;
-		//recalculate_path();
+	if (recalculate_timer > 0.5f) {
+		int closest_wp = findClosestWaypoint(my_position);
+		int sec_closest_wp = findSecondClosestWaypoint(my_position, closest_wp);
+		if (closest_wp != path[actual_waypoint] && (next_waypoint >= 0 && closest_wp != path[next_waypoint])) {
+			recalculate_timer = 0.f;
+			anim_state = "";
+			on_jump = false;
+			going_up = true;
+			recalculate_path();
+		}
 	}
 	//dbg("target %s", target.c_str());
-  TCompTransform *c_my_transform = getMyTransform();
-  VEC3 my_position = c_my_transform->getPosition();
+  
 
   CEntity *player = (CEntity *)getEntityByName("The Player");
   TCompTransform *c_p_transform = player->get<TCompTransform>();
@@ -337,8 +345,6 @@ void bt_runner::addGravity() {
   TCompCollider* comp_collider = get<TCompCollider>();
   TCompTransform* comp_transform = get<TCompTransform>();
   PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
-  VEC3 delta_move = comp_transform->getPosition();
-  delta_move.y += -1.f * DT;
 	float d_y = -10.f * DT;
   PxShape* player_shape;
   comp_collider->controller->getActor()->getShapes(&player_shape, 1);
@@ -397,6 +403,8 @@ void bt_runner::calculate_distances_graph() {
 }
 
 void bt_runner::findPath(int origin, int destiny){
+	//dbg("FP: %i  -  %i\n", origin, destiny);
+
 	//calculate_distances_graph();
 	int n = waypoints_map.size();
 	vector<float> d (n, INFINITE);
@@ -479,6 +487,8 @@ void bt_runner::chase_player() {
 
 void bt_runner::chase_waypoint() {
 	if (next_waypoint >= 0 || target == "player") {
+		if (next_waypoint > 0)
+			target = "waypoint";
 		if (waypoints_map[path[actual_waypoint]].type == "floor") {
 			target = "waypoint";
 			walk();
@@ -659,14 +669,18 @@ void bt_runner::jump() {
 	TCompTransform *c_my_transform = getMyTransform();
 	VEC3 myPos = c_my_transform->getPosition();
 	if (!on_jump) {
+		recalculate_timer = 0.f;
 		gravity = 15.f;
 		// C position is the point with maxHeight and Vy = 0
 		float Yc;
-		if (waypoints_map[path[actual_waypoint]].position.y <= target_position.y + 0.5f)
+		if (path[actual_waypoint] == 31) {
+			Yc = waypoints_map[path[actual_waypoint]].position.y + 3.f;
+		}
+		else if (waypoints_map[path[actual_waypoint]].position.y <= target_position.y + 0.5f)
 			Yc = target_position.y + 2.5f;
 		else
 			Yc = waypoints_map[path[actual_waypoint]].position.y + 2.5f;
-
+		
 
 		//dbg("wp: %i - Yc: %f - ypos: %f\n", path[actual_waypoint], Yc, myPos.y);
 
@@ -687,7 +701,14 @@ void bt_runner::jump() {
 		Vy = 1.1*gravity * TimeAC;
 
 
+		if (path[actual_waypoint] == 31) {
+			Vx += 0.02;
+			/*dbg("******************\n");
+			dbg("**Yc: %f - Yac: %f - Ybc: %f\n", Yc, Yac, Ybc);
+			dbg("**Tbc: %f - Tac: %f - propBC: %f\n", TimeBC, TimeAC, propYbc);
+			dbg("**Vx: %f - Vy: %f\n", Vx, Vy);*/
 
+		}
 		//dbg("**Tbc: %f - Tac: %f - propBC: %f\n", TimeBC, TimeAC, propYbc); 
 
 	}
@@ -757,7 +778,8 @@ void bt_runner::jump() {
       if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
         if (anim_state != "jump_land") {
           anim_state = "jump_land";
-          change_animation(ERunnerAnimations::RunnerJumpLand, true, 0.1f, 0.f, true);
+					//change_animation(ERunnerAnimations::RunnerRunCerca, false, 0.1f, 0.f, true);
+					change_animation(ERunnerAnimations::RunnerJumpLand, true, 0.1f, 0.f, true);
 					play_sound("land");
 					CEntity* particles_emiter = (CEntity*)getEntityByName("humo_land_runner");
 					TCompParticles* c_particles = particles_emiter->get<TCompParticles>();

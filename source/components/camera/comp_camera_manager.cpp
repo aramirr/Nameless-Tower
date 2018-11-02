@@ -142,17 +142,17 @@ int Seed = 26508293; // <--Introduzca aqui la semilla
 
 void TCompCameraManager::update(float dt) {
 	// Debug Runner
-	//if (isPressed(VK_F4)) {
-	//	CEntity* e = (CEntity*)getEntityByName("Runner");
-	//	TMsgRunnerAppear msg;
-	//	msg.appearing_position = VEC3(28.431f, 64.101f, -13.563f);
-	//	e->sendMsg(msg);
-	//}
-	//if (isPressed(VK_F5)) {
-	//	CEntity* e = (CEntity*)getEntityByName("Runner");
-	//	TMsgRunnerDisappear msg;
-	//	e->sendMsg(msg);
-	//}
+	if (isPressed(VK_F4)) {
+		CEntity* e = (CEntity*)getEntityByName("Runner");
+		TMsgRunnerAppear msg;
+		msg.appearing_position = VEC3(28.431f, 64.101f, -13.563f);
+		e->sendMsg(msg);
+	}
+	if (isPressed(VK_F5)) {
+		CEntity* e = (CEntity*)getEntityByName("Runner");
+		TMsgRunnerDisappear msg;
+		e->sendMsg(msg);
+	}
 
 	if (temblor /*&& isPressed(VK_F3)*/) {
 		CEntity* camera = (CEntity*)Engine.getCameras().getActiveCamera();
