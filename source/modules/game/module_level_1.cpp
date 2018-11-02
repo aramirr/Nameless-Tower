@@ -90,8 +90,8 @@ bool CModuleLevel1::start()
 		parseScene(scene_name, ctx);
 	}    
 
-	cb_globals.global_exposure_adjustment = 0.440f;
-	cb_globals.global_ambient_adjustment = 1.f;
+	cb_globals.global_exposure_adjustment = 0.340f;
+	cb_globals.global_ambient_adjustment = 0.700f;
 	//cb_globals.global_exposure_adjustment = 2.010f;
 	//cb_globals.global_ambient_adjustment = 0.150f;
 	cb_globals.global_world_time = 0.f;
@@ -102,21 +102,21 @@ bool CModuleLevel1::start()
 	//cb_globals.global_fog_density = 0.017f;
 	//cb_globals.global_self_intensity = 10.f;
 	cb_globals.global_hue_adjustment = 1.f;
-	cb_globals.global_sat_adjustment = 1.f;
-	cb_globals.global_light_adjustment = 0.f;
-	cb_globals.global_vignetting_adjustment = 0.25f;
-	cb_globals.global_fogDensity_adjustment = 0.f;
+	cb_globals.global_sat_adjustment = 1.1f;
+	cb_globals.global_light_adjustment = 0.110f;
+	cb_globals.global_vignetting_adjustment = 0.300f;
+	cb_globals.global_fogDensity_adjustment = 0.001f;
 	cb_globals.global_fadeOut_adjustment = 0.f;
 
-	cb_globals.global_contrast_adjustment = 0.215f;
+	cb_globals.global_contrast_adjustment = 0.220f;
 
 	cb_globals.global_bandMin_adjustment = 0.f;
 	cb_globals.global_bandMax_adjustment = 0.f;
 
 	cb_globals.global_bajada = 0.f;
 
-	cb_globals.global_fog_percentage_horizontal = 0.15f;
-	cb_globals.global_fog_percentage_vertical = 0.15f;
+	cb_globals.global_fog_percentage_horizontal = 0.130f;
+	cb_globals.global_fog_percentage_vertical = 0.120f;
 
 	cb_light.activate();
 	cb_object.activate();

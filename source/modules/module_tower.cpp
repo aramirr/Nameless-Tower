@@ -27,10 +27,26 @@ void CModuleTower::update(float delta)
 			}
 		}
 		else if (newExposure < oldExposure) {
-			cb_globals.global_exposure_adjustment -= 0.005f;
+			cb_globals.global_exposure_adjustment -= 0.01f;
 			oldExposure = cb_globals.global_exposure_adjustment;
 			if (oldExposure < newExposure) {
 				changeExposure = false;
+			}
+		}
+	}
+	if (changeLight) {
+		if (newLight > oldLight) {
+			cb_globals.global_light_adjustment += 0.01f;
+			oldLight = cb_globals.global_light_adjustment;
+			if (oldLight > newLight) {
+				changeLight = false;
+			}
+		}
+		else if (newLight < oldLight) {
+			cb_globals.global_light_adjustment -= 0.005f;
+			oldLight = cb_globals.global_light_adjustment;
+			if (oldLight < newLight) {
+				changeLight = false;
 			}
 		}
 	}
@@ -421,6 +437,12 @@ const void CModuleTower::activateAnim(const std::string& name, float wait_time) 
 void CModuleTower::setExposure(float _exposure) {
 	newExposure = _exposure;
 	changeExposure = true;
+}
+
+void CModuleTower::setLight(float _light)
+{
+	newLight = _light;
+	changeLight = true;
 }
 
 void CModuleTower::wait_seconds(float num_seconds) {

@@ -141,13 +141,57 @@ void LogicManager::setPointLightIntensity(const char* name, float value, bool le
 }
 
 void LogicManager::setNajaInterior(bool left) {
-	if (applyFunction(left))
+	if (applyFunction(left)) {
 		cb_globals.global_naja_interior = 1;
+
+		EngineTower.setExposure(0.045f);
+		//cb_globals.global_exposure_adjustment = 0.045f;
+		cb_globals.global_ambient_adjustment = 1.f;
+
+		cb_globals.global_hdr_enabled = 1.f;
+		cb_globals.global_gamma_correction_enabled = 1.f;
+		cb_globals.global_tone_mapping_mode = 0.760f;
+
+		cb_globals.global_hue_adjustment = 1.f;
+		cb_globals.global_sat_adjustment = 1.4f;
+		EngineTower.setLight(1.630f);
+		cb_globals.global_vignetting_adjustment = 0.250f;
+		cb_globals.global_fogDensity_adjustment = 0.f;
+
+		cb_globals.global_contrast_adjustment = 0.265f;
+
+
+		cb_globals.global_fog_percentage_horizontal = 0.150f;
+		cb_globals.global_fog_percentage_vertical = 0.150f;
+	}
+		
 }
 
 void LogicManager::setnajaExterior(bool left) {
-	if (applyFunction(left))
+	if (applyFunction(left)) {
 		cb_globals.global_naja_interior = 0;
+
+		EngineTower.setExposure(0.340f);
+		//cb_globals.global_exposure_adjustment = 0.045f;
+		cb_globals.global_ambient_adjustment = 0.700f;
+
+		cb_globals.global_hdr_enabled = 1.f;
+		cb_globals.global_gamma_correction_enabled = 1.f;
+		cb_globals.global_tone_mapping_mode = 1.f;
+
+		cb_globals.global_hue_adjustment = 1.f;
+		cb_globals.global_sat_adjustment = 1.1f;
+		EngineTower.setLight(0.110f);
+		cb_globals.global_vignetting_adjustment = 0.300f;
+		cb_globals.global_fogDensity_adjustment = 0.001f;
+
+		cb_globals.global_contrast_adjustment = 0.220f;
+
+
+		cb_globals.global_fog_percentage_horizontal = 0.130f;
+		cb_globals.global_fog_percentage_vertical = 0.120f;
+	}
+		
 }
 
 void LogicManager::setRunnerInterior(bool left)

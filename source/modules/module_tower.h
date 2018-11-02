@@ -13,6 +13,7 @@ class CModuleTower : public IModule {
 	bool changeExposure;
 	bool changeVignetting;
 	bool changeFadeOut;
+	bool changeLight;
 	bool time_out = false;
 	float current_time = 0.0f;
 	float total_wait_time = 0.0f;
@@ -25,6 +26,9 @@ class CModuleTower : public IModule {
 
 	float newFadeOut;
 	float oldFadeOut;
+
+	float newLight;
+	float oldLight;
 	std::string current_cinematic;
 
 	float bandsValue = 0.f;
@@ -83,6 +87,7 @@ public:
   const void setDirLightIntensity(const std::string& name, float intensity);
   const void setPointLightIntensity(const std::string& name, float intensity);
 	void setExposure(float _exposure);
+	void setLight(float _light);
 	void setVignettingAdjustment(float vignetting);
 	void setFadeOutAdjustment(float fadeout);
 	void wait_seconds(float num_seconds);
