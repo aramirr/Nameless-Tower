@@ -73,6 +73,11 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 			TMsgBlockCamera msg;
 			e->sendMsg(msg);
 		}
+		if (trigger_type == "runner_disappear_by_player") {
+			TMsgRunnerDisappear disappear_msg;
+			CEntity* e_collider_entity = (CEntity*)getEntityByName("Runner");
+			e_collider_entity->sendMsg(disappear_msg);
+		}
 	}
 	else if (other_entity_name == "windstrike") {
 		EngineScripting.ExecEvent(ScriptEvents::windstrike_activate, params);
