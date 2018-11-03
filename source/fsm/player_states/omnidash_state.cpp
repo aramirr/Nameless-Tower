@@ -153,8 +153,6 @@ namespace FSM
 		m.x = mouse._position.x;
 		m.y = mouse._position.y;
 		if (cb_gui.fullscreen) {
-			//mX *= cb_globals.global_first_resolution_X / cb_globals.global_resolution_X;
-			//mY *= cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y;
 
 			m.x *= 1920 / cb_globals.global_first_resolution_X;
 			m.y *= 1080 / cb_globals.global_first_resolution_Y;
@@ -190,7 +188,6 @@ namespace FSM
 
         float up_multiplier = ctx1.root_transform.getUp().y > 0 ? 0 : 1.5;
         ctx1.root_transform.setPosition(ctx1.root_transform.getPosition() - ctx1.root_transform.getUp() * up_multiplier);
-        //dbg("%f, %f, %f \n", ctx1.root_transform.getUp().x, ctx1.root_transform.getUp().y, ctx1.root_transform.getUp().z);
 
 		if (parseScene("data/prefabs/windstrike.prefab", ctx1)) {
 			assert(!ctx1.entities_loaded.empty());			
