@@ -45,6 +45,7 @@ void TCompSpiralController::load(const json& j, TEntityParseContext& ctx) {
       std::string event_name = j["sound"];
       EngineSound.system->getEvent(event_name.c_str(), &event_description);
       event_description->createInstance(&_sound);
+			_sound->setVolume(EngineSound.getVolumen());
       _sound->start();
   }
 }
