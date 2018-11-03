@@ -83,7 +83,14 @@ bool CModuleLevel1::start()
         player->restarting = true;
         player->y_speed_factor = -1;
         EngineTimer.setTimeSlower(1.f);
-    }
+
+				auto p = EngineScripting.script.exists("OnLevel1Start");
+				if (p)
+					EngineScripting.script.doString("OnLevel1Start()");
+		}
+		else {
+			EngineUI.activateWidget("fadeOut");
+		}
 
 	cb_globals.global_exposure_adjustment = 0.340f;
 	cb_globals.global_ambient_adjustment = 0.700f;
@@ -121,9 +128,7 @@ bool CModuleLevel1::start()
 	cb_gui.activate();
 	cb_particles.activate();
 
-    auto p = EngineScripting.script.exists("OnLevel1Start");
-    if (p)
-        EngineScripting.script.doString("OnLevel1Start()");
+   
 
 		EngineSound.updateVolumen();
 	return true;
