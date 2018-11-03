@@ -9,9 +9,9 @@ void VS(
   in float4 iPos : POSITION
 
   // From Stream 1 from particles_instanced.mesh
-, in float4 iCenter : TEXCOORD1   // Angle comes in the .w of the iCenter
+, in float4 iCenter : TEXCOORD1 // Angle comes in the .w of the iCenter
 , in float4 iColor : TEXCOORD2
-, in float4 iXtras : TEXCOORD3    // scale.xy, nframe
+, in float4 iXtras : TEXCOORD3 // scale.xy, nframe
 
 , out float4 oPos : SV_POSITION
 , out float2 oUV : TEXCOORD0
@@ -19,30 +19,30 @@ void VS(
 
 )
 {
-  float angle = 0; //iCenter.w;
-  float2 scale = iXtras.xy;
+    float angle = 0;
+    float2 scale = iXtras.xy;
 
   // Compute uv's in base of the frame number
-  float nframe = iXtras.x + global_world_time * 20;
-  int   nframes_per_axis = 4;
-  int   iframe = (int)nframe;
-  int   ifx = iframe % 4;
-  int   ify = (int) (iframe / 4);
+    float nframe = iXtras.x + global_world_time * 20;
+    int nframes_per_axis = 4;
+    int iframe = (int) nframe;
+    int ifx = iframe % 4;
+    int ify = (int) (iframe / 4);
 
   //EDU: Arreglo para ejecutar la animacion como toca 
-  ifx = (nframes_per_axis-1) - ifx;
-  ify = (nframes_per_axis-1) -ify;
+    ifx = (nframes_per_axis - 1) - ifx;
+    ify = (nframes_per_axis - 1) - ify;
   
-  float2 uv = float2(ifx, ify) / nframes_per_axis;
+    float2 uv = float2(ifx, ify) / nframes_per_axis;
   // Add the local coord to get the uv's for each vertex of the quad
-  uv += iPos.xy * ( 1.0 / nframes_per_axis);
+    uv += iPos.xy * (1.0 / nframes_per_axis);
 
-  float3 local_pos = iPos.xyz * 2. - 1.;
-  local_pos.xy *= scale.xy;
+    float3 local_pos = iPos.xyz/* * 2. - 1.*/;
+    //local_pos.xy *= float2(-2, -2);
 
   // Rotate the particle
-  float cs = cos( angle );
-  float ss = sin( angle );
+    float cs = cos(angle);
+    float ss = sin(angle);
 
  /* float4 world_pos = float4(
       iCenter.xyz 
@@ -51,14 +51,16 @@ void VS(
     , 1);
   oPos = mul(world_pos, camera_view_proj);*/
 
-  float4 world_pos = mul(iPos, obj_world);
-  world_pos.xyz += ( local_pos.x * camera_left + local_pos.y * camera_up ) / 10;
-  oPos = mul(world_pos, camera_view_proj);
+    float4 world_pos = mul(iPos, obj_world);
+    world_pos.xyz += ((local_pos.x * camera_left + local_pos.y * camera_up) * cs) /*/ 5*/;
+    world_pos.xyz += ((local_pos.x * camera_up - local_pos.y * camera_left) * ss) /*/ 5*/;
+    
+    //world_pos.xyz += (local_pos.x * camera_left + local_pos.y * camera_up) * cs;
+    oPos = mul(world_pos, camera_view_proj);
 
-  oUV = 1-uv;
-
+    oUV = 1 - uv;
   // Remove the color for the fire sample
-  oColor = float4( 1,1,1,1); //float4( iColor.xyz, 1 );
+    oColor = float4(1, 1, 1, 1); //float4( iColor.xyz, 1 );
 }
 
 //--------------------------------------------------------------------------------------
@@ -68,6 +70,6 @@ float4 PS(
   , float4 iColor : TEXCOORD1
 ) : SV_Target
 {
-  float4 texture_color = txAlbedo.Sample(samLinear, iUV) * iColor;
-  return texture_color;
+    float4 texture_color = txAlbedo.Sample(samLinear, iUV) * iColor;
+    return texture_color;
 }
