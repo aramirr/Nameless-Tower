@@ -92,7 +92,6 @@ namespace FSM
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 			ctx.setVariable("idle", true);
             player->change_animation(player->EAnimations::NajaJumpLoop, false, 0.01, 0.01, false);
-
 		}
 
 		return false;

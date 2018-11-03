@@ -54,16 +54,7 @@ namespace FSM
 		VEC2 screen_projected_pos;
 		screen_projected_pos.x = player->player_position.x / 1920;
 		screen_projected_pos.y = player->player_position.y / 1080;
-		/*if (!cb_gui.fullscreen) {
-			screen_projected_pos.x /= cb_globals.global_first_resolution_X;
-			screen_projected_pos.y /= cb_globals.global_first_resolution_Y;
-		}
-		else {
-			screen_projected_pos.x /= Render.width;
-			screen_projected_pos.y /= Render.height;
-		}*/
-
-
+		
 		TCompRenderBlurRadial* c_render_blur_radial = o_camera->get< TCompRenderBlurRadial >();
 		if (c_render_blur_radial)
 		{
