@@ -95,12 +95,14 @@ void CModuleLevel2::update(float delta)
 		if (cb_gui.keyboard > 0.f) {
 			//EngineTimer.setTimeSlower(1.f);
 			//Engine.getModules().changeGameState("test_axis");
+			EngineSound.emitEvent("exit");
 			EngineUI.desactiveKeyboardMenu();
 			EngineUI.activeOptionMenu();
 		}
 		else if (cb_gui.options > 0.f) {
 			//EngineTimer.setTimeSlower(1.f);
 			//Engine.getModules().changeGameState("test_axis");
+			EngineSound.emitEvent("exit");
 			EngineUI.desactivateWidget("menu_options");
 			EngineUI.desactiveOptionMenu();
 			if (cb_gui.main > 0.f) EngineUI.activeMainMenu();
@@ -110,6 +112,7 @@ void CModuleLevel2::update(float delta)
 			cb_gui.pause -= 1.f;
 			if (cb_gui.pause < 0.f)cb_gui.pause = 1.f;
 			if (cb_gui.pause > 0.f) {
+				EngineSound.emitEvent("pause");
 				EngineUI.activateWidget("pause_menu");
 				EngineUI.activePauseMenu();
 			}
@@ -123,6 +126,7 @@ void CModuleLevel2::update(float delta)
 				EngineUI.desactivateWidget("pause_menu");
 				EngineUI.desactivePauseMenu();
 				EngineUI.resetPauseMenu();
+				EngineSound.emitEvent("exit");
 
 				CEntity* player = (CEntity*)getEntityByName("The Player");
 
