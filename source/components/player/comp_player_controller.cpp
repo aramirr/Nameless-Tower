@@ -17,8 +17,8 @@ void TCompPlayerController::debugInMenu() {
 	ImGui::DragFloat("Y speed: %f", &y_speed_factor, 0.01f, 0.f, 100.f);
     ImGui::DragFloat("Gravity: %f", &gravity, 0.01f, 0.f, 200.f);
     ImGui::Text("Can die: %s", can_die ? "Si" : "No");
-		ImGui::Text("Cinematic: %s", on_cinematic ? "Si" : "No");
-		ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
+	ImGui::Text("Cinematic: %s", on_cinematic ? "Si" : "No");
+	ImGui::Text("Grounded: %s", is_grounded ? "Si" : "No");
 }
 
 void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
@@ -27,7 +27,7 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
 	center = VEC3(0.f, 0.f, 0.f);
 	tower_radius = j.value("tower_radius", 31.5f);
 	jumping_death_height = j.value("jumping_death_height", 9.f);
-	idle_max_time = j.value("idle_max_time", 10.f);
+	idle_max_time = j.value("idle_max_time", 6.f);
 	is_grounded = true;
 	looking_left = false;
 	level_started = false;
@@ -35,9 +35,9 @@ void TCompPlayerController::load(const json& j, TEntityParseContext& ctx) {
     on_cinematic = false;
     Studio::EventDescription* event_description = NULL;
     std::string event_name = "event:/SFX/Character/Naja/StepsLands/Land_Dirt";
-		CEntity* e = ctx.current_entity;
-		assert(e);
-		EngineSound.registerCompSound(e);
+	CEntity* e = ctx.current_entity;
+	assert(e);
+	EngineSound.registerCompSound(e);
     EngineSound.system->getEvent(event_name.c_str(), &event_description);
     event_description->createInstance(&_sound_land);
 
@@ -112,7 +112,8 @@ void TCompPlayerController::clear_animations(float out_delay) {
 }
 
 void TCompPlayerController::move_player(bool left, bool change_orientation, float dt, float y_speed, float x_speed) {
-	TCompTransform *c_my_transform = get<TCompTransform>();
+    CEntity* e = h_entity;
+	TCompTransform *c_my_transform = e->get<TCompTransform>();
 
 	assert(c_my_transform);
 	// Current orientation
@@ -122,10 +123,9 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 	c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
 
 	VEC3 myPos = c_my_transform->getPosition();
+    dbg(" pos %f %f %f\n", myPos.x, myPos.y, myPos.z);
 	center.y = myPos.y;
-	//float distance = VEC3::Distance(myPos, center);
-	VEC3 move_vector = center + myPos;
-
+	
 	if (change_orientation) {
 		current_yaw = left ? current_yaw + deg2rad(180) : current_yaw - deg2rad(180);
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
@@ -141,10 +141,11 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
 		VEC3 aux_vector = left ? -1 * c_my_transform->getLeft() : c_my_transform->getLeft();
 		VEC3 newPos = center + (aux_vector * tower_radius);
+        VEC3 delta_move = newPos - myPos;
 		TCompCollider* comp_collider = get<TCompCollider>();
 		if (comp_collider && comp_collider->controller)
 		{
-			VEC3 delta_move = newPos - myPos;
+			
 			delta_move.y += y_speed;
 			PxShape* player_shape;
 			comp_collider->controller->getActor()->getShapes(&player_shape, 1);
@@ -209,8 +210,9 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 					e->sendMsg(msg);
 				//}
 				
-			}
-            dbg("%f %f %f\n", delta_move.x, delta_move.y, delta_move.z);
+			}            
+            dbg(" new pos %f %f %f\n", newPos.x, newPos.y, newPos.z);
+            dbg("delta %f %f %f\n\n\n", delta_move.x, delta_move.y, delta_move.z);
 			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, query_filter, filter_controller));
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN) && !is_grounded) {
@@ -278,21 +280,10 @@ void TCompPlayerController::move_player(bool left, bool change_orientation, floa
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES)) {
 				current_yaw = left ? current_yaw - 0.1f * amount_moved : current_yaw + 0.1f * amount_moved;
 				c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
-			}
-			else if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP)) {
-				/*TMsgSetFSMVariable idleMsg;
-				idleMsg.variant.setName("idle");
-				idleMsg.variant.setBool(true);
-				CEntity* e = CHandle(this).getOwner();
-				e->sendMsg(idleMsg);*/
-			}
-		}
-		else
-		{
-			//Actualizo la posicion del transform
-			c_my_transform->setPosition(newPos);
-		}
+			}			
+		}	
 	}
+    dbg("pc end pos %f %f %f\n", c_my_transform->getPosition().x, c_my_transform->getPosition().y, c_my_transform->getPosition().z);
 }
 
 void TCompPlayerController::setCheckpoint(const TMsgCheckpoint& msg)

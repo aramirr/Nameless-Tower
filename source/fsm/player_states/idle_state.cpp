@@ -35,6 +35,7 @@ namespace FSM
             ctx.setVariable("is_grounded", true);
         }
         player->idle_time = 0;
+        dbg("Idle\n");
 	}
 
 	bool IdleState::load(const json& jData)
@@ -61,7 +62,9 @@ namespace FSM
             //tr.q = PxQuat(-0.000000, -0.798838, 0.000000, 0.601546);
             rigidActor->setGlobalPose(tr);
             player->looking_left = false;
-            player->change_animation(player->EAnimations::NajaIdle, _is_action, 0.01, _delay_out, true);            
+            player->jumping_death_height = 4.5;
+            player->change_animation(player->EAnimations::NajaIdle, _is_action, 0.01, _delay_out, true);          
+            dbg("RESET \n");
         }
         else {
             player->idle_time += dt;
@@ -140,5 +143,7 @@ namespace FSM
             camera_manager->sendMsg(deactivate_camera);
             player->camera_idle = false;
         }
+        TCompTransform *c_my_transform = e->get<TCompTransform>();
+        dbg("idle pos %f %f %f\n", c_my_transform->getPosition().x, c_my_transform->getPosition().y, c_my_transform->getPosition().z);
 	}
 }

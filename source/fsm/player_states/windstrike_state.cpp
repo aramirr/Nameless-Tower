@@ -23,22 +23,27 @@ namespace FSM
 		ctx_w.entity_starting_the_parse = e;
 		ctx_w.root_transform = *(TCompTransform*)transform;
         current_yaw = player->looking_left ? current_yaw - deg2rad(90) : current_yaw + deg2rad(90);
-        current_roll = player->looking_left ? current_roll + deg2rad(180) : current_roll;
         if (player->looking_left) {
-           // ctx_w.root_transform.setPosition(ctx_w.root_transform.getPosition() + VEC3(0,2,0));
+            ctx_w.root_transform.setYawPitchRoll(current_yaw, current_pitch, current_roll);
+            //ctx_w.front = ctx_w.root_transform.getFront();
+            if (parseScene("data/prefabs/windstrike_left.prefab", ctx_w)) {
+                assert(!ctx_w.entities_loaded.empty());
+            }
         }
-        ctx_w.root_transform.setYawPitchRoll(current_yaw, current_pitch, current_roll);
-        //ctx_w.front = ctx_w.root_transform.getFront();
-		if (parseScene("data/prefabs/windstrike.prefab", ctx_w)) {
-			assert(!ctx_w.entities_loaded.empty());                        
-		}
+        else {
+            ctx_w.root_transform.setYawPitchRoll(current_yaw, current_pitch, current_roll);
+            //ctx_w.front = ctx_w.root_transform.getFront();
+            if (parseScene("data/prefabs/windstrike.prefab", ctx_w)) {
+                assert(!ctx_w.entities_loaded.empty());
+            }
+        }       
 		player->change_animation(player->EAnimations::NajaWindstrikeA, _is_action, _delay_in, _delay_out, true);
 		
         _sound->start();  
         TCompSound* sound = e->get<TCompSound>();
-				TMsgVolumeSound msg;
-				msg.volumen = player->volumen;
-				sound->setVolumen(msg);
+		TMsgVolumeSound msg;
+		msg.volumen = player->volumen;
+		sound->setVolumen(msg);
         sound->playSound("windstrike");
         sound->playSound("action");
 	}

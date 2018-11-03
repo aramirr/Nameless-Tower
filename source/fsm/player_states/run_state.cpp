@@ -11,7 +11,7 @@ namespace FSM
 		  
         CEntity* e = ctx.getOwner();
         TCompPlayerController* player = e->get<TCompPlayerController>();
-				_sound->setVolume(player->volumen);
+		_sound->setVolume(player->volumen);
         player->clear_animations(0.005f);
         player->run_time = 0;
 		_sound->start();
@@ -25,6 +25,8 @@ namespace FSM
         c_particles->emit();
         player->run_sprite = false;
         ctx.setVariable("can_dash", true);
+        
+        dbg("Run\n");
 	}
 
 	bool RunState::load(const json& jData)
@@ -47,9 +49,10 @@ namespace FSM
 	bool RunState::update(float dt, CContext& ctx) const
 	{
 		CEntity* e = ctx.getOwner();
+        TCompTransform *c_my_transform = e->get<TCompTransform>();
+        dbg("run pos %f %f %f\n", c_my_transform->getPosition().x, c_my_transform->getPosition().y, c_my_transform->getPosition().z);
 		TCompPlayerController* player = e->get<TCompPlayerController>();
         player->run_time += dt;
-		TCompTransform *c_my_transform = e->get<TCompTransform>();
 		float y_speed = (player->y_speed_factor * dt) - (player->gravity * dt * dt / 2);
 		if (!player->is_grounded)
 			player->y_speed_factor -= player->gravity * dt;
@@ -82,6 +85,7 @@ namespace FSM
 		}
 		else if (EngineInput["right"].isPressed()) {
 			if (!player->looking_left) {
+                dbg("21\n");
 				player->move_player(true, false, dt, y_speed, _x_speed);
 			}   
 			else {
@@ -102,7 +106,7 @@ namespace FSM
 				ctx.setVariable("idle", true);
 			}
 		}
-		
+        dbg("run end pos %f %f %f\n", c_my_transform->getPosition().x, c_my_transform->getPosition().y, c_my_transform->getPosition().z);
 		return false;
 	}
 

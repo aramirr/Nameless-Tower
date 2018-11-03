@@ -11,7 +11,6 @@ namespace GUI
     if (active) {
       VEC2 position;
       float angle;
-			//EngineUI.getCamera().setOrthographic(cb_globals.global_first_resolution_X, cb_globals.global_first_resolution_Y);
       CWidget* od = EngineUI.getWidget("OmnidashImage", true);
 
       CEntity* player = (CEntity*)getEntityByName("The Player");
@@ -25,35 +24,25 @@ namespace GUI
       my_pos.y += 0.55f;
       c_camera->getScreenCoordsOfWorldCoord(my_pos, &player_position);
       player_c->player_position = player_position;
-      //std::string str1 = std::to_string(my_pos.x) + ", " + std::to_string(my_pos.y) + " GUI \n";
-      //std::string str2 = std::to_string(player_position.x) + ", " + std::to_string(player_position.y) + " GUI \n";
-			std::string str2 = std::to_string(mouse._position.x) + ", " + std::to_string(mouse._position.y) + " GUI \n";
-      //dbg(str1.c_str());
-      //dbg(str2.c_str());
-			int mX = mouse._position.x;
-			int mY = mouse._position.y;
-			if (cb_gui.fullscreen) {
-				//mX *= cb_globals.global_first_resolution_X / cb_globals.global_resolution_X;
-				//mY *= cb_globals.global_first_resolution_Y / cb_globals.global_resolution_Y;
+        int mX = mouse._position.x;
+        int mY = mouse._position.y;
+        if (cb_gui.fullscreen) {
 
-				mX *= 1920 / cb_globals.global_first_resolution_X;
-				mY *= 1080 / cb_globals.global_first_resolution_Y;
-			}
-			else {
-				mX *= 1920 / cb_globals.global_resolution_X;
-				mY *= 1080 / cb_globals.global_resolution_Y;
-			}
-			angle = (float)(atan2(mY - player_position.y,
-				mX - player_position.x));
-			//else angle = (float)(atan2(mouse._position.y  - player_position.y, mouse._position.x - player_position.x));
+	        mX *= 1920 / cb_globals.global_first_resolution_X;
+	        mY *= 1080 / cb_globals.global_first_resolution_Y;
+        }
+        else {
+	        mX *= 1920 / cb_globals.global_resolution_X;
+	        mY *= 1080 / cb_globals.global_resolution_Y;
+        }
+        angle = (float)(atan2(mY - player_position.y,
+	        mX - player_position.x));
+        player_c->omni_angle = angle;
 			
       //Sacamos la otra esquina de la imagen
       float x = (od->getSize().x) * cos(angle - 0.5f);
       float y = (od->getSize().x) * sin(angle - 0.5f);
 
-      /*if (angle < 0) {
-        angle += 360;
-      }*/
 
       VEC2 vec = VEC2(x - player_position.x, y - player_position.y);
 
@@ -61,12 +50,8 @@ namespace GUI
 				/*(*/player_position.y /** cb_globals.global_first_resolution_X / cb_globals.global_resolution_X)*/ + y/*vec.x * -1*/);
 
 
-      //position.x += od->getSize().x / 2;
-      //position.y += od->getSize().y / 2;
-
       od->setPosition(position);
       od->setRotation(angle);
-			//EngineUI.getCamera().setOrthographic(cb_globals.global_first_resolution_X, cb_globals.global_first_resolution_Y);
     }
   }
   void COmnidashArrowController::setActive(bool _active)
