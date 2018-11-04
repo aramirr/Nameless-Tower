@@ -32,7 +32,7 @@ void TCompCinematic::update(float dt) {
             current_spline += 1;
             if (current_spline == cinematics.size()) {
                 current_spline -= 1;
-                deactivate();
+                deactivate(false);
                 active = false;
                 current_time = 0;
             }
@@ -81,10 +81,10 @@ void TCompCinematic::activate(const TMsgActivateCinematic& msg) {
 }
 
 void TCompCinematic::deactivate_msg(const TMsgDeactivateCinematic& msg) {
-    deactivate();
+    deactivate(msg.escaleras);
 }
 
-void TCompCinematic::deactivate() {
+void TCompCinematic::deactivate(bool _escaleras) {
     if (active){
         CEntity* e_player = (CEntity*)getEntityByName("The Player");
         TCompPlayerController* player = e_player->get<TCompPlayerController>();
@@ -92,7 +92,8 @@ void TCompCinematic::deactivate() {
         CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
         TMsgActiveCamera activate_camera;
         activate_camera.camera_name = "camera_orbit_IZQ";
-        activate_camera.blend_time = 2.f;
+				if(_escaleras)activate_camera.blend_time = 0.1f;
+        else activate_camera.blend_time = 2.f;
         camera_manager->sendMsg(activate_camera);
         if (cinematics[current_spline].spline_name != "") {
             CEntity* h_spline = (CEntity*)getEntityByName(cinematics[current_spline].spline_name);

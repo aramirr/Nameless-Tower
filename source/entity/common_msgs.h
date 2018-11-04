@@ -181,6 +181,7 @@ struct TMsgActivateCinematic {
 };
 
 struct TMsgDeactivateCinematic {
+	  bool escaleras;
     DECL_MSG_ID();
 };
 

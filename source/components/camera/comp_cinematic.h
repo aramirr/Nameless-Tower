@@ -25,7 +25,7 @@ struct TCompCinematic: public TCompBase {
     static void registerMsgs();
     void activate(const TMsgActivateCinematic& msg);
     void deactivate_msg(const TMsgDeactivateCinematic& msg);
-    void deactivate();
+    void deactivate(bool _escaleras);
     DECL_SIBLING_ACCESS();
 };
 
