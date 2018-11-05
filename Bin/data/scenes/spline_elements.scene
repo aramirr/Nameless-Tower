@@ -10,7 +10,7 @@
       "curve_controller" :
       {
         "curve" : "data/curves/Mariposas01.curve",
-        "speed" : 0.05,
+        "speed" : 0.1,
         "loop": true,
         "automove": true,
         "mode": "linear"
@@ -29,7 +29,7 @@
       "curve_controller" :
       {
         "curve" : "data/curves/Mariposas02.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": true,
         "automove": true,
         "mode": "linear"
@@ -48,7 +48,7 @@
       "curve_controller" :
       {
         "curve" : "data/curves/Mariposas03.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": true,
         "automove": true,
         "mode": "linear"
@@ -67,7 +67,7 @@
       "curve_controller" :
       {
         "curve" : "data/curves/Mariposas04.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": true,
         "automove": true,
         "mode": "linear"
@@ -86,7 +86,7 @@
       "curve_controller" :
       {
         "curve" : "data/curves/Mariposas05.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": true,
         "automove": true,
         "mode": "linear"
@@ -105,7 +105,7 @@
       "curve_controller" :
       {
         "curve" : "data/curves/Mariposas06.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": true,
         "automove": true,
         "mode": "linear"
@@ -124,7 +124,7 @@
       "curve_controller" :
       {
         "curve" : "data/curves/Mariposas07.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": true,
         "automove": true,
         "mode": "linear"
@@ -143,7 +143,7 @@
       "curve_controller" :
       {
         "curve" : "data/curves/Mariposas08.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
         "loop": true,
         "automove": true,
         "mode": "linear"
@@ -162,7 +162,178 @@
       "curve_controller" :
       {
         "curve" : "data/curves/Mariposas09.curve",
-        "speed" : 0.05,
+        "speed" : 0.15,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa10",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": -0.25
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas10.curve",
+        "speed" : 0.15,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa11",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": -0.5
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas11.curve",
+        "speed" : 0.15,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa12",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": -0.25
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas12.curve",
+        "speed" : 0.15,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa13",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": -0.25
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas13.curve",
+        "speed" : 0.15,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa14",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": -0.25
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas14.curve",
+        "speed" : 0.15,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa15",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": -0.25
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas15.curve",
+        "speed" : 0.15,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa16",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": -0.25
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas16.curve",
+        "speed" : 0.15,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa17",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": -0.25
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas17.curve",
+        "speed" : 0.15,
+        "loop": true,
+        "automove": true,
+        "mode": "linear"
+      },
+      "render" : {}
+    }
+  },
+  {
+    "entity": {
+      "name": "spline_mariposa18",
+      "transform": {
+        "pos": "0 0 0",
+        "lookat": "0 0 0",
+        "scale": -0.25
+      },
+      "curve_controller" :
+      {
+        "curve" : "data/curves/Mariposas18.curve",
+        "speed" : 0.15,
         "loop": true,
         "automove": true,
         "mode": "linear"
@@ -319,6 +490,184 @@
           "materials":
           [
             "data/materials/mariposa_rosa.material"
+          ]
+        }
+      ]
+    }
+  },
+
+
+  {
+    "entity": {
+      "name": "mariposa10",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_mariposa10"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/mariposa_rosa_derecha.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "mariposa11",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_mariposa11"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/mariposa_azules_derecha.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "mariposa12",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_mariposa12"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/mariposa_azules_derecha.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "mariposa13",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_mariposa13"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/mariposa_rosa_derecha.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "mariposa14",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_mariposa14"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/mariposa_amarilla_derecha.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "mariposa15",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_mariposa15"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/mariposa_amarilla_derecha.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "mariposa16",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_mariposa16"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/mariposa_rosa_derecha.material"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "entity": {
+      "name": "mariposa17",
+      "transform": {
+        "pos": "0 0 0"
+      },
+      "hierarchy": {
+        "parent": "spline_mariposa17"
+      },
+      "render":
+      [
+        {
+          "mesh": "unit_quad_pos_xy.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/mariposa_azules_derecha.material"
           ]
         }
       ]
