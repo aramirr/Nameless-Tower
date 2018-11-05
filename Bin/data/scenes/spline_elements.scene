@@ -326,28 +326,6 @@
   },
   {
     "entity": {
-      "name": "mariposa9",
-      "transform": {
-        "pos": "0 0 0"
-      },
-      "hierarchy": {
-        "parent": "spline_mariposa9"
-      },
-      "render":
-      [
-        {
-          "mesh": "unit_quad_pos_xy.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/mariposa_amarilla.material"
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "entity": {
       "name": "spline_loro0",
       "transform": {
         "pos": "0 0 0",
