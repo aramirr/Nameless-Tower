@@ -82,6 +82,29 @@
 		        "zrange_discard": 0.009
 		      }
 		}
+	},{
+		"entity": {
+			"name": "camera_look_up_bajada",
+			"transform": {
+				"pos": "-14 16 12",
+				"lookat": "-1 0 -1"
+			},
+			"orbitCamera" : {
+				"izq" : true,
+				"height": 11.600,
+				"y": 3.9
+			},
+			"camera" : {
+				"fov" : 80 
+			}
+		    ,
+			"render_ao" : {
+		        "enabled" :  true,
+		        "radius": 0.6,
+		        "amount_spreading": 0.95,
+		        "zrange_discard": 0.009
+		      }
+		}
 	},
 	{
 		"entity": {
@@ -94,6 +117,28 @@
 				"izq" : true,
 				"height": -0.5,
 				"y": -2.9
+			},
+			"camera" : {
+				"fov" : 80 
+			},
+			"render_ao" : {
+		        "enabled" :  true,
+		        "radius": 0.6,
+		        "amount_spreading": 0.95,
+		        "zrange_discard": 0.009
+		      }
+		}
+	},{
+		"entity": {
+			"name": "camera_look_down_bajada",
+			"transform": {
+				"pos": "-14 16 12",
+				"lookat": "-1 0 -1"
+			},
+			"orbitCamera" : {
+				"izq" : true,
+				"height": 5.5,
+				"y": -3.9
 			},
 			"camera" : {
 				"fov" : 80 

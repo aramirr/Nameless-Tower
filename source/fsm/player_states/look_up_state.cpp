@@ -17,7 +17,10 @@ namespace FSM
 		player->change_animation(player->EAnimations::NajaLookUp, _is_action, _delay_in, _delay_out, true);
         CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
         TMsgActiveCamera activate_camera;
-        activate_camera.camera_name = "camera_look_up";
+        if (player->game_state == "level_1")
+            activate_camera.camera_name = "camera_look_up";
+        else
+            activate_camera.camera_name = "camera_look_up_bajada";
         activate_camera.blend_time = 4.f;
         camera_manager->sendMsg(activate_camera);        
 	}
@@ -46,7 +49,10 @@ namespace FSM
         TCompPlayerController* player = e->get<TCompPlayerController>();
         CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
         TMsgRemoveCamera deactivate_camera;
-        deactivate_camera.camera_name = "camera_look_up";
+        if (player->game_state == "level_1")
+            deactivate_camera.camera_name = "camera_look_up";
+        else
+            deactivate_camera.camera_name = "camera_look_up_bajada";
         deactivate_camera.blend_time = 6.f;
         camera_manager->sendMsg(deactivate_camera);
         TMsgActiveCamera activate_camera;

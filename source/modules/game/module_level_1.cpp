@@ -181,6 +181,11 @@ void CModuleLevel1::restart()
         deleteScene(scene_name, ctx);
     }
     
+		VEC3 pos = VEC3(8.703, 4.5, -30.274);
+		CEntity* camera = (CEntity*)getEntityByName("camera_orbit_IZQ");
+		TCompOrbitCamera* o = camera->get<TCompOrbitCamera>();
+		o->setPosition(pos);
+
     EngineSound.deleteSounds();
 }
 

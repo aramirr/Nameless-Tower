@@ -31,25 +31,37 @@ namespace GUI
 				HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/cursorIngame.cur"); //.cur or .ani
 				SetCursor(Cursor);
 				SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
-        
-        };
-		auto restartCB = []() {
-            CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
-            TMsgBlockCamera msg;
-            e->sendMsg(msg);
-            IModule* level1 = CEngine::get().getModules().getModule("level_1");
-            level1->restart();
-            CEngine::get().getModules().changeGameState("level_1");
-		};
+       
+      };
 
-		auto optionsCB = []() {
-			dbg("OPTIONS\n");
-			cb_gui.options = 1.f;
-			EngineUI.activateWidget("menu_options");
-			EngineUI.activeOptionMenu();
-			EngineUI.desactivePauseMenu();
-			EngineSound.emitEvent("change_screen");
-		};
+			auto restartCB = []() {
+                CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
+                TMsgBlockCamera msg;
+                e->sendMsg(msg);
+                IModule* level1 = CEngine::get().getModules().getModule("level_1");
+                level1->restart();
+                CEngine::get().getModules().changeGameState("level_1");
+
+								HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+								HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/cursorIngame.cur"); //.cur or .ani
+								SetCursor(Cursor);
+								SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
+								EngineTimer.setTimeSlower(1.f);
+								//Engine.getModules().changeGameState("test_axis");
+								EngineUI.desactivateWidget("pause_menu");
+								EngineUI.desactivePauseMenu();
+								EngineUI.resetPauseMenu();
+								EngineSound.emitEvent("exit");
+			};
+
+			auto optionsCB = []() {
+				dbg("OPTIONS\n");
+				cb_gui.options = 1.f;
+				EngineUI.activateWidget("menu_options");
+				EngineUI.activeOptionMenu();
+				EngineUI.desactivePauseMenu();
+				EngineSound.emitEvent("change_screen");
+			};
 
       auto exitCB = []() {
 				EngineSound.emitEvent("exit");
