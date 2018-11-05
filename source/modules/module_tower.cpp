@@ -120,7 +120,8 @@ void CModuleTower::update(float delta)
 	}
 	if (bandCinematics && bandsValue < 0.15f) {
 		bandsValue += 0.01f;
-		cb_globals.global_bandMax_adjustment = bandsValue;
+		if(bandsValue > 0.15f)bandsValue = 0.15f;
+		cb_globals.global_bandMax_adjustment = bandsValue - 0.02f;
 		cb_globals.global_bandMin_adjustment = bandsValue;
 	}
 	else if (!bandCinematics && bandsValue > 0.f) {
