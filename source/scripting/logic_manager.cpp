@@ -362,6 +362,16 @@ void LogicManager::scarePlayer() {
     e->sendMsg(scareMsg);
 }
 
+void LogicManager::activateCamaraBajada()
+{
+	cb_globals.global_camara_bajada = 1.f;
+}
+
+void LogicManager::desactivateCamaraBajada()
+{
+	cb_globals.global_camara_bajada = 0.f;
+}
+
 void LogicManager::playCurve(std::string name) {
     CEntity* entity = getEntityByName(name);
     TCompCurve* t = entity->get<TCompCurve>();
