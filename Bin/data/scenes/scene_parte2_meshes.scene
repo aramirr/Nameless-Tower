@@ -2,6 +2,34 @@
   {
     "entity":
     {
+      "name": "Relieve_Glide"
+      ,
+      "transform":
+      {
+        "pos": "9.6342 33.7804 28.411"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Relieve_Glide.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Glifo_Glide.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "VegetacionPuente001"
       ,
       "transform":

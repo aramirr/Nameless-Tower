@@ -2,6 +2,62 @@
   {
     "entity":
     {
+      "name": "Relieve_Windstrike"
+      ,
+      "transform":
+      {
+        "pos": "-29.5806 24.7498 -4.70799"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Relieve_Windstrike.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/relieve_Windstrike.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CaretaSala"
+      ,
+      "transform":
+      {
+        "pos": "-22.6079 26.4423 -11.6115"
+        ,
+        "rotation": "0.0 -0.887303 0.0 -0.461187"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CaretaSala.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CaretaSala.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Niebla004"
       ,
       "transform":
@@ -34,7 +90,7 @@
       ,
       "transform":
       {
-        "pos": "-21.9095 24.1536 -15.8748"
+        "pos": "-23.0324 25.7518 -15.1936"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -245,34 +301,6 @@
           "materials":
           [
             "data/materials/LavaOrillasMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "CaretaSala"
-      ,
-      "transform":
-      {
-        "pos": "-22.6079 26.4423 -11.6115"
-        ,
-        "rotation": "0.0 -0.887303 0.0 -0.461187"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/CaretaSala.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CaretaSala.material"
           ]
         }
       ]
@@ -2734,34 +2762,6 @@
           "materials":
           [
             "data/materials/ColumnaBaseMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Muro_Salido_004"
-      ,
-      "transform":
-      {
-        "pos": "-29.5806 24.7498 -4.70799"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Muro_Salido_004.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Muro_Salido_01.material"
           ]
         }
       ]

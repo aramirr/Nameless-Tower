@@ -103,7 +103,7 @@
 				"lookat": "0 0 0"				
 			},
 			"camera" : {
-				"fov" : 80 ,
+				"fov" : 80,
 				"z_near": 0.001 
 			},
 			"hierarchy":
@@ -119,8 +119,7 @@
 				"lookat": "0 0 0"				
 			},
 			"camera" : {
-				"fov" : 80 ,
-				"z_near": 0.001 
+				"fov" : 80 
 			},
 			"hierarchy":
 		      {
@@ -317,37 +316,37 @@
 				"splines": [
 					{
 					"time": 6.533,
-					"blend_time": 0.5,
+					"blend_time": 4,
 					"spline_name": "CamaraFinalA",
 					"camera_name" : "camara_finalA"
 					},
 					{
 					"time": 1.466,
-					"blend_time": 0.5,
+					"blend_time": 0.01,
 					"spline_name": "CamaraFinalB",
 					"camera_name" : "camara_finalB"
 					},
 					{
 					"time": 1.66,
-					"blend_time": 0.5,
+					"blend_time": 0.01,
 					"spline_name": "CamaraFinalC",
 					"camera_name" : "camara_finalC"
 					},
 					{
 					"time": 1.666,
-					"blend_time": 0.5,
+					"blend_time": 0.01,
 					"spline_name": "CamaraFinalD",
 					"camera_name" : "camara_finalD"
 					},
 					{
 					"time": 1.033,
-					"blend_time": 0.5,
+					"blend_time": 0.01,
 					"spline_name": "CamaraFinalE",
 					"camera_name" : "camara_finalE"
 					},
 					{
 					"time": 1.6333,
-					"blend_time": 0.5,
+					"blend_time": 0.01,
 					"spline_name": "CamaraFinalF",
 					"camera_name" : "camara_finalF"
 					}
