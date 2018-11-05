@@ -183,7 +183,7 @@ void LogicManager::setnajaExterior(bool left) {
 		cb_globals.global_sat_adjustment = 1.1f;
 		EngineTower.setLight(0.110f);
 		cb_globals.global_vignetting_adjustment = 0.300f;
-		cb_globals.global_fogDensity_adjustment = 0.001f;
+		cb_globals.global_fogDensity_adjustment = 0.f;
 
 		cb_globals.global_contrast_adjustment = 0.220f;
 
