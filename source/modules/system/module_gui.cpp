@@ -66,7 +66,7 @@ bool CModuleGUI::start()
 	registerController(odc);
 	setOmindash(false);
 
-	activateWidget("fadeOut");
+	//activateWidget("fadeOut");
 	cb_gui.cinematica = false;
 	return true;
 }

@@ -44,7 +44,7 @@ void CModuleTower::update(float delta)
 			}
 		}
 		else if (newLight < oldLight) {
-			cb_globals.global_light_adjustment -= 0.005f;
+			cb_globals.global_light_adjustment -= 0.01f;
 			oldLight = cb_globals.global_light_adjustment;
 			if (oldLight < newLight) {
 				changeLight = false;
