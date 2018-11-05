@@ -2,6 +2,90 @@
   {
     "entity":
     {
+      "name": "Relieve_Windstrike"
+      ,
+      "transform":
+      {
+        "pos": "-29.5806 24.7498 -4.70799"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Relieve_Windstrike.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/relieve_Windstrike.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Relieve_Arbol"
+      ,
+      "transform":
+      {
+        "pos": "-20.44 6.75025 -22.738"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Relieve_Arbol.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/relieve_arbol.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Relieve_Arbol_Marco"
+      ,
+      "transform":
+      {
+        "pos": "-19.9667 6.75019 -22.2043"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Relieve_Arbol_Marco.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/Muro_Salido_01.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "PlantasPuente"
       ,
       "transform":
@@ -28,7 +112,7 @@
   {
     "entity":
     {
-      "name": "PlantasPuente1"
+      "name": "PlantasPuente"
       ,
       "transform":
       {
@@ -86,7 +170,7 @@
       ,
       "transform":
       {
-        "pos": "-20.6825 24.991 -15.0946"
+        "pos": "-20.0731 24.991 -14.6581"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -114,7 +198,7 @@
       ,
       "transform":
       {
-        "pos": "-22.5188 24.1536 -16.3114"
+        "pos": "-23.0324 25.7518 -15.1936"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -4684,34 +4768,6 @@
   {
     "entity":
     {
-      "name": "Muro_Salido_004"
-      ,
-      "transform":
-      {
-        "pos": "-29.5806 24.7498 -4.70799"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Muro_Salido_004.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Muro_Salido_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Suelo_SalaCaldero_03"
       ,
       "transform":
@@ -4897,34 +4953,6 @@
           "materials":
           [
             "data/materials/CascadaAguaMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "Murito_Salido_01"
-      ,
-      "transform":
-      {
-        "pos": "-19.9667 6.75019 -22.2043"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Murito_Salido_01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Muro_Salido_01.material"
           ]
         }
       ]

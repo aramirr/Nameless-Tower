@@ -2,6 +2,62 @@
   {
     "entity":
     {
+      "name": "BordesParte5F"
+      ,
+      "transform":
+      {
+        "pos": "23.7093 60.7537 -21.4718"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte5F.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "BordesParte5C"
+      ,
+      "transform":
+      {
+        "pos": "31.5617 67.4968 -6.47201"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte5C.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "Niebla012"
       ,
       "transform":
@@ -351,34 +407,6 @@
       [
         {
           "mesh": "data/meshes/BordesParte5D.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedBordeMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "BordesParte5C"
-      ,
-      "transform":
-      {
-        "pos": "31.5617 71.9968 -6.47201"
-        ,
-        "rotation": "0.0 0.84058 0.0 -0.541687"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/BordesParte5C.mesh"
           ,
           "materials":
           [

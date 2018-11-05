@@ -209,7 +209,7 @@ CB_DEF(CCteGlobals, CB_GLOBALS)
 	float global_dummy3;
 
 	float global_bajada;
-	float global_dummy4;
+	float global_camara_bajada;
 	float global_dummy5;
 	float global_dummy6;
 

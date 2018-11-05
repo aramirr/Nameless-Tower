@@ -168,34 +168,6 @@
   {
     "entity":
     {
-      "name": "BordesParte3F"
-      ,
-      "transform":
-      {
-        "pos": "23.7093 81.0037 -21.4718"
-        ,
-        "rotation": "0.0 0.84058 0.0 -0.541687"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/BordesParte3F.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/ParedBordeMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "ParedExteriorParte4B"
       ,
       "transform":

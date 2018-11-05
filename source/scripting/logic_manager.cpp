@@ -183,7 +183,7 @@ void LogicManager::setnajaExterior(bool left) {
 		cb_globals.global_sat_adjustment = 1.1f;
 		EngineTower.setLight(0.110f);
 		cb_globals.global_vignetting_adjustment = 0.300f;
-		cb_globals.global_fogDensity_adjustment = 0.001f;
+		cb_globals.global_fogDensity_adjustment = 0.f;
 
 		cb_globals.global_contrast_adjustment = 0.220f;
 
@@ -360,6 +360,16 @@ void LogicManager::scarePlayer() {
     scareMsg.variant.setName("scared");
     scareMsg.variant.setBool(true);
     e->sendMsg(scareMsg);
+}
+
+void LogicManager::activateCamaraBajada()
+{
+	cb_globals.global_camara_bajada = 1.f;
+}
+
+void LogicManager::desactivateCamaraBajada()
+{
+	cb_globals.global_camara_bajada = 0.f;
 }
 
 void LogicManager::playCurve(std::string name) {

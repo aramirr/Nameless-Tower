@@ -2,6 +2,34 @@
   {
     "entity":
     {
+      "name": "BordesParte3G"
+      ,
+      "transform":
+      {
+        "pos": "23.7093 60.7537 -21.4718"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte3G.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "plant_Hanging_Ivy033"
       ,
       "transform":
@@ -118,7 +146,7 @@
       ,
       "transform":
       {
-        "pos": "21.6395 67.2204 9.50175"
+        "pos": "21.3465 67.2204 9.41114"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -146,7 +174,7 @@
       ,
       "transform":
       {
-        "pos": "22.3473 66.3988 9.72073"
+        "pos": "22.0544 66.3988 9.63012"
         ,
         "rotation": "0.0 0.0 0.0 -1.0"
       }
@@ -478,6 +506,34 @@
   {
     "entity":
     {
+      "name": "BordesParte3F"
+      ,
+      "transform":
+      {
+        "pos": "23.7093 81.0037 -21.4718"
+        ,
+        "rotation": "0.0 0.84058 0.0 -0.541687"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/BordesParte3F.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/ParedBordeMat.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "BordesParte3E"
       ,
       "transform":
@@ -510,7 +566,7 @@
       ,
       "transform":
       {
-        "pos": "31.5617 71.9968 -6.47201"
+        "pos": "31.5617 67.4968 -6.47201"
         ,
         "rotation": "0.0 0.84058 0.0 -0.541687"
       }
@@ -836,7 +892,7 @@
       ,
       "transform":
       {
-        "pos": "28.7225 60.75 7.77796"
+        "pos": "28.723 60.75 7.9726"
         ,
         "rotation": "0.0 0.85294 0.0 -0.52201"
       }
@@ -1433,7 +1489,7 @@
   {
     "entity":
     {
-      "name": "SuelosInterioresEscena004"
+      "name": "SuelosInterioresEscena003B"
       ,
       "transform":
       {
@@ -1445,7 +1501,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/SuelosInterioresEscena004.mesh"
+          "mesh": "data/meshes/SuelosInterioresEscena003B.mesh"
           ,
           "materials":
           [
@@ -1461,7 +1517,7 @@
   {
     "entity":
     {
-      "name": "ParedesExtraEscena005"
+      "name": "ParedesExtraEscena003"
       ,
       "transform":
       {
@@ -1473,7 +1529,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/ParedesExtraEscena005.mesh"
+          "mesh": "data/meshes/ParedesExtraEscena003.mesh"
           ,
           "materials":
           [
