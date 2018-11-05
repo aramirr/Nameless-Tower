@@ -113,7 +113,7 @@ void TCompOrbitCamera::update(float dt) {
 
 	VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
 
-	if (cb_globals.global_bajada == 1.f)center.y = currentPlayerY + Y;
+	if (cb_globals.global_camara_bajada == 1.f)center.y = currentPlayerY + Y;
 
 	if (!block) {
 		if (currentPlayerY < pPos.y - 0.1f) {
@@ -209,7 +209,7 @@ void TCompOrbitCamera::update(float dt) {
 		}
 
 		center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
-		if (cb_globals.global_bajada == 1.f)center.y = currentPlayerY + Y;
+		if (cb_globals.global_camara_bajada == 1.f)center.y = currentPlayerY + Y;
 		if (active) {
 			float d = VEC3::Distance(center, pPos);
 			float _d = (d - distance) / d;
@@ -218,14 +218,14 @@ void TCompOrbitCamera::update(float dt) {
 
 			pos.x = x;
 			pos.y = currentPlayerY + height;
-			if (cb_globals.global_bajada == 1.f)pos.y = currentPlayerY;
+			if (cb_globals.global_camara_bajada == 1.f)pos.y = currentPlayerY;
 			pos.z = z;
 			float _distance = VEC3::Distance(center, pos);
 
 			if (blockY) {
 				pos.x = blockX;
 				pos.y = currentPlayerY + height;
-				if (cb_globals.global_bajada == 1.f)pos.y = currentPlayerY;
+				if (cb_globals.global_camara_bajada == 1.f)pos.y = currentPlayerY;
 				pos.z = blockZ;
 				//_distance = VEC3::Distance(center, pos);
 				c->setPosition(center);
@@ -249,18 +249,18 @@ void TCompOrbitCamera::update(float dt) {
 
 			
 			newPos.y = currentPlayerY + height;
-			if (cb_globals.global_bajada == 1.f)newPos.y = currentPlayerY;
+			if (cb_globals.global_camara_bajada == 1.f)newPos.y = currentPlayerY;
 		}
 		else {
 			newPos = oldPos;
 			newPos.y = currentPlayerY + height;
-			if (cb_globals.global_bajada == 1.f)newPos.y = currentPlayerY;
+			if (cb_globals.global_camara_bajada == 1.f)newPos.y = currentPlayerY;
 		}
 	}
 	else {
 		newPos = oldPos;
 		newPos.y = currentPlayerY + height;
-		if (cb_globals.global_bajada == 1.f)newPos.y = currentPlayerY;
+		if (cb_globals.global_camara_bajada == 1.f)newPos.y = currentPlayerY;
 	}
 	if (!carga) {
 		actualPos = VEC3::Lerp(oldPos, newPos, dt *(10 + speedCaida));
@@ -290,7 +290,7 @@ void TCompOrbitCamera::setPosition(VEC3 position)
 	TCompTransform* c = get<TCompTransform>();
 	assert(c);
 	VEC3 center = VEC3(0 + X, currentPlayerY + height + Y, 0 + Z);
-	if (cb_globals.global_bajada == 1.f)center.y = currentPlayerY + Y;
+	if (cb_globals.global_camara_bajada == 1.f)center.y = currentPlayerY + Y;
 	c->setPosition(position);
 	c->lookAt(position, center);
 	carga = true;

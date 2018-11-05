@@ -70,6 +70,9 @@ public:
   void activateTorch(std::string name);
   void scarePlayer();
 
+	void activateCamaraBajada();
+	void desactivateCamaraBajada();
+
   //Lua Cinematics
   void pausePlayer();
   void setAnim(int anim_id);
