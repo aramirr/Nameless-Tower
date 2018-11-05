@@ -37,8 +37,8 @@ void VS(
   // Add the local coord to get the uv's for each vertex of the quad
     uv += iPos.xy * (1.0 / nframes_per_axis);
 
-    float3 local_pos = iPos.xyz/* * 2. - 1.*/;
-    //local_pos.xy *= float2(-2, -2);
+    float3 local_pos = iPos.xyz * 2. - 1.;
+    local_pos.xy *= scale.xy;
 
   // Rotate the particle
     float cs = cos(angle);
@@ -52,8 +52,8 @@ void VS(
   oPos = mul(world_pos, camera_view_proj);*/
 
     float4 world_pos = mul(iPos, obj_world);
-    world_pos.xyz += ((local_pos.x * camera_left + local_pos.y * camera_up) * cs) /*/ 5*/;
-    world_pos.xyz += ((local_pos.x * camera_up - local_pos.y * camera_left) * ss) /*/ 5*/;
+    world_pos.xyz += ((local_pos.x * camera_left + local_pos.y * camera_up) /10) /*/ 5*/;
+   
     
     //world_pos.xyz += (local_pos.x * camera_left + local_pos.y * camera_up) * cs;
     oPos = mul(world_pos, camera_view_proj);

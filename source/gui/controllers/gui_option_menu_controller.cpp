@@ -15,7 +15,7 @@ namespace GUI
 
 			auto keyboardCB = []() {
 				//dbg("KEYBOARD \n");
-
+				EngineSound.emitEvent("change_screen");
 				EngineUI.activeKeyboardMenu();
 				EngineUI.desactiveOptionMenu();
 				cb_gui.options = 1.f;
@@ -40,12 +40,12 @@ namespace GUI
 
 			auto res1920CB = []() {
 				//dbg("RESOLUTION 1920\n");
-				if ((Render.width != 1920 && Render.height != 1080) && 
+				if ((Render.width != 1920 && Render.height != 1080) &&
 					(1920 <= cb_globals.global_first_resolution_X && 1080 <= cb_globals.global_first_resolution_Y)) {
 					EngineUI.changeResolution(1920, 1080);
 					if (cb_gui.fullscreen) EngineUI.fullScreen(true);
 					EngineUI.setResolutionOption(2, 0);
-				}	
+				}
 			};
 
 			auto res1600CB = []() {
@@ -137,7 +137,7 @@ namespace GUI
 
 			auto exitOptionsCB = []() {
 				//dbg("EXIT OPTIONS\n");
-
+				EngineSound.emitEvent("exit");
 				//EngineUI.desactivateWidget("menu_options");
 				EngineUI.desactiveOptionMenu();
 				if (cb_gui.main > 0.f) EngineUI.activeMainMenu();
@@ -177,24 +177,27 @@ namespace GUI
 
 			carga = false;
 		}
-
 		//-----------------------------------------------------------------------------------
 
-		if (active) {
+		if (active && !loading) {
 			if (EngineInput[VK_DOWN].getsPressed())
 			{
+				EngineSound.emitEvent("up_down");
 				setCurrentSection(_currentSection + 1);
 			}
 			if (EngineInput[VK_UP].getsPressed())
 			{
+				EngineSound.emitEvent("up_down");
 				setCurrentSection(_currentSection - 1);
 			}
 			if (EngineInput[VK_RIGHT].getsPressed())
 			{
+				EngineSound.emitEvent("up_down");
 				setCurrentOption(_currentOption + 1);
 			}
 			if (EngineInput[VK_LEFT].getsPressed())
 			{
+				EngineSound.emitEvent("up_down");
 				setCurrentOption(_currentOption - 1);
 			}
 			if (EngineInput[VK_RETURN].getsPressed())
@@ -203,6 +206,7 @@ namespace GUI
 			}
 			if (EngineInput[VK_RETURN].getsReleased())
 			{
+				EngineSound.emitEvent("click");
 				_options[_currentSection][_currentOption].button->setCurrentState(CButton::EState::ST_Selected);
 				_options[_currentSection][_currentOption].callback();
 			}
@@ -216,10 +220,14 @@ namespace GUI
 			}
 			if (EngineInput["omnidash"].getsReleased()) {
 				if (getCurrentOption() == _currentOption) {
+					EngineSound.emitEvent("click");
 					_options[_currentSection][_currentOption].button->setCurrentState(CButton::EState::ST_Selected);
 					_options[_currentSection][_currentOption].callback();
 				}
 			}
+		}
+		if (loading) {
+			loading = false;
 		}
 
 	}
@@ -288,12 +296,13 @@ namespace GUI
 
 			player->sendMsg(pauseMsg);*/
 
-			setCurrentSection(0);
-			setCurrentOption(0);
-
+			setCurrentSection(-1);
+			setCurrentOption(-1);
+			
 			EngineUI.activateWidget("menu_options");
 			cb_gui.options = 1.f;
 			EngineTimer.setTimeSlower(0.f);
+			loading = true;
 		}
 		else {
 			cb_gui.options = 0.f;
@@ -324,6 +333,8 @@ namespace GUI
 				int bmY = _options[i][j].button->getPosition().y;
 				int bMY = bmY + _options[i][j].button->getSize().y;
 				if (mX >= bmX && mX <= bMX && mY >= bmY && mY <= bMY) {
+					if (_currentOption != j || _currentSection != i)
+						EngineSound.emitEvent("up_down");
 					_currentSection = i;
 					_currentOption = j;
 					return j;

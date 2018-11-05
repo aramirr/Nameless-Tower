@@ -21,7 +21,7 @@ namespace GUI
 			player->sendMsg(pauseMsg);
 
       auto exitFinalCB = []() {
-
+				EngineSound.emitEvent("exit");
         exit(0);
       };
 
@@ -38,10 +38,12 @@ namespace GUI
 
     if (EngineInput[VK_DOWN].getsPressed())
     {
+			EngineSound.emitEvent("up_down");
       setCurrentOption(_currentOption + 1);
     }
     if (EngineInput[VK_UP].getsPressed())
     {
+			EngineSound.emitEvent("up_down");
       setCurrentOption(_currentOption - 1);
     }
     if (EngineInput[VK_RETURN].getsPressed())
@@ -50,6 +52,7 @@ namespace GUI
     }
     if (EngineInput[VK_RETURN].getsReleased())
     {
+			EngineSound.emitEvent("click");
       _options[_currentOption].button->setCurrentState(CButton::EState::ST_Selected);
       _options[_currentOption].callback();
     }
@@ -63,6 +66,7 @@ namespace GUI
 		}
 		if (EngineInput["omnidash"].getsReleased()) {
       if (getCurrentOption() == _currentOption) {
+				EngineSound.emitEvent("click");
         _options[_currentOption].button->setCurrentState(CButton::EState::ST_Selected);
         _options[_currentOption].callback();
       }
@@ -114,7 +118,9 @@ namespace GUI
       int bmY = _options[i].button->getPosition().y;
       int bMY = bmY + _options[i].button->getSize().y;
       if (mX >= bmX && mX <= bMX && mY >= bmY && mY <= bMY) {
-        _currentOption = i;
+				if (_currentOption != i)
+					EngineSound.emitEvent("up_down");
+				_currentOption = i;
         return i;
       }
     }

@@ -46,6 +46,9 @@ public:
 	void emitDelayedEvent(float time, std::string name);
 	void stopEvent(const std::string& sound);
 	void setVolumen(float volumen);
+	float getVolumen() {
+		return volumen;
+	};
 	void updateVolumen();
 	void registerCompSound(CEntity* compsound);
 	FMOD_3D_ATTRIBUTES toFMODAttributes(CTransform t);

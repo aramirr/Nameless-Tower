@@ -41,5 +41,7 @@ namespace GUI
     bool carga = true;
     bool active = false;
 
+		bool loading = true;
+
   };
 }

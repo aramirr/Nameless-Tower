@@ -341,6 +341,7 @@ const void CModuleTower::activateCinematic(const std::string& name) {
 const void CModuleTower::deactivateCinematic(const std::string& name) {
     CEntity* cinematic = (CEntity*)getEntityByName(name);
     TMsgDeactivateCinematic deactivate_cinematic;
+		deactivate_cinematic.escaleras = false;
     cinematic->sendMsg(deactivate_cinematic);
 	current_cinematic = "";
 }

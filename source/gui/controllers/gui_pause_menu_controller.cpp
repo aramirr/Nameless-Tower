@@ -13,6 +13,7 @@ namespace GUI
     if (carga) {
 
       auto resumeGameCB = []() {
+				EngineSound.emitEvent("exit");
         EngineTimer.setTimeSlower(1.f);
         //Engine.getModules().changeGameState("test_axis");
         EngineUI.desactivateWidget("menu_pausa");
@@ -47,10 +48,11 @@ namespace GUI
 				EngineUI.activateWidget("menu_options");
 				EngineUI.activeOptionMenu();
 				EngineUI.desactivePauseMenu();
+				EngineSound.emitEvent("change_screen");
 			};
 
       auto exitCB = []() {
-
+				EngineSound.emitEvent("exit");
         exit(0);
       };
 
@@ -68,10 +70,12 @@ namespace GUI
     if (active) {
       if (EngineInput[VK_DOWN].getsPressed())
       {
+				EngineSound.emitEvent("up_down");
         setCurrentOption(_currentOption + 1);
       }
       if (EngineInput[VK_UP].getsPressed())
       {
+				EngineSound.emitEvent("up_down");
         setCurrentOption(_currentOption - 1);
       }
       if (EngineInput[VK_RETURN].getsPressed())
@@ -80,6 +84,7 @@ namespace GUI
       }
       if (EngineInput[VK_RETURN].getsReleased())
       {
+				EngineSound.emitEvent("click");
         _options[_currentOption].button->setCurrentState(CButton::EState::ST_Selected);
         _options[_currentOption].callback();
       }
@@ -93,6 +98,7 @@ namespace GUI
       }
       if (EngineInput["omnidash"].getsReleased()) {
         if (getCurrentOption() == _currentOption) {
+					EngineSound.emitEvent("click");
           _options[_currentOption].button->setCurrentState(CButton::EState::ST_Selected);
           _options[_currentOption].callback();
         }
@@ -185,7 +191,9 @@ namespace GUI
       int bmY = _options[i].button->getPosition().y;
       int bMY = bmY + _options[i].button->getSize().y;
       if (mX >= bmX && mX <= bMX && mY >= bmY && mY <= bMY) {
-        _currentOption = i;
+        if(_currentOption != i)
+					EngineSound.emitEvent("up_down");
+				_currentOption = i;
         return i;
       }
     }

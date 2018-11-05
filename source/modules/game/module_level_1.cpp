@@ -83,7 +83,14 @@ bool CModuleLevel1::start()
         player->restarting = true;
         player->y_speed_factor = -1;
         EngineTimer.setTimeSlower(1.f);
-    }
+
+				auto p = EngineScripting.script.exists("OnLevel1Start");
+				if (p)
+					EngineScripting.script.doString("OnLevel1Start()");
+		}
+		else {
+			EngineUI.activateWidget("fadeOut");
+		}
 
 	cb_globals.global_exposure_adjustment = 0.340f;
 	cb_globals.global_ambient_adjustment = 0.700f;
@@ -121,9 +128,7 @@ bool CModuleLevel1::start()
 	cb_gui.activate();
 	cb_particles.activate();
 
-    auto p = EngineScripting.script.exists("OnLevel1Start");
-    if (p)
-        EngineScripting.script.doString("OnLevel1Start()");
+   
 
 		EngineSound.updateVolumen();
 	return true;
@@ -246,12 +251,14 @@ void CModuleLevel1::update(float delta)
 		if (cb_gui.keyboard > 0.f) {
 			//EngineTimer.setTimeSlower(1.f);
 			//Engine.getModules().changeGameState("test_axis");
+			EngineSound.emitEvent("exit");
 			EngineUI.desactiveKeyboardMenu();
 			EngineUI.activeOptionMenu();
 		}
 		else if (cb_gui.options > 0.f) {
 			//EngineTimer.setTimeSlower(1.f);
 			//Engine.getModules().changeGameState("test_axis");
+			EngineSound.emitEvent("exit");
 			EngineUI.desactivateWidget("menu_options");
 			EngineUI.desactiveOptionMenu();
 			if (cb_gui.main > 0.f) EngineUI.activeMainMenu();
@@ -261,6 +268,7 @@ void CModuleLevel1::update(float delta)
 			cb_gui.pause -= 1.f;
 			if (cb_gui.pause < 0.f)cb_gui.pause = 1.f;
 			if (cb_gui.pause > 0.f) {
+				EngineSound.emitEvent("pause");
 				EngineUI.activateWidget("pause_menu");
 				EngineUI.activePauseMenu();
 			}
@@ -274,6 +282,7 @@ void CModuleLevel1::update(float delta)
 				EngineUI.desactivateWidget("pause_menu");
 				EngineUI.desactivePauseMenu();
 				EngineUI.resetPauseMenu();
+				EngineSound.emitEvent("exit");
 
 				CEntity* player = (CEntity*)getEntityByName("The Player");
 

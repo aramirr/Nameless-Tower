@@ -29,6 +29,7 @@ namespace FSM
 					//dbg("NINTENDO\n");
 					CEntity* cinematic = (CEntity*)getEntityByName("cinematic_sala_escaleras_2");
 					TMsgDeactivateCinematic deactivate_cinematic;
+					deactivate_cinematic.escaleras = true;
 					cinematic->sendMsg(deactivate_cinematic);
 					EngineScripting.script.doString("RespawnOnLevel2()");
 				}
