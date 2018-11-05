@@ -743,7 +743,10 @@ function OnTriggerExitTSSalaMonolito()
 end
 
 -- NIVEL BAJADA
-
+function OnTriggerExitTSSalaSorpresa()
+	lm:deactivate_camara_bajada(false)
+	lm:deactivate_camara_bajada(true)
+end
 
 -- Sala 3-4
 function OnTriggerExitTSEstatuaWindstrikeB()
@@ -755,6 +758,7 @@ function OnTriggerExitTSEstatuaWindstrikeB()
 	lm:set_point_light_intensity("Luces_Fuego_01", 0, false)
 	lm:set_point_light_intensity("Luces_Fuego_02", 0, false)
 	lm:play_ambient_sound(false)
+	--lm:activate_camara_bajada(false)
 
 	--Interior
 	lm:play_interior_sound(true)	
@@ -879,6 +883,7 @@ function OnTriggerExitTPTechosPuertasB()
 	lm:set_point_light_intensity("Luces_Fuego_08", 0, false)
 	lm:set_point_light_intensity("Luces_Fuego_09", 0, false)
 	lm:play_interior_sound(false)
+	lm:deactivate_camara_bajada(false)
 	
 	--Exterior
 	lm:play_ambient_sound(true)
@@ -909,12 +914,14 @@ function OnTriggerExitTSJardinRunner()
 	lm:set_point_light_intensity("Luces_Fuego_07", 0, true)
 	lm:set_point_light_intensity("Luces_Fuego_09", 0, true)
 	lm:set_point_light_intensity("Luces_Fuego_010", 0, true)
+	lm:activate_camara_bajada(true)
 	--lm:activate_cinematic("cinematic_vientos", true)
 	lm:play_ambient_sound(true)
 	--lm:start_emiter("hojas_jardin_2", true)
 
 	--Interior
 	--lm:set_exposure(0.05, false)
+	lm:deactivate_camara_bajada(false)
 	lm:play_interior_sound(false)
 	--lm:render_everything("ParedDestapada10", false)
 	lm:render_only_shadows("ParedTapada10B", false)
@@ -935,6 +942,7 @@ end
 
 function OnTriggerExitTSRunnerLava()
 	--Interior
+	lm:deactivate_camara_bajada(true)
 	lm:render_only_shadows("ParedTapada10B", true)
 	lm:set_dir_light_intensity("LightDir13", 0, true)
 	lm:set_dir_light_intensity("LightDir14", 0, true)
@@ -994,6 +1002,7 @@ function OnTriggerExitTSRunnerLava()
 end
 
 function OnTriggerExitTSCascadaAntorchasB()
+	lm:activate_camara_bajada(true)
 	lm:render_everything("ParedTapada12", true)
 	lm:set_dir_light_intensity("LightDir11", 10, true)
 	lm:set_dir_light_intensity("LightDir12", 10, true)
@@ -1002,7 +1011,7 @@ function OnTriggerExitTSCascadaAntorchasB()
 	lm:play_ambient_sound(true)
 	lm:play_sound(true, "lava")
 
-	
+	lm:deactivate_camara_bajada(false)
 	lm:stop_sound(false, "lava")
 	lm:play_interior_sound(false)
 	lm:render_only_shadows("ParedTapada12", false)

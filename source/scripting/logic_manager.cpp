@@ -362,14 +362,14 @@ void LogicManager::scarePlayer() {
     e->sendMsg(scareMsg);
 }
 
-void LogicManager::activateCamaraBajada()
-{
-	cb_globals.global_camara_bajada = 1.f;
+void LogicManager::activateCamaraBajada(bool left) {
+	if (applyFunction(left))
+		cb_globals.global_camara_bajada = 1.f;
 }
 
-void LogicManager::desactivateCamaraBajada()
-{
-	cb_globals.global_camara_bajada = 0.f;
+void LogicManager::desactivateCamaraBajada(bool left) {
+	if (applyFunction(left))
+		cb_globals.global_camara_bajada = 0.f;
 }
 
 void LogicManager::playCurve(std::string name) {

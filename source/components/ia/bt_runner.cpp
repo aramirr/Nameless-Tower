@@ -148,7 +148,7 @@ int bt_runner::actionScream() {
   if (anim_state != "scream") {
     anim_state = "scream";
     change_animation(ERunnerAnimations::RunnerScreamShort, true, 0.f, 0.f, true);
-		play_sound("roar");
+		EngineSound.emitPositionalEvent("roar", "Runner");
   }
   addGravity();
   debug_timer += DT;
