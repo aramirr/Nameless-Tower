@@ -151,8 +151,13 @@ bool deleteScene(const std::string& filename, TEntityParseContext& ctx) {
             auto& j_entity = j_item["entity"];
             std::string name = j_entity["name"];
             CEntity* h_e = getEntityByName(name);
-            CHandle h(h_e);
-            h.destroy();            
+            if (h_e != nullptr) {
+                TCompSound* sound = h_e->get<TCompSound>();
+                if (sound != nullptr)
+                    sound->stopSound("sound");
+                CHandle h(h_e);
+                h.destroy();
+            }                      
         }
     }
 

@@ -32,25 +32,24 @@ namespace GUI
 				SetCursor(Cursor);
 				SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
         
-      };
+        };
+		auto restartCB = []() {
+            CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
+            TMsgBlockCamera msg;
+            e->sendMsg(msg);
+            IModule* level1 = CEngine::get().getModules().getModule("level_1");
+            level1->restart();
+            CEngine::get().getModules().changeGameState("level_1");
+		};
 
-			auto restartCB = []() {
-                CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
-                TMsgBlockCamera msg;
-                e->sendMsg(msg);
-                IModule* level1 = CEngine::get().getModules().getModule("level_1");
-                level1->restart();
-                CEngine::get().getModules().changeGameState("level_1");
-			};
-
-			auto optionsCB = []() {
-				dbg("OPTIONS\n");
-				cb_gui.options = 1.f;
-				EngineUI.activateWidget("menu_options");
-				EngineUI.activeOptionMenu();
-				EngineUI.desactivePauseMenu();
-				EngineSound.emitEvent("change_screen");
-			};
+		auto optionsCB = []() {
+			dbg("OPTIONS\n");
+			cb_gui.options = 1.f;
+			EngineUI.activateWidget("menu_options");
+			EngineUI.activeOptionMenu();
+			EngineUI.desactivePauseMenu();
+			EngineSound.emitEvent("change_screen");
+		};
 
       auto exitCB = []() {
 				EngineSound.emitEvent("exit");
@@ -58,8 +57,8 @@ namespace GUI
       };
 
       registerOption("resume_game", resumeGameCB);
-			registerOption("restart_level", restartCB);
-			registerOption("options_pause", optionsCB);
+        registerOption("restart_level", restartCB);
+        registerOption("options_pause", optionsCB);
       registerOption("exit_pause", exitCB);
       setCurrentOption(0);
 

@@ -19,6 +19,7 @@
 
 bool CModuleLevel2::start()
 {
+    EngineSound.deleteSounds();
 	json jboot = loadJson("data/boot.json");
 	EngineTower.setActualLevelValue("level_2");
 	// Auto load some scenes
