@@ -59,5 +59,8 @@ public:
 	void update(float dt);
     void activateCamera(const TMsgActiveCamera &msg);
     void deactivateCamera(const TMsgRemoveCamera &msg);
+		bool getTemblor() {
+			return temblor;
+		}
 	DECL_SIBLING_ACCESS();
 };

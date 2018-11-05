@@ -2,6 +2,7 @@
 #include "comp_curve.h"
 #include "components/juan/comp_transform.h"
 #include "geometry/curve.h"
+#include "../camera/comp_camera_manager.h"
 
 DECL_OBJ_MANAGER("curve_controller", TCompCurve);
 
@@ -48,6 +49,23 @@ void TCompCurve::load(const json& j, TEntityParseContext& ctx) {
   _target = getEntityByName(_targetName);
 }
  
+//-----------------------------------------------------------------------
+// GENERACION DE NUMEROS PSEUDOALEATORIOS
+//-----------------------------------------------------------------------
+
+#define MASK 2147483647
+#define PRIME 65539
+#define SCALE 0.4656612875e-9
+
+int Seed = 26508293; // <--Introduzca aqui la semilla
+
+#define Rand()  (( Seed = ( (Seed * PRIME) & MASK) ) * SCALE )
+
+#define Randint(low,high) ( (int) (low + (high-(low)+1) * Rand()))
+
+#define Randfloat(low,high) ( (low + (high-(low))*Rand()))
+
+
 void TCompCurve::update(float DT)
 {
   if (!_curve)
@@ -116,19 +134,62 @@ void TCompCurve::update(float DT)
 		
 	  }
   }
+	CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
+	TCompCameraManager* cm = camera_manager->get<TCompCameraManager>();
+	bool temblor = cm->getTemblor();
+	// actualizar la transform con la nueva posicion
+	// evaluar curva con dicho ratio
+	VEC3 pos = _curve->evaluateAsCatmull(_percentage, loop);
+	TCompTransform* c_transform = get<TCompTransform>();
+	if (temblor) {
+		
+		
 
+		//dbg("TEMBLOR\n");
+		//CEntity* camera = (CEntity*)Engine.getCameras().getActiveCamera();
+	/*std:string str = camera->getName();
+		dbg(str.c_str());
+		dbg("\n");*/
+		//TCompTransform* c = camera->get<TCompTransform>();
 
-  // actualizar la transform con la nueva posicion
-  // evaluar curva con dicho ratio
-  VEC3 pos = _curve->evaluateAsCatmull(_percentage, loop);
-  TCompTransform* c_transform = get<TCompTransform>();
-  c_transform->setPosition(pos);
-  _target = getEntityByName(_targetName);
+		VEC3 newPos = c_transform->getPosition();
+		VEC3 newFront = c_transform->getFront();
+		VEC3 newLeft = c_transform->getLeft();
 
-  if (_target.isValid())
-  {	  
-	  c_transform->lookAt(pos, getTargetPos());
-  }
+		float x = Randfloat(-0.1f, 0.1f);
+		//dbg(("X: " + std::to_string(x) + "\n").c_str());
+		float y = Randfloat(-0.1f, 0.1f);;
+		//dbg(("Y: " + std::to_string(y) + "\n").c_str());
+		float z = Randfloat(-0.1f, 0.1f);
+		//dbg(("Z: " + std::to_string(z) + "\n").c_str());
+
+		newLeft *= x;
+		newPos += newLeft;
+		//newPos.x += x;
+		//newFront.x += x;
+
+		newPos.y += y;
+		//newFront.y += y;
+
+		//newPos.z += z;
+		//newFront.z += z;
+
+		c_transform->setPosition(newPos);
+		c_transform->lookAt(newPos, newPos + newFront);
+	}
+	else {
+		c_transform->setPosition(pos);
+		_target = getEntityByName(_targetName);
+
+		if (_target.isValid())
+		{
+			c_transform->lookAt(pos, getTargetPos());
+		}
+	}
+
+  
+
+ 
 }
 
 VEC3 TCompCurve::getTargetPos()

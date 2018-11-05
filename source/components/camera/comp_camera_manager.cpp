@@ -120,21 +120,21 @@ void TCompCameraManager::load(const json& j, TEntityParseContext& ctx) {
 	totalTime = 0.f;
 }
 
-//-----------------------------------------------------------------------
-// GENERACION DE NUMEROS PSEUDOALEATORIOS
-//-----------------------------------------------------------------------
-
-#define MASK 2147483647
-#define PRIME 65539
-#define SCALE 0.4656612875e-9
-
-int Seed = 26508293; // <--Introduzca aqui la semilla
-
-#define Rand()  (( Seed = ( (Seed * PRIME) & MASK) ) * SCALE )
-
-#define Randint(low,high) ( (int) (low + (high-(low)+1) * Rand()))
-
-#define Randfloat(low,high) ( (low + (high-(low))*Rand()))
+////-----------------------------------------------------------------------
+//// GENERACION DE NUMEROS PSEUDOALEATORIOS
+////-----------------------------------------------------------------------
+//
+//#define MASK 2147483647
+//#define PRIME 65539
+//#define SCALE 0.4656612875e-9
+//
+//int Seed = 26508293; // <--Introduzca aqui la semilla
+//
+//#define Rand()  (( Seed = ( (Seed * PRIME) & MASK) ) * SCALE )
+//
+//#define Randint(low,high) ( (int) (low + (high-(low)+1) * Rand()))
+//
+//#define Randfloat(low,high) ( (low + (high-(low))*Rand()))
 
 //-----------------------------------------------------------------------
 //
@@ -155,33 +155,37 @@ void TCompCameraManager::update(float dt) {
 	}
 
 	if (temblor /*&& isPressed(VK_F3)*/) {
-		CEntity* camera = (CEntity*)Engine.getCameras().getActiveCamera();
-		TCompTransform* c = camera->get<TCompTransform>();
+	//	dbg("TEMBLOR\n");
+	//	CEntity* camera = (CEntity*)Engine.getCameras().getActiveCamera();
+	//std:string str = camera->getName();
+	//	dbg(str.c_str());
+	//	dbg("\n");
+	//	TCompTransform* c = camera->get<TCompTransform>();
 
-		VEC3 newPos = c->getPosition();
-		VEC3 newFront = c->getFront();
-		VEC3 newLeft = c->getLeft();
+	//	VEC3 newPos = c->getPosition();
+	//	VEC3 newFront = c->getFront();
+	//	VEC3 newLeft = c->getLeft();
 
-		float x = Randfloat(-0.1f, 0.1f);
-		//dbg(("X: " + std::to_string(x) + "\n").c_str());
-		float y = Randfloat(-0.1f, 0.1f);;
-		//dbg(("Y: " + std::to_string(y) + "\n").c_str());
-		float z = Randfloat(-0.1f, 0.1f);
-		//dbg(("Z: " + std::to_string(z) + "\n").c_str());
+	//	float x = Randfloat(-0.3f, 0.3f);
+	//	dbg(("X: " + std::to_string(x) + "\n").c_str());
+	//	float y = Randfloat(-0.3f, 0.3f);;
+	//	dbg(("Y: " + std::to_string(y) + "\n").c_str());
+	//	float z = Randfloat(-0.3f, 0.3f);
+	//	dbg(("Z: " + std::to_string(z) + "\n").c_str());
 
-		newLeft *= x;
-		newPos += newLeft;
-		//newPos.x += x;
-		//newFront.x += x;
+	//	newLeft *= x;
+	//	newPos += newLeft;
+	//	//newPos.x += x;
+	//	//newFront.x += x;
 
-		newPos.y += y;
-		//newFront.y += y;
+	//	newPos.y += y;
+	//	//newFront.y += y;
 
-		//newPos.z += z;
-		//newFront.z += z;
+	//	//newPos.z += z;
+	//	//newFront.z += z;
 
-		c->setPosition(newPos);
-		c->lookAt(newPos, newPos + newFront);
+	//	c->setPosition(newPos);
+	//	c->lookAt(newPos, newPos + newFront);
 	}
 	else {
 		if (!temblor) {
