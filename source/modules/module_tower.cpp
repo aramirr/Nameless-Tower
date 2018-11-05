@@ -219,6 +219,7 @@ void CModuleTower::update(float delta)
 
 			setBandsCinematics(false);
 			cb_gui.cinematica = false;
+			EngineSound.emitEvent("musica_cinematica_runner");
 		}
 	}
 
