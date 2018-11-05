@@ -45,35 +45,9 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 34.000,
-        "ortho_height": 12.000,
+        "ortho_height": 13.500,
         "has_culling": true
       },
-        "culling":{}   
-    }
-  },
-  {
-    "entity":
-    {
-      "name": "LightDir03",
-      "transform": {
-        "pos": "-48.900 45.525 -29.150",
-        "lookat": "0 4.800 0"
-      },
-      "light_dir": {
-        "intensity": 0,
-        "color" :  "0.941 0.815 0.351 1",
-        "z_near" : 2,
-        "z_far" : 45,
-        "fov" : 37.300,
-        "casts_shadows" : true,
-        "shadows_step" : 5.0,
-        "shadows_resolution" : 2048,
-        "shadows_fmt" : "R32_TYPELESS",
-        "is_orthographic": true,
-        "ortho_width": 41.000,
-        "ortho_height": 15.000,
-        "has_culling": true
-      } ,
         "culling":{}   
     }
   },  
@@ -98,6 +72,32 @@
         "is_orthographic": true,
         "ortho_width": 28.000,
         "ortho_height": 31.000,
+        "has_culling": true
+      } ,
+        "culling":{}   
+    }
+  },
+  {
+    "entity":
+    {
+      "name": "LightDir03",
+      "transform": {
+        "pos": "-48.900 27 -29.150",
+        "lookat": "0 25 0"
+      },
+      "light_dir": {
+        "intensity": 0,
+        "color" :  "0.941 0.815 0.351 1",
+        "z_near" : 2,
+        "z_far" : 45,
+        "fov" : 37.300,
+        "casts_shadows" : true,
+        "shadows_step" : 5.0,
+        "shadows_resolution" : 2048,
+        "shadows_fmt" : "R32_TYPELESS",
+        "is_orthographic": true,
+        "ortho_width": 41.000,
+        "ortho_height": 19.000,
         "has_culling": true
       } ,
         "culling":{}   
@@ -149,7 +149,7 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 29.000,
-        "ortho_height": 11.000,
+        "ortho_height": 25.000,
         "has_culling": true
       },
         "culling":{}   

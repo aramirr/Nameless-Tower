@@ -20,7 +20,7 @@ void TCompSpiralController::load(const json& j, TEntityParseContext& ctx) {
   //Cambiarlo para pillarlo de una entidad global
   radius = 31.999847;
   speed = j.value("speed", 1.0f);
-	life = j.value("life", 2);
+	life = j.value("life", 2.0f);
 
 	h_parent = ctx.entity_starting_the_parse;
 	CEntity *e_creator = h_parent;
