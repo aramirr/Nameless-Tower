@@ -47,6 +47,7 @@ class CModuleTower : public IModule {
 	bool turn_player = false;
 	bool turn_player_2 = false;
 	bool destroy_monolito = false;
+	bool end_temblor = false;
 
 	// End Game
 	float timer_end = 0.f;

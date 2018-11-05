@@ -8,6 +8,7 @@
 #include "components/player/comp_player_controller.h"
 #include "components/ia/bt_runner.h"
 #include "components/sound/comp_sound.h"
+#include "components/camera/comp_camera_manager.h"
 
 bool CModuleTower::start()
 {
@@ -202,6 +203,16 @@ void CModuleTower::update(float delta)
 			controller->change_animation(4, true, 0.1, 0.0, true);
 			TCompSound* sound = e->get<TCompSound>();
 			sound->playSound("roar");
+
+			CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+			TCompCameraManager* cm = cam->get<TCompCameraManager>();
+			cm->activarTemblor();
+		}
+		else if (timer_runner >= 29.f && !end_temblor) {
+			end_temblor = true;
+			CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+			TCompCameraManager* cm = cam->get<TCompCameraManager>();
+			cm->desactivarTemblor();
 		}
 		else if (timer_runner >= 32.f && !runner_chase) {
 			runner_chase = true;
