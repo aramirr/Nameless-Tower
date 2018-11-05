@@ -41,6 +41,17 @@ namespace GUI
                 IModule* level1 = CEngine::get().getModules().getModule("level_1");
                 level1->restart();
                 CEngine::get().getModules().changeGameState("level_1");
+
+								HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+								HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/cursorIngame.cur"); //.cur or .ani
+								SetCursor(Cursor);
+								SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
+								EngineTimer.setTimeSlower(1.f);
+								//Engine.getModules().changeGameState("test_axis");
+								EngineUI.desactivateWidget("pause_menu");
+								EngineUI.desactivePauseMenu();
+								EngineUI.resetPauseMenu();
+								EngineSound.emitEvent("exit");
 			};
 
 			auto optionsCB = []() {

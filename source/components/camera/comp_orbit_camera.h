@@ -30,6 +30,7 @@ class TCompOrbitCamera : public TCompBase {
 
   float distance;
   float height;
+	float currentHeight;
 
   float apertura;
 
