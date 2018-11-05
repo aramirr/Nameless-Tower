@@ -89,9 +89,7 @@ namespace FSM
 			float current_yaw;
 			float current_pitch;
 			float amount_moved = _x_speed * dt;
-			c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-			current_yaw = current_yaw - (0.1f * player->omnidash_arrow.x * amount_moved);
-			c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+			c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);			
 			PxControllerCollisionFlags flags = comp_collider->controller->move(PxVec3(delta_move.x, delta_move.y, delta_move.z), 0.f, dt, PxControllerFilters(&filter_data, query_filter, filter_controller));
 
 			if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
@@ -105,7 +103,11 @@ namespace FSM
                 player->change_animation(player->EAnimations::NajaJumpLand, true, 0.01, 0.1, false);
 				ctx.setVariable("can_omni", true);
 				ctx.setVariable("can_dash", true);
-			}
+            }
+            else {
+                current_yaw = current_yaw - (0.1f * player->omnidash_arrow.x * amount_moved);
+                c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+            }
 		}		
 		return false;
 	}

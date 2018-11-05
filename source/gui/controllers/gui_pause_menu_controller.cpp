@@ -35,11 +35,12 @@ namespace GUI
       };
 
 			auto restartCB = []() {
-				dbg("RESTART\n");
-				CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
-				TMsgBlockCamera msg;
-				e->sendMsg(msg);
-				CEngine::get().getModules().changeGameState("level_1");
+                CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
+                TMsgBlockCamera msg;
+                e->sendMsg(msg);
+                IModule* level1 = CEngine::get().getModules().getModule("level_1");
+                level1->restart();
+                CEngine::get().getModules().changeGameState("level_1");
 			};
 
 			auto optionsCB = []() {

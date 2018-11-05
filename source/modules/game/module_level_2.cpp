@@ -52,14 +52,14 @@ void CModuleLevel2::restart()
 
 bool CModuleLevel2::stop()
 {
-	cb_light.destroy();
-	cb_camera.destroy();
-	cb_object.destroy();
-	cb_globals.destroy();
-	cb_blur.destroy();
-	cb_gui.destroy();
-	Engine.getEntities().destroyAllEntities();
-	Engine.getCameras().destroyAllCameras();
+	//cb_light.destroy();
+	//cb_camera.destroy();
+	//cb_object.destroy();
+	//cb_globals.destroy();
+	//cb_blur.destroy();
+	//cb_gui.destroy();
+	//Engine.getEntities().destroyAllEntities();
+	//Engine.getCameras().destroyAllCameras();
 	return true;
 }
 

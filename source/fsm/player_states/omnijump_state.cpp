@@ -20,9 +20,9 @@ namespace FSM
         player->change_animation(player->EAnimations::NajaJumpLoop, false, 0.01, 0.01, false);
         _sound->start();
         TCompSound* sound = e->get<TCompSound>();
-				TMsgVolumeSound msg;
-				msg.volumen = player->volumen;
-				sound->setVolumen(msg);
+		TMsgVolumeSound msg;
+		msg.volumen = player->volumen;
+		sound->setVolumen(msg);
         sound->playSound("windstrike");
         sound->playSound("action");
 	}
@@ -78,9 +78,7 @@ namespace FSM
 		float current_yaw;
 		float current_pitch;
 		float amount_moved = _x_speed * dt;
-		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);
-		current_yaw = current_yaw - (0.33f * player->omnidash_arrow.x * amount_moved);
-		c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+		c_my_transform->getYawPitchRoll(&current_yaw, &current_pitch);		
 
 		PxShape* player_shape;
 		comp_collider->controller->getActor()->getShapes(&player_shape, 1);
@@ -92,7 +90,13 @@ namespace FSM
 		if (flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_UP) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_SIDES) || flags.isSet(physx::PxControllerCollisionFlag::eCOLLISION_DOWN)) {
 			ctx.setVariable("idle", true);
             player->change_animation(player->EAnimations::NajaJumpLoop, false, 0.01, 0.01, false);
-		}
+            dbg("collis\n");
+        }
+        else {
+            current_yaw = current_yaw - (0.33f * player->omnidash_arrow.x * amount_moved);
+            c_my_transform->setYawPitchRoll(current_yaw, current_pitch);
+            dbg("gira\n");
+        }
 
 		return false;
 	}
