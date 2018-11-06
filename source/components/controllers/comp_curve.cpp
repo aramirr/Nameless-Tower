@@ -142,6 +142,7 @@ void TCompCurve::update(float DT)
 	// evaluar curva con dicho ratio
 	VEC3 pos = _curve->evaluateAsCatmull(_percentage, loop);
 	TCompTransform* c_transform = get<TCompTransform>();
+	c_transform->setPosition(pos);
 	if (temblor) {
 
 
@@ -196,7 +197,6 @@ void TCompCurve::update(float DT)
 		c_transform->lookAt(newPos, newPos + newFront);
 	}
 	else {
-		c_transform->setPosition(pos);
 		_target = getEntityByName(_targetName);
 
 		if (_target.isValid())

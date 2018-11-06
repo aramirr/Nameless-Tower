@@ -25,6 +25,7 @@ bool CModuleLevel1::start()
 		if (!cb_gui.create(CB_GUI))
 			return false;
 		cb_gui.activate();
+		EngineUI.fullScreen(true);
 	}
 
 	//EngineUI.activateWidget("pantallaCarga");

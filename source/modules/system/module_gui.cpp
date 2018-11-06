@@ -151,6 +151,8 @@ void CModuleGUI::update(float delta)
 			if (Render.width == 1280 && Render.height == 720)setResolutionOption(3, 1);
 			if (Render.width == 1024 && Render.height == 768)setResolutionOption(3, 2);
 			EngineSound.setVolumen(1);
+			fullScreen(true);
+			setFullScreenOption(1, 0);
 		}
 	}
 

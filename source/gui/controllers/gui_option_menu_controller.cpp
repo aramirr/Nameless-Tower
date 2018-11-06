@@ -166,12 +166,12 @@ namespace GUI
 			setCurrentSection(0);
 			setCurrentOption(0);
 
-			fullScreenOption = VEC2(1, 1);
+			fullScreenOption = VEC2(1, 0);
 			resolutionOption = VEC2(2, 0);
 			volumenOption = VEC2(4, 3);
 			vsyncOption = VEC2(5, 1);
 
-			cb_gui.fullscreen = false;
+			cb_gui.fullscreen = true;
 			cb_gui.vsync = false;
 			cb_gui.keyboard = false;
 
