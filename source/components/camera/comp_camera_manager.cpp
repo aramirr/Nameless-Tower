@@ -88,9 +88,25 @@ void TCompCameraManager::activarTemblor()
 	player->on_cinematic = true;
 }
 
+void TCompCameraManager::activarTemblorFlojo()
+{
+	temblor_flojo = true;
+	CEntity* e_player = (CEntity*)getEntityByName("The Player");
+	TCompPlayerController* player = e_player->get<TCompPlayerController>();
+	player->on_cinematic = true;
+}
+
 void TCompCameraManager::desactivarTemblor()
 {
 	temblor = false;
+	CEntity* e_player = (CEntity*)getEntityByName("The Player");
+	TCompPlayerController* player = e_player->get<TCompPlayerController>();
+	player->on_cinematic = false;
+}
+
+void TCompCameraManager::desactivarTemblorFlojo()
+{
+	temblor_flojo = false;
 	CEntity* e_player = (CEntity*)getEntityByName("The Player");
 	TCompPlayerController* player = e_player->get<TCompPlayerController>();
 	player->on_cinematic = false;
@@ -188,7 +204,7 @@ void TCompCameraManager::update(float dt) {
 	//	c->lookAt(newPos, newPos + newFront);
 	}
 	else {
-		if (!temblor) {
+		if (!temblor && !temblor_flojo) {
 			CEntity* e_player = (CEntity*)getEntityByName("The Player");
 			TCompPlayerController* player = e_player->get<TCompPlayerController>();
 		}

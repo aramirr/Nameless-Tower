@@ -137,17 +137,18 @@ void TCompCurve::update(float DT)
 	CEntity* camera_manager = (CEntity*)getEntityByName("camera_manager");
 	TCompCameraManager* cm = camera_manager->get<TCompCameraManager>();
 	bool temblor = cm->getTemblor();
+	bool temblor_flojo = cm->getTemblorFlojo();
 	// actualizar la transform con la nueva posicion
 	// evaluar curva con dicho ratio
 	VEC3 pos = _curve->evaluateAsCatmull(_percentage, loop);
 	TCompTransform* c_transform = get<TCompTransform>();
 	if (temblor) {
-		
-		
+
+
 
 		//dbg("TEMBLOR\n");
 		//CEntity* camera = (CEntity*)Engine.getCameras().getActiveCamera();
-	/*std:string str = camera->getName();
+		/*std:string str = camera->getName();
 		dbg(str.c_str());
 		dbg("\n");*/
 		//TCompTransform* c = camera->get<TCompTransform>();
@@ -173,6 +174,23 @@ void TCompCurve::update(float DT)
 
 		//newPos.z += z;
 		//newFront.z += z;
+
+		c_transform->setPosition(newPos);
+		c_transform->lookAt(newPos, newPos + newFront);
+	}
+	else if (temblor_flojo) {
+		VEC3 newPos = c_transform->getPosition();
+		VEC3 newFront = c_transform->getFront();
+		VEC3 newLeft = c_transform->getLeft();
+
+		float x = Randfloat(-0.025f, 0.025f);
+		float y = Randfloat(-0.01f, 0.01f);
+		float z = Randfloat(-0.025f, 0.025f);
+
+		newLeft *= x;
+		newPos += newLeft;
+
+		newPos.y += y;
 
 		c_transform->setPosition(newPos);
 		c_transform->lookAt(newPos, newPos + newFront);
