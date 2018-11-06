@@ -26,32 +26,32 @@ void LogicManager::printDbg(const char* msg) {
 
 // Hide - Unhide Meshes
 void LogicManager::disappearEntity(const char* name) {
-  EngineTower.disappearEntity(name);
+	EngineTower.disappearEntity(name);
 }
 
 void LogicManager::appearEntity(const char* name) {
-  EngineTower.appearEntity(name);
+	EngineTower.appearEntity(name);
 }
 
 void LogicManager::renderOnlyShadows(const char* name, bool left) {
-  if (applyFunction(left))
-      EngineTower.renderOnlyShadows(name);
+	if (applyFunction(left))
+		EngineTower.renderOnlyShadows(name);
 }
 
 void LogicManager::renderEverything(const char* name, bool left) {
-    if (applyFunction(left))
-        EngineTower.renderEverything(name);
+	if (applyFunction(left))
+		EngineTower.renderEverything(name);
 }
 
 // Cinematics
 void LogicManager::activateCinematic(const char* name, bool left) {
-    if (applyFunction(left))
-        EngineTower.activateCinematic(name);
+	if (applyFunction(left))
+		EngineTower.activateCinematic(name);
 }
 
 void LogicManager::deactivateCinematic(const char* name, bool left) {
-    if (applyFunction(left))
-        EngineTower.deactivateCinematic(name);
+	if (applyFunction(left))
+		EngineTower.deactivateCinematic(name);
 }
 
 void LogicManager::activateBandCinematics(bool left) {
@@ -71,7 +71,7 @@ void LogicManager::setAmbientAdjustment(float value) {
 
 void LogicManager::setExposureAdjustment(float value, bool left) {
 	if (applyFunction(left))
-    EngineTower.setExposure(value);
+		EngineTower.setExposure(value);
 };
 
 void LogicManager::playLastCinematic() {
@@ -84,15 +84,15 @@ void LogicManager::playLastCinematic() {
 }
 
 void LogicManager::openDoor(const char* name) {
-  EngineTower.openDoor(name);
+	EngineTower.openDoor(name);
 }
 
 void LogicManager::closeDoor(const char* name) {
-    EngineTower.closeDoor(name);
+	EngineTower.closeDoor(name);
 }
 
 void LogicManager::activateAnim(const char* name, float wait_time) {
-  EngineTower.activateAnim(name, wait_time);
+	EngineTower.activateAnim(name, wait_time);
 }
 
 void LogicManager::setTemblor(bool temblor, bool left)
@@ -103,7 +103,7 @@ void LogicManager::setTemblor(bool temblor, bool left)
 		TCompCameraManager* cm = cam->get<TCompCameraManager>();
 		assert(cm);
 
-		if(temblor)cm->activarTemblor();
+		if (temblor)cm->activarTemblor();
 		else cm->desactivarTemblor();
 	}
 }
@@ -131,13 +131,13 @@ void LogicManager::desactivateCinematics()
 
 // Lights
 void LogicManager::setDirLightIntensity(const char* name, float value, bool left) {
-    if (applyFunction(left))
-        EngineTower.setDirLightIntensity(name, value);
+	if (applyFunction(left))
+		EngineTower.setDirLightIntensity(name, value);
 }
 
 void LogicManager::setPointLightIntensity(const char* name, float value, bool left) {
-    if (applyFunction(left))
-        EngineTower.setPointLightIntensity(name, value);
+	if (applyFunction(left))
+		EngineTower.setPointLightIntensity(name, value);
 }
 
 void LogicManager::setNajaInterior(bool left) {
@@ -164,7 +164,7 @@ void LogicManager::setNajaInterior(bool left) {
 		cb_globals.global_fog_percentage_horizontal = 0.150f;
 		cb_globals.global_fog_percentage_vertical = 0.150f;
 	}
-		
+
 }
 
 void LogicManager::setnajaExterior(bool left) {
@@ -191,7 +191,7 @@ void LogicManager::setnajaExterior(bool left) {
 		cb_globals.global_fog_percentage_horizontal = 0.130f;
 		cb_globals.global_fog_percentage_vertical = 0.120f;
 	}
-		
+
 }
 
 void LogicManager::setRunnerInterior(bool left)
@@ -249,45 +249,45 @@ void LogicManager::updateGrassRender() {
 
 // Change Level
 void LogicManager::changeGameState(const char* name) {
-    
-    CEntity* e = getEntityByName("The Player");
-    TCompPlayerController* player = e->get<TCompPlayerController>();
-    if (player->game_state == "level_1") {
-        CEngine::get().getModules().changeGameState(name);
-        player->game_state = "level_2";
-    }        
+
+	CEntity* e = getEntityByName("The Player");
+	TCompPlayerController* player = e->get<TCompPlayerController>();
+	if (player->game_state == "level_1") {
+		CEngine::get().getModules().changeGameState(name);
+		player->game_state = "level_2";
+	}
 }
 
 bool LogicManager::applyFunction(bool left) {
-    CEntity* e = getEntityByName("The Player");
-    TCompPlayerController* player = e->get<TCompPlayerController>();
-    return player->looking_left == left;
+	CEntity* e = getEntityByName("The Player");
+	TCompPlayerController* player = e->get<TCompPlayerController>();
+	return player->looking_left == left;
 }
 
 void LogicManager::playAmbientSound(bool left) {
-    if (applyFunction(left)) {
-        EngineSound.playAmbient();
-    }
+	if (applyFunction(left)) {
+		EngineSound.playAmbient();
+	}
 }
 
 void LogicManager::playInteriorSound(bool left) {
-    if (applyFunction(left)) {
-        EngineSound.playInterior();
-    }
+	if (applyFunction(left)) {
+		EngineSound.playInterior();
+	}
 }
 
 void LogicManager::playSound(bool left, std::string name) {
-    if (applyFunction(left)) {
-        EngineSound.emitEvent(name);
-    }
+	if (applyFunction(left)) {
+		EngineSound.emitEvent(name);
+	}
 }
 
 void LogicManager::playDelayedSound(float time, std::string name) {
 	EngineSound.emitDelayedEvent(time, name);
 }
 
-void LogicManager::playPositionalSound(std::string name, std::string entityName) {    
-    EngineSound.emitPositionalEvent(name, entityName);
+void LogicManager::playPositionalSound(std::string name, std::string entityName) {
+	EngineSound.emitPositionalEvent(name, entityName);
 }
 
 void LogicManager::playAmbientNight() {
@@ -296,9 +296,9 @@ void LogicManager::playAmbientNight() {
 
 
 void LogicManager::stopSound(bool left, std::string name) {
-    if (applyFunction(left)) {
-        EngineSound.stopEvent(name);
-    }
+	if (applyFunction(left)) {
+		EngineSound.stopEvent(name);
+	}
 }
 
 // LUA Cinematic
@@ -324,7 +324,7 @@ void LogicManager::setAnim(int anim_id) {
 	TCompPlayerController * controller = e->get<TCompPlayerController>();
 	if (controller != nullptr) {
 		controller->remove_animation(controller->EAnimations::NajaJumpLoop);
-	} 
+	}
 	TCompSkeleton* skel = e->get<TCompSkeleton>();
 	skel->playAnimation(anim_id, true, 0, 0.8, true);
 }
@@ -349,17 +349,17 @@ void LogicManager::killEntity(std::string name) {
 }
 
 void LogicManager::activateTorch(std::string name) {
-    CEntity* e = getEntityByName(name);
-    TMsgActivateTorch msg;
-    e->sendMsg(msg);
+	CEntity* e = getEntityByName(name);
+	TMsgActivateTorch msg;
+	e->sendMsg(msg);
 }
 
 void LogicManager::scarePlayer() {
-    CEntity* e = getEntityByName("The Player");
-    TMsgSetFSMVariable scareMsg;
-    scareMsg.variant.setName("scared");
-    scareMsg.variant.setBool(true);
-    e->sendMsg(scareMsg);
+	CEntity* e = getEntityByName("The Player");
+	TMsgSetFSMVariable scareMsg;
+	scareMsg.variant.setName("scared");
+	scareMsg.variant.setBool(true);
+	e->sendMsg(scareMsg);
 }
 
 void LogicManager::activateCamaraBajada(bool left) {
@@ -372,10 +372,22 @@ void LogicManager::desactivateCamaraBajada(bool left) {
 		cb_globals.global_camara_bajada = 0.f;
 }
 
+void LogicManager::activateIluminacionViento(bool left)
+{
+	if (applyFunction(left))
+		cb_globals.global_bajada = 1.f;
+}
+
+void LogicManager::desactivateIluminacionViento(bool left)
+{
+	if (applyFunction(left))
+		cb_globals.global_bajada = 0.f;
+}
+
 void LogicManager::playCurve(std::string name) {
-    CEntity* entity = getEntityByName(name);
-    TCompCurve* t = entity->get<TCompCurve>();
-    t->activate();
+	CEntity* entity = getEntityByName(name);
+	TCompCurve* t = entity->get<TCompCurve>();
+	t->activate();
 }
 
 void LogicManager::set_ypr(std::string name, float y, float p, float r) {

@@ -66,7 +66,7 @@ bool CModuleGUI::start()
 	registerController(odc);
 	setOmindash(false);
 
-	//activateWidget("fadeOut");
+	activateWidget("fadeOut");
 	cb_gui.cinematica = false;
 	return true;
 }
@@ -101,7 +101,8 @@ void CModuleGUI::update(float delta)
 				nvidia = true;
 				upf = false;
 				mainMenu = false;
-				desactivateWidget("fadeOut");
+				//desactivateWidget("fadeOut");
+				cb_globals.global_fadeOut_adjustment = 0.f;
 			}
 			timer -= delta;
 		}
@@ -149,6 +150,7 @@ void CModuleGUI::update(float delta)
 			if (Render.width == 1366 && Render.height == 768)setResolutionOption(3, 0);
 			if (Render.width == 1280 && Render.height == 720)setResolutionOption(3, 1);
 			if (Render.width == 1024 && Render.height == 768)setResolutionOption(3, 2);
+			EngineSound.setVolumen(1);
 		}
 	}
 

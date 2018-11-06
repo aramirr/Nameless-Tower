@@ -166,6 +166,7 @@ void CModuleRender::render()
 		ImGui::DragFloat("Fog Vertical", &cb_globals.global_fog_percentage_vertical, 0.01f, 0.0f, 1.f);
 		ImGui::DragFloat("Band Up", &cb_globals.global_bandMax_adjustment, 0.01f, 0.0f, 0.15f);
 		ImGui::DragFloat("Band Down", &cb_globals.global_bandMin_adjustment, 0.01f, 0.0f, 0.15f);
+		ImGui::DragFloat("Bajada", &cb_globals.global_bajada, 1.f, 0.0f, 1.f);
 		
 		//ImGui::DragFloat("Saturation", &cb_globals.global_saturation_adjustment, 0.01f, -100.f, 100.f);
 		if (ImGui::SmallButton("Reset post procesado")) {

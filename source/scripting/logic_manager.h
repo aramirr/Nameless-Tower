@@ -73,6 +73,9 @@ public:
 	void activateCamaraBajada(bool left);
 	void desactivateCamaraBajada(bool left);
 
+	void activateIluminacionViento(bool left);
+	void desactivateIluminacionViento(bool left);
+
   //Lua Cinematics
   void pausePlayer();
   void setAnim(int anim_id);

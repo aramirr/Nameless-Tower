@@ -20,8 +20,12 @@
 
 bool CModuleLevel1::start()
 {
-	if (!cb_gui.create(CB_GUI))
-		return false;
+	CEntity* e_player = getEntityByName("The Player");
+	if (e_player == nullptr) {
+		if (!cb_gui.create(CB_GUI))
+			return false;
+		cb_gui.activate();
+	}
 
 	//EngineUI.activateWidget("pantallaCarga");
 
@@ -34,11 +38,11 @@ bool CModuleLevel1::start()
 	json jboot = loadJson("data/boot.json");
 
 	// Auto load some scenes
-    
-    CEntity* e_player = getEntityByName("The Player");    
-    if (e_player == nullptr) {
-        TEntityParseContext ctx;
-        parseScene("data/scenes/player.scene", ctx);      
+
+
+	if (e_player == nullptr) {
+		TEntityParseContext ctx;
+		parseScene("data/scenes/player.scene", ctx);
 		TEntityParseContext ctx1;
 		parseScene("data/scenes/cameras.scene", ctx1);
 		// -------------------------------------------
@@ -57,40 +61,51 @@ bool CModuleLevel1::start()
 			return false;
 		if (!cb_particles.create(CB_PARTICLE))
 			return false;
-    }    
+
+		cb_light.activate();
+		cb_object.activate();
+		cb_globals.activate();
+		cb_camera.activate();
+		cb_blur.activate();
+		cb_particles.activate();
+	}
 
 	std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];
 	for (auto& scene_name : scenes_to_auto_load) {
 		TEntityParseContext ctx;
 		parseScene(scene_name, ctx);
-	}    
-    if (e_player != nullptr) {
-        TCompPlayerController* player = e_player->get<TCompPlayerController>();
-        TCompCollider* comp_collider = e_player->get<TCompCollider>();
-        PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
-        TCompTransform* t = e_player->get<TCompTransform>();
-        VEC3 pos = VEC3(8.703, 4.5, -30.274);        
-        TMsgSetFSMVariable turnMsg1;
-        turnMsg1.variant.setName("idle");
-        turnMsg1.variant.setBool(true);
-        e_player->sendMsg(turnMsg1);
+	}
+	if (e_player != nullptr) {
+		TCompPlayerController* player = e_player->get<TCompPlayerController>();
+		TCompCollider* comp_collider = e_player->get<TCompCollider>();
+		PxRigidActor* rigidActor = ((PxRigidActor*)comp_collider->actor);
+		TCompTransform* t = e_player->get<TCompTransform>();
+		VEC3 pos = VEC3(8.703, 4.5, -30.274);
+		TMsgSetFSMVariable turnMsg1;
+		turnMsg1.variant.setName("idle");
+		turnMsg1.variant.setBool(true);
+		e_player->sendMsg(turnMsg1);
 
-        CEntity* camera = (CEntity*)getEntityByName("camera_orbit_IZQ");
-        TCompOrbitCamera* o = camera->get<TCompOrbitCamera>();
-        o->setPosition(pos);
+		CEntity* camera = (CEntity*)getEntityByName("camera_orbit_IZQ");
+		TCompOrbitCamera* o = camera->get<TCompOrbitCamera>();
+		o->setPosition(pos);
 
 
-        player->restarting = true;
-        player->y_speed_factor = -1;
-        EngineTimer.setTimeSlower(1.f);
+		player->restarting = true;
+		player->y_speed_factor = -1;
+		EngineTimer.setTimeSlower(1.f);
 
 		auto p = EngineScripting.script.exists("OnLevel1Start");
 		if (p)
 			EngineScripting.script.doString("OnLevel1Start()");
-		}
-		else {
-			EngineUI.activateWidget("fadeOut");
-		}
+		cb_globals.global_fadeOut_adjustment = 0.f;
+	}
+	else {
+		EngineUI.activateWidget("fadeOut");
+		EngineUI.activateSplash();
+		EngineSound.setVolumen(0);
+		cb_globals.global_fadeOut_adjustment = 100.f;
+	}
 
 	cb_globals.global_exposure_adjustment = 0.340f;
 	cb_globals.global_ambient_adjustment = 0.700f;
@@ -108,7 +123,6 @@ bool CModuleLevel1::start()
 	cb_globals.global_light_adjustment = 0.110f;
 	cb_globals.global_vignetting_adjustment = 0.300f;
 	cb_globals.global_fogDensity_adjustment = 0.000f;
-	cb_globals.global_fadeOut_adjustment = 0.f;
 
 	cb_globals.global_contrast_adjustment = 0.220f;
 
@@ -120,121 +134,113 @@ bool CModuleLevel1::start()
 	cb_globals.global_fog_percentage_horizontal = 0.130f;
 	cb_globals.global_fog_percentage_vertical = 0.120f;
 
-	cb_light.activate();
-	cb_object.activate();
-	cb_globals.activate();
-	cb_camera.activate();
-	cb_blur.activate();
-	cb_gui.activate();
-	cb_particles.activate();
 
-   
 
-		EngineSound.updateVolumen();
+	EngineSound.updateVolumen();
 	return true;
 }
 
 void CModuleLevel1::restart()
 {
-    CEntity* e_player = getEntityByName("The Player");
-    TCompPlayerController* player = e_player->get<TCompPlayerController>();
-    player->restarting = true;
-    cb_globals.global_exposure_adjustment = 0.440f;
-    cb_globals.global_ambient_adjustment = 1.f;
-    //cb_globals.global_exposure_adjustment = 2.010f;
-    //cb_globals.global_ambient_adjustment = 0.150f;
-    cb_globals.global_world_time = 0.f;
-    cb_globals.global_hdr_enabled = 1.f;
-    cb_globals.global_gamma_correction_enabled = 1.f;
-    cb_globals.global_tone_mapping_mode = 1.f;
-    cb_globals.global_naja_interior = 0;
-    //cb_globals.global_fog_density = 0.017f;
-    //cb_globals.global_self_intensity = 10.f;
-    cb_globals.global_hue_adjustment = 1.f;
-    cb_globals.global_sat_adjustment = 1.f;
-    cb_globals.global_light_adjustment = 0.f;
-    cb_globals.global_vignetting_adjustment = 0.25f;
-    cb_globals.global_fogDensity_adjustment = 0.f;
-    cb_globals.global_fadeOut_adjustment = 0.f;
+	CEntity* e_player = getEntityByName("The Player");
+	TCompPlayerController* player = e_player->get<TCompPlayerController>();
+	player->restarting = true;
+	cb_globals.global_exposure_adjustment = 0.440f;
+	cb_globals.global_ambient_adjustment = 1.f;
+	//cb_globals.global_exposure_adjustment = 2.010f;
+	//cb_globals.global_ambient_adjustment = 0.150f;
+	cb_globals.global_world_time = 0.f;
+	cb_globals.global_hdr_enabled = 1.f;
+	cb_globals.global_gamma_correction_enabled = 1.f;
+	cb_globals.global_tone_mapping_mode = 1.f;
+	cb_globals.global_naja_interior = 0;
+	//cb_globals.global_fog_density = 0.017f;
+	//cb_globals.global_self_intensity = 10.f;
+	cb_globals.global_hue_adjustment = 1.f;
+	cb_globals.global_sat_adjustment = 1.f;
+	cb_globals.global_light_adjustment = 0.f;
+	cb_globals.global_vignetting_adjustment = 0.25f;
+	cb_globals.global_fogDensity_adjustment = 0.f;
+	cb_globals.global_fadeOut_adjustment = 0.f;
 
-    cb_globals.global_contrast_adjustment = 0.215f;
+	cb_globals.global_contrast_adjustment = 0.215f;
 
-    cb_globals.global_bandMin_adjustment = 0.f;
-    cb_globals.global_bandMax_adjustment = 0.f;
+	cb_globals.global_bandMin_adjustment = 0.f;
+	cb_globals.global_bandMax_adjustment = 0.f;
 
-    cb_globals.global_bajada = 0.f;
+	cb_globals.global_bajada = 0.f;
 
-    cb_globals.global_fog_percentage_horizontal = 0.15f;
-    cb_globals.global_fog_percentage_vertical = 0.15f;
+	cb_globals.global_fog_percentage_horizontal = 0.15f;
+	cb_globals.global_fog_percentage_vertical = 0.15f;
 
-    json jboot = loadJson("data/boot.json");
+	json jboot = loadJson("data/boot.json");
 
-    // Auto load some scenes
-    std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];
-    for (auto& scene_name : scenes_to_auto_load) {
-        TEntityParseContext ctx;
-        deleteScene(scene_name, ctx);
-    }
-    std::vector< std::string > scenes_to_auto_load2 = jboot["boot_level_2"];
-    for (auto& scene_name : scenes_to_auto_load2) {
-        TEntityParseContext ctx;
-        deleteScene(scene_name, ctx);
-    }
-    
-		VEC3 pos = VEC3(8.703, 4.5, -30.274);
-		CEntity* camera = (CEntity*)getEntityByName("camera_orbit_IZQ");
-		TCompOrbitCamera* o = camera->get<TCompOrbitCamera>();
-		o->setPosition(pos);
+	// Auto load some scenes
+	std::vector< std::string > scenes_to_auto_load = jboot["boot_scenes"];
+	for (auto& scene_name : scenes_to_auto_load) {
+		TEntityParseContext ctx;
+		deleteScene(scene_name, ctx);
+	}
+	std::vector< std::string > scenes_to_auto_load2 = jboot["boot_level_2"];
+	for (auto& scene_name : scenes_to_auto_load2) {
+		TEntityParseContext ctx;
+		deleteScene(scene_name, ctx);
+	}
 
-    EngineSound.deleteSounds();
+	VEC3 pos = VEC3(8.703, 4.5, -30.274);
+	CEntity* camera = (CEntity*)getEntityByName("camera_orbit_IZQ");
+	TCompOrbitCamera* o = camera->get<TCompOrbitCamera>();
+	o->setPosition(pos);
+
+	EngineSound.deleteSounds();
 }
 
 bool CModuleLevel1::stop()
-{	
+{
 	TEntityParseContext ctx;
-    EngineBillboards.clearFire();
+	EngineBillboards.clearFire();
 	deleteScene("data/scenes/scene_checkpoints.scene", ctx);
-    deleteScene("data/scenes/lights.scene", ctx);
-    deleteScene("data/scenes/scene_luces.scene", ctx);
-    deleteScene("data/scenes/compresoras.scene", ctx);
-    deleteScene("data/scenes/spline_elements.scene", ctx);
-    deleteScene("data/scenes/scene_parte1_colltrig.scene", ctx);
-    deleteScene("data/scenes/scene_parte1_logic.scene", ctx);
-    deleteScene("data/scenes/scene_parte1_meshes.scene", ctx);
-    deleteScene("data/scenes/scene_parte2_colltrig.scene", ctx);
-    deleteScene("data/scenes/scene_parte2_logic.scene", ctx);
-    deleteScene("data/scenes/scene_parte2_meshes.scene", ctx);
-    deleteScene("data/scenes/scene_parte3_colltrig.scene", ctx);
-    deleteScene("data/scenes/scene_parte3_logic.scene", ctx);
-    deleteScene("data/scenes/scene_parte3_meshes.scene", ctx);
-    deleteScene("data/scenes/scene_parte3_colltrig.scene", ctx);
-    deleteScene("data/scenes/particles.scene", ctx);
+	deleteScene("data/scenes/lights.scene", ctx);
+	deleteScene("data/scenes/scene_luces.scene", ctx);
+	deleteScene("data/scenes/compresoras.scene", ctx);
+	deleteScene("data/scenes/spline_elements.scene", ctx);
+	deleteScene("data/scenes/scene_parte1_colltrig.scene", ctx);
+	deleteScene("data/scenes/scene_parte1_logic.scene", ctx);
+	deleteScene("data/scenes/scene_parte1_meshes.scene", ctx);
+	deleteScene("data/scenes/scene_parte2_colltrig.scene", ctx);
+	deleteScene("data/scenes/scene_parte2_logic.scene", ctx);
+	deleteScene("data/scenes/scene_parte2_meshes.scene", ctx);
+	deleteScene("data/scenes/scene_parte3_colltrig.scene", ctx);
+	deleteScene("data/scenes/scene_parte3_logic.scene", ctx);
+	deleteScene("data/scenes/scene_parte3_meshes.scene", ctx);
+	deleteScene("data/scenes/scene_parte3_colltrig.scene", ctx);
+	deleteScene("data/scenes/particles.scene", ctx);
 	deleteScene("data/scenes/torch_puzzle.scene", ctx);
 	deleteScene("data/scenes/scene_Pekes.scene", ctx);
 	deleteScene("data/scenes/scene_destruible_1.scene", ctx);
 	deleteScene("data/scenes/scene_destruible_2.scene", ctx);
 	deleteScene("data/scenes/scene_destruible_3.scene", ctx);
 	deleteScene("data/scenes/scene_destruible_4.scene", ctx);
-		
-    
+
+
 	return true;
 }
 
 void CModuleLevel1::update(float delta)
 {
 
-	if (carga) {
-		CEntity* cam = (CEntity*)getEntityByName("camera_manager");
-		TCompCameraManager* cm = cam->get<TCompCameraManager>();
-		assert(cm);
+	//if (carga) {
+	//	CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+	//	TCompCameraManager* cm = cam->get<TCompCameraManager>();
+	//	assert(cm);
 
-		//cm->activateCinematic("final");
+	//	//cm->activateCinematic("final");
 
-		carga = false;
-		HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
-		//ShowWindow(handle, SW_RESTORE);
-		EngineUI.activateSplash();
-	}
+	//	carga = false;
+	//	HWND handle = ::FindWindowEx(0, 0, "MCVWindowsClass", 0);
+	//	//ShowWindow(handle, SW_RESTORE);
+	//	EngineUI.activateSplash();
+	//}
 	CEntity* cam = (CEntity*)getEntityByName("camera_manager");
 
 
@@ -269,7 +275,7 @@ void CModuleLevel1::update(float delta)
 			if (cb_gui.main > 0.f) EngineUI.activeMainMenu();
 			else EngineUI.activePauseMenu();
 		}
-		else if(cb_gui.main < 1.f){
+		else if (cb_gui.main < 1.f) {
 			cb_gui.pause -= 1.f;
 			if (cb_gui.pause < 0.f)cb_gui.pause = 1.f;
 			if (cb_gui.pause > 0.f) {
@@ -308,5 +314,5 @@ void CModuleLevel1::render()
 	// Render the grid
 	cb_object.obj_world = MAT44::Identity;
 	cb_object.obj_color = VEC4(1, 1, 1, 1);
-	cb_object.updateGPU();	
+	cb_object.updateGPU();
 }

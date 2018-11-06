@@ -27,7 +27,7 @@
 						"name" : "fondoA",
 						"type" : "image",
 						"size" : "1920 1080",
-						"texture" : "data/textures/gui/MainMenu/Menu_Fondo_F.dds",
+						"texture" : "data/textures/gui/MainMenu/Menu_Fondo.dds",
 						"minUV" : "0 0",
 						"maxUV" : "1 1"
 					},
@@ -58,14 +58,6 @@
 								"speed" : "0.0250 0.0250"
 							}
 						]
-					},
-					{
-						"name" : "fondoB",
-						"type" : "image",
-						"size" : "1920 1080",
-						"texture" : "data/textures/gui/MainMenu/Menu_Titulo_F.dds",
-						"minUV" : "0 0",
-						"maxUV" : "1 1"
 					}
 				]
 			},
@@ -77,7 +69,7 @@
 					{
 						"name" : "new_game",
 						"type" : "button",
-						"position" : "1350 596",
+						"position" : "1390 616",
 						"size" : "200 60",
 						"texture" : "data/textures/gui/MainMenu/Boton_NG_1.dds",
 						"selected" : {
@@ -90,7 +82,7 @@
 					{
 						"name" : "options",
 						"type" : "button",
-						"position" : "1347 673",
+						"position" : "1387 693",
 						"size" : "180 48",
 						"texture" : "data/textures/gui/MainMenu/Boton_OP_1.dds",
 						"selected" : {
@@ -103,7 +95,7 @@
 					{
 						"name" : "exit",
 						"type" : "button",
-						"position" : "1340 748",
+						"position" : "1380 768",
 						"size" : "100 48",
 						"texture" : "data/textures/gui/MainMenu/Boton_E_1.dds",
 						"selected" : {
