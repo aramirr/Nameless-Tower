@@ -346,7 +346,7 @@
         "intensity": 0,
         "color" :  "0.941 0.815 0.351 1",
         "z_near" : 2,
-        "z_far" : 25.000,
+        "z_far" : 31.000,
         "fov" : 37.300,
         "casts_shadows" : true,
         "shadows_step" : 5.0,
@@ -354,7 +354,7 @@
         "shadows_fmt" : "R32_TYPELESS",
         "is_orthographic": true,
         "ortho_width": 37.000,
-        "ortho_height": 30.000,
+        "ortho_height": 26.000,
         "has_culling": true
       }    ,
         "culling":{}

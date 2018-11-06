@@ -756,34 +756,6 @@
   {
     "entity":
     {
-      "name": "CaretaCascada"
-      ,
-      "transform":
-      {
-        "pos": "19.874 98.0412 -9.95998"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/CaretaCascada.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/Careta_01.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Caldero_Colgado02"
       ,
       "transform":

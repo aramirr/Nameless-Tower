@@ -12,6 +12,7 @@
 #include "components/juan/comp_transform.h"
 #include "components/camera/comp_camera.h"
 #include "components/camera/comp_camera_manager.h"
+#include "components/player/comp_player_controller.h"
 #include "entity/entity_parser.h"
 #include "render/render_manager.h"
 #include "scripting\logic_manager.h"
@@ -19,6 +20,7 @@
 
 bool CModuleLevel2::start()
 {
+    EngineSound.deleteSounds();
 	json jboot = loadJson("data/boot.json");
 	EngineTower.setActualLevelValue("level_2");
 	// Auto load some scenes
@@ -34,6 +36,9 @@ bool CModuleLevel2::start()
 
 	cb_globals.global_bajada = 1.f;
 	EngineSound.updateVolumen();
+    CEntity* e = getEntityByName("The Player");
+    TCompPlayerController* player = e->get<TCompPlayerController>();
+    player->game_state = "level_2";
 	return true;
 }
 

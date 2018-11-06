@@ -84,9 +84,9 @@ bool CModuleLevel1::start()
         player->y_speed_factor = -1;
         EngineTimer.setTimeSlower(1.f);
 
-				auto p = EngineScripting.script.exists("OnLevel1Start");
-				if (p)
-					EngineScripting.script.doString("OnLevel1Start()");
+		auto p = EngineScripting.script.exists("OnLevel1Start");
+		if (p)
+			EngineScripting.script.doString("OnLevel1Start()");
 		}
 		else {
 			EngineUI.activateWidget("fadeOut");

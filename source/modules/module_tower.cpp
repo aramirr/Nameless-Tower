@@ -8,6 +8,7 @@
 #include "components/player/comp_player_controller.h"
 #include "components/ia/bt_runner.h"
 #include "components/sound/comp_sound.h"
+#include "components/camera/comp_camera_manager.h"
 
 bool CModuleTower::start()
 {
@@ -43,7 +44,7 @@ void CModuleTower::update(float delta)
 			}
 		}
 		else if (newLight < oldLight) {
-			cb_globals.global_light_adjustment -= 0.005f;
+			cb_globals.global_light_adjustment -= 0.01f;
 			oldLight = cb_globals.global_light_adjustment;
 			if (oldLight < newLight) {
 				changeLight = false;
@@ -71,7 +72,7 @@ void CModuleTower::update(float delta)
 			cb_globals.global_fadeOut_adjustment += 0.05f;
 			oldFadeOut = cb_globals.global_fadeOut_adjustment;
 			if (oldFadeOut > newFadeOut) {
-				if(oldFadeOut>=10.f)EngineUI.activateWidget("Pantalla_negra");
+				if (oldFadeOut >= 10.f)EngineUI.activateWidget("Pantalla_negra");
 				changeFadeOut = false;
 			}
 		}
@@ -94,7 +95,9 @@ void CModuleTower::update(float delta)
 		current_time += delta;
 		if (current_time > total_wait_time) {
 			if (cb_gui.creditos) {
+                EngineSound.deleteSounds();
 				EngineUI.activateWidget("pantallaCreditos");
+                EngineSound.emitEvent("musica_credits");
 			}
 			else {
 				CEntity* player = getEntityByName("The Player");
@@ -111,8 +114,8 @@ void CModuleTower::update(float delta)
 				cb_gui.cinematica = false;
 			}
 			time_out = false;
-			
-			
+
+
 			if (current_cinematic != "") {
 				deactivateCinematic(current_cinematic);
 			}
@@ -120,7 +123,7 @@ void CModuleTower::update(float delta)
 	}
 	if (bandCinematics && bandsValue < 0.15f) {
 		bandsValue += 0.01f;
-		if(bandsValue > 0.15f)bandsValue = 0.15f;
+		if (bandsValue > 0.15f)bandsValue = 0.15f;
 		cb_globals.global_bandMax_adjustment = bandsValue - 0.02f;
 		cb_globals.global_bandMin_adjustment = bandsValue;
 	}
@@ -144,8 +147,8 @@ void CModuleTower::update(float delta)
 			controller->remove_animation(controller->EAnimations::NajaJumpLoop);
 			controller->change_animation(34, true, 0, 0.8, true);
 			EngineSound.emitDelayedEvent(0, "naja_monolito");
-			EngineTower.activateCinematic("cinematica_monolito");	
-			
+			EngineTower.activateCinematic("cinematica_monolito");
+
 		}
 
 		else if (timer_runner >= 5.f && !destroy_monolito) {
@@ -187,7 +190,7 @@ void CModuleTower::update(float delta)
 
 			//Appear Runner
 			appearEntity("Runner");
-			
+
 			CEntity* e = getEntityByName("Runner");
 			TCompCollider* e_collider = e->get<TCompCollider>();
 			TCompTransform* e_transform = e->get<TCompTransform>();
@@ -204,6 +207,16 @@ void CModuleTower::update(float delta)
 			controller->change_animation(4, true, 0.1, 0.1, true);
 			TCompSound* sound = e->get<TCompSound>();
 			sound->playSound("roar");
+
+			CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+			TCompCameraManager* cm = cam->get<TCompCameraManager>();
+			cm->activarTemblor();
+		}
+		else if (timer_runner >= 29.f && !end_temblor) {
+			end_temblor = true;
+			CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+			TCompCameraManager* cm = cam->get<TCompCameraManager>();
+			cm->desactivarTemblor();
 		}
 		else if (timer_runner >= 32.f && !runner_chase) {
 			runner_chase = true;
@@ -300,55 +313,55 @@ const void CModuleTower::setLastCheckpointLeft(bool checkpoint_left) {
 }
 
 const void CModuleTower::disappearEntity(const std::string& name) {
-  CEntity* entity = (CEntity*)getEntityByName(name);
-  if (entity) {
-      TCompRender* h_render = entity->get< TCompRender >();
-      h_render->is_active = false;
-      h_render->refreshMeshesInRenderManager();
-  }
+	CEntity* entity = (CEntity*)getEntityByName(name);
+	if (entity) {
+		TCompRender* h_render = entity->get< TCompRender >();
+		h_render->is_active = false;
+		h_render->refreshMeshesInRenderManager();
+	}
 }
 
 const void CModuleTower::appearEntity(const std::string& name) {
-  CEntity* entity = (CEntity*)getEntityByName(name);
-  if (entity) {
-      TCompRender* h_render = entity->get< TCompRender >();
-      h_render->is_active = true;
-      h_render->refreshMeshesInRenderManager();
-  }
+	CEntity* entity = (CEntity*)getEntityByName(name);
+	if (entity) {
+		TCompRender* h_render = entity->get< TCompRender >();
+		h_render->is_active = true;
+		h_render->refreshMeshesInRenderManager();
+	}
 }
 
 const void CModuleTower::renderOnlyShadows(const std::string& name) {
-  CEntity* entity = (CEntity*)getEntityByName(name);
-  if (entity) {
-      TCompRender* h_render = entity->get< TCompRender >();
-      h_render->only_shadows = true;
-      h_render->refreshMeshesInRenderManager();
-  }
+	CEntity* entity = (CEntity*)getEntityByName(name);
+	if (entity) {
+		TCompRender* h_render = entity->get< TCompRender >();
+		h_render->only_shadows = true;
+		h_render->refreshMeshesInRenderManager();
+	}
 }
 
 const void CModuleTower::renderEverything(const std::string& name) {
-  CEntity* entity = (CEntity*)getEntityByName(name);
-  if (entity) {
-      TCompRender* h_render = entity->get< TCompRender >();
-      h_render->only_shadows = false;
-      h_render->refreshMeshesInRenderManager();
-  }
+	CEntity* entity = (CEntity*)getEntityByName(name);
+	if (entity) {
+		TCompRender* h_render = entity->get< TCompRender >();
+		h_render->only_shadows = false;
+		h_render->refreshMeshesInRenderManager();
+	}
 }
 
 
 const void CModuleTower::activateCinematic(const std::string& name) {
 	cb_gui.cinematica = true;
 	CEntity* cinematic = (CEntity*)getEntityByName(name);
-    TMsgActivateCinematic activate_cinematic;
-    cinematic->sendMsg(activate_cinematic);
+	TMsgActivateCinematic activate_cinematic;
+	cinematic->sendMsg(activate_cinematic);
 	current_cinematic = name;
 }
 
 const void CModuleTower::deactivateCinematic(const std::string& name) {
-    CEntity* cinematic = (CEntity*)getEntityByName(name);
-    TMsgDeactivateCinematic deactivate_cinematic;
-		deactivate_cinematic.escaleras = false;
-    cinematic->sendMsg(deactivate_cinematic);
+	CEntity* cinematic = (CEntity*)getEntityByName(name);
+	TMsgDeactivateCinematic deactivate_cinematic;
+	deactivate_cinematic.escaleras = false;
+	cinematic->sendMsg(deactivate_cinematic);
 	current_cinematic = "";
 }
 
@@ -375,19 +388,19 @@ const void CModuleTower::setBandsCinematics(bool _band)
 	bandCinematics = _band;
 }
 const void CModuleTower::setDirLightIntensity(const std::string& name, float intensity) {
-  CEntity* entity = (CEntity*)getEntityByName(name);
-  if (entity) {
-      TCompLightDir* light_dir = entity->get<TCompLightDir>();
-      light_dir->setIntensity(intensity);
-  }
+	CEntity* entity = (CEntity*)getEntityByName(name);
+	if (entity) {
+		TCompLightDir* light_dir = entity->get<TCompLightDir>();
+		light_dir->setIntensity(intensity);
+	}
 }
 
 const void CModuleTower::setPointLightIntensity(const std::string& name, float intensity) {
-  CEntity* entity = (CEntity*)getEntityByName(name);
-  if (entity) {
-      TCompLightPointShadows* light_point = entity->get<TCompLightPointShadows>();
-      light_point->setIntensity(intensity);
-  }  
+	CEntity* entity = (CEntity*)getEntityByName(name);
+	if (entity) {
+		TCompLightPointShadows* light_point = entity->get<TCompLightPointShadows>();
+		light_point->setIntensity(intensity);
+	}
 }
 
 float CModuleTower::checkAngle(float alpha, VEC3 pos1) {
@@ -397,28 +410,28 @@ float CModuleTower::checkAngle(float alpha, VEC3 pos1) {
 	float sina = sin(alpha);
 	float aux = rad2deg(alpha);
 
-  if (pos1.x > 0.f and pos1.z > 0.f) {
-    if (cos(alpha) < 0) {
-      alpha = deg2rad(180) - alpha;
-    }
-  }
-  else if (pos1.x < 0.f and pos1.z > 0.f) {
-    if (cos(alpha) > 0) {
-      alpha = deg2rad(180) - alpha;
-    }
-  }
-  else if (pos1.x < 0.f and pos1.z < 0.f) {
-    if (cos(alpha) > 0) {
-      alpha = deg2rad(180) + (deg2rad(360) - alpha);
-    }
-  }
-  else if (pos1.x > 0.f and pos1.z < 0.f) {
-    if (cos(alpha) < 0) {
-      alpha = deg2rad(270) + (deg2rad(270) - alpha);
-    }
-  }
+	if (pos1.x > 0.f and pos1.z > 0.f) {
+		if (cos(alpha) < 0) {
+			alpha = deg2rad(180) - alpha;
+		}
+	}
+	else if (pos1.x < 0.f and pos1.z > 0.f) {
+		if (cos(alpha) > 0) {
+			alpha = deg2rad(180) - alpha;
+		}
+	}
+	else if (pos1.x < 0.f and pos1.z < 0.f) {
+		if (cos(alpha) > 0) {
+			alpha = deg2rad(180) + (deg2rad(360) - alpha);
+		}
+	}
+	else if (pos1.x > 0.f and pos1.z < 0.f) {
+		if (cos(alpha) < 0) {
+			alpha = deg2rad(270) + (deg2rad(270) - alpha);
+		}
+	}
 
-  return alpha;
+	return alpha;
 }
 
 const void CModuleTower::openDoor(const std::string& name) {
@@ -428,9 +441,9 @@ const void CModuleTower::openDoor(const std::string& name) {
 }
 
 const void CModuleTower::closeDoor(const std::string& name) {
-    CEntity* entity = (CEntity*)getEntityByName(name);
-    TMsgCloseDoor msg;
-    entity->sendMsg(msg);
+	CEntity* entity = (CEntity*)getEntityByName(name);
+	TMsgCloseDoor msg;
+	entity->sendMsg(msg);
 }
 
 const void CModuleTower::activateAnim(const std::string& name, float wait_time) {

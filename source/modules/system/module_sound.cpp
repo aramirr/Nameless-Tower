@@ -217,5 +217,8 @@ FMOD_VECTOR CModuleSound::toFMODVector(VEC3 v) {
 }
 
 void CModuleSound::deleteSounds() {
-    events.clear();
+    for (auto& p : events) {
+        auto& sound = p.second;        
+        sound.eventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+    }
 }

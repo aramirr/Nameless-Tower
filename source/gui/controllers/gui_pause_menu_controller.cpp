@@ -31,7 +31,7 @@ namespace GUI
 				HCURSOR Cursor = LoadCursorFromFile("data/textures/gui/cursorIngame.cur"); //.cur or .ani
 				SetCursor(Cursor);
 				SetClassLongPtr(handle, GCLP_HCURSOR, reinterpret_cast<LONG_PTR>(Cursor));
-        
+       
       };
 
 			auto restartCB = []() {
@@ -69,8 +69,8 @@ namespace GUI
       };
 
       registerOption("resume_game", resumeGameCB);
-			registerOption("restart_level", restartCB);
-			registerOption("options_pause", optionsCB);
+        registerOption("restart_level", restartCB);
+        registerOption("options_pause", optionsCB);
       registerOption("exit_pause", exitCB);
       setCurrentOption(0);
 

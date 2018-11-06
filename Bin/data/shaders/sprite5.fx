@@ -53,7 +53,7 @@ void VS(
 
     float4 world_pos = mul(iPos, obj_world);
     world_pos.xyz += ((local_pos.x * camera_left + local_pos.y * camera_up) * cs) /*/ 5*/;
-    world_pos.xyz += ((local_pos.x * camera_up - local_pos.y * camera_left) * ss) /*/ 5*/;
+    //world_pos.xyz += ((local_pos.x * camera_up - local_pos.y * camera_left) /** ss*/) /*/ 5*/;
     
     //world_pos.xyz += (local_pos.x * camera_left + local_pos.y * camera_up) * cs;
     oPos = mul(world_pos, camera_view_proj);

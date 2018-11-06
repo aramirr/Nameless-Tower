@@ -133,14 +133,14 @@
 			"type" : "LookUpState",
 			"is_action": false,
 			"delay_in": 0.1,
-			"delay_out": 0.1		
+			"delay_out": 0.01		
 		},
 		{
 			"name" : "look_down",
 			"type" : "LookDownState",
 			"is_action": false,
 			"delay_in": 0.1,
-			"delay_out": 0.1			
+			"delay_out": 0.01			
 		},
 		{
 			"name" : "scared",
