@@ -2,6 +2,57 @@
   {
     "entity":
     {
+      "name": "CamaraJardinA"
+      ,
+      "transform":
+      {
+        "pos": "0.0 0.0 0.0"
+        ,
+        "rotation": "0.0 0.0 0.0 0.0"
+      }
+      ,
+      "render":
+      [
+      ]
+      ,
+      "curve_controller":
+      {
+        "curve": "data/curves/CamaraJardinA.curve"
+        ,
+        "speed": 0.0
+        ,
+        "target": "JardinRef01"
+        ,
+        "loop": false
+        ,
+        "mode": "linear"
+        ,
+        "automove": false
+      }
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "JardinRef01"
+      ,
+      "transform":
+      {
+        "pos": "27.0249 52.0964 12.7335"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+      ]
+    }
+  }
+  ,
+  {
+    "entity":
+    {
       "name": "AntorchasRef002"
       ,
       "transform":
