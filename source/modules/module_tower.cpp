@@ -95,10 +95,9 @@ void CModuleTower::update(float delta)
 		current_time += delta;
 		if (current_time > total_wait_time) {
 			if (cb_gui.creditos) {
+                EngineSound.deleteSounds();
 				EngineUI.activateWidget("pantallaCreditos");
-				EngineSound.stopEvent("musica_final_boss");
-				EngineSound.stopEvent("cinematica_final");
-				EngineSound.emitEvent("musica_credits");
+                EngineSound.emitEvent("musica_credits");
 			}
 			else {
 				CEntity* player = getEntityByName("The Player");
@@ -175,6 +174,10 @@ void CModuleTower::update(float delta)
 			msg.name = "Runner_father";
 			msg.wait_time = 0.f;
 			entity->sendMsg(msg);
+
+			CEntity* e_runner = getEntityByName("Runner");
+			bt_runner * controller = e_runner->get<bt_runner>();
+			controller->change_animation(5, false, 0.1, 0.1, true);
 		}
 		else if (timer_runner >= 26.667 && !changed_runner_mesh) {
 			changed_runner_mesh = true;
@@ -191,17 +194,17 @@ void CModuleTower::update(float delta)
 			CEntity* e = getEntityByName("Runner");
 			TCompCollider* e_collider = e->get<TCompCollider>();
 			TCompTransform* e_transform = e->get<TCompTransform>();
-			e_transform->setPosition(VEC3(2.31185f, 88.f, -31.2941f)); //86.5861f
-			e_collider->controller->setPosition(physx::PxExtendedVec3(2.31185f, 88.f, -31.2941f));
+			e_transform->setPosition(VEC3(1.86213f, 88.f, -31.3766f)); //86.5861f
+			e_collider->controller->setPosition(physx::PxExtendedVec3(1.86213f, 88.f, -31.3766f));
 			bt_runner * controller = e->get<bt_runner>();
-			controller->change_animation(5, true, 0.0, 0.0, true);
-
+			controller->change_animation(5, false, 0.1, 0.1, true);
+			
 		}
 		else if (timer_runner >= 27.33f && !runner_scream) {
 			runner_scream = true;
 			CEntity* e = getEntityByName("Runner");
 			bt_runner * controller = e->get<bt_runner>();
-			controller->change_animation(4, true, 0.1, 0.0, true);
+			controller->change_animation(4, true, 0.1, 0.1, true);
 			TCompSound* sound = e->get<TCompSound>();
 			sound->playSound("roar");
 
