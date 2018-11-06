@@ -783,7 +783,7 @@ float4 shade(
 
         float3 final_color;
 
-        if (((global_naja_interior == 1 || global_bajada == 1) && celltype == 1.f) || ((global_runner_interior == 1 || global_bajada == 1) && celltype < 1.f && celltype > 0.74f))
+        if (((global_naja_interior == 1 || global_bajada == 1.f) && celltype == 1.f) || ((global_runner_interior == 1 || global_bajada == 1.f) && celltype < 1.f && celltype > 0.74f))
             final_color = light_color.xyz * cDiff /** NdL*/ /** (cDiff * (1.0f - cSpec) + cSpec) **/ * att * light_intensity / 5 * shadow_factor /** 0.1f*/;
         else
             final_color = light_color.xyz * cDiff /** NdL*/ /** (cDiff * (1.0f - cSpec) + cSpec) **/ * att * light_intensity * shadow_factor;

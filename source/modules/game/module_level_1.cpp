@@ -107,7 +107,7 @@ bool CModuleLevel1::start()
 	cb_globals.global_sat_adjustment = 1.1f;
 	cb_globals.global_light_adjustment = 0.110f;
 	cb_globals.global_vignetting_adjustment = 0.300f;
-	cb_globals.global_fogDensity_adjustment = 0.001f;
+	cb_globals.global_fogDensity_adjustment = 0.000f;
 	cb_globals.global_fadeOut_adjustment = 0.f;
 
 	cb_globals.global_contrast_adjustment = 0.220f;
