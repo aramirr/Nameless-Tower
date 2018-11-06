@@ -2,34 +2,6 @@
   {
     "entity":
     {
-      "name": "Relieve_Windstrike"
-      ,
-      "transform":
-      {
-        "pos": "-29.5806 24.7498 -4.70799"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Relieve_Windstrike.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/relieve_Windstrike.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Relieve_Arbol"
       ,
       "transform":
@@ -47,6 +19,34 @@
           "materials":
           [
             "data/materials/relieve_arbol.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "Relieve_Windstrike"
+      ,
+      "transform":
+      {
+        "pos": "-29.5806 24.7498 -4.70799"
+        ,
+        "rotation": "0.0 0.0 0.0 -1.0"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/Relieve_Windstrike.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/relieve_Windstrike.material"
           ]
         }
       ]
@@ -155,6 +155,34 @@
           "materials":
           [
             "data/materials/plant_Hanging_Ivy.material"
+          ]
+        }
+      ]
+      ,
+      "abs_aabb": true
+    }
+  }
+  ,
+  {
+    "entity":
+    {
+      "name": "CaretaSala"
+      ,
+      "transform":
+      {
+        "pos": "-22.6079 26.4423 -11.6115"
+        ,
+        "rotation": "0.0 -0.887303 0.0 -0.461187"
+      }
+      ,
+      "render":
+      [
+        {
+          "mesh": "data/meshes/CaretaSala.mesh"
+          ,
+          "materials":
+          [
+            "data/materials/CaretaSala.material"
           ]
         }
       ]
@@ -1046,7 +1074,7 @@
       ,
       "transform":
       {
-        "pos": "-31.9623 24.75 -5.04018"
+        "pos": "-31.9601 24.75 -5.04817"
         ,
         "rotation": "0.0 0.793702 0.0 -0.608306"
       }
@@ -1072,7 +1100,7 @@
   {
     "entity":
     {
-      "name": "Plataforma_01_Bajada"
+      "name": "Plataforma_01_Subida"
       ,
       "transform":
       {
@@ -1084,7 +1112,7 @@
       "render":
       [
         {
-          "mesh": "data/meshes/Plataforma_01_Bajada.mesh"
+          "mesh": "data/meshes/Plataforma_01_Subida.mesh"
           ,
           "materials":
           [

@@ -5,9 +5,9 @@
   ,
   "textures":
   {
-    "albedo": "data/textures/relieveTemplo_b.dds"
+    "albedo": "data/textures/Relieve1.dds"
     ,
-    "normal": "data/textures/relieveTemplo_n.dds"
+    "normal": "data/textures/null_normal.dds"
     ,
     "emissive": "data/textures/null_emissive.dds"
     ,
@@ -17,6 +17,6 @@
     ,
     "height": "data/textures/null_height.dds"
     ,
-    "orm": "data/textures/relieveTemplo_orm.dds"
+    "orm": "data/textures/null_ambientOcclusion.dds"
   }
 }

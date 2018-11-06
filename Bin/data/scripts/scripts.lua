@@ -528,10 +528,6 @@ end
 
 -- Sala 8-9
 function OnTriggerExitTSPuertasArbol()
-	lm:set_point_light_intensity("Luces_Fuego_08", 10, false)
-	lm:set_dir_light_intensity("LightDir06", 11, false)
-	lm:set_dir_light_intensity("LightDir07", 11, false)
-	lm:set_dir_light_intensity("LightDir10", 0, false)
 	lm:deactivate_cinematic("cinematic_vientos", false)
 	lm:play_interior_sound(false)
 	lm:start_emiter("hojas_jardin_1", false)
@@ -545,10 +541,6 @@ function OnTriggerExitTSPuertasArbol()
 
 	lm:play_ambient_sound(true)
 	lm:activate_cinematic("cinematic_vientos", true)
-	lm:set_dir_light_intensity("LightDir06", 0, true)
-	lm:set_dir_light_intensity("LightDir07", 0, true)
-	lm:set_dir_light_intensity("LightDir10", 11, true)
-	lm:set_point_light_intensity("Luces_Fuego_08", 0, true)
 	lm:stop_emiter("hojas_jardin_1", true)
 	lm:set_naja_int(true)
 
