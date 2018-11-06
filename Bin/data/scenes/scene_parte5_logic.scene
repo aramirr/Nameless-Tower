@@ -13,23 +13,6 @@
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
       ]
       ,
       "rigid_anim":
@@ -144,24 +127,7 @@
       }
       ,
       "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
+      [      
       ]
       ,
       "rigid_anim":
@@ -276,24 +242,7 @@
       }
       ,
       "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
+      [       
       ]
       ,
       "rigid_anim":
@@ -436,24 +385,7 @@
       }
       ,
       "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
+      [        
       ]
       ,
       "rigid_anim":
