@@ -394,62 +394,6 @@
   {
     "entity":
     {
-      "name": "NieblaCascada02"
-      ,
-      "transform":
-      {
-        "pos": "24.7911 65.9293 -12.7449"
-        ,
-        "rotation": "0.626544 0.327784 0.327784 -0.626544"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/NieblaCascada02.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/nieblaBMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
-      "name": "NieblaCascada01"
-      ,
-      "transform":
-      {
-        "pos": "25.0045 65.9293 -12.8091"
-        ,
-        "rotation": "0.626544 0.327784 0.327784 -0.626544"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/NieblaCascada01.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/nieblaAMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Niebla010"
       ,
       "transform":

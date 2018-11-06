@@ -237,7 +237,7 @@
       {
         "shape": "box"
         ,
-        "halfExtent": "1.2417 0.804776 1.58385"
+        "halfExtent": "1.0417 0.60 1.38385"
         ,
         "is_dynamic": false
         ,
@@ -308,7 +308,7 @@
       {
         "shape": "box"
         ,
-        "halfExtent": "1.2417 0.804776 1.58385"
+        "halfExtent": "1.0417 0.60 1.38385"
         ,
         "is_dynamic": false
         ,
@@ -379,7 +379,7 @@
       {
         "shape": "box"
         ,
-        "halfExtent": "1.2417 0.804776 1.58385"
+        "halfExtent": "1.0417 0.60 1.38385"
         ,
         "is_dynamic": false
         ,
@@ -435,24 +435,7 @@
       }
       ,
       "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
+      [       
       ]
       ,
       "rigid_anim":
@@ -568,23 +551,7 @@
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
+      
       ]
       ,
       "rigid_anim":
@@ -699,24 +666,7 @@
       }
       ,
       "render":
-      [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
+      [        
       ]
       ,
       "rigid_anim":
@@ -1005,23 +955,7 @@
       ,
       "render":
       [
-        {
-          "mesh": "data/meshes/Destruible.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/MaderaMusgoMat.material"
-          ]
-        }
-        ,
-        {
-          "mesh": "data/meshes/Destruible_post.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/DestruibleMat.material"
-          ]
-        }
+       
       ]
       ,
       "rigid_anim":

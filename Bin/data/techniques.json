@@ -405,6 +405,17 @@
     "blend": "alpha",
     "priority" : 150,
     "comment" : "This needs to go after the pbr's solids, but just before the object to render"
+  },  
+  "catarata_opacity_lava": {
+    "vs_file": "data/shaders/pbr.fx",
+    "ps_file": "data/shaders/pbr.fx",
+    "vs_entry_point": "VS_GBuffer_Lava",
+    "ps_entry_point": "PS_GBuffer_Catarata",
+    "vertex_type": "PosNUvUvT",
+    "category": "alpha",
+    "blend": "alpha",
+    "priority" : 150,
+    "comment" : "This needs to go after the pbr's solids, but just before the object to render"
   },
   "catarata_opacity_fast": {
     "vs_file": "data/shaders/pbr.fx",
