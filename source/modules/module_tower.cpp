@@ -95,9 +95,9 @@ void CModuleTower::update(float delta)
 		current_time += delta;
 		if (current_time > total_wait_time) {
 			if (cb_gui.creditos) {
+                EngineSound.deleteSounds();
 				EngineUI.activateWidget("pantallaCreditos");
-                EngineSound.stopEvent("musica_final_boss");
-                EngineSound.stopEvent("cinematica_final");
+                EngineSound.emitEvent("creditos");
 			}
 			else {
 				CEntity* player = getEntityByName("The Player");
