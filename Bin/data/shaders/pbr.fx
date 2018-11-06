@@ -536,7 +536,7 @@ void decodeGBuffer(
     if ((txGBufferCell.Load(ss_load_coords)).x < 0.49f)
     {
         cell_shading = false;
-        celltype = 0.f;
+        celltype = (txGBufferCell.Load(ss_load_coords)).x;
     }
     else
     {

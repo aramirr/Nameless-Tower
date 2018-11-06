@@ -20,6 +20,7 @@ class TCompCameraManager : public TCompBase {
 	*/
 
 	bool temblor;
+	bool temblor_flojo = false;
 
 	bool onCinematics;
 	bool cinemating;
@@ -52,7 +53,9 @@ public:
   //void startCamera(const TMsgActiveCamera & msg);
 
 	void activarTemblor();
+	void activarTemblorFlojo();
 	void desactivarTemblor();
+	void desactivarTemblorFlojo();
 
 	void debugInMenu();
 	void load(const json& j, TEntityParseContext& ctx);
@@ -61,6 +64,10 @@ public:
     void deactivateCamera(const TMsgRemoveCamera &msg);
 		bool getTemblor() {
 			return temblor;
+		}
+
+		bool getTemblorFlojo() {
+			return temblor_flojo;
 		}
 	DECL_SIBLING_ACCESS();
 };

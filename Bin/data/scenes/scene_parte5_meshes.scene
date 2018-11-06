@@ -984,34 +984,6 @@
   {
     "entity":
     {
-      "name": "lavaGrandeOrillas"
-      ,
-      "transform":
-      {
-        "pos": "27.2236 71.5835 -14.5088"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/lavaGrandeOrillas.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/LavaOrillasMat.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "W_GranMuro001"
       ,
       "transform":

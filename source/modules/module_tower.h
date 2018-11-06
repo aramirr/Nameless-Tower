@@ -48,6 +48,11 @@ class CModuleTower : public IModule {
 	bool turn_player_2 = false;
 	bool destroy_monolito = false;
 	bool end_temblor = false;
+	bool temblor_flojo_on = false;
+	bool temblor_flojo_off = false;
+	bool temblor_monolito_on = false;
+	bool temblor_monolito_off = false;
+
 
 	// End Game
 	float timer_end = 0.f;

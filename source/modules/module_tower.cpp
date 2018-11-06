@@ -72,12 +72,12 @@ void CModuleTower::update(float delta)
 			cb_globals.global_fadeOut_adjustment += 0.05f;
 			oldFadeOut = cb_globals.global_fadeOut_adjustment;
 			if (oldFadeOut > newFadeOut) {
-				if (oldFadeOut >= 10.f)EngineUI.activateWidget("Pantalla_negra");
+				if (oldFadeOut >= 10.f)EngineUI.activateWidget("fadeOut");
 				changeFadeOut = false;
 			}
 		}
 		else if (newFadeOut < oldFadeOut) {
-			if (oldFadeOut >= 10.f && newFadeOut < 10.f)EngineUI.desactivateWidget("Pantalla_negra");
+			if (oldFadeOut >= 10.f && newFadeOut < 10.f)EngineUI.desactivateWidget("fadeOut");
 			cb_globals.global_fadeOut_adjustment -= 0.05f;
 			oldFadeOut = cb_globals.global_fadeOut_adjustment;
 			if (oldFadeOut < newFadeOut) {
@@ -162,7 +162,20 @@ void CModuleTower::update(float delta)
 
 			EngineSound.emitDelayedEvent(0, "monolito_destruccion");
 		}
+		else if (timer_runner >= 8.3f && !temblor_monolito_on) {
+			temblor_monolito_on = true;
+			CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+			TCompCameraManager* cm = cam->get<TCompCameraManager>();
+			cm->activarTemblor();
 
+		}
+		else if (timer_runner >= 9.75f && !temblor_monolito_off) {
+			temblor_monolito_off = true;
+			CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+			TCompCameraManager* cm = cam->get<TCompCameraManager>();
+			cm->desactivarTemblor();
+
+		}
 		else if (timer_runner >= 10.667 && !build_runner) {
 			cb_globals.global_runner_interior = 1;
 			CEntity* e = getEntityByName("The Player");
@@ -174,6 +187,17 @@ void CModuleTower::update(float delta)
 			msg.name = "Runner_father";
 			msg.wait_time = 0.f;
 			entity->sendMsg(msg);
+
+			CEntity* e_runner = getEntityByName("Runner");
+			bt_runner * controller = e_runner->get<bt_runner>();
+			controller->change_animation(5, false, 0.f, 0.5f, true);
+			
+		}
+		else if (timer_runner >= 15.f && !temblor_flojo_on) {
+			temblor_flojo_on = true;
+			CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+			TCompCameraManager* cm = cam->get<TCompCameraManager>();
+			cm->activarTemblorFlojo();
 		}
 		else if (timer_runner >= 26.667 && !changed_runner_mesh) {
 			changed_runner_mesh = true;
@@ -190,17 +214,23 @@ void CModuleTower::update(float delta)
 			CEntity* e = getEntityByName("Runner");
 			TCompCollider* e_collider = e->get<TCompCollider>();
 			TCompTransform* e_transform = e->get<TCompTransform>();
-			e_transform->setPosition(VEC3(2.31185f, 88.f, -31.2941f)); //86.5861f
-			e_collider->controller->setPosition(physx::PxExtendedVec3(2.31185f, 88.f, -31.2941f));
+			e_transform->setPosition(VEC3(1.86213f, 87.89f, -31.3766f)); //86.5861f
+			e_collider->controller->setPosition(physx::PxExtendedVec3(1.86213f, 87.89f, -31.3766f));
 			bt_runner * controller = e->get<bt_runner>();
-			controller->change_animation(5, true, 0.0, 0.0, true);
-
+			controller->change_animation(5, false, 0.5f, 0.5f, true);
+			
+		}
+		else if (timer_runner >= 26.8f && !temblor_flojo_off) {
+			temblor_flojo_off = true;
+			CEntity* cam = (CEntity*)getEntityByName("camera_manager");
+			TCompCameraManager* cm = cam->get<TCompCameraManager>();
+			cm->desactivarTemblorFlojo();
 		}
 		else if (timer_runner >= 27.33f && !runner_scream) {
 			runner_scream = true;
 			CEntity* e = getEntityByName("Runner");
 			bt_runner * controller = e->get<bt_runner>();
-			controller->change_animation(4, true, 0.1, 0.0, true);
+			controller->change_animation(4, true, 0.1f, 0.1f, true);
 			TCompSound* sound = e->get<TCompSound>();
 			sound->playSound("roar");
 
