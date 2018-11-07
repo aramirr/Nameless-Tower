@@ -147,7 +147,7 @@ void CModuleTower::update(float delta)
 			controller->remove_animation(controller->EAnimations::NajaJumpLoop);
 			controller->change_animation(34, true, 0, 0.8, true);
 			EngineSound.emitDelayedEvent(0, "naja_monolito");
-			EngineTower.activateCinematic("cinematica_monolito");
+			activateCinematic("cinematica_monolito");
 
 		}
 
@@ -217,7 +217,7 @@ void CModuleTower::update(float delta)
 			e_transform->setPosition(VEC3(1.86213f, 87.89f, -31.3766f)); //86.5861f
 			e_collider->controller->setPosition(physx::PxExtendedVec3(1.86213f, 87.89f, -31.3766f));
 			bt_runner * controller = e->get<bt_runner>();
-			controller->change_animation(5, false, 0.5f, 0.5f, true);
+			//controller->change_animation(5, false, 0.5f, 0.5f, true);
 			
 		}
 		else if (timer_runner >= 26.8f && !temblor_flojo_off) {
@@ -270,7 +270,7 @@ void CModuleTower::update(float delta)
 		timer_runner += delta;
 		cb_globals.global_fadeOut_adjustment = 10.f;
 		EngineUI.activateWidget("fadeOut");
-		EngineTower.setBandsCinematics(true);
+		setBandsCinematics(true);
 		if (timer_runner > 0.4f && !change_level_done) {
 			CEntity* e = getEntityByName("The Player");
 			TCompPlayerController* player = e->get<TCompPlayerController>();

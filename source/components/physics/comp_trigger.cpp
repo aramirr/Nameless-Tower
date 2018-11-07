@@ -72,6 +72,10 @@ void TCompTrigger::onTriggerEnter(const TMsgTriggerEnter& msg) {
 			CEntity* e = (CEntity*)getEntityByName("camera_orbit_IZQ");
 			TMsgBlockCamera msg;
 			e->sendMsg(msg);
+			TMsgKillPlayer kill_player_message;
+			entity->sendMsg(kill_player_message);
+			TCompSound* sound = e_other_entity->get<TCompSound>();
+			sound->playSound(sound_name);
 		}
 		if (trigger_type == "runner_disappear_by_player") {
 			TMsgRunnerDisappear disappear_msg;
