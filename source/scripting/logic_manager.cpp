@@ -326,13 +326,13 @@ void LogicManager::setAnim(int anim_id) {
 		controller->remove_animation(controller->EAnimations::NajaJumpLoop);
 	}
 	TCompSkeleton* skel = e->get<TCompSkeleton>();
-	skel->playAnimation(anim_id, true, 0, 0.8, true);
+	skel->playAnimation(anim_id, true, 0, 0, true);
 }
 
 void LogicManager::setAnimCycle(std::string name, int anim_id) {
 	CEntity* e = getEntityByName(name);
 	TCompSkeleton * skeleton = e->get<TCompSkeleton>();
-	skeleton->playAnimation(anim_id, false, 0.f, 0.f, true);
+	skeleton->playAnimation(anim_id, true, 0.2f, 0.f, true);
 }
 
 
