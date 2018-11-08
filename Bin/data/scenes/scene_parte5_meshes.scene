@@ -2733,34 +2733,6 @@
   {
     "entity":
     {
-      "name": "Sala_EstatuaFea_07"
-      ,
-      "transform":
-      {
-        "pos": "15.7603 64.4029 19.6715"
-        ,
-        "rotation": "0.0 0.0 0.0 -1.0"
-      }
-      ,
-      "render":
-      [
-        {
-          "mesh": "data/meshes/Sala_EstatuaFea_07.mesh"
-          ,
-          "materials":
-          [
-            "data/materials/CalderoMate.material"
-          ]
-        }
-      ]
-      ,
-      "abs_aabb": true
-    }
-  }
-  ,
-  {
-    "entity":
-    {
       "name": "Sala_EstatuaFea_14"
       ,
       "transform":
