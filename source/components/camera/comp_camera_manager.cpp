@@ -208,7 +208,7 @@ void TCompCameraManager::update(float dt) {
 			CEntity* e_player = (CEntity*)getEntityByName("The Player");
 			TCompPlayerController* player = e_player->get<TCompPlayerController>();
 		}
-		if (isPressed(VK_F1)) {
+		/*if (isPressed(VK_F1)) {
 			CEntity* player = (CEntity*)getEntityByName("The Player");
 
 			TMsgSetFSMVariable pauseMsg;
@@ -229,7 +229,7 @@ void TCompCameraManager::update(float dt) {
 			player->sendMsg(pauseMsg);
 
 			godMode = false;
-		}
+		}*/
 	}
 
 	if (carga) {																				// CONFIGURACION INICIAL DEL MANAGER DE CAMARAS

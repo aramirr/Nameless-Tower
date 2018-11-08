@@ -100,10 +100,10 @@ void TCompPlayerInput::update(float dt)
     TMsgSetFSMVariable respawnMsg;
     respawnMsg.variant.setName("initial");
     respawnMsg.variant.setBool(true);
-    if (EngineInput["respawn_player"].hasChanged())
+    /*if (EngineInput["respawn_player"].hasChanged())
     {
         e->sendMsg(respawnMsg);
-    }
+    }*/
 
     TMsgSetFSMVariable deadMsg;
     deadMsg.variant.setName("hit");
@@ -114,16 +114,16 @@ void TCompPlayerInput::update(float dt)
     }*/
 
 
-    if (EngineInput["level_2"].getsPressed())
-    {
-        //EngineTower.setExposureAdjustment(0);
-        CEngine::get().getModules().changeGameState("level_2");
-    }
+    //if (EngineInput["level_2"].getsPressed())
+    //{
+    //    //EngineTower.setExposureAdjustment(0);
+    //    CEngine::get().getModules().changeGameState("level_2");
+    //}
 
-    if (EngineInput["level_1"].getsPressed())
-    {
+    //if (EngineInput["level_1"].getsPressed())
+    //{
 		
-    }
+    //}
 
     TMsgSetFSMVariable pauseMsg;
     pauseMsg.variant.setName("pause");
