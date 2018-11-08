@@ -214,8 +214,8 @@ void CModuleTower::update(float delta)
 			CEntity* e = getEntityByName("Runner");
 			TCompCollider* e_collider = e->get<TCompCollider>();
 			TCompTransform* e_transform = e->get<TCompTransform>();
-			e_transform->setPosition(VEC3(1.86213f, 87.89f, -31.3766f)); //86.5861f
-			e_collider->controller->setPosition(physx::PxExtendedVec3(1.86213f, 87.89f, -31.3766f));
+			e_transform->setPosition(VEC3(1.86213f, 87.83f, -31.3766f)); //86.5861f
+			e_collider->controller->setPosition(physx::PxExtendedVec3(1.86213f, 87.83f, -31.3766f));
 			bt_runner * controller = e->get<bt_runner>();
 			//controller->change_animation(5, false, 0.5f, 0.5f, true);
 			
