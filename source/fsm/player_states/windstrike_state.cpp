@@ -31,6 +31,8 @@ namespace FSM
             }
         }
         else {
+            
+            
             ctx_w.root_transform.setYawPitchRoll(current_yaw, current_pitch, current_roll);
             //ctx_w.front = ctx_w.root_transform.getFront();
             if (parseScene("data/prefabs/windstrike.prefab", ctx_w)) {
