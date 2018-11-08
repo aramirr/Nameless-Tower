@@ -102,7 +102,7 @@ void TCompPlayerInput::update(float dt)
     respawnMsg.variant.setBool(true);
     if (EngineInput["respawn_player"].hasChanged())
     {
-        e->sendMsg(respawnMsg);
+        //e->sendMsg(respawnMsg);
     }
 
     TMsgSetFSMVariable deadMsg;
@@ -117,7 +117,7 @@ void TCompPlayerInput::update(float dt)
     if (EngineInput["level_2"].getsPressed())
     {
         //EngineTower.setExposureAdjustment(0);
-        CEngine::get().getModules().changeGameState("level_2");
+        //CEngine::get().getModules().changeGameState("level_2");
     }
 
     if (EngineInput["level_1"].getsPressed())
