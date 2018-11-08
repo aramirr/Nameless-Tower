@@ -56,6 +56,8 @@ void TCompGrass::update(float dt) {
 		std::vector<int> v;
 		v.push_back(0);
 		v.push_back(1);
+		v.push_back(18);
+		v.push_back(19);
 		v.push_back(2);
 		v.push_back(3);
 		v.push_back(4);
