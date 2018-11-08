@@ -1000,6 +1000,7 @@ end
 function OnTriggerExitTSCascadaAntorchasB()
 	lm:activate_camara_bajada(true)
 	lm:render_everything("ParedTapada12", true)
+	lm:render_only_shadows("ParedDestapada12", true)
 	lm:set_dir_light_intensity("LightDir11", 10, true)
 	lm:set_dir_light_intensity("LightDir12", 10, true)
 	lm:set_point_light_intensity("Luces_Fuego_011", 0, true)
@@ -1011,6 +1012,7 @@ function OnTriggerExitTSCascadaAntorchasB()
 	lm:stop_sound(false, "lava")
 	lm:play_interior_sound(false)
 	lm:render_only_shadows("ParedTapada12", false)
+	lm:render_everything("ParedDestapada12", false)
 	lm:set_dir_light_intensity("LightDir11", 0, false)
 	lm:set_dir_light_intensity("LightDir12", 0, false)
 	lm:set_point_light_intensity("Luces_Fuego_011", 10, false)
@@ -1030,8 +1032,10 @@ end
 
 function OnTriggerExitTSSalaMonolitoB()
 	lm:render_only_shadows("ParedTapada12", true)
+	lm:render_everything("ParedDestapada12", true)
 	lm:play_ambient_sound(true)
 
 	lm:play_interior_sound(false)
 	lm:render_everything("ParedTapada12", false)
+	lm:render_only_shadows("ParedDestapada12", false)
 end
