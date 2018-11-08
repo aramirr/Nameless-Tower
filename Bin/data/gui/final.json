@@ -11,7 +11,7 @@
 						"name" : "fondoA",
 						"type" : "image",
 						"size" : "1920 1080",
-						"texture" : "data/textures/gui/MainMenu/Menu_Fondo_F.dds",
+						"texture" : "data/textures/gui/MainMenu/Menu_Fondo.dds",
 						"minUV" : "0 0",
 						"maxUV" : "1 1"
 					},
@@ -42,14 +42,6 @@
 								"speed" : "0.0250 0.0250"
 							}
 						]
-					},
-					{
-						"name" : "fondoB",
-						"type" : "image",
-						"size" : "1920 1080",
-						"texture" : "data/textures/gui/MainMenu/Menu_Titulo_F.dds",
-						"minUV" : "0 0",
-						"maxUV" : "1 1"
 					}
 				]
 			},
