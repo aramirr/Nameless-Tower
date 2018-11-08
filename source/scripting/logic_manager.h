@@ -79,7 +79,7 @@ public:
   //Lua Cinematics
   void pausePlayer();
   void setAnim(int anim_id);
-	void setAnimCycle(std::string name, int anim_id);
+	void setAnimCycle(std::string name, int anim_id, float blend_out, bool is_cycle);
   void setCinematicBars();
   void regainControl(float time_to_wait);
   void killEntity(std::string name);

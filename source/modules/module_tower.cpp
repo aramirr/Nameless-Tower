@@ -291,7 +291,7 @@ void CModuleTower::update(float delta)
 
 	if (end_game) {
 		timer_end += delta;
-		if (timer_end >= 12) {
+		if (timer_end >= 12.5) {
 			cb_globals.global_fadeOut_adjustment = 10.f;
 			EngineUI.activateWidget("fadeOut");
 		}
