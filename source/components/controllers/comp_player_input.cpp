@@ -108,10 +108,10 @@ void TCompPlayerInput::update(float dt)
     TMsgSetFSMVariable deadMsg;
     deadMsg.variant.setName("hit");
     deadMsg.variant.setBool(true);
-   /* if (EngineInput["kill"].hasChanged())
+    if (EngineInput["kill"].hasChanged())
     {
         e->sendMsg(deadMsg);
-    }*/
+    }
 
 
     //if (EngineInput["level_2"].getsPressed())
