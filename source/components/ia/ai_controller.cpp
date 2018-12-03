@@ -69,7 +69,12 @@ void IAIController::update(float dt)
   CAIBossRunner* bc = boss->get<CAIBossRunner>();
   bc->setdt(dt);*/
 
-  if(dt-DT < 0.033f)DT += (dt - DT);
+	if (dt - DT < 0.033f) {
+		DT += (dt - DT);
+	}
+	else if (dt > 0.0 & DT == 0.0) {
+		DT = dt;
+	}
 
   (this->*statemap[state])();
 }
