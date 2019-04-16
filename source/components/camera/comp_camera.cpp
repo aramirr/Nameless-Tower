@@ -14,6 +14,9 @@ void TCompCamera::debugInMenu() {
 	float ow = getOrthoWidth();
 	float oh = getOrthoHeight();
 
+
+	float xasdasd = 0.f;
+
 	if (isOrtho() == false) {
 		bool changed = ImGui::DragFloat("Fov", &fov_deg, 0.1f, 30.f, 175.f);
 		changed |= ImGui::DragFloat("Z Near", &new_znear, 0.001f, 0.01f, 1.0f);

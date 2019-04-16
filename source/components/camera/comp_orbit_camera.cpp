@@ -19,6 +19,7 @@ bool TCompOrbitCamera::isGrounded() {
 void TCompOrbitCamera::activateCamera(const TMsgActiveCamera & msg)
 {
 	active = true;
+	int x = 0;
 }
 
 void TCompOrbitCamera::deactivateCamera(const TMsgDeactiveCamera & msg)
